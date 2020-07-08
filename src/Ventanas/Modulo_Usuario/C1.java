@@ -2,7 +2,6 @@ package Ventanas.Modulo_Usuario;
 
 import Alerts.ConexionAlert;
 import Clases.Conexion;
-import Clases.Medico;
 import Ventanas.ModuloContrasena.AsistenciaContrasena;
 import static Ventanas.Modulo_Usuario.AgregarUsuarioMedico.txtCorreoElectronico1;
 import static Ventanas.Modulo_Usuario.AgregarUsuarioMedico.txtCorreoElectronico2;
