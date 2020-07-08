@@ -2,9 +2,9 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="62"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="13"/>
+	<property name="ireport.y" value="84"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -37,11 +37,11 @@
 	</parameter>
 	<parameter name="id1" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT ID_Ruta, ID_Cliente, Nombre_Cliente, Origen, Destino,  GROUP_CONCAT(DISTINCT SPACE(13), Precio) as Precio
+		<![CDATA[SELECT ID_Ruta, ID_Cliente, Nombre_Cliente, Origen, Destino,  GROUP_CONCAT(' ', Nombre_Transporte,' ', Precio) as Precio
 
 FROM rutav  where ID_Cliente = $P{ID_Cliente} 
 
-ORDER BY GROUP_CONCAT(DISTINCT id_transporte) ASC]]>
+ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
 	</queryString>
 	<field name="ID_Ruta" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -64,9 +64,9 @@ ORDER BY GROUP_CONCAT(DISTINCT id_transporte) ASC]]>
 	<group name="origen">
 		<groupExpression><![CDATA[$F{Origen}]]></groupExpression>
 		<groupHeader>
-			<band height="46">
+			<band height="48">
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="10" y="26" width="233" height="20" forecolor="#000000" backcolor="#FF9900" uuid="f3db395b-0d1a-4e5e-9eaa-09b8884fe810"/>
+					<reportElement style="Column header" mode="Opaque" x="10" y="6" width="233" height="20" forecolor="#000000" backcolor="#FF9900" uuid="f3db395b-0d1a-4e5e-9eaa-09b8884fe810"/>
 					<box>
 						<pen lineWidth="1.75" lineColor="#000000"/>
 						<topPen lineWidth="1.75" lineColor="#000000"/>
@@ -79,6 +79,20 @@ ORDER BY GROUP_CONCAT(DISTINCT id_transporte) ASC]]>
 					</textElement>
 					<text><![CDATA[              DESTINO]]></text>
 				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="10" y="26" width="233" height="20" backcolor="#FFDB00" uuid="490a5398-f2b7-4ff2-bbdd-337c2f364677"/>
+					<box>
+						<pen lineWidth="1.5"/>
+						<topPen lineWidth="1.5"/>
+						<leftPen lineWidth="1.5"/>
+						<bottomPen lineWidth="1.5"/>
+						<rightPen lineWidth="1.5"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["VIAJES DE"+" "+$F{Origen}+" "+" A: "]]></textFieldExpression>
+				</textField>
 				<staticText>
 					<reportElement style="table_TH" x="244" y="6" width="74" height="40" forecolor="#000000" uuid="429e7d77-5b53-403b-9462-bf05600f06ca"/>
 					<box>
@@ -385,29 +399,15 @@ ORDER BY GROUP_CONCAT(DISTINCT id_transporte) ASC]]>
 	<detail>
 		<band height="94" splitType="Stretch">
 			<textField>
-				<reportElement style="table" x="11" y="31" width="233" height="20" uuid="647b30f8-96cf-4697-a4ce-033799ffc850"/>
+				<reportElement style="table" x="10" y="0" width="233" height="20" uuid="647b30f8-96cf-4697-a4ce-033799ffc850"/>
 				<textElement>
 					<font fontName="Arial" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Destino}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="243" y="6" width="289" height="20" uuid="074b9d16-b7f4-44a2-abe5-9176976809bd"/>
-				<textFieldExpression><![CDATA[$F{Precio}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Opaque" x="10" y="6" width="233" height="20" backcolor="#FFDB00" uuid="490a5398-f2b7-4ff2-bbdd-337c2f364677"/>
-				<box>
-					<pen lineWidth="1.5"/>
-					<topPen lineWidth="1.5"/>
-					<leftPen lineWidth="1.5"/>
-					<bottomPen lineWidth="1.5"/>
-					<rightPen lineWidth="1.5"/>
-				</box>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA["VIAJES DE"+" "+$F{Origen}+" "+" A: "]]></textFieldExpression>
+				<reportElement x="243" y="0" width="100" height="20" uuid="c1c78ad6-f1e9-41d3-9c0f-4b9fb4a014d8"/>
+				<textFieldExpression><![CDATA[$P{id1}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
