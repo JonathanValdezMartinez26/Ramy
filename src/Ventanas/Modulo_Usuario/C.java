@@ -57,15 +57,15 @@ public class C extends javax.swing.JPanel {
                                     propiedad.setProperty("mail.smtp.auth", "true");
 
                                     Session sesion = Session.getDefaultInstance(propiedad);
-                                    String correoEnvia = "promedicsoporte@gmail.com";
-                                    String contrasena = "Abecedario27a";
+                                    String correoEnvia = "ramy.cotizaciones@gmail.com";
+                                    String contrasena = "abecedario";
                                     String destinatario = AgregarUser.correo.getText().trim();;
-                                    String asunto = "Soporte ProMedic, Acceso a cuentas";
+                                    String asunto = "Soporte Ramy.Cotizaciones, Acceso a Cuentas";
                                     String mensaje = "<p><strong>Hola,</strong> <em>"+ AgregarUser.txtNombre.getText().trim() +"</em>.</p>"
-                                                    +"<p>Hemos recibido una solicitud de registro para cuentas <span style='color: #008080;'>ProMedic</span>, promedicsoporte@gmail.com, a trav&eacute;s de tu direcci&oacute;n de correo electr&oacute;nico.</p>"
-                                                    +"<p><br />Tu contrase&ntilde;a provisional <span style='color: #008080;'>ProMedic</span> es: <strong>"+ Matricula+ "</strong>.&nbsp;<br />Si no has solicitado est&aacute; cuenta, puede que alguien est&eacute; intentando utilizar tu direcci&oacute;n de correo electr&oacute;nico.</p>"
-                                                    +"<p>Has recibido este mensaje porque esta direcci&oacute;n de correo electr&oacute;nico figura como direcci&oacute;n de creaci&oacute;n de la cuenta <span style='color: #008080;'>ProMedic</span>, proporcionaste esta direcci&oacute;n al crear tu usuario.<br />Si crees que no deber&iacute;a figurar como tal, puedes eliminarla de dicha cuenta y proporcionar una nueva direcci&oacute;n.</p>"
-                                                    +"<p><br /><span style='color: #008080;'><strong>Atentamente,</strong></span><br />El equipo de Cuentas <span style='color: #008080;'>ProMedic</span>.</p>";
+                                                    +"<p>Hemos recibido una solicitud de registro para cuentas Cotizaciones en <span style='color: #000080;'>Express Logistics Ramy</span>, Ramy.Cotizaciones@gmail.com, a trav&eacute;s de tu direcci&oacute;n de correo electr&oacute;nico.</p>"
+                                                    +"<p><br />Tu contrase&ntilde;a provisional para Cotizaciones en<span style='color: #000080;'> Express Logistics Ramy</span> es: <strong>"+ Matricula+ "</strong>.&nbsp;<br />Si no has solicitado est&aacute; cuenta, puede que alguien est&eacute; intentando utilizar tu direcci&oacute;n de correo electr&oacute;nico.</p>"
+                                                    +"<p>Has recibido este mensaje porque esta direcci&oacute;n de correo electr&oacute;nico figura como direcci&oacute;n de creaci&oacute;n de la cuenta Cotizaciones en <span style='color: #000080;'>Express Logistics Ramy</span>, proporcionaste esta direcci&oacute;n al solicitar al administrador tu usuario.<br />Si crees que no deber&iacute;a figurar como tal, puedes eliminarla de dicha cuenta y proporcionar una nueva direcci&oacute;n.</p>"
+                                                    +"<p><br /><span style='color: #000080;'><strong>Atentamente,</strong></span><br />El equipo de Cuentas para Cotizaciones de <span style='color: #000080;'>Express Logistics Ramy</span>.</p>";
 
 
                                     MimeMessage mail = new MimeMessage(sesion);
