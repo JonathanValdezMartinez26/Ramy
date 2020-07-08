@@ -70,6 +70,7 @@ public class Registrar extends javax.swing.JDialog {
         FadeEffect.fadeIn(this, 1, 0.1f);
         ocultarAciertos();
         Actualizar_Tabla();
+        ID_C.setVisible(false);
         
         ///////////////////////////
 //        ID_C.setVisible(false);
@@ -320,7 +321,7 @@ public class Registrar extends javax.swing.JDialog {
                 }
     }
     ////////////////////////////////////////////////////////////////////////////
-    public void ComboOrigen()
+    public void ComboOrigen(int ID)
     {
         int ID_Origen = 0;
 
@@ -346,7 +347,7 @@ public class Registrar extends javax.swing.JDialog {
 
                 try
                 {
-                    ID = Integer.parseInt(ID_C.getText());
+                  
                     resultado = Conexion.consulta("Select ID_Origen, Origen from origenvv where ID_Cliente ="+ID);
 
                     while(resultado.next())
@@ -362,7 +363,7 @@ public class Registrar extends javax.swing.JDialog {
                 }
     }
     ////////////////////////////////////////////////////////////////////////////
-    public void ComboDestino()
+    public void ComboDestino(int ID)
     {
         int ID_Destino = 0;
 
@@ -388,7 +389,6 @@ public class Registrar extends javax.swing.JDialog {
 
                 try
                 {
-                    ID = Integer.parseInt(ID_C.getText());
                     resultado = Conexion.consulta("Select ID_Destino, Destino from destinovv where ID_Cliente ="+ID);
 
                     while(resultado.next())
@@ -403,6 +403,7 @@ public class Registrar extends javax.swing.JDialog {
 
                 }
     }
+    ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     public void GuardarOD(){
         int comboTransporte = cmbTransportes.getSelectedIndex();
@@ -478,14 +479,7 @@ public class Registrar extends javax.swing.JDialog {
     }
     ////////////////////////////////////////////////////////////////////////////
      private void ocultarAciertos() {
-        this.inactiva1.setVisible(false);
-        this.activa1.setVisible(true);
-        this.inactiva2.setVisible(false);
-        this.activa2.setVisible(true);
-        this.inactiva3.setVisible(false);
-        this.activa3.setVisible(true);
-        this.estadocolor1.setVisible(true);
-        this.estadocolor2.setVisible(true);
+        
 
         //Limpia campos del nivel UNO
         this.cmbEstado.setSelectedIndex(0);
@@ -519,14 +513,6 @@ public class Registrar extends javax.swing.JDialog {
         rSButtonMetro2 = new JButtonEspecial.JButtonEspecial();
         lblNombreNuevo17 = new javax.swing.JLabel();
         barra_estado = new javax.swing.JPanel();
-        estadocolor1 = new javax.swing.JPanel();
-        estadocolor2 = new javax.swing.JPanel();
-        activa1 = new javax.swing.JLabel();
-        activa2 = new javax.swing.JLabel();
-        activa3 = new javax.swing.JLabel();
-        inactiva1 = new javax.swing.JLabel();
-        inactiva2 = new javax.swing.JLabel();
-        inactiva3 = new javax.swing.JLabel();
         a3 = new javax.swing.JLabel();
         a2 = new javax.swing.JLabel();
         a1 = new javax.swing.JLabel();
@@ -621,57 +607,9 @@ public class Registrar extends javax.swing.JDialog {
         barra_estado.setBackground(new java.awt.Color(255, 255, 255));
         barra_estado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        estadocolor1.setBackground(new java.awt.Color(0, 144, 183));
-
-        javax.swing.GroupLayout estadocolor1Layout = new javax.swing.GroupLayout(estadocolor1);
-        estadocolor1.setLayout(estadocolor1Layout);
-        estadocolor1Layout.setHorizontalGroup(
-            estadocolor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 31, Short.MAX_VALUE)
-        );
-        estadocolor1Layout.setVerticalGroup(
-            estadocolor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-
-        barra_estado.add(estadocolor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, 31, 10));
-
-        estadocolor2.setBackground(new java.awt.Color(0, 144, 183));
-
-        javax.swing.GroupLayout estadocolor2Layout = new javax.swing.GroupLayout(estadocolor2);
-        estadocolor2.setLayout(estadocolor2Layout);
-        estadocolor2Layout.setHorizontalGroup(
-            estadocolor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        estadocolor2Layout.setVerticalGroup(
-            estadocolor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-
-        barra_estado.add(estadocolor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 30, 10));
-
-        activa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lineacheckactiva.png"))); // NOI18N
-        barra_estado.add(activa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 62, 70));
-
-        activa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lineacheckactiva.png"))); // NOI18N
-        barra_estado.add(activa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 62, 70));
-
-        activa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lineacheckactiva.png"))); // NOI18N
-        barra_estado.add(activa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 62, 70));
-
-        inactiva1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lineacheckinactiva.PNG"))); // NOI18N
-        barra_estado.add(inactiva1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 62, 70));
-
-        inactiva2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lineacheckinactiva.PNG"))); // NOI18N
-        barra_estado.add(inactiva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 62, 70));
-
-        inactiva3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lineacheckinactiva.PNG"))); // NOI18N
-        barra_estado.add(inactiva3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 62, 70));
-
         a3.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 14)); // NOI18N
         a3.setText("Origenes.");
-        barra_estado.add(a3, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 36, 190, 20));
+        barra_estado.add(a3, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 36, 310, 20));
 
         a2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 15)); // NOI18N
         a2.setText("Bienvenido al asistente de Configuración");
@@ -697,7 +635,7 @@ public class Registrar extends javax.swing.JDialog {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Estado" }));
-        cmbEstado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbEstado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbEstado.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbEstadoItemStateChanged(evt);
@@ -706,7 +644,7 @@ public class Registrar extends javax.swing.JDialog {
         jPanel1.add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, 30));
 
         cmbMunicipio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Municipio" }));
-        cmbMunicipio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbMunicipio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbMunicipio.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbMunicipioItemStateChanged(evt);
@@ -793,7 +731,7 @@ public class Registrar extends javax.swing.JDialog {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmbEstado1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Estado" }));
-        cmbEstado1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbEstado1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbEstado1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbEstado1ItemStateChanged(evt);
@@ -802,7 +740,7 @@ public class Registrar extends javax.swing.JDialog {
         jPanel2.add(cmbEstado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, 30));
 
         cmbMunicipio1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Municipio" }));
-        cmbMunicipio1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbMunicipio1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbMunicipio1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbMunicipio1ItemStateChanged(evt);
@@ -904,7 +842,7 @@ public class Registrar extends javax.swing.JDialog {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Origen" }));
-        cmbOrigenes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbOrigenes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbOrigenes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbOrigenesItemStateChanged(evt);
@@ -913,7 +851,7 @@ public class Registrar extends javax.swing.JDialog {
         jPanel3.add(cmbOrigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 30));
 
         cmbDestinos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Destino" }));
-        cmbDestinos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbDestinos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbDestinos.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbDestinosItemStateChanged(evt);
@@ -931,7 +869,7 @@ public class Registrar extends javax.swing.JDialog {
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 95, 688, 10));
 
         cmbTransportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Transporte" }));
-        cmbTransportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbTransportes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbTransportes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbTransportesItemStateChanged(evt);
@@ -1137,8 +1075,6 @@ public class Registrar extends javax.swing.JDialog {
         {
             PanelDesliza.setPanelSlider(2, B, RSPanelsSlider.DIRECT.RIGHT);
             a3.setText("Destinos.");
-            this.inactiva1.setVisible(true);
-            this.activa1.setVisible(false);
         }
     }//GEN-LAST:event_log1ActionPerformed
 
@@ -1172,26 +1108,22 @@ public class Registrar extends javax.swing.JDialog {
         {
             PanelDesliza.setPanelSlider(2, C, RSPanelsSlider.DIRECT.RIGHT);
             a3.setText("Asignación a Servicios.");
-            this.inactiva2.setVisible(true);
-            this.activa2.setVisible(false);
             cmbTransportes.removeAllItems();
             cmbTransportes.addItem("Seleccione un Transporte");
             ComboTransportes();
 
             cmbOrigenes.removeAllItems();
             cmbOrigenes.addItem("Seleccione un Origen");
-            ComboOrigen();
+            ComboOrigen(ID);
 
             cmbDestinos.removeAllItems();
             cmbDestinos.addItem("Seleccione un Destino");
-            ComboDestino();
+            ComboDestino(ID);
         }
         else
         {
             PanelDesliza.setPanelSlider(2, B, RSPanelsSlider.DIRECT.RIGHT);
             a3.setText("Destinos.");
-            this.inactiva1.setVisible(true);
-            this.activa1.setVisible(false);
         }
     }//GEN-LAST:event_log3ActionPerformed
 
@@ -1215,8 +1147,6 @@ public class Registrar extends javax.swing.JDialog {
         PanelDesliza.setPanelSlider(2, D, RSPanelsSlider.DIRECT.RIGHT);
         barra_estado.setVisible(false);
         l1.setVisible(false);
-        this.inactiva3.setVisible(true);
-        this.activa3.setVisible(false);
     }//GEN-LAST:event_log4ActionPerformed
 
     private void log5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log5ActionPerformed
@@ -1280,11 +1210,8 @@ public class Registrar extends javax.swing.JDialog {
     public static rojerusan.RSPanelsSlider PanelDesliza;
     private javax.swing.JLabel a1;
     private javax.swing.JLabel a2;
-    private javax.swing.JLabel a3;
+    public static javax.swing.JLabel a3;
     private javax.swing.JLabel a5;
-    public static javax.swing.JLabel activa1;
-    public static javax.swing.JLabel activa2;
-    public static javax.swing.JLabel activa3;
     public static javax.swing.JPanel barra_estado;
     private ComboBox.SComboBox cmbDestinos;
     private ComboBox.SComboBox cmbEstado;
@@ -1293,11 +1220,6 @@ public class Registrar extends javax.swing.JDialog {
     private ComboBox.SComboBox cmbMunicipio1;
     private ComboBox.SComboBox cmbOrigenes;
     private ComboBox.SComboBox cmbTransportes;
-    private javax.swing.JPanel estadocolor1;
-    private javax.swing.JPanel estadocolor2;
-    public static javax.swing.JLabel inactiva1;
-    public static javax.swing.JLabel inactiva2;
-    public static javax.swing.JLabel inactiva3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
