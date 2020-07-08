@@ -9,7 +9,6 @@ import Alerts.AWTUtilities;
 import Alerts.AlertBasic.SuccessEmail;
 import Alerts.ConexionAlert;
 import Clases.Conexion;
-import Clases.Medico;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.io.File;

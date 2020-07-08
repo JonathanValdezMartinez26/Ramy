@@ -125,7 +125,7 @@ public class pnlTransportes extends javax.swing.JPanel {
         jPanel12.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar.setToolTipText("Agregar Médico");
+        pnlagregar.setToolTipText("Agregar Transportes");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseClicked(evt);
@@ -149,7 +149,7 @@ public class pnlTransportes extends javax.swing.JPanel {
         jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 69));
 
         pnlespecialidad.setBackground(new java.awt.Color(225, 225, 225));
-        pnlespecialidad.setToolTipText("Modulo Especialidades");
+        pnlespecialidad.setToolTipText("Modulo Transportes");
         pnlespecialidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlespecialidadMouseClicked(evt);
@@ -173,7 +173,7 @@ public class pnlTransportes extends javax.swing.JPanel {
         jPanel12.add(pnlespecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 69));
 
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
-        pnleditar.setToolTipText("Editar Médico");
+        pnleditar.setToolTipText("Editar Transportes");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnleditarMouseClicked(evt);
@@ -197,7 +197,7 @@ public class pnlTransportes extends javax.swing.JPanel {
         jPanel12.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, 69));
 
         pnlorigenes.setBackground(new java.awt.Color(225, 225, 225));
-        pnlorigenes.setToolTipText("Activar o Desactivar Paciente");
+        pnlorigenes.setToolTipText("Visualizar Transportes");
         pnlorigenes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlorigenesMouseClicked(evt);

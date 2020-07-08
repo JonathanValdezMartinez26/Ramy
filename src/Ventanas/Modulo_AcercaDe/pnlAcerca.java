@@ -34,39 +34,18 @@ public class pnlAcerca extends javax.swing.JPanel {
     private void initComponents() {
 
         pnlPrincipal = new javax.swing.JPanel();
+        log = new JButtonEspecial.JButtonEspecial();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         info = new javax.swing.JLabel();
         info1 = new javax.swing.JLabel();
         info2 = new javax.swing.JLabel();
         info3 = new javax.swing.JLabel();
-        log = new JButtonEspecial.JButtonEspecial();
         jLabel6 = new javax.swing.JLabel();
 
         pnlPrincipal.setBackground(new java.awt.Color(248, 249, 250));
         pnlPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        info.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        info.setForeground(new java.awt.Color(102, 102, 102));
-        info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cuadro2.PNG"))); // NOI18N
-        pnlPrincipal.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 63, -1, 360));
-
-        info1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        info1.setForeground(new java.awt.Color(102, 102, 102));
-        info1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info1.setText("PROMEDIC, Todos Los Derechos Reservados ®");
-        pnlPrincipal.add(info1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 632, 1117, 22));
-
-        info2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        info2.setForeground(new java.awt.Color(102, 102, 102));
-        info2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info2.setText("Versión. ");
-        pnlPrincipal.add(info2, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 592, -1, 22));
-
-        info3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        info3.setForeground(new java.awt.Color(102, 102, 102));
-        info3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info3.setText("1.0.0.1");
-        pnlPrincipal.add(info3, new org.netbeans.lib.awtextra.AbsoluteConstraints(546, 592, -1, 22));
 
         log.setBackground(new java.awt.Color(204, 204, 204));
         log.setForeground(new java.awt.Color(128, 128, 131));
@@ -81,12 +60,47 @@ public class pnlAcerca extends javax.swing.JPanel {
                 logActionPerformed(evt);
             }
         });
-        pnlPrincipal.add(log, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 430, 250, 25));
+        pnlPrincipal.add(log, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 360, 250, 25));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("Cotizador de Servicios Express Logistic Ramy");
+        pnlPrincipal.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 560, 40));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Para asistencias, por errores o administracion del sistema, es recomendable contactar a los tecnicos especialistas en el tema del sistema.");
+        pnlPrincipal.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 830, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/LogoRamy1.png"))); // NOI18N
+        pnlPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 270, 110));
+
+        info.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        info.setForeground(new java.awt.Color(102, 102, 102));
+        info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cuadro2.PNG"))); // NOI18N
+        pnlPrincipal.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 63, -1, 360));
+
+        info1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        info1.setForeground(new java.awt.Color(102, 102, 102));
+        info1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        info1.setText("Express Logistics Ramy, Todos Los Derechos Reservados ®");
+        pnlPrincipal.add(info1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 632, 1117, 22));
+
+        info2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        info2.setForeground(new java.awt.Color(102, 102, 102));
+        info2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        info2.setText("Versión. ");
+        pnlPrincipal.add(info2, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 592, -1, 22));
+
+        info3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        info3.setForeground(new java.awt.Color(102, 102, 102));
+        info3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        info3.setText("1.0.0.1");
+        pnlPrincipal.add(info3, new org.netbeans.lib.awtextra.AbsoluteConstraints(546, 592, -1, 22));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Información de ProMedic");
+        jLabel6.setText("Información de Sistema");
         jLabel6.setToolTipText("");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel6.setInheritsPopupMenu(false);
@@ -133,6 +147,9 @@ public class pnlAcerca extends javax.swing.JPanel {
     public static javax.swing.JLabel info1;
     public static javax.swing.JLabel info2;
     public static javax.swing.JLabel info3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private JButtonEspecial.JButtonEspecial log;
     private javax.swing.JPanel pnlPrincipal;

@@ -145,7 +145,7 @@ public class pnlTipoTransportes extends javax.swing.JDialog {
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar.setToolTipText("Agregar Especialidad");
+        pnlagregar.setToolTipText("Agregar Tipo de Transporte");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseClicked(evt);
@@ -169,7 +169,7 @@ public class pnlTipoTransportes extends javax.swing.JDialog {
         jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 69));
 
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
-        pnleditar.setToolTipText("Editar Especialidad");
+        pnleditar.setToolTipText("Editar Tipo de Transporte");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnleditarMouseClicked(evt);
@@ -197,7 +197,7 @@ public class pnlTipoTransportes extends javax.swing.JDialog {
 
         jPanel12.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 69));
 
-        pnlPrincipal.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 711, -1));
+        pnlPrincipal.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 712, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -261,15 +261,13 @@ public class pnlTipoTransportes extends javax.swing.JDialog {
 
         pnlPrincipal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 690, 290));
 
-        jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 40, 711, 450));
+        jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 40, 712, 450));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

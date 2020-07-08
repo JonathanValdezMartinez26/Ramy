@@ -2,7 +2,6 @@ package Ventanas.Modulo_Usuario;
 
 import Alerts.*;
 import Alerts.AWTUtilities;
-import Clases.Especialidad;
 import Notificaciones.DesktopNotify;
 import Ventanas.Modulo_Navegacion.Funciones;
 import java.awt.*;

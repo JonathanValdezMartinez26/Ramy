@@ -37,15 +37,15 @@ public class D extends javax.swing.JPanel {
 
         Session sesion = Session.getDefaultInstance(propiedad);
 
-        String correoEnvia = "promedicsoporte@gmail.com";
-        String contrasena = "Abecedario27a";
+        String correoEnvia = "ramy.cotizaciones@gmail.com";
+        String contrasena = "abecedario";
         String destinatario = AsistenciaContrasena.correo.getText().trim();
-        String asunto = "Soporte ProMedic, recuperación de contraseña";
+        String asunto = "Soporte Ramy.Cotizaciones, recuperación de contraseña";
         String mensaje = "<p><strong>Hola,</strong> <em>"+ AsistenciaContrasena.user.getText().trim() +"</em>.</p>"
-                        +"<p>Hemos recibido una solicitud para acceder a tu cuenta <span style='color: #008080;'>ProMedic</span>, promedicsoporte@gmail.com, a trav&eacute;s de tu direcci&oacute;n de correo electr&oacute;nico.</p>"
-                        +"<p><br />Tu c&oacute;digo de verificaci&oacute;n <span style='color: #008080;'>ProMedic</span> es: <strong>"+ codigo+ "</strong>.&nbsp;<br />Si no has solicitado este c&oacute;digo, puede que alguien est&eacute; intentando acceder a tu cuenta <span style='color: #008080;'>ProMedic</span>.</p>"
-                        +"<p>Has recibido este mensaje porque esta direcci&oacute;n de correo electr&oacute;nico figura como direcci&oacute;n de recuperaci&oacute;n de la cuenta <span style='color: #008080;'>ProMedic</span>, proporcionaste esta direcci&oacute;n al crear tu usuario.<br />Si crees que no deber&iacute;a figurar como tal, puedes eliminarla de dicha cuenta y proporcionar una nueva direcci&oacute;n.</p>"
-                        +"<p><br /><span style='color: #008080;'><strong>Atentamente,</strong></span><br />El equipo de Cuentas <span style='color: #008080;'>ProMedic</span>.</p>";
+                        +"<p>Hemos recibido una solicitud para acceder a tu cuenta Cotizaciones en <span style='color: #000080;'>Express Logistics Ramy</span>, Ramy.Cotizaciones@gmail.com, a trav&eacute;s de tu direcci&oacute;n de correo electr&oacute;nico.</p>"
+                        +"<p><br />Tu c&oacute;digo de verificaci&oacute;n para tu cuenta de Cotizaciones en <span style='color: #000080;'>Express Logistics Ramy</span> es: <strong>"+ codigo+ "</strong>.&nbsp;<br />Si no has solicitado este c&oacute;digo, puede que alguien est&eacute; intentando acceder a tu cuenta Cotizaciones en<span style='color: ##000080;'>Express Logistics Ramy</span>.</p>"
+                        +"<p>Has recibido este mensaje porque esta direcci&oacute;n de correo electr&oacute;nico figura como direcci&oacute;n de recuperaci&oacute;n de la cuenta Cotizaciones en <span style='color: ##000080;'>Express Logistics Ramy</span>, proporcionaste esta direcci&oacute;n al crear tu usuario.<br />Si crees que no deber&iacute;a figurar como tal, puedes eliminarla de dicha cuenta y proporcionar una nueva direcci&oacute;n.</p>"
+                        +"<p><br /><span style='color: #000080;'><strong>Atentamente,</strong></span><br />El equipo de Cuentas para Cotizaciones de <span style='color: #000080;'>Express Logistics Ramy</span>.</p>";
 
 
         MimeMessage mail = new MimeMessage(sesion);

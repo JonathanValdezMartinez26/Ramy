@@ -104,6 +104,7 @@ public class pnlServicio extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(1106, 654));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel12.setBackground(new java.awt.Color(225, 225, 225));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));

@@ -1,11 +1,8 @@
 package Ventanas.ModuloContrasena;
 
-import Ventanas.Modulo_Medico.*;
 import Alerts.*;
 import Alerts.AWTUtilities;
 import Clases.Conexion;
-import Clases.Especialidad;
-import Ventanas.Modulo_Cotizaciones.Horario;
 import Ventanas.Modulo_Navegacion.Login;
 import java.awt.*;
 import static java.awt.SystemColor.control;

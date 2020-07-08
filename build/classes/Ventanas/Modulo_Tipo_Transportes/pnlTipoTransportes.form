@@ -24,10 +24,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jcMousePanel1" min="-2" pref="740" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jcMousePanel1" min="-2" pref="740" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -128,7 +125,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="14" y="40" width="711" height="450"/>
+              <AbsoluteConstraints x="14" y="40" width="712" height="450"/>
             </Constraint>
           </Constraints>
 
@@ -144,7 +141,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="0" y="0" width="711" height="-1"/>
+                  <AbsoluteConstraints x="0" y="0" width="712" height="-1"/>
                 </Constraint>
               </Constraints>
 
@@ -157,7 +154,7 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="e1" green="e1" red="e1" type="rgb"/>
                     </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Agregar Especialidad"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Agregar Tipo de Transporte"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlagregarMouseClicked"/>
@@ -206,7 +203,7 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="e1" green="e1" red="e1" type="rgb"/>
                     </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Editar Especialidad"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Editar Tipo de Transporte"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnleditarMouseClicked"/>
