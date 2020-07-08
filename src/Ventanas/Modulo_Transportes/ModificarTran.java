@@ -172,7 +172,7 @@ public class ModificarTran extends javax.swing.JDialog {
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar.setToolTipText("Guardar Especialidad");
+        pnlagregar.setToolTipText("Guardar Transporte");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseClicked(evt);
@@ -215,7 +215,7 @@ public class ModificarTran extends javax.swing.JDialog {
         info.setForeground(new java.awt.Color(102, 102, 102));
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         info.setText("Modificar Transporte");
-        jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 30));
+        jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 30));
 
         rSButtonMetro2.setText("X");
         rSButtonMetro2.setToolTipText("Cerrar");
