@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<style name="Title" fontName="Arial" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" isBold="true"/>
+	<style name="Detail" fontName="Arial"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="ffcfdec3-d95f-43c8-9c72-c12d622427ab"/>
+	<queryString>
+		<![CDATA[Select 
+       E.ID_Transporte,
+       E.Nombre_Transporte,
+       U.Tipo_Transporte
+   from
+       Transportes E
+   Inner Join Tipo_Transporte U
+   On E.ID_Tipo_Transporte = E.ID_Tipo_Transporte]]>
+	</queryString>
+	<field name="ID_Transporte" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre_Transporte" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tipo_Transporte" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="109" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="53" width="550" height="1" uuid="f7a5d605-26cd-4685-979b-7403dba8a009">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Solid" lineColor="#230873"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="406" y="86" width="48" height="20" forecolor="#000000" backcolor="#FFFF01" uuid="a68b30a5-460d-4813-8235-13e1bb524fbb"/>
+				<box rightPadding="4"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="446" y="85" width="105" height="20" isRemoveLineWhenBlank="true" forecolor="#333333" backcolor="#000000" uuid="ce443f3b-4693-4750-8e16-d9f34f8a770d"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" mode="Transparent" x="113" y="17" width="260" height="20" forecolor="#000000" backcolor="#000000" uuid="c4754945-87fe-483b-a7d8-ac50d5abdbfe">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Express Logistics Ramy,  S.A. de C.V. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="396" y="17" width="152" height="20" forecolor="#000000" uuid="31ac3645-9ffc-47f7-889b-d2838bebca9b"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Transportes de la Empresa]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="114" height="37" uuid="61d64d4d-3afa-4037-b80b-57abb73d5b11"/>
+				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Column header" x="403" y="60" width="152" height="20" forecolor="#000000" uuid="871b4b2e-eb9d-4c1c-9447-2673329d9618"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[               RAMY-GGF-09; Rev. 0]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="544e89f7-0fd1-4142-aa23-e335e3be7007"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="63" height="15" forecolor="#000000" uuid="81ddfc26-8322-406e-9a21-05edbdc0ebd6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="114b4394-6dc3-4147-8fc6-3b3cefed4954"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[No. Transporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="89" y="19" width="160" height="15" forecolor="#000000" uuid="c7a26ebf-1cf2-4acd-8c81-bc005b79c387">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Nombre(s) del Transporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="349" y="21" width="154" height="15" forecolor="#000000" uuid="f0d0b835-410c-4c05-b7e5-8adf0e5c8259">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Tipo de Transporte]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="13" width="555" height="1" uuid="560f418a-fc01-4e9c-bdd5-ed0350347feb"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="cb229859-ab9a-4aa3-afa2-84439642f4ee"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="63" height="16" uuid="04d8201a-dd27-40b2-bf98-823dbed7fbae">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="114b4394-6dc3-4147-8fc6-3b3cefed4954"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ID_Transporte}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="113" y="0" width="109" height="16" uuid="3b39d711-9eb0-4bce-9388-6d14b6144afb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Nombre_Transporte}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="366" y="0" width="109" height="16" uuid="7b6d4540-110d-42ac-8d86-20bbb293330a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Tipo_Transporte}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="88" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="482" y="-1" width="66" height="20" uuid="deb23d85-47bb-4de6-978e-113ff117188c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="540" y="-1" width="15" height="20" uuid="c6ce76ba-6e11-41e2-9415-72dc2eff001b"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

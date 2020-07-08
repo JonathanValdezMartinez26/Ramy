@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="17026fef-0210-4324-8fc4-11fdaa467a4e">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="288"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value="UmVjZXRhViAsMTUsMTUsNTgwNTgyNmUtZTY2Ni00NGQ4LWE5ODYtMWFjY2M0ZTQwZmRiOw=="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="NO_DATA_ADAPTER"/>
+	<parameter name="ID_C" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[Select 
+        	ID_ConsultaOrdinaria,
+        	Fecha,
+	concat_ws(' ',NombresMed, ApellidosMed) AS Nombre_M,
+        	concat_ws(' ',Nombres, Apellidos) AS Nombre_P,
+	Peso,
+	Talla,
+	Temperatura,
+	Receta
+   from
+        Recetav
+   where  ID_ConsultaOrdinaria =$P{ID_C}]]>
+	</queryString>
+	<field name="ID_ConsultaOrdinaria" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre_M" class="java.lang.String"/>
+	<field name="Nombre_P" class="java.lang.String"/>
+	<field name="Peso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Talla" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Temperatura" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Receta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="136">
+			<staticText>
+				<reportElement x="102" y="3" width="449" height="38" forecolor="#999999" uuid="7bc2c75e-ddc6-4c64-8bf2-c0d6c927bee0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Freestyle Script" size="27" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consultorio Médico Dr. Enrique Arteaga Jaimes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="22" width="449" height="38" forecolor="#999999" uuid="7221d699-ede0-45ac-80c4-628461f392b2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Freestyle Script" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bebes, niñas y niños]]></text>
+			</staticText>
+			<image>
+				<reportElement x="2" y="17" width="190" height="105" uuid="97c7ad1e-d42d-4001-9ecd-30b834cbeaf8"/>
+				<imageExpression><![CDATA["Reportes/CARAS.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="179" y="123" width="365" height="1" forecolor="#999999" uuid="46b4b761-738d-413f-8c7b-d932ed3168c4"/>
+			</line>
+			<line>
+				<reportElement x="11" y="130" width="365" height="1" forecolor="#999999" uuid="6a2ace13-8ff6-4569-9862-ea28ae732c97"/>
+			</line>
+			<textField isStretchWithOverflow="true" pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="405" y="102" width="143" height="20" forecolor="#999999" uuid="c3d9e9e5-aef4-440c-8368-fcfdf4eb6535"/>
+				<textElement>
+					<font fontName="Tahoma" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="363" y="102" width="42" height="20" forecolor="#999999" uuid="65f7ae4d-ae37-43dd-a31e-7f295ba9d34c"/>
+				<textElement>
+					<font fontName="Tahoma" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="570">
+			<staticText>
+				<reportElement x="15" y="37" width="70" height="20" forecolor="#666666" uuid="65f7ae4d-ae37-43dd-a31e-7f295ba9d34c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PACIENTE:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="81" y="35" width="184" height="20" forecolor="#666666" uuid="f04e8ca6-bad7-4eed-80f7-8e8cf3fb3ce0"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre_P}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="32" y="162" width="495" height="392" forecolor="#999999" uuid="c5b1fe08-c854-4a93-8864-147db786be69"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Receta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="112" width="525" height="20" forecolor="#999999" uuid="65f7ae4d-ae37-43dd-a31e-7f295ba9d34c"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECETA MEDICA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="2" y="213" width="555" height="305" uuid="a98c4f65-28c0-4b03-a6ec-46c39db900c7"/>
+				<imageExpression><![CDATA["Reportes/RECETA.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="11" y="133" width="525" height="1" forecolor="#999999" uuid="c17a5b1a-540e-4309-b043-77a12cd58ff2"/>
+			</line>
+			<line>
+				<reportElement x="11" y="109" width="525" height="1" forecolor="#999999" uuid="f0c6c4ad-80cb-4959-8672-f0eb52f0281a"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="80" y="3" width="157" height="20" forecolor="#999999" uuid="4d141942-58f4-4bd2-b04e-15a4c31a9952"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Dr. "+$F{Nombre_M}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="3" width="66" height="20" forecolor="#999999" uuid="ff85a5e9-26e2-4eb9-a8c5-20dc9e24fb58"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATENDIÓ:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="15" y="30" width="529" height="1" forecolor="#999999" uuid="a65db8e6-4dd1-4cca-92d1-d1fd109b2dd9"/>
+			</line>
+			<staticText>
+				<reportElement x="44" y="72" width="36" height="20" forecolor="#999999" uuid="c8cab4fb-ef2a-464a-b601-75195093a7be"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Peso:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="80" y="72" width="61" height="20" forecolor="#999999" uuid="00456dde-dd46-4f3e-b019-09a424ccc2b4"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Peso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="72" width="36" height="20" forecolor="#999999" uuid="5ceb3c30-e79d-4fb0-a5fd-3bd3460be30e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Talla:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="251" y="72" width="56" height="20" forecolor="#999999" uuid="c970b2dc-a4b5-4cec-a1b4-0aa3ab51d45f"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Talla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="376" y="72" width="86" height="20" forecolor="#999999" uuid="e8270813-84e8-468c-8aaf-ef353f263bc5"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Temperatura:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="453" y="72" width="74" height="20" forecolor="#999999" uuid="a696dd74-e02c-48b8-935e-b70f14927ce4"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Temperatura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="77">
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="433" y="52" width="122" height="24" backcolor="#E6E8E9" uuid="7a4e1c0f-e929-412f-af58-519d9a2d34ae"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Sábados de 09:00 a 14:00 Hrs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="433" y="4" width="122" height="17" backcolor="#E6E8E9" uuid="c2bab0d6-ffd3-493d-8db2-c7728d88d41e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="false" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Horario de Atención]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="56" width="433" height="20" backcolor="#E6E8E9" uuid="e904f0d3-bfa7-4105-bd3a-1f8a9ad9963d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="11" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Coliseo No. 102, Col. Centro Valle de Bravo, Méx.  Cel. (722) 408 31 08  Tel.: (726) 262 55 96]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="433" y="25" width="122" height="16" backcolor="#E6E8E9" uuid="91936ee9-7b92-476a-9198-9c4896e04be9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Matutino de 09:30 a 13:00 Hrs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="433" y="38" width="122" height="16" backcolor="#E6E8E9" uuid="2d454f0e-d594-4e3c-9619-9013f3bc2a6a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Vespertino de 14:00 a 19:00 Hrs]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
