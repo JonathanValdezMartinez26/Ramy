@@ -83,21 +83,7 @@ public class pnlClientes extends javax.swing.JPanel {
             a.listar(ID);
             a.setVisible(true);
             a.log1.setVisible(false);
-            
-            
-            if(Opciones.verificaOrigen1(ID) == 0)
-            {
-                a.inactiva1.setVisible(true);
-                a.activa1.setVisible(false);
-            }
-            else
-            {
-                
-                a.inactiva1.setVisible(false);
-                a.activa1.setVisible(true);
-            }
-           
-            
+          
         }
     else
         {
@@ -157,7 +143,7 @@ public class pnlClientes extends javax.swing.JPanel {
             AC.msj1.setText("¡Seleccione el registro!");
             AC.msj2.setText("para Asignar/ver Origenes");
             AC.setVisible(true);
-        }
+        } 
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -497,7 +483,30 @@ public class pnlClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_buscarKeyTyped
 
     private void pnldestinosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnldestinosMouseClicked
-        Destinos();
+        int Fila = tabla.getSelectedRow();
+      
+            if(Fila >= 0)
+        {
+            int ID = 0;
+            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            Registrar a = new  Registrar(null, true);
+            a.PanelDesliza.setPanelSlider(2, B, RSPanelsSlider.DIRECT.RIGHT);
+            a.ID_C.setText(""+ID);
+            a.listar(ID);
+            a.log2.setVisible(false);
+            a.log3.setVisible(false);
+            a.a3.setText("Destinos.");
+            a.setVisible(true);
+           
+           
+        }
+    else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Seleccione el registro!");
+            AC.msj2.setText("para Asignar/ver Origenes");
+            AC.setVisible(true);
+        }
     }//GEN-LAST:event_pnldestinosMouseClicked
 
     private void pnldestinosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnldestinosMouseEntered
@@ -521,7 +530,27 @@ public class pnlClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_pnleditarMouseExited
 
     private void pnlorigenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseClicked
-        Origenes();
+        int Fila = tabla.getSelectedRow();
+      
+            if(Fila >= 0)
+        {
+            int ID = 0;
+            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            Registrar a = new  Registrar(null, true);
+            a.ID_C.setText(""+ID);
+            a.listar(ID);
+            a.log1.setVisible(false);
+            a.a3.setText("Origenes.");
+            a.setVisible(true);
+            
+        }
+    else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Seleccione el registro!");
+            AC.msj2.setText("para Asignar/ver Origenes");
+            AC.setVisible(true);
+        }
     }//GEN-LAST:event_pnlorigenesMouseClicked
 
     private void pnlorigenesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseEntered
@@ -533,7 +562,32 @@ public class pnlClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlorigenesMouseExited
 
     private void pnlviajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlviajesMouseClicked
-    Rutas();
+    int Fila = tabla.getSelectedRow();
+      
+            if(Fila >= 0)
+        {
+            int ID = 0;
+            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            Registrar a = new  Registrar(null, true);
+            a.PanelDesliza.setPanelSlider(2, C, RSPanelsSlider.DIRECT.RIGHT);
+            a.ID_C.setText(""+ID);
+            a.listar(ID);
+            a.log4.setVisible(false);
+            a.log5.setVisible(false);
+            a.a3.setText("Asignación a Servicios.");
+            a.ComboDestino(ID);
+            a.ComboOrigen(ID);
+            a.ComboTransportes();
+            a.setVisible(true);
+            
+        }
+    else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Seleccione el registro!");
+            AC.msj2.setText("para Asignar/ver Origenes");
+            AC.setVisible(true);
+        }
     }//GEN-LAST:event_pnlviajesMouseClicked
 
     private void pnlviajesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlviajesMouseEntered
