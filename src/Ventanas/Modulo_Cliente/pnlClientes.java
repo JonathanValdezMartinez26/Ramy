@@ -53,10 +53,10 @@ public class pnlClientes extends javax.swing.JPanel {
 
             int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
 
-//            Modificar MP = new Modificar(null, true);
-//            MP.CargarDatos(ID);
-//            MP.setPP(this);
-//            MP.setVisible(true);
+            ModificarCliente MP = new ModificarCliente(null, true);
+            MP.CargarDatos(ID);
+            MP.setVM(this);
+            MP.setVisible(true);
 
         } else {
             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -64,8 +64,6 @@ public class pnlClientes extends javax.swing.JPanel {
             AC.msj2.setText("A modificar");
             AC.setVisible(true);
         }
-   
-
     }
     
     ///////////////////
@@ -245,7 +243,7 @@ public class pnlClientes extends javax.swing.JPanel {
         jPanel12.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 70));
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar.setToolTipText("Agregar Paciente");
+        pnlagregar.setToolTipText("Agregar Cliente");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseClicked(evt);
@@ -269,7 +267,7 @@ public class pnlClientes extends javax.swing.JPanel {
         jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 69));
 
         pnldestinos.setBackground(new java.awt.Color(225, 225, 225));
-        pnldestinos.setToolTipText("Activar o Desactivar Paciente");
+        pnldestinos.setToolTipText("Agregar Destinos");
         pnldestinos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnldestinosMouseClicked(evt);
@@ -293,7 +291,7 @@ public class pnlClientes extends javax.swing.JPanel {
         jPanel12.add(pnldestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, -1, 69));
 
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
-        pnleditar.setToolTipText("Editar Paciente");
+        pnleditar.setToolTipText("Editar Cliente");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnleditarMouseClicked(evt);
@@ -317,7 +315,7 @@ public class pnlClientes extends javax.swing.JPanel {
         jPanel12.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 80, 69));
 
         pnlorigenes.setBackground(new java.awt.Color(225, 225, 225));
-        pnlorigenes.setToolTipText("Activar o Desactivar Paciente");
+        pnlorigenes.setToolTipText("Agregar Origenes");
         pnlorigenes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlorigenesMouseClicked(evt);
@@ -341,7 +339,7 @@ public class pnlClientes extends javax.swing.JPanel {
         jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, -1, 69));
 
         pnlviajes.setBackground(new java.awt.Color(225, 225, 225));
-        pnlviajes.setToolTipText("Activar o Desactivar Paciente");
+        pnlviajes.setToolTipText("Asignación Origenes - Destinos");
         pnlviajes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlviajesMouseClicked(evt);
@@ -365,7 +363,7 @@ public class pnlClientes extends javax.swing.JPanel {
         jPanel12.add(pnlviajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, 69));
 
         pnlpdf.setBackground(new java.awt.Color(225, 225, 225));
-        pnlpdf.setToolTipText("Activar o Desactivar Paciente");
+        pnlpdf.setToolTipText("Visualizar Reporte");
         pnlpdf.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseClicked(evt);

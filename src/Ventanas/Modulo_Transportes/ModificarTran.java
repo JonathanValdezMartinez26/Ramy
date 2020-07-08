@@ -39,7 +39,6 @@ public class ModificarTran extends javax.swing.JDialog {
         this.VM = VM;
     }
 
-
   
     public void CargarDatos(int ID){
         
@@ -66,6 +65,8 @@ public class ModificarTran extends javax.swing.JDialog {
       
         
     }
+    
+    
      public void Guardar(){
         String Nombre_Transporte = txtNombre.getText().trim();
         int cmbEsp = cmbTran.getSelectedIndex();
