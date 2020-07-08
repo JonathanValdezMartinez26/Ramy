@@ -59,16 +59,6 @@ public class pnlReportes extends javax.swing.JPanel {
         jLabel43 = new javax.swing.JLabel();
         pacientes = new javax.swing.JPanel();
         info2 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        medicos = new javax.swing.JPanel();
-        info3 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        especialidades = new javax.swing.JPanel();
-        info6 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
@@ -98,9 +88,7 @@ public class pnlReportes extends javax.swing.JPanel {
         jLabel37.setText("CLIENTES");
         jPanel5.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 199, 150, -1));
 
-
         citas.setBackground(new java.awt.Color(51, 0, 153));
-        citas.setBackground(new java.awt.Color(46, 48, 146));
         citas.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
         citas.setForeground(new java.awt.Color(0, 51, 51));
         citas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,7 +123,7 @@ public class pnlReportes extends javax.swing.JPanel {
 
         jPanel5.add(citas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 179, -1));
 
-        pnlConf_1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, 230));
+        pnlConf_1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, 230));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -152,9 +140,7 @@ public class pnlReportes extends javax.swing.JPanel {
         jLabel41.setText("TRANSPORTES");
         jPanel7.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 199, 150, -1));
 
-
         consultas.setBackground(new java.awt.Color(51, 0, 153));
-        consultas.setBackground(new java.awt.Color(46, 48, 146));
         consultas.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
         consultas.setForeground(new java.awt.Color(204, 0, 0));
         consultas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -189,7 +175,7 @@ public class pnlReportes extends javax.swing.JPanel {
 
         jPanel7.add(consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, -1));
 
-        pnlConf_1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, 230));
+        pnlConf_1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, 230));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -202,8 +188,8 @@ public class pnlReportes extends javax.swing.JPanel {
         jLabel43.setForeground(new java.awt.Color(46, 48, 146));
         jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel43.setText("SERVICIOS");
+
         pacientes.setBackground(new java.awt.Color(51, 0, 153));
-        pacientes.setBackground(new java.awt.Color(46, 48, 146));
         pacientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
         pacientes.setForeground(new java.awt.Color(204, 0, 0));
         pacientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -259,151 +245,7 @@ public class pnlReportes extends javax.swing.JPanel {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        pnlConf_1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, -1, 230));
-
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(46, 48, 146));
-        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel44.setText("REPORTES");
-
-        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(46, 48, 146));
-        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel45.setText("MÉDICOS");
-
-
-        medicos.setBackground(new java.awt.Color(51, 0, 153));
-        medicos.setBackground(new java.awt.Color(46, 48, 146));
-        medicos.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
-        medicos.setForeground(new java.awt.Color(204, 0, 0));
-        medicos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                medicosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                medicosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                medicosMouseExited(evt);
-            }
-        });
-
-        info3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        info3.setForeground(new java.awt.Color(102, 102, 102));
-        info3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnDoctor.png"))); // NOI18N
-
-        javax.swing.GroupLayout medicosLayout = new javax.swing.GroupLayout(medicos);
-        medicos.setLayout(medicosLayout);
-        medicosLayout.setHorizontalGroup(
-            medicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(info3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        medicosLayout.setVerticalGroup(
-            medicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, medicosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(info3, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(medicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addComponent(medicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel44)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel45)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        pnlConf_1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 130, -1, 230));
-
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel48.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel48.setForeground(new java.awt.Color(46, 48, 146));
-        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel48.setText("REPORTES");
-
-        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(46, 48, 146));
-        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel49.setText("ESPECIALIDADES");
-
-
-        especialidades.setBackground(new java.awt.Color(51, 0, 153));
-        especialidades.setBackground(new java.awt.Color(46, 48, 146));
-        especialidades.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
-        especialidades.setForeground(new java.awt.Color(204, 0, 0));
-        especialidades.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                especialidadesMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                especialidadesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                especialidadesMouseExited(evt);
-            }
-        });
-
-        info6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        info6.setForeground(new java.awt.Color(102, 102, 102));
-        info6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnEspecialidades.png"))); // NOI18N
-
-        javax.swing.GroupLayout especialidadesLayout = new javax.swing.GroupLayout(especialidades);
-        especialidades.setLayout(especialidadesLayout);
-        especialidadesLayout.setHorizontalGroup(
-            especialidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(info6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        especialidadesLayout.setVerticalGroup(
-            especialidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, especialidadesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(info6, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(especialidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addComponent(especialidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel48)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel49)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        pnlConf_1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, -1, -1));
+        pnlConf_1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, -1, 230));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -420,9 +262,7 @@ public class pnlReportes extends javax.swing.JPanel {
         jLabel47.setText("USUARIOS");
         jPanel10.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 199, 150, -1));
 
-
         usuarios.setBackground(new java.awt.Color(51, 0, 153));
-        usuarios.setBackground(new java.awt.Color(46, 48, 146));
         usuarios.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
         usuarios.setForeground(new java.awt.Color(204, 0, 0));
         usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -457,7 +297,7 @@ public class pnlReportes extends javax.swing.JPanel {
 
         jPanel10.add(usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, -1));
 
-        pnlConf_1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, 230));
+        pnlConf_1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 270, -1, 230));
 
         jPanel13.setBackground(new java.awt.Color(225, 225, 225));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -513,18 +353,6 @@ public class pnlReportes extends javax.swing.JPanel {
         pacientes.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.white,Color.white));
     }//GEN-LAST:event_pacientesMouseExited
 
-    private void medicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medicosMouseClicked
-        
-    }//GEN-LAST:event_medicosMouseClicked
-
-    private void medicosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medicosMouseEntered
-        medicos.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.DARK_GRAY, Color.LIGHT_GRAY));
-    }//GEN-LAST:event_medicosMouseEntered
-
-    private void medicosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medicosMouseExited
-        medicos.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.white,Color.white));
-    }//GEN-LAST:event_medicosMouseExited
-
     private void usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosMouseClicked
         ver_U();
     }//GEN-LAST:event_usuariosMouseClicked
@@ -536,18 +364,6 @@ public class pnlReportes extends javax.swing.JPanel {
     private void usuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosMouseExited
         usuarios.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.white,Color.white));
     }//GEN-LAST:event_usuariosMouseExited
-
-    private void especialidadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_especialidadesMouseClicked
-        
-    }//GEN-LAST:event_especialidadesMouseClicked
-
-    private void especialidadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_especialidadesMouseEntered
-        especialidades.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.DARK_GRAY, Color.LIGHT_GRAY));
-    }//GEN-LAST:event_especialidadesMouseEntered
-
-    private void especialidadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_especialidadesMouseExited
-        especialidades.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.white,Color.white));
-    }//GEN-LAST:event_especialidadesMouseExited
 
     private void citasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasMouseExited
         citas.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.white,Color.white));
@@ -728,36 +544,26 @@ public class pnlReportes extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel citas;
     private javax.swing.JPanel consultas;
-    private javax.swing.JPanel especialidades;
     public static javax.swing.JLabel info;
     public static javax.swing.JLabel info1;
     public static javax.swing.JLabel info2;
-    public static javax.swing.JLabel info3;
     public static javax.swing.JLabel info5;
-    public static javax.swing.JLabel info6;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JPanel medicos;
     private javax.swing.JPanel pacientes;
     private javax.swing.JPanel pnlConf_1;
     private javax.swing.JPanel usuarios;

@@ -34,6 +34,9 @@ public class pnlUser extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         jcMousePanel1 = new jcMousePanel.jcMousePanel();
         pnlPrincipal = new javax.swing.JPanel();
+        PanelContraseñaActual = new javax.swing.JPanel();
+        ojo1 = new javax.swing.JLabel();
+        ojoabierto1 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         info1 = new javax.swing.JLabel();
         rSButtonMetro2 = new JButtonEspecial.JButtonEspecial();
@@ -64,6 +67,31 @@ public class pnlUser extends javax.swing.JDialog {
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PanelContraseñaActual.setBackground(new java.awt.Color(255, 255, 255));
+        PanelContraseñaActual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                PanelContraseñaActualMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                PanelContraseñaActualMouseReleased(evt);
+            }
+        });
+        PanelContraseñaActual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ojo1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ojo1.setForeground(new java.awt.Color(102, 102, 102));
+        ojo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ojo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eyecerrado.png"))); // NOI18N
+        PanelContraseñaActual.add(ojo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 30, 28));
+
+        ojoabierto1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ojoabierto1.setForeground(new java.awt.Color(102, 102, 102));
+        ojoabierto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ojoabierto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eyeabierto.png"))); // NOI18N
+        PanelContraseñaActual.add(ojoabierto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 30, 28));
+
+        pnlPrincipal.add(PanelContraseñaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 237, -1, -1));
 
         jPanel7.setBackground(new java.awt.Color(210, 210, 214));
         jPanel7.setPreferredSize(new java.awt.Dimension(804, 30));
@@ -257,6 +285,18 @@ public class pnlUser extends javax.swing.JDialog {
         this.lblNombreNuevo.setText("");
     }//GEN-LAST:event_txtUserKeyTyped
 
+    private void PanelContraseñaActualMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelContraseñaActualMousePressed
+        txtPass.setEchoChar((char)0);
+        ojo1.setVisible(false);
+        ojoabierto1.setVisible(true);
+    }//GEN-LAST:event_PanelContraseñaActualMousePressed
+
+    private void PanelContraseñaActualMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelContraseñaActualMouseReleased
+        txtPass.setEchoChar((char)42);
+        ojo1.setVisible(true);
+        ojoabierto1.setVisible(false);
+    }//GEN-LAST:event_PanelContraseñaActualMouseReleased
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -273,6 +313,7 @@ public class pnlUser extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelContraseñaActual;
     public static javax.swing.JLabel info1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -290,6 +331,8 @@ public class pnlUser extends javax.swing.JDialog {
     public static javax.swing.JLabel lblNombreNuevo;
     public static javax.swing.JLabel lblPass;
     private JButtonEspecial.JButtonEspecial log;
+    public static javax.swing.JLabel ojo1;
+    public static javax.swing.JLabel ojoabierto1;
     public static javax.swing.JPanel pnlPrincipal;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static jpass.JRPasswordField txtPass;
