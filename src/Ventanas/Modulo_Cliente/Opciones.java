@@ -205,6 +205,8 @@ public class Opciones {
             }
         
     }
+    
+    
      
     public static void listarDestino(String busca, int ID) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cliente.Registrar.tabla2.getModel();

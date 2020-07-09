@@ -1,5 +1,6 @@
 package Clases;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class database {
  /* DATOS PARA LA CONEXION */
@@ -34,10 +35,11 @@ public class database {
 /* Realiza una consulta a la base de datos, retorna un Object[][] con los
  * datos de la tabla persona
  */
-    public Object[][] Select_OD()
+    public Object[][] Select_OD(int id)
     {
+        
      int registros = 0;      
-      String consulta = "Select ID_Ruta, Origen, Destino, Nombre_Transporte, Precio FROM rutav";
+      String consulta = "Select ID_Ruta, Origen, Destino, Nombre_Transporte, Precio FROM rutav where ID_Cliente="+id;
       String consulta2 = "Select count(*) as total from rutav ";
       //obtenemos la cantidad de registros existentes en la tabla
       try{
@@ -68,7 +70,9 @@ public class database {
           }catch(SQLException e){
                System.out.println(e);
         }
+      //JOptionPane.showMessageDialog(null,"holaaaaaaaaa");
     return data;
+                    
     }
 
 /* Ejecuta la actualizacion de la tabla persona dado los valores de actualizacion
@@ -76,7 +80,8 @@ public class database {
  */
     public boolean update(String valores, String id)
     {
-        boolean res = false;        
+        boolean res = false;
+        JOptionPane.showMessageDialog(null, valores+ " "+ id);
         String q = " UPDATE ruta SET " + valores + " WHERE ID_Ruta= " + id;
         try {
             PreparedStatement pstm = conn.prepareStatement(q);
