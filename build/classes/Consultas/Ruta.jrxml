@@ -105,7 +105,7 @@ ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
 	<title>
 		<band height="122" splitType="Stretch">
 			<textField>
-				<reportElement style="Detail" x="220" y="103" width="163" height="16" uuid="3ffc4215-c080-4510-92d6-11edb9c5d998">
+				<reportElement style="Detail" x="245" y="103" width="163" height="16" uuid="3ffc4215-c080-4510-92d6-11edb9c5d998">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">

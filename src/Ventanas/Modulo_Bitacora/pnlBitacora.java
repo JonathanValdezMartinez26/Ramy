@@ -138,7 +138,7 @@ public class pnlBitacora extends javax.swing.JPanel {
         jPanel12.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 70));
 
         pnlpdf.setBackground(new java.awt.Color(225, 225, 225));
-        pnlpdf.setToolTipText("Activar o Desactivar Paciente");
+        pnlpdf.setToolTipText("Visualizar Bitacora");
         pnlpdf.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseClicked(evt);

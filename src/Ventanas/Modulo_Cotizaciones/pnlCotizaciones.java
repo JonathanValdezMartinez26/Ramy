@@ -237,7 +237,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jPanel12.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 70));
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar.setToolTipText("Agregar Paciente");
+        pnlagregar.setToolTipText("Agregar Cotizacion");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseClicked(evt);
@@ -261,7 +261,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 69));
 
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
-        pnleditar.setToolTipText("Editar Paciente");
+        pnleditar.setToolTipText("Editar Cotizacion");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnleditarMouseClicked(evt);
@@ -285,7 +285,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jPanel12.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 69));
 
         pnlorigenes.setBackground(new java.awt.Color(225, 225, 225));
-        pnlorigenes.setToolTipText("Activar o Desactivar Paciente");
+        pnlorigenes.setToolTipText("Visualizar Cotizacion");
         pnlorigenes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlorigenesMouseClicked(evt);
@@ -309,7 +309,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, -1, 69));
 
         pnlpdf.setBackground(new java.awt.Color(225, 225, 225));
-        pnlpdf.setToolTipText("Activar o Desactivar Paciente");
+        pnlpdf.setToolTipText("Eliminar Cotizacion");
         pnlpdf.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseClicked(evt);
@@ -487,7 +487,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Bitacora.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cliente", ID);
