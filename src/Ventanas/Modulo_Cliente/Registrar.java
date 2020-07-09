@@ -152,12 +152,14 @@ public class Registrar extends javax.swing.JDialog {
     {
         Opciones.listarOrigen(null, ID);
         Opciones.listarDestino(null, ID);
+        Opciones.listarViaje(null, ID);
     }
     ///////////////////////////////
     private void Actualizar_Tabla(){
         //actualiza los datos de la tabla realizando una consulta a la base de datos
+        int id=74;
         String[] columNames = {"ID_Ruta" ,"Origen","Destino","Transporte","Precio"};        
-        dtOD = db.Select_OD();
+        dtOD = db.Select_OD(id);
         // se colocan los datos en la tabla
         DefaultTableModel datos = new DefaultTableModel(dtOD,columNames){
             @Override

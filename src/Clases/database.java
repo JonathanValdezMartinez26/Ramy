@@ -34,10 +34,10 @@ public class database {
 /* Realiza una consulta a la base de datos, retorna un Object[][] con los
  * datos de la tabla persona
  */
-    public Object[][] Select_OD()
+    public Object[][] Select_OD(int id)
     {
      int registros = 0;      
-      String consulta = "Select ID_Ruta, Origen, Destino, Nombre_Transporte, Precio FROM rutav";
+      String consulta = "Select ID_Ruta, Origen, Destino, Nombre_Transporte, Precio FROM rutav where ID_Cliente="+id;
       String consulta2 = "Select count(*) as total from rutav ";
       //obtenemos la cantidad de registros existentes en la tabla
       try{
