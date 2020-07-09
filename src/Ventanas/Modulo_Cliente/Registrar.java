@@ -71,7 +71,7 @@ public class Registrar extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         FadeEffect.fadeIn(this, 1, 0.1f);
         ocultarAciertos();
-        Actualizar_Tabla1();
+        Actualizar_Tabla();
         
         ID_C.setVisible(true);
         
@@ -156,29 +156,18 @@ public class Registrar extends javax.swing.JDialog {
     {
         Opciones.listarOrigen(null, ID);
         Opciones.listarDestino(null, ID);
-<<<<<<< HEAD
+
         Opciones.listarViaje(null, ID);
-=======
+
         
->>>>>>> aca18e67cf26900edfddfdd4754cdead8446d586
+
     }
     
     ///////////////////////////////
-    public void Actualizar_Tabla(int id){
+    private void Actualizar_Tabla(){
         //actualiza los datos de la tabla realizando una consulta a la base de datos
-<<<<<<< HEAD
         int id=74;
         String[] columNames = {"ID_Ruta" ,"Origen","Destino","Transporte","Precio"};        
-=======
-      
-        String[] columNames = {"ID_Ruta" ,"Origen","Destino","Transporte","Precio"};        
-        //int Id=74;
-         //String numCadena= Integer.toString(numEntero);
-         //ID = Integer.parseInt(ID_C.getText());
-        //int Id =Integer.parseInt(obtenerID(int id));
-       // obtenerID(ID);
-        ID = Integer.parseInt(ID_C.getText());
->>>>>>> aca18e67cf26900edfddfdd4754cdead8446d586
         dtOD = db.Select_OD(id);
         // se colocan los datos en la tabla
         DefaultTableModel datos = new DefaultTableModel(dtOD,columNames){
@@ -186,39 +175,11 @@ public class Registrar extends javax.swing.JDialog {
             public boolean isCellEditable(int row, int column) {
                 //Only the third column
                 return column == 4;
-                
             }
         };
- //       String q =Integer.toString(ID_C.getText());
-        
-        JOptionPane.showMessageDialog(null,"mwetodo"+id);
         tabla3.setModel(datos);
 }
-    public void Actualizar_Tabla1(){
-        //actualiza los datos de la tabla realizando una consulta a la base de datos
-      
-        String[] columNames = {"ID_Ruta" ,"Origen","Destino","Transporte","Precio"};        
-        int Id=74;
-         //String numCadena= Integer.toString(numEntero);
-         //ID = Integer.parseInt(ID_C.getText());
-        //int Id =Integer.parseInt(obtenerID(int id));
-       // obtenerID(ID);
-        ID = Integer.parseInt(ID_C.getText());
-        dtOD = db.Select_OD(ID);
-        // se colocan los datos en la tabla
-        DefaultTableModel datos = new DefaultTableModel(dtOD,columNames){
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                //Only the third column
-                return column == 4;
-                
-            }
-        };
- //       String q =Integer.toString(ID_C.getText());
-        
-        JOptionPane.showMessageDialog(null,"metodo1 "+ID);
-        tabla3.setModel(datos);
-}
+    
     
     ////////////////////////////////////////////////////////////////////////////
     public void Guardar(){
