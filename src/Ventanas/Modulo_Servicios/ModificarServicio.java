@@ -53,7 +53,7 @@ public class ModificarServicio extends javax.swing.JDialog {
         
         try{
             
-            resultado = Conexion.consulta("Select ID_Servicio,Nombre_Servicio from Servicio Where ID_Servicio = "+ID);
+            resultado = Conexion.consulta("Select * from Servicio Where ID_Servicio = "+ID);
             
             while(resultado.next()){
              IDD = resultado.getInt(1);
