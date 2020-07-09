@@ -73,7 +73,7 @@ public class Registrar extends javax.swing.JDialog {
         ocultarAciertos();
         Actualizar_Tabla();
         
-        ID_C.setVisible(true);
+        ID_C.setVisible(false);
         
         
         ///////////////////////////
@@ -156,11 +156,7 @@ public class Registrar extends javax.swing.JDialog {
     {
         Opciones.listarOrigen(null, ID);
         Opciones.listarDestino(null, ID);
-
         Opciones.listarViaje(null, ID);
-
-        
-
     }
     
     ///////////////////////////////
@@ -426,7 +422,7 @@ public class Registrar extends javax.swing.JDialog {
         int comboDestino = cmbDestinos.getSelectedIndex();
         int ID_Destino = ID_Des[comboDestino];
         
-        JOptionPane.showMessageDialog(null, "ID_Transporte: " + ID_Transporte);
+        //JOptionPane.showMessageDialog(null, "ID_Transporte: " + ID_Transporte);
         
         if(comboTransporte==0)
             {
