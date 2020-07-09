@@ -56,18 +56,18 @@ public class pnlConfiguracion extends javax.swing.JPanel {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 144, 183));
+        jLabel2.setForeground(new java.awt.Color(51, 0, 153));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("CAMBIAR NOMBRE DE");
         jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 176, -1, -1));
 
         jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(0, 144, 183));
+        jLabel37.setForeground(new java.awt.Color(51, 0, 153));
         jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel37.setText("USUARIO");
         jPanel5.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 199, 150, -1));
 
-        user.setBackground(new java.awt.Color(0, 144, 183));
+        user.setBackground(new java.awt.Color(51, 0, 153));
         user.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
         user.setForeground(new java.awt.Color(0, 51, 51));
         user.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,18 +108,18 @@ public class pnlConfiguracion extends javax.swing.JPanel {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel40.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(0, 144, 183));
+        jLabel40.setForeground(new java.awt.Color(51, 0, 153));
         jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel40.setText("CAMBIAR");
         jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 176, 150, -1));
 
         jLabel41.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(0, 144, 183));
+        jLabel41.setForeground(new java.awt.Color(51, 0, 153));
         jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel41.setText("CONTRASEÑA");
         jPanel7.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 199, 150, -1));
 
-        pass.setBackground(new java.awt.Color(0, 144, 183));
+        pass.setBackground(new java.awt.Color(51, 0, 153));
         pass.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
         pass.setForeground(new java.awt.Color(204, 0, 0));
         pass.addMouseListener(new java.awt.event.MouseAdapter() {
