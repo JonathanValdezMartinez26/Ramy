@@ -14,6 +14,7 @@ import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
 import static Ventanas.Modulo_Cliente.Opciones.*;
+import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
 import java.awt.Color;
@@ -57,6 +58,7 @@ public class Registrar extends javax.swing.JDialog {
     int ID_Tran [];
     int ID_Ori [];
     int ID_Des [];
+    public int id=0;
     //////////////////
     private database db = new database();
     private Object[][] dtOD;
@@ -69,8 +71,10 @@ public class Registrar extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         FadeEffect.fadeIn(this, 1, 0.1f);
         ocultarAciertos();
-        Actualizar_Tabla();
-        ID_C.setVisible(false);
+        Actualizar_Tabla1();
+        
+        ID_C.setVisible(true);
+        
         
         ///////////////////////////
 //        ID_C.setVisible(false);
@@ -152,13 +156,29 @@ public class Registrar extends javax.swing.JDialog {
     {
         Opciones.listarOrigen(null, ID);
         Opciones.listarDestino(null, ID);
+<<<<<<< HEAD
         Opciones.listarViaje(null, ID);
+=======
+        
+>>>>>>> aca18e67cf26900edfddfdd4754cdead8446d586
     }
+    
     ///////////////////////////////
-    private void Actualizar_Tabla(){
+    public void Actualizar_Tabla(int id){
         //actualiza los datos de la tabla realizando una consulta a la base de datos
+<<<<<<< HEAD
         int id=74;
         String[] columNames = {"ID_Ruta" ,"Origen","Destino","Transporte","Precio"};        
+=======
+      
+        String[] columNames = {"ID_Ruta" ,"Origen","Destino","Transporte","Precio"};        
+        //int Id=74;
+         //String numCadena= Integer.toString(numEntero);
+         //ID = Integer.parseInt(ID_C.getText());
+        //int Id =Integer.parseInt(obtenerID(int id));
+       // obtenerID(ID);
+        ID = Integer.parseInt(ID_C.getText());
+>>>>>>> aca18e67cf26900edfddfdd4754cdead8446d586
         dtOD = db.Select_OD(id);
         // se colocan los datos en la tabla
         DefaultTableModel datos = new DefaultTableModel(dtOD,columNames){
@@ -166,10 +186,40 @@ public class Registrar extends javax.swing.JDialog {
             public boolean isCellEditable(int row, int column) {
                 //Only the third column
                 return column == 4;
+                
             }
         };
+ //       String q =Integer.toString(ID_C.getText());
+        
+        JOptionPane.showMessageDialog(null,"mwetodo"+id);
         tabla3.setModel(datos);
 }
+    public void Actualizar_Tabla1(){
+        //actualiza los datos de la tabla realizando una consulta a la base de datos
+      
+        String[] columNames = {"ID_Ruta" ,"Origen","Destino","Transporte","Precio"};        
+        int Id=74;
+         //String numCadena= Integer.toString(numEntero);
+         //ID = Integer.parseInt(ID_C.getText());
+        //int Id =Integer.parseInt(obtenerID(int id));
+       // obtenerID(ID);
+        ID = Integer.parseInt(ID_C.getText());
+        dtOD = db.Select_OD(ID);
+        // se colocan los datos en la tabla
+        DefaultTableModel datos = new DefaultTableModel(dtOD,columNames){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //Only the third column
+                return column == 4;
+                
+            }
+        };
+ //       String q =Integer.toString(ID_C.getText());
+        
+        JOptionPane.showMessageDialog(null,"metodo1 "+ID);
+        tabla3.setModel(datos);
+}
+    
     ////////////////////////////////////////////////////////////////////////////
     public void Guardar(){
         int comboEstado = cmbEstado.getSelectedIndex();
@@ -620,7 +670,7 @@ public class Registrar extends javax.swing.JDialog {
         a1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/asistente+.png"))); // NOI18N
         barra_estado.add(a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 50));
 
-        ID_C.setText("ID");
+        ID_C.setText("0");
         barra_estado.add(ID_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         a5.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 15)); // NOI18N

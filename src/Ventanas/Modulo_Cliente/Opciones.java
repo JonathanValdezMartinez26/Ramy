@@ -205,6 +205,7 @@ public class Opciones {
             }
         
     }
+<<<<<<< HEAD
     public static void listarViaje(String busca, int ID) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cliente.Registrar.tabla3.getModel();
         int contador = 0;
@@ -236,6 +237,10 @@ public class Opciones {
             }
         
     }
+=======
+    
+    
+>>>>>>> aca18e67cf26900edfddfdd4754cdead8446d586
      
     public static void listarDestino(String busca, int ID) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cliente.Registrar.tabla2.getModel();

@@ -569,6 +569,7 @@ public class pnlClientes extends javax.swing.JPanel {
             Registrar a = new  Registrar(null, true);
             a.PanelDesliza.setPanelSlider(2, C, RSPanelsSlider.DIRECT.RIGHT);
             a.ID_C.setText(""+ID);
+            a.Actualizar_Tabla(ID);
             a.listar(ID);
             a.log4.setVisible(false);
             a.log5.setVisible(false);
