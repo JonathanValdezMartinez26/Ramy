@@ -81,8 +81,6 @@ public class pnlBitacora extends javax.swing.JPanel {
         buscarBitacora = new app.bolivia.swing.JCTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        buscar1 = new app.bolivia.swing.JCTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
 
@@ -185,7 +183,7 @@ public class pnlBitacora extends javax.swing.JPanel {
                 buscarKeyTyped(evt);
             }
         });
-        jPanel4.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 145, 30));
+        jPanel4.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 145, 30));
         jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 1085, 5));
 
         buscarBitacora.setBorder(null);
@@ -205,35 +203,13 @@ public class pnlBitacora extends javax.swing.JPanel {
                 buscarBitacoraKeyTyped(evt);
             }
         });
-        jPanel4.add(buscarBitacora, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 145, 30));
+        jPanel4.add(buscarBitacora, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, 145, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 210, -1));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 210, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 210, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 210, -1));
-
-        buscar1.setBorder(null);
-        buscar1.setForeground(new java.awt.Color(0, 144, 183));
-        buscar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buscar1.setPlaceholder("BUSCAR CLIENTE");
-        buscar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscar1ActionPerformed(evt);
-            }
-        });
-        buscar1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                buscar1KeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                buscar1KeyTyped(evt);
-            }
-        });
-        jPanel4.add(buscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 145, 30));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 210, -1));
 
         add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1105, 85));
 
@@ -342,18 +318,6 @@ public class pnlBitacora extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buscarBitacoraKeyTyped
 
-    private void buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscar1ActionPerformed
-
-    private void buscar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscar1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscar1KeyReleased
-
-    private void buscar1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscar1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscar1KeyTyped
-
         DefaultTableModel model = new DefaultTableModel() {
 
             @Override
@@ -366,12 +330,10 @@ public class pnlBitacora extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static app.bolivia.swing.JCTextField buscar;
-    public static app.bolivia.swing.JCTextField buscar1;
     public static app.bolivia.swing.JCTextField buscarBitacora;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel12;

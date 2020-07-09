@@ -103,7 +103,7 @@ public class Opciones {
             //sql = "SELECT ID_cli, Nombre_cliente FROM clientes WHERE (Nombre_cliente LIKE'" + busca + "%' OR ID_cliente LIKE'"+busca+"%')"
               //      + " ORDER BY Nombre_cliente";
             sql = "SELECT Nombre_Viaje, costo_antiguo,costo_nuevo,transporte,Fecha_Mod from bitacora_costos WHERE (Nombre_Viaje LIKE'%" + busca + "%' OR costo_antiguo LIKE'"+busca+"%'"
-                    + "OR costo_nuevo LIKE'"+busca+"%'OR transporte LIKE'"+busca+"%'OR Fecha_Mod LIKE'"+busca+"%')"
+                    + "OR costo_nuevo LIKE'"+busca+"%'OR transporte LIKE'"+busca+"%'OR Fecha_Mod LIKE'%"+busca+"%')"
                     + " ORDER BY Fecha_Mod";
             
            }

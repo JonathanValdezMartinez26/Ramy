@@ -1150,6 +1150,8 @@ public class Registrar extends javax.swing.JDialog {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     GuardarOD();
+     ID = Integer.parseInt(ID_C.getText());
+    Opciones.listarViaje(null, ID);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void cmbTransportesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTransportesItemStateChanged

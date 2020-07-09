@@ -59,7 +59,12 @@ public class MyTableCellEditor extends AbstractCellEditor implements TableCellEd
         {   //Realiza la actualizacion
             if( !db.update( NameColum+"='"+NewValue+"' ", ID ) )
             {   //Si existe algun error al actualizar, escribe viejo valor en la celda
-                JOptionPane.showMessageDialog(null,"Error: No se puede actualizar");
+                //JOptionPane.showMessageDialog(null,"Error: No se puede actualizar");
+                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                            AC.msj1.setText("¡Error al modificar Precio!");
+                            AC.msj2.setText("Ingrese caracteres validos");
+                            AC.setVisible(true);
+                
                 ((JTextField)component).setText(OldValue);
             }
             ///////////////////////////Si no exixste ninguna excepcion se realiza el registro en la bitacora
@@ -68,8 +73,11 @@ public class MyTableCellEditor extends AbstractCellEditor implements TableCellEd
                 {   
                     
                 }                
-                JOptionPane.showMessageDialog(null,"-"+origen+"-"+destino+"-"+OldValue+" "+NewValue+" "+ID+" "+transporte );
-                
+                //JOptionPane.showMessageDialog(null,"-"+origen+"-"+destino+"-"+OldValue+" "+NewValue+" "+ID+" "+transporte );
+                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+            AC.msj1.setText("¡Datos del Precio!");
+            AC.msj2.setText("Guardados correctamente");
+            AC.setVisible(true);
             }
         }
         return super.stopCellEditing();

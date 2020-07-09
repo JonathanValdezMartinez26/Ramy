@@ -38,7 +38,7 @@ public class Principal_Admin extends javax.swing.JFrame {
             } 
         catch (NullPointerException ex) 
         {
-        
+            
         }
         //Fecha del sistema
         Date sistemaFech = new Date();

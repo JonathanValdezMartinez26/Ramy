@@ -81,7 +81,7 @@ public class database {
     public boolean update(String valores, String id)
     {
         boolean res = false;
-        JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
         String q = " UPDATE ruta SET " + valores + " WHERE ID_Ruta= " + id;
         try {
             PreparedStatement pstm = conn.prepareStatement(q);
