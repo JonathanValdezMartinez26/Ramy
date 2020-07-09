@@ -5,7 +5,7 @@
  */
 package A_tabla;
 
-import static Ventanas.Modulo_Cita.pnlCitas.tabla;
+import static Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -27,25 +27,26 @@ public class EstiloTablaRendererCitas extends DefaultTableCellRenderer {
         this.setBorder(null);
         this.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 1, 1, new java.awt.Color(198, 202, 193)));
         
-        if(tabla.getValueAt(row, 6).toString().equals("Cancelada"))
+        if(tabla.getValueAt(row, 4).toString().equals("Cancelada"))
         {
             componenete.setBackground(new Color(255,51,51));
             componenete.setForeground(new Color(255, 255, 255));
         } 
         else 
         {
-            if(tabla.getValueAt(row, 6).toString().equals("Pendiente"))
+            if(tabla.getValueAt(row, 4).toString().equals("Pendiente"))
             {
                 componenete.setBackground(new Color(255,153,51));
                 componenete.setForeground(new Color(255, 255, 255));
             } 
             else
             {
-                if(tabla.getValueAt(row, 6).toString().equals("Atendida"))
+                if(tabla.getValueAt(row, 4).toString().equals("Finalizada"))
                 {
                     componenete.setBackground(new Color(27, 94, 32));
                     componenete.setForeground(new Color(255, 255, 255));
                 } 
+                
             }
         }
         
@@ -56,47 +57,47 @@ public class EstiloTablaRendererCitas extends DefaultTableCellRenderer {
         }
         if (isSelected) 
         {
-            if(tabla.getValueAt(row, 6).toString().equals("Cancelada"))
+            if(tabla.getValueAt(row, 4).toString().equals("Cancelada"))
             {
                 componenete.setBackground(new Color(255,51,51));
                 componenete.setForeground(new Color(255, 255, 255));
-                componenete.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
                 
                 if (column == 0) 
                 {
                     componenete.setBackground(new Color(251,251,251));
                     componenete.setForeground(Color.BLACK);
-                    componenete.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                    componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
                 }
             }
             else
             {
-                if(tabla.getValueAt(row, 6).toString().equals("Pendiente"))
+                if(tabla.getValueAt(row, 4).toString().equals("Pendiente"))
                 {
                     componenete.setBackground(new Color(255,153,51));
                     componenete.setForeground(new Color(255, 255, 255));
-                    componenete.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                    componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
                     if (column == 0) 
                     {
                         componenete.setBackground(new Color(251,251,251));
                         componenete.setForeground(Color.BLACK);
-                        componenete.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                        componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
                     }
                 }
                 else
                 {
-                   if(tabla.getValueAt(row, 6).toString().equals("Atendida"))
+                   if(tabla.getValueAt(row, 4).toString().equals("Atendida"))
                     {
                         componenete.setBackground(new Color(27, 94, 32));
                         componenete.setForeground(new Color(255, 255, 255));
-                        componenete.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                        componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
                         if (column == 0) 
                         {
                             componenete.setBackground(new Color(251,251,251));
                             componenete.setForeground(Color.BLACK);
-                            componenete.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                            componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
                         }
                     } 
                 }

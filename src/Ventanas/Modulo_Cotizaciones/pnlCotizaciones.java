@@ -42,7 +42,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         Opciones.listarCotizaciones("");
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
-        this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRendererCitas());
         this.tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
@@ -185,6 +185,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
 
+        tabla.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -208,6 +209,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tabla.setRowHeight(22);
         tabla.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
