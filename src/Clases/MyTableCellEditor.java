@@ -17,6 +17,8 @@ public class MyTableCellEditor extends AbstractCellEditor implements TableCellEd
     private String origen="";//nombre de la columna
     private String destino="";// Llave del registro
     private String transporte="";// Llave del registro
+    private String precio="";// Llave del registro
+    
     
     private JComponent component = new JTextField();
 
@@ -38,6 +40,7 @@ public class MyTableCellEditor extends AbstractCellEditor implements TableCellEd
             origen = table.getValueAt(row,1).toString();//obtiene el ID unico del registro
             destino = table.getValueAt(row,2).toString();//obtiene el ID unico del registro
             transporte = table.getValueAt(row,3).toString();//obtiene el ID unico del registro
+             //precio = table.getValueAt(row,4).toString();//obtiene el ID unico del registro
             
             ((JTextField)component).setText(value.toString());//coloca valor de la celda al JTextField
         }

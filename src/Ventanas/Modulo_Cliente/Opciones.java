@@ -205,6 +205,42 @@ public class Opciones {
             }
         
     }
+<<<<<<< HEAD
+    public static void listarViaje(String busca, int ID) {
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cliente.Registrar.tabla3.getModel();
+        int contador = 0;
+        
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        String sql = "Select ID_Ruta, Origen, Destino, Nombre_Transporte,Precio from rutav where ID_Cliente =" + ID;
+      
+            String datos[] = new String[5];
+        try 
+        {    
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                datos[0] = String.valueOf(rs.getInt(1));
+                datos[1] = rs.getString(2).trim();
+                datos[2] = rs.getString(3).trim();
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
+                
+                modelo.addRow(datos);
+            }
+           
+        } 
+        catch (SQLException ex) 
+            {
+                Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+    }
+=======
+    
+    
+>>>>>>> aca18e67cf26900edfddfdd4754cdead8446d586
      
     public static void listarDestino(String busca, int ID) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cliente.Registrar.tabla2.getModel();
