@@ -78,9 +78,6 @@ public class pnlServicio extends javax.swing.JPanel {
         jPanel12 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        pnlmodificar = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         pnlagregar = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -115,30 +112,6 @@ public class pnlServicio extends javax.swing.JPanel {
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 80, 69));
 
         jPanel12.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 69));
-
-        pnlmodificar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlmodificar.setToolTipText("Activar/Desactivar Médico");
-        pnlmodificar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlmodificarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlmodificarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlmodificarMouseExited(evt);
-            }
-        });
-        pnlmodificar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setText("     Estado");
-        pnlmodificar.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sincronizar.png"))); // NOI18N
-        pnlmodificar.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
-
-        jPanel12.add(pnlmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, 69));
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
         pnlagregar.setToolTipText("Agregar Médico");
@@ -228,13 +201,13 @@ public class pnlServicio extends javax.swing.JPanel {
         pnlorigenes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setText("   Visualizar");
+        jLabel15.setText("     Global");
         pnlorigenes.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N
         pnlorigenes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, -1, 69));
+        jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, 69));
 
         add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1106, 69));
 
@@ -266,7 +239,7 @@ public class pnlServicio extends javax.swing.JPanel {
 
             },
             new String [] {
-                "No.", "Servicio", "Tipo_Servicio"
+                "No.", "Servicio", "Tipo de Servicio"
             }
         ) {
             Class[] types = new Class [] {
@@ -310,18 +283,6 @@ public class pnlServicio extends javax.swing.JPanel {
             evt.setKeyChar(letras);
         }
     }//GEN-LAST:event_buscarKeyTyped
-
-    private void pnlmodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlmodificarMouseClicked
-
-    }//GEN-LAST:event_pnlmodificarMouseClicked
-
-    private void pnlmodificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlmodificarMouseEntered
-        pnlmodificar.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
-    }//GEN-LAST:event_pnlmodificarMouseEntered
-
-    private void pnlmodificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlmodificarMouseExited
-        pnlmodificar.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
-    }//GEN-LAST:event_pnlmodificarMouseExited
 
     private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
         AgregarServicio poper = new AgregarServicio(null, true);
@@ -384,7 +345,6 @@ public class pnlServicio extends javax.swing.JPanel {
     };
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static app.bolivia.swing.JCTextField buscar;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
@@ -395,7 +355,6 @@ public class pnlServicio extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
@@ -404,7 +363,6 @@ public class pnlServicio extends javax.swing.JPanel {
     private javax.swing.JPanel pnlagregar;
     private javax.swing.JPanel pnleditar;
     private javax.swing.JPanel pnlespecialidad;
-    private javax.swing.JPanel pnlmodificar;
     private javax.swing.JPanel pnlorigenes;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
