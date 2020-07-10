@@ -69,7 +69,7 @@ public class MyTableCellEditor extends AbstractCellEditor implements TableCellEd
             }
             ///////////////////////////Si no exixste ninguna excepcion se realiza el registro en la bitacora
             else{
-                if( !db.insertBitacora( origen+"--"+destino,OldValue,NewValue,transporte,ID ) )
+                if( !db.insertBitacora( origen+"-"+destino,OldValue,NewValue,transporte,ID ) )
                 {   
                     
                 }                
