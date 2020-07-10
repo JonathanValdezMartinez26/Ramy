@@ -394,7 +394,7 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="68" y="225" width="161" height="20" forecolor="#000000" uuid="9d69b5d0-3da3-4dcc-8dbc-93d7642fc282"/>
+				<reportElement style="Column header" x="68" y="225" width="171" height="20" forecolor="#000000" uuid="9d69b5d0-3da3-4dcc-8dbc-93d7642fc282"/>
 				<textElement textAlignment="Left">
 					<font fontName="Verdana" size="10" isBold="false"/>
 				</textElement>
@@ -417,7 +417,7 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="366" y="225" width="132" height="20" forecolor="#000000" uuid="01e30609-9aed-485a-b291-bb4b3d6bcd63"/>
+				<reportElement style="Column header" x="366" y="225" width="153" height="20" forecolor="#000000" uuid="01e30609-9aed-485a-b291-bb4b3d6bcd63"/>
 				<textElement textAlignment="Left">
 					<font fontName="Verdana" size="10" isBold="false"/>
 				</textElement>
