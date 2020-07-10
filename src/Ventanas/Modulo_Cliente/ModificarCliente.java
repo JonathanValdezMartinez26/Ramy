@@ -56,11 +56,9 @@ public class ModificarCliente extends javax.swing.JDialog {
       
       ID_Localidad++;
    
-      ID_Esp = new int[ID_Localidad];
+      ID_Col = new int[ID_Localidad];
 
-
-       
-      ID_Esp [0] = 0; 
+      ID_Col [0] = 0; 
       
       int i = 1;
       
@@ -69,7 +67,7 @@ public class ModificarCliente extends javax.swing.JDialog {
      resultado = Conexion.consulta("Select ID_localidad, Nombre from localidad");
          
      while(resultado.next()){
-         ID_Esp [i] = resultado.getInt(1);
+         ID_Col [i] = resultado.getInt(1);
          cmbColonia.addItem(resultado.getString(2).trim());
          i++;
      }
@@ -197,7 +195,7 @@ public class ModificarCliente extends javax.swing.JDialog {
     }
     
      ResultSet resultado;
-     int ID_Esp [];
+     int ID_Col [];
      int IDD;
      private pnlClientes VM;
     
@@ -210,8 +208,7 @@ public class ModificarCliente extends javax.swing.JDialog {
         CargarLocalidad();
          
         String Nombre="";
-        String Atencion="", Calle = "";
-        int localidad = 0;
+        String Atencion="", Calle = "",localidad = "";
         
         try{
             
@@ -221,7 +218,7 @@ public class ModificarCliente extends javax.swing.JDialog {
              IDD = resultado.getInt(1);
              Nombre = resultado.getString(2);
              Atencion = resultado.getString(3);
-             localidad = resultado.getInt(4);
+             localidad = resultado.getString(4);
              Calle = resultado.getString(5);
             }
             
