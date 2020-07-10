@@ -78,7 +78,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e1" green="e1" red="e1" type="rgb"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Modulo Transportes"/>
+            <Property name="toolTipText" type="java.lang.String" value="M&#xf3;dulo Transportes"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlespecialidadMouseClicked"/>

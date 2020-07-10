@@ -29,21 +29,21 @@ public class EstiloTablaRendererCitas extends DefaultTableCellRenderer {
         
         if(tabla.getValueAt(row, 4).toString().equals("Cancelada"))
         {
-            componenete.setBackground(new Color(255,51,51));
+            componenete.setBackground(new Color(223,76,100));
             componenete.setForeground(new Color(255, 255, 255));
         } 
         else 
         {
             if(tabla.getValueAt(row, 4).toString().equals("Pendiente"))
             {
-                componenete.setBackground(new Color(255,153,51));
+                componenete.setBackground(new Color(232,113,47));
                 componenete.setForeground(new Color(255, 255, 255));
             } 
             else
             {
                 if(tabla.getValueAt(row, 4).toString().equals("Finalizada"))
                 {
-                    componenete.setBackground(new Color(27, 94, 32));
+                    componenete.setBackground(new Color(124, 198, 35));
                     componenete.setForeground(new Color(255, 255, 255));
                 } 
             }
@@ -53,7 +53,7 @@ public class EstiloTablaRendererCitas extends DefaultTableCellRenderer {
             
             if(tabla.getValueAt(row, 4).toString().equals("Cancelada"))
             {
-                componenete.setBackground(new Color(255,51,51));
+                componenete.setBackground(new Color(223,76,100));
                 componenete.setForeground(new Color(255, 255, 255));
                 componenete.setFont(new Font("Tahoma", Font.BOLD, 14));
             } 
@@ -61,7 +61,7 @@ public class EstiloTablaRendererCitas extends DefaultTableCellRenderer {
             {
                 if(tabla.getValueAt(row, 4).toString().equals("Pendiente"))
                 {
-                    componenete.setBackground(new Color(255,153,51));
+                    componenete.setBackground(new Color(232,113,47));
                     componenete.setForeground(new Color(255, 255, 255));
                     componenete.setFont(new Font("Tahoma", Font.BOLD, 14));
                 } 
@@ -69,7 +69,7 @@ public class EstiloTablaRendererCitas extends DefaultTableCellRenderer {
                 {
                     if(tabla.getValueAt(row, 4).toString().equals("Finalizada"))
                     {
-                        componenete.setBackground(new Color(27, 94, 32));
+                        componenete.setBackground(new Color(124, 198, 35));
                         componenete.setForeground(new Color(255, 255, 255));
                         componenete.setFont(new Font("Tahoma", Font.BOLD, 14));
                     } 
