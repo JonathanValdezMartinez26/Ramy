@@ -9,13 +9,23 @@ package Ventanas.Modulo_Cliente;
 import A_tabla.*;
 import Alerts.Ayuda3;
 import Clases.Conexion;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.io.File;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JRViewer;
 
 public class pnlPacientePersonalizado extends javax.swing.JPanel {
 
@@ -270,7 +280,7 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
     }//GEN-LAST:event_tablaMouseClicked
 
     private void pnlorigenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseClicked
-//        ver();
+        ver();
     }//GEN-LAST:event_pnlorigenesMouseClicked
 
     private void pnlorigenesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseEntered
@@ -307,4 +317,46 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
     private javax.swing.JPanel pnlorigenes;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
+public void ver() {
+        Clases.Conexion cc = new Clases.Conexion();
+        
+        int Fila = tabla.getSelectedRow();
+        int Filita = 1; 
+  
+        if (Fila >= 0) {
+
+            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            
+    
+       try {
+            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            Map parametro = new HashMap();
+            parametro.put("ID_Cliente", ID);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+
+            JRViewer jrv = new JRViewer(jasperPrint);
+            jrv.setZoomRatio((float) 0.75);
+            r.contenedor.removeAll();
+
+            r.contenedor.setLayout(new BorderLayout());
+            r.contenedor.add(jrv, BorderLayout.CENTER);
+
+            r.contenedor.repaint();
+            r.contenedor.revalidate();
+            jrv.setVisible(true);
+            r.setVisible(true);
+        } catch (JRException ex) {
+            System.err.println("Error iReport: " + ex.getMessage());
+        }
+    }
+        else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Seleccione el registro!");
+            AC.msj2.setText("a visualizar");
+            AC.setVisible(true);
+        }
 }
+    }
