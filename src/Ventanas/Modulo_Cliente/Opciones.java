@@ -21,80 +21,41 @@ public class Opciones {
     public static Connection cn = cc.conexion();
     static PreparedStatement ps;
 
-    
     public static void listar(String busca) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cliente.pnlClientes.tabla.getModel();
-        int contador = 0;
-        
+
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
         String sql = "";
         if (busca.equals("")) {
             sql = Clases.Clientes.LISTAR;
+        } else {
             
-            String datos[] = new String[7];
-        try {    
-            String ed= "";
+            sql = "SELECT * FROM clientev WHERE (ID_Cliente LIKE'" + busca + "%' OR "
+                    + "Nombre_Cliente  LIKE'" + busca + "%' OR Atencion  LIKE'" + busca + "% 'OR estado  LIKE'" + busca + "%'"
+                    + " OR municipio   LIKE'" + busca + "%' OR localidad  LIKE'" + busca + "%'"
+                    + " OR Calle  LIKE'" + busca + "%')"
+                    + " ORDER BY ID_Cliente";
+           }
+        String datos[] = new String[7];
+        try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                datos[0] = String.valueOf(rs.getInt(1));
-                datos[1] = rs.getString(2).trim();
-                datos[2] = rs.getString(3).trim();
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
-                datos[5] = rs.getString(6);
-                datos[6] = rs.getString(7);
-                
-                modelo.addRow(datos);
-            }
-            if(contador == 0 && !busca.equals("")){
-            datos[3]= "Sin Clientes...";
-            modelo.addRow(datos);
-        }
-        } catch (SQLException ex) {
-            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        } 
-        else 
-        {   
-            sql = "SELECT id_Paciente, concat_ws(' ',Nombres,Apellidos) as persona, Fecha_Nac,Nombre_Tutor,Telefono,Direccion,Estado FROM paciente WHERE concat_ws(' ',Nombres,Apellidos) LIKE '%" + busca +"%' OR ID_Paciente LIKE '"+ busca +"%' OR DATE_FORMAT(Paciente.Fecha_Nac, '%d/%m/%Y' ) LIKE '%"+ busca +"%' OR Nombre_Tutor LIKE '" + busca +"%' OR Telefono LIKE'"+ busca +"%' OR Direccion LIKE'"+ busca +"%' OR Estado LIKE'"+ busca +"%' ORDER BY ID_Paciente";         
-            String datos[] = new String[7];
-        try {    
-            String ed= "";
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                datos[0] = String.valueOf(rs.getInt(1));
-                String Paciente =  rs.getString(2).trim();
-                datos[1] = Paciente;
-                String Edad = rs.getString(3).trim();
-                try{
-                      
-                               
-                   }
-                catch(Exception e){
-                    System.out.println(e);
-                }
-                datos[2] = ed;
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
-                datos[5] = rs.getString(6);
-                
-                boolean Estado = rs.getBoolean(7);
-                String Estate = "Inactivo";
-
-                if (Estado) {
-                    Estate = "Activo";
-                }
-                datos[6] = Estate;
-
+            while (rs.next()) 
+            {
+                datos [0] = String.valueOf(rs.getInt(1));
+                datos [1] = rs.getString(2);
+                datos [2] = rs.getString(3);
+                datos [3] = rs.getString(4);
+                datos [4] = rs.getString(5);
+                datos [5] = rs.getString(6);
+                datos [6] = rs.getString(7);
+               
                 modelo.addRow(datos);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
-        }
         }
         
         

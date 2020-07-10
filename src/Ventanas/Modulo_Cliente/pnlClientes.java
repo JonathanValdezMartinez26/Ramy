@@ -470,7 +470,7 @@ public class pnlClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlagregarMouseExited
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-//        Opciones.listar(this.buscar.getText().trim());
+    Opciones.listar(this.buscar.getText().trim());
     }//GEN-LAST:event_buscarKeyReleased
 
     private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
