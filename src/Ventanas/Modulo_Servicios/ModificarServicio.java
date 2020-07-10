@@ -44,7 +44,7 @@ public class ModificarServicio extends javax.swing.JDialog {
 
 
   
-    public void CargarDatos(int ID){
+    public void CargarDatos(int ID,String Tipo){
         
         CargarServicio();
          
@@ -64,7 +64,8 @@ public class ModificarServicio extends javax.swing.JDialog {
         }catch(SQLException ex){}
         
         txtNombre.setText(Nombre_Servicio);
-        cmbTran.setSelectedItem(ID_Tipo_Servicio);
+        cmbTran.setSelectedItem(Tipo);
+        //cmbTran.setSelectedItem(Nombre_Servicio);
         
       
         
