@@ -103,7 +103,7 @@
 			</staticText>
 			<image>
 				<reportElement x="0" y="0" width="114" height="37" uuid="61d64d4d-3afa-4037-b80b-57abb73d5b11"/>
-				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement style="Column header" x="403" y="60" width="152" height="20" forecolor="#000000" uuid="871b4b2e-eb9d-4c1c-9447-2673329d9618"/>

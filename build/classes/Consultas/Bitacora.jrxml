@@ -259,7 +259,7 @@ ORDER BY fecha_mod DESC]]>
 			</textField>
 			<image>
 				<reportElement x="11" y="0" width="114" height="37" uuid="5a18e28b-2e86-465c-b31d-e33848f7f019"/>
-				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>

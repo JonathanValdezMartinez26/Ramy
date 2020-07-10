@@ -104,7 +104,7 @@
 			</staticText>
 			<image>
 				<reportElement x="0" y="0" width="114" height="37" uuid="7491bacb-68bc-4c79-adc9-4d9f8cd3b6f1"/>
-				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
