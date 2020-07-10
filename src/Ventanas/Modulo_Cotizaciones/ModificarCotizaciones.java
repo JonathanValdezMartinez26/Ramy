@@ -293,7 +293,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                                     {   
 
                                         Cotizaciones.Agregar_RutaCotizacion(ID_Cotizacion, ID_Rutas);
-                                        Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotizacion);
+                                        Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID_Cotizacion);
 
                                         this.cmbOrigenes.setSelectedItem(0);
                                         this.cmbDestinos.setSelectedItem(0);
@@ -334,9 +334,8 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     }
     
     public void CargarDatos(int ID){
-        
-//        CargarLocalidad();
-         
+        Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID);
+        IDCotizacion.setText(""+ID);
         String Nombre="";
         String Atencion="", Calle = "";
         int localidad = 0;
@@ -783,8 +782,6 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
            int ID_Cliente = ID_Cli[ID_Client];
             int i = 1;
 
-            JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
-
             cmbOrigenes.removeAllItems();
             cmbOrigenes.addItem("Seleccione un Origen");
 
@@ -803,12 +800,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             }
             
             cmbCliente.setEnabled(false);
-            Cotizaciones.Agregar_Cotizacion(ID_Cliente);
             lblatencion.setVisible(true);
-            lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
-            IDCotizacion.setText(""+ObtenID());
-            
-    //        Opciones.listar("");
+//            IDCotizacion.setText(""+ObtenID());
+          
          }
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
@@ -962,7 +956,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IDCotizacion;
+    public static javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
