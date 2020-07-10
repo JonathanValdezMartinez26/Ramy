@@ -300,7 +300,7 @@
                 <Column editable="false" title="Costo Antiguo" type="java.lang.String"/>
                 <Column editable="false" title="Costo Actual" type="java.lang.String"/>
                 <Column editable="false" title="Transporte" type="java.lang.String"/>
-                <Column editable="false" title="Fecha de Modificaci&#xf3;n" type="java.lang.Object"/>
+                <Column editable="false" title="Modificaci&#xf3;n" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

@@ -77,6 +77,7 @@ public class MyTableCellEditor extends AbstractCellEditor implements TableCellEd
                 Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
             AC.msj1.setText("¡Datos del Precio!");
             AC.msj2.setText("Guardados correctamente");
+            AC.msj3.setText("Precio de $"+OldValue+" a $"+NewValue);
             AC.setVisible(true);
             }
         }

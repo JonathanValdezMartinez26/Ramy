@@ -102,7 +102,7 @@ public class database {
         id_Cliente=Bitacora.ObtenerCliente(id2);////////////
         boolean res = false;        
         String q = " INSERT INTO bitacora_costos (ID_Bitacora,Nombre_Viaje,costo_antiguo,costo_nuevo,transporte,Fecha_Mod,ID_ClienteB)"
-                + "VALUES (NULL,'"+origen+"','"+costoA+"','"+costoN+"','"+transporte+"',Null,'"+id_Cliente+"')";
+                + "VALUES (NULL,'"+origen+"','"+costoA+"','"+costoN+"','"+transporte+"',(now()),'"+id_Cliente+"')";
         ////INSERT INTO `bitacora_costos` (`ID_Bitacora`, `Nombre_Viaje`, `costo_antiguo`, `costo_nuevo`,
         //`Fecha_Mod`, `ID_ClienteB`) VALUES (NULL, 'Villa,donato', '300', '400', current_timestamp(), '71');
         try {

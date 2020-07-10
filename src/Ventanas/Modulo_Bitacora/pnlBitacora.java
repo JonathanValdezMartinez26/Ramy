@@ -220,7 +220,7 @@ public class pnlBitacora extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Nombre de Viaje", "Costo Antiguo", "Costo Actual", "Transporte", "Fecha de Modificación"
+                "Nombre de Viaje", "Costo Antiguo", "Costo Actual", "Transporte", "Modificación"
             }
         ) {
             Class[] types = new Class [] {
