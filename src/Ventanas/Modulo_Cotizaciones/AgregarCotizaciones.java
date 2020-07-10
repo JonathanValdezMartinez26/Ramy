@@ -983,7 +983,7 @@ public void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cliente", ID);
@@ -1013,17 +1013,4 @@ public void ver() {
         }
 }
         
-        
-        
-        
-//          int Fila = tabla.getSelectedRow();
-//            if(Fila >= 0)
-//        {
-//            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-//            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-//            Eliminar ME = new Eliminar(null, true);
-//            ME.ID.setText(""+ID);
-//            ME.Cotizacion.setText(""+ID_Cotizacion);
-//            ME.setVisible(true);
-//        }
 }
