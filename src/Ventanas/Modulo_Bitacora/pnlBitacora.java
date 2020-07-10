@@ -183,7 +183,7 @@ public class pnlBitacora extends javax.swing.JPanel {
                 buscarKeyTyped(evt);
             }
         });
-        jPanel4.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 145, 30));
+        jPanel4.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 20, 140, 30));
         jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 1085, 5));
 
         buscarBitacora.setBorder(null);
@@ -203,10 +203,10 @@ public class pnlBitacora extends javax.swing.JPanel {
                 buscarBitacoraKeyTyped(evt);
             }
         });
-        jPanel4.add(buscarBitacora, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, 145, 30));
+        jPanel4.add(buscarBitacora, new org.netbeans.lib.awtextra.AbsoluteConstraints(935, 20, 140, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 210, -1));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 210, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 210, -1));
