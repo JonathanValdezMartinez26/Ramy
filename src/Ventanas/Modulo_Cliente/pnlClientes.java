@@ -6,6 +6,7 @@ import Clases.Conexion;
 import static Ventanas.Modulo_Cliente.Registrar.B;
 import static Ventanas.Modulo_Cliente.Registrar.C;
 import static Ventanas.Modulo_Cliente.Registrar.PanelDesliza;
+import static Ventanas.Modulo_Servicios.pnlServicio.tabla;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Point;
@@ -52,9 +53,12 @@ public class pnlClientes extends javax.swing.JPanel {
         if (Fila >= 0) {
 
             int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-
+            String localidad = (tabla.getValueAt(Fila, 5).toString());
+            String municipio = (tabla.getValueAt(Fila, 4).toString());
+            String estado = (tabla.getValueAt(Fila, 3).toString());
+            
             ModificarCliente MP = new ModificarCliente(null, true);
-            MP.CargarDatos(ID);
+            MP.CargarDatos(ID, localidad, municipio, estado);
             MP.setVM(this);
             MP.setVisible(true);
 

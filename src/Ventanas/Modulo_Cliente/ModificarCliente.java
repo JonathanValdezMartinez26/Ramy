@@ -24,7 +24,11 @@ public class ModificarCliente extends javax.swing.JDialog {
 
      int x, y;
      int ColoniaItem = 0;
-    
+     ResultSet resultado;
+     int ID_Col [], ID_Est [], ID_Mun [];
+     int IDD;
+     private pnlClientes VM;
+     
     public ModificarCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -32,52 +36,11 @@ public class ModificarCliente extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         this.txtNombre.requestFocus();
         
-        
         estados cc = new estados();
         DefaultComboBoxModel modelEstado = new DefaultComboBoxModel(cc.mostrarEstados());
         cmbEstado.setModel(modelEstado);
     }
 
-    public void CargarLocalidad(){
-            
-     int ID_Localidad = 0;
-     
-      try{
-         
-     resultado = Conexion.consulta("Select Max(ID_Localidad) from t_localidad");
-         
-     while(resultado.next()){
-         ID_Localidad = resultado.getInt(1);
-     }
-     }catch(SQLException ex){
-         
-     }
-        
-      
-      ID_Localidad++;
-   
-      ID_Col = new int[ID_Localidad];
-
-      ID_Col [0] = 0; 
-      
-      int i = 1;
-      
-      try{
-         
-     resultado = Conexion.consulta("Select ID_localidad, Nombre from localidad");
-         
-     while(resultado.next()){
-         ID_Col [i] = resultado.getInt(1);
-         cmbColonia.addItem(resultado.getString(2).trim());
-         i++;
-     }
-     }catch(SQLException ex){
-         
-     }
-       
-        
-}
-    
     public void Guardar(){
         String Nombre = txtNombre.getText().trim();
         String Atencion = txtAtencion.getText().trim();
@@ -152,7 +115,6 @@ public class ModificarCliente extends javax.swing.JDialog {
                                     }
                                     else
                                     {
-                                       
                                             if("".equals(Calle))
                                             {
                                                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -171,11 +133,7 @@ public class ModificarCliente extends javax.swing.JDialog {
                                                 }
                                                 else
                                                 {
-<<<<<<< HEAD
                                                     Clientes.Agregar_Cliente(Nombre,Atencion, ColoniaItem, Calle);
-=======
-//                                                    Clientes.Actualizar_Clientes(Nombre,Atencion, ColoniaItem, Calle);
->>>>>>> fcef14c39a4c625a66105eb3885b483f3b8664dd
                                                     Ventanas.Modulo_Cliente.Opciones.listar("");
                                                     this.dispose();
                                                     
@@ -193,46 +151,180 @@ public class ModificarCliente extends javax.swing.JDialog {
                }
             }    
     }
-    
-     ResultSet resultado;
-     int ID_Col [];
-     int IDD;
-     private pnlClientes VM;
-    
+
      public void setVM(pnlClientes VM) {
         this.VM = VM;
     }
-
-    public void CargarDatos(int ID){
+     
+      public void CargarDatos(int ID,String Localidad, String Municipio, String Estado){
         
-        CargarLocalidad();
+        CargarEstado();
+        CargarMunicipio(Municipio);
+        CargarLocalidad(Localidad);
          
-        String Nombre="";
-        String Atencion="", Calle = "",localidad = "";
+        String Nombre_cliente="";
+        String Atencion="",Calle="";
         
         try{
             
-            resultado = Conexion.consulta("Select * from Clientes Where ID_Cliente = "+ID);
+            resultado = Conexion.consulta("Select * from clientes Where ID_cliente = "+ID);
             
             while(resultado.next()){
              IDD = resultado.getInt(1);
-             Nombre = resultado.getString(2);
+             Nombre_cliente = resultado.getString(2);
              Atencion = resultado.getString(3);
-             localidad = resultado.getString(4);
              Calle = resultado.getString(5);
+             
             }
             
-        }catch(SQLException ex){}
+        }
+        catch(SQLException ex){}
         
-        txtNombre.setText(Nombre);
-        txtAtencion.setText(Atencion);
+        txtNombre.setText(Nombre_cliente);
+        txtAtencion.setText(Nombre_cliente);
+        cmbColonia.setSelectedItem(Localidad);
+        cmbMunicipio.setSelectedItem(Municipio);
+        cmbEstado.setSelectedItem(Estado);
         txtCalle.setText(Calle);
-        cmbColonia.setSelectedItem(localidad);
-        
-      
         
     }
+
+     public void CargarLocalidad(String Nombre){
+            
+     int ID_Localidad = 0;
+     int ID_Mun =0;
+    ///////////////////////
+     try{
+         
+     resultado = Conexion.consulta("Select id_municipio from t_localidad where localidad='"+ Nombre +"'");
+         
+     while(resultado.next()){
+         ID_Mun = resultado.getInt(1);
+     }
+     }catch(SQLException ex){
+         
+     }
+     ////////////////////
+      try{
+         
+     resultado = Conexion.consulta("Select Max(id_localidad) from t_localidad");
+         
+     while(resultado.next()){
+         ID_Localidad = resultado.getInt(1);
+     }
+     }catch(SQLException ex){
+         
+     }
+        
+      ID_Localidad++;
+   
+      ID_Col = new int[ID_Localidad];
+
+
+       
+      ID_Col [0] = 0; 
+      
+      int i = 1;
+      
+    try{
+         
+     resultado = Conexion.consulta("Select id_localidad, localidad from t_localidad where id_municipio=" + ID_Mun);
+         
+     while(resultado.next()){
+         ID_Col [i] = resultado.getInt(1);
+         cmbColonia.addItem(resultado.getString(2).trim());
+         i++;
+     }
+     }catch(SQLException ex){
+         
+     }
+}
     
+    public void CargarMunicipio(String Municipio){
+    int ID_Est = 0;        
+    int ID_Municipio = 0;
+    ///////////////////////
+     try{
+         
+     resultado = Conexion.consulta("Select id_estado from t_municipio where municipio='"+ Municipio +"'");
+         
+     while(resultado.next()){
+        ID_Est = resultado.getInt(1);
+     }
+     }catch(SQLException ex){
+         
+     }
+     ////////////////////
+    try{
+         
+    resultado = Conexion.consulta("Select Max(id_municipio) from t_municipio");
+         
+        while(resultado.next()){
+             ID_Municipio = resultado.getInt(1);
+        }
+    }catch(SQLException ex){}
+        
+    ID_Municipio++;
+   
+    ID_Mun = new int[ID_Municipio];
+
+    ID_Mun [0] = 0; 
+      
+    int i = 1;
+      
+    try{
+        resultado = Conexion.consulta("Select id_municipio, municipio from t_municipio where id_estado =" + ID_Est);
+
+        while(resultado.next()){
+            ID_Mun [i] = resultado.getInt(1);
+            cmbMunicipio.addItem(resultado.getString(2).trim());
+            i++;
+        }
+     }catch(SQLException ex){
+         
+     }
+}
+     
+    public void CargarEstado(){
+            
+     int ID_Estado = 0;
+     
+      try{
+         
+     resultado = Conexion.consulta("Select Max(id_estado) from t_estado");
+         
+     while(resultado.next()){
+         ID_Estado = resultado.getInt(1);
+     }
+     }catch(SQLException ex){
+         
+     }
+        
+      ID_Estado++;
+   
+      ID_Est = new int[ID_Estado];
+
+
+       
+      ID_Est [0] = 0; 
+      
+      int i = 1;
+      
+      try{
+         
+     resultado = Conexion.consulta("Select id_estado, estado from t_estado");
+         
+     while(resultado.next()){
+         ID_Est [i] = resultado.getInt(1);
+         cmbEstado.addItem(resultado.getString(2).trim());
+         i++;
+     }
+     }catch(SQLException ex){
+         
+     }
+       
+        
+}
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -529,32 +621,32 @@ public class ModificarCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_txtCalleKeyTyped
 
     private void cmbMunicipioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbMunicipioItemStateChanged
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
-            municipios mun = (municipios) cmbMunicipio.getSelectedItem();
-            localidades loc = new localidades();
-            DefaultComboBoxModel modelLocalidad = new DefaultComboBoxModel(loc.mostrarLocalidad(mun.getId()));
-            cmbColonia.setModel(modelLocalidad);
-        }
+//        if (evt.getStateChange() == ItemEvent.SELECTED) {
+//            municipios mun = (municipios) cmbMunicipio.getSelectedItem();
+//            localidades loc = new localidades();
+//            DefaultComboBoxModel modelLocalidad = new DefaultComboBoxModel(loc.mostrarLocalidad(mun.getId()));
+//            cmbColonia.setModel(modelLocalidad);
+//        }
     }//GEN-LAST:event_cmbMunicipioItemStateChanged
 
     private void cmbColoniaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbColoniaItemStateChanged
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
-            estados est = (estados) cmbEstado.getSelectedItem();
-            municipios mun = (municipios) cmbMunicipio.getSelectedItem();
-            localidades loc = (localidades) cmbColonia.getSelectedItem();
-
-            ColoniaItem = loc.getId();
-        }
+//        if (evt.getStateChange() == ItemEvent.SELECTED) {
+//            estados est = (estados) cmbEstado.getSelectedItem();
+//            municipios mun = (municipios) cmbMunicipio.getSelectedItem();
+//            localidades loc = (localidades) cmbColonia.getSelectedItem();
+//
+//            ColoniaItem = loc.getId();
+//        }
     }//GEN-LAST:event_cmbColoniaItemStateChanged
 
     private void cmbEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbEstadoItemStateChanged
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
-            estados est = (estados) cmbEstado.getSelectedItem();
-            municipios mun = new municipios();
-            DefaultComboBoxModel modelMunicipio = new DefaultComboBoxModel(mun.mostrarMunicipio(est.getId()));
-            cmbMunicipio.setModel(modelMunicipio);
-            cmbColonia.removeAllItems();
-        }
+//        if (evt.getStateChange() == ItemEvent.SELECTED) {
+//            estados est = (estados) cmbEstado.getSelectedItem();
+//            municipios mun = new municipios();
+//            DefaultComboBoxModel modelMunicipio = new DefaultComboBoxModel(mun.mostrarMunicipio(est.getId()));
+//            cmbMunicipio.setModel(modelMunicipio);
+//            cmbColonia.removeAllItems();
+//        }
     }//GEN-LAST:event_cmbEstadoItemStateChanged
 
     public static void main(String args[]) {

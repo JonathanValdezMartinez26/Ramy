@@ -372,7 +372,7 @@ public class pnlServicio extends javax.swing.JPanel {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
             File fichero = new File("test.txt");
             System.out.println("La ruta del fichero es: " + fichero.getAbsolutePath());
-            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Servicios.jasper";
+            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Servicios.jasper";
 //            String archivo = "Reportes/Servicios.jasper";";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();

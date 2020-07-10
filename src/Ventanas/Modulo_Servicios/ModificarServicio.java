@@ -23,6 +23,7 @@ public class ModificarServicio extends javax.swing.JDialog {
      ResultSet resultado;
      int ID_Esp [];
      private pnlServicio VM;
+     int IDD;
      
      public void setVM(pnlServicio VM) {
         this.VM = VM;
@@ -37,13 +38,6 @@ public class ModificarServicio extends javax.swing.JDialog {
         
     }
      
-
-     
-    
-     
-
-
-  
     public void CargarDatos(int ID,String Tipo){
         
         CargarServicio();
@@ -71,8 +65,6 @@ public class ModificarServicio extends javax.swing.JDialog {
         
     }
 
-int IDD;
-  
     public void CargarServicio(){
             
      int ID_Tipo_Servicio = 0;
