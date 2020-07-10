@@ -112,7 +112,7 @@
 			</staticText>
 			<image>
 				<reportElement x="0" y="0" width="114" height="37" uuid="00132f9c-25db-492b-93e1-86a4425d3e4c"/>
-				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
