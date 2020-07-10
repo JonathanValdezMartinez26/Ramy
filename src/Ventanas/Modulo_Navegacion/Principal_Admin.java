@@ -2,7 +2,6 @@ package Ventanas.Modulo_Navegacion;
 
 import Ventanas.Inicio.pnlInicio;
 import Ventanas.Modulo_AcercaDe.pnlAcerca;
-import Ventanas.Modulo_Cita.pnlCitas;
 import Ventanas.Modulo_Cliente.pnlClientes;
 import Ventanas.Modulo_Configuracion.pnlConfiguracion;
 import Ventanas.Modulo_Bitacora.pnlBitacora;
@@ -38,7 +37,7 @@ public class Principal_Admin extends javax.swing.JFrame {
             } 
         catch (NullPointerException ex) 
         {
-            
+             
         }
         //Fecha del sistema
         Date sistemaFech = new Date();
@@ -54,7 +53,7 @@ public class Principal_Admin extends javax.swing.JFrame {
         attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
         info.setFont(font.deriveFont(attributes));
     }
-    public static int ID_Usuario;
+    public static int ID_Usuario; 
 
     public static void setID_Usuario(int ID_Usuario) {
         Principal_Admin.ID_Usuario = ID_Usuario;

@@ -46,65 +46,35 @@ public class EstiloTablaRendererCitas extends DefaultTableCellRenderer {
                     componenete.setBackground(new Color(27, 94, 32));
                     componenete.setForeground(new Color(255, 255, 255));
                 } 
-                
             }
         }
         
-        if (column == 0) 
-        {
-            componenete.setBackground( new Color(251,251,251) );
-            componenete.setForeground(Color.BLACK);
-        }
-        if (isSelected) 
-        {
+        if (isSelected) {
+            
             if(tabla.getValueAt(row, 4).toString().equals("Cancelada"))
             {
                 componenete.setBackground(new Color(255,51,51));
                 componenete.setForeground(new Color(255, 255, 255));
-                componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
-                
-                if (column == 0) 
-                {
-                    componenete.setBackground(new Color(251,251,251));
-                    componenete.setForeground(Color.BLACK);
-                    componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
-                }
-            }
-            else
+                componenete.setFont(new Font("Tahoma", Font.BOLD, 14));
+            } 
+            else 
             {
                 if(tabla.getValueAt(row, 4).toString().equals("Pendiente"))
                 {
                     componenete.setBackground(new Color(255,153,51));
                     componenete.setForeground(new Color(255, 255, 255));
-                    componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
-
-                    if (column == 0) 
-                    {
-                        componenete.setBackground(new Color(251,251,251));
-                        componenete.setForeground(Color.BLACK);
-                        componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
-                    }
-                }
+                    componenete.setFont(new Font("Tahoma", Font.BOLD, 14));
+                } 
                 else
                 {
-                   if(tabla.getValueAt(row, 4).toString().equals("Atendida"))
+                    if(tabla.getValueAt(row, 4).toString().equals("Finalizada"))
                     {
                         componenete.setBackground(new Color(27, 94, 32));
                         componenete.setForeground(new Color(255, 255, 255));
-                        componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
-
-                        if (column == 0) 
-                        {
-                            componenete.setBackground(new Color(251,251,251));
-                            componenete.setForeground(Color.BLACK);
-                            componenete.setFont(new Font("Tahoma", Font.PLAIN, 16));
-                        }
+                        componenete.setFont(new Font("Tahoma", Font.BOLD, 14));
                     } 
                 }
             }
-            
-          
-            
         }
 
         return componenete;

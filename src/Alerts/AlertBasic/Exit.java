@@ -2,7 +2,6 @@
 package Alerts.AlertBasic;
 
 import Alerts.*;
-import Clases.Cita;
 import com.sun.glass.events.KeyEvent;
 import java.awt.event.WindowEvent;
 import static java.lang.System.exit;
