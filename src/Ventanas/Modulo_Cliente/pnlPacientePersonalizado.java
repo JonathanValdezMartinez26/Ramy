@@ -317,39 +317,52 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
     private javax.swing.JPanel pnlorigenes;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
-public void ver() {
+ public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
         
         int Fila = tabla.getSelectedRow();
         int Filita = 1; 
   
         if (Fila >= 0) {
-
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            String Status = tabla.getValueAt(Fila, 3).toString();
             
+            if(Fila == 1)
+                {
+                   Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                   AC.msj1.setText("¡Las Cotizaciones Finalizadas o Canceladas!");
+                   AC.msj2.setText("no se pueden visualizar");
+                   AC.setVisible(true);
+                }
+                else
+                {
+                    
+                      int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
     
-       try {
-            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
-            Map parametro = new HashMap();
-            parametro.put("ID_Cliente", ID);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+                    try {
+                        Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
+                        String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+                        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+                        Map parametro = new HashMap();
+                        parametro.put("ID_Cliente", ID);
+                        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
-            JRViewer jrv = new JRViewer(jasperPrint);
-            jrv.setZoomRatio((float) 0.75);
-            r.contenedor.removeAll();
+                        JRViewer jrv = new JRViewer(jasperPrint);
+                        jrv.setZoomRatio((float) 0.75);
+                        r.contenedor.removeAll();
 
-            r.contenedor.setLayout(new BorderLayout());
-            r.contenedor.add(jrv, BorderLayout.CENTER);
+                        r.contenedor.setLayout(new BorderLayout());
+                        r.contenedor.add(jrv, BorderLayout.CENTER);
 
-            r.contenedor.repaint();
-            r.contenedor.revalidate();
-            jrv.setVisible(true);
-            r.setVisible(true);
-        } catch (JRException ex) {
-            System.err.println("Error iReport: " + ex.getMessage());
-        }
+                        r.contenedor.repaint();
+                        r.contenedor.revalidate();
+                        jrv.setVisible(true);
+                        r.setVisible(true);
+                    } catch (JRException ex) {
+                        System.err.println("Error iReport: " + ex.getMessage());
+                    }
+                    
+                }
+                
     }
         else
         {
