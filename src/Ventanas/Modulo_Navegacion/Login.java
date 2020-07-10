@@ -94,30 +94,13 @@ public class Login extends javax.swing.JFrame {
             { 
                 if(Rol == 2)
                 {
-                    Principal_Secretaria P = new Principal_Secretaria();
-                    String id = Funciones.obtenerID(this.txtUser.getText());
-                    P.info.setText("Asis. "+ Nombre);
-                    P.lblUserActivo.setText(this.txtUser.getText());
-                    P.lblIDActivo.setText(id);
-                    P.setVisible(true);
-                    P.toFront();
-                }
-                else
-                {
-                    if(Rol == 3)
-                    {
-//                        Principal_Medico P = new Principal_Medico();
-//                        String id = Funciones.obtenerID(this.txtUser.getText());
-//                        String idM = Funciones.obtenerIDM(this.txtUser.getText());
-//                        P.info.setText("Dr. "+ Nombre);
-//                        P.lblUserActivo.setText(this.txtUser.getText());
-//                        P.lblIDMedico.setText(idM);
-//                        P.lblIDActivo.setText(id);
-//                        P.setVisible(true);
-//                        P.toFront();
-//                        Principal_Medico.setID_Usuario(ID_Usuario);
-                        
-                    }
+//                    Principal_Secretaria P = new Principal_Secretaria();
+//                    String id = Funciones.obtenerID(this.txtUser.getText());
+//                    P.info.setText("Asis. "+ Nombre);
+//                    P.lblUserActivo.setText(this.txtUser.getText());
+//                    P.lblIDActivo.setText(id);
+//                    P.setVisible(true);
+//                    P.toFront();
                 }
             }
             

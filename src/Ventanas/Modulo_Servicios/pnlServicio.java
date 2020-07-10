@@ -1,9 +1,7 @@
 package Ventanas.Modulo_Servicios;
 
 import A_tabla.*;
-import Clases.Cita;
 import Clases.Conexion;
-import Ventanas.Modulo_Cita.*;
 import Ventanas.Modulo_Tipo_Servicio.AgregarTipoServicio;
 import Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio;
 import java.awt.BorderLayout;
