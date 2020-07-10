@@ -32,10 +32,11 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select * from cotizacionesv";
+            //sql = "Select * from cotizacionesv";
+            sql = "Select * from cotizacionesv where Estado=0";
         } else {
             
-            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionesv where Nombre_Cliente LIKE '%" + busca +"%' OR Atencion LIKE '%"+ busca +"%' OR Fecha_Alta LIKE '%"+ busca +"%' OR Estatus LIKE '%"+busca+"%' ";
+            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionesv where Estado=0 AND Nombre_Cliente LIKE '%" + busca +"%' OR Atencion LIKE '%"+ busca +"%' OR Fecha_Alta LIKE '%"+ busca +"%' OR Estatus LIKE '%"+busca+"%' ";
             
            }
         String datos[] = new String[5];
@@ -93,6 +94,28 @@ public class Opciones {
         } catch (SQLException ex) {
             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public static void eliminarCotizacion(int ID) {
+        
+        String sql = "";
+               //JOptionPane.showMessageDialog(null, ID);
+               sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+
+                try {
+                            PreparedStatement pstm = cn.prepareStatement(sql);
+                            pstm.execute();
+                            pstm.close();
+                            
+                        Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                        AC.msj1.setText("¡Esta cotización!");
+                        AC.msj2.setText("A sido Eliminada");
+                        AC.setVisible(true);
+                            
+                            //res=true;
+                         }catch(SQLException e){            
+                            System.out.println(e);
+                        }
+
     }
     //////////////////////////////////////////////////////////////////
      public static void listarModificar(String busca, int ID) {
