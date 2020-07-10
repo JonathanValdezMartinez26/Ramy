@@ -13,6 +13,7 @@ import Clases.Conexion;
 import static Ventanas.Modulo_Cliente.Registrar.B;
 import static Ventanas.Modulo_Cliente.Registrar.C;
 import static Ventanas.Modulo_Cliente.Registrar.PanelDesliza;
+import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Point;
@@ -51,29 +52,38 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         
         
     }
-//    public void Modificar() {
-//
-//        int Fila = tabla.getSelectedRow();
-//        int Filita = 1; 
-//  
-//        if (Fila >= 0) {
-//
-//            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-//
-//            Modificar MP = new Modificar(null, true);
-//            MP.CargarDatos(ID);
-//            MP.setPP(this);
-//            MP.setVisible(true);
-//
-//        } else {
-//            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-//            AC.msj1.setText("¡Seleccione el registro!");
-//            AC.msj2.setText("A modificar");
-//            AC.setVisible(true);
-//        }
-//   
-//
-//    }
+    public void Modificar() {
+
+        int Fila = tabla.getSelectedRow();
+        int Filita = 1; 
+  
+        if (Fila >= 0) {
+            String status = (tabla.getValueAt(Fila, 4).toString());
+            
+                    if(status.equals("Pendiente")){
+                    int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+
+                    ModificarCotizaciones MP = new ModificarCotizaciones(null, true);
+                    MP.CargarDatos(ID);
+                    MP.setPP(this);
+                    MP.setVisible(true);
+                    }else{
+                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                        AC.msj1.setText("¡Esta cotización!");
+                        AC.msj2.setText("A sido finalizada");
+                        AC.setVisible(true);
+                    }
+            
+            
+        } else {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Seleccione el registro!");
+            AC.msj2.setText("A modificar");
+            AC.setVisible(true);
+        }
+   
+
+    }
     
     ///////////////////
     public void Origenes()
@@ -211,6 +221,11 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         });
         tabla.setRowHeight(22);
         tabla.getTableHeader().setReorderingAllowed(false);
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
@@ -407,7 +422,9 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     }//GEN-LAST:event_buscarKeyTyped
 
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-//        Modificar();
+      Modificar();
+      
+
     }//GEN-LAST:event_pnleditarMouseClicked
 
     private void pnleditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseEntered
@@ -442,6 +459,12 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     private void pnlpdfMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdfMouseExited
         pnlpdf.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlpdfMouseExited
+
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+
+
+        
+    }//GEN-LAST:event_tablaMouseClicked
      
     DefaultTableModel model = new DefaultTableModel() {
 
