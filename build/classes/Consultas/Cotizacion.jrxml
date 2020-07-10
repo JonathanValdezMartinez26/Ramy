@@ -3,8 +3,8 @@
 	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="26"/>
-	<property name="ireport.y" value="55"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -60,9 +60,9 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 	<group name="origen">
 		<groupExpression><![CDATA[$F{Origen}]]></groupExpression>
 		<groupHeader>
-			<band height="46">
+			<band height="52">
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="10" y="6" width="233" height="20" forecolor="#000000" backcolor="#FF9900" uuid="f3db395b-0d1a-4e5e-9eaa-09b8884fe810"/>
+					<reportElement style="Column header" mode="Opaque" x="9" y="6" width="247" height="20" forecolor="#000000" backcolor="#FF9900" uuid="f3db395b-0d1a-4e5e-9eaa-09b8884fe810"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -75,22 +75,8 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 					</textElement>
 					<text><![CDATA[                                    DESTINO]]></text>
 				</staticText>
-				<textField>
-					<reportElement mode="Opaque" x="10" y="26" width="233" height="20" backcolor="#FFFF01" uuid="490a5398-f2b7-4ff2-bbdd-337c2f364677"/>
-					<box>
-						<pen lineWidth="0.75"/>
-						<topPen lineWidth="0.75"/>
-						<leftPen lineWidth="0.75"/>
-						<bottomPen lineWidth="0.75"/>
-						<rightPen lineWidth="0.75"/>
-					</box>
-					<textElement textAlignment="Center">
-						<font fontName="Arial" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA["VIAJES DE"+" "+$F{Origen}+" "+" A: "]]></textFieldExpression>
-				</textField>
 				<staticText>
-					<reportElement style="table_TH" x="242" y="6" width="64" height="40" forecolor="#000000" backcolor="#FF9900" uuid="429e7d77-5b53-403b-9462-bf05600f06ca"/>
+					<reportElement style="table_TH" x="256" y="6" width="61" height="46" forecolor="#000000" backcolor="#FF9900" uuid="429e7d77-5b53-403b-9462-bf05600f06ca"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -104,7 +90,7 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 					<text><![CDATA[CAMIONETA 1.5 TON]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="306" y="6" width="67" height="40" forecolor="#000000" backcolor="#FF9900" uuid="995ea16f-28e8-488c-81ae-2a48711d1890"/>
+					<reportElement style="Column header" mode="Opaque" x="317" y="6" width="70" height="46" forecolor="#000000" backcolor="#FF9900" uuid="995ea16f-28e8-488c-81ae-2a48711d1890"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -118,7 +104,7 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 					<text><![CDATA[  CAMIONETA 3.5 TON]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="373" y="6" width="58" height="40" forecolor="#000000" backcolor="#FF9900" uuid="d21dd8b3-fcbf-400f-8347-0c75941f2a19"/>
+					<reportElement style="Column header" mode="Opaque" x="387" y="6" width="60" height="46" forecolor="#000000" backcolor="#FF9900" uuid="d21dd8b3-fcbf-400f-8347-0c75941f2a19"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -132,7 +118,7 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 					<text><![CDATA[TORTHON]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="431" y="6" width="57" height="40" forecolor="#000000" backcolor="#FF9900" uuid="d0bfd9a5-30ce-492c-9d9a-7c7a999a31de"/>
+					<reportElement style="Column header" mode="Opaque" x="447" y="6" width="51" height="46" forecolor="#000000" backcolor="#FF9900" uuid="d0bfd9a5-30ce-492c-9d9a-7c7a999a31de"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -146,7 +132,7 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 					<text><![CDATA[TRAILER]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="488" y="6" width="54" height="40" forecolor="#000000" backcolor="#FF9900" uuid="9faee34a-aa5d-42f8-8fcb-fd41cfb64f9a"/>
+					<reportElement style="Column header" mode="Opaque" x="498" y="6" width="44" height="46" forecolor="#000000" backcolor="#FF9900" uuid="9faee34a-aa5d-42f8-8fcb-fd41cfb64f9a"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -208,7 +194,7 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[ new java.util.Date()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="Column header" x="416" y="25" width="132" height="20" forecolor="#000000" uuid="b34d53b5-7015-421f-a3a1-b2669d034f0b"/>
@@ -268,7 +254,7 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 				<textElement>
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[ $F{Nombre_Cliente}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Nombre_Cliente}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="10" y="68" width="331" height="30" uuid="ceb89c1a-479c-445e-abb5-f4b6b203b0da"/>
@@ -334,7 +320,7 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 	<detail>
 		<band height="24" splitType="Stretch">
 			<textField>
-				<reportElement style="table" x="10" y="1" width="232" height="23" uuid="647b30f8-96cf-4697-a4ce-033799ffc850"/>
+				<reportElement style="table" x="9" y="1" width="247" height="23" uuid="647b30f8-96cf-4697-a4ce-033799ffc850"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -349,29 +335,43 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 				<textFieldExpression><![CDATA[$F{Destino}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table_TH" x="304" y="1" width="69" height="23" backcolor="#FFFFFF" uuid="faf51273-7f5a-4641-af8a-355ed4d2dc5f"/>
+				<reportElement style="table_TH" x="317" y="1" width="70" height="23" backcolor="#FFFFFF" uuid="faf51273-7f5a-4641-af8a-355ed4d2dc5f"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{CAMIONETA_TRES_CINCO_TON}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table_TH" x="373" y="1" width="58" height="23" backcolor="#FFFFFF" uuid="6bffa775-e756-488b-a7c8-78ea816c6429"/>
+				<reportElement style="table_TH" x="387" y="1" width="60" height="23" backcolor="#FFFFFF" uuid="6bffa775-e756-488b-a7c8-78ea816c6429"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{TORTHON}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table_TH" x="243" y="1" width="61" height="23" backcolor="#FFFFFF" uuid="627ee650-20f4-4e6e-b552-5ab8a564e7a0"/>
+				<reportElement style="table_TH" x="256" y="1" width="61" height="23" backcolor="#FFFFFF" uuid="627ee650-20f4-4e6e-b552-5ab8a564e7a0"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{CAMIONETA_UNO_CINCO_TON}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table_TH" x="488" y="1" width="54" height="23" backcolor="#FFFFFF" uuid="27549562-da04-4c65-b145-96467c0f5ee9"/>
+				<reportElement style="table_TH" x="498" y="1" width="44" height="23" backcolor="#FFFFFF" uuid="27549562-da04-4c65-b145-96467c0f5ee9"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{FULL}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table_TH" x="431" y="1" width="57" height="23" backcolor="#FFFFFF" uuid="e6004563-af3d-4263-8780-158587ae8937"/>
+				<reportElement style="table_TH" x="447" y="1" width="51" height="23" backcolor="#FFFFFF" uuid="e6004563-af3d-4263-8780-158587ae8937"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{TRÁILER}.intValue()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="9" y="-26" width="247" height="26" backcolor="#FFFF01" uuid="490a5398-f2b7-4ff2-bbdd-337c2f364677"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["VIAJES DE"+" "+$F{Origen}+" "+" A: "]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
