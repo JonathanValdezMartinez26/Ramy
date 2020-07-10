@@ -46,7 +46,7 @@ public class AgregarTipoServicio extends javax.swing.JDialog {
                 }
             else{
                   Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                    AC.msj1.setText("¡La especialidad!");
+                    AC.msj1.setText("¡El Servicio!");
                     AC.msj2.setText(" Ya existe.");
                     AC.setVisible(true);
                

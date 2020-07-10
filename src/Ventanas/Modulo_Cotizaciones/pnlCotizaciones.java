@@ -84,6 +84,32 @@ public class pnlCotizaciones extends javax.swing.JPanel {
    
 
     }
+    public void Eliminar() {
+
+        int Fila = tabla.getSelectedRow();
+        int Filita = 1; 
+        int ID = 0;
+  
+        if (Fila >= 0) {
+                        ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+                        Alerts.AlertBasic.EliminarCotizaciones AC = new  Alerts.AlertBasic.EliminarCotizaciones(null, true);
+                        AC.msj1.setText("¡Desea Eliminar!");
+                        AC.msj2.setText("la Cotizacion");
+                        AC.msj2.setText("esta accioon nnn");
+                        AC.ID.setText("" + ID);
+                        AC.setVisible(true);
+                        
+                        
+                    
+        } else {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Seleccione el registro!");
+            AC.msj2.setText("A Eliminar");
+            AC.setVisible(true);
+        }
+   
+
+    }
     
     ///////////////////
     public void Origenes()
@@ -433,6 +459,8 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlorigenesMouseExited
 
     private void pnlpdfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdfMouseClicked
+        Eliminar();
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_pnlpdfMouseClicked
 

@@ -142,10 +142,10 @@ public class pnlUsuarios extends javax.swing.JPanel {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("   Usuarios");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 69));
+        jLabel6.setText("      Usuarios");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 69));
 
-        jPanel12.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 70));
+        jPanel12.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 70));
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,7 +168,7 @@ public class pnlUsuarios extends javax.swing.JPanel {
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nuevo.png"))); // NOI18N
         pnlagregar.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 69));
+        jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 69));
 
         add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1106, 69));
 
