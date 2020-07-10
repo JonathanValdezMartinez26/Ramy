@@ -54,9 +54,10 @@ public class pnlServicio extends javax.swing.JPanel {
         if(Fila >= 0)
         {
             int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            String tipo = (tabla.getValueAt(Fila, 2).toString());
 
             ModificarServicio MM = new ModificarServicio(null, true);
-            MM.CargarDatos(ID);
+            MM.CargarDatos(ID,tipo);
             MM.setVM(this);
             MM.setVisible(true);
         }
