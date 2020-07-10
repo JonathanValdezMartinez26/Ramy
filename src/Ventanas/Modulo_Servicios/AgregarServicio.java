@@ -228,7 +228,7 @@ public class AgregarServicio extends javax.swing.JDialog {
 
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una opción" }));
         cmbTipo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        pnlPrincipal.add(cmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 230, 30));
+        pnlPrincipal.add(cmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 230, 30));
 
         jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 6, 350, 300));
 
