@@ -23,7 +23,7 @@ public class Tipo_Servicio {
             consulta.execute();
 
             Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Datos de !");
+            AC.msj1.setText("¡Datos del Servicio !");
             AC.msj2.setText("Guardados correctamente");
             AC.setVisible(true);
             
