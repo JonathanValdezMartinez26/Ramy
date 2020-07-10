@@ -200,7 +200,7 @@ public class AgregarCliente extends javax.swing.JDialog {
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar.setToolTipText("Guardar Especialidad");
+        pnlagregar.setToolTipText("Guardar Cliente");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseClicked(evt);

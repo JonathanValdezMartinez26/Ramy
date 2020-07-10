@@ -378,7 +378,7 @@ public class pnlClientes extends javax.swing.JPanel {
         pnlpdf.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel19.setText("    Visualizar");
+        jLabel19.setText("     Global");
         pnlpdf.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N

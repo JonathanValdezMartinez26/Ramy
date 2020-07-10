@@ -136,7 +136,7 @@ public class pnlServicio extends javax.swing.JPanel {
         jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 69));
 
         pnlespecialidad.setBackground(new java.awt.Color(225, 225, 225));
-        pnlespecialidad.setToolTipText("Modulo Servicios");
+        pnlespecialidad.setToolTipText("Módulo Servicios");
         pnlespecialidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlespecialidadMouseClicked(evt);
