@@ -1,12 +1,14 @@
 package Ventanas.Modulo_Cotizaciones;
 
+import A_tabla.EstiloTablaHeader;
 import Ventanas.Modulo_Cliente.*;
 import A_tabla.EstiloTablaHeader1;
+import A_tabla.EstiloTablaRenderer;
 import A_tabla.EstiloTablaRenderer1;
 import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import static Alerts.AlertBasic.AgregarDestinos.ID;
-import Alerts.AlertBasic.Eliminar;
+import Alerts.AlertBasic.Eliminar1;
 import Alerts.FadeEffect;
 import Clases.Clientes;
 import Clases.Conexion;
@@ -77,6 +79,24 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         lblatencion.setVisible(false);
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(false);
+        
+        tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane.getVerticalScrollBar().setUI(new MyScrollbarUI());
+        jScrollPane.getHorizontalScrollBar().setUI(new MyScrollbarUI());
+        
+        tabla1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.tabla1.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.tabla1.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.tabla1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
+        jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
      
     }
     
@@ -191,7 +211,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         {
             int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
             int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-            Eliminar ME = new Eliminar(null, true);
+            Eliminar1 ME = new Eliminar1(null, true);
             ME.ID.setText(""+ID);
             ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);

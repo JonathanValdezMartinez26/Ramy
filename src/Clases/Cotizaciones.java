@@ -183,6 +183,7 @@ public static ResultSet resultado;
             AC.msj1.setText("¡Error 3715!");
             AC.msj2.setText("¡Contacte a servicios ProMedic!");
             AC.setVisible(true);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }
 
