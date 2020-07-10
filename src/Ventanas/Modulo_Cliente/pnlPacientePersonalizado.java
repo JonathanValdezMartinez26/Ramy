@@ -323,19 +323,7 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
         int Fila = tabla.getSelectedRow();
         int Filita = 1; 
   
-        if (Fila >= 0) {
-            String Status = tabla.getValueAt(Fila, 3).toString();
-            
-            if(Fila == 1)
-                {
-                   Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                   AC.msj1.setText("¡Las Cotizaciones Finalizadas o Canceladas!");
-                   AC.msj2.setText("no se pueden visualizar");
-                   AC.setVisible(true);
-                }
-                else
-                {
-                    
+        if (Fila >= 0 ) {
                       int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
     
                     try {
@@ -359,11 +347,10 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
                         r.setVisible(true);
                     } catch (JRException ex) {
                         System.err.println("Error iReport: " + ex.getMessage());
-                    }
-                    
-                }
+                        
                 
     }
+        }      
         else
         {
             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
