@@ -35,7 +35,7 @@ public class Opciones {
             sql = "Select * from cotizacionesv";
         } else {
             
-            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionv where Nombre_Cliente LIKE '%" + busca +"%' OR Atencion LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' OR Estatus LIKE '"+busca;
+            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionesv where Nombre_Cliente LIKE '%" + busca +"%' OR Atencion LIKE '%"+ busca +"%' OR Fecha_Alta LIKE '%"+ busca +"%' OR Estatus LIKE '%"+busca+"%' ";
             
            }
         String datos[] = new String[5];

@@ -173,7 +173,11 @@ public class ModificarCliente extends javax.swing.JDialog {
                                                 }
                                                 else
                                                 {
+<<<<<<< HEAD
                                                     Clientes.Agregar_Cliente(Nombre,Atencion, ColoniaItem, Calle);
+=======
+//                                                    Clientes.Actualizar_Clientes(Nombre,Atencion, ColoniaItem, Calle);
+>>>>>>> fcef14c39a4c625a66105eb3885b483f3b8664dd
                                                     Ventanas.Modulo_Cliente.Opciones.listar("");
                                                     this.dispose();
                                                     

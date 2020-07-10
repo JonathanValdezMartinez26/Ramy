@@ -205,7 +205,7 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 			</staticText>
 			<image>
 				<reportElement x="10" y="6" width="104" height="45" uuid="5a18e28b-2e86-465c-b31d-e33848f7f019"/>
-				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement mode="Opaque" x="343" y="135" width="53" height="15" forecolor="#000000" backcolor="#FFFF01" uuid="511fe95a-b6ab-4105-bec1-76f9810082a8"/>
