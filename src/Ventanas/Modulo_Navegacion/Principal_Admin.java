@@ -2,7 +2,6 @@ package Ventanas.Modulo_Navegacion;
 
 import Ventanas.Inicio.pnlInicio;
 import Ventanas.Modulo_AcercaDe.pnlAcerca;
-import Ventanas.Modulo_Cita.pnlCitas;
 import Ventanas.Modulo_Cliente.pnlClientes;
 import Ventanas.Modulo_Configuracion.pnlConfiguracion;
 import Ventanas.Modulo_Bitacora.pnlBitacora;
@@ -38,7 +37,7 @@ public class Principal_Admin extends javax.swing.JFrame {
             } 
         catch (NullPointerException ex) 
         {
-            
+             
         }
         //Fecha del sistema
         Date sistemaFech = new Date();
@@ -54,7 +53,7 @@ public class Principal_Admin extends javax.swing.JFrame {
         attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
         info.setFont(font.deriveFont(attributes));
     }
-    public static int ID_Usuario;
+    public static int ID_Usuario; 
 
     public static void setID_Usuario(int ID_Usuario) {
         Principal_Admin.ID_Usuario = ID_Usuario;
@@ -534,23 +533,20 @@ public class Principal_Admin extends javax.swing.JFrame {
         info1.setFont(new java.awt.Font("Sylfaen", 1, 35)); // NOI18N
         info1.setForeground(new java.awt.Color(35, 8, 115));
         info1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info1.setText("Tranportes Ramy");
+        info1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
         pnlPrincipal.setLayout(pnlPrincipalLayout);
         pnlPrincipalLayout.setHorizontalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(info1, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE)
-                .addGap(47, 47, 47))
+                .addGap(29, 29, 29)
+                .addComponent(info1, javax.swing.GroupLayout.PREFERRED_SIZE, 1044, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                .addGap(276, 276, 276)
-                .addComponent(info1)
-                .addContainerGap(331, Short.MAX_VALUE))
+            .addComponent(info1, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
         );
 
         jPanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 40, 1106, 654));

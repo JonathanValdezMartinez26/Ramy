@@ -4,9 +4,7 @@ import Ventanas.Modulo_Transportes.ModificarTran;
 import Ventanas.Modulo_Transportes.Opciones;
 import Ventanas.Modulo_Transportes.AgregarTran;
 import A_tabla.*;
-import Clases.Cita;
 import Clases.Conexion;
-import Ventanas.Modulo_Cita.*;
 import Ventanas.Modulo_Tipo_Servicio.AgregarTipoServicio;
 import Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio;
 import Ventanas.Modulo_Tipo_Transportes.pnlTipoTransportes;
@@ -119,7 +117,7 @@ public class pnlTransportes extends javax.swing.JPanel {
         jPanel12.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
 
         pnlespecialidad.setBackground(new java.awt.Color(225, 225, 225));
-        pnlespecialidad.setToolTipText("Modulo Transportes");
+        pnlespecialidad.setToolTipText("Módulo Transportes");
         pnlespecialidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlespecialidadMouseClicked(evt);

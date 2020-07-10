@@ -1,9 +1,7 @@
 package Ventanas.Modulo_Servicios;
 
 import A_tabla.*;
-import Clases.Cita;
 import Clases.Conexion;
-import Ventanas.Modulo_Cita.*;
 import Ventanas.Modulo_Tipo_Servicio.AgregarTipoServicio;
 import Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio;
 import java.awt.BorderLayout;
@@ -138,7 +136,7 @@ public class pnlServicio extends javax.swing.JPanel {
         jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 69));
 
         pnlespecialidad.setBackground(new java.awt.Color(225, 225, 225));
-        pnlespecialidad.setToolTipText("Modulo Servicios");
+        pnlespecialidad.setToolTipText("Módulo Servicios");
         pnlespecialidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlespecialidadMouseClicked(evt);

@@ -1,7 +1,6 @@
 
 package Alerts;
 
-import Clases.Cita;
 import Ventanas.Modulo_Navegacion.Principal_Admin;
 import com.sun.glass.events.KeyEvent;
 import java.awt.event.WindowEvent;
