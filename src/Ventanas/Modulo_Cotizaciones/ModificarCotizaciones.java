@@ -215,6 +215,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             ME.ID.setText(""+ID);
             ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);
+            
         }
     else
         {
