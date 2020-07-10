@@ -315,6 +315,44 @@ public class Opciones {
         }
         return c;
     }
+
+public static void listarDetalles(int ID,String nombre, String atencion, String direccion) {
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cliente.pnlPacientePersonalizado.tabla.getModel();
+        int contador = 0;
+        Ventanas.Modulo_Cliente.pnlPacientePersonalizado.lblPaciente.setText(nombre);
+        Ventanas.Modulo_Cliente.pnlPacientePersonalizado.lblGenero.setText(atencion);
+        Ventanas.Modulo_Cliente.pnlPacientePersonalizado.lblDireccion.setText(direccion);
+        
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        //String sql = "Select ID_Cotizacion, Fecha_Alta, Estatus from cotizacionesv where ID_Cliente =" + ID;
+        //String sql = "Select ID_Cotizacion, Fecha_Alta, Estatus from cotizaciones where ID_Cliente="+ID;
+        String sql= "Select ID_Cotizacion, Fecha_Alta, CASE Estatus WHEN 1 THEN 'Pendiente' WHEN 2 THEN 'Finalizada'"
+                + "  WHEN 3 THEN 'Cancelada' END AS Estatus from cotizaciones where ID_Cliente="+ID;
+      
+            String datos[] = new String[3];
+        try 
+        {    
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                datos[0] = String.valueOf(rs.getInt(1));
+                datos[1] = rs.getString(2).trim();
+                datos[2] = rs.getString(3).trim();
+                //datos[3] = rs.getString(4);
+                //datos[4] = rs.getString(5);
+                
+                modelo.addRow(datos);
+            }
+           
+        } 
+        catch (SQLException ex) 
+            {
+                Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+    }     
 }
   
     

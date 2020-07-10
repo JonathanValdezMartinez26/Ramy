@@ -283,9 +283,9 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel info1;
-    private javax.swing.JLabel info5;
+    public static javax.swing.JLabel info5;
     public static javax.swing.JLabel info6;
-    private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -299,10 +299,10 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JLabel lblDireccion;
-    private javax.swing.JLabel lblGenero;
-    private javax.swing.JLabel lblID;
-    private javax.swing.JLabel lblPaciente;
+    public static javax.swing.JLabel lblDireccion;
+    public static javax.swing.JLabel lblGenero;
+    public static javax.swing.JLabel lblID;
+    public static javax.swing.JLabel lblPaciente;
     private javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlorigenes;
     public static javax.swing.JTable tabla;

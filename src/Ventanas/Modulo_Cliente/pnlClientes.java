@@ -438,12 +438,15 @@ public class pnlClientes extends javax.swing.JPanel {
         {
             String a = tabla.getValueAt(tabla.getSelectedRow() , 0).toString();
             int id = Integer.parseInt(a);
+            String nombre = tabla.getValueAt(tabla.getSelectedRow() , 1).toString();
+            String atencion = tabla.getValueAt(tabla.getSelectedRow() , 2).toString();
+            String direccion = tabla.getValueAt(tabla.getSelectedRow() , 6).toString();
             
             pnlPacientePersonalizado poper = new pnlPacientePersonalizado();
-//              
-//            Opciones.Fecha_cita(id);
-//            Opciones.listarConsultasPa(id);
-//            Opciones.Ultima_consulta(id);
+              
+            //Opciones.Fecha_cita(id);
+            Opciones.listarDetalles(id,nombre,atencion,direccion);
+            //Opciones.Ultima_consulta(id);
             //Opciones.Obtener_Datos(id);
             poper.setSize(1106, 654);
             pnlPrincipal.removeAll();
