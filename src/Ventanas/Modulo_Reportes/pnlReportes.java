@@ -382,7 +382,7 @@ public class pnlReportes extends javax.swing.JPanel {
 
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Usuarios .jasper";
+            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Usuarios .jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
@@ -408,7 +408,7 @@ public class pnlReportes extends javax.swing.JPanel {
 
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Servicios.jasper";
+            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Servicios.jasper";
 //            String archivo = "Reportes/Servicios.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
@@ -435,7 +435,7 @@ public class pnlReportes extends javax.swing.JPanel {
 
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Clientes.jasper";
+            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Clientes.jasper";
 //            String archivo = "Reportes/Citas.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
@@ -462,7 +462,7 @@ public class pnlReportes extends javax.swing.JPanel {
 
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Transportes.jasper";
+            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Transportes.jasper";
 //            String archivo = "Reportes/Transportes.jasper"";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();

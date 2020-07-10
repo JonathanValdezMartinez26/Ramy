@@ -22,6 +22,7 @@ import Clases.municipios;
 import static Ventanas.Modulo_Cliente.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.MouseInfo;
@@ -40,12 +41,22 @@ import rojerusan.RSPanelsSlider;
 import java.awt.Color;
 import java.awt.Font; 
 import java.awt.event.ItemEvent;
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JRViewer;
 
 
 
@@ -625,6 +636,11 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         pnlFinalizar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/comprobado.png"))); // NOI18N
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
         pnlFinalizar.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel1.add(pnlFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 70));
@@ -889,7 +905,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-     
+    ver();
+    this.dispose();
+              
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
     private void pnlFinalizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseEntered
@@ -915,6 +933,10 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     private void pnleditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseExited
         pnleditar.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnleditarMouseExited
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseClicked
 
     public static void main(String args[]) {
      
@@ -973,5 +995,41 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     public static javax.swing.JTable tabla;
     public static javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
+public void ver() {
+        Clases.Conexion cc = new Clases.Conexion();
+        int ID = Integer.parseInt(IDCotizacion.getText());
+        if (ID >= 0) {
 
+       try {
+            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
+            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            Map parametro = new HashMap();
+            parametro.put("ID_Cliente", ID);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+
+            JRViewer jrv = new JRViewer(jasperPrint);
+            jrv.setZoomRatio((float) 0.75);
+            r.contenedor.removeAll();
+
+            r.contenedor.setLayout(new BorderLayout());
+            r.contenedor.add(jrv, BorderLayout.CENTER);
+
+            r.contenedor.repaint();
+            r.contenedor.revalidate();
+            jrv.setVisible(true);
+            r.setVisible(true);
+        } catch (JRException ex) {
+            System.err.println("Error iReport: " + ex.getMessage());
+        }
+    }
+        else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error  generar la Cotizacion!");
+            AC.msj2.setText("Verifique que se agregaron los datos ");
+            AC.setVisible(true);
+        }
+}
+        
 }
