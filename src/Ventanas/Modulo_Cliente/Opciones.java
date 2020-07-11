@@ -136,6 +136,24 @@ public class Opciones {
         return existe;
     }
     
+    ////////////////////////////////////////////////////
+   public static int verificaRutaCotizacion(int ID_Cliente, int ID_Origen, int ID_Destino, int ID_Transporte) {
+        int existe = 0;
+  
+        String SQL = "SELECT count(Id_Ruta) from ruta where (ID_Cliente = "+ID_Cliente+") and (ID_Origen = "+ID_Origen+") and (ID_Destino = "+ID_Destino+") and (ID_Transporte = "+ID_Transporte+")";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                existe = rs.getInt(1);
+            }           
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return existe;
+    }
+    ////////////////////////////////////////////////////
+    
     public static void listarOrigen(String busca, int ID) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cliente.Registrar.tabla.getModel();
         int contador = 0;
