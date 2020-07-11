@@ -1,5 +1,6 @@
-package Ventanas.Modulo_Cotizaciones;
+package Ventanas.Modulo_Ruta_Cotizacion;
 
+import Ventanas.Modulo_Cotizaciones.*;
 import A_tabla.EstiloTablaHeader;
 import Ventanas.Modulo_Cliente.*;
 import A_tabla.EstiloTablaHeader1;
@@ -60,7 +61,7 @@ import net.sf.jasperreports.view.JRViewer;
 
 
 
-public class AgregarCotizaciones extends javax.swing.JDialog {
+public class AgregarCotizacionesRuta extends javax.swing.JDialog {
 
     private boolean minimiza = false;
 
@@ -75,7 +76,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     int ID_Cli[];
     
     
-    public AgregarCotizaciones(java.awt.Frame parent, boolean modal) {
+    public AgregarCotizacionesRuta(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -395,6 +396,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         cmbTransportes = new ComboBox.SComboBox();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla2 = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -445,14 +449,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "Origen", "Destino", "Precio"
+                "ID_", "Origen", "Destinos", "Unidad", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -470,10 +474,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(3).setMinWidth(140);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(140);
-            tabla.getColumnModel().getColumn(3).setMaxWidth(140);
-            tabla.getColumnModel().getColumn(3).setHeaderValue("Precio");
+            tabla.getColumnModel().getColumn(4).setMinWidth(140);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(140);
+            tabla.getColumnModel().getColumn(4).setMaxWidth(140);
         }
 
         tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
@@ -519,12 +522,12 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 880, 360));
+        jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 880, 280));
 
         cmbCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Cliente" }));
         cmbCliente.setToolTipText("");
@@ -534,14 +537,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                 cmbClienteItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 380, 30));
+        jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 420, 30));
 
         lblatencion.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblatencion.setText("Atención a:");
-        jcMousePanel1.add(lblatencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
+        jcMousePanel1.add(lblatencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, -1, 30));
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 380, 30));
+        jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 370, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel5.setText("Seleccione una empresa o cliente para inciar la cotización.");
@@ -684,7 +687,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
         jPanel1.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
 
-        jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 890, 70));
+        jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 890, 70));
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
         jcMousePanel1.add(ID_rutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 140, 20));
 
@@ -695,15 +698,15 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                 cmbDestinosItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 420, 30));
+        jcMousePanel1.add(cmbDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 300, 30));
 
-        jButton3.setText("Agregar");
+        jButton3.setText("Agregar Destino");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 170, 30));
+        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 110, 30));
 
         cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Origen" }));
         cmbOrigenes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -716,7 +719,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel3.setText("Transportes disponibles para el Origen y Destino seleccionado:");
-        jcMousePanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 860, 20));
+        jcMousePanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 420, 20));
 
         cmbTransportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Transporte" }));
         cmbTransportes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -725,7 +728,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                 cmbTransportesItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 420, 30));
+        jcMousePanel1.add(cmbTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 420, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel6.setText("Origenes disponibles para la empresa/cliente seleccionado(a):");
@@ -733,7 +736,49 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel7.setText("Destinos disponibles para el origen seleccionado:");
-        jcMousePanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 430, 20));
+        jcMousePanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 430, 20));
+
+        tabla2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID_", "Destino"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabla2.setRowHeight(20);
+        tabla2.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(tabla2);
+        if (tabla2.getColumnModel().getColumnCount() > 0) {
+            tabla2.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla2.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tabla2.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
+
+        jcMousePanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 440, 110));
+
+        jButton4.setText("Agregar Ruta a la cotización");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jcMousePanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 440, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -770,7 +815,8 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
            int ID_Cliente = ID_Cli[ID_Client];
             int i = 1;
 
-           //JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
+            JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
+
             cmbOrigenes.removeAllItems();
             cmbOrigenes.addItem("Seleccione un Origen");
 
@@ -937,11 +983,15 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AgregarCotizaciones dialog = new AgregarCotizaciones(new javax.swing.JFrame(), true);
+                AgregarCotizacionesRuta dialog = new AgregarCotizacionesRuta(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -962,6 +1012,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     private ComboBox.SComboBox cmbOrigenes;
     private ComboBox.SComboBox cmbTransportes;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -981,6 +1032,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     public static jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JSeparator l2;
     private javax.swing.JLabel lblNombre;
@@ -993,6 +1045,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla;
     public static javax.swing.JTable tabla1;
+    public static javax.swing.JTable tabla2;
     // End of variables declaration//GEN-END:variables
 public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
