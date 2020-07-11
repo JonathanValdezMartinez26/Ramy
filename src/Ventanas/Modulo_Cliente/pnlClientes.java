@@ -56,9 +56,10 @@ public class pnlClientes extends javax.swing.JPanel {
             String localidad = (tabla.getValueAt(Fila, 5).toString());
             String municipio = (tabla.getValueAt(Fila, 4).toString());
             String estado = (tabla.getValueAt(Fila, 3).toString());
+            String atencion = (tabla.getValueAt(Fila, 2).toString());
             
             ModificarCliente MP = new ModificarCliente(null, true);
-            MP.CargarDatos(ID, localidad, municipio, estado);
+            MP.CargarDatos(ID,atencion, localidad, municipio, estado);
             MP.setVM(this);
             MP.setVisible(true);
 

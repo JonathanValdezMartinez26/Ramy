@@ -156,7 +156,7 @@ public class ModificarCliente extends javax.swing.JDialog {
         this.VM = VM;
     }
      
-      public void CargarDatos(int ID,String Localidad, String Municipio, String Estado){
+      public void CargarDatos(int ID,String atencion,String Localidad, String Municipio, String Estado){
         
         CargarEstado();
         CargarMunicipio(Municipio);
@@ -181,12 +181,15 @@ public class ModificarCliente extends javax.swing.JDialog {
         catch(SQLException ex){}
         
         txtNombre.setText(Nombre_cliente);
-        txtAtencion.setText(Nombre_cliente);
-        cmbColonia.setSelectedItem(Localidad);
+        txtAtencion.setText(atencion);
+        
         cmbMunicipio.setSelectedItem(Municipio);
         cmbEstado.setSelectedItem(Estado);
         txtCalle.setText(Calle);
-        
+        cmbColonia.setSelectedItem(Localidad);
+        cmbEstado.getSelectedIndex();
+        //cmbColonia1.setSelectedItem(4);
+        //cmbColonia1.set("sasass");
     }
 
      public void CargarLocalidad(String Nombre){
@@ -497,6 +500,11 @@ public class ModificarCliente extends javax.swing.JDialog {
                 cmbEstadoItemStateChanged(evt);
             }
         });
+        cmbEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEstadoActionPerformed(evt);
+            }
+        });
         pnlPrincipal.add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 230, -1));
 
         lblNombreNuevo20.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -505,7 +513,9 @@ public class ModificarCliente extends javax.swing.JDialog {
         lblNombreNuevo20.setText("Municipio*");
         pnlPrincipal.add(lblNombreNuevo20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
 
+        cmbColonia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecciona Localidad" }));
         cmbColonia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbColonia.setMinimumSize(new java.awt.Dimension(134, 23));
         cmbColonia.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbColoniaItemStateChanged(evt);
@@ -632,10 +642,11 @@ public class ModificarCliente extends javax.swing.JDialog {
     private void cmbColoniaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbColoniaItemStateChanged
 //        if (evt.getStateChange() == ItemEvent.SELECTED) {
 //            estados est = (estados) cmbEstado.getSelectedItem();
-//            municipios mun = (municipios) cmbMunicipio.getSelectedItem();
-//            localidades loc = (localidades) cmbColonia.getSelectedItem();
+//            String mun = cmbMunicipio.getSelectedItem().toString();
+//            
+//            //localidades loc = (localidades) cmbColonia.getSelectedItem();
 //
-//            ColoniaItem = loc.getId();
+//            //ColoniaItem = loc.getId();
 //        }
     }//GEN-LAST:event_cmbColoniaItemStateChanged
 
@@ -648,6 +659,10 @@ public class ModificarCliente extends javax.swing.JDialog {
 //            cmbColonia.removeAllItems();
 //        }
     }//GEN-LAST:event_cmbEstadoItemStateChanged
+
+    private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbEstadoActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -682,17 +697,17 @@ public class ModificarCliente extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JSeparator jSeparator3;
     private jcMousePanel.jcMousePanel jcMousePanel1;
-    private javax.swing.JLabel lblNombreNuevo20;
-    private javax.swing.JLabel lblNombreNuevo21;
+    public static javax.swing.JLabel lblNombreNuevo20;
+    public static javax.swing.JLabel lblNombreNuevo21;
     public static javax.swing.JLabel lblNombreNuevo4;
-    private javax.swing.JLabel lblNombreNuevo5;
+    public static javax.swing.JLabel lblNombreNuevo5;
     public static javax.swing.JLabel lblNombreNuevo7;
-    private javax.swing.JLabel lblNombreNuevo8;
+    public static javax.swing.JLabel lblNombreNuevo8;
     public static javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlagregar;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static app.bolivia.swing.JCTextField txtAtencion;
-    private app.bolivia.swing.JCTextField txtCalle;
+    public static app.bolivia.swing.JCTextField txtCalle;
     public static app.bolivia.swing.JCTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 

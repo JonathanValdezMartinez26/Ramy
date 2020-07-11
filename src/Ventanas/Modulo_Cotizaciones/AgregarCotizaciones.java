@@ -770,8 +770,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
            int ID_Cliente = ID_Cli[ID_Client];
             int i = 1;
 
-            JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
-
+           //JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
             cmbOrigenes.removeAllItems();
             cmbOrigenes.addItem("Seleccione un Origen");
 
