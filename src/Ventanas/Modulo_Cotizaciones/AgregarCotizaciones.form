@@ -185,7 +185,7 @@
                           <Renderer/>
                         </Column>
                         <Column maxWidth="140" minWidth="140" prefWidth="140" resizable="true">
-                          <Title value="Precio"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>

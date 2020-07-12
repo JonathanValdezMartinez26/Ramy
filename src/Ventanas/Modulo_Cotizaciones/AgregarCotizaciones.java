@@ -85,9 +85,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         Origenes();
         Destinos();
         Transportes();
-        lblatencion.setVisible(false);
-        ID_rutas.setVisible(false);
-        IDCotizacion.setVisible(false);
+        lblatencion.setVisible(true);
+        ID_rutas.setVisible(true);
+        IDCotizacion.setVisible(true);
      
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -473,7 +473,6 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(3).setMinWidth(140);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(140);
             tabla.getColumnModel().getColumn(3).setMaxWidth(140);
-            tabla.getColumnModel().getColumn(3).setHeaderValue("Precio");
         }
 
         tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
