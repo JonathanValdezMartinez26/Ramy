@@ -416,6 +416,7 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
         //AgregarTipoServicio poper = new AgregarTipoServicio(null, true);
         //poper.setVisible(true);
             int Fila = tabla.getSelectedRow();
+            String IDCliente=lblID.getText();
         int Filita = 1; 
   
         if (Fila >= 0) {
@@ -432,14 +433,15 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
             
             
             AgregarCotizacionesRuta AG=new AgregarCotizacionesRuta(null,true);
-            AG.llenarDetalles(dato);
+            //AG.llenarDetalles(dato);
             //AG.setVisible(true);
             //AG.set;
-            String IDCliente=lblID.getText();
+            //String IDCliente=lblID.getText();
+            
+            JOptionPane.showMessageDialog(null, "Dato Agregado..."+IDCliente);
             Opciones.listarCotizacionRuta("",IDCliente);
-            JOptionPane.showMessageDialog(null, "Dato Agregado...");
-            //PG.setVisible(true);
-                    
+            AG.setVisible(true);
+            
             
          
 
