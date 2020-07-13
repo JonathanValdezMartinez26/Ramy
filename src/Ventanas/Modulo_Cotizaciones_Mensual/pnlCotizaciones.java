@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Ventanas.Modulo_Cotizaciones;
+package Ventanas.Modulo_Cotizaciones_Mensual;
 
 import Ventanas.Modulo_Cliente.*;
 import A_tabla.*;
@@ -14,8 +14,6 @@ import static Ventanas.Modulo_Cliente.Registrar.B;
 import static Ventanas.Modulo_Cliente.Registrar.C;
 import static Ventanas.Modulo_Cliente.Registrar.PanelDesliza;
 import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
-import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
-import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Point;
@@ -212,15 +210,6 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         pnlpdf = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        pnlagregar1 = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        pnlagregar2 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        pnlagregar3 = new javax.swing.JPanel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         buscar = new app.bolivia.swing.JCTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -309,7 +298,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         pnlagregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel22.setText("     Directa");
+        jLabel22.setText("      Nueva");
         pnlagregar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lista-40.png"))); // NOI18N
@@ -339,7 +328,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/añadireditar.png"))); // NOI18N
         pnleditar.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jPanel12.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, 69));
+        jPanel12.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 69));
 
         pnlorigenes.setBackground(new java.awt.Color(225, 225, 225));
         pnlorigenes.setToolTipText("Visualizar Cotizacion");
@@ -363,7 +352,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N
         pnlorigenes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, 69));
+        jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, -1, 69));
 
         pnlpdf.setBackground(new java.awt.Color(225, 225, 225));
         pnlpdf.setToolTipText("Eliminar Cotizacion");
@@ -387,79 +376,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eliminar.png"))); // NOI18N
         pnlpdf.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, -1, 69));
-
-        pnlagregar1.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar1.setToolTipText("Agregar Cotizacion");
-        pnlagregar1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlagregar1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlagregar1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlagregar1MouseExited(evt);
-            }
-        });
-        pnlagregar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel24.setText(" Consolidado");
-        pnlagregar1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
-
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lista-40.png"))); // NOI18N
-        pnlagregar1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
-
-        jPanel12.add(pnlagregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 69));
-
-        pnlagregar2.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar2.setToolTipText("Agregar Cotizacion");
-        pnlagregar2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlagregar2MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlagregar2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlagregar2MouseExited(evt);
-            }
-        });
-        pnlagregar2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel26.setText("   Por Ruta");
-        pnlagregar2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
-
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lista-40.png"))); // NOI18N
-        pnlagregar2.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
-
-        jPanel12.add(pnlagregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, -1, 69));
-
-        pnlagregar3.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar3.setToolTipText("Agregar Cotizacion");
-        pnlagregar3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlagregar3MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlagregar3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlagregar3MouseExited(evt);
-            }
-        });
-        pnlagregar3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel28.setText("  Por Renta");
-        pnlagregar3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
-
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lista-40.png"))); // NOI18N
-        pnlagregar3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
-
-        jPanel12.add(pnlagregar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, -1, 69));
+        jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, -1, 69));
 
         pnlPrincipal.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1106, 69));
 
@@ -490,7 +407,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
-        AgregarCotizaciones poper = new AgregarCotizaciones(null, true);
+        AgregarCotizaciones_Renta poper = new AgregarCotizaciones_Renta(null, true);
         poper.setVisible(true);
     }//GEN-LAST:event_pnlagregarMouseClicked
 
@@ -560,48 +477,6 @@ public class pnlCotizaciones extends javax.swing.JPanel {
 
         
     }//GEN-LAST:event_tablaMouseClicked
-
-    private void pnlagregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlagregar1MouseClicked
-
-    private void pnlagregar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlagregar1MouseEntered
-
-    private void pnlagregar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlagregar1MouseExited
-
-    private void pnlagregar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar2MouseClicked
-
-        //AgregarCotizaciones poper = new AgregarCotizaciones(null, true);
-        AgregarCotizacionesRuta poper =new Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta(null, true);
-        poper.setVisible(true);
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlagregar2MouseClicked
-
-    private void pnlagregar2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar2MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlagregar2MouseEntered
-
-    private void pnlagregar2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar2MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlagregar2MouseExited
-
-    private void pnlagregar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar3MouseClicked
-    AgregarCotizaciones_Renta poper =new Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta(null, true);
-        poper.setVisible(true);
-    }//GEN-LAST:event_pnlagregar3MouseClicked
-
-    private void pnlagregar3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar3MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlagregar3MouseEntered
-
-    private void pnlagregar3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar3MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlagregar3MouseExited
      
     DefaultTableModel model = new DefaultTableModel() {
 
@@ -623,12 +498,6 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
@@ -637,9 +506,6 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlagregar;
-    private javax.swing.JPanel pnlagregar1;
-    private javax.swing.JPanel pnlagregar2;
-    private javax.swing.JPanel pnlagregar3;
     private javax.swing.JPanel pnleditar;
     private javax.swing.JPanel pnlorigenes;
     private javax.swing.JPanel pnlpdf;
@@ -659,7 +525,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cliente", ID);
