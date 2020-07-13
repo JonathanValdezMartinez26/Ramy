@@ -185,7 +185,7 @@
                           <Renderer/>
                         </Column>
                         <Column maxWidth="140" minWidth="140" prefWidth="140" resizable="true">
-                          <Title value="Precio"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
@@ -697,6 +697,7 @@
           </Properties>
           <Events>
             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cmbTransportesItemStateChanged"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbTransportesActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

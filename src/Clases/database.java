@@ -93,6 +93,22 @@ public class database {
         }
         return res;
     }
+ public boolean updateCotizacionRuta(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE cotizaciones_ruta SET " + valores + " WHERE ID_CotizacionRuta= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
 
         ////////Ejecuta la inserccion a la bitacora de reistros, siempre y cuando se realize una modificacion
     public boolean insertBitacora(String origen,String costoA, String costoN,String transporte,String ID)

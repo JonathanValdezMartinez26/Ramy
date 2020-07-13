@@ -85,9 +85,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         Origenes();
         Destinos();
         Transportes();
-        lblatencion.setVisible(false);
-        ID_rutas.setVisible(false);
-        IDCotizacion.setVisible(false);
+        lblatencion.setVisible(true);
+        ID_rutas.setVisible(true);
+        IDCotizacion.setVisible(true);
      
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -473,7 +473,6 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(3).setMinWidth(140);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(140);
             tabla.getColumnModel().getColumn(3).setMaxWidth(140);
-            tabla.getColumnModel().getColumn(3).setHeaderValue("Precio");
         }
 
         tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
@@ -725,6 +724,11 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                 cmbTransportesItemStateChanged(evt);
             }
         });
+        cmbTransportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTransportesActionPerformed(evt);
+            }
+        });
         jcMousePanel1.add(cmbTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 420, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -777,6 +781,20 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             try {
 
                 resultado = Conexion.consulta("SELECT ID_Municipio_Origen, Origen from rutav where "
+                        + "(ID_Cliente = "+ID_Cliente+") GROUP BY Origen");
+
+                while (resultado.next()) {
+                    ID_Ori[i] = resultado.getInt(1);
+                    cmbOrigenes.addItem(resultado.getString(2).trim());
+                    i++;
+                }
+            } 
+            catch (SQLException ex) {
+            }
+            
+            try {
+
+                resultado = Conexion.consulta("SELECT ID_Origen, Origen from rutav where "
                         + "(ID_Cliente = "+ID_Cliente+") GROUP BY Origen");
 
                 while (resultado.next()) {
@@ -936,6 +954,10 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void cmbTransportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTransportesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbTransportesActionPerformed
 
     public static void main(String args[]) {
      

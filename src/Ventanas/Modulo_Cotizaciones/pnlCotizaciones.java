@@ -14,6 +14,7 @@ import static Ventanas.Modulo_Cliente.Registrar.B;
 import static Ventanas.Modulo_Cliente.Registrar.C;
 import static Ventanas.Modulo_Cliente.Registrar.PanelDesliza;
 import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
+import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Point;
@@ -572,6 +573,11 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlagregar1MouseExited
 
     private void pnlagregar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar2MouseClicked
+
+        //AgregarCotizaciones poper = new AgregarCotizaciones(null, true);
+        AgregarCotizacionesRuta poper =new Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta(null, true);
+        poper.setVisible(true);
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_pnlagregar2MouseClicked
 
