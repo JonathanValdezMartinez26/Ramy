@@ -929,21 +929,6 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             catch (SQLException ex) {
             }            
             lblID_Cliente.setText(""+ID_Cliente);
-            
-                                    if(Opciones.verificaCliente(ID_Cliente)==0)
-                                    {
-                                    JOptionPane.showMessageDialog(null, "No existe ninguna ruta con ese cliente");
-                                    }else{
-                                    //JOptionPane.showMessageDialog(null, "Este clietne ya tiene ruta");
-                                    pnlRutasGuardadas RG=new pnlRutasGuardadas(null,true);
-            
-                                    RG.listarDetalles(ID_Cliente,cliente);
-                                    RG.setVisible(true);
-                                   //JOptionPane.showMessageDialog(null, ID+" "+clientes);
-                                    //llenarDetalles(ID_Cliente, cliente);
-                                    //poper.Opciones.listarDetallesCotizaciones(ID_Cliente, cliente);                                    
-                                        }
-                                    
             cmbCliente.setEnabled(false);
             Cotizaciones.Agregar_Cotizacion(ID_Cliente);
             lblatencion.setVisible(true);
@@ -951,7 +936,19 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             IDCotizacion.setText(""+ObtenID());
             Opciones.listarCotizaciones("");
             
-            
+            if(Opciones.verificaCliente(ID_Cliente)==0)///falta decirle que compare por origen, destino y cliente
+                {
+                    JOptionPane.showMessageDialog(null, "No existe ninguna ruta con ese cliente");
+                }
+            else{
+                    //JOptionPane.showMessageDialog(null, "Este clietne ya tiene ruta");
+                    pnlRutasGuardadas RG=new pnlRutasGuardadas(null,true);
+                    RG.listarDetalles(ID_Cliente,cliente);
+                    RG.setVisible(true);
+                    //JOptionPane.showMessageDialog(null, ID+" "+clientes);
+                    //llenarDetalles(ID_Cliente, cliente);
+                    //poper.Opciones.listarDetallesCotizaciones(ID_Cliente, cliente);                                    
+                }
          }
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
