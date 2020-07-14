@@ -9,6 +9,7 @@ import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import static Alerts.AlertBasic.AgregarDestinos.ID;
 import Alerts.AlertBasic.Eliminar;
+import Alerts.AlertBasic.EliminarTran;
 import Alerts.FadeEffect;
 import Clases.Clientes;
 import Clases.Conexion;
@@ -16,6 +17,7 @@ import Clases.Cotizaciones;
 import static Clases.Cotizaciones.ObtenID;
 import Clases.CotizacionesRentaMen;
 import Clases.MyTableCellEditor;
+import Clases.MyTableCellEditor2;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
@@ -73,6 +75,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     int ID_Tran [];
     int ID_Cli[];
     
+    private database db = new database();
     
     public AgregarCotizaciones_Renta(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -82,9 +85,10 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         Clientes();
        
+       
         
         Transportes();
-        lblpre.setVisible(false);
+        
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(true);
          
@@ -105,6 +109,10 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
+        
+        
+        tablaR.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditor2(db,"Precio"));
+        
     }
     
     public void Clientes()
@@ -184,11 +192,13 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             if(Fila >= 0)
         {
             int ID = Integer.parseInt(tablaR.getValueAt(Fila, 0).toString());
-            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-            Eliminar ME = new Eliminar(null, true);
+//            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+            EliminarTran ME = new EliminarTran(null, true);
             ME.ID.setText(""+ID);
-            ME.Cotizacion.setText(""+ID_Cotizacion);
+//            ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);
+            Opciones.listar("",ID);
+           JOptionPane.showMessageDialog(null,""+ID);
         }
     else
         {
@@ -263,6 +273,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                                               AC.msj1.setText("¡Datos de la cotizacion!");
                                               AC.msj2.setText("Guardados correctamente");
                                               AC.setVisible(true);
+                                              Opciones.listar("", ID_Cotizacion);
+                                              
+                                              
                                     }
                                     
                                      else
@@ -298,60 +311,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     ////////////////////////////////////////////////////////////////////////
     
     
-     private void Guardar1(){
-        
-        int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-        int comboCliente = cmbCliente.getSelectedIndex();
-        Date Fecha_I = txtFechaI.getDate();
-        Date Fecha_F = txtFechaF.getDate();
-        int ID_Transportes = cmbTransportes.getSelectedIndex();
-        int ID_Transporte = ID_Tran[ID_Transportes];
-     
-        if(comboCliente==0)
-            {
-                Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                AC.msj1.setText("¡Elija un");
-                AC.msj2.setText("Cliente para Continuar");
-                AC.setVisible(true);
-            }
-            else
-            {
-               
-                   if(Ventanas.Modulo_Cotizaciones_Mensual.Opciones.verificaRentaM(ID_Cotizacion,ID_Transportes)==0)
-                     {
-                                  Clases.CotizacionesRentaMen fichaIdent = new Clases.CotizacionesRentaMen();
-
-                                    int idd = 0;
-                                    int Estado = 1;
-                                   
-                                    fichaIdent.setID_Cotizacion(ID_Cotizacion);
-                                    fichaIdent.setFechaI(Fecha_I);
-                                    fichaIdent.setFechaF(Fecha_F);
-                                    fichaIdent.setID_Transporte(ID_Transporte);
-                                    
-                              if (!Ventanas.Modulo_Cotizaciones_Mensual.Opciones.registrar(fichaIdent)) 
-                              {
-                                   Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-                                        AC.msj1.setText("¡Datos de Origen-Destino!");
-                                        AC.msj2.setText("Guardados correctamente");
-                                        AC.setVisible(true);
-                              }
-            }
-                   else
-                       {
-                           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                            AC.msj1.setText("¡Error  generar la Cotizacion!");
-                            AC.msj2.setText("Verifique que se agregaron los datos ");
-                            AC.setVisible(true);
-                       }
-                       
-                       
-                   
-                                             
-                
-            }
-        
-    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -366,7 +326,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
         cmbCliente = new ComboBox.SComboBox();
-        lblpre = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         l2 = new javax.swing.JSeparator();
@@ -393,7 +352,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         cmbTransportes = new ComboBox.SComboBox();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtPre = new javax.swing.JTextField();
         lblatencion1 = new javax.swing.JLabel();
         txtFechaF = new com.toedter.calendar.JDateChooser();
         txtFechaI = new com.toedter.calendar.JDateChooser();
@@ -447,7 +405,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "FechaiI", "FechaF", "Transporte", "Precio"
+                "ID_", "Fecha Inicio", "Fecha Final", "Unidad", "Precio"
             }
         ) {
             Class[] types = new Class [] {
@@ -465,6 +423,8 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tablaR.setAlignmentX(2.0F);
+        tablaR.setAlignmentY(2.0F);
         tablaR.setRowHeight(20);
         tablaR.getTableHeader().setReorderingAllowed(false);
         jScrollPane.setViewportView(tablaR);
@@ -475,6 +435,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             tablaR.getColumnModel().getColumn(2).setMinWidth(140);
             tablaR.getColumnModel().getColumn(2).setPreferredWidth(140);
             tablaR.getColumnModel().getColumn(2).setMaxWidth(140);
+            tablaR.getColumnModel().getColumn(4).setMinWidth(140);
+            tablaR.getColumnModel().getColumn(4).setPreferredWidth(140);
+            tablaR.getColumnModel().getColumn(4).setMaxWidth(140);
         }
 
         tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
@@ -520,9 +483,8 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
         );
 
@@ -537,10 +499,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             }
         });
         jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 380, 30));
-
-        lblpre.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblpre.setText("Precio:");
-        jcMousePanel1.add(lblpre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 60, 30));
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 380, 30));
@@ -719,18 +677,12 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jLabel7.setText("Fecha de Fin de la renta");
         jcMousePanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 160, 20));
 
-        txtPre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPreActionPerformed(evt);
-            }
-        });
-        jcMousePanel1.add(txtPre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 90, 30));
-
         lblatencion1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblatencion1.setText("Atención a:");
         jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
 
         txtFechaF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtFechaF.setMaxSelectableDate(new java.util.Date(253370790091000L));
         txtFechaF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 txtFechaFPropertyChange(evt);
@@ -739,6 +691,8 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jcMousePanel1.add(txtFechaF, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 150, 30));
 
         txtFechaI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtFechaI.setMaxSelectableDate(new java.util.Date(253370790091000L));
+        txtFechaI.setMinSelectableDate(new java.util.Date(1577862091000L));
         txtFechaI.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 txtFechaIPropertyChange(evt);
@@ -786,7 +740,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             
             cmbCliente.setEnabled(false);
             Cotizaciones.Agregar_Cotizacion(ID_Cliente);
-            lblpre.setVisible(true);
+           
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
             Opciones.listarCotizaciones("");
@@ -800,6 +754,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
         
+         
     }//GEN-LAST:event_buscarKeyReleased
 
     private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
@@ -814,6 +769,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
     private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
         eliminar();
+        
     }//GEN-LAST:event_pnlEliminarMouseClicked
 
     private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered
@@ -875,10 +831,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void txtPreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPreActionPerformed
-
     private void txtFechaFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtFechaFPropertyChange
        
     }//GEN-LAST:event_txtFechaFPropertyChange
@@ -934,7 +886,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     private javax.swing.JLabel lblNombre;
     public static javax.swing.JLabel lblNombreNuevo17;
     private javax.swing.JLabel lblatencion1;
-    private javax.swing.JLabel lblpre;
     private javax.swing.JPanel pnlEliminar;
     private javax.swing.JPanel pnlFinalizar;
     private javax.swing.JPanel pnlVista;
@@ -944,7 +895,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     public static javax.swing.JTable tablaR;
     public static com.toedter.calendar.JDateChooser txtFechaF;
     public static com.toedter.calendar.JDateChooser txtFechaI;
-    private javax.swing.JTextField txtPre;
     // End of variables declaration//GEN-END:variables
 public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
@@ -953,10 +903,10 @@ public void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Transporte.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
-            parametro.put("ID_Cliente", ID);
+            parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
             JRViewer jrv = new JRViewer(jasperPrint);

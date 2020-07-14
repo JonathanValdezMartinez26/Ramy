@@ -156,6 +156,26 @@ public static ResultSet resultado;
         }
         return existe;
     }
+    
+    
+    public static int DeleteTran(int ID_Asigna_Cotizacion_Renta) {
+        int existe = 0;
+  
+        String SQL = "delete from asigna_cotizaciones_renta where(ID_Asigna_Cotizacion_Renta= "+ ID_Asigna_Cotizacion_Renta+")";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                existe = rs.getInt(1);
+            }           
+        } catch (SQLException ex) {
+             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return existe;
+    }
+    
+    
+    
      
      public static void Agregar_Ruta(int ID_Cliente, int ID_Origen, int ID_Destino,  float Precio, int ID_Transporte) {
         try 
