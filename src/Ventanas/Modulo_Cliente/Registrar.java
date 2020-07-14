@@ -461,7 +461,7 @@ public class Registrar extends javax.swing.JDialog {
                         else
                         {
                             ID = Integer.parseInt(ID_C.getText());
-                            if(Ventanas.Modulo_Cliente.Opciones.verificaDestino(ID, MunicipioItem)==0)
+                            if(Ventanas.Modulo_Cliente.Opciones.verificaRutaCotizacion(ID,ID_Origen, ID_Destino,ID_Transporte )==0)
                             {
                                   
                                 Clientes.Agregar_Ruta(ID, ID_Origen, ID_Destino, 0, ID_Transporte);
