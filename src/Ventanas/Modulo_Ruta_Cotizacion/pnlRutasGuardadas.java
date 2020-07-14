@@ -8,6 +8,7 @@ import Alerts.AWTUtilities;
 import Clases.Conexion;
 import Ventanas.Modulo_Cliente.ModificarCliente;
 import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
+import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
 import static Ventanas.Modulo_Ruta_Cotizacion.Opciones.cn;
 import Ventanas.Modulo_Servicios.ModificarServicio;
 import static Ventanas.Modulo_Tipo_Servicio.ModificarTipoServicio.txtNombre;
@@ -50,9 +51,9 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public void listarDetalles(int ID,String Clientes){
+    public void listarDetalles(int ID,String Clientes, String IDClientes){
         
-       Opciones.listarDetallesCotizaciones(null, ID,Clientes);
+       Opciones.listarDetallesCotizaciones(null, ID,Clientes,IDClientes);
         info.setText(Clientes);
 
     }
@@ -119,9 +120,10 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "Desde llenar detalles");
         
     }
-      public void obtenerIDCotizacionRuta(String dato){
-          
-      }
+//      public void llenarAsigna(String dato){
+//          Opciones.agregarAsigna(dato);
+//      
+//      }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -146,8 +148,6 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabla1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -283,14 +283,14 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Id", "Origen", "Destino", "Unidad", "Precio"
+                "Id", "IDCotizacion", "IDCliente", "IDOrigen", "Origen", "Destino", "IDTrans", "Unidad", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, true, true, true, false, false, true, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -307,50 +307,13 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(1).setResizable(false);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(150);
-            tabla.getColumnModel().getColumn(2).setResizable(false);
             tabla.getColumnModel().getColumn(4).setResizable(false);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(150);
+            tabla.getColumnModel().getColumn(5).setResizable(false);
+            tabla.getColumnModel().getColumn(8).setResizable(false);
         }
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 690, 120));
-
-        tabla1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Id", "Origen", "Destino", "Unidad", "Precio"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabla1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(tabla1);
-        if (tabla1.getColumnModel().getColumnCount() > 0) {
-            tabla1.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla1.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla1.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla1.getColumnModel().getColumn(1).setResizable(false);
-            tabla1.getColumnModel().getColumn(1).setPreferredWidth(150);
-            tabla1.getColumnModel().getColumn(2).setResizable(false);
-            tabla1.getColumnModel().getColumn(4).setResizable(false);
-        }
-
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 690, 150));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 280));
 
         pnlPrincipal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 690, 290));
 
@@ -421,27 +384,40 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
   
         if (Fila >= 0) {
 
-//            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-//            String localidad = (tabla.getValueAt(Fila, 5).toString());
-//            String municipio = (tabla.getValueAt(Fila, 4).toString());
-//            String estado = (tabla.getValueAt(Fila, 3).toString());
-//            String atencion = (tabla.getValueAt(Fila, 2).toString());
-            String dato=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),0));
-            JOptionPane.showMessageDialog(null, "Dato selecionado es"+dato);
+            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            String localidad = (tabla.getValueAt(Fila, 5).toString());
+            String municipio = (tabla.getValueAt(Fila, 4).toString());
+            String estado = (tabla.getValueAt(Fila, 3).toString());
+            String atencion = (tabla.getValueAt(Fila, 2).toString());
+            //String IDRutaCotizacion=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),0));
+            String IDCR=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),0));
+            String IDCoti=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),1));
+            String IDCli=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),2));
+            String IDOri=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),3));
+            String Ori=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),4));
+            String Desti=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),5));
+            String IDTrans=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),6));
+            String Trans=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),7));
+            String Precio=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),8));
+            
+            
+            //JOptionPane.showMessageDialog(null, "Datos selecionados son "+IDCR+" "+IDCoti+" "+IDCli+" "+IDOri+" "+Ori+" "+Desti+" "+IDTrans+" "+Trans+" "+Precio+" ");
+            Opciones.agregarAsigna(IDCR,IDCoti,IDCli,IDOri,Ori,Desti,IDTrans,Trans,Precio);
+            Opciones.listarAsigna("");
        //     obtenerIDCotizacionRuta(dato);
-            pnlRutasGuardadas PG=new pnlRutasGuardadas(null,true);
+            //pnlRutasGuardadas PG=new pnlRutasGuardadas(null,true);
             
             
-            AgregarCotizacionesRuta AG=new AgregarCotizacionesRuta(null,true);
-            //AG.llenarDetalles(dato);
+//            AgregarCotizacionesRuta AG=new AgregarCotizacionesRuta(null,true);
+            
             //AG.setVisible(true);
-            //AG.set;
-            //String IDCliente=lblID.getText();
-            
-            JOptionPane.showMessageDialog(null, "Dato Agregado..."+IDCliente);
-            Opciones.listarCotizacionRuta("",IDCliente);
-            AG.setVisible(true);
-            
+//            AG.set;
+//            String IDCliente=lblID.getText();
+//            Opciones.listarCotizacionRuta("",IDCliente);
+//            JOptionPane.showMessageDialog(null, "Dato Agregado..."+IDCliente);
+//            
+//            AG.setVisible(true);
+//            
             
          
 
@@ -512,7 +488,6 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JLabel lblID;
@@ -521,7 +496,6 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
     private javax.swing.JPanel pnlagregar;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla;
-    public static javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
 
     
