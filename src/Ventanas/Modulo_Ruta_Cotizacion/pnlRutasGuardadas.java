@@ -413,34 +413,21 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlagregarMouseEntered
 
     private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
-        //AgregarTipoServicio poper = new AgregarTipoServicio(null, true);
-        //poper.setVisible(true);
-            int Fila = tabla.getSelectedRow();
-            String IDCliente=lblID.getText();
+
+        int Fila = tabla.getSelectedRow();
+        String IDCliente=lblID.getText();
         int Filita = 1; 
   
         if (Fila >= 0) {
 
-//            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-//            String localidad = (tabla.getValueAt(Fila, 5).toString());
-//            String municipio = (tabla.getValueAt(Fila, 4).toString());
-//            String estado = (tabla.getValueAt(Fila, 3).toString());
-//            String atencion = (tabla.getValueAt(Fila, 2).toString());
-            String dato=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),0));
-            JOptionPane.showMessageDialog(null, "Dato selecionado es"+dato);
-       //     obtenerIDCotizacionRuta(dato);
-            pnlRutasGuardadas PG=new pnlRutasGuardadas(null,true);
-            
-            
-            AgregarCotizacionesRuta AG=new AgregarCotizacionesRuta(null,true);
-            //AG.llenarDetalles(dato);
-            //AG.setVisible(true);
-            //AG.set;
-            //String IDCliente=lblID.getText();
-            
-            JOptionPane.showMessageDialog(null, "Dato Agregado..."+IDCliente);
+            String dato=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),0));//ID de la fila que se selecciona
+           
+           
+            //Generar una tabla nueva que se llame asigna_cotizacion_ruta
+            //vas a insertar el id dato que es el id de la cotizacion_ruta
+            //en la tabla asigna_cotizacion_ruta
+            //Cotizaciones.InsertarAsignaCotizaciones(ID);
             Opciones.listarCotizacionRuta("",IDCliente);
-            AG.setVisible(true);
             
             
          
