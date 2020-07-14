@@ -566,11 +566,11 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlagregar1MouseClicked
 
     private void pnlagregar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar1MouseEntered
-        // TODO add your handling code here:
+        pnlagregar1.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
     }//GEN-LAST:event_pnlagregar1MouseEntered
 
     private void pnlagregar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar1MouseExited
-        // TODO add your handling code here:
+        pnlagregar1.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlagregar1MouseExited
 
     private void pnlagregar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar2MouseClicked
@@ -583,11 +583,11 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlagregar2MouseClicked
 
     private void pnlagregar2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar2MouseEntered
-        // TODO add your handling code here:
+        pnlagregar2.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
     }//GEN-LAST:event_pnlagregar2MouseEntered
 
     private void pnlagregar2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar2MouseExited
-        // TODO add your handling code here:
+        pnlagregar2.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlagregar2MouseExited
 
     private void pnlagregar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar3MouseClicked
@@ -596,11 +596,11 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlagregar3MouseClicked
 
     private void pnlagregar3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar3MouseEntered
-        // TODO add your handling code here:
+        pnlagregar3.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
     }//GEN-LAST:event_pnlagregar3MouseEntered
 
     private void pnlagregar3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar3MouseExited
-        // TODO add your handling code here:
+        pnlagregar3.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlagregar3MouseExited
      
     DefaultTableModel model = new DefaultTableModel() {

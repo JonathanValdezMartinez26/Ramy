@@ -64,6 +64,32 @@ public static ResultSet resultado;
             AC.msj2.setText("¡Contacte a servicios ProSystem!");
             AC.setVisible(true);
         }
+    }
+    public static void Agregar_RutaCotizacion1(int ID_Cotizacion, int ID_ruta ) {
+        
+        
+        try 
+        {
+            CallableStatement consulta = Conexion.con.prepareCall("{call AgregarRutaCotizacion (?,?) }");
+        
+            consulta.setInt(1, ID_Cotizacion);
+            consulta.setInt(2, ID_ruta);
+            consulta.execute();
+            
+            Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+            AC.msj1.setText("¡Servicio Agregado!");
+            AC.msj2.setText("Correctamente");
+            AC.setVisible(true);
+            
+        } catch (SQLException ex) 
+        {
+            JOptionPane.showMessageDialog(null, ex);
+        
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error 3714!");
+            AC.msj2.setText("¡Contacte a servicios ProSystem!");
+            AC.setVisible(true);
+        }
     }  
      
      public static int ObtenID() {
@@ -116,11 +142,30 @@ public static ResultSet resultado;
         return existe;
     }
     
+    public static int ObtenerIDCotizacionRuta(int ID_Origenes,String Destino ,int ID_Transporte) {
+        int existe = 0;
+  
+        //String SQL = "SELECT ID_CotizacionRuta from cotizaciones_ruta where (ID_Origen = "+ID_Origenes+") and (Destino = '"+Destino+"') and (ID_Transporte = "+ID_Transporte+")";
+        String SQL ="SELECT ID_CotizacionRuta from cotizaciones_ruta where (ID_Origen ='"+ID_Origenes+"' ) and (Destino = '"+Destino+"') and (ID_Transporte = '"+ID_Transporte+"')";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                existe = rs.getInt(1);
+            }           
+        } catch (SQLException ex) {
+             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //JOptionPane.showMessageDialog(null, "DESDE cotizaciones");
+        return existe;
+        
+    }
+    
     ///////////////////////////////////////////////////////////////////
     public static int ObtenerPrecio(int ID_Ruta) {
         int existe = 0;
   
-        String SQL = "SELECT Precio from rutav where (ID_ruta= "+ ID_Ruta+")";
+        String SQL = "SELECT Precio from cotizaciones_ruta where (ID_CotizacionRuta= "+ ID_Ruta+")";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);

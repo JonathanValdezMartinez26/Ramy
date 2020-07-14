@@ -64,6 +64,21 @@ public class Opciones {
         }
     }
     ///////////////////////////////////////
+    public static int verificaRutaCotizacion1(int ID_Cotizacion, int ID_Ruta) {
+        int existe = 0;
+  
+        String SQL = "SELECT count(Id_Cotizacion) from asigna_ruta_servicio where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_CotizacionRuta = "+ID_Ruta+")";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                existe = rs.getInt(1);
+            }           
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return existe;
+    }
     
     public static void listar(String busca, int ID) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.tabla.getModel();
@@ -274,6 +289,30 @@ public class Opciones {
                                         AgregarCotizacionesRuta.ID_rutas.setText("");
 
     }
+    public static void agregarCotizacionRuta(int IDCotizacion, int IDRuta, int IDCliente){        
+                                    
+           try {
+          String q = " INSERT INTO asigna_ruta_servicio (ID_AsignaRutaServicio,ID_CotizacionRuta,ID_Cliente,ID_Cotizacion)"
+                     + "VALUES (NULL,'"+IDRuta+"','"+IDCliente+"','"+IDCotizacion+"')";      
+                                    
+                                    PreparedStatement pstm = cn.prepareStatement(q);
+                                    pstm.execute();
+                                    pstm.close();
+                               
+                                    Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                                    AC.msj1.setText("¡Servicio Agregado!");
+                                    AC.msj2.setText("Correctamente");
+                                    AC.setVisible(true);
+                                    
+               }catch(SQLException e){ 
+                   
+                                    System.out.println(e);
+                                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                    AC.msj1.setText("¡Error 3714!");
+                                    AC.msj2.setText("¡Contacte a servicios ProSystem!");
+                                    AC.setVisible(true);
+                               }
+    }
         
     
         
@@ -296,7 +335,7 @@ public class Opciones {
         JOptionPane.showMessageDialog(null, existe+" "+ID_Cliente);
         return existe;
     }
-    public static void listarDetallesCotizaciones(String busca,int IDCliente,String cliente) {
+    public static void listarDetallesCotizaciones(String busca,int IDCotizacion,String cliente, String IDCliente) {
         pnlRutasGuardadas.lblID.setText(""+IDCliente);
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.pnlRutasGuardadas.tabla.getModel();
         int contador = 0;
@@ -306,19 +345,24 @@ public class Opciones {
             modelo.removeRow(0);
         }
         
-            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from cotizaciones_ruta where ID_Cliente =" + IDCliente;
+            sql = "Select ID_CotizacionRuta,ID_Cotizacion,ID_Cliente ,ID_Origen,Origen, Destino,ID_Transporte,Transporte,Precio from cotizaciones_ruta where ID_Cotizacion ='244' AND ID_Cliente="+IDCliente;
         
-            String datos[] = new String[6];
+            String datos[] = new String[12];
         try 
         {    
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 datos[0] = String.valueOf(rs.getInt(1));
-                datos[1] = rs.getString(2).trim();
-                datos[2] = rs.getString(3).trim();
-                datos[3] = rs.getString(4);
+                datos[1] = String.valueOf(rs.getInt(2));
+                datos[2] = String.valueOf(rs.getInt(3));
+                datos[3] = String.valueOf(rs.getInt(4));
                 datos[4] = rs.getString(5);
+                datos[5] = rs.getString(6);
+                datos[6] = String.valueOf(rs.getInt(7));
+                datos[7] = rs.getString(8);
+                datos[8] = rs.getString(9);
+//                datos[9] = rs.getString(10);
                 
                 modelo.addRow(datos);
             }
@@ -340,7 +384,7 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from cotizaciones_ruta where ID_Cliente =" + ID;
+            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from cotizaciones_ruta where ID_Cotizacion =" + ID;
         } else {
             
             sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
@@ -366,24 +410,39 @@ public class Opciones {
             Logger.getLogger(Ventanas.Modulo_Ruta_Cotizacion.Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     ///////////////////////////////////////////////////////////////////
-   public static void listarCotizacionesID(String dato) {
-       AgregarCotizacionesRuta.lblIDCoti.setText(""+dato);
-       
-         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tabla.getModel();
+    
+    public static void agregarAsigna(String IDCR,String IDCoti,String IDCli,String IDOri,String Ori,String Desti,String IDTrans,String Trans,String Precio){
+        
+        String q = " INSERT INTO asigna_ruta_servicio (ID_AsignaRutaServicio,ID_RutaCotizacion,ID_Cliente,ID_Origen,Origen,Destino,ID_Transporte,Transporte,Precio)"
+                + "VALUES (NULL,'"+IDCR+"','"+IDCli+"','"+IDOri+"','"+Ori+"','"+Desti+"','"+IDTrans+"','"+Trans+"','"+Precio+"')";
+        ////INSERT INTO `bitacora_costos` (`ID_Bitacora`, `Nombre_Viaje`, `costo_antiguo`, `costo_nuevo`,
+        //`Fecha_Mod`, `ID_ClienteB`) VALUES (NULL, 'Villa,donato', '300', '400', current_timestamp(), '71');
+        try {
+            PreparedStatement pstm = cn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        JOptionPane.showMessageDialog(null, "Datos agregados");
+        
+    }
+    public static void listarAsigna(String busca/*,String ID*/) {
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tabla.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
         
         String sql = "";
-        //if (busca.equals("")) {
-            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from cotizaciones_ruta where ID_CotizacionRuta =" + dato;
-        ///} else {
+        if (busca.equals("")) {
+            sql = "Select ID_AsignaRutaServicio, Origen, Destino,Transporte,Precio from asigna_ruta_servicio";
+        } else {
             
             //sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
             
-           ///}
+           }
         String datos[] = new String[6];
         try {           
             Statement st = cn.createStatement();
@@ -404,6 +463,9 @@ public class Opciones {
             Logger.getLogger(Ventanas.Modulo_Ruta_Cotizacion.Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+     ///////////////////////////////////////////////////////////////////
+   
     
 }
     

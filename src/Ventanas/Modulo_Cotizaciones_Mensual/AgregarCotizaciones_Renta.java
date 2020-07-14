@@ -753,7 +753,11 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
+<<<<<<< HEAD
         
+=======
+//        Opciones.listar(this.buscar.getText());
+>>>>>>> ec8c0d9af657f73a5b95820753d31ff383869d8f
          
     }//GEN-LAST:event_buscarKeyReleased
 
