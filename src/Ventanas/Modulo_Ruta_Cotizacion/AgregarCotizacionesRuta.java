@@ -348,22 +348,29 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                             }
                             else
                             {
+                                if(Cotizaciones.ObtenerIDCotizacionRuta(IDOrigen, destino, ID_Transportes)==0){
+                                    //////Si la ruta no existe, agrega los datos selecionados a la tabla cotizaciones_ruta
+                                    String Origen =AgregarCotizacionesRuta.cmbOrigenes.getSelectedItem().toString();                                    
+                                    String Transportes=AgregarCotizacionesRuta.cmbTransportes.getSelectedItem().toString();                                    
+                                    Opciones.registrarCotizacionesRuta(IDOrigen,Origen,destino,ID_Transporte,Transportes);
+                                }else{
+                               
                                 ID_rutas.setText(""+ Cotizaciones.ObtenerIDCotizacionRuta(IDOrigen, destino, ID_Transportes));
                                 int ID_Rutas = Integer.parseInt(ID_rutas.getText());
                                 int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
                                 float precio = Cotizaciones.ObtenerPrecio(ID_Rutas);
                                 
-                                if(precio == 0)
-                                {
-                                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                    AC.msj1.setText("¡Error!");
-                                    AC.msj2.setText("El servicio tiene un valor");
-                                    AC.msj3.setText("No valido, !Verifique!");
-                                    AC.setVisible(true);
-                                    //JOptionPane.showMessageDialog(null, "el destino es "+destino+ " "+ID_Cotizacion+" "+ID_Transportes);
-                                }
-                                else
-                                {
+//                                if(precio == 0)
+//                                {
+//                                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+//                                    AC.msj1.setText("¡Error!");
+//                                    AC.msj2.setText("El servicio tiene un valor");
+//                                    AC.msj3.setText("No valido, !Verifique!");
+//                                    AC.setVisible(true);
+//                                    JOptionPane.showMessageDialog(null, "el destino es "+destino+ " "+ID_Cotizacion+" "+ID_Transportes+ " "+IDOrigen);
+//                                }
+//                                else
+//                                {
                                     if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion, ID_Rutas)==0)
                                     {   
 
@@ -387,8 +394,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                                         AC.setVisible(true);
                                     }
                                     
+                                    //}
                                 }
-                                
                                 
                                 
                             }

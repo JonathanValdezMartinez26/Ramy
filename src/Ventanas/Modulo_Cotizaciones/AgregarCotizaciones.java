@@ -303,12 +303,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                             else
                             {
                                 ID_rutas.setText(""+ Cotizaciones.ObtenerIDRuta(ID_Cliente, ID_Origenes, ID_Destinos, ID_Transportes));
+                                ID_rutas.setVisible(true);
                                 int ID_Rutas = Integer.parseInt(ID_rutas.getText());
                                 int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
                                 float precio = Cotizaciones.ObtenerPrecio(ID_Rutas);
                                 
                                 if(precio == 0)
                                 {
+                                    JOptionPane.showMessageDialog(null, ""+precio+" "+ID_Cliente+" "+ID_Origenes+" "+ID_Destinos+" "+ ID_Transportes);
                                     Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                                     AC.msj1.setText("¡Error!");
                                     AC.msj2.setText("El servicio tiene un valor");

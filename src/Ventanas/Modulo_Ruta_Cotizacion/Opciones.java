@@ -80,6 +80,27 @@ public class Opciones {
         return existe;
     }
     
+    public static void registrarCotizacionesRuta(int IDOrigen,String Origen,String destino,int ID_Transporte,String Transportes){
+        String q = " INSERT INTO  cotizaciones_ruta(ID_CotizacionRuta,ID_Origen,Origen,Destino,ID_Transporte,Transporte,Precio)"
+                     + "VALUES (NULL,'"+IDOrigen+"','"+Origen+"','"+destino+"','"+ID_Transporte+"','"+Transportes+"','0')";      
+                                        try {PreparedStatement pstm = cn.prepareStatement(q);
+                                    pstm.execute();
+                                    pstm.close();
+                                    }catch(SQLException e){            
+                                    System.out.println(e);}
+                                        
+                                        AgregarCotizacionesRuta.cmbOrigenes.setSelectedItem(0);
+                                        AgregarCotizacionesRuta.cmbDestinos.setSelectedItem(0);
+                                        AgregarCotizacionesRuta.cmbTransportes.setSelectedItem(0);
+                                        AgregarCotizacionesRuta.ID_rutas.setText("");
+                                        
+                                        Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                                        AC.msj1.setText("¡Cotizacion Agregada!");
+                                        AC.msj2.setText("Correctamente");
+                                        AC.msj3.setText("Asigne el precio correspondiente");
+                                        AC.setVisible(true);
+        
+    }
     public static void listar(String busca, int ID) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.tabla.getModel();
 

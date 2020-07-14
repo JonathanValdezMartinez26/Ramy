@@ -147,6 +147,7 @@ public static ResultSet resultado;
   
         //String SQL = "SELECT ID_CotizacionRuta from cotizaciones_ruta where (ID_Origen = "+ID_Origenes+") and (Destino = '"+Destino+"') and (ID_Transporte = "+ID_Transporte+")";
         String SQL ="SELECT ID_CotizacionRuta from cotizaciones_ruta where (ID_Origen ='"+ID_Origenes+"' ) and (Destino = '"+Destino+"') and (ID_Transporte = '"+ID_Transporte+"')";
+        //String SQL ="SELECT ID_CotizacionRuta from cotizaciones_ruta where (ID_Origen ='82' ) and (Destino = '|Valle de Bravo, Estado de México') and (ID_Transporte = '1')";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -165,7 +166,7 @@ public static ResultSet resultado;
     public static int ObtenerPrecio(int ID_Ruta) {
         int existe = 0;
   
-        String SQL = "SELECT Precio from cotizaciones_ruta where (ID_CotizacionRuta= "+ ID_Ruta+")";
+        String SQL = "SELECT Precio from rutav where (ID_ruta= "+ ID_Ruta+")";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
