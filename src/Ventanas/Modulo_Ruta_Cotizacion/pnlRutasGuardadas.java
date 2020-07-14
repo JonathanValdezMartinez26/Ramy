@@ -376,14 +376,14 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlagregarMouseEntered
 
     private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
-        //AgregarTipoServicio poper = new AgregarTipoServicio(null, true);
-        //poper.setVisible(true);
-            int Fila = tabla.getSelectedRow();
-            String IDCliente=lblID.getText();
+
+        int Fila = tabla.getSelectedRow();
+        String IDCliente=lblID.getText();
         int Filita = 1; 
   
         if (Fila >= 0) {
 
+<<<<<<< HEAD
             int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
             String localidad = (tabla.getValueAt(Fila, 5).toString());
             String municipio = (tabla.getValueAt(Fila, 4).toString());
@@ -409,6 +409,16 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
             
             
 //            AgregarCotizacionesRuta AG=new AgregarCotizacionesRuta(null,true);
+=======
+            String dato=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),0));//ID de la fila que se selecciona
+           
+           
+            //Generar una tabla nueva que se llame asigna_cotizacion_ruta
+            //vas a insertar el id dato que es el id de la cotizacion_ruta
+            //en la tabla asigna_cotizacion_ruta
+            //Cotizaciones.InsertarAsignaCotizaciones(ID);
+            Opciones.listarCotizacionRuta("",IDCliente);
+>>>>>>> 82a7bdac88785ae8efe1b90bbcc25404aea43772
             
             //AG.setVisible(true);
 //            AG.set;

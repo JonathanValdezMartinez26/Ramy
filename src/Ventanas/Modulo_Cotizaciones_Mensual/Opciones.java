@@ -60,7 +60,7 @@ public class Opciones {
     }
     ///////////////////////////////////////
     
-    public static void listar(String busca, int ID) {
+    public static void listar(String busca,  int ID) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tablaR.getModel();
 
         while (modelo.getRowCount() > 0) {
@@ -99,7 +99,7 @@ public class Opciones {
         
         String sql = "";
                //JOptionPane.showMessageDialog(null, ID);
-               sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+               sql="delete from asigna_cotizaciones_renta where ID_Asigna_Cotizacion_Renta =" + ID;
 
                 try {
                             PreparedStatement pstm = cn.prepareStatement(sql);
@@ -190,6 +190,9 @@ public class Opciones {
             ps.setInt(5, uc.getID_Transporte());
            
             ps.executeUpdate();
+            
+            
+            
             return true;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -198,10 +201,43 @@ public class Opciones {
         return false;
     }
     
-    
-    
      ///////////////////////////////////////////////////////////////////
+    
+    public static void listarCotizacionRuta(String busca, String ID) {
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tabla.getModel();
 
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        
+        String sql = "";
+        if (busca.equals("")) {
+            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from cotizaciones_ruta where ID_Cliente =" + ID;
+        } else {
+            
+            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
+            
+           }
+        String datos[] = new String[6];
+        try {           
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                datos [0] = String.valueOf(rs.getInt(1));
+                datos [1] = rs.getString(2);
+                datos [2] = rs.getString(3);
+                datos [3] = rs.getString(4);
+                datos [4] = rs.getString(5);
+                
+                modelo.addRow(datos);
+            }
+            
+            modelo.fireTableDataChanged();
+        } catch (SQLException ex) {
+            Logger.getLogger(Ventanas.Modulo_Ruta_Cotizacion.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
    
     
 }
