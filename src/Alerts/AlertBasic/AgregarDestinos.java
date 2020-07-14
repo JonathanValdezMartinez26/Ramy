@@ -2,7 +2,6 @@
 package Alerts.AlertBasic;
 
 import Alerts.*;
-import Clases.Cita;
 import Ventanas.Modulo_Cliente.Opciones;
 import Ventanas.Modulo_Cliente.Registrar;
 import com.sun.glass.events.KeyEvent;

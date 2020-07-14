@@ -46,6 +46,36 @@ public static ResultSet resultado;
         }
     }
      
+         public static void Actualizar_Clientes(int ID, String Nombre_cliente, String Atencion, int ID_Localidad, String Calle) {
+
+        try {
+                CallableStatement consulta = Conexion.con.prepareCall("{call Modificarclientes (?,?,?,?,?) }");
+ 
+            consulta.setInt(1, ID);
+            consulta.setString(2, Nombre_cliente);
+            consulta.setString(3, Atencion);
+            consulta.setInt(4, ID_Localidad );
+            consulta.setString(5, Calle);
+
+               consulta.execute();
+            
+                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                AC.msj1.setText("¡Datos del Cliente!");
+                AC.msj2.setText("Actualizados Correctamente");
+                AC.setVisible(true);
+                
+        } 
+        catch (SQLException ex) 
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error 3714!");
+            AC.msj2.setText("¡Contacte a servicios ProMedic!");
+            AC.setVisible(true);
+        }
+    }
+     
+     
+     
      public static int ObtenID() {
         int c = 0;
         String SQL = "SELECT MAX(ID_cliente) FROM Clientes";
@@ -143,33 +173,7 @@ public static ResultSet resultado;
         }
     }
 
-    public static void Actualizar_Clientes(int ID, String Nombre_cliente, String RFC, int ID_Estado, String Direccion) {
 
-        try {
-                CallableStatement consulta = Conexion.con.prepareCall("{call ModificarClientes (?,?,?,?,?) }");
- 
-            consulta.setInt(1, ID);    
-            consulta.setString(2, Nombre_cliente);
-            consulta.setString(3, RFC);
-            consulta.setInt(4, ID_Estado);
-            consulta.setString(5, Direccion);
-
-                consulta.execute();
-            
-                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-                AC.msj1.setText("¡Datos del Cliente!");
-                AC.msj2.setText("Actualizados Correctamente");
-                AC.setVisible(true);
-                
-        } 
-        catch (SQLException ex) 
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Error 3714!");
-            AC.msj2.setText("¡Contacte a servicios ProMedic!");
-            AC.setVisible(true);
-        }
-    }
 
     public static void Activar_Especialidad(int ID) 
     {
