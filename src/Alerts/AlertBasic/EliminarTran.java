@@ -20,10 +20,7 @@ public class EliminarTran extends javax.swing.JDialog {
         FadeEffect.fadeIn(this, 20, 0.1f);
         this.setLocationRelativeTo(this);
         ID.setVisible(true);
-<<<<<<< HEAD
-        
-=======
->>>>>>> ec8c0d9af657f73a5b95820753d31ff383869d8f
+
     }
 
     @SuppressWarnings("unchecked")

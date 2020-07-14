@@ -198,7 +198,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 //            ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);
             Opciones.listar("",ID);
-           JOptionPane.showMessageDialog(null,""+ID);
+//           JOptionPane.showMessageDialog(null,""+ID);
         }
     else
         {
@@ -683,6 +683,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
         txtFechaF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtFechaF.setMaxSelectableDate(new java.util.Date(253370790091000L));
+        txtFechaF.setMinSelectableDate(new java.util.Date(1577862100000L));
         txtFechaF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 txtFechaFPropertyChange(evt);
@@ -753,11 +754,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-<<<<<<< HEAD
-        
-=======
+
 //        Opciones.listar(this.buscar.getText());
->>>>>>> ec8c0d9af657f73a5b95820753d31ff383869d8f
+
          
     }//GEN-LAST:event_buscarKeyReleased
 
@@ -907,7 +906,7 @@ public void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Transporte.jasper";
+            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Transporte.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);
