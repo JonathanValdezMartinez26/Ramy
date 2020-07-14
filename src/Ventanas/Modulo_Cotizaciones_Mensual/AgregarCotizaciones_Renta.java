@@ -198,7 +198,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 //            ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);
             Opciones.listar("",ID);
-           JOptionPane.showMessageDialog(null,""+ID);
+//           JOptionPane.showMessageDialog(null,""+ID);
         }
     else
         {
@@ -683,6 +683,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
         txtFechaF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtFechaF.setMaxSelectableDate(new java.util.Date(253370790091000L));
+        txtFechaF.setMinSelectableDate(new java.util.Date(1577862100000L));
         txtFechaF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 txtFechaFPropertyChange(evt);
