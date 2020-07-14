@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package A_tabla;
 
 import java.awt.Color;
@@ -33,7 +28,7 @@ public class EstiloTablaHeader implements TableCellRenderer{
         } 
         
         jcomponent.setEnabled(true);        
-        jcomponent.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 4, new java.awt.Color(255, 255, 255)));
+        jcomponent.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 0, 1, new java.awt.Color(255, 255, 255)));
         jcomponent.setOpaque(true);
         jcomponent.setBackground( new Color(198, 202, 193) );
         jcomponent.setForeground(Color.WHITE);
