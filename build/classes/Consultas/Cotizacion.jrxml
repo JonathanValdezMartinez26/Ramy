@@ -3,7 +3,7 @@
 	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
 	<property name="ireport.zoom" value="4.0"/>
-	<property name="ireport.x" value="198"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="983"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
@@ -32,12 +32,12 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="ffcfdec3-d95f-43c8-9c72-c12d622427ab"/>
-	<parameter name="ID_Cliente" class="java.lang.Integer">
+	<parameter name="ID_Cotizacion" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT A.ID_Ruta,A.ID_Cliente,A.Nombre_Cliente,A.Origen,Destino,A.Nombre_Transporte,A.Precio,A.Atencion,A.Calle,A.Localidad,A.TRÁILER,A.CAMIONETA_UNO_CINCO_TON,A.CAMIONETA_TRES_CINCO_TON,A.TORTHON,A.FULL ,H.ID_Cotizacion FROM REPORTE_COTIZACION A
-INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID_Cliente}]]>
+INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID_Cotizacion}]]>
 	</queryString>
 	<field name="ID_Ruta" class="java.lang.Long"/>
 	<field name="ID_Cliente" class="java.lang.Long"/>
