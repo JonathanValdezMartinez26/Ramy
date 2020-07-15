@@ -1,26 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-<<<<<<< HEAD
-=======
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/Opciones.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Ruta_Cotizacion/AgregarCotizacionesRuta.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Clases/Cotizaciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Ruta_Cotizacion/Opciones.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Ruta_Cotizacion/pnlRutasGuardadas.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Clases/database.java</file>
-=======
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/Opciones.java</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Ruta_Cotizacion/AgregarCotizacionesRuta.java</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Ruta_Cotizacion/pnlRutasGuardadas.java</file>
->>>>>>> 82a7bdac88785ae8efe1b90bbcc25404aea43772
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/ModificarCliente.java</file>
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/pnlClientes.java</file>
         </group>
     </open-files>
->>>>>>> ec8c0d9af657f73a5b95820753d31ff383869d8f
 </project-private>
