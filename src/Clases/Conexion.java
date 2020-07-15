@@ -13,7 +13,7 @@ public void Conectar(String user,String pass)throws SQLException,ClassNotFoundEx
 {  
 
             DriverManager.registerDriver( new com.mysql.jdbc.Driver());
-            con = DriverManager.getConnection("jdbc:mysql://192.168.100.14//clinica?useUnicode=true&characterEncoding=utf-8", user, pass);
+            con = DriverManager.getConnection("jdbc:mysql://192.168.100.14/clinica?useUnicode=true&characterEncoding=utf-8", user, pass);
             state=con.createStatement(result.TYPE_SCROLL_SENSITIVE,result.CONCUR_UPDATABLE);
 }
 public static ResultSet consulta(String sql)throws SQLException{
@@ -26,7 +26,7 @@ public static ResultSet consulta(String sql)throws SQLException{
   public Connection conexion() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://192.168.100.14//clinica?useUnicode=true&characterEncoding=utf-8","root", ""); 
+            con = DriverManager.getConnection("jdbc:mysql://192.168.100.14/clinica?useUnicode=true&characterEncoding=utf-8","root", ""); 
         } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error en la conexión" + e);
         }

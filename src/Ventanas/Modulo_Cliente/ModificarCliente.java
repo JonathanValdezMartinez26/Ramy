@@ -670,13 +670,13 @@ public class ModificarCliente extends javax.swing.JDialog {
 //            ColoniaItem = loc.getId();
 //        }
 
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
-            estados est = (estados) cmbEstado.getSelectedItem();
-            municipios mun = (municipios) cmbMunicipio.getSelectedItem();
-            localidades loc = (localidades) cmbColonia.getSelectedItem();
-            
-            ColoniaItem = loc.getId();
-        }
+//        if (evt.getStateChange() == ItemEvent.SELECTED) {
+//            estados est = (estados) cmbEstado.getSelectedItem();
+//            municipios mun = (municipios) cmbMunicipio.getSelectedItem();
+//            localidades loc = (localidades) cmbColonia.getSelectedItem();
+//            
+//            ColoniaItem = loc.getId();
+//        }
 
     }//GEN-LAST:event_cmbColoniaItemStateChanged
 
