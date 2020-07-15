@@ -638,22 +638,22 @@ public class ModificarCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbMunicipioItemStateChanged
 
     private void cmbEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbEstadoItemStateChanged
-<<<<<<< HEAD
+
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             JOptionPane.showMessageDialog(null, "Se a autoseleccionado el combo EStado");
-=======
+
 //        if (evt.getStateChange() == ItemEvent.SELECTED) {
->>>>>>> a03623f788e7f8bc29ac0642e353e429efb0c4cf
+
 //            estados est = (estados) cmbEstado.getSelectedItem();
 //            municipios mun = new municipios();
 //            DefaultComboBoxModel modelMunicipio = new DefaultComboBoxModel(mun.mostrarMunicipio(est.getId()));
 //            cmbMunicipio.setModel(modelMunicipio);
 //            cmbColonia.removeAllItems();
-<<<<<<< HEAD
+
         }
-=======
+
 //        }
->>>>>>> a03623f788e7f8bc29ac0642e353e429efb0c4cf
+
     }//GEN-LAST:event_cmbEstadoItemStateChanged
 
     private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
@@ -661,7 +661,7 @@ public class ModificarCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbEstadoActionPerformed
 
     private void cmbColoniaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbColoniaItemStateChanged
-<<<<<<< HEAD
+
 //           if (evt.getStateChange() == ItemEvent.SELECTED) {
 //            estados est = (estados) cmbEstado.getSelectedItem();
 //            municipios mun = (municipios) cmbMunicipio.getSelectedItem();
@@ -669,7 +669,7 @@ public class ModificarCliente extends javax.swing.JDialog {
 //            
 //            ColoniaItem = loc.getId();
 //        }
-=======
+
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             estados est = (estados) cmbEstado.getSelectedItem();
             municipios mun = (municipios) cmbMunicipio.getSelectedItem();
@@ -677,7 +677,7 @@ public class ModificarCliente extends javax.swing.JDialog {
             
             ColoniaItem = loc.getId();
         }
->>>>>>> a03623f788e7f8bc29ac0642e353e429efb0c4cf
+
     }//GEN-LAST:event_cmbColoniaItemStateChanged
 
     public static void main(String args[]) {
