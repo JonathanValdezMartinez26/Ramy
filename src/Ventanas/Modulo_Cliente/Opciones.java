@@ -191,7 +191,8 @@ public class Opciones {
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
-        String sql = "Select ID_Ruta, Origen, Destino, Nombre_Transporte,Precio from rutav where ID_Cliente =" + ID;
+        //String sql = "Select ID_Ruta, Origen, Destino, Nombre_Transporte,Precio from rutav where ID_Cliente =" + ID;
+        String sql= "Select ID_Ruta, Origen, Destino, Nombre_Transporte,Precio from rutav where ID_Cliente ="+ID+" ORDER BY Origen,Destino,  Nombre_Transporte";
       
             String datos[] = new String[5];
         try 

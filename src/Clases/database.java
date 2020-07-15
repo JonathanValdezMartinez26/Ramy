@@ -7,7 +7,7 @@ public class database {
   private String bd = "Clinica";//BASE DE DATOS
   private String login = "root"; //USUARIO
   private String password = ""; //CONTRASEÑA
-  private String url = "jdbc:mysql://localhost/"+bd;
+  private String url = "jdbc:mysql://192.168.100.14//"+bd;
   private Connection conn = null;
 
   /* Constructor de clase: Se conecta a la base de datos

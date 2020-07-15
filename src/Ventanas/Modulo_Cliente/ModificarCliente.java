@@ -158,10 +158,10 @@ public class ModificarCliente extends javax.swing.JDialog {
      
       public void CargarDatos(int ID,String atencion,String Localidad, String Municipio, String Estado){
         
-        CargarEstado();
-        CargarMunicipio(Municipio);
-        CargarLocalidad(Localidad);
-         
+//        CargarEstado();
+//        CargarMunicipio(Municipio);
+//        CargarLocalidad(Localidad);
+//         
         String Nombre_cliente="";
         String Atencion="",Calle="";
         
@@ -179,7 +179,7 @@ public class ModificarCliente extends javax.swing.JDialog {
             
         }
         catch(SQLException ex){}
-        
+        JOptionPane.showMessageDialog(null,"ID "+ID+" "+Localidad+" "+Municipio+" "+Estado );
         txtNombre.setText(Nombre_cliente);
         txtAtencion.setText(atencion);
         
@@ -187,9 +187,9 @@ public class ModificarCliente extends javax.swing.JDialog {
         cmbEstado.setSelectedItem(Estado);
         txtCalle.setText(Calle);
         cmbColonia.setSelectedItem(Localidad);
-        cmbEstado.getSelectedIndex();
-        //cmbColonia1.setSelectedItem(4);
-        //cmbColonia1.set("sasass");
+        //cmbEstado.getSelectedIndex();
+//        cmbColonia1.setSelectedItem(4);
+//        cmbColonia1.set("sasass");
     }
 
      public void CargarLocalidad(String Nombre){
@@ -638,13 +638,22 @@ public class ModificarCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbMunicipioItemStateChanged
 
     private void cmbEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbEstadoItemStateChanged
+
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            JOptionPane.showMessageDialog(null, "Se a autoseleccionado el combo EStado");
+
 //        if (evt.getStateChange() == ItemEvent.SELECTED) {
+
 //            estados est = (estados) cmbEstado.getSelectedItem();
 //            municipios mun = new municipios();
 //            DefaultComboBoxModel modelMunicipio = new DefaultComboBoxModel(mun.mostrarMunicipio(est.getId()));
 //            cmbMunicipio.setModel(modelMunicipio);
 //            cmbColonia.removeAllItems();
+
+        }
+
 //        }
+
     }//GEN-LAST:event_cmbEstadoItemStateChanged
 
     private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
@@ -652,6 +661,15 @@ public class ModificarCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbEstadoActionPerformed
 
     private void cmbColoniaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbColoniaItemStateChanged
+
+//           if (evt.getStateChange() == ItemEvent.SELECTED) {
+//            estados est = (estados) cmbEstado.getSelectedItem();
+//            municipios mun = (municipios) cmbMunicipio.getSelectedItem();
+//            localidades loc = (localidades) cmbColonia.getSelectedItem();
+//            
+//            ColoniaItem = loc.getId();
+//        }
+
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             estados est = (estados) cmbEstado.getSelectedItem();
             municipios mun = (municipios) cmbMunicipio.getSelectedItem();
@@ -659,6 +677,7 @@ public class ModificarCliente extends javax.swing.JDialog {
             
             ColoniaItem = loc.getId();
         }
+
     }//GEN-LAST:event_cmbColoniaItemStateChanged
 
     public static void main(String args[]) {
