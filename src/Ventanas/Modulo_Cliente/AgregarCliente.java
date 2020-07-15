@@ -167,12 +167,11 @@ public class AgregarCliente extends javax.swing.JDialog {
         rSButtonMetro2 = new JButtonEspecial.JButtonEspecial();
         jLabel19 = new javax.swing.JLabel();
         lblNombreNuevo4 = new javax.swing.JLabel();
-        txtNombre = new app.bolivia.swing.JCTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         lblNombreNuevo7 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        txtAtencion = new app.bolivia.swing.JCTextField();
+        txtNombre = new app.bolivia.swing.JCTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel25 = new javax.swing.JLabel();
         lblNombreNuevo5 = new javax.swing.JLabel();
@@ -185,6 +184,7 @@ public class AgregarCliente extends javax.swing.JDialog {
         lblNombreNuevo21 = new javax.swing.JLabel();
         txtCalle = new app.bolivia.swing.JCTextField();
         cmbMunicipio = new ComboBox.SComboBox();
+        txtAtencion = new app.bolivia.swing.JCTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -268,16 +268,6 @@ public class AgregarCliente extends javax.swing.JDialog {
         lblNombreNuevo4.setText("Nombre del la Empresa/Negocio ó Cliente*");
         pnlPrincipal.add(lblNombreNuevo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 280, -1));
 
-        txtNombre.setBorder(null);
-        txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNombre.setPlaceholder("Ej. QUIMICA Y FARMACIA,  S.A. DE C.V.");
-        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNombreKeyTyped(evt);
-            }
-        });
-        pnlPrincipal.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 280, 30));
-
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
         pnlPrincipal.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 210, -1));
 
@@ -293,15 +283,15 @@ public class AgregarCliente extends javax.swing.JDialog {
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
         pnlPrincipal.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 210, -1));
 
-        txtAtencion.setBorder(null);
-        txtAtencion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtAtencion.setPlaceholder("Ej. LIC. D. DELFINA CRUZ MARTÍNEZ");
-        txtAtencion.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNombre.setBorder(null);
+        txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNombre.setPlaceholder("Ej. QUIMICA Y FARMACIA,  S.A. DE C.V.");
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtAtencionKeyTyped(evt);
+                txtNombreKeyTyped(evt);
             }
         });
-        pnlPrincipal.add(txtAtencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 280, 30));
+        pnlPrincipal.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 300, 30));
         pnlPrincipal.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 650, 10));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -376,6 +366,16 @@ public class AgregarCliente extends javax.swing.JDialog {
         });
         pnlPrincipal.add(cmbMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 230, -1));
 
+        txtAtencion.setBorder(null);
+        txtAtencion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtAtencion.setPlaceholder("Ej. LIC. D. DELFINA CRUZ MARTÍNEZ");
+        txtAtencion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAtencionKeyTyped(evt);
+            }
+        });
+        pnlPrincipal.add(txtAtencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 310, 30));
+
         jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 9, 700, 420));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -425,22 +425,8 @@ public class AgregarCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_rSButtonMetro2ActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-        char c=evt.getKeyChar();
-        if(Character.isDigit(c)) {
-            getToolkit().beep();
-            evt.consume();
-        }
-
-        int limite =20;
-        if (txtNombre.getText().length()== limite)
-        {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtNombreKeyTyped
-
-    private void txtAtencionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAtencionKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAtencionKeyTyped
+    }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtCalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCalleKeyTyped
         // TODO add your handling code here:
@@ -474,6 +460,10 @@ public class AgregarCliente extends javax.swing.JDialog {
             ColoniaItem = loc.getId();
         }
     }//GEN-LAST:event_cmbColoniaItemStateChanged
+
+    private void txtAtencionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAtencionKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAtencionKeyTyped
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

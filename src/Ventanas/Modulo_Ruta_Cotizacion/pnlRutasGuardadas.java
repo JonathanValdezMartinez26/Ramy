@@ -383,7 +383,6 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
   
         if (Fila >= 0) {
 
-<<<<<<< HEAD
             int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
             String localidad = (tabla.getValueAt(Fila, 5).toString());
             String municipio = (tabla.getValueAt(Fila, 4).toString());
@@ -409,7 +408,7 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
             
             
 //            AgregarCotizacionesRuta AG=new AgregarCotizacionesRuta(null,true);
-=======
+
             String dato=String.valueOf(tabla.getValueAt(tabla.getSelectedRow(),0));//ID de la fila que se selecciona
            
            
@@ -418,7 +417,7 @@ public class pnlRutasGuardadas extends javax.swing.JDialog {
             //en la tabla asigna_cotizacion_ruta
             //Cotizaciones.InsertarAsignaCotizaciones(ID);
             Opciones.listarCotizacionRuta("",IDCliente);
->>>>>>> 82a7bdac88785ae8efe1b90bbcc25404aea43772
+
             
             //AG.setVisible(true);
 //            AG.set;
