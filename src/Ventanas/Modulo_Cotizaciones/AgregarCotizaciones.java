@@ -1028,7 +1028,7 @@ public void ver() {
             String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
-            parametro.put("ID_Cliente", ID);
+            parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
             JRViewer jrv = new JRViewer(jasperPrint);
