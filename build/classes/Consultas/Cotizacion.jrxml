@@ -292,7 +292,11 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 				<textFieldExpression><![CDATA[$F{Nombre_Cliente}]]></textFieldExpression>
 			</textField>
 			<staticText>
+<<<<<<< HEAD
+				<reportElement style="Column header" x="10" y="203" width="532" height="33" forecolor="#000000" uuid="fe426815-12c8-4c35-8002-8c2a66cb8079"/>
+=======
 				<reportElement style="Column header" x="10" y="202" width="532" height="33" forecolor="#000000" uuid="fe426815-12c8-4c35-8002-8c2a66cb8079"/>
+>>>>>>> a9987706ca02ab8a6d22f666681d3367214d8813
 				<box>
 					<pen lineWidth="1.0" lineColor="#0000FF"/>
 					<topPen lineWidth="1.0" lineColor="#0000FF"/>

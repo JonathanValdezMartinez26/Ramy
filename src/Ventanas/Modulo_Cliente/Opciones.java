@@ -60,6 +60,34 @@ public class Opciones {
         
         
     }
+    public static void modificarCliente(int id,String Nombre,String Atencion,String IDLocalidad,String Calle){
+    
+        String q="UPDATE clientes SET ID_cliente='"+id+"',Nombre_cliente='"+Nombre+"',Atencion='"+Atencion+"',id_localidad='"
+                + ""+IDLocalidad+"',Calle='"+Calle+"' where ID_cliente='"+id+"'";
+        
+        try {
+            PreparedStatement pstm = cn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            
+                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                AC.msj1.setText("¡Datos del Cliente!");
+                AC.msj2.setText("Actualizados Correctamente");
+                AC.setVisible(true);
+
+         }catch(SQLException e){            
+            System.out.println(e);
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error 3714!");
+            AC.msj2.setText("¡Contacte a servicios ProMedic!");
+            AC.setVisible(true);
+
+        }
+//            JOptionPane.showMessageDialog(null, "DESDE modificarCliente : ID Cliente a actualizar "+id+" "+Nombre+" "+ " "+
+//            Atencion+" "+IDLocalidad+" "+Calle);
+
+
+    }
     ///////////////////////////////////////////////////////////////////
     public static int verificaOrigen(int ID, int Municipio) {
         int existe = 0;
