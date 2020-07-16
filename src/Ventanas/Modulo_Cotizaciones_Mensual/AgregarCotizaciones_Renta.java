@@ -72,7 +72,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     int  MunicipioItem = 0;
     int ID;
     ResultSet resultado, nombre;
-    int ID_Tran [];
+    int ID_Per [];
     int ID_Cli[];
     
     private database db = new database();
@@ -87,7 +87,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
        
        
         
-        Transportes();
+        Periodo();
         
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(true);
@@ -151,33 +151,33 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         }
     }
     
-    public void Transportes()
+    public void Periodo()
     {
-        int ID_Transportes = 0;
+        int ID_Periodo = 0;
 
         try 
         {
-            resultado = Conexion.consulta("Select Max(ID_Transporte) from Transportes");
+            resultado = Conexion.consulta("Select Max(ID_Periodo) from Periodo");
             while (resultado.next()) 
             {
-                ID_Transportes = resultado.getInt(1);
+                ID_Periodo = resultado.getInt(1);
             }
         } 
         catch (SQLException ex) 
         {
 
         }
-        ID_Transportes++;
-        ID_Tran= new int[ID_Transportes];
-        ID_Tran[0] = 0;
+        ID_Periodo++;
+        ID_Per= new int[ID_Periodo];
+        ID_Per[0] = 0;
         int i = 1;
         try 
         {
-            resultado = Conexion.consulta("SELECT ID_Transporte, Nombre_Transporte from Transportes");
+            resultado = Conexion.consulta("SELECT ID_Periodo, Periodo from Periodo");
             while (resultado.next()) 
             {
-                ID_Tran [i] = resultado.getInt(1);
-                cmbTransportes.addItem(resultado.getString(2));
+                ID_Per [i] = resultado.getInt(1);
+                cmbPeriodo.addItem(resultado.getString(2));
                 i++;
             }
         } 
@@ -213,11 +213,11 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         
         int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
         int comboCliente = cmbCliente.getSelectedIndex();
-        Date Fecha_I = txtFechaI.getDate();
-        Date Fecha_F = txtFechaF.getDate();
+//        Date Fecha_I = txtFechaI.getDate();
+//        Date Fecha_F = txtFechaF.getDate();
         
         int ID_Transportes = cmbTransportes.getSelectedIndex();
-        int ID_Transporte = ID_Tran[ID_Transportes];
+        int ID_Transporte = ID_Per[ID_Transportes];
      
         if(comboCliente==0)
             {
@@ -351,10 +351,8 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         cmbTransportes = new ComboBox.SComboBox();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         lblatencion1 = new javax.swing.JLabel();
-        txtFechaF = new com.toedter.calendar.JDateChooser();
-        txtFechaI = new com.toedter.calendar.JDateChooser();
+        cmbPeriodo = new ComboBox.SComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -657,49 +655,35 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 170, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel3.setText("Transportes disponibles para el Origen y Destino seleccionado:");
+        jLabel3.setText("Seleccione un Concepto");
         jcMousePanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 860, 20));
 
-        cmbTransportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Transporte" }));
+        cmbTransportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Concepto" }));
         cmbTransportes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbTransportes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbTransportesItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 420, 30));
+        jcMousePanel1.add(cmbTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 380, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel6.setText("Fecha de Inicio de la renta");
+        jLabel6.setText("Seleccione un Periodo ");
         jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 180, 20));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel7.setText("Fecha de Fin de la renta");
-        jcMousePanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 160, 20));
 
         lblatencion1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblatencion1.setText("Atención a:");
         jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
 
-        txtFechaF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtFechaF.setMaxSelectableDate(new java.util.Date(253370790091000L));
-        txtFechaF.setMinSelectableDate(new java.util.Date(1577862100000L));
-        txtFechaF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                txtFechaFPropertyChange(evt);
+        cmbPeriodo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Periodo" }));
+        cmbPeriodo.setToolTipText("");
+        cmbPeriodo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cmbPeriodo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbPeriodoItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(txtFechaF, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 150, 30));
-
-        txtFechaI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtFechaI.setMaxSelectableDate(new java.util.Date(253370790091000L));
-        txtFechaI.setMinSelectableDate(new java.util.Date(1577862091000L));
-        txtFechaI.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                txtFechaIPropertyChange(evt);
-            }
-        });
-        jcMousePanel1.add(txtFechaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 170, 30));
+        jcMousePanel1.add(cmbPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 380, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -834,13 +818,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void txtFechaFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtFechaFPropertyChange
-       
-    }//GEN-LAST:event_txtFechaFPropertyChange
-
-    private void txtFechaIPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtFechaIPropertyChange
+    private void cmbPeriodoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPeriodoItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaIPropertyChange
+    }//GEN-LAST:event_cmbPeriodoItemStateChanged
 
     public static void main(String args[]) {
      
@@ -863,6 +843,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
+    private ComboBox.SComboBox cmbPeriodo;
     private ComboBox.SComboBox cmbTransportes;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel11;
@@ -877,7 +858,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -896,8 +876,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla1;
     public static javax.swing.JTable tablaR;
-    public static com.toedter.calendar.JDateChooser txtFechaF;
-    public static com.toedter.calendar.JDateChooser txtFechaI;
     // End of variables declaration//GEN-END:variables
 public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
