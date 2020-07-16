@@ -216,8 +216,8 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 //        Date Fecha_I = txtFechaI.getDate();
 //        Date Fecha_F = txtFechaF.getDate();
         
-        int ID_Transportes = cmbTransportes.getSelectedIndex();
-        int ID_Transporte = ID_Per[ID_Transportes];
+        int ID_Periodos = cmbPeriodo.getSelectedIndex();
+        int ID_Periodo= ID_Per[ID_Periodos];
      
         if(comboCliente==0)
             {
@@ -226,88 +226,58 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                 AC.msj2.setText("Cliente para Continuar");
                 AC.setVisible(true);
             }
-            else
-            {
-                if(txtFechaI.getDate()==null)
+                    else
                     {
-                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                        AC.msj1.setText("¡Elija una fecha!");
-                        AC.msj2.setText("de Inicio de renta");
-                        AC.setVisible(true);
-                    }
-                else
-                {
-                    if(txtFechaF.getDate()==null)
-                    {
-                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                        AC.msj1.setText("¡Elija una fecha!");
-                        AC.msj2.setText(" de fin de renta");
-                        AC.setVisible(true);
-                    }
-                    
-                     else
-                     {
-                        if(cmbTransportes.getSelectedIndex() == 0)
-                        {
-                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                            AC.msj1.setText("¡Elija un Transporte!");
-                            AC.msj2.setText("");
-                            AC.setVisible(true);
-                        }
-                        
+
+                      if(Ventanas.Modulo_Cotizaciones_Mensual.Opciones.verificaRentaM(ID_Cotizacion,ID_Periodo)==0)
+                      { 
+                          Clases.CotizacionesRentaMen fichaIdent = new Clases.CotizacionesRentaMen();
+
+                            fichaIdent.setID_Cotizacion(ID_Cotizacion);
+                            fichaIdent.setID_Transporte(ID_Periodo);
+
+                            if (Ventanas.Modulo_Cotizaciones_Mensual.Opciones.registrar(fichaIdent)) 
+                            {
+                                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                                      AC.msj1.setText("¡Datos de la cotizacion!");
+                                      AC.msj2.setText("Guardados correctamente");
+                                      AC.setVisible(true);
+                                      Opciones.listar("", ID_Cotizacion);
+
+
+                            }
+
+                             else
+                            {
+                                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                  AC.msj1.setText("¡Error verifique!");
+                                  AC.msj2.setText("los datos ingresados  ");
+                                  AC.setVisible(true);
+                            }
+
+
+
+                      }
                             else
                             {
-                              
-                              if(Ventanas.Modulo_Cotizaciones_Mensual.Opciones.verificaRentaM(ID_Cotizacion,ID_Transporte)==0)
-                              { 
-                                  Clases.CotizacionesRentaMen fichaIdent = new Clases.CotizacionesRentaMen();
-
-                                    fichaIdent.setID_Cotizacion(ID_Cotizacion);
-                                    fichaIdent.setFechaI(Fecha_I);
-                                    fichaIdent.setFechaF(Fecha_F);
-                                    fichaIdent.setID_Transporte(ID_Transporte);
-                                    
-                                    if (Ventanas.Modulo_Cotizaciones_Mensual.Opciones.registrar(fichaIdent)) 
-                                    {
-                                        Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-                                              AC.msj1.setText("¡Datos de la cotizacion!");
-                                              AC.msj2.setText("Guardados correctamente");
-                                              AC.setVisible(true);
-                                              Opciones.listar("", ID_Cotizacion);
-                                              
-                                              
-                                    }
-                                    
-                                     else
-                                    {
-                                         Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                          AC.msj1.setText("¡Error verifique!");
-                                          AC.msj2.setText("los datos ingresados  ");
-                                          AC.setVisible(true);
-                                    }
-                              
-                              
-                                
-                              }
-                                    else
-                                    {
-                                         Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                          AC.msj1.setText("¡Error el transporte!");
-                                          AC.msj2.setText("ya existe ");
-                                          AC.setVisible(true);
-                                    }
-                              
-                                
-                                
-                                
+                                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                  AC.msj1.setText("¡Error el transporte!");
+                                  AC.msj2.setText("ya existe ");
+                                  AC.setVisible(true);
                             }
+                              
+                                
+                                
+                                
+                     }
+        }
+        
                         
                     
-                   }
-                }
-            }
+                   
+                
         
-    }
+    
     ////////////////////////////////////////////////////////////////////////
     
     
@@ -348,8 +318,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         IDCotizacion = new javax.swing.JLabel();
         ID_rutas = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        cmbTransportes = new ComboBox.SComboBox();
         jLabel6 = new javax.swing.JLabel();
         lblatencion1 = new javax.swing.JLabel();
         cmbPeriodo = new ComboBox.SComboBox();
@@ -403,14 +371,14 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "Fecha Inicio", "Fecha Final", "Unidad", "Precio"
+                "ID_", "Periodo", "Concepto"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -433,9 +401,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             tablaR.getColumnModel().getColumn(2).setMinWidth(140);
             tablaR.getColumnModel().getColumn(2).setPreferredWidth(140);
             tablaR.getColumnModel().getColumn(2).setMaxWidth(140);
-            tablaR.getColumnModel().getColumn(4).setMinWidth(140);
-            tablaR.getColumnModel().getColumn(4).setPreferredWidth(140);
-            tablaR.getColumnModel().getColumn(4).setMaxWidth(140);
         }
 
         tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
@@ -654,19 +619,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         });
         jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 170, 30));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel3.setText("Seleccione un Concepto");
-        jcMousePanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 860, 20));
-
-        cmbTransportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Concepto" }));
-        cmbTransportes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cmbTransportes.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbTransportesItemStateChanged(evt);
-            }
-        });
-        jcMousePanel1.add(cmbTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 380, 30));
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel6.setText("Seleccione un Periodo ");
         jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 180, 20));
@@ -793,15 +745,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         pnlFinalizar.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlFinalizarMouseExited
 
-    private void cmbTransportesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTransportesItemStateChanged
-     if (evt.getStateChange() == ItemEvent.SELECTED) {
-            
-            int ID_Tra = cmbTransportes.getSelectedIndex();
-           int ID_Transportes = ID_Tran[ID_Tra];
-            int i = 1;
-     }
-    }//GEN-LAST:event_cmbTransportesItemStateChanged
-
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
         //        Modificar();
     }//GEN-LAST:event_pnleditarMouseClicked
@@ -844,7 +787,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
     private ComboBox.SComboBox cmbPeriodo;
-    private ComboBox.SComboBox cmbTransportes;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -854,7 +796,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

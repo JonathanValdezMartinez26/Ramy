@@ -394,7 +394,7 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Seleccione un Estado y Posteriormente un Municipio para agregar un Origen"/>
+                    <Property name="text" type="java.lang.String" value="Seleccione un Origen y Posteriormente un Destino "/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
