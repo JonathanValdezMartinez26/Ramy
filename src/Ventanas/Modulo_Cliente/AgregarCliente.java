@@ -307,7 +307,7 @@ public class AgregarCliente extends javax.swing.JDialog {
         pnlPrincipal.add(lblNombreNuevo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione Estado" }));
-        cmbEstado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbEstado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbEstado.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbEstadoItemStateChanged(evt);
@@ -358,7 +358,7 @@ public class AgregarCliente extends javax.swing.JDialog {
         pnlPrincipal.add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 280, 30));
 
         cmbMunicipio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione Municipio" }));
-        cmbMunicipio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbMunicipio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbMunicipio.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbMunicipioItemStateChanged(evt);
