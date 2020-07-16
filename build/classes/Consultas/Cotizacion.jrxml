@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="556" leftMargin="20" rightMargin="19" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
-	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
@@ -292,7 +292,11 @@ INNER JOIN asigna_cotizacion H ON A.ID_Ruta =H.ID_Ruta where id_cotizacion=$P{ID
 				<textFieldExpression><![CDATA[$F{Nombre_Cliente}]]></textFieldExpression>
 			</textField>
 			<staticText>
+<<<<<<< HEAD
 				<reportElement style="Column header" x="10" y="203" width="532" height="33" forecolor="#000000" uuid="fe426815-12c8-4c35-8002-8c2a66cb8079"/>
+=======
+				<reportElement style="Column header" x="10" y="202" width="532" height="33" forecolor="#000000" uuid="fe426815-12c8-4c35-8002-8c2a66cb8079"/>
+>>>>>>> a9987706ca02ab8a6d22f666681d3367214d8813
 				<box>
 					<pen lineWidth="1.0" lineColor="#0000FF"/>
 					<topPen lineWidth="1.0" lineColor="#0000FF"/>
