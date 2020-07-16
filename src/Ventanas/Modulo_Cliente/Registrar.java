@@ -712,7 +712,7 @@ public class Registrar extends javax.swing.JDialog {
 
         A.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 730, 300));
 
-        jLabel1.setText("Seleccione un Estado y Posteriormente un Municipio para agregar un Origen");
+        jLabel1.setText("Seleccione un Origen y Posteriormente un Destino ");
         A.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 610, -1));
 
         log1.setBackground(new java.awt.Color(204, 204, 204));

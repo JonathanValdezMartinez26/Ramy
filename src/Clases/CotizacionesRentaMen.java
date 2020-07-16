@@ -240,9 +240,7 @@ public static ResultSet resultado;
      
   private int ID_Asigna_Cotizacion;
   private int ID_Cotizacion;
-    private Date FechaI;
-    private Date FechaF;
-    private int ID_Transporte;
+  private int ID_Periodo;
     
     public int getID_Asigna_Cotizacion() {
         return ID_Asigna_Cotizacion;
@@ -260,28 +258,13 @@ public static ResultSet resultado;
         this.ID_Cotizacion = ID_Cotizacion;
     }
 
-    public Date getFechaI() {
-        return FechaI;
-    }
-
-    public void setFechaI(Date FechaI) {
-        this.FechaI = FechaI;
-    }
     
-    public Date getFechaF() {
-        return FechaF;
+    public int getID_Periodo() {
+        return ID_Periodo;
     }
 
-    public void setFechaF(Date FechaF) {
-        this.FechaF = FechaF;
-    }
-    
-    public int getID_Transporte() {
-        return ID_Transporte;
-    }
-
-    public void setID_Transporte(int ID_Transporte) {
-        this.ID_Transporte = ID_Transporte;
+    public void setID_Periodo(int ID_Periodo) {
+        this.ID_Periodo = ID_Periodo;
     }
     
     
