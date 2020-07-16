@@ -112,7 +112,7 @@ public class C1 extends javax.swing.JPanel {
                                                 AC.setVisible(true); 
                                             }
 
-                                            Medico.Usuario_Medico(Integer.parseInt(AgregarUsuarioMedico.ID_MaxMM.getText()), ID_MaxU, AgregarUsuarioMedico.txtUser.getText());  
+//                                            Medico.Usuario_Medico(Integer.parseInt(AgregarUsuarioMedico.ID_MaxMM.getText()), ID_MaxU, AgregarUsuarioMedico.txtUser.getText());  
                                             
                                             AgregarUsuarioMedico.barra.setVisible(true);
 

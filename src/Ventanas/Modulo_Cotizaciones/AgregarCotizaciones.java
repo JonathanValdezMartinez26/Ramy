@@ -57,7 +57,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
-
+import Ventanas.Modulo_Cotizaciones.Opciones;
 
 
 public class AgregarCotizaciones extends javax.swing.JDialog {
@@ -68,6 +68,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     boolean res = true;
     int  MunicipioItem = 0;
     int ID;
+    
     ResultSet resultado, nombre;
     int ID_Tran [];
     int ID_Ori [];
@@ -310,7 +311,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                                 
                                 if(precio == 0)
                                 {
-                                    JOptionPane.showMessageDialog(null, ""+precio+" "+ID_Cliente+" "+ID_Origenes+" "+ID_Destinos+" "+ ID_Transportes);
+    //                              JOptionPane.showMessageDialog(null, ""+precio+" "+ID_Cliente+" "+ID_Origenes+" "+ID_Destinos+" "+ ID_Transportes);
                                     Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                                     AC.msj1.setText("¡Error!");
                                     AC.msj2.setText("El servicio tiene un valor");
@@ -886,7 +887,10 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbOrigenesItemStateChanged
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-        
+//    
+      int ID = Integer.parseInt(IDCotizacion.getText());
+      Ventanas.Modulo_Cotizaciones.Opciones.listar(buscar.getText(), ID);
+      
     }//GEN-LAST:event_buscarKeyReleased
 
     private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped

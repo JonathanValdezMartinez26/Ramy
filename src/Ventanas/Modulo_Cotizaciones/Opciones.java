@@ -19,7 +19,7 @@ public class Opciones {
     static Conexion cc = new Conexion();
     public static Connection cn = cc.conexion();
     static PreparedStatement ps;
-
+    
   
     
 ///////////////////////////////////////
@@ -73,7 +73,7 @@ public class Opciones {
             sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where ID_Cotizacion =" + ID;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
+            sql = "Select count(Id_Cotizacion),ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID +" Order By ID_Asigna_Cotizacion ";
             
            }
         String datos[] = new String[4];
