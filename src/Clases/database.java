@@ -95,6 +95,21 @@ public class database {
         }
         return res;
     }
+    public boolean updateNombreServicio(String nuevoNombre, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE servicios SET Nombre_Servicio= '"+nuevoNombre+"' WHERE ID_Servicio= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
  public boolean updateCotizacionRuta(String valores, String id)
     {
         boolean res = false;

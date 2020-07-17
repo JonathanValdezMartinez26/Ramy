@@ -62,7 +62,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         if (Fila >= 0) {
             String status = (tabla.getValueAt(Fila, 4).toString());
             
-                    if(status.equals("Pendiente")){
+                    if(status.equals("PENDIENTE")){
                     int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
 
                     ModificarCotizaciones MP = new ModificarCotizaciones(null, true);
@@ -97,7 +97,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
                         Alerts.AlertBasic.EliminarCotizaciones AC = new  Alerts.AlertBasic.EliminarCotizaciones(null, true);
                         AC.msj1.setText("¡Desea Eliminar!");
                         AC.msj2.setText("la Cotizacion");
-                        AC.msj2.setText("esta accioon nnn");
+                        AC.msj2.setText("Esta acción no se podrá deshacer");
                         AC.ID.setText("" + ID);
                         AC.setVisible(true);
                         
@@ -296,14 +296,14 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
         pnlagregar.setToolTipText("Agregar Cotizacion");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlagregarMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlagregarMouseClicked(evt);
             }
         });
         pnlagregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -320,14 +320,14 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
         pnleditar.setToolTipText("Editar Cotizacion");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnleditarMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnleditarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnleditarMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnleditarMouseClicked(evt);
             }
         });
         pnleditar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -368,14 +368,14 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         pnlpdf.setBackground(new java.awt.Color(225, 225, 225));
         pnlpdf.setToolTipText("Eliminar Cotizacion");
         pnlpdf.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlpdfMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlpdfMouseClicked(evt);
             }
         });
         pnlpdf.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
