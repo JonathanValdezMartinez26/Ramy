@@ -62,34 +62,7 @@ public static ResultSet resultado;
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
         return sDate;
     }
-     
-    public static void Agregar_RutaCotizacionM(int ID_Cotizacion,  Date Fecha_I, Date Fecha_F ,int ID_Transporte) {
-        try 
-        {
-            CallableStatement consulta = Conexion.con.prepareCall("{call AgregarRenta (?,?,?,?) }");
-        
-            consulta.setInt(1, ID_Cotizacion);
-            consulta.setDate(2, (java.sql.Date) Fecha_I);
-            consulta.setDate(3, (java.sql.Date) Fecha_F);
-            consulta.setInt(4, ID_Transporte);
-            consulta.execute();
-            
-            Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Servicio Agregado!");
-            AC.msj2.setText("Correctamente");
-            AC.setVisible(true);
-            
-        } catch (SQLException ex) 
-        {
-            JOptionPane.showMessageDialog(null, ex);
-        
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Error 3714!");
-            AC.msj2.setText("¡Contacte a servicios ProSystem!");
-            AC.setVisible(true);
-        }
-    }  
-     
+ 
      public static int ObtenID() {
         int c = 0;
         String SQL = "SELECT MAX(ID_Cotizacion) FROM Cotizaciones";
@@ -124,40 +97,7 @@ public static ResultSet resultado;
         return existe;
     }
     //////////////////////////////////////////////////////////////////
-    public static int ObtenerIDRuta(int ID_Cliente, int ID_Origenes, int ID_Destinos, int ID_Transporte) {
-        int existe = 0;
-  
-        String SQL = "SELECT Id_Ruta from rutav where (ID_Cliente = "+ID_Cliente+") and (ID_Municipio_Origen = "+ID_Origenes+") and (ID_Municipio_Destino = "+ID_Destinos+") and (ID_Transporte = "+ID_Transporte+")";
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(SQL);
-            if (rs.next()) {
-                existe = rs.getInt(1);
-            }           
-        } catch (SQLException ex) {
-             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return existe;
-    }
-    
-    ///////////////////////////////////////////////////////////////////
-    public static int ObtenerPrecio(int ID_Ruta) {
-        int existe = 0;
-  
-        String SQL = "SELECT Precio from rutav where (ID_ruta= "+ ID_Ruta+")";
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(SQL);
-            if (rs.next()) {
-                existe = rs.getInt(1);
-            }           
-        } catch (SQLException ex) {
-             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return existe;
-    }
-    
-    
+
     public static int DeleteTran(int ID_Asigna_Cotizacion_Renta) {
         int existe = 0;
   
@@ -175,36 +115,6 @@ public static ResultSet resultado;
     }
     
     
-    
-     
-     public static void Agregar_Ruta(int ID_Cliente, int ID_Origen, int ID_Destino,  float Precio, int ID_Transporte) {
-        try 
-        {
-            CallableStatement consulta = Conexion.con.prepareCall("{call AgregarRuta (?,?,?,?,?) }");
-            consulta.setInt(1, ID_Cliente);
-            consulta.setInt(2, ID_Origen);
-            consulta.setInt(3, ID_Destino);
-            consulta.setFloat(4, Precio);
-            consulta.setInt(5, ID_Transporte);
-            consulta.execute();
-            
-
-            Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Datos de Origen-Destino!");
-            AC.msj2.setText("Guardados correctamente");
-            AC.setVisible(true);
-            
-        } catch (SQLException ex) 
-        {
-            JOptionPane.showMessageDialog(null, ex);
-        
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Error 3714!");
-            AC.msj2.setText("¡Contacte a servicios ProSystem!");
-            AC.setVisible(true);
-        }
-    }
-     
      ////////////////////////////////////////////////////////////////////////////
      public static void EliminarAsignaCotizacion(int ID) {
 
@@ -232,10 +142,8 @@ public static ResultSet resultado;
      public static String registrar = "INSERT INTO Asigna_Cotizaciones_Renta("
            + "ID_Asigna_Cotizacion_Renta,"
             + "ID_Cotizacion,"
-            + "Fecha_I,"
-            + "Fecha_F,"
-            + "ID_Transporte)"
-            + "VALUES(?,?,?,?,?)";
+            + "ID_Periodo)"
+            + "VALUES(?,?,?)";
     
      
   private int ID_Asigna_Cotizacion;

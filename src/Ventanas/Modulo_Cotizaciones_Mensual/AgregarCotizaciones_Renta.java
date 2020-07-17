@@ -234,7 +234,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                           Clases.CotizacionesRentaMen fichaIdent = new Clases.CotizacionesRentaMen();
 
                             fichaIdent.setID_Cotizacion(ID_Cotizacion);
-                            fichaIdent.setID_Transporte(ID_Periodo);
+                            fichaIdent.setID_Periodo(ID_Periodo);
 
                             if (Ventanas.Modulo_Cotizaciones_Mensual.Opciones.registrar(fichaIdent)) 
                             {
