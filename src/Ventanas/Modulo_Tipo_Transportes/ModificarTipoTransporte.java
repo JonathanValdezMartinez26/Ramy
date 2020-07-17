@@ -76,10 +76,22 @@ public class ModificarTipoTransporte extends javax.swing.JDialog {
        
                 else
                 {
-                    Tipo_Transporte.Actualizar_TipoTran(IDD, Nombre_Transporte);
+                    if(Ventanas.Modulo_Tipo_Transportes.Opciones.verificaTipo(Nombre_Transporte) == 0)
+                {
+                    Tipo_Transporte.Agregar_Tipo(Nombre_Transporte);
                     Opciones.listar("");
-                    Ventanas.Modulo_Transportes.Opciones.listar("");
                     this.dispose();
+                }
+                  else{
+                  Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                    AC.msj1.setText("¡El Transporte!");
+                    AC.msj2.setText("Actualmente está registrado");
+                    AC.msj3.setText("Verifique, Por Favor.");
+                    AC.setVisible(true);
+               
+            }
+                    
+                   
                 }
             
             

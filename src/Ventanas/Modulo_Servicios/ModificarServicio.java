@@ -123,9 +123,21 @@ public class ModificarServicio extends javax.swing.JDialog {
                 
             else
             {
-                Servicios.Actualizar_Servicios(IDD, Nombre_Servicio, ID_Tipo_Servicio);
-                Opciones.listar("");
-                this.dispose();
+                if(Ventanas.Modulo_Servicios.Opciones.verificaServicio(Nombre_Servicio) == 0)
+                {
+                    Servicios.Actualizar_Servicios(IDD, Nombre_Servicio, ID_Tipo_Servicio);
+                    Opciones.listar("");
+                    this.dispose();
+                }
+                else
+                {
+                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                    AC.msj1.setText("¡El Servicio!");
+                    AC.msj2.setText("Actualmente está registrado");
+                    AC.msj3.setText("Verifique, Por Favor.");
+                    AC.setVisible(true);
+                } 
+                
             }
             
             

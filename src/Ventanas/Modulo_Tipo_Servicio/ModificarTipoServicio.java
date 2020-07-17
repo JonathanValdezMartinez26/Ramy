@@ -74,10 +74,22 @@ public class ModificarTipoServicio extends javax.swing.JDialog {
        
                 else
                 {
+                    if(Ventanas.Modulo_Servicios.Opciones.verificaServicio(Nombre_Tipo_Servicio) == 0)
+                {
                     Tipo_Servicio.Actualizar_TipoSer(IDD, Nombre_Tipo_Servicio);
                     Opciones.listar("");
                     Ventanas.Modulo_Servicios.Opciones.listar("");
                     this.dispose();
+                }
+                else
+                {
+                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                    AC.msj1.setText("¡El Servicio!");
+                    AC.msj2.setText("Actualmente está registrado");
+                    AC.msj3.setText("Verifique, Por Favor.");
+                    AC.setVisible(true);
+                } 
+                    
                 }
             
             
@@ -123,7 +135,7 @@ public class ModificarTipoServicio extends javax.swing.JDialog {
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar.setToolTipText("Guardar Especialidad");
+        pnlagregar.setToolTipText("Guardar Servicio");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseClicked(evt);

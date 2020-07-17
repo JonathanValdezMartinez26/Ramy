@@ -46,8 +46,9 @@ public class AgregarTipoTransporte extends javax.swing.JDialog {
                 }
             else{
                   Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                    AC.msj1.setText("¡El Tipo de Transporte!");
-                    AC.msj2.setText(" Ya existe.");
+                    AC.msj1.setText("¡El Transporte!");
+                    AC.msj2.setText("Actualmente está registrado");
+                    AC.msj3.setText("Verifique, Por Favor.");
                     AC.setVisible(true);
                
             }
