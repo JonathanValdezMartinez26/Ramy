@@ -97,7 +97,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
                         Alerts.AlertBasic.EliminarCotizaciones AC = new  Alerts.AlertBasic.EliminarCotizaciones(null, true);
                         AC.msj1.setText("¡Desea Eliminar!");
                         AC.msj2.setText("la Cotizacion");
-                        AC.msj2.setText("esta accioon nnn");
+                        AC.msj2.setText("Esta acción no se podrá deshacer");
                         AC.ID.setText("" + ID);
                         AC.setVisible(true);
                         
