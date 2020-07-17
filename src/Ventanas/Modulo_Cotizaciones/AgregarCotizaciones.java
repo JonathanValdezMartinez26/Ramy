@@ -346,16 +346,11 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                                     }
                                     
                                 }
-                                
-                                
-                                
                             }
                         }
                     }
-                   
                 }
             }
-        
     }
     public static void cargarServicio(){
         int ID_Cotizacion;

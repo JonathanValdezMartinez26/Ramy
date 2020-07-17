@@ -992,7 +992,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         
         ////si el combo no se ha seleccionado, pedir seleccionar uno
         if (comboDestino==0) {
-        JOptionPane.showMessageDialog(null, "SElecciona un destinmo");
+        JOptionPane.showMessageDialog(null, "Selecciona un destino");
         }       
         else{//////////Se permite añadir hasta 10 destinos                         
              String datos[] = new String[10];
@@ -1009,11 +1009,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                 if (avisar==false) {
                 modelo.addRow(datos);
             }
-            
-            
         }
-
-        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged

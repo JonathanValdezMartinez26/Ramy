@@ -1,15 +1,15 @@
-package Ventanas.Modulo_Cliente;
+package Ventanas.Modulo_Configuracion;
 
+import Ventanas.Modulo_Transportes.*;
+import Ventanas.Modulo_Transportes.Opciones;
 import A_tabla.*;
-import Clases.Clientes;
 import Clases.Conexion;
-import static Ventanas.Modulo_Cliente.Registrar.B;
-import static Ventanas.Modulo_Cliente.Registrar.C;
-import static Ventanas.Modulo_Cliente.Registrar.PanelDesliza;
-import static Ventanas.Modulo_Servicios.pnlServicio.tabla;
+import Ventanas.Modulo_Tipo_Servicio.AgregarTipoServicio;
+import Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio;
+import Ventanas.Modulo_Tipo_Transportes.pnlTipoTransportes;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Point;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -23,131 +23,24 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
-import rojerusan.RSPanelsSlider;
 
-public class pnlClientes extends javax.swing.JPanel {
+/**
+ *
+ * @author Jonathan Valdez
+ */
+public class pnlIncrementoPrecios extends javax.swing.JPanel {
 
-    
-    
-    public pnlClientes() {
+    public pnlIncrementoPrecios() 
+    {
         initComponents();
-        Opciones.listar("");
-        tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
-        this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
-        this.tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
-        jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
-        
-        
-    }
-    public void Modificar() {
-
-        int Fila = tabla.getSelectedRow();
-        int Filita = 1; 
-  
-        if (Fila >= 0) {
-
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            String localidad = (tabla.getValueAt(Fila, 5).toString());
-            String municipio = (tabla.getValueAt(Fila, 4).toString());
-            String estado = (tabla.getValueAt(Fila, 3).toString());
-            String atencion = (tabla.getValueAt(Fila, 2).toString());
-            
-            ModificarCliente MP = new ModificarCliente(null, true);
-            MP.CargarDatos(ID,atencion, localidad, municipio, estado);
-            MP.setVM(this);
-            MP.setVisible(true);
-
-        } else {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("A modificar");
-            AC.setVisible(true);
-        }
+       
     }
     
-    ///////////////////
-    public void Origenes()
-    {    
-        int Fila = tabla.getSelectedRow();
-      
-            if(Fila >= 0)
-        {
-            int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            Registrar a = new  Registrar(null, true);
-//          a.PanelDesliza.setPanelSlider(2, B, RSPanelsSlider.DIRECT.RIGHT);
-            a.ID_C.setText(""+ID);
-            a.listar(ID);
-            a.setVisible(true);
-            a.log1.setVisible(false);
-          
-        }
-    else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("para Asignar/ver Origenes");
-            AC.setVisible(true);
-        }
-    }
-    ////////////////////
-    public void Destinos()
-    {    
-        int Fila = tabla.getSelectedRow();
-      
-            if(Fila >= 0)
-        {
-            int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            Registrar a = new  Registrar(null, true);
-            a.PanelDesliza.setPanelSlider(2, B, RSPanelsSlider.DIRECT.RIGHT);
-            a.ID_C.setText(""+ID);
-            a.listar(ID);
-            a.setVisible(true);
-            a.log2.setVisible(false);
-            a.log3.setVisible(false);
-           
-        }
-    else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("para Asignar/ver Origenes");
-            AC.setVisible(true);
-        }
-    }
-    ////////////////////
-    public void Rutas()
-    {    
-        int Fila = tabla.getSelectedRow();
-      
-            if(Fila >= 0)
-        {
-            int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            Registrar a = new  Registrar(null, true);
-            a.PanelDesliza.setPanelSlider(2, C, RSPanelsSlider.DIRECT.RIGHT);
-            a.ID_C.setText(""+ID);
-            a.listar(ID);
-            a.setVisible(true);
-            a.log4.setVisible(false);
-            a.log5.setVisible(false);
-
-        }
-    else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("para Asignar/ver Origenes");
-            AC.setVisible(true);
-        } 
-    }
+   
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -161,9 +54,6 @@ public class pnlClientes extends javax.swing.JPanel {
         pnlagregar = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        pnldestinos = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         pnleditar = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -192,14 +82,14 @@ public class pnlClientes extends javax.swing.JPanel {
 
             },
             new String [] {
-                "No.", "Nombre del Cliente", "Atención", "Estado", "Municipio", "Localidad", "Dirección"
+                "No.", "Nombre del Cliente", "Atención", "último Ajuste", "Trabaja con la Tarifa"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -217,23 +107,6 @@ public class pnlClientes extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(tabla);
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(1).setResizable(false);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(190);
-            tabla.getColumnModel().getColumn(2).setResizable(false);
-            tabla.getColumnModel().getColumn(2).setPreferredWidth(154);
-            tabla.getColumnModel().getColumn(3).setResizable(false);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(4).setResizable(false);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(5).setResizable(false);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(150);
-            tabla.getColumnModel().getColumn(6).setResizable(false);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(150);
-        }
 
         jPanel12.setBackground(new java.awt.Color(225, 225, 225));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -242,8 +115,8 @@ public class pnlClientes extends javax.swing.JPanel {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("   Clientes");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 80, 69));
+        jLabel6.setText("  Ajuste Precios");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 69));
 
         jPanel12.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 70));
 
@@ -263,37 +136,13 @@ public class pnlClientes extends javax.swing.JPanel {
         pnlagregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel22.setText("    Agregar");
+        jLabel22.setText("     Ajuste");
         pnlagregar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nuevo.png"))); // NOI18N
         pnlagregar.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 69));
-
-        pnldestinos.setBackground(new java.awt.Color(225, 225, 225));
-        pnldestinos.setToolTipText("Agregar Destinos");
-        pnldestinos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnldestinosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnldestinosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnldestinosMouseExited(evt);
-            }
-        });
-        pnldestinos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel13.setText("   Destinos");
-        pnldestinos.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
-
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/destino.png"))); // NOI18N
-        pnldestinos.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
-
-        jPanel12.add(pnldestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, -1, 69));
 
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
         pnleditar.setToolTipText("Editar Cliente");
@@ -311,10 +160,10 @@ public class pnlClientes extends javax.swing.JPanel {
         pnleditar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel11.setText("     Editar");
+        jLabel11.setText(" Ver Ajustes");
         pnleditar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/editar.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ajusteconv.png"))); // NOI18N
         pnleditar.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 80, 69));
@@ -335,10 +184,10 @@ public class pnlClientes extends javax.swing.JPanel {
         pnlorigenes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setText("   Origenes");
+        jLabel15.setText("     Tarifas");
         pnlorigenes.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/origen.png"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/propuestascambio.png"))); // NOI18N
         pnlorigenes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, -1, 69));
@@ -359,13 +208,13 @@ public class pnlClientes extends javax.swing.JPanel {
         pnlviajes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setText("      Viajes");
+        jLabel17.setText("     Ayuda");
         pnlviajes.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrega-40.png"))); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/semaforo.png"))); // NOI18N
         pnlviajes.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jPanel12.add(pnlviajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, 69));
+        jPanel12.add(pnlviajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, -1, 69));
 
         pnlpdf.setBackground(new java.awt.Color(225, 225, 225));
         pnlpdf.setToolTipText("Visualizar Reporte");
@@ -389,7 +238,7 @@ public class pnlClientes extends javax.swing.JPanel {
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N
         pnlpdf.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, 69));
+        jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, 69));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -436,31 +285,11 @@ public class pnlClientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
-        JTable table =(JTable) evt.getSource();
-        Point point = evt.getPoint();
-        int row = table.rowAtPoint(point);
-        if (evt.getClickCount() == 2)
-        {
-            String a = tabla.getValueAt(tabla.getSelectedRow() , 0).toString();
-            int id = Integer.parseInt(a);
-            String nombre = tabla.getValueAt(tabla.getSelectedRow() , 1).toString();
-            String atencion = tabla.getValueAt(tabla.getSelectedRow() , 2).toString();
-            String direccion = tabla.getValueAt(tabla.getSelectedRow() , 6).toString();
-            
-            pnlPacientePersonalizado poper = new pnlPacientePersonalizado();
-              
-            Opciones.listarDetalles(id,nombre,atencion,direccion);
-            poper.setSize(1106, 654);
-            pnlPrincipal.removeAll();
-            pnlPrincipal.add(poper);
-            pnlPrincipal.revalidate();
-            pnlPrincipal.repaint();
-        }
+        
     }//GEN-LAST:event_tablaMouseClicked
 
     private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
-        AgregarCliente poper = new AgregarCliente(null, true);
-        poper.setVisible(true);
+        
     }//GEN-LAST:event_pnlagregarMouseClicked
 
     private void pnlagregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseEntered
@@ -471,59 +300,6 @@ public class pnlClientes extends javax.swing.JPanel {
         pnlagregar.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlagregarMouseExited
 
-    private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-    Opciones.listar(this.buscar.getText().trim());
-    }//GEN-LAST:event_buscarKeyReleased
-
-    private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
-        char letras = evt.getKeyChar();
-
-        if (Character.isLowerCase(letras)) {
-            String cad = ("" + letras).toUpperCase();
-            letras = cad.charAt(0);
-            evt.setKeyChar(letras);
-        }
-    }//GEN-LAST:event_buscarKeyTyped
-
-    private void pnldestinosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnldestinosMouseClicked
-        int Fila = tabla.getSelectedRow();
-      
-            if(Fila >= 0)
-        {
-            int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            Registrar a = new  Registrar(null, true);
-            a.PanelDesliza.setPanelSlider(2, B, RSPanelsSlider.DIRECT.RIGHT);
-            a.ID_C.setText(""+ID);
-            a.listar(ID);
-            a.log2.setVisible(false);
-            a.log3.setVisible(false);
-            a.a3.setText("Destinos.");
-            a.setVisible(true);
-           
-           
-        }
-    else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("para Asignar/ver Origenes");
-            AC.setVisible(true);
-        }
-    }//GEN-LAST:event_pnldestinosMouseClicked
-
-    private void pnldestinosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnldestinosMouseEntered
-        pnldestinos.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
-    }//GEN-LAST:event_pnldestinosMouseEntered
-
-    private void pnldestinosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnldestinosMouseExited
-        pnldestinos.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
-    }//GEN-LAST:event_pnldestinosMouseExited
-
-    private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-        Modificar();
-    }//GEN-LAST:event_pnleditarMouseClicked
-
     private void pnleditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseEntered
         pnleditar.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
     }//GEN-LAST:event_pnleditarMouseEntered
@@ -532,28 +308,12 @@ public class pnlClientes extends javax.swing.JPanel {
         pnleditar.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnleditarMouseExited
 
+    private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
+        
+    }//GEN-LAST:event_pnleditarMouseClicked
+
     private void pnlorigenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseClicked
-        int Fila = tabla.getSelectedRow();
       
-            if(Fila >= 0)
-        {
-            int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            Registrar a = new  Registrar(null, true);
-            a.ID_C.setText(""+ID);
-            a.listar(ID);
-            a.log1.setVisible(false);
-            a.a3.setText("Origenes.");
-            a.setVisible(true);
-            
-        }
-    else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("para Asignar/ver Origenes");
-            AC.setVisible(true);
-        }
     }//GEN-LAST:event_pnlorigenesMouseClicked
 
     private void pnlorigenesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseEntered
@@ -565,33 +325,7 @@ public class pnlClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlorigenesMouseExited
 
     private void pnlviajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlviajesMouseClicked
-    int Fila = tabla.getSelectedRow();
-      
-            if(Fila >= 0)
-        {
-            int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            Registrar a = new  Registrar(null, true);
-            a.PanelDesliza.setPanelSlider(2, C, RSPanelsSlider.DIRECT.RIGHT);
-            a.ID_C.setText(""+ID);
-            //a.Actualizar_Tabla(ID);
-            a.listar(ID);
-            a.log4.setVisible(false);
-            a.log5.setVisible(false);
-            a.a3.setText("Asignación a Servicios.");
-            a.ComboDestino(ID);
-            a.ComboOrigen(ID);
-            a.ComboTransportes();
-            a.setVisible(true);
-            
-        }
-    else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("para Asignar/ver Origenes");
-            AC.setVisible(true);
-        }
+       
     }//GEN-LAST:event_pnlviajesMouseClicked
 
     private void pnlviajesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlviajesMouseEntered
@@ -602,33 +336,44 @@ public class pnlClientes extends javax.swing.JPanel {
         pnlviajes.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlviajesMouseExited
 
-    private void pnlpdfMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdfMouseExited
-        pnlpdf.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
-    }//GEN-LAST:event_pnlpdfMouseExited
+    private void pnlpdfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdfMouseClicked
+        ver();
+    }//GEN-LAST:event_pnlpdfMouseClicked
 
     private void pnlpdfMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdfMouseEntered
         pnlpdf.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
     }//GEN-LAST:event_pnlpdfMouseEntered
 
-    private void pnlpdfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdfMouseClicked
-        ver();
-    }//GEN-LAST:event_pnlpdfMouseClicked
-     
-    DefaultTableModel model = new DefaultTableModel() {
+    private void pnlpdfMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdfMouseExited
+        pnlpdf.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
+    }//GEN-LAST:event_pnlpdfMouseExited
 
+    private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
+        Opciones.listar(this.buscar.getText().trim());
+    }//GEN-LAST:event_buscarKeyReleased
+
+    private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
+        char letras = evt.getKeyChar();
+
+        if (Character.isLowerCase(letras)) {
+            String cad = ("" + letras).toUpperCase();
+            letras = cad.charAt(0);
+            evt.setKeyChar(letras);
+        }
+    }//GEN-LAST:event_buscarKeyTyped
+    DefaultTableModel model = new DefaultTableModel() {
+        
         @Override
         public boolean isCellEditable(int row, int column) {
-
+            
             return false;
         }
-
+        
     };
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static app.bolivia.swing.JCTextField buscar;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -646,39 +391,27 @@ public class pnlClientes extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlagregar;
-    private javax.swing.JPanel pnldestinos;
     private javax.swing.JPanel pnleditar;
     private javax.swing.JPanel pnlorigenes;
     private javax.swing.JPanel pnlpdf;
     private javax.swing.JPanel pnlviajes;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
-     
-     
-   
-  
-    
     public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
-        
-        int Fila = tabla.getSelectedRow();
-        int Filita = 1; 
-  
-        if (Fila >= 0) {
 
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            
-    
-       try {
-            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Ruta.jasper";
+        try {
+            Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
+            File fichero = new File("test.txt");
+            System.out.println("La ruta del fichero es: " + fichero.getAbsolutePath());
+            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Transportes.jasper";
+//            String archivo = "Reportes/Transportes.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
-            parametro.put("ID_Cliente", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
             JRViewer jrv = new JRViewer(jasperPrint);
-            jrv.setZoomRatio((float) 0.75);
+            jrv.setZoomRatio((float) 0.95);
             r.contenedor.removeAll();
 
             r.contenedor.setLayout(new BorderLayout());
@@ -692,12 +425,5 @@ public class pnlClientes extends javax.swing.JPanel {
             System.err.println("Error iReport: " + ex.getMessage());
         }
     }
-        else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("a visualizar");
-            AC.setVisible(true);
-        }
 }
-    }
+
