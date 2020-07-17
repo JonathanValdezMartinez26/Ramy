@@ -39,19 +39,10 @@
 	<field name="ID_Cotizacion" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Fecha_I" class="java.sql.Date">
+	<field name="Periodo" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Fecha_F" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Nombre_Transporte" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Precio" class="java.lang.Long">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="ID_Cliente" class="java.lang.Long">
+	<field name="Concepto" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Nombre_Cliente" class="java.lang.String">
@@ -169,12 +160,12 @@
 	<detail>
 		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement x="14" y="3" width="116" height="20" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>
+				<reportElement x="29" y="3" width="76" height="20" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>
 				<textFieldExpression><![CDATA[$F{Periodo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="265" y="3" width="47" height="20" uuid="3a1e2747-509e-4d7d-b5bc-29bfa2651ba6"/>
-				<textFieldExpression><![CDATA[$F{Concepto}]]></textFieldExpression>
+				<reportElement x="274" y="3" width="38" height="20" uuid="3a1e2747-509e-4d7d-b5bc-29bfa2651ba6"/>
+				<textFieldExpression><![CDATA["$"+$F{Concepto}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

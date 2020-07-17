@@ -22,6 +22,7 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -733,6 +734,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
     ver();
+    String ID_Cotizacion=IDCotizacion.getText();
+    Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
+    Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
     this.dispose();
               
     }//GEN-LAST:event_pnlFinalizarMouseClicked
