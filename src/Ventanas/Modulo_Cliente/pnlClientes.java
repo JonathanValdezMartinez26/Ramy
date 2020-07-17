@@ -449,10 +449,7 @@ public class pnlClientes extends javax.swing.JPanel {
             
             pnlPacientePersonalizado poper = new pnlPacientePersonalizado();
               
-            //Opciones.Fecha_cita(id);
             Opciones.listarDetalles(id,nombre,atencion,direccion);
-            //Opciones.Ultima_consulta(id);
-            //Opciones.Obtener_Datos(id);
             poper.setSize(1106, 654);
             pnlPrincipal.removeAll();
             pnlPrincipal.add(poper);

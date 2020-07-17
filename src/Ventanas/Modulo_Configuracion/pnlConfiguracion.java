@@ -37,13 +37,16 @@ public class pnlConfiguracion extends javax.swing.JPanel {
         jLabel41 = new javax.swing.JLabel();
         pass = new javax.swing.JPanel();
         info1 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        pnlPrecios = new javax.swing.JPanel();
+        info2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1106, 654));
 
         pnlConf_1.setBackground(new java.awt.Color(255, 255, 255));
         pnlConf_1.setName("pnlConf_1"); // NOI18N
-        pnlConf_1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,8 +98,6 @@ public class pnlConfiguracion extends javax.swing.JPanel {
 
         jPanel5.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 179, -1));
 
-        pnlConf_1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
-
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -147,21 +148,93 @@ public class pnlConfiguracion extends javax.swing.JPanel {
 
         jPanel7.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, -1));
 
-        pnlConf_1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, -1, 220));
+        jLabel42.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(51, 0, 153));
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel42.setText("INCREMENTO");
+
+        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(51, 0, 153));
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setText("EN LOS PRECIOS");
+
+        pnlPrecios.setBackground(new java.awt.Color(51, 0, 153));
+        pnlPrecios.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
+        pnlPrecios.setForeground(new java.awt.Color(204, 0, 0));
+        pnlPrecios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlPreciosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlPreciosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlPreciosMouseExited(evt);
+            }
+        });
+
+        info2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        info2.setForeground(new java.awt.Color(102, 102, 102));
+        info2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        info2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Estimar-100.png"))); // NOI18N
+
+        javax.swing.GroupLayout pnlPreciosLayout = new javax.swing.GroupLayout(pnlPrecios);
+        pnlPrecios.setLayout(pnlPreciosLayout);
+        pnlPreciosLayout.setHorizontalGroup(
+            pnlPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(info2, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+        );
+        pnlPreciosLayout.setVerticalGroup(
+            pnlPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPreciosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(info2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout pnlConf_1Layout = new javax.swing.GroupLayout(pnlConf_1);
+        pnlConf_1.setLayout(pnlConf_1Layout);
+        pnlConf_1Layout.setHorizontalGroup(
+            pnlConf_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlConf_1Layout.createSequentialGroup()
+                .addGap(273, 273, 273)
+                .addGroup(pnlConf_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlConf_1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(pnlConf_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(20, 20, 20)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(273, Short.MAX_VALUE))
+        );
+        pnlConf_1Layout.setVerticalGroup(
+            pnlConf_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlConf_1Layout.createSequentialGroup()
+                .addContainerGap(230, Short.MAX_VALUE)
+                .addGroup(pnlConf_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlConf_1Layout.createSequentialGroup()
+                        .addComponent(pnlPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel42)
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel43))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(204, 204, 204))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(pnlConf_1, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(pnlConf_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(pnlConf_1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(pnlConf_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -204,18 +277,40 @@ public class pnlConfiguracion extends javax.swing.JPanel {
     private void passMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passMouseClicked
     new pnlPass(null, true).setVisible(true);
     }//GEN-LAST:event_passMouseClicked
+
+    private void pnlPreciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPreciosMouseClicked
+        pnlIncrementoPrecios poper = new pnlIncrementoPrecios();
+        
+        poper.setSize(1106, 654);
+        pnlConf_1.removeAll();
+        pnlConf_1.add(poper);
+        pnlConf_1.revalidate();
+        pnlConf_1.repaint();
+    }//GEN-LAST:event_pnlPreciosMouseClicked
+
+    private void pnlPreciosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPreciosMouseEntered
+        pnlPrecios.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.DARK_GRAY, Color.LIGHT_GRAY));
+    }//GEN-LAST:event_pnlPreciosMouseEntered
+
+    private void pnlPreciosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPreciosMouseExited
+         pnlPrecios.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.white,Color.white));
+    }//GEN-LAST:event_pnlPreciosMouseExited
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel info;
     public static javax.swing.JLabel info1;
+    public static javax.swing.JLabel info2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel pass;
     private javax.swing.JPanel pnlConf_1;
+    private javax.swing.JPanel pnlPrecios;
     private javax.swing.JPanel user;
     // End of variables declaration//GEN-END:variables
 }
