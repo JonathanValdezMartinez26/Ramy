@@ -5,9 +5,7 @@
  */
 package Ventanas.Modulo_Tipo_Transportes;
 
-import Ventanas.Modulo_Tipo_Transportes.AgregarTipoTransporte;
 import Ventanas.Modulo_Tipo_Transportes.Opciones;
-import Ventanas.Modulo_Tipo_Transportes.ModificarTipoTransporte;
 import Ventanas.Modulo_Tipo_Transportes.pnlTipoTransportes;
 import A_tabla.EstiloTablaHeader;
 import A_tabla.EstiloTablaRenderer;
