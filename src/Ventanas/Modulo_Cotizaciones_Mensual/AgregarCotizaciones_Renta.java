@@ -111,7 +111,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
         
-        tablaR.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditor2(db,"Precio"));
+        tablaR.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor2(db,"Concepto"));
         
     }
     
@@ -378,7 +378,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
