@@ -116,10 +116,11 @@ public class EliminarCotizaciones extends javax.swing.JDialog {
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
         int IDD = Integer.parseInt(ID.getText());
+        this.dispose();
         Opciones.eliminarCotizacion(IDD);
         Opciones.listarCotizaciones("");
                     
-        this.dispose();
+        
     }//GEN-LAST:event_log2ActionPerformed
 
     private void log3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log3ActionPerformed
