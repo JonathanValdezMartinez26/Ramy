@@ -22,6 +22,7 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -191,8 +192,8 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         int Fila = tablaR.getSelectedRow();
             if(Fila >= 0)
         {
-            int ID = Integer.parseInt(tablaR.getValueAt(Fila, 0).toString());
-//            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+          int ID = Integer.parseInt(tablaR.getValueAt(Fila, 0).toString());
+//            int ID = Integer.parseInt(IDCotizacion.getText());
             EliminarTran ME = new EliminarTran(null, true);
             ME.ID.setText(""+ID);
 //            ME.Cotizacion.setText(""+ID_Cotizacion);
@@ -690,8 +691,11 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-
-//        Opciones.listar(this.buscar.getText());
+     
+//         IDCotizacion.setText(""+ObtenID());
+         int ID = Integer.parseInt(IDCotizacion.getText());
+         
+         Opciones.listar(buscar.getText(), ID);
 
          
     }//GEN-LAST:event_buscarKeyReleased
@@ -708,6 +712,10 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
     private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
         eliminar();
+        int ID = Integer.parseInt(IDCotizacion.getText());
+        Opciones.listar("",ID);
+        
+        
         
     }//GEN-LAST:event_pnlEliminarMouseClicked
 
@@ -733,6 +741,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
     ver();
+    String ID_Cotizacion=IDCotizacion.getText();
+    Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
+    Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
     this.dispose();
               
     }//GEN-LAST:event_pnlFinalizarMouseClicked
