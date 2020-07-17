@@ -34,10 +34,10 @@ public class Opciones {
         String sql = "";
         if (busca.equals("")) {
             //sql = "Select * from cotizacionesv";
-            sql = "Select * from cotizacionesv";
+            sql = "Select * from cotizacionesv where Estado = 0";
         } else {
             
-            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionesv where Nombre_Cliente LIKE '%" + busca +"%' AND Estado=0 OR Atencion LIKE '%"+ busca +"%'  AND Estado=0 OR Fecha_Alta LIKE '%"+ busca +"%' AND Estado=0 OR Estatus LIKE '%"+busca+"%'";
+            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionesv where Estado = 0 Nombre_Cliente LIKE '%" + busca +"%' AND Estado=0 OR Atencion LIKE '%"+ busca +"%'  AND Estado=0 OR Fecha_Alta LIKE '%"+ busca +"%' AND Estado=0 OR Estatus LIKE '%"+busca+"%'";
             
            }
         String datos[] = new String[5];
