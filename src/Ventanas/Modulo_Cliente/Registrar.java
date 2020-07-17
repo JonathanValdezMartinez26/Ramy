@@ -877,7 +877,7 @@ public class Registrar extends javax.swing.JDialog {
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 130, 30));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 95, 688, 10));
 
-        cmbTransportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Transporte" }));
+        cmbTransportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una Unidad" }));
         cmbTransportes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbTransportes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {

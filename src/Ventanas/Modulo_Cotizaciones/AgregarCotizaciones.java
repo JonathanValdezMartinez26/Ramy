@@ -436,7 +436,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         lblNombreNuevo17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombreNuevo17.setText("     Clientes > Ata Origen, Destinos y Asignación");
+        lblNombreNuevo17.setText("     Cotizaciones > Nueva Cotizacion para Fletes Directos");
         jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 877, 30));
 
         jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 13, 905, -1));
@@ -622,14 +622,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         pnlFinalizar.setBackground(new java.awt.Color(225, 225, 225));
         pnlFinalizar.setToolTipText("Editar Paciente");
         pnlFinalizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlFinalizarMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlFinalizarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnlFinalizarMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlFinalizarMouseClicked(evt);
             }
         });
         pnlFinalizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -721,7 +721,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         jLabel3.setText("Transportes disponibles para el Origen y Destino seleccionado:");
         jcMousePanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 860, 20));
 
-        cmbTransportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Transporte" }));
+        cmbTransportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una Unidad" }));
         cmbTransportes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbTransportes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
