@@ -353,6 +353,13 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             }
         
     }
+    public static void cargarServicio(){
+        int ID_Cotizacion;
+        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());
+        Opciones.insertarServicio(ID_Cotizacion);
+        //Opciones.llenarServicio(ID_Cotizacion);
+        
+    }
     ////////////////////////////////////////////////////////////////////////
     
     @SuppressWarnings("unchecked")
@@ -489,14 +496,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "Nombre del Servicio", "Precio"
+                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -670,14 +677,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
         pnleditar.setToolTipText("Editar Paciente");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnleditarMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnleditarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnleditarMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnleditarMouseClicked(evt);
             }
         });
         pnleditar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -955,7 +962,12 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbTransportesItemStateChanged
 
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-        //        Modificar();
+
+    cargarServicio();
+    int ID_Cotizacion;
+        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());
+        //Opciones.insertarServicio(ID_Cotizacion);
+        Opciones.llenarServicio(ID_Cotizacion);
     }//GEN-LAST:event_pnleditarMouseClicked
 
     private void pnleditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseEntered
@@ -991,7 +1003,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IDCotizacion;
+    public static javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
