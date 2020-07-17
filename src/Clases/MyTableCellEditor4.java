@@ -59,7 +59,7 @@ public class MyTableCellEditor4 extends AbstractCellEditor implements TableCellE
         //Compara valores, si no son iguales, debe actualizar registro
         if( !NewValue.equals(OldValue))
         {   //Realiza la actualizacion
-            if( !db.updateNombreServicio( NewValue, ID ) )
+            if( !db.updatePrecioServicio( NewValue, ID ) )
             {   //Si existe algun error al actualizar, escribe viejo valor en la celda
                 //JOptionPane.showMessageDialog(null,"Error: No se puede actualizar");
                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -68,13 +68,13 @@ public class MyTableCellEditor4 extends AbstractCellEditor implements TableCellE
                             AC.setVisible(true);
                 
                 ((JTextField)component).setText(OldValue);
-            }
+            }else{
             Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Nombre del Servicio!");
+            AC.msj1.setText("¡Precio del Servicio!");
             AC.msj2.setText("Asignado");
-            AC.msj3.setText("Porfavor asigne un Precio");
+            //AC.msj3.setText("Porfavor asigne un Precio");
             AC.setVisible(true);
-            
+            }
         }
         return super.stopCellEditing();
     }
