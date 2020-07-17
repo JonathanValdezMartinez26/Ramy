@@ -69,23 +69,21 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Asigna_Cotizacion_Renta, Fecha_I, Fecha_F,Nombre_Transporte,Precio from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
+           sql = "Select ID_Asigna_Cotizacion_Renta, Periodo, Concepto from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion_Renta, Fecha_I, Fecha_F,Nombre_Transporte,Precio  from Asigna_Contizaciones_Rentav where  Fecha_I LIKE '"+ busca +"%' OR Fecha_F LIKE '"+ busca +"%' OR  Nombre_Transporte LIKE '%" + busca +"%' OR  Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
+            sql = "Select ID_asigna_Cotizacion_Renta, Periodo, Concepto from Asigna_Contizaciones_Rentav where  Fecha_I LIKE '"+ busca +"%' OR Fecha_F LIKE '"+ busca +"%' OR  Nombre_Transporte LIKE '%" + busca +"%' OR  Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
             
            }
-        String datos[] = new String[5];
+        String datos[] = new String[3];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
                 datos [0] = String.valueOf(rs.getInt(1));
-                datos [1] = rs.getString(2).trim();;
-                datos [2] = rs.getString(3).trim();;
-                datos [3] = rs.getString(4);
-                datos [4] = String.valueOf(rs.getInt(5));
+                datos [1] = rs.getString(2);
+                datos [2] = String.valueOf(rs.getInt(3));
                 
                 modelo.addRow(datos);
             }

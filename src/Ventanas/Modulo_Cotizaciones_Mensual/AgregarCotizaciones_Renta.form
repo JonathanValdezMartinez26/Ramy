@@ -167,7 +167,7 @@
                       <Table columnCount="3" rowCount="0">
                         <Column editable="false" title="ID_" type="java.lang.Integer"/>
                         <Column editable="false" title="Periodo" type="java.lang.String"/>
-                        <Column editable="false" title="Concepto" type="java.lang.String"/>
+                        <Column editable="true" title="Concepto" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="alignmentX" type="float" value="2.0"/>
