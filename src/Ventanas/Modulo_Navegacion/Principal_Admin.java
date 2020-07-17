@@ -301,7 +301,7 @@ public class Principal_Admin extends javax.swing.JFrame {
         cuatro.setBackground(new java.awt.Color(239, 238, 244));
         cuatro.setForeground(new java.awt.Color(128, 128, 131));
         cuatro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/car.png"))); // NOI18N
-        cuatro.setText("Transporte");
+        cuatro.setText("Unidades");
         cuatro.setColorHover(new java.awt.Color(204, 204, 204));
         cuatro.setColorNormal(new java.awt.Color(239, 238, 244));
         cuatro.setColorPressed(new java.awt.Color(204, 204, 204));
