@@ -189,7 +189,7 @@ public class Opciones {
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
-        String sql = "Select ID_Origen, estado, municipio, fecha_registro from origenv where ID_Cliente =" + ID;
+        String sql = "Select ID_Origen, estado_nombre, municipio, fecha_registro from origenv where ID_Cliente =" + ID;
       
             String datos[] = new String[4];
         try 
@@ -252,7 +252,7 @@ public class Opciones {
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
-        String sql = "Select ID_Destino, estado, municipio, fecha_registro from destinov where ID_Cliente =" + ID;
+        String sql = "Select ID_Destino, estado_nombre, municipio, fecha_registro from destinov where ID_Cliente =" + ID;
       
             String datos[] = new String[4];
         try 
