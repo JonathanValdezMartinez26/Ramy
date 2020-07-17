@@ -108,10 +108,13 @@ public class Opciones {
                         AC.msj1.setText("¡Esta cotización!");
                         AC.msj2.setText("A sido Eliminada");
                         AC.setVisible(true);
-                            Opciones.listar("", ID);
+                        Opciones.listar("", ID);
+                        pstm.close();
+                        
                             //res=true;
                          }catch(SQLException e){            
                             System.out.println(e);
+                            
                         }
 
     }

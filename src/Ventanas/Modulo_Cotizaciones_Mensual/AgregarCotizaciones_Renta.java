@@ -194,6 +194,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         {
           int ID = Integer.parseInt(tablaR.getValueAt(Fila, 0).toString());
 //            int ID = Integer.parseInt(IDCotizacion.getText());
+
             EliminarTran ME = new EliminarTran(null, true);
             ME.ID.setText(""+ID);
 //            ME.Cotizacion.setText(""+ID_Cotizacion);
@@ -208,6 +209,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             AC.msj2.setText("A eliminar");
             AC.setVisible(true);
         }
+           
     }
     ////////////////////////////////////////////////////////////////////////////
     private void Guardar(){
@@ -262,7 +264,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                             else
                             {
                                  Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                  AC.msj1.setText("¡Error el transporte!");
+                                  AC.msj1.setText("¡Error el Periodo!");
                                   AC.msj2.setText("ya existe ");
                                   AC.setVisible(true);
                             }
@@ -714,9 +716,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         eliminar();
         int ID = Integer.parseInt(IDCotizacion.getText());
         Opciones.listar("",ID);
-        
-        
-        
     }//GEN-LAST:event_pnlEliminarMouseClicked
 
     private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered

@@ -21,7 +21,7 @@ public class EliminarTran extends javax.swing.JDialog {
         this.setLocationRelativeTo(this);
         ID.setVisible(true);
         
-        
+//        this.dispose();
         
 
     }
@@ -120,10 +120,10 @@ public class EliminarTran extends javax.swing.JDialog {
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
       int IDD = Integer.parseInt(ID.getText());
+      this.dispose();
       Opciones.eliminarCotizacion(IDD);
-        Opciones.listar("", IDD);
-                    
-        this.dispose();
+      Opciones.listar("", IDD);              
+        
     }//GEN-LAST:event_log2ActionPerformed
 
     private void log3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log3ActionPerformed
