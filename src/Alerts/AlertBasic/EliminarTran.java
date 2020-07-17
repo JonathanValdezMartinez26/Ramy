@@ -20,6 +20,9 @@ public class EliminarTran extends javax.swing.JDialog {
         FadeEffect.fadeIn(this, 20, 0.1f);
         this.setLocationRelativeTo(this);
         ID.setVisible(true);
+        
+        
+        
 
     }
 
@@ -116,7 +119,7 @@ public class EliminarTran extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
-        int IDD = Integer.parseInt(ID.getText());
+      int IDD = Integer.parseInt(ID.getText());
       Opciones.eliminarCotizacion(IDD);
         Opciones.listar("", IDD);
                     

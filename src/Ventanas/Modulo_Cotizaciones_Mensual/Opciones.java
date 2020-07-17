@@ -72,7 +72,7 @@ public class Opciones {
            sql = "Select ID_Asigna_Cotizacion_Renta, Periodo, Concepto from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion_Renta, Periodo, Concepto from Asigna_Contizaciones_Rentav where  Fecha_I LIKE '"+ busca +"%' OR Fecha_F LIKE '"+ busca +"%' OR  Nombre_Transporte LIKE '%" + busca +"%' OR  Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
+            sql = "Select ID_asigna_Cotizacion_Renta, Periodo, Concepto from asigna_cotizaciones_Rentav where  Periodo LIKE '"+ busca +"%' OR Concepto LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
             
            }
         String datos[] = new String[3];
