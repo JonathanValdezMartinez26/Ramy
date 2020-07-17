@@ -200,7 +200,7 @@ public class Opciones {
                                     pstm.close();
                                     }catch(SQLException e){            
                                     System.out.println(e);}
-                                        JOptionPane.showMessageDialog(null, "Desde insertar servicio id:"+ID_Cotizacion);
+                                        
     }
     
     public static void llenarServicio(int ID_Cotizacion){
@@ -234,7 +234,7 @@ public class Opciones {
         } catch (SQLException ex) {
             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JOptionPane.showMessageDialog(null, "Desde llenar servicio id:"+ID_Cotizacion);
+        
     }
    
     

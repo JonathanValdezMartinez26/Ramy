@@ -61,6 +61,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 import Ventanas.Modulo_Cotizaciones.Opciones;
+import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
 
 
 public class AgregarCotizaciones extends javax.swing.JDialog {
@@ -367,6 +368,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         
     }
     ////////////////////////////////////////////////////////////////////////
+    public static void finalizar(){
+        Alerts.AlertBasic.WarningFinalizar AC = new  Alerts.AlertBasic.WarningFinalizar(null, true);
+        AC.ID.setText(IDCotizacion.getText());
+        AC.setVisible(true);
+      
+    
+    //AgregarCotizaciones.dispose();
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -496,7 +505,6 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(5).setPreferredWidth(30);
         }
 
-        tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -950,13 +958,25 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-    ver();
-    String ID_Cotizacion=IDCotizacion.getText();
-    Opciones.finalizarCotizacion(ID_Cotizacion);
-    Opciones.listarCotizaciones("");
+
     
-    this.dispose();
-              
+//          ver();
+//    String ID_Cotizacion=IDCotizacion.getText();
+//    Opciones.finalizarCotizacion(ID_Cotizacion);
+//    Opciones.listarCotizaciones("");
+finalizar();
+//   if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){
+//
+//    
+//    
+//        }else{
+//             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+//                                        AC.msj1.setText("¡Asigne Nombre y servicios!");
+//                                        AC.msj2.setText("Para poder asignar cotizacion");
+//                                        //AC.msj3.setText("Registrados con el Mismo Transporte");
+//                                        AC.setVisible(true);
+//        }
+//              
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
     private void pnlFinalizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseEntered
@@ -973,11 +993,13 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
 
-    cargarServicio();
-    int ID_Cotizacion;
-        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());
-        //Opciones.insertarServicio(ID_Cotizacion);
+        cargarServicio();
+        int ID_Cotizacion;
+        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());        
         Opciones.llenarServicio(ID_Cotizacion);
+        
+        
+//      
     }//GEN-LAST:event_pnleditarMouseClicked
 
     private void pnleditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseEntered
@@ -1053,7 +1075,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     public static javax.swing.JTable tabla;
     public static javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
-public void ver() {
+public static void ver() {
         Clases.Conexion cc = new Clases.Conexion();
         int ID = Integer.parseInt(IDCotizacion.getText());
         if (ID >= 0) {
