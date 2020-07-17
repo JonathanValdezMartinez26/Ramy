@@ -29,7 +29,8 @@ public class Principal_Admin extends javax.swing.JFrame {
 
     public Principal_Admin() {
         initComponents();
-        this.lblUserActivo.setVisible(false);
+        this.lblUserActivo.setVisible
+        (false);
         this.lblIDActivo.setVisible(false);
         try 
             {

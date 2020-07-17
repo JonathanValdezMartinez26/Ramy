@@ -930,6 +930,10 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
     ver();
+    String ID_Cotizacion=IDCotizacion.getText();
+    Opciones.finalizarCotizacion(ID_Cotizacion);
+    Opciones.listarCotizaciones("");
+    
     this.dispose();
               
     }//GEN-LAST:event_pnlFinalizarMouseClicked
