@@ -707,7 +707,7 @@ public class ModificarCliente extends javax.swing.JDialog {
             evt.consume();
         }
 
-        int limite =20;
+        int limite =45;
         if (txtNombre.getText().length()== limite)
         {
             evt.consume();
