@@ -246,6 +246,7 @@
                 <Property name="placeholder" type="java.lang.String" value="Ej. QUIMICA Y FARMACIA,  S.A. DE C.V."/>
               </Properties>
               <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNombreKeyReleased"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNombreKeyTyped"/>
               </Events>
               <AuxValues>
@@ -324,6 +325,7 @@
                 <Property name="placeholder" type="java.lang.String" value="Ej. LIC. D. DELFINA CRUZ MART&#xcd;NEZ"/>
               </Properties>
               <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtAtencionKeyReleased"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtAtencionKeyTyped"/>
               </Events>
               <AuxValues>
@@ -495,6 +497,7 @@
                 <Property name="placeholder" type="java.lang.String" value="Ej. &#xc1;mbar Toribio Gutierrez"/>
               </Properties>
               <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCalleKeyReleased"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCalleKeyTyped"/>
               </Events>
               <AuxValues>

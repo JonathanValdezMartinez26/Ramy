@@ -287,8 +287,8 @@ public class AgregarCliente extends javax.swing.JDialog {
         txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNombre.setPlaceholder("Ej. QUIMICA Y FARMACIA,  S.A. DE C.V.");
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNombreKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
             }
         });
         pnlPrincipal.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 300, 30));
@@ -351,8 +351,8 @@ public class AgregarCliente extends javax.swing.JDialog {
         txtCalle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCalle.setPlaceholder("Ej. Ámbar Toribio Gutierrez");
         txtCalle.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCalleKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCalleKeyReleased(evt);
             }
         });
         pnlPrincipal.add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 280, 30));
@@ -370,8 +370,8 @@ public class AgregarCliente extends javax.swing.JDialog {
         txtAtencion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtAtencion.setPlaceholder("Ej. LIC. D. DELFINA CRUZ MARTÍNEZ");
         txtAtencion.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtAtencionKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAtencionKeyReleased(evt);
             }
         });
         pnlPrincipal.add(txtAtencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 310, 30));
@@ -424,14 +424,6 @@ public class AgregarCliente extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_rSButtonMetro2ActionPerformed
 
-    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreKeyTyped
-
-    private void txtCalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCalleKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCalleKeyTyped
-
     private void cmbEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbEstadoItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             estados est = (estados) cmbEstado.getSelectedItem();
@@ -461,9 +453,17 @@ public class AgregarCliente extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cmbColoniaItemStateChanged
 
-    private void txtAtencionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAtencionKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAtencionKeyTyped
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        txtNombre.setText(txtNombre.getText().toUpperCase());
+    }//GEN-LAST:event_txtNombreKeyReleased
+
+    private void txtAtencionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAtencionKeyReleased
+       txtAtencion.setText(txtAtencion.getText().toUpperCase());
+    }//GEN-LAST:event_txtAtencionKeyReleased
+
+    private void txtCalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCalleKeyReleased
+       txtCalle.setText(txtCalle.getText().toUpperCase());
+    }//GEN-LAST:event_txtCalleKeyReleased
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -184,8 +184,11 @@ public class ModificarTipoServicio extends javax.swing.JDialog {
 
         txtNombre.setBorder(null);
         txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNombre.setPlaceholder("Ej. A");
+        txtNombre.setPlaceholder("Ej. GENERAL");
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreKeyTyped(evt);
             }
@@ -197,7 +200,7 @@ public class ModificarTipoServicio extends javax.swing.JDialog {
         pnlPrincipal.add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel13.setText("  Nombre del Tipo de Transporte");
+        jLabel13.setText("  Nombre del Tipo de Servicio");
         pnlPrincipal.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 230, 20));
 
         jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 5, 350, 230));
@@ -258,6 +261,10 @@ public class ModificarTipoServicio extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        txtNombre.setText(txtNombre.getText().toUpperCase());
+    }//GEN-LAST:event_txtNombreKeyReleased
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

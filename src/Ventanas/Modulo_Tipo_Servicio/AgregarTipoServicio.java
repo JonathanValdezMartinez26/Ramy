@@ -117,20 +117,23 @@ public class AgregarTipoServicio extends javax.swing.JDialog {
 
         txtTipo_Servicio.setBorder(null);
         txtTipo_Servicio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtTipo_Servicio.setPlaceholder("Ej. A");
+        txtTipo_Servicio.setPlaceholder("Ej. GENERAL");
         txtTipo_Servicio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTipo_ServicioKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTipo_ServicioKeyTyped(evt);
             }
         });
-        pnlPrincipal.add(txtTipo_Servicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 230, 30));
+        pnlPrincipal.add(txtTipo_Servicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 230, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
-        pnlPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        pnlPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("  Nombre del Tipo de Servicio");
-        pnlPrincipal.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 230, 20));
+        pnlPrincipal.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 230, 20));
 
         jPanel7.setBackground(new java.awt.Color(210, 210, 214));
         jPanel7.setPreferredSize(new java.awt.Dimension(804, 30));
@@ -166,7 +169,7 @@ public class AgregarTipoServicio extends javax.swing.JDialog {
 
         pnlPrincipal.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, -1));
 
-        jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 8, 350, 230));
+        jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 5, 350, 230));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,7 +179,7 @@ public class AgregarTipoServicio extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -224,6 +227,10 @@ public class AgregarTipoServicio extends javax.swing.JDialog {
     private void rSButtonMetro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_rSButtonMetro2ActionPerformed
+
+    private void txtTipo_ServicioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipo_ServicioKeyReleased
+        txtTipo_Servicio.setText(txtTipo_Servicio.getText().toUpperCase());
+    }//GEN-LAST:event_txtTipo_ServicioKeyReleased
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
