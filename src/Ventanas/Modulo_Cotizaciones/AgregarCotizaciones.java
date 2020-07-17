@@ -16,6 +16,7 @@ import Clases.Cotizaciones;
 import static Clases.Cotizaciones.ObtenID;
 import Clases.MyTableCellEditor;
 import Clases.MyTableCellEditor3;
+import Clases.MyTableCellEditor4;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
@@ -111,6 +112,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor3(db,"Nombre del Servicio"));//Columna Precio
+        tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor4(db,"Precio"));//Columna Precio
     }
     
     public void Clientes()
