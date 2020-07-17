@@ -86,7 +86,7 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="e1" green="e1" red="e1" type="rgb"/>
                     </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Guardar Especialidad"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Guardar Servicio"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlagregarMouseClicked"/>
@@ -211,6 +211,7 @@
                 <Property name="placeholder" type="java.lang.String" value="Ej. TORTON"/>
               </Properties>
               <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNombreKeyReleased"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNombreKeyTyped"/>
               </Events>
               <AuxValues>

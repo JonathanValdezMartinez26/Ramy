@@ -1,8 +1,6 @@
 package Ventanas.Modulo_Transportes;
 
-import Ventanas.Modulo_Transportes.ModificarTran;
 import Ventanas.Modulo_Transportes.Opciones;
-import Ventanas.Modulo_Transportes.AgregarTran;
 import A_tabla.*;
 import Clases.Conexion;
 import Ventanas.Modulo_Tipo_Servicio.AgregarTipoServicio;
@@ -58,28 +56,6 @@ public class pnlTransportes extends javax.swing.JPanel {
     
    
    
-    
-    public void Modificar()
-    {
-        int Fila = tabla.getSelectedRow();
-        if(Fila >= 0)
-        {
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-
-            ModificarTran MM = new ModificarTran(null, true);
-            MM.CargarDatos(ID);
-          
-            MM.setVisible(true);
-        }
-    else{
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡ Seleccione el registro !");
-            AC.msj2.setText("A modificar");
-            AC.setVisible(true);  
-        }
-    }
-    
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

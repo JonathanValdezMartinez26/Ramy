@@ -153,9 +153,9 @@ public class Opciones {
         }
     }
     ///////////////////////////////////////////////////////////////////
-    public static int verificaRentaM(int ID_Cotizacion,int ID_Transporte) {
+    public static int verificaRentaM(int ID_Cotizacion,int ID_Periodo) {
         int c = 0;
-        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizaciones_Renta where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Transporte = "+ID_Transporte+")";
+        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizaciones_Renta where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Periodo = "+ID_Periodo+")";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -174,21 +174,16 @@ public class Opciones {
         public static boolean registrar(Clases.CotizacionesRentaMen uc) {
         String sql = Clases.CotizacionesRentaMen.registrar;
         
-        long date = uc.getFechaI().getTime();
-        java.sql.Date FechaI = new java.sql.Date(date);
+       
         
-        long date1 = uc.getFechaF().getTime();
-        java.sql.Date FechaF = new java.sql.Date(date1);
+        
         
         try {
             
             ps = cn.prepareStatement(sql);
             ps.setInt(1, uc.getID_Asigna_Cotizacion());
             ps.setInt(2, uc.getID_Cotizacion());
-            ps.setDate(3, FechaI);
-            ps.setDate(4, FechaF);
-            ps.setInt(5, uc.getID_Transporte());
-           
+            ps.setInt(3,uc.getID_Periodo());
             ps.executeUpdate();
             
             
