@@ -168,7 +168,7 @@ public class ModificarServicio extends javax.swing.JDialog {
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar.setToolTipText("Guardar Especialidad");
+        pnlagregar.setToolTipText("Guardar Servicio");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseClicked(evt);
@@ -231,6 +231,9 @@ public class ModificarServicio extends javax.swing.JDialog {
         txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNombre.setPlaceholder("Ej. TORTON");
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreKeyTyped(evt);
             }
@@ -305,12 +308,16 @@ public class ModificarServicio extends javax.swing.JDialog {
               getToolkit().beep(); 
               evt.consume(); 
           }
-        int limite =20;
+        int limite =50;
         if (txtNombre.getText().length()== limite)
         {
             evt.consume();
         }
     }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        txtNombre.setText(txtNombre.getText().toUpperCase());
+    }//GEN-LAST:event_txtNombreKeyReleased
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

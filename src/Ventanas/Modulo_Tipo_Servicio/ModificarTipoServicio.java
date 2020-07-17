@@ -255,7 +255,7 @@ public class ModificarTipoServicio extends javax.swing.JDialog {
               getToolkit().beep(); 
               evt.consume(); 
           }
-        int limite =20;
+        int limite =25;
         if (txtNombre.getText().length()== limite)
         {
             evt.consume();

@@ -290,6 +290,9 @@ public class AgregarCliente extends javax.swing.JDialog {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNombreKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
         });
         pnlPrincipal.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 300, 30));
         pnlPrincipal.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 650, 10));
@@ -464,6 +467,20 @@ public class AgregarCliente extends javax.swing.JDialog {
     private void txtCalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCalleKeyReleased
        txtCalle.setText(txtCalle.getText().toUpperCase());
     }//GEN-LAST:event_txtCalleKeyReleased
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+//        char c=evt.getKeyChar(); 
+//          if(Character.isDigit(c)) { 
+//              getToolkit().beep(); 
+//              evt.consume(); 
+//          }
+        
+        int limite =45;
+        if (txtNombre.getText().length()== limite)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNombreKeyTyped
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
