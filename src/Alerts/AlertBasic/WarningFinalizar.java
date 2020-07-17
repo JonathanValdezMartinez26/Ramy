@@ -87,19 +87,18 @@ public class WarningFinalizar extends javax.swing.JDialog {
 
         msj3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         msj3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        msj3.setText("Tome en cuenta que al presionar el  botón ");
+        msj3.setText("*Tome en cuenta que al presionar el  botón ");
         jPanel1.add(msj3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 290, 20));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 280, 10));
 
         msj4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         msj4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        msj4.setText("  cancelar, estará confirmando su registro posterior ");
+        msj4.setText("   ");
         jPanel1.add(msj4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 105, 290, 20));
 
         msj5.setBackground(new java.awt.Color(204, 51, 0));
         msj5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         msj5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        msj5.setText("de los origenes disponibles para: ");
         jPanel1.add(msj5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 290, 20));
 
         log3.setBackground(new java.awt.Color(204, 204, 204));
@@ -147,7 +146,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
     String ID_Cotizacion=ID.getText();
     Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
     Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");        
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_log2ActionPerformed
 
     private void log3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log3ActionPerformed
