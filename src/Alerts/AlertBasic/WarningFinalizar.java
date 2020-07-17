@@ -141,12 +141,16 @@ public class WarningFinalizar extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
-        
-    AgregarCotizaciones.ver();
+    
+    this.dispose();
+    
     String ID_Cotizacion=ID.getText();
     Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
     Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");        
-        this.dispose();
+    AgregarCotizaciones AG= new AgregarCotizaciones(null,true);
+    AG.dispose();
+    AgregarCotizaciones.ver();
+    
     }//GEN-LAST:event_log2ActionPerformed
 
     private void log3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log3ActionPerformed
