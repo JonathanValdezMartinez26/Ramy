@@ -15,11 +15,13 @@ import Clases.Conexion;
 import Clases.Cotizaciones;
 import static Clases.Cotizaciones.ObtenID;
 import Clases.MyTableCellEditor;
+import Clases.MyTableCellEditor3;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
 import static Ventanas.Modulo_Cliente.Opciones.*;
+import static Ventanas.Modulo_Cliente.Registrar.tabla3;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
 import java.awt.BorderLayout;
@@ -74,6 +76,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     int ID_Ori [];
     int ID_Des [];
     int ID_Cli[];
+    private database db = new database();
     
     
     public AgregarCotizaciones(java.awt.Frame parent, boolean modal) {
@@ -107,6 +110,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
+        tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor3(db,"Nombre del Servicio"));//Columna Precio
     }
     
     public void Clientes()
@@ -503,7 +507,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                 java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true
+                false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -521,7 +525,11 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(0).setMinWidth(0);
             tabla1.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla1.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
+            tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
         }
+        tabla1.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -533,9 +541,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
         );
 
         jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 880, 360));
