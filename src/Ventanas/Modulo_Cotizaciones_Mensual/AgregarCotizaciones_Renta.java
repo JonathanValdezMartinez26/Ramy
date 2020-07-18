@@ -519,7 +519,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jPanel1.add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
 
         pnlVista.setBackground(new java.awt.Color(225, 225, 225));
-        pnlVista.setToolTipText("Activar o Desactivar Paciente");
+        pnlVista.setToolTipText("Visualizar Cotizacion");
         pnlVista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlVistaMouseClicked(evt);
@@ -543,7 +543,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jPanel1.add(pnlVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 70));
 
         pnlFinalizar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlFinalizar.setToolTipText("Editar Paciente");
+        pnlFinalizar.setToolTipText("Finalizar Cotizacion");
         pnlFinalizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlFinalizarMouseClicked(evt);
@@ -587,7 +587,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 250, 70));
 
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
-        pnleditar.setToolTipText("Editar Paciente");
+        pnleditar.setToolTipText("Agregar Servicios");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnleditarMouseClicked(evt);

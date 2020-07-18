@@ -84,11 +84,9 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         AWTUtilities.setOpaque(this, false);
         this.setLocationRelativeTo(parent);
-        Clientes();
-       
-       
         
-        Periodo();
+        Clientes();
+        Consolidado();
         
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(true);
@@ -152,33 +150,33 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         }
     }
     
-    public void Periodo()
+    public void Consolidado()
     {
-        int ID_Periodo = 0;
+        int ID_Consolidado = 0;
 
         try 
         {
-            resultado = Conexion.consulta("Select Max(ID_Periodo) from Periodo");
+            resultado = Conexion.consulta("Select Max(ID_Consolidado) from Consolidado");
             while (resultado.next()) 
             {
-                ID_Periodo = resultado.getInt(1);
+                ID_Consolidado = resultado.getInt(1);
             }
         } 
         catch (SQLException ex) 
         {
 
         }
-        ID_Periodo++;
-        ID_Per= new int[ID_Periodo];
+        ID_Consolidado++;
+        ID_Per= new int[ID_Consolidado];
         ID_Per[0] = 0;
         int i = 1;
         try 
         {
-            resultado = Conexion.consulta("SELECT ID_Periodo, Periodo from Periodo");
+            resultado = Conexion.consulta("SELECT ID_Consolidado, Consolidado from Consolidado");
             while (resultado.next()) 
             {
                 ID_Per [i] = resultado.getInt(1);
-                cmbPeriodo.addItem(resultado.getString(2));
+                cmbConsolidado.addItem(resultado.getString(2));
                 i++;
             }
         } 
@@ -219,7 +217,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 //        Date Fecha_I = txtFechaI.getDate();
 //        Date Fecha_F = txtFechaF.getDate();
         
-        int ID_Periodos = cmbPeriodo.getSelectedIndex();
+        int ID_Periodos = cmbConsolidado.getSelectedIndex();
         int ID_Periodo= ID_Per[ID_Periodos];
      
         if(comboCliente==0)
@@ -323,7 +321,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         lblatencion1 = new javax.swing.JLabel();
-        cmbPeriodo = new ComboBox.SComboBox();
+        cmbConsolidado = new ComboBox.SComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -519,7 +517,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jPanel1.add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
 
         pnlVista.setBackground(new java.awt.Color(225, 225, 225));
-        pnlVista.setToolTipText("Activar o Desactivar Paciente");
+        pnlVista.setToolTipText("Visualizar Cotizacion");
         pnlVista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlVistaMouseClicked(evt);
@@ -543,7 +541,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jPanel1.add(pnlVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 70));
 
         pnlFinalizar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlFinalizar.setToolTipText("Editar Paciente");
+        pnlFinalizar.setToolTipText("Finalizar Cotizacion");
         pnlFinalizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlFinalizarMouseClicked(evt);
@@ -587,7 +585,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 250, 70));
 
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
-        pnleditar.setToolTipText("Editar Paciente");
+        pnleditar.setToolTipText("Agregar Servicio");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnleditarMouseClicked(evt);
@@ -623,22 +621,22 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 170, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel6.setText("Seleccione un Periodo ");
+        jLabel6.setText("Seleccione un Consolidado ");
         jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 180, 20));
 
         lblatencion1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblatencion1.setText("Atención a:");
         jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
 
-        cmbPeriodo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Periodo" }));
-        cmbPeriodo.setToolTipText("");
-        cmbPeriodo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cmbPeriodo.addItemListener(new java.awt.event.ItemListener() {
+        cmbConsolidado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Consolidado" }));
+        cmbConsolidado.setToolTipText("");
+        cmbConsolidado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cmbConsolidado.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbPeriodoItemStateChanged(evt);
+                cmbConsolidadoItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 380, 30));
+        jcMousePanel1.add(cmbConsolidado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 380, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -771,9 +769,9 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void cmbPeriodoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPeriodoItemStateChanged
+    private void cmbConsolidadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbConsolidadoItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbPeriodoItemStateChanged
+    }//GEN-LAST:event_cmbConsolidadoItemStateChanged
 
     public static void main(String args[]) {
      
@@ -796,7 +794,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
-    private ComboBox.SComboBox cmbPeriodo;
+    private ComboBox.SComboBox cmbConsolidado;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
