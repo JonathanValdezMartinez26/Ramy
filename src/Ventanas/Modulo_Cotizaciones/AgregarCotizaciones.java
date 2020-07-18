@@ -114,6 +114,8 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor3(db,"Nombre del Servicio"));//Columna Precio
         tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor4(db,"Precio"));//Columna Precio
+        
+        
     }
     
     public void Clientes()
