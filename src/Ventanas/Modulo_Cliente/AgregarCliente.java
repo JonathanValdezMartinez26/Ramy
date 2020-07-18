@@ -44,6 +44,7 @@ public class AgregarCliente extends javax.swing.JDialog {
         String Nombre = txtNombre.getText().trim();
         String Atencion = txtAtencion.getText().trim();
         String Calle = txtCalle.getText().trim();
+        Date Fecha = FechaOperaciones.getDate();
         
         int comboEstado = cmbEstado.getSelectedIndex();
         int comboMunicipio = cmbMunicipio.getSelectedIndex();
@@ -87,65 +88,76 @@ public class AgregarCliente extends javax.swing.JDialog {
                         }
                         else
                         {
-                            if(comboEstado==0)
+                            if("".equals(Fecha))
                             {
-                               Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                               AC.msj1.setText("¡Elija un");
-                               AC.msj2.setText("Estado válido");
-                               AC.setVisible(true);
+                                Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                AC.msj1.setText("¡Datos Incorrectos!");
+                                AC.msj2.setText("El campo Inicio de Operaciónes");
+                                AC.msj3.setText("debe tener una fecha valida");
+                                AC.setVisible(true);
                             }
-                            else
-                            {
-                                if(comboMunicipio==0)
+                        else
+                             {
+                                if(comboEstado==0)
                                 {
                                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                   AC.msj1.setText("¡Elija un !");
-                                   AC.msj2.setText("Municipio válido");
+                                   AC.msj1.setText("¡Elija un");
+                                   AC.msj2.setText("Estado válido");
                                    AC.setVisible(true);
                                 }
                                 else
                                 {
-                                    if(comboColonia==0)
+                                    if(comboMunicipio==0)
                                     {
-                                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                        AC.msj1.setText("¡Elija!");
-                                        AC.msj2.setText("Una Colonia válida");
-                                        AC.setVisible(true);
+                                       Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                       AC.msj1.setText("¡Elija un !");
+                                       AC.msj2.setText("Municipio válido");
+                                       AC.setVisible(true);
                                     }
                                     else
                                     {
-                                       
-                                            if("".equals(Calle))
-                                            {
-                                                Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                                AC.msj1.setText("¡Llene correctamente!");
-                                                AC.msj2.setText("El campo Calle");
-                                                AC.setVisible(true);
-                                            }
-                                            else
-                                            {
-                                                if("".equals(Nombre)|| "".equals(Atencion) || comboEstado==0 || comboMunicipio==0 || comboColonia==0 || "".equals(Calle))
+                                        if(comboColonia==0)
+                                        {
+                                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                            AC.msj1.setText("¡Elija!");
+                                            AC.msj2.setText("Una Colonia válida");
+                                            AC.setVisible(true);
+                                        }
+                                        else
+                                        {
+
+                                                if("".equals(Calle))
                                                 {
                                                     Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                                    AC.msj1.setText("¡Llene todos los campos!");
-                                                    AC.msj2.setText("Seleccione Correctamente");
+                                                    AC.msj1.setText("¡Llene correctamente!");
+                                                    AC.msj2.setText("El campo Calle");
                                                     AC.setVisible(true);
                                                 }
                                                 else
                                                 {
-                                                    Clientes.Agregar_Cliente(Nombre,Atencion, ColoniaItem, Calle);
-                                                    Ventanas.Modulo_Cliente.Opciones.listar("");
-                                                    this.dispose();
-                                                    
-                                                    Alerts.AlertBasic.AgregarDestinos AC = new  Alerts.AlertBasic.AgregarDestinos(null, true);
-                                                    AC.NombreEmpresa.setText(Nombre);
-                                                    AC.ID.setText(""+ObtenID());
-                                                    AC.setVisible(true);
-                                                 }
-                                            }
+                                                    if("".equals(Nombre)|| "".equals(Atencion) || comboEstado==0 || comboMunicipio==0 || comboColonia==0 || "".equals(Calle))
+                                                    {
+                                                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                                        AC.msj1.setText("¡Llene todos los campos!");
+                                                        AC.msj2.setText("Seleccione Correctamente");
+                                                        AC.setVisible(true);
+                                                    }
+                                                    else
+                                                    {
+                                                        Clientes.Agregar_Cliente(Nombre,Atencion, ColoniaItem, Calle, Fecha);
+                                                        Ventanas.Modulo_Cliente.Opciones.listar("");
+                                                        this.dispose();
+
+                                                        Alerts.AlertBasic.AgregarDestinos AC = new  Alerts.AlertBasic.AgregarDestinos(null, true);
+                                                        AC.NombreEmpresa.setText(Nombre);
+                                                        AC.ID.setText(""+ObtenID());
+                                                        AC.setVisible(true);
+                                                     }
+                                                }
+                                        }
                                     }
                                 }
-                            }
+                             }
                         }
                    }
                }
@@ -185,6 +197,8 @@ public class AgregarCliente extends javax.swing.JDialog {
         txtCalle = new app.bolivia.swing.JCTextField();
         cmbMunicipio = new ComboBox.SComboBox();
         txtAtencion = new app.bolivia.swing.JCTextField();
+        FechaOperaciones = new com.toedter.calendar.JDateChooser();
+        lblNombreNuevo6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -265,8 +279,8 @@ public class AgregarCliente extends javax.swing.JDialog {
         lblNombreNuevo4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo4.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombreNuevo4.setText("Nombre del la Empresa/Negocio ó Cliente*");
-        pnlPrincipal.add(lblNombreNuevo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 280, -1));
+        lblNombreNuevo4.setText("Inicio de Operaciones*");
+        pnlPrincipal.add(lblNombreNuevo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 150, -1));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
         pnlPrincipal.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 210, -1));
@@ -295,19 +309,19 @@ public class AgregarCliente extends javax.swing.JDialog {
             }
         });
         pnlPrincipal.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 300, 30));
-        pnlPrincipal.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 650, 10));
+        pnlPrincipal.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 650, 10));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 144, 183));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("DATOS DOMICILIO:");
-        pnlPrincipal.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 170, -1));
+        pnlPrincipal.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 170, -1));
 
         lblNombreNuevo5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo5.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreNuevo5.setText("Estado*");
-        pnlPrincipal.add(lblNombreNuevo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        pnlPrincipal.add(lblNombreNuevo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione Estado" }));
         cmbEstado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -316,13 +330,13 @@ public class AgregarCliente extends javax.swing.JDialog {
                 cmbEstadoItemStateChanged(evt);
             }
         });
-        pnlPrincipal.add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 230, -1));
+        pnlPrincipal.add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 230, -1));
 
         lblNombreNuevo20.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo20.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreNuevo20.setText("Municipio*");
-        pnlPrincipal.add(lblNombreNuevo20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
+        pnlPrincipal.add(lblNombreNuevo20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
 
         cmbColonia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cmbColonia.addItemListener(new java.awt.event.ItemListener() {
@@ -330,25 +344,25 @@ public class AgregarCliente extends javax.swing.JDialog {
                 cmbColoniaItemStateChanged(evt);
             }
         });
-        pnlPrincipal.add(cmbColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 230, -1));
+        pnlPrincipal.add(cmbColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 230, -1));
 
         lblNombreNuevo8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo8.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreNuevo8.setText("Colonia o Población*");
-        pnlPrincipal.add(lblNombreNuevo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+        pnlPrincipal.add(lblNombreNuevo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
-        pnlPrincipal.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, -1, -1));
+        pnlPrincipal.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, -1, -1));
 
         jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
-        pnlPrincipal.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 150, -1));
+        pnlPrincipal.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 150, -1));
 
         lblNombreNuevo21.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo21.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreNuevo21.setText("Calle y Número*");
-        pnlPrincipal.add(lblNombreNuevo21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
+        pnlPrincipal.add(lblNombreNuevo21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, -1, -1));
 
         txtCalle.setBorder(null);
         txtCalle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -358,7 +372,7 @@ public class AgregarCliente extends javax.swing.JDialog {
                 txtCalleKeyReleased(evt);
             }
         });
-        pnlPrincipal.add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 280, 30));
+        pnlPrincipal.add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 280, 30));
 
         cmbMunicipio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione Municipio" }));
         cmbMunicipio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -367,7 +381,7 @@ public class AgregarCliente extends javax.swing.JDialog {
                 cmbMunicipioItemStateChanged(evt);
             }
         });
-        pnlPrincipal.add(cmbMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 230, -1));
+        pnlPrincipal.add(cmbMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 230, -1));
 
         txtAtencion.setBorder(null);
         txtAtencion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -379,7 +393,16 @@ public class AgregarCliente extends javax.swing.JDialog {
         });
         pnlPrincipal.add(txtAtencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 310, 30));
 
-        jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 9, 700, 420));
+        FechaOperaciones.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pnlPrincipal.add(FechaOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 230, 30));
+
+        lblNombreNuevo6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblNombreNuevo6.setForeground(new java.awt.Color(102, 102, 102));
+        lblNombreNuevo6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombreNuevo6.setText("Nombre del la Empresa/Negocio ó Cliente*");
+        pnlPrincipal.add(lblNombreNuevo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 280, -1));
+
+        jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 9, 700, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -391,7 +414,7 @@ public class AgregarCliente extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
         );
 
         pack();
@@ -498,6 +521,7 @@ public class AgregarCliente extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static com.toedter.calendar.JDateChooser FechaOperaciones;
     private ComboBox.SComboBox cmbColonia;
     private ComboBox.SComboBox cmbEstado;
     private ComboBox.SComboBox cmbMunicipio;
@@ -519,6 +543,7 @@ public class AgregarCliente extends javax.swing.JDialog {
     public static javax.swing.JLabel lblNombreNuevo21;
     public static javax.swing.JLabel lblNombreNuevo4;
     public static javax.swing.JLabel lblNombreNuevo5;
+    public static javax.swing.JLabel lblNombreNuevo6;
     public static javax.swing.JLabel lblNombreNuevo7;
     public static javax.swing.JLabel lblNombreNuevo8;
     public static javax.swing.JPanel pnlPrincipal;
