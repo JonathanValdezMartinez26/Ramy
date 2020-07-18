@@ -5,6 +5,7 @@ import Alerts.*;
 import Ventanas.Modulo_Cliente.Opciones;
 import Ventanas.Modulo_Cliente.Registrar;
 import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
+import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
 import com.sun.glass.events.KeyEvent;
 import java.awt.event.WindowEvent;
 import static java.lang.System.exit;
@@ -143,14 +144,19 @@ public class WarningFinalizar extends javax.swing.JDialog {
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
     
-    
+        //////Compara si la tabla Servicio de AgregarCotizaciones tiene valores vacios
+        
+
     this.dispose();
     String ID_Cotizacion=ID.getText();
+    
     Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
     Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");   
     AgregarCotizaciones.ver();
 //        AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
 //        AC.dispose();
+
+//AgregarCotizaciones.aceptarFinalizar(ID_Cotizacion);
         
     
     }//GEN-LAST:event_log2ActionPerformed
