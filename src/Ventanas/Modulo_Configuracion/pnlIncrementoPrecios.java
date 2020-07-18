@@ -35,6 +35,8 @@ public class pnlIncrementoPrecios extends javax.swing.JPanel {
 
     public pnlIncrementoPrecios() 
     {
+        
+        Opciones.listar("");
         initComponents();
        
     }
@@ -79,14 +81,14 @@ public class pnlIncrementoPrecios extends javax.swing.JPanel {
 
             },
             new String [] {
-                "No.", "Nombre del Cliente", "Atención", "último Ajuste", "Trabaja con la Tarifa"
+                "ID_Cliente", "ID_Ajuste", "Nombre del Cliente", "Inicio Operaciones", "último Ajuste", "Trabaja con la Tarifa"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true
+                false, false, false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -104,6 +106,10 @@ public class pnlIncrementoPrecios extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(tabla);
+        if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
+        }
 
         jPanel12.setBackground(new java.awt.Color(225, 225, 225));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
