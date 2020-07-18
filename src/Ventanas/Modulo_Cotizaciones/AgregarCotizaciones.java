@@ -104,6 +104,15 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         jScrollPane.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
+        
+//        TableColumn columna;
+//      columna=tabla.getColumnModel().getColumn(3);
+//      columna.setPreferredWidth(90);
+//      columna.setMaxWidth(90);
+//      columna.setMinWidth(90);
+//         
+//      tabla.setRowHeight(25);
+        
         tabla1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla1.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
         this.tabla1.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
@@ -114,6 +123,8 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor3(db,"Nombre del Servicio"));//Columna Precio
         tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor4(db,"Precio"));//Columna Precio
+        
+        
     }
     
     public void Clientes()
@@ -372,6 +383,16 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     //AgregarCotizaciones.dispose();
     }
     
+    public static void aceptarFinalizar(String IDCotizacionA){
+    
+        //JOptionPane.showMessageDialog(null, "MEnsaje desde warning finalizar id del warning es: "+ IDCotizacionA);
+        AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
+        AC.setVisible(false);
+        //this.dispose();
+        //AgregarCotizaciones.dispose();
+        
+    }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -524,7 +545,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tabla1.setRowHeight(20);
+        tabla1.setRowHeight(30);
         tabla1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabla1);
         if (tabla1.getColumnModel().getColumnCount() > 0) {
@@ -954,29 +975,45 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-
-    
-
-
-if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){
-    
-    String ID_Cotizacion=IDCotizacion.getText();
-    Opciones.finalizarCotizacion(ID_Cotizacion);
-    Opciones.listarCotizaciones("");
-    ver();
-    this.dispose();
-    
-        }else{       
-    finalizar();
-//                                          Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-//                                        AC.msj1.setText("¡Asigne Nombre y servicios!");
-//                                        AC.msj2.setText("Para poder asignar cotizacion");
-//                                        //AC.msj3.setText("Registrados con el Mismo Transporte");
-//                                        AC.setVisible(true);
+       //int primer=Integer.parseInt(this.tabla1.getValueAt(0, 3).toString());
+       //JOptionPane.showMessageDialog(null, "el precio de la primera fila es:"+primer);
+    if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1 ){
+                
+                int existenombre=0;
+                int existeprecio=0;
+        for (int i = 0; i < tabla1.getRowCount(); i++) {
+                 if(tabla1.getValueAt(i, 2).toString().equals("")){
+                     existenombre++;
+                 }                                 
+                 if(tabla1.getValueAt(i, 3).toString().equals("0")){
+                     existeprecio++;
+                 }                                 
+        }
+        if(existenombre==0 && existeprecio==0){
+                String ID_Cotizacion=IDCotizacion.getText();
+                Opciones.finalizarCotizacion(ID_Cotizacion);
+                Opciones.listarCotizaciones("");
+                ver();
+                this.dispose();
+        
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "Existen filas vacias");
+            JOptionPane.showMessageDialog(null, "Las filas nombre que estan vacias son: "+existenombre);
+            JOptionPane.showMessageDialog(null, "Las filas precio que estan vacias son: "+existeprecio);
+                                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                    AC.msj1.setText("¡Campos Vacios!");
+                                    AC.msj2.setText("Porfavor llene Completamente ");
+                                    AC.msj3.setText("La Tabla de Servicios");                                    
+                                    AC.setVisible(true);
+        }
+   }
+    else{       
+                finalizar();
 
         }
    
-//           
+           
     
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 

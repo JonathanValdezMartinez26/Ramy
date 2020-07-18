@@ -55,7 +55,9 @@ public class MyTableCellEditor3 extends AbstractCellEditor implements TableCellE
 
     @Override
     public boolean stopCellEditing() {
+        String vacio="";
         NewValue = (String)getCellEditorValue();//Captura nuevo valor de la celda
+//       if(!NewValue.equals(vacio)){ 
         //Compara valores, si no son iguales, debe actualizar registro
         if( !NewValue.equals(OldValue))
         {   //Realiza la actualizacion
@@ -76,6 +78,8 @@ public class MyTableCellEditor3 extends AbstractCellEditor implements TableCellE
 //            AC.setVisible(true);
             
         }
+        
+       //}
         return super.stopCellEditing();
     }
 }

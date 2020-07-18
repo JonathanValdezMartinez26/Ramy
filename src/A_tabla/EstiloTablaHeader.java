@@ -32,7 +32,7 @@ public class EstiloTablaHeader implements TableCellRenderer{
         jcomponent.setOpaque(true);
         jcomponent.setBackground( new Color(198, 202, 193) );
         jcomponent.setForeground(Color.WHITE);
-        jcomponent.setFont(new Font("Tahoma", Font.BOLD, 14));
+        jcomponent.setFont(new Font("Tahoma", Font.BOLD, 12));
         
         return jcomponent;
     }
