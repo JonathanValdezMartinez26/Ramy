@@ -139,10 +139,10 @@ public static ResultSet resultado;
             AC.setVisible(true);
         }
     }
-     public static String registrar = "INSERT INTO Asigna_Cotizaciones_Consolidado"
-           + "ID_Asigna_Cotizacion_Renta,"
+    public static String registrar = "INSERT INTO Asigna_Cotizacion_Consolidado("
+           + "ID_Cotizacion_Consolidado,"
             + "ID_Cotizacion,"
-            + "ID_Periodo"
+            + "ID_Consolidado)"
             + "VALUES(?,?,?)";
     
      

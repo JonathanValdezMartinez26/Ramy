@@ -62,7 +62,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
-import Ventanas.Modulo_Cotizaciones_Mensual.Opciones;
+import Ventanas.Modulo_Cotizaciones_Consolidado.Opciones;
 
 public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
@@ -232,12 +232,12 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
                       if(Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.verificaConsolidado(ID_Cotizacion,ID_Consolidado)==0)
                       { 
-                          Clases.CotizacionesConsolidado fichaIdent = new Clases.CotizacionesConsolidado();
+                          Clases.CotizacionesConsolidado fichaIden = new Clases.CotizacionesConsolidado();
 
-                            fichaIdent.setID_Cotizacion(ID_Cotizacion);
-                            fichaIdent.setID_Consolidado(ID_Consolidado);
+                            fichaIden.setID_Cotizacion(ID_Cotizacion);
+                            fichaIden.setID_Consolidado(ID_Consolidado);
 
-                            if (Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.registrar(fichaIdent)) 
+                            if (Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.registrar(fichaIden))
                             {
                                 Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
                                       AC.msj1.setText("¡Datos de la cotizacion!");
@@ -262,7 +262,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                             else
                             {
                                  Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                  AC.msj1.setText("¡Error el Periodo!");
+                                  AC.msj1.setText("¡Error el Consolidado!");
                                   AC.msj2.setText("ya existe ");
                                   AC.setVisible(true);
                             }

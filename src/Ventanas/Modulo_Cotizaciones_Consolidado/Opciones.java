@@ -61,7 +61,7 @@ public class Opciones {
     ///////////////////////////////////////
     
     public static void listar(String busca,  int ID) {
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tablaR.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.tablaR.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
@@ -69,10 +69,10 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Asigna_Cotizacion_Renta, Periodo, Concepto from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
+           sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizaciones_Consolidadov where ID_Cotizacion="+ ID;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion_Renta, Periodo, Concepto from asigna_cotizaciones_Rentav where  Periodo LIKE '"+ busca +"%' OR Concepto LIKE '"+ busca +"%' OR ID_Cotizacion =" + ID;
+            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizaciones_Consolidadov where  Consolidado LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' OR ID_Cotizacion =" + ID;
             
            }
         String datos[] = new String[3];
@@ -156,7 +156,7 @@ public class Opciones {
     ///////////////////////////////////////////////////////////////////
     public static int verificaConsolidado(int ID_Cotizacion,int ID_Consolidado) {
         int c = 0;
-        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizaciones_Consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Consolidado = "+ID_Consolidado+")";
+        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizacion_Consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Consolidado = "+ID_Consolidado+")";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -172,23 +172,17 @@ public class Opciones {
         return c;
     }
     
-        public static boolean registrar(Clases.CotizacionesRentaMen uc) {
-        String sql = Clases.CotizacionesRentaMen.registrar;
-        
-       
-        
-        
-        
+        public static boolean registrar(Clases.CotizacionesConsolidado uc) {
+        String sql = Clases.CotizacionesConsolidado.registrar;
+
         try {
             
             ps = cn.prepareStatement(sql);
             ps.setInt(1, uc.getID_Asigna_Cotizacion());
             ps.setInt(2, uc.getID_Cotizacion());
-            ps.setInt(3,uc.getID_Periodo());
+            ps.setInt(3,uc.getID_Consolidado());
             ps.executeUpdate();
-            
-            
-            
+          
             return true;
         } catch (SQLException ex) {
             System.out.println(ex);
