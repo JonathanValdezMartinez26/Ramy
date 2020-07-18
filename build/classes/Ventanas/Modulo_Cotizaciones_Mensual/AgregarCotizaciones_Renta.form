@@ -111,7 +111,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="     Clientes &gt; Ata Origen, Destinos y Asignaci&#xf3;n"/>
+                <Property name="text" type="java.lang.String" value="     Cotizaciones &gt; Nueva Cotizacion para renta de unidades"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -319,7 +319,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="30" y="240" width="890" height="70"/>
+              <AbsoluteConstraints x="30" y="230" width="890" height="70"/>
             </Constraint>
           </Constraints>
 
@@ -419,7 +419,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Activar o Desactivar Paciente"/>
+                <Property name="toolTipText" type="java.lang.String" value="Visualizar Cotizacion"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlVistaMouseClicked"/>
@@ -468,7 +468,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Editar Paciente"/>
+                <Property name="toolTipText" type="java.lang.String" value="Finalizar Cotizacion"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlFinalizarMouseClicked"/>
@@ -545,7 +545,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Editar Paciente"/>
+                <Property name="toolTipText" type="java.lang.String" value="Agregar Servicios"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnleditarMouseClicked"/>
@@ -614,7 +614,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="500" y="200" width="170" height="30"/>
+              <AbsoluteConstraints x="420" y="140" width="170" height="30"/>
             </Constraint>
           </Constraints>
         </Component>

@@ -55,7 +55,9 @@ public class MyTableCellEditor3 extends AbstractCellEditor implements TableCellE
 
     @Override
     public boolean stopCellEditing() {
+        String vacio="";
         NewValue = (String)getCellEditorValue();//Captura nuevo valor de la celda
+//       if(!NewValue.equals(vacio)){ 
         //Compara valores, si no son iguales, debe actualizar registro
         if( !NewValue.equals(OldValue))
         {   //Realiza la actualizacion
@@ -69,13 +71,15 @@ public class MyTableCellEditor3 extends AbstractCellEditor implements TableCellE
                 
                 ((JTextField)component).setText(OldValue);
             }
-            Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Nombre del Servicio!");
-            AC.msj2.setText("Asignado");
-            AC.msj3.setText("Porfavor asigne un Precio");
-            AC.setVisible(true);
+//            Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+//            AC.msj1.setText("¡Nombre del Servicio!");
+//            AC.msj2.setText("Asignado");
+//            AC.msj3.setText("Porfavor asigne un Precio");
+//            AC.setVisible(true);
             
         }
+        
+       //}
         return super.stopCellEditing();
     }
 }

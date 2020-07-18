@@ -72,7 +72,7 @@ public class Opciones {
            sql = "Select ID_Asigna_Cotizacion_Renta, Periodo, Concepto from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion_Renta, Periodo, Concepto from asigna_cotizaciones_Rentav where  Periodo LIKE '"+ busca +"%' OR Concepto LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
+            sql = "Select ID_asigna_Cotizacion_Renta, Periodo, Concepto from asigna_cotizaciones_Rentav where  Periodo LIKE '"+ busca +"%' OR Concepto LIKE '"+ busca +"%' OR ID_Cotizacion =" + ID;
             
            }
         String datos[] = new String[3];
@@ -174,11 +174,7 @@ public class Opciones {
     
         public static boolean registrar(Clases.CotizacionesRentaMen uc) {
         String sql = Clases.CotizacionesRentaMen.registrar;
-        
-       
-        
-        
-        
+
         try {
             
             ps = cn.prepareStatement(sql);

@@ -14,6 +14,7 @@ import static Ventanas.Modulo_Cliente.Registrar.B;
 import static Ventanas.Modulo_Cliente.Registrar.C;
 import static Ventanas.Modulo_Cliente.Registrar.PanelDesliza;
 import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
+import Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado;
 import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import java.awt.BorderLayout;
@@ -294,7 +295,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jPanel12.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 70));
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar.setToolTipText("Agregar Cotizacion");
+        pnlagregar.setToolTipText("Agregar Cotizacion Directa");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseEntered(evt);
@@ -390,7 +391,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, -1, 69));
 
         pnlagregar1.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar1.setToolTipText("Agregar Cotizacion");
+        pnlagregar1.setToolTipText("Agregar Cotizacion por Consolidado");
         pnlagregar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregar1MouseClicked(evt);
@@ -414,7 +415,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jPanel12.add(pnlagregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 69));
 
         pnlagregar2.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar2.setToolTipText("Agregar Cotizacion");
+        pnlagregar2.setToolTipText("Agregar Cotizacion por Ruta");
         pnlagregar2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregar2MouseClicked(evt);
@@ -438,7 +439,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jPanel12.add(pnlagregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, -1, 69));
 
         pnlagregar3.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar3.setToolTipText("Agregar Cotizacion");
+        pnlagregar3.setToolTipText("Agregar Cotizacion por Renta");
         pnlagregar3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregar3MouseClicked(evt);
@@ -562,7 +563,8 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     }//GEN-LAST:event_tablaMouseClicked
 
     private void pnlagregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar1MouseClicked
-        // TODO add your handling code here:
+    AgregarCotizaciones_Consolidado poper =new Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado(null, true);
+        poper.setVisible(true);
     }//GEN-LAST:event_pnlagregar1MouseClicked
 
     private void pnlagregar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar1MouseEntered
