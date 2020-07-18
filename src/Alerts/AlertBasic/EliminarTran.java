@@ -19,7 +19,7 @@ public class EliminarTran extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         FadeEffect.fadeIn(this, 20, 0.1f);
         this.setLocationRelativeTo(this);
-        ID.setVisible(true);
+        ID.setVisible(false);
         
 //        this.dispose();
         

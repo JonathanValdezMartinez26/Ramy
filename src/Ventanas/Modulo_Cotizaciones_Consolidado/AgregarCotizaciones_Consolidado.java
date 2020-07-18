@@ -1,4 +1,4 @@
-package Ventanas.Modulo_Cotizaciones;
+package Ventanas.Modulo_Cotizaciones_Consolidado;
 
 import A_tabla.EstiloTablaHeader;
 import Ventanas.Modulo_Cliente.*;
@@ -9,20 +9,21 @@ import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import static Alerts.AlertBasic.AgregarDestinos.ID;
 import Alerts.AlertBasic.Eliminar;
+import Alerts.AlertBasic.EliminarTran;
 import Alerts.FadeEffect;
 import Clases.Clientes;
 import Clases.Conexion;
 import Clases.Cotizaciones;
 import static Clases.Cotizaciones.ObtenID;
+import Clases.CotizacionesRentaMen;
 import Clases.MyTableCellEditor;
-import Clases.MyTableCellEditor3;
-import Clases.MyTableCellEditor4;
+import Clases.MyTableCellEditor2;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
-import static Ventanas.Modulo_Cliente.Opciones.*;
-import static Ventanas.Modulo_Cliente.Registrar.tabla3;
+import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
+import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
 import java.awt.BorderLayout;
@@ -47,6 +48,7 @@ import java.awt.event.ItemEvent;
 import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
@@ -60,11 +62,9 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
-import Ventanas.Modulo_Cotizaciones.Opciones;
-import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
+import Ventanas.Modulo_Cotizaciones_Mensual.Opciones;
 
-
-public class AgregarCotizaciones extends javax.swing.JDialog {
+public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
     private boolean minimiza = false;
 
@@ -72,33 +72,29 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     boolean res = true;
     int  MunicipioItem = 0;
     int ID;
-    
     ResultSet resultado, nombre;
-    int ID_Tran [];
-    int ID_Ori [];
-    int ID_Des [];
+    int ID_Per [];
     int ID_Cli[];
+    
     private database db = new database();
     
-    
-    public AgregarCotizaciones(java.awt.Frame parent, boolean modal) {
+    public AgregarCotizaciones_Consolidado(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
         AWTUtilities.setOpaque(this, false);
         this.setLocationRelativeTo(parent);
+        
         Clientes();
-        Origenes();
-        Destinos();
-        Transportes();
-        lblatencion.setVisible(true);
-        ID_rutas.setVisible(true);
+        Consolidado();
+        
+        ID_rutas.setVisible(false);
         IDCotizacion.setVisible(true);
-     
-        tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
-        this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
-        this.tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+         
+        tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.tablaR.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane.getVerticalScrollBar().setUI(new MyScrollbarUI());
@@ -112,9 +108,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
-        tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor3(db,"Nombre del Servicio"));//Columna Precio
-        tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor4(db,"Precio"));//Columna Precio
         
+        
+        tablaR.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor2(db,"Concepto"));
         
     }
     
@@ -154,85 +150,55 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         }
     }
     
-    public void Origenes()
+    public void Consolidado()
     {
-         int ID_Origen = 0;
+        int ID_Consolidado = 0;
 
-        try {
-
-            resultado = Conexion.consulta("Select Max(ID_ruta) from rutav");
-
-            while (resultado.next()) {
-                ID_Origen = resultado.getInt(1);
+        try 
+        {
+            resultado = Conexion.consulta("Select Max(ID_Consolidado) from Consolidado");
+            while (resultado.next()) 
+            {
+                ID_Consolidado = resultado.getInt(1);
             }
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) 
+        {
 
         }
-
-        ID_Origen++;
-
-        ID_Ori = new int[ID_Origen];
-        ID_Ori[0] = 0;
-        
-    }
-    
-    public void Destinos()
-    {
-         int ID_Destino = 0;
-
-        try {
-
-            resultado = Conexion.consulta("Select Max(ID_ruta) from rutav");
-
-            while (resultado.next()) {
-                ID_Destino = resultado.getInt(1);
+        ID_Consolidado++;
+        ID_Per= new int[ID_Consolidado];
+        ID_Per[0] = 0;
+        int i = 1;
+        try 
+        {
+            resultado = Conexion.consulta("SELECT ID_Consolidado, Consolidado from Consolidado");
+            while (resultado.next()) 
+            {
+                ID_Per [i] = resultado.getInt(1);
+                cmbConsolidado.addItem(resultado.getString(2));
+                i++;
             }
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) 
+        {
 
         }
-
-        ID_Destino++;
-
-        ID_Des = new int[ID_Destino];
-
-        ID_Des[0] = 0;
-        
-    }
-    
-    public void Transportes()
-    {
-        int ID_Transportes = 0;
-
-          try
-            {
-                resultado = Conexion.consulta("Select Max(ID_transporte) from transportes");
-
-                while(resultado.next())
-                {
-                    ID_Transportes = resultado.getInt(1);
-                }
-            }
-            catch(SQLException ex)
-            {
-
-            }
-
-                ID_Transportes++;
-                ID_Tran = new int[ID_Transportes];
-                ID_Tran [0] = 0; 
-                
     }
     public void eliminar()
     {
-        int Fila = tabla.getSelectedRow();
+        int Fila = tablaR.getSelectedRow();
             if(Fila >= 0)
         {
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-            Eliminar ME = new Eliminar(null, true);
+          int ID = Integer.parseInt(tablaR.getValueAt(Fila, 0).toString());
+//            int ID = Integer.parseInt(IDCotizacion.getText());
+
+            EliminarTran ME = new EliminarTran(null, true);
             ME.ID.setText(""+ID);
-            ME.Cotizacion.setText(""+ID_Cotizacion);
+//            ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);
+            Opciones.listar("",ID);
+//           JOptionPane.showMessageDialog(null,""+ID);
         }
     else
         {
@@ -241,31 +207,19 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             AC.msj2.setText("A eliminar");
             AC.setVisible(true);
         }
+           
     }
     ////////////////////////////////////////////////////////////////////////////
     private void Guardar(){
-        int ID_Ruta = 0;
         
+        int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
         int comboCliente = cmbCliente.getSelectedIndex();
-        int comboOrigen= cmbOrigenes.getSelectedIndex();
-        int comboDestino = cmbDestinos.getSelectedIndex();
-        int comboTransporte = cmbTransportes.getSelectedIndex();
+//        Date Fecha_I = txtFechaI.getDate();
+//        Date Fecha_F = txtFechaF.getDate();
         
-      
-        ////////////////
-        int ID_Client = cmbCliente.getSelectedIndex();
-        int ID_Cliente = ID_Cli[ID_Client];
-            
-        int ID_Origen = cmbOrigenes.getSelectedIndex();
-        int ID_Origenes = ID_Ori[ID_Origen];
-            
-        int ID_Destin = cmbDestinos.getSelectedIndex();
-        int ID_Destinos = ID_Des[ID_Destin];
-        
-        int ID_Transporte = cmbTransportes.getSelectedIndex();
-        int ID_Transportes = ID_Tran[ID_Transporte];
-      
-        
+        int ID_Periodos = cmbConsolidado.getSelectedIndex();
+        int ID_Periodo= ID_Per[ID_Periodos];
+     
         if(comboCliente==0)
             {
                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -273,106 +227,60 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                 AC.msj2.setText("Cliente para Continuar");
                 AC.setVisible(true);
             }
-            else
-            {
-                if(comboOrigen==0)
-                    {
-                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                        AC.msj1.setText("¡Elija un !");
-                        AC.msj2.setText("Origen");
-                        AC.setVisible(true);
-                    }
-                else
-                {
-                    if(comboDestino==0)
-                    {
-                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                        AC.msj1.setText("¡Elija un !");
-                        AC.msj2.setText("Destino");
-                        AC.setVisible(true);
-                    }
                     else
                     {
-                        if(comboTransporte==0)
-                        {
-                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                            AC.msj1.setText("¡Elija un !");
-                            AC.msj2.setText("Transporte");
-                            AC.setVisible(true);
-                        }
-                        else
-                        {
-                             if(comboCliente==0 || comboOrigen==0 || comboDestino==0 || comboTransporte==0)
+
+                      if(Ventanas.Modulo_Cotizaciones_Mensual.Opciones.verificaRentaM(ID_Cotizacion,ID_Periodo)==0)
+                      { 
+                          Clases.CotizacionesRentaMen fichaIdent = new Clases.CotizacionesRentaMen();
+
+                            fichaIdent.setID_Cotizacion(ID_Cotizacion);
+                            fichaIdent.setID_Periodo(ID_Periodo);
+
+                            if (Ventanas.Modulo_Cotizaciones_Mensual.Opciones.registrar(fichaIdent)) 
                             {
-                                Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                AC.msj1.setText("¡Seleccione Un!");
-                                AC.msj2.setText("Cliente, Origen - Destino y Transporte");
-                                AC.msj3.setText("Para Continuar");
-                                AC.setVisible(true);
+                                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                                      AC.msj1.setText("¡Datos de la cotizacion!");
+                                      AC.msj2.setText("Guardados correctamente");
+                                      AC.setVisible(true);
+                                      Opciones.listar("", ID_Cotizacion);
+
+
                             }
+
+                             else
+                            {
+                                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                  AC.msj1.setText("¡Error verifique!");
+                                  AC.msj2.setText("los datos ingresados  ");
+                                  AC.setVisible(true);
+                            }
+
+
+
+                      }
                             else
                             {
-                                ID_rutas.setText(""+ Cotizaciones.ObtenerIDRuta(ID_Cliente, ID_Origenes, ID_Destinos, ID_Transportes));
-                                ID_rutas.setVisible(true);
-                                int ID_Rutas = Integer.parseInt(ID_rutas.getText());
-                                int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-                                float precio = Cotizaciones.ObtenerPrecio(ID_Rutas);
-                                
-                                if(precio == 0)
-                                {
-    //                              JOptionPane.showMessageDialog(null, ""+precio+" "+ID_Cliente+" "+ID_Origenes+" "+ID_Destinos+" "+ ID_Transportes);
-                                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                    AC.msj1.setText("¡Error!");
-                                    AC.msj2.setText("El servicio tiene un valor");
-                                    AC.msj3.setText("No valido, !Verifique!");
-                                    AC.setVisible(true);
-                                }
-                                else
-                                {
-                                    if(Ventanas.Modulo_Cotizaciones.Opciones.verificaRutaCotizacion(ID_Cotizacion, ID_Rutas)==0)
-                                    {   
-
-                                        Cotizaciones.Agregar_RutaCotizacion(ID_Cotizacion, ID_Rutas);
-                                        Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotizacion);
-
-                                        this.cmbOrigenes.setSelectedItem(0);
-                                        this.cmbDestinos.setSelectedItem(0);
-                                        this.cmbTransportes.setSelectedItem(0);
-                                        ID_rutas.setText("");
-
-                                    }
-                                    else
-                                    {
-                                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                        AC.msj1.setText("¡Error!");
-                                        AC.msj2.setText("El Origen - Destino ya Estan");
-                                        AC.msj3.setText("Registrados con el Mismo Transporte");
-                                        AC.setVisible(true);
-                                    }
-                                    
-                                }
+                                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                  AC.msj1.setText("¡Error el Periodo!");
+                                  AC.msj2.setText("ya existe ");
+                                  AC.setVisible(true);
                             }
-                        }
-                    }
-                }
-            }
-    }
-    public static void cargarServicio(){
-        int ID_Cotizacion;
-        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());
-        Opciones.insertarServicio(ID_Cotizacion);
-        //Opciones.llenarServicio(ID_Cotizacion);
+                              
+                                
+                                
+                                
+                     }
+        }
         
-    }
-    ////////////////////////////////////////////////////////////////////////
-    public static void finalizar(){
-        Alerts.AlertBasic.WarningFinalizar AC = new  Alerts.AlertBasic.WarningFinalizar(null, true);
-        AC.ID.setText(IDCotizacion.getText());
-        AC.setVisible(true);
-      
+                        
+                    
+                   
+                
+        
     
-    //AgregarCotizaciones.dispose();
-    }
+    ////////////////////////////////////////////////////////////////////////
+    
     
     
     @SuppressWarnings("unchecked")
@@ -385,11 +293,10 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         lblNombreNuevo17 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
+        tablaR = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
         cmbCliente = new ComboBox.SComboBox();
-        lblatencion = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         l2 = new javax.swing.JSeparator();
@@ -411,13 +318,10 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         jLabel14 = new javax.swing.JLabel();
         IDCotizacion = new javax.swing.JLabel();
         ID_rutas = new javax.swing.JLabel();
-        cmbDestinos = new ComboBox.SComboBox();
         jButton3 = new javax.swing.JButton();
-        cmbOrigenes = new ComboBox.SComboBox();
-        jLabel3 = new javax.swing.JLabel();
-        cmbTransportes = new ComboBox.SComboBox();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblatencion1 = new javax.swing.JLabel();
+        cmbConsolidado = new ComboBox.SComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -456,26 +360,26 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         lblNombreNuevo17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombreNuevo17.setText("     Cotizaciones > Nueva Cotizacion para Fletes Directos");
+        lblNombreNuevo17.setText("     Cotizaciones > Nueva Cotizacion para renta de unidades");
         jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 877, 30));
 
         jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 13, 905, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
+        tablaR.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID_", "Origen", "Destino", "Transporte", "Precio", ""
+                "ID_", "Periodo", "Concepto"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true
+                false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -486,36 +390,34 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tabla.setRowHeight(20);
-        tabla.getTableHeader().setReorderingAllowed(false);
-        jScrollPane.setViewportView(tabla);
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(150);
-            tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(4).setMinWidth(140);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(140);
-            tabla.getColumnModel().getColumn(4).setMaxWidth(140);
-            tabla.getColumnModel().getColumn(5).setResizable(false);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(30);
+        tablaR.setAlignmentX(2.0F);
+        tablaR.setAlignmentY(2.0F);
+        tablaR.setRowHeight(20);
+        tablaR.getTableHeader().setReorderingAllowed(false);
+        jScrollPane.setViewportView(tablaR);
+        if (tablaR.getColumnModel().getColumnCount() > 0) {
+            tablaR.getColumnModel().getColumn(0).setMinWidth(0);
+            tablaR.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tablaR.getColumnModel().getColumn(0).setMaxWidth(0);
+            tablaR.getColumnModel().getColumn(2).setMinWidth(140);
+            tablaR.getColumnModel().getColumn(2).setPreferredWidth(140);
+            tablaR.getColumnModel().getColumn(2).setMaxWidth(140);
         }
 
+        tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio"
+                "ID_", "Nombre del Servicio", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -533,11 +435,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(0).setMinWidth(0);
             tabla1.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla1.getColumnModel().getColumn(1).setMinWidth(0);
-            tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
-            tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
         }
-        tabla1.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -549,9 +447,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
         );
 
         jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 880, 360));
@@ -565,10 +463,6 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             }
         });
         jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 380, 30));
-
-        lblatencion.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblatencion.setText("Atención a:");
-        jcMousePanel1.add(lblatencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 380, 30));
@@ -714,18 +608,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
         jPanel1.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
 
-        jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 890, 70));
+        jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 890, 70));
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
         jcMousePanel1.add(ID_rutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 140, 20));
-
-        cmbDestinos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Destino" }));
-        cmbDestinos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cmbDestinos.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbDestinosItemStateChanged(evt);
-            }
-        });
-        jcMousePanel1.add(cmbDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 420, 30));
 
         jButton3.setText("Agregar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -733,48 +618,34 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 170, 30));
-
-        cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Origen" }));
-        cmbOrigenes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cmbOrigenes.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbOrigenesItemStateChanged(evt);
-            }
-        });
-        jcMousePanel1.add(cmbOrigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 420, 30));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel3.setText("Transportes disponibles para el Origen y Destino seleccionado:");
-        jcMousePanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 860, 20));
-
-        cmbTransportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una Unidad" }));
-        cmbTransportes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cmbTransportes.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbTransportesItemStateChanged(evt);
-            }
-        });
-        cmbTransportes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbTransportesActionPerformed(evt);
-            }
-        });
-        jcMousePanel1.add(cmbTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 420, 30));
+        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 170, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel6.setText("Origenes disponibles para la empresa/cliente seleccionado(a):");
-        jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 420, 20));
+        jLabel6.setText("Seleccione un Consolidado ");
+        jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 180, 20));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel7.setText("Destinos disponibles para el origen seleccionado:");
-        jcMousePanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 430, 20));
+        lblatencion1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblatencion1.setText("Atención a:");
+        jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
+
+        cmbConsolidado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Consolidado" }));
+        cmbConsolidado.setToolTipText("");
+        cmbConsolidado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cmbConsolidado.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbConsolidadoItemStateChanged(evt);
+            }
+        });
+        jcMousePanel1.add(cmbConsolidado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 380, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -804,42 +675,10 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             int ID_Client = cmbCliente.getSelectedIndex();
            int ID_Cliente = ID_Cli[ID_Client];
             int i = 1;
-
-           //JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
-            cmbOrigenes.removeAllItems();
-            cmbOrigenes.addItem("Seleccione un Origen");
-
-            try {
-
-                resultado = Conexion.consulta("SELECT ID_Municipio_Origen, Origen from rutav where "
-                        + "(ID_Cliente = "+ID_Cliente+") GROUP BY Origen");
-
-                while (resultado.next()) {
-                    ID_Ori[i] = resultado.getInt(1);
-                    cmbOrigenes.addItem(resultado.getString(2).trim());
-                    i++;
-                }
-            } 
-            catch (SQLException ex) {
-            }
-            
-            try {
-
-                resultado = Conexion.consulta("SELECT ID_Origen, Origen from rutav where "
-                        + "(ID_Cliente = "+ID_Cliente+") GROUP BY Origen");
-
-                while (resultado.next()) {
-                    ID_Ori[i] = resultado.getInt(1);
-                    cmbOrigenes.addItem(resultado.getString(2).trim());
-                    i++;
-                }
-            } 
-            catch (SQLException ex) {
-            }
             
             cmbCliente.setEnabled(false);
             Cotizaciones.Agregar_Cotizacion(ID_Cliente);
-            lblatencion.setVisible(true);
+           
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
             Opciones.listarCotizaciones("");
@@ -847,78 +686,18 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
          }
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
-    private void cmbDestinosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbDestinosItemStateChanged
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
-            int ID_Client = cmbCliente.getSelectedIndex();
-            int ID_Cliente = ID_Cli[ID_Client];
-            
-            int ID_Origen = cmbOrigenes.getSelectedIndex();
-            int ID_Origenes = ID_Ori[ID_Origen];
-            
-            int ID_Destin = cmbDestinos.getSelectedIndex();
-            int ID_Destinos = ID_Des[ID_Destin];
-            int i = 1;
-            
-            cmbTransportes.removeAllItems();
-            cmbTransportes.addItem("Seleccione un Transporte");
-
-            try {
-
-                 resultado = Conexion.consulta("SELECT ID_Transporte, Nombre_Transporte from rutav where "
-                        + "(ID_Cliente = "+ID_Cliente+") and (ID_Municipio_Origen = "+ID_Origenes+") and (ID_Municipio_Destino = "+ID_Destinos+") GROUP BY Nombre_Transporte");
-
-                while (resultado.next()) {
-                    ID_Tran[i] = resultado.getInt(1);
-                    cmbTransportes.addItem(resultado.getString(2).trim());
-                    i++;
-                }
-            } 
-            catch (SQLException ex) {
-
-            }
-        
-        }
-        
-    }//GEN-LAST:event_cmbDestinosItemStateChanged
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     Guardar();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
-        
-        int ID_Client = cmbCliente.getSelectedIndex();
-        int ID_Cliente = ID_Cli[ID_Client];
-        int i = 1;
-        
-        int ID_Origen = cmbOrigenes.getSelectedIndex();
-        int ID_Origenes = ID_Ori[ID_Origen];
-        
-        
-        cmbDestinos.removeAllItems();
-        cmbDestinos.addItem("Seleccione un Destino");
-        
-        try {
-            resultado = Conexion.consulta("SELECT ID_Municipio_Destino, Destino from rutav where "
-                    + "(ID_Cliente = "+ID_Cliente+") and (ID_Municipio_Origen = "+ID_Origenes+") GROUP BY Destino");
-
-            while (resultado.next()) {
-                ID_Des[i] = resultado.getInt(1);
-                cmbDestinos.addItem(resultado.getString(2).trim());
-                i++;
-            }
-        } catch (SQLException ex) {
-
-        }
-      }
-    }//GEN-LAST:event_cmbOrigenesItemStateChanged
-
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-//    
-      int ID = Integer.parseInt(IDCotizacion.getText());
-      Ventanas.Modulo_Cotizaciones.Opciones.listar(buscar.getText(), ID);
-      
+     
+//         IDCotizacion.setText(""+ObtenID());
+         int ID = Integer.parseInt(IDCotizacion.getText());
+         Opciones.listar(buscar.getText(), ID);
+         
+
+         
     }//GEN-LAST:event_buscarKeyReleased
 
     private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
@@ -933,6 +712,8 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
     private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
         eliminar();
+        int ID = Integer.parseInt(IDCotizacion.getText());
+        Opciones.listar("",ID);
     }//GEN-LAST:event_pnlEliminarMouseClicked
 
     private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered
@@ -956,30 +737,12 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-
-    
-
-
-if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){
-    
-    String ID_Cotizacion=IDCotizacion.getText();
-    Opciones.finalizarCotizacion(ID_Cotizacion);
-    Opciones.listarCotizaciones("");
     ver();
+    String ID_Cotizacion=IDCotizacion.getText();
+    Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
+    Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
     this.dispose();
-    
-        }else{       
-    finalizar();
-//                                          Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-//                                        AC.msj1.setText("¡Asigne Nombre y servicios!");
-//                                        AC.msj2.setText("Para poder asignar cotizacion");
-//                                        //AC.msj3.setText("Registrados con el Mismo Transporte");
-//                                        AC.setVisible(true);
-
-        }
-   
-//           
-    
+              
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
     private void pnlFinalizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseEntered
@@ -990,19 +753,8 @@ if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){
         pnlFinalizar.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlFinalizarMouseExited
 
-    private void cmbTransportesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTransportesItemStateChanged
-     
-    }//GEN-LAST:event_cmbTransportesItemStateChanged
-
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-
-        cargarServicio();
-        int ID_Cotizacion;
-        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());        
-        Opciones.llenarServicio(ID_Cotizacion);
-        
-        
-//      
+        //        Modificar();
     }//GEN-LAST:event_pnleditarMouseClicked
 
     private void pnleditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseEntered
@@ -1017,15 +769,15 @@ if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void cmbTransportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTransportesActionPerformed
+    private void cmbConsolidadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbConsolidadoItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbTransportesActionPerformed
+    }//GEN-LAST:event_cmbConsolidadoItemStateChanged
 
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AgregarCotizaciones dialog = new AgregarCotizaciones(new javax.swing.JFrame(), true);
+                AgregarCotizaciones_Consolidado dialog = new AgregarCotizaciones_Consolidado(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -1038,13 +790,11 @@ if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JLabel IDCotizacion;
+    private javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
-    private ComboBox.SComboBox cmbDestinos;
-    private ComboBox.SComboBox cmbOrigenes;
-    private ComboBox.SComboBox cmbTransportes;
+    private ComboBox.SComboBox cmbConsolidado;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1054,11 +804,9 @@ if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -1069,23 +817,23 @@ if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){
     public static javax.swing.JSeparator l2;
     private javax.swing.JLabel lblNombre;
     public static javax.swing.JLabel lblNombreNuevo17;
-    private javax.swing.JLabel lblatencion;
+    private javax.swing.JLabel lblatencion1;
     private javax.swing.JPanel pnlEliminar;
     private javax.swing.JPanel pnlFinalizar;
     private javax.swing.JPanel pnlVista;
     private javax.swing.JPanel pnleditar;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
-    public static javax.swing.JTable tabla;
     public static javax.swing.JTable tabla1;
+    public static javax.swing.JTable tablaR;
     // End of variables declaration//GEN-END:variables
-public static void ver() {
+public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
         int ID = Integer.parseInt(IDCotizacion.getText());
         if (ID >= 0) {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\RVC.RVC-PC\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Transporte.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);
