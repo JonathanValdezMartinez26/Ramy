@@ -8,6 +8,7 @@ import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
 import com.sun.glass.events.KeyEvent;
 import java.awt.event.WindowEvent;
 import static java.lang.System.exit;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import necesario.RSAWTUtilities;
 
@@ -142,14 +143,15 @@ public class WarningFinalizar extends javax.swing.JDialog {
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
     
-    this.dispose();
     
-    String ID_Cotizacion=ID.getText();
-    Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
-    Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");        
-    AgregarCotizaciones AG= new AgregarCotizaciones(null,true);
-    AG.dispose();
-    AgregarCotizaciones.ver();
+    
+//    String ID_Cotizacion=ID.getText();
+//    Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
+//    Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");   
+//    AgregarCotizaciones.ver();
+        AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
+        AC.dispose();
+        this.dispose();
     
     }//GEN-LAST:event_log2ActionPerformed
 

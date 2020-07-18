@@ -372,6 +372,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     //AgregarCotizaciones.dispose();
     }
     
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -955,23 +956,28 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
 
     
-//          ver();
-//    String ID_Cotizacion=IDCotizacion.getText();
-//    Opciones.finalizarCotizacion(ID_Cotizacion);
-//    Opciones.listarCotizaciones("");
-finalizar();
-//   if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){
-//
-//    
-//    
-//        }else{
-//             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+
+
+if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){
+    
+    String ID_Cotizacion=IDCotizacion.getText();
+    Opciones.finalizarCotizacion(ID_Cotizacion);
+    Opciones.listarCotizaciones("");
+    ver();
+    this.dispose();
+    
+        }else{       
+    finalizar();
+//                                          Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
 //                                        AC.msj1.setText("¡Asigne Nombre y servicios!");
 //                                        AC.msj2.setText("Para poder asignar cotizacion");
 //                                        //AC.msj3.setText("Registrados con el Mismo Transporte");
 //                                        AC.setVisible(true);
-//        }
-//              
+
+        }
+   
+//           
+    
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
     private void pnlFinalizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseEntered

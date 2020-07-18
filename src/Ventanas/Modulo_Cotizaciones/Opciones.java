@@ -199,6 +199,11 @@ public class Opciones {
                                         try {PreparedStatement pstm = cn.prepareStatement(q);
                                     pstm.execute();
                                     pstm.close();
+                                    Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                                    AC.msj1.setText("¡Agrega Nombre y Precio!");
+                                    AC.msj2.setText("A la Tabla Servicios");
+                                    AC.setVisible(true);
+                                    
                                     }catch(SQLException e){            
                                     System.out.println(e);}
                                         

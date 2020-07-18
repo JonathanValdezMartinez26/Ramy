@@ -69,11 +69,11 @@ public class MyTableCellEditor4 extends AbstractCellEditor implements TableCellE
                 
                 ((JTextField)component).setText(OldValue);
             }else{
-            Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Precio del Servicio!");
-            AC.msj2.setText("Asignado");
+//            Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+//            AC.msj1.setText("¡Precio del Servicio!");
+//            AC.msj2.setText("Asignado");
             //AC.msj3.setText("Porfavor asigne un Precio");
-            AC.setVisible(true);
+           // AC.setVisible(true);
             }
         }
         return super.stopCellEditing();
