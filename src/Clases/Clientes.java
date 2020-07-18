@@ -6,6 +6,8 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -16,16 +18,20 @@ public static ResultSet resultado;
  
     public static String LISTAR = "Select * from clientev";
 
-     public static void Agregar_Cliente(String Nombre_cliente, String Atencion, int ID_Localidad, String Calle) {
+     public static void Agregar_Cliente(String Nombre_cliente, String Atencion, int ID_Localidad, String Calle, Date Fecha) {
         try 
         {
-            CallableStatement consulta = Conexion.con.prepareCall("{call AgregarCliente (?,?,?,?) }");
+            CallableStatement consulta = Conexion.con.prepareCall("{call AgregarCliente (?,?,?,?,?) }");
            // CallableStatement consulta = (CallableStatement) Conexion.con.prepareStatement("INSERT INTO Clinica.Clientes(Nombre_cliente, RFC, ID_Estado, Direccion) VALUES (" + Nombre_cliente +","+ RFC +","+ ID_Estado +","+ Direccion + ")");
-            
+           
+            SimpleDateFormat sdfr = new SimpleDateFormat("yyyy/MM/dd");
+            String dateString = sdfr.format(Fecha); 
+           
             consulta.setString(1, Nombre_cliente);
             consulta.setString(2, Atencion);
             consulta.setInt(3, ID_Localidad );
             consulta.setString(4, Calle);
+            consulta.setString(5, dateString);
 
             consulta.execute();
             
