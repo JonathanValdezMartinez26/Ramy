@@ -174,11 +174,7 @@ public class Opciones {
     
         public static boolean registrar(Clases.CotizacionesRentaMen uc) {
         String sql = Clases.CotizacionesRentaMen.registrar;
-        
-       
-        
-        
-        
+
         try {
             
             ps = cn.prepareStatement(sql);

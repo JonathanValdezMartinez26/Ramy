@@ -154,9 +154,9 @@ public class Opciones {
         }
     }
     ///////////////////////////////////////////////////////////////////
-    public static int verificaRentaM(int ID_Cotizacion,int ID_Periodo) {
+    public static int verificaConsolidado(int ID_Cotizacion,int ID_Consolidado) {
         int c = 0;
-        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizaciones_Renta where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Periodo = "+ID_Periodo+")";
+        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizaciones_Consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Consolidado = "+ID_Consolidado+")";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);

@@ -391,7 +391,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, -1, 69));
 
         pnlagregar1.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar1.setToolTipText("Agregar Cotizacion Consolidado");
+        pnlagregar1.setToolTipText("Agregar Cotizacion por Consolidado");
         pnlagregar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregar1MouseClicked(evt);

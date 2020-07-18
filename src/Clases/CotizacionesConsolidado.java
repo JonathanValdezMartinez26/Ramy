@@ -16,7 +16,7 @@ import java.util.Date;
 
 import java.util.Calendar;
 
-public class CotizacionesRentaMen {
+public class CotizacionesConsolidado {
 
 public static ResultSet resultado;
  
@@ -148,7 +148,7 @@ public static ResultSet resultado;
      
   private int ID_Asigna_Cotizacion;
   private int ID_Cotizacion;
-  private int ID_Periodo;
+  private int ID_Consolidado;
     
     public int getID_Asigna_Cotizacion() {
         return ID_Asigna_Cotizacion;
@@ -167,12 +167,12 @@ public static ResultSet resultado;
     }
 
     
-    public int getID_Periodo() {
-        return ID_Periodo;
+    public int getID_Consolidado() {
+        return ID_Consolidado;
     }
 
-    public void setID_Periodo(int ID_Periodo) {
-        this.ID_Periodo = ID_Periodo;
+    public void setID_Consolidado(int ID_Consolidado) {
+        this.ID_Consolidado = ID_Consolidado;
     }
     
     
