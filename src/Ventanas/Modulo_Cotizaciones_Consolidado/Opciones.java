@@ -1,4 +1,4 @@
-package Ventanas.Modulo_Cotizaciones_Mensual;
+package Ventanas.Modulo_Cotizaciones_Consolidado;
 import Clases.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

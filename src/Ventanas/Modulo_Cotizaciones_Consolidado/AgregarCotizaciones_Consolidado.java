@@ -1,4 +1,4 @@
-package Ventanas.Modulo_Cotizaciones_Mensual;
+package Ventanas.Modulo_Cotizaciones_Consolidado;
 
 import A_tabla.EstiloTablaHeader;
 import Ventanas.Modulo_Cliente.*;
@@ -64,7 +64,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 import Ventanas.Modulo_Cotizaciones_Mensual.Opciones;
 
-public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
+public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
     private boolean minimiza = false;
 
@@ -78,7 +78,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     
     private database db = new database();
     
-    public AgregarCotizaciones_Renta(java.awt.Frame parent, boolean modal) {
+    public AgregarCotizaciones_Consolidado(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -779,7 +779,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AgregarCotizaciones_Renta dialog = new AgregarCotizaciones_Renta(new javax.swing.JFrame(), true);
+                AgregarCotizaciones_Consolidado dialog = new AgregarCotizaciones_Consolidado(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
