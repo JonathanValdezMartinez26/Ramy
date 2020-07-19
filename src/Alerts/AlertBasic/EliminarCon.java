@@ -3,15 +3,15 @@ package Alerts.AlertBasic;
 
 import Alerts.*;
 import Clases.CotizacionesRentaMen;
-import Ventanas.Modulo_Cotizaciones_Mensual.Opciones;
+import Ventanas.Modulo_Cotizaciones_Consolidado.Opciones;
 import com.sun.glass.events.KeyEvent;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import necesario.RSAWTUtilities;
 
-public class EliminarTran extends javax.swing.JDialog {
+public class EliminarCon extends javax.swing.JDialog {
 
-    public EliminarTran(java.awt.Frame parent, boolean modal) {
+    public EliminarCon(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
@@ -122,7 +122,7 @@ public class EliminarTran extends javax.swing.JDialog {
       int IDD = Integer.parseInt(ID.getText());
       this.dispose();
       Opciones.eliminarCotizacion(IDD);
-      Opciones.listar("", IDD);              
+      Opciones.listar("", IDD);
         
     }//GEN-LAST:event_log2ActionPerformed
 
@@ -134,7 +134,7 @@ public class EliminarTran extends javax.swing.JDialog {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                EliminarTran dialog = new EliminarTran(new javax.swing.JFrame(), true);
+                EliminarCon dialog = new EliminarCon(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

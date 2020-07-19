@@ -8,8 +8,7 @@ import A_tabla.EstiloTablaRenderer1;
 import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import static Alerts.AlertBasic.AgregarDestinos.ID;
-import Alerts.AlertBasic.Eliminar;
-import Alerts.AlertBasic.EliminarTran;
+import Alerts.AlertBasic.EliminarCon;
 import Alerts.FadeEffect;
 import Clases.Clientes;
 import Clases.Conexion;
@@ -18,6 +17,7 @@ import static Clases.Cotizaciones.ObtenID;
 import Clases.CotizacionesRentaMen;
 import Clases.MyTableCellEditor;
 import Clases.MyTableCellEditor2;
+import Clases.MyTableCellEditor5;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
@@ -110,7 +110,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
         
-        tablaR.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor2(db,"Concepto"));
+        tablaR.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor5(db,"Precio"));
         
     }
     
@@ -193,7 +193,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
           int ID = Integer.parseInt(tablaR.getValueAt(Fila, 0).toString());
 //            int ID = Integer.parseInt(IDCotizacion.getText());
 
-            EliminarTran ME = new EliminarTran(null, true);
+            EliminarCon ME = new EliminarCon(null, true);
             ME.ID.setText(""+ID);
 //            ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);
@@ -372,7 +372,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "Periodo", "Concepto"
+                "ID_", "Consolidado", "Precio"
             }
         ) {
             Class[] types = new Class [] {
@@ -833,7 +833,7 @@ public void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Transporte.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Consolidacion.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);
