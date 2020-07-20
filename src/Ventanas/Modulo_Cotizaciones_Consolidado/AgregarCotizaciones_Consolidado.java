@@ -8,8 +8,7 @@ import A_tabla.EstiloTablaRenderer1;
 import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import static Alerts.AlertBasic.AgregarDestinos.ID;
-import Alerts.AlertBasic.Eliminar;
-import Alerts.AlertBasic.EliminarTran;
+import Alerts.AlertBasic.EliminarCon;
 import Alerts.FadeEffect;
 import Clases.Clientes;
 import Clases.Conexion;
@@ -18,6 +17,7 @@ import static Clases.Cotizaciones.ObtenID;
 import Clases.CotizacionesRentaMen;
 import Clases.MyTableCellEditor;
 import Clases.MyTableCellEditor2;
+import Clases.MyTableCellEditor5;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
@@ -89,7 +89,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         Consolidado();
         
         ID_rutas.setVisible(false);
-        IDCotizacion.setVisible(true);
+        IDCotizacion.setVisible(false);
          
         tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -110,7 +110,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
         
-        tablaR.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor2(db,"Concepto"));
+        tablaR.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor5(db,"Precio"));
         
     }
     
@@ -193,7 +193,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
           int ID = Integer.parseInt(tablaR.getValueAt(Fila, 0).toString());
 //            int ID = Integer.parseInt(IDCotizacion.getText());
 
-            EliminarTran ME = new EliminarTran(null, true);
+            EliminarCon ME = new EliminarCon(null, true);
             ME.ID.setText(""+ID);
 //            ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);
@@ -360,7 +360,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         lblNombreNuevo17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombreNuevo17.setText("     Cotizaciones > Nueva Cotizacion para renta de unidades");
+        lblNombreNuevo17.setText("     Cotizaciones > Nueva Cotizacion para renta por consolidaddo");
         jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 877, 30));
 
         jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 13, 905, -1));
@@ -372,7 +372,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "Periodo", "Concepto"
+                "ID_", "Consolidado", "Precio"
             }
         ) {
             Class[] types = new Class [] {
@@ -392,7 +392,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         });
         tablaR.setAlignmentX(2.0F);
         tablaR.setAlignmentY(2.0F);
-        tablaR.setRowHeight(20);
+        tablaR.setRowHeight(25);
         tablaR.getTableHeader().setReorderingAllowed(false);
         jScrollPane.setViewportView(tablaR);
         if (tablaR.getColumnModel().getColumnCount() > 0) {
@@ -403,6 +403,8 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             tablaR.getColumnModel().getColumn(2).setPreferredWidth(140);
             tablaR.getColumnModel().getColumn(2).setMaxWidth(140);
         }
+        tablaR.getAccessibleContext().setAccessibleName("");
+        tablaR.getAccessibleContext().setAccessibleDescription("");
 
         tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
@@ -462,15 +464,15 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                 cmbClienteItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 380, 30));
+        jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 380, 30));
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 380, 30));
+        jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 380, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel5.setText("Seleccione una empresa o cliente para inciar la cotización.");
         jcMousePanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 430, 20));
-        jcMousePanel1.add(l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 860, 3));
+        jcMousePanel1.add(l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 860, 3));
 
         jPanel1.setBackground(new java.awt.Color(225, 225, 225));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -618,15 +620,15 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 170, 30));
+        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 170, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel6.setText("Seleccione un Consolidado ");
-        jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 180, 20));
+        jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 180, 20));
 
         lblatencion1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblatencion1.setText("Atención a:");
-        jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
+        jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, 30));
 
         cmbConsolidado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Consolidado" }));
         cmbConsolidado.setToolTipText("");
@@ -636,7 +638,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                 cmbConsolidadoItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbConsolidado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 380, 30));
+        jcMousePanel1.add(cmbConsolidado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 380, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -833,7 +835,7 @@ public void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Transporte.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Consolidacion.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);

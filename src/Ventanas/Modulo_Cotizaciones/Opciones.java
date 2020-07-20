@@ -222,7 +222,7 @@ public class Opciones {
         
             sql = "Select ID_Servicio, ID_Cotizacion, Nombre_Servicio,Precio from servicios where ID_Cotizacion =" + ID_Cotizacion;
         
-        String datos[] = new String[4];
+        String datos[] = new String[5];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -232,6 +232,7 @@ public class Opciones {
                 datos [1] = rs.getString(2);
                 datos [2] = rs.getString(3);
                 datos [3] = rs.getString(4);
+                datos [4] = "SUPR PARA ELIMINAR";
                 
                 modelo.addRow(datos);
             }
@@ -243,7 +244,17 @@ public class Opciones {
         
     }
    
-    
+    public static void eliminarServicio(int idRow){
+     
+try {
+    PreparedStatement pst=(PreparedStatement) cn.prepareStatement("DELETE FROM servicios WHERE ID_Servicio="+idRow);
+    pst.executeUpdate();
+    JOptionPane.showMessageDialog(null, "Se elimino correctamente los datos");
+}
+catch(SQLException e) {
+    JOptionPane.showMessageDialog(null, e.getMessage());
+}
+    }
 }
     
     

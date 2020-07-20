@@ -72,7 +72,7 @@ public class Opciones {
            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizaciones_Consolidadov where ID_Cotizacion="+ ID;
         } else {
             
-            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizaciones_Consolidadov where  Consolidado LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' OR ID_Cotizacion =" + ID;
+            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizaciones_Consolidadov where  Consolidado LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' AND ID_Cotizacion =" + ID;
             
            }
         String datos[] = new String[3];
@@ -97,7 +97,7 @@ public class Opciones {
         
         String sql = "";
                //JOptionPane.showMessageDialog(null, ID);
-               sql="delete from asigna_cotizaciones_renta where ID_Asigna_Cotizacion_Renta =" + ID;
+               sql="delete from asigna_cotizacion_consolidado where ID_Cotizacion_Consolidado =" + ID;
 
                 try {
                             PreparedStatement pstm = cn.prepareStatement(sql);
@@ -105,8 +105,8 @@ public class Opciones {
                             pstm.close();
                             
                         Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-                        AC.msj1.setText("¡Esta cotización!");
-                        AC.msj2.setText("A sido Eliminada");
+                        AC.msj1.setText("¡Esta Registro!");
+                        AC.msj2.setText("A sido Eliminado");
                         AC.setVisible(true);
                         Opciones.listar("", ID);
                         pstm.close();

@@ -105,8 +105,8 @@ public class Opciones {
                             pstm.close();
                             
                         Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-                        AC.msj1.setText("¡Esta cotización!");
-                        AC.msj2.setText("A sido Eliminada");
+                        AC.msj1.setText("¡Este Registro!");
+                        AC.msj2.setText("A sido Eliminado");
                         AC.setVisible(true);
                         Opciones.listar("", ID);
                         pstm.close();

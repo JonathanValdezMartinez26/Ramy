@@ -1,8 +1,9 @@
 package Clases;
 
-import Ventanas.Modulo_Cliente.Opciones;
+import Ventanas.Modulo_Cotizaciones.Opciones;
 import static Ventanas.Modulo_Cliente.Opciones.cn;
 import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -208,28 +209,30 @@ public static ResultSet resultado;
     }
      
      ////////////////////////////////////////////////////////////////////////////
-     public static void EliminarAsignaCotizacion(int ID) {
+       public static void eliminarCotizacion(int ID) {
+        
+        String sql = "";
+               //JOptionPane.showMessageDialog(null, ID);
+               sql="delete from asigna_cotizacion where ID_Asigna_Cotizacion =" + ID;
 
-        try {
+                try {
+                            PreparedStatement pstm = cn.prepareStatement(sql);
+                            pstm.execute();
+                            pstm.close();
+                            
+                        Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                        AC.msj1.setText("¡Este Registro!");
+                        AC.msj2.setText("A sido Eliminado");
+                        AC.setVisible(true);
+                        Opciones.listar("", ID);
+                        pstm.close();
+                        
+                            //res=true;
+                         }catch(SQLException e){            
+                            System.out.println(e);
+                            
+                        }
 
-            CallableStatement consulta = Conexion.con.prepareCall("{call Eliminar_Asigna_Cotizacion (?)}");
-
-            consulta.setInt(1, ID);
-            consulta.execute();
-
-            Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Servicio!");
-            AC.msj2.setText("Eliminado Correctamente");
-            AC.setVisible(true);
-            
-        } 
-        catch (SQLException ex) 
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Error 3715!");
-            AC.msj2.setText("¡Contacte a servicios ProMedic!");
-            AC.setVisible(true);
-        }
     }
 
 

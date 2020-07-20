@@ -466,9 +466,9 @@ public class Registrar extends javax.swing.JDialog {
                                   
                                 Clientes.Agregar_Ruta(ID, ID_Origen, ID_Destino, 0, ID_Transporte);
 //                                Opciones.listarDestino(null, ID);
-                                this.cmbTransportes.setSelectedIndex(0);
-                                this.cmbOrigenes.setSelectedIndex(0);
-                                this.cmbDestinos.setSelectedIndex(0);
+                                  this.cmbTransportes.setSelectedIndex(0);
+//                                this.cmbOrigenes.setSelectedIndex(0);
+                                  this.cmbDestinos.setSelectedIndex(0);
                             }
                             else
                             {
@@ -497,20 +497,24 @@ public class Registrar extends javax.swing.JDialog {
         
 //        Limpia campos del nivel TRES
 
-        focusNivel1();
+//        focusNivel1();
     }
  
-    private void focusNivel1()
-    {
-        this.cmbEstado.setNextFocusableComponent(cmbMunicipio);
-    }
+//    private void focusNivel1()
+//    {
+//        this.cmbEstado.setNextFocusableComponent(cmbMunicipio);
+//    }
     private void focusNivel2()
     {
-        
+//        this.cmbEstado.setSelectedIndex(0);
+//        this.cmbDestinos.setSelectedIndex(0);
+//        this.cmbTransportes.setSelectedIndex(0);
     }
     private void focusNivel3()
     {
-        
+//        this.cmbEstado.setSelectedIndex(0);
+//        this.cmbDestinos.setSelectedIndex(0);
+//        this.cmbTransportes.setSelectedIndex(0);
     }
  
     @SuppressWarnings("unchecked")
