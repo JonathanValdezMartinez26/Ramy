@@ -466,9 +466,9 @@ public class Registrar extends javax.swing.JDialog {
                                   
                                 Clientes.Agregar_Ruta(ID, ID_Origen, ID_Destino, 0, ID_Transporte);
 //                                Opciones.listarDestino(null, ID);
-                                this.cmbTransportes.setSelectedIndex(0);
+                                  this.cmbTransportes.setSelectedIndex(0);
 //                                this.cmbOrigenes.setSelectedIndex(0);
-                                this.cmbDestinos.setSelectedIndex(0);
+                                  this.cmbDestinos.setSelectedIndex(0);
                             }
                             else
                             {
