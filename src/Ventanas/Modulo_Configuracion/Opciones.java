@@ -25,28 +25,49 @@ public class Opciones {
     public static void listar(String busca) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Configuracion.pnlIncrementoPrecios.tabla.getModel();
 
-        while (modelo.getRowCount() > 0) {
+        while (modelo.getRowCount() > 0) 
+        {
             modelo.removeRow(0);
         }
         String sql = "";
         if (busca.equals("")) {
             sql = Clases.Clientes.LISTARCOSTOS;
-        } else {
+        } 
+        else 
+        {
             
-            sql = "SELECT * FROM Serviciov WHERE (ID_Servicio LIKE'" + busca + "%' OR "
-                    + "Nombre_Servicio LIKE'" + busca + "%' OR Nombre_Tipo_Servicio LIKE'" + busca + "%')"
-                    + " ORDER BY ID_Servicio";
-           }
-        String datos[] = new String[3];
+//            sql = "SELECT * FROM Serviciov WHERE (ID_Servicio LIKE'" + busca + "%' OR "
+//                    + "Nombre_Servicio LIKE'" + busca + "%' OR Nombre_Tipo_Servicio LIKE'" + busca + "%')"
+//                    + " ORDER BY ID_Servicio";
+        }
+        String datos[] = new String[8];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
                 datos [0] = String.valueOf(rs.getInt(1));
-                datos [1] = rs.getString(2);
+                datos [1] = String.valueOf(rs.getInt(2));
                 datos [2] = rs.getString(3);
+                datos [3] = String.valueOf(rs.getDate(4));
+                datos [4] = String.valueOf(rs.getDate(5));
+                datos [5] = String.valueOf(rs.getDate(6));
+                datos [6] = rs.getString(7);
                 
+                int Valor = rs.getInt(8);
+                String Res = "";
+                
+//                     34 < 365    365 > 40
+                if(Valor <= 365 && Valor > 40){
+                  Res = "VIGENTE";
+                }
+                if(Valor < 39 && Valor > 1){
+                  Res = "PROXIMA A VENCER";
+                }
+                if(Valor == 0 ){
+                  Res = "VENCIDA";
+                }
+                datos [7] = Res;
                
                 modelo.addRow(datos);
             }

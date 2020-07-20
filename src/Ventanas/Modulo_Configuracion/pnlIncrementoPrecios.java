@@ -1,12 +1,9 @@
 package Ventanas.Modulo_Configuracion;
 
-import Ventanas.Modulo_Transportes.*;
-import Ventanas.Modulo_Transportes.Opciones;
-import A_tabla.*;
+import A_tabla.EstiloTablaHeader;
+import A_tabla.EstiloTablaRendererConfiguracion;
+import A_tabla.MyScrollbarUI;
 import Clases.Conexion;
-import Ventanas.Modulo_Tipo_Servicio.AgregarTipoServicio;
-import Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio;
-import Ventanas.Modulo_Tipo_Transportes.pnlTipoTransportes;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -35,9 +32,26 @@ public class pnlIncrementoPrecios extends javax.swing.JPanel {
 
     public pnlIncrementoPrecios() 
     {
-        
-        Opciones.listar("");
         initComponents();
+        Opciones.listar("");
+        tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRendererConfiguracion());
+        this.tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
+        jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
+        
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+        
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getTableHeader().getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.getTableHeader().getColumnModel().getColumn(1).setMinWidth(0);
        
     }
     
@@ -81,14 +95,14 @@ public class pnlIncrementoPrecios extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID_Cliente", "ID_Ajuste", "Nombre del Cliente", "Inicio Operaciones", "último Ajuste", "Trabaja con la Tarifa"
+                "ID_Ajuste", "ID_Cliente", "Nombre del Cliente", "Inicio Operaciones", "último Ajuste", "Proximo ajuste", "Trabaja con la Tarifa", "Estatus"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true, true
+                false, false, false, false, true, true, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -107,8 +121,10 @@ public class pnlIncrementoPrecios extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(0).setResizable(false);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(5).setResizable(false);
         }
 
         jPanel12.setBackground(new java.awt.Color(225, 225, 225));
