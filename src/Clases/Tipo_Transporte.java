@@ -23,7 +23,7 @@ public class Tipo_Transporte {
             consulta.execute();
 
             Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Datos de la Especialidad!");
+            AC.msj1.setText("¡Datos del Transporte!");
             AC.msj2.setText("Guardados correctamente");
             AC.setVisible(true);
             

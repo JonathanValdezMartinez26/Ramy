@@ -756,7 +756,8 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlFinalizarMouseExited
 
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-        //        Modificar();
+     pnlTipoConsolidado poper = new pnlTipoConsolidado(null, true);
+        poper.setVisible(true);
     }//GEN-LAST:event_pnleditarMouseClicked
 
     private void pnleditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseEntered
@@ -772,7 +773,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void cmbConsolidadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbConsolidadoItemStateChanged
-        // TODO add your handling code here:
+        Opciones.listar1("");
     }//GEN-LAST:event_cmbConsolidadoItemStateChanged
 
     public static void main(String args[]) {

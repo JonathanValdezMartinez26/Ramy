@@ -193,22 +193,38 @@ public class Opciones {
     
      ///////////////////////////////////////////////////////////////////
     
-    public static void listarCotizacionRuta(String busca, String ID) {
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tabla.getModel();
+
+     public static int verificaTipo(String Nombre) {
+        int existe = 0;
+        String SQL = "select count(Consolidado) from Consolidado where Consolidado = '"+ Nombre+"'";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                existe = rs.getInt(1);
+            }           
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return existe;
+    }
+     
+     public static void listar1(String busca) {
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Consolidado.pnlTipoConsolidado.tabla.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
-        
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from cotizaciones_ruta where ID_Cliente =" + ID;
+            sql = Clases.CotizacionesConsolidado.LISTA;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
-            
+//            sql = "SELECT * FROM Tipo_Transporte WHERE (ID_Tipo_Transporte LIKE'" + busca + "%' OR "
+//                    + "Tipo_Transporte LIKE'" + busca + "%') "
+//                    + "ORDER BY ID_Tipo_Transporte";
            }
-        String datos[] = new String[6];
+        String datos[] = new String[2];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -216,18 +232,14 @@ public class Opciones {
             {
                 datos [0] = String.valueOf(rs.getInt(1));
                 datos [1] = rs.getString(2);
-                datos [2] = rs.getString(3);
-                datos [3] = rs.getString(4);
-                datos [4] = rs.getString(5);
-                
+          
                 modelo.addRow(datos);
             }
-            
-            modelo.fireTableDataChanged();
         } catch (SQLException ex) {
-            Logger.getLogger(Ventanas.Modulo_Ruta_Cotizacion.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+     
    
     
 }

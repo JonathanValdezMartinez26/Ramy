@@ -69,13 +69,13 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Asigna_Cotizacion_Renta, Periodo, Concepto from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
+           sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion_Renta, Periodo, Concepto from asigna_cotizaciones_Rentav where  Periodo LIKE '"+ busca +"%' OR Concepto LIKE '"+ busca +"%' OR ID_Cotizacion =" + ID;
+            sql = "Select ID_asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_Rentav where  Periodo LIKE '"+ busca +"%' OR Concepto LIKE '"+ busca +"%' OR ID_Cotizacion =" + ID;
             
            }
-        String datos[] = new String[3];
+        String datos[] = new String[4];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -83,7 +83,8 @@ public class Opciones {
             {
                 datos [0] = String.valueOf(rs.getInt(1));
                 datos [1] = rs.getString(2);
-                datos [2] = String.valueOf(rs.getInt(3));
+                datos [2] = rs.getString(3);
+                datos [3] = String.valueOf(rs.getInt(4));
                 
                 modelo.addRow(datos);
             }
@@ -154,9 +155,9 @@ public class Opciones {
         }
     }
     ///////////////////////////////////////////////////////////////////
-    public static int verificaRentaM(int ID_Cotizacion,int ID_Periodo) {
+    public static int verificaRentaM(int ID_Cotizacion,String Concepto,int ID_Periodo) {
         int c = 0;
-        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizaciones_Renta where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Periodo = "+ID_Periodo+")";
+        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizaciones_Renta where (ID_Cotizacion = "+ID_Cotizacion+") and  (Concepto = '" + Concepto +"')  and  (ID_Periodo = "+ID_Periodo+")";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -180,7 +181,8 @@ public class Opciones {
             ps = cn.prepareStatement(sql);
             ps.setInt(1, uc.getID_Asigna_Cotizacion());
             ps.setInt(2, uc.getID_Cotizacion());
-            ps.setInt(3,uc.getID_Periodo());
+            ps.setString(3, uc.getConcepto());
+            ps.setInt(4,uc.getID_Periodo());
             ps.executeUpdate();
             
             
@@ -230,6 +232,7 @@ public class Opciones {
             Logger.getLogger(Ventanas.Modulo_Ruta_Cotizacion.Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
    
     
 }

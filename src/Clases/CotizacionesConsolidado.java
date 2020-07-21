@@ -21,6 +21,7 @@ public class CotizacionesConsolidado {
 public static ResultSet resultado;
  
     public static String LISTAR = "Select * from Asigna_Cotizaciones_Rentav";
+    public static String LISTA = "select * from Consolidado order by ID_Consolidado";
      public static void Agregar_Cotizacion(int ID_Cliente) {
         try 
         {
@@ -175,7 +176,28 @@ public static ResultSet resultado;
         this.ID_Consolidado = ID_Consolidado;
     }
     
-    
+       public static void Agregar_Tipo(String Nombre) {
+        try 
+        {
+            CallableStatement consulta = Conexion.con.prepareCall("{call AgregarTipocon (?)}");
+            
+            consulta.setString(1, Nombre);
+
+            consulta.execute();
+
+            Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+            AC.msj1.setText("¡Datos de la consolidacion!");
+            AC.msj2.setText("Guardados correctamente");
+            AC.setVisible(true);
+            
+        } catch (SQLException ex) 
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error 3714!");
+            AC.msj2.setText("¡Contacte a servicios ProMedic!");
+            AC.setVisible(true);
+        }
+    }
 
 
 
