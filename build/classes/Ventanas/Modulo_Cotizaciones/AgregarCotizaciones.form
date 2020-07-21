@@ -229,7 +229,7 @@
                         <Column editable="false" title="ID_Cotizacion" type="java.lang.Object"/>
                         <Column editable="true" title="Nombre del Servicio" type="java.lang.String"/>
                         <Column editable="true" title="Precio" type="java.lang.String"/>
-                        <Column editable="false" title="" type="java.lang.Object"/>
+                        <Column editable="false" title="Supr para Borrar" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -254,7 +254,7 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="150" minWidth="150" prefWidth="150" resizable="true">
+                        <Column maxWidth="100" minWidth="100" prefWidth="100" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>

@@ -460,12 +460,15 @@ public class Registrar extends javax.swing.JDialog {
                         }
                         else
                         {
+                            
+                            
                             ID = Integer.parseInt(ID_C.getText());
                             if(Ventanas.Modulo_Cliente.Opciones.verificaRutaCotizacion(ID,ID_Origen, ID_Destino,ID_Transporte )==0)
                             {
                                   
                                 Clientes.Agregar_Ruta(ID, ID_Origen, ID_Destino, 0, ID_Transporte);
 //                                Opciones.listarDestino(null, ID);
+                                    
                                   this.cmbTransportes.setSelectedIndex(0);
 //                                this.cmbOrigenes.setSelectedIndex(0);
                                   this.cmbDestinos.setSelectedIndex(0);
@@ -474,7 +477,7 @@ public class Registrar extends javax.swing.JDialog {
                             {
                                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                                 AC.msj1.setText("¡Error!");
-                                AC.msj2.setText("El Estado y Municipio");
+                                AC.msj2.setText("El Origen y Destino");
                                 AC.msj3.setText("ya estan Registrados");
                                 AC.setVisible(true);
                                 this.cmbMunicipio1.setSelectedIndex(0);
@@ -1149,7 +1152,8 @@ public class Registrar extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbDestinosItemStateChanged
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    GuardarOD();
+        
+        GuardarOD();
      ID = Integer.parseInt(ID_C.getText());
     Opciones.listarViaje(null, ID);
     }//GEN-LAST:event_jButton3ActionPerformed

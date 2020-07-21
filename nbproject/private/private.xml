@@ -12,23 +12,12 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/AgregarCliente.java</file>
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/pnlCotizaciones.java</file>
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/pnlClientes.java</file>
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones.java</file>
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/Registrar.java</file>
-=======
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/Opciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Alerts/AlertBasic/WarningFinalizar.java</file>
-<<<<<<< HEAD
-=======
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Alerts/AlertBasic/Eliminar.java</file>
->>>>>>> 14b2d2d77e8633e4ad4f3e701d06078de22d7be9
->>>>>>> fbe48eae48cc233f30dff3c4af419e0c66d77329
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/Opciones.java</file>
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Clases/Clientes.java</file>
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/Registrar.java</file>
         </group>
     </open-files>
 </project-private>

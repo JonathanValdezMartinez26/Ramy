@@ -249,8 +249,11 @@ public class Opciones {
 try {
     PreparedStatement pst=(PreparedStatement) cn.prepareStatement("DELETE FROM servicios WHERE ID_Servicio="+idRow);
     pst.executeUpdate();
-    JOptionPane.showMessageDialog(null, "Se elimino correctamente los datos");
-}
+            Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+            AC.msj1.setText("¡Se a borrado!");
+            AC.msj2.setText("El servicio");
+            AC.setVisible(true);
+        }
 catch(SQLException e) {
     JOptionPane.showMessageDialog(null, e.getMessage());
 }
