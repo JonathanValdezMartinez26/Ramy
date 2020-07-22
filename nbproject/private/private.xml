@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< HEAD
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/Opciones.java</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Configuracion/pnlIncrementoPrecios.java</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/Registrar.java</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
-=======
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
         <file>
             <url>src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones.java</url>
@@ -22,12 +13,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/Opciones.java</file>
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones_Mensual/Opciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/Opciones.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Clases/Clientes.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/Registrar.java</file>
->>>>>>> cc99276a346888cc6b28576ed7a9d0387c11159a
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones_Mensual/AgregarCotizaciones_Renta.java</file>
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Alerts/AlertBasic/WarningFinalizarMensual.java</file>
         </group>
     </open-files>
 </project-private>

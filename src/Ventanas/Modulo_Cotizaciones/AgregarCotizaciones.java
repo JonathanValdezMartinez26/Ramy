@@ -1001,9 +1001,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         int comboTransporte = cmbTransportes.getSelectedIndex();
         
 ////////////////////Verifica si no hay combos seleccionados
-    if(comboOrigen!=0 && comboDestino!=0 && comboTransporte!=0){
+    if(this.tabla.getRowCount()!=0){
         ///////////////////////verifica si la tabla destino no esta vacia y la recorre para validar campos vacios 
-     if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){        
+     if(this.tabla1.getRowCount()!=0){        
             int existenombre = 0;
             int existeprecio = 0;
             for (int i = 0; i < tabla1.getRowCount(); i++) {
@@ -1035,7 +1035,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                     }   
                     }else{
                                 Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-                                AC.msj1.setText("¡Porfavor Seleccione!");
+                                AC.msj1.setText("¡Porfavor Asigne!");
                                 AC.msj2.setText("Un Origen-Destino-Transporte");
                                 AC.msj3.setText("Para poder Finalizar Cotizacion");
                                 AC.setVisible(true);
@@ -1060,8 +1060,8 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
         String  IDCotiza=IDCotizacion.getText();
 
-    if(!IDCotiza.equals("")){
-        if(this.tabla1.getRowCount()==0 && this.tabla1.getSelectedRow()==-1){ /////Si tabla1 esta vacia, se agrega el primer campo       
+    if(this.tabla.getRowCount()!=0){
+        if(this.tabla1.getRowCount()==0){ /////Si tabla1 esta vacia, se agrega el primer campo       
         cargarServicio();
         int ID_Cotizacion;
         ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());        
@@ -1084,7 +1084,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                 int ID_Cotizacion;
                 ID_Cotizacion = Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());
                 Opciones.llenarServicio(ID_Cotizacion);
-                this.tabla1.getSelectionModel().setSelectionInterval(0, 0);                
+//                this.tabla1.getSelectionModel().setSelectionInterval(0, 0);                
                     }else{            
                           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                           AC.msj1.setText("¡Campos Vacios!");
@@ -1095,7 +1095,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
          }
         } else {
                                 Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-                                AC.msj1.setText("¡Porfavor Seleccione!");
+                                AC.msj1.setText("¡Porfavor Asigne!");
                                 AC.msj2.setText("Un Origen-Destino-Transporte");
                                 AC.msj3.setText("Para poder Asignar Servicios");
                                 AC.setVisible(true);

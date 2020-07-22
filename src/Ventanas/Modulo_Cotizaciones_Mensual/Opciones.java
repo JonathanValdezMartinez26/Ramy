@@ -302,7 +302,24 @@ catch(SQLException e) {
     }
     
     
-    
+public static void finalizarCotizacion(String IDCotizacion){
+        String sql = "";               
+               sql="UPDATE cotizaciones Set Estatus = '2' Where ID_Cotizacion =" + IDCotizacion;
+                try {
+                            PreparedStatement pstm = cn.prepareStatement(sql);
+                            pstm.execute();
+                            pstm.close();                            
+                        Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                        AC.msj1.setText("¡Esta cotización!");
+                        AC.msj2.setText("A sido Finalizada");
+                        AC.setVisible(true);
+                            
+                            //res=true;
+                         }catch(SQLException e){            
+                            System.out.println(e);
+                        }
+
+    }    
 }   
     
 
