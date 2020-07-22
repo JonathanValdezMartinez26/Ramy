@@ -142,12 +142,14 @@ public static ResultSet resultado;
      public static String registrar = "INSERT INTO Asigna_Cotizaciones_Renta("
            + "ID_Asigna_Cotizacion_Renta,"
             + "ID_Cotizacion,"
+             + "Concepto,"
             + "ID_Periodo)"
-            + "VALUES(?,?,?)";
+            + "VALUES(?,?,?,?)";
     
      
   private int ID_Asigna_Cotizacion;
   private int ID_Cotizacion;
+  private String  Concepto;               
   private int ID_Periodo;
     
     public int getID_Asigna_Cotizacion() {
@@ -166,6 +168,13 @@ public static ResultSet resultado;
         this.ID_Cotizacion = ID_Cotizacion;
     }
 
+    public String getConcepto() {
+        return Concepto;
+    }
+
+    public void setConcepto(String Concepto) {
+        this.Concepto = Concepto;
+    }
     
     public int getID_Periodo() {
         return ID_Periodo;

@@ -75,6 +75,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     ResultSet resultado, nombre;
     int ID_Per [];
     int ID_Cli[];
+    String ID_Con[];
     
     private database db = new database();
     
@@ -85,7 +86,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         AWTUtilities.setOpaque(this, false);
         this.setLocationRelativeTo(parent);
         Clientes();
-       
        
         
         Periodo();
@@ -112,7 +112,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
         
-        tablaR.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor2(db,"Concepto"));
+        tablaR.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor2(db,"Precio"));
         
     }
     
@@ -151,6 +151,10 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
         }
     }
+    
+  
+    
+    
     
     public void Periodo()
     {
@@ -218,6 +222,8 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         int comboCliente = cmbCliente.getSelectedIndex();
 //        Date Fecha_I = txtFechaI.getDate();
 //        Date Fecha_F = txtFechaF.getDate();
+        String Concepto = txtTipo_Concepto.getText();
+        
         
         int ID_Periodos = cmbPeriodo.getSelectedIndex();
         int ID_Periodo= ID_Per[ID_Periodos];
@@ -231,13 +237,24 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             }
                     else
                     {
-
-                      if(Ventanas.Modulo_Cotizaciones_Mensual.Opciones.verificaRentaM(ID_Cotizacion,ID_Periodo)==0)
+                    if("".equals(txtTipo_Concepto)||ID_Periodos==0)
+                   {
+                   Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                   AC.msj1.setText("¡Llene todos los campos!");
+                   AC.msj2.setText("Seleccione Correctamente");
+                   AC.setVisible(true);
+                   }
+                    else
+                    {
+                      if(Ventanas.Modulo_Cotizaciones_Mensual.Opciones.verificaRentaM(ID_Cotizacion,Concepto,ID_Periodo)==0)
                       { 
+                          
                           Clases.CotizacionesRentaMen fichaIdent = new Clases.CotizacionesRentaMen();
 
                             fichaIdent.setID_Cotizacion(ID_Cotizacion);
+                            fichaIdent.setConcepto(Concepto);
                             fichaIdent.setID_Periodo(ID_Periodo);
+                            
 
                             if (Ventanas.Modulo_Cotizaciones_Mensual.Opciones.registrar(fichaIdent)) 
                             {
@@ -247,7 +264,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                                       AC.setVisible(true);
                                       Opciones.listar("", ID_Cotizacion);
 
-
+                                      txtTipo_Concepto.setText("");
+                                      cmbPeriodo.setSelectedIndex(0);
+                                      
                             }
 
                              else
@@ -274,7 +293,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                                 
                      }
         }
-        
+         }
                         
                     
                    
@@ -324,6 +343,10 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         lblatencion1 = new javax.swing.JLabel();
         cmbPeriodo = new ComboBox.SComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        txtTipo_Concepto = new app.bolivia.swing.JCTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -357,7 +380,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                 rSButtonMetro2ActionPerformed(evt);
             }
         });
-        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(875, 0, 30, 30));
+        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 35, 30));
 
         lblNombreNuevo17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
@@ -365,7 +388,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         lblNombreNuevo17.setText("     Cotizaciones > Nueva Cotizacion para renta de unidades");
         jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 877, 30));
 
-        jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 13, 905, -1));
+        jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 13, 915, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -407,14 +430,14 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "Periodo", "Concepto"
+                "ID_", "Concepto", "Periodo", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -446,9 +469,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
         );
 
         jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 880, 360));
@@ -461,15 +484,15 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                 cmbClienteItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 380, 30));
+        jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 380, 30));
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 380, 30));
+        jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 380, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel5.setText("Seleccione una empresa o cliente para inciar la cotización.");
         jcMousePanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 430, 20));
-        jcMousePanel1.add(l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 860, 3));
+        jcMousePanel1.add(l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 860, 3));
 
         jPanel1.setBackground(new java.awt.Color(225, 225, 225));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -607,7 +630,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
         jPanel1.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
 
-        jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 890, 70));
+        jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 890, 70));
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
         jcMousePanel1.add(ID_rutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 140, 20));
 
@@ -617,15 +640,15 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 170, 30));
+        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 170, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel6.setText("Seleccione un Periodo ");
-        jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 190, 20));
+        jLabel6.setText("Seleccione un Concepto");
+        jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 190, 20));
 
         lblatencion1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblatencion1.setText("Atención a:");
-        jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, 30));
+        jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
 
         cmbPeriodo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Periodo" }));
         cmbPeriodo.setToolTipText("");
@@ -635,20 +658,45 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                 cmbPeriodoItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 380, 30));
+        cmbPeriodo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cmbPeriodoKeyTyped(evt);
+            }
+        });
+        jcMousePanel1.add(cmbPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 380, 30));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel7.setText("Seleccione un Periodo ");
+        jcMousePanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 190, 20));
+
+        txtTipo_Concepto.setBorder(null);
+        txtTipo_Concepto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTipo_Concepto.setPlaceholder("Ej. Remolque");
+        txtTipo_Concepto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTipo_ConceptoKeyTyped(evt);
+            }
+        });
+        jcMousePanel1.add(txtTipo_Concepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 370, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
+        jcMousePanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 250, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
+        jcMousePanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 250, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
         );
 
         pack();
@@ -772,6 +820,24 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbPeriodoItemStateChanged
 
+    private void txtTipo_ConceptoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipo_ConceptoKeyTyped
+        char c=evt.getKeyChar();
+        if(Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        int limite =40;
+        if (txtTipo_Concepto.getText().length()== limite)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_txtTipo_ConceptoKeyTyped
+
+    private void cmbPeriodoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbPeriodoKeyTyped
+         
+    }//GEN-LAST:event_cmbPeriodoKeyTyped
+
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -795,6 +861,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     private ComboBox.SComboBox cmbCliente;
     private ComboBox.SComboBox cmbPeriodo;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -802,10 +869,12 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -824,6 +893,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla1;
     public static javax.swing.JTable tablaR;
+    public static app.bolivia.swing.JCTextField txtTipo_Concepto;
     // End of variables declaration//GEN-END:variables
 public void ver() {
         Clases.Conexion cc = new Clases.Conexion();

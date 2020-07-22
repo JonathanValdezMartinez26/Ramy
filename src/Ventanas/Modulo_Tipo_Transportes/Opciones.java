@@ -57,6 +57,9 @@ public class Opciones {
         }
     }
     
+    
+   
+    
      public static int verificaTipo(String Nombre) {
         int existe = 0;
         String SQL = "select count(Tipo_Transporte) from Tipo_Transporte where Tipo_Transporte = '"+ Nombre+"'";

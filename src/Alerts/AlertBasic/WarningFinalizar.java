@@ -24,8 +24,10 @@ public class WarningFinalizar extends javax.swing.JDialog {
         FadeEffect.fadeIn(this, 20, 0.1f);
         this.setLocationRelativeTo(this);
         ID.setVisible(false);
-    }
+        
 
+    }
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -149,21 +151,18 @@ public class WarningFinalizar extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
-    
-        //////Compara si la tabla Servicio de AgregarCotizaciones tiene valores vacios
-        
-
     this.dispose();
-    String ID_Cotizacion=ID.getText();
-    
+  String ID_Cotizacion=ID.getText();
+//     
     Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
     Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");   
     AgregarCotizaciones.ver();
-    JOptionPane.showMessageDialog(null, "DEbe cerrarse la venbtana");
-//        AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
-//        AC.dispose();
+    //JOptionPane.showMessageDialog(null, "DEbe cerrarse la venbtana");
+    
+     AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
+     AC.dispose();
 
-//AgregarCotizaciones.aceptarFinalizar(ID_Cotizacion);
+//AgregarCotizaciones.aceptarFinalizar();
         
     
     }//GEN-LAST:event_log2ActionPerformed
@@ -195,7 +194,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private JButtonEspecial.JButtonEspecial log2;
+    public static JButtonEspecial.JButtonEspecial log2;
     private JButtonEspecial.JButtonEspecial log3;
     public static javax.swing.JLabel msj2;
     public static javax.swing.JLabel msj3;

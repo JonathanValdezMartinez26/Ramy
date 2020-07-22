@@ -234,6 +234,30 @@ public static ResultSet resultado;
                         }
 
     }
+       
+       
+            public static void Agregar_Tipo(String Nombre) {
+        try 
+        {
+            CallableStatement consulta = Conexion.con.prepareCall("{call AgregarTipotran (?)}");
+            
+            consulta.setString(1, Nombre);
+
+            consulta.execute();
+
+            Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+            AC.msj1.setText("¡Datos de la consolidacion!");
+            AC.msj2.setText("Guardados correctamente");
+            AC.setVisible(true);
+            
+        } catch (SQLException ex) 
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error 3714!");
+            AC.msj2.setText("¡Contacte a servicios ProMedic!");
+            AC.setVisible(true);
+        }
+    }
 
 
 

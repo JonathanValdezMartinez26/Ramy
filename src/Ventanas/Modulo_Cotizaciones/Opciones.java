@@ -232,7 +232,7 @@ public class Opciones {
                 datos [1] = rs.getString(2);
                 datos [2] = rs.getString(3);
                 datos [3] = rs.getString(4);
-                datos [4] = "SUPR PARA ELIMINAR";
+                datos [4] = "";
                 
                 modelo.addRow(datos);
             }
@@ -249,8 +249,11 @@ public class Opciones {
 try {
     PreparedStatement pst=(PreparedStatement) cn.prepareStatement("DELETE FROM servicios WHERE ID_Servicio="+idRow);
     pst.executeUpdate();
-    JOptionPane.showMessageDialog(null, "Se elimino correctamente los datos");
-}
+            Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+            AC.msj1.setText("¡Se a borrado!");
+            AC.msj2.setText("El servicio");
+            AC.setVisible(true);
+        }
 catch(SQLException e) {
     JOptionPane.showMessageDialog(null, e.getMessage());
 }

@@ -86,7 +86,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         
         Clientes();
-        Consolidado();
+        
         
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(false);
@@ -150,41 +150,43 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         }
     }
     
-    public void Consolidado()
-    {
-        int ID_Consolidado = 0;
-
-        try 
-        {
-            resultado = Conexion.consulta("Select Max(ID_Consolidado) from Consolidado");
-            while (resultado.next()) 
-            {
-                ID_Consolidado = resultado.getInt(1);
-            }
-        } 
-        catch (SQLException ex) 
-        {
-
-        }
-        ID_Consolidado++;
-        ID_Per= new int[ID_Consolidado];
-        ID_Per[0] = 0;
-        int i = 1;
-        try 
-        {
-            resultado = Conexion.consulta("SELECT ID_Consolidado, Consolidado from Consolidado");
-            while (resultado.next()) 
-            {
-                ID_Per [i] = resultado.getInt(1);
-                cmbConsolidado.addItem(resultado.getString(2));
-                i++;
-            }
-        } 
-        catch (SQLException ex) 
-        {
-
-        }
-    }
+//    public void Consolidado()
+//    {
+//        int ID_Consolidado = 0;
+//        
+//
+//        try 
+//        {
+//            resultado = Conexion.consulta("Select Max(ID_Consolidado) from Consolidado");
+//            while (resultado.next()) 
+//            {
+//                ID_Consolidado = resultado.getInt(1);
+//            }
+//        } 
+//        catch (SQLException ex) 
+//        {
+//
+//        }
+//        ID_Consolidado++;
+//        ID_Per= new int[ID_Consolidado];
+//        ID_Per[0] = 0;
+//        int i = 1;
+//        try 
+//        {
+//            resultado = Conexion.consulta("SELECT ID_Consolidado, Consolidado from Consolidado");
+//            while (resultado.next()) 
+//            {
+//                ID_Per [i] = resultado.getInt(1);
+//                cmbConsolidado.addItem(resultado.getString(2));
+//                i++;
+//                
+//            }
+//        } 
+//        catch (SQLException ex) 
+//        {
+//
+//        }
+//    }
     public void eliminar()
     {
         int Fila = tablaR.getSelectedRow();
@@ -216,10 +218,9 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         int comboCliente = cmbCliente.getSelectedIndex();
 //        Date Fecha_I = txtFechaI.getDate();
 //        Date Fecha_F = txtFechaF.getDate();
+       String Consolidado = txtTipo_Concepto.getText();
         
-        int ID_Consolidado = cmbConsolidado.getSelectedIndex();
-        int ID_Periodo= ID_Per[ID_Consolidado];
-     
+        
         if(comboCliente==0)
             {
                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -227,15 +228,24 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                 AC.msj2.setText("Cliente para Continuar");
                 AC.setVisible(true);
             }
+               else
+                    {
+                    if("".equals(Consolidado))
+                   {
+                   Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                   AC.msj1.setText("¡Llene todos los campos!");
+                   AC.msj2.setText("");
+                   AC.setVisible(true);
+                   }
                     else
                     {
 
-                      if(Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.verificaConsolidado(ID_Cotizacion,ID_Consolidado)==0)
+                      if(Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.verificaConsolidado(ID_Cotizacion,Consolidado)==0)
                       { 
                           Clases.CotizacionesConsolidado fichaIden = new Clases.CotizacionesConsolidado();
 
                             fichaIden.setID_Cotizacion(ID_Cotizacion);
-                            fichaIden.setID_Consolidado(ID_Consolidado);
+                            fichaIden.setConsolidado(Consolidado);
 
                             if (Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.registrar(fichaIden))
                             {
@@ -244,7 +254,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                                       AC.msj2.setText("Guardados correctamente");
                                       AC.setVisible(true);
                                       Opciones.listar("", ID_Cotizacion);
-
+                                     txtTipo_Concepto.setText("");
 
                             }
 
@@ -270,11 +280,10 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                                 
                                 
                                 
-                     }
+                }
         }
-        
+         }
                         
-                    
                    
                 
         
@@ -321,7 +330,9 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         lblatencion1 = new javax.swing.JLabel();
-        cmbConsolidado = new ComboBox.SComboBox();
+        txtTipo_Concepto = new app.bolivia.swing.JCTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -630,15 +641,21 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         lblatencion1.setText("Atención a:");
         jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, 30));
 
-        cmbConsolidado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Consolidado" }));
-        cmbConsolidado.setToolTipText("");
-        cmbConsolidado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cmbConsolidado.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbConsolidadoItemStateChanged(evt);
+        txtTipo_Concepto.setBorder(null);
+        txtTipo_Concepto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTipo_Concepto.setPlaceholder("Ej. Remolque");
+        txtTipo_Concepto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTipo_ConceptoKeyTyped(evt);
             }
         });
-        jcMousePanel1.add(cmbConsolidado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 380, 30));
+        jcMousePanel1.add(txtTipo_Concepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 370, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
+        jcMousePanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 250, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
+        jcMousePanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 250, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -756,7 +773,8 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlFinalizarMouseExited
 
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-        //        Modificar();
+     pnlTipoConsolidado poper = new pnlTipoConsolidado(null, true);
+        poper.setVisible(true);
     }//GEN-LAST:event_pnleditarMouseClicked
 
     private void pnleditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseEntered
@@ -771,9 +789,19 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void cmbConsolidadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbConsolidadoItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbConsolidadoItemStateChanged
+    private void txtTipo_ConceptoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipo_ConceptoKeyTyped
+        char c=evt.getKeyChar();
+        if(Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        int limite =40;
+        if (txtTipo_Concepto.getText().length()== limite)
+        {
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txtTipo_ConceptoKeyTyped
 
     public static void main(String args[]) {
      
@@ -796,8 +824,8 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
-    private ComboBox.SComboBox cmbConsolidado;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -805,6 +833,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -827,6 +856,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla1;
     public static javax.swing.JTable tablaR;
+    public static app.bolivia.swing.JCTextField txtTipo_Concepto;
     // End of variables declaration//GEN-END:variables
 public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
