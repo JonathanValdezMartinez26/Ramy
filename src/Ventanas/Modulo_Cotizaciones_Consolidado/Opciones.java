@@ -69,10 +69,10 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizaciones_Consolidadov where ID_Cotizacion="+ ID;
+           sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado where ID_Cotizacion="+ ID;
         } else {
             
-            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizaciones_Consolidadov where  Consolidado LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' AND ID_Cotizacion =" + ID;
+            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado where  Consolidado LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' AND ID_Cotizacion =" + ID;
             
            }
         String datos[] = new String[3];
@@ -154,9 +154,9 @@ public class Opciones {
         }
     }
     ///////////////////////////////////////////////////////////////////
-    public static int verificaConsolidado(int ID_Cotizacion,int ID_Consolidado) {
+    public static int verificaConsolidado(int ID_Cotizacion,String Consolidado) {
         int c = 0;
-        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizacion_Consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Consolidado = "+ID_Consolidado+")";
+        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizacion_Consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (Consolidado = '"+Consolidado+"')";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -180,7 +180,7 @@ public class Opciones {
             ps = cn.prepareStatement(sql);
             ps.setInt(1, uc.getID_Asigna_Cotizacion());
             ps.setInt(2, uc.getID_Cotizacion());
-            ps.setInt(3,uc.getID_Consolidado());
+            ps.setString(3,uc.getConsolidado());
             ps.executeUpdate();
           
             return true;

@@ -143,13 +143,13 @@ public static ResultSet resultado;
     public static String registrar = "INSERT INTO Asigna_Cotizacion_Consolidado("
            + "ID_Cotizacion_Consolidado,"
             + "ID_Cotizacion,"
-            + "ID_Consolidado)"
+            + "Consolidado)"
             + "VALUES(?,?,?)";
     
      
   private int ID_Asigna_Cotizacion;
   private int ID_Cotizacion;
-  private int ID_Consolidado;
+  private String Consolidado;
     
     public int getID_Asigna_Cotizacion() {
         return ID_Asigna_Cotizacion;
@@ -168,12 +168,12 @@ public static ResultSet resultado;
     }
 
     
-    public int getID_Consolidado() {
-        return ID_Consolidado;
+    public String getConsolidado() {
+        return Consolidado;
     }
 
-    public void setID_Consolidado(int ID_Consolidado) {
-        this.ID_Consolidado = ID_Consolidado;
+    public void setConsolidado(String Consolidado) {
+        this.Consolidado = Consolidado;
     }
     
        public static void Agregar_Tipo(String Nombre) {
