@@ -95,8 +95,8 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         Destinos();
         Transportes();
         lblatencion.setVisible(true);
-        ID_rutas.setVisible(true);
-        IDCotizacion.setVisible(true);
+        ID_rutas.setVisible(false);
+        IDCotizacion.setVisible(false);
         
      
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -326,7 +326,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                             else
                             {
                                 ID_rutas.setText(""+ Cotizaciones.ObtenerIDRuta(ID_Cliente, ID_Origenes, ID_Destinos, ID_Transportes));
-                                ID_rutas.setVisible(true);
+                                //ID_rutas.setVisible(true);
                                 int ID_Rutas = Integer.parseInt(ID_rutas.getText());
                                 int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
                                 float precio = Cotizaciones.ObtenerPrecio(ID_Rutas);
@@ -379,7 +379,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }
     ////////////////////////////////////////////////////////////////////////
     public static void finalizar(){
-        Ventanas.Modulo_Cotizaciones.WarningFinalizar AC = new  Ventanas.Modulo_Cotizaciones.WarningFinalizar(null, true);
+        Alerts.AlertBasic.WarningFinalizar AC = new  Alerts.AlertBasic.WarningFinalizar(null, true);
         AC.ID.setText(IDCotizacion.getText());
         AC.setVisible(true);
       
@@ -876,7 +876,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             
             cmbCliente.setEnabled(false);
             Cotizaciones.Agregar_Cotizacion(ID_Cliente);
-            lblatencion.setVisible(true);
+            //lblatencion.setVisible(true);
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
             Opciones.listarCotizaciones("");

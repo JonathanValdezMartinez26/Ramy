@@ -158,7 +158,7 @@ public class WarningFinalizarMensual extends javax.swing.JDialog {
     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");   
     AgregarCotizaciones_Renta.ver();
-    JOptionPane.showMessageDialog(null, "DEbe cerrarse la venbtana");
+    //JOptionPane.showMessageDialog(null, "DEbe cerrarse la venbtana");
     
      AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
      AC.dispose();
