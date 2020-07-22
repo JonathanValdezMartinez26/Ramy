@@ -75,4 +75,36 @@ public class Opciones {
             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    
+      public static void listarAjustes(int ID) {
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Configuracion.pnlAjustes.tabla.getModel();
+
+        while (modelo.getRowCount() > 0) 
+        {
+            modelo.removeRow(0);
+        }
+       
+            String sql = "SELECT Fecha_Ajuste, Fecha_Siguiente_Ajuste, Tarifa, Incremento_Ajuste, Concepto_Ajuste from ajuste_preciov where ID_cliente = 1 order by Fecha_Ajuste";
+ 
+        String datos[] = new String[5];
+        try {           
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                datos [0] = String.valueOf(rs.getDate(1));
+                datos [1] = String.valueOf(rs.getDate(2));
+                datos [2] = rs.getString(3);
+                datos [3] = rs.getString(4)+ " %";
+                datos [4] = rs.getString(5);
+                
+                modelo.addRow(datos);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

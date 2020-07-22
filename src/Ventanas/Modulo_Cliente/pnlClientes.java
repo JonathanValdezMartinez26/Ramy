@@ -486,7 +486,7 @@ public class pnlClientes extends javax.swing.JPanel {
     private void pnldestinosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnldestinosMouseClicked
         int Fila = tabla.getSelectedRow();
       
-            if(Fila >= 0)
+        if(Fila >= 0)
         {
             int ID = 0;
             ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());

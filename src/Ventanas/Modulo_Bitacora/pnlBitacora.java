@@ -75,6 +75,9 @@ public class pnlBitacora extends javax.swing.JPanel {
         pnlpdf = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        pnlpdf1 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         buscar = new app.bolivia.swing.JCTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -140,14 +143,14 @@ public class pnlBitacora extends javax.swing.JPanel {
         pnlpdf.setBackground(new java.awt.Color(225, 225, 225));
         pnlpdf.setToolTipText("Visualizar Bitacora");
         pnlpdf.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlpdfMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlpdfMouseClicked(evt);
             }
         });
         pnlpdf.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -160,6 +163,30 @@ public class pnlBitacora extends javax.swing.JPanel {
         pnlpdf.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 69));
+
+        pnlpdf1.setBackground(new java.awt.Color(225, 225, 225));
+        pnlpdf1.setToolTipText("Visualizar Bitacora");
+        pnlpdf1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlpdf1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlpdf1MouseExited(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlpdf1MouseClicked(evt);
+            }
+        });
+        pnlpdf1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setText("    Ajustes");
+        pnlpdf1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-dólar-estadounidense-40.png"))); // NOI18N
+        pnlpdf1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
+
+        jPanel12.add(pnlpdf1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 69));
 
         add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1106, 69));
 
@@ -318,6 +345,18 @@ public class pnlBitacora extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buscarBitacoraKeyTyped
 
+    private void pnlpdf1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlpdf1MouseEntered
+
+    private void pnlpdf1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlpdf1MouseExited
+
+    private void pnlpdf1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlpdf1MouseClicked
+
         DefaultTableModel model = new DefaultTableModel() {
 
             @Override
@@ -333,6 +372,8 @@ public class pnlBitacora extends javax.swing.JPanel {
     public static app.bolivia.swing.JCTextField buscarBitacora;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -343,6 +384,7 @@ public class pnlBitacora extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel pnlpdf;
+    private javax.swing.JPanel pnlpdf1;
     public static javax.swing.JTable tabla;
     public static javax.swing.JTable tablabitacora;
     // End of variables declaration//GEN-END:variables

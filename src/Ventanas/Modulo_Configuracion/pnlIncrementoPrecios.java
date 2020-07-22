@@ -155,7 +155,7 @@ public class pnlIncrementoPrecios extends javax.swing.JPanel {
         pnlagregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel22.setText("     Ajuste");
+        jLabel22.setText("    Ajustes");
         pnlagregar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-dólar-estadounidense-40.png"))); // NOI18N
@@ -342,7 +342,24 @@ public class pnlIncrementoPrecios extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlagregarMouseEntered
 
     private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
-
+        int Fila = tabla.getSelectedRow();
+      
+        if(Fila >= 0)
+        {
+            int ID = 0;
+            ID = Integer.parseInt(tabla.getValueAt(Fila, 1).toString());
+            pnlAjustes poper = new pnlAjustes(null, true);
+            Opciones.listarAjustes(ID);
+            poper.setVisible(true);
+            
+        }
+    else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Seleccione el registro!");
+            AC.msj2.setText("para ver el panel Ajustes");
+            AC.setVisible(true);
+        }
     }//GEN-LAST:event_pnlagregarMouseClicked
     DefaultTableModel model = new DefaultTableModel() {
         
