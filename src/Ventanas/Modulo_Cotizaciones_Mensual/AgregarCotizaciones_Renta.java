@@ -18,11 +18,17 @@ import static Clases.Cotizaciones.ObtenID;
 import Clases.CotizacionesRentaMen;
 import Clases.MyTableCellEditor;
 import Clases.MyTableCellEditor2;
+import Clases.MyTableCellEditor3;
+import Clases.MyTableCellEditor4;
+import Clases.MyTableCellEditorServMensNombre;
+import Clases.MyTableCellEditorServMensPrecio;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
+import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.tabla1;
 import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -111,8 +117,8 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
-        
-        tablaR.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor2(db,"Precio"));
+        tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorServMensNombre(db,"Nombre del Servicio"));//Columna Precio
+        tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorServMensPrecio(db,"Precio"));//Columna Precio
         
     }
     
@@ -294,6 +300,14 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                      }
         }
          }
+    
+    public static void cargarServicio(){
+        int ID_Cotizacion;
+        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());
+        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.insertarServicio(ID_Cotizacion);
+        //Opciones.llenarServicio(ID_Cotizacion);
+        
+    }
                         
                     
                    
@@ -392,20 +406,19 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID_", "Nombre del Servicio", "Precio"
+                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio", "Supr para Borrar"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -729,6 +742,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
             Opciones.listarCotizaciones("");
+            IDCotizacion.setVisible(true);
             
          }
     }//GEN-LAST:event_cmbClienteItemStateChanged
@@ -801,7 +815,51 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlFinalizarMouseExited
 
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-        //        Modificar();
+
+        
+            String  IDCotiza=IDCotizacion.getText();
+
+//    if(!IDCotiza.equals("")){
+        if(this.tabla1.getRowCount()==0 && this.tabla1.getSelectedRow()==-1){ /////Si tabla1 esta vacia, se agrega el primer campo       
+        cargarServicio();
+        int ID_Cotizacion;
+        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());        
+        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicio(ID_Cotizacion);
+        this.tabla1.getSelectionModel().setSelectionInterval(0,0);
+
+        }else{//////////Si tabla1 esta llena, recorrerla para validar campos vacios
+            int existenombre = 0;
+            int existeprecio = 0;
+            for (int i = 0; i < tabla1.getRowCount(); i++) {
+                 if(tabla1.getValueAt(i, 2).toString().equals("")){
+                     existenombre++;
+                 }                                 
+                 if(tabla1.getValueAt(i, 3).toString().equals("0")){
+                     existeprecio++;
+                 }                                 
+        }
+            if(existenombre==0 && existeprecio==0){////////Si ningun campo esta vacio, se puede agregar otro nuevo campo
+                cargarServicio();
+                int ID_Cotizacion;
+                ID_Cotizacion = Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());
+                Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicio(ID_Cotizacion);
+                this.tabla1.getSelectionModel().setSelectionInterval(0, 0);                
+                    }else{            
+                          Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                          AC.msj1.setText("¡Campos Vacios!");
+                          AC.msj2.setText("Para Agregar otro Servicio");
+                          AC.msj3.setText("Asigne un Nombre y Precio");                                    
+                          AC.setVisible(true);
+                    }
+         }
+//        } else {
+//                                Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+//                                AC.msj1.setText("¡Porfavor Seleccione!");
+//                                AC.msj2.setText("Un Cliente-Concepto-Periodo");
+//                                AC.msj3.setText("Para poder Asignar Servicios");
+//                                AC.setVisible(true);
+//        }
+//    
     }//GEN-LAST:event_pnleditarMouseClicked
 
     private void pnleditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseEntered
@@ -855,7 +913,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IDCotizacion;
+    public static javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;

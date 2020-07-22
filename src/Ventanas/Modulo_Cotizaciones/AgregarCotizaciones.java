@@ -685,14 +685,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         pnlFinalizar.setBackground(new java.awt.Color(225, 225, 225));
         pnlFinalizar.setToolTipText("Finalizar Cotizacion");
         pnlFinalizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlFinalizarMouseExited(evt);
-            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlFinalizarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlFinalizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlFinalizarMouseExited(evt);
             }
         });
         pnlFinalizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -729,14 +729,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
         pnleditar.setToolTipText("Agregar Servicio");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnleditarMouseExited(evt);
-            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnleditarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnleditarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnleditarMouseExited(evt);
             }
         });
         pnleditar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

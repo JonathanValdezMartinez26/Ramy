@@ -1,5 +1,6 @@
 package Ventanas.Modulo_Cotizaciones_Mensual;
 import Clases.Conexion;
+import static Ventanas.Modulo_Cotizaciones.Opciones.cn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -233,9 +234,78 @@ public class Opciones {
         }
     }
 
-   
+public static void insertarServicio(int ID_Cotizacion){
+        
+           String q = " INSERT INTO servicios (ID_Servicio,ID_Cotizacion,Nombre_Servicio,Precio)"
+                                        + "VALUES (NULL,'"+ID_Cotizacion+"','',0)";      
+                                        try {PreparedStatement pstm = cn.prepareStatement(q);
+                                    pstm.execute();
+                                    pstm.close();
+                                    Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                                    AC.msj1.setText("¡Agrega Nombre y Precio!");
+                                    AC.msj2.setText("A la Tabla Servicios");
+                                    AC.setVisible(true);
+                                    
+                                    }catch(SQLException e){            
+                                    System.out.println(e);}
+                                        
+    }
     
+    public static void llenarServicio(int ID_Cotizacion){
+
+
+    DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1.getModel();
+
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        
+        String sql = "";
+        
+            sql = "Select ID_Servicio, ID_Cotizacion, Nombre_Servicio,Precio from servicios where ID_Cotizacion =" + ID_Cotizacion;
+        
+        String datos[] = new String[5];
+        try {           
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                datos [0] = String.valueOf(rs.getInt(1));
+                datos [1] = rs.getString(2);
+                datos [2] = rs.getString(3);
+                datos [3] = rs.getString(4);
+                datos [4] = "";
+                
+                modelo.addRow(datos);
+            }
+            
+            modelo.fireTableDataChanged();
+        } catch (SQLException ex) {
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+   
+    public static void eliminarServicio(int idRow){
+     
+try {
+    PreparedStatement pst=(PreparedStatement) cn.prepareStatement("DELETE FROM servicios WHERE ID_Servicio="+idRow);
+    pst.executeUpdate();
+            Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+            AC.msj1.setText("¡Se a borrado!");
+            AC.msj2.setText("El servicio");
+            AC.setVisible(true);
+        }
+catch(SQLException e) {
+    JOptionPane.showMessageDialog(null, e.getMessage());
 }
+    }
+    
+    
+    
+}   
+    
+
     
     
     
