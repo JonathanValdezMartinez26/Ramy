@@ -1,5 +1,6 @@
 package Ventanas.Modulo_Configuracion;
 
+import Ventanas.Modulo_Bitacora.*;
 import Ventanas.Modulo_Tipo_Servicio.*;
 import A_tabla.EstiloTablaHeader;
 import A_tabla.EstiloTablaRenderer;
@@ -17,60 +18,26 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class pnlAjustes extends javax.swing.JDialog {
+public class pnlAgregarAjusteIncremento extends javax.swing.JDialog {
 
    
     int i = 32;
     int x,y;
     
-    public pnlAjustes(java.awt.Frame parent, boolean modal) {
+    public pnlAgregarAjusteIncremento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         Opciones.listar("");
         setLocationRelativeTo(null);
         AWTUtilities.setOpaque(this, false);
-        tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
-        this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
-        this.tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
-        jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
-       
     }
 
-    public pnlAjustes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-     public void Modificar()
-    {
-        int Fila = tabla.getSelectedRow();
-      
-            if(Fila >= 0)
-        {
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            ModificarTipoServicio ME = new ModificarTipoServicio(null, true);
-            ME.CargarDatos(ID);
-//            ME.setVE(this);
-            ME.setVisible(true);
-        }
-    else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("A modificar");
-            AC.setVisible(true);
-        }
-        
-        
-    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tabla1 = new javax.swing.JTable();
         jcMousePanel1 = new jcMousePanel.jcMousePanel();
         jPanel7 = new javax.swing.JPanel();
         info = new javax.swing.JLabel();
@@ -80,11 +47,30 @@ public class pnlAjustes extends javax.swing.JDialog {
         pnlagregar = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
+
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre de Viaje", "Costo Antiguo", "Costo Actual", "Transporte", "Modificación"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -110,8 +96,8 @@ public class pnlAjustes extends javax.swing.JDialog {
         info.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         info.setForeground(new java.awt.Color(102, 102, 102));
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info.setText("Bitácora de Ajustes Aplicados para el Cliente: ");
-        jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 30));
+        info.setText("Agregar Nuevo Incremento para el Ajuste de Precios");
+        jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 30));
 
         rSButtonMetro2.setText("X");
         rSButtonMetro2.setToolTipText("Cerrar");
@@ -123,9 +109,9 @@ public class pnlAjustes extends javax.swing.JDialog {
                 rSButtonMetro2ActionPerformed(evt);
             }
         });
-        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(786, 0, 30, 30));
+        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 0, 30, 30));
 
-        jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 10, 816, -1));
+        jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 785, -1));
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -134,7 +120,7 @@ public class pnlAjustes extends javax.swing.JDialog {
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar.setToolTipText("Agregar Cliente");
+        pnlagregar.setToolTipText("Agregar Servicio");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseClicked(evt);
@@ -149,74 +135,27 @@ public class pnlAjustes extends javax.swing.JDialog {
         pnlagregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel22.setText("     Añadir");
+        jLabel22.setText("    Agregar");
         pnlagregar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nuevo.png"))); // NOI18N
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/guardar (2).png"))); // NOI18N
         pnlagregar.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 69));
 
-        pnlPrincipal.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 816, -1));
+        pnlPrincipal.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 785, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 794, 5));
-
-        pnlPrincipal.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 810, 85));
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Fecha de Ajuste", "Siguiente Ajuste", "Tarifa de Ajuste", "Incremento", "Concepto de Ajuste"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabla.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tabla);
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setResizable(false);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(60);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(60);
-            tabla.getColumnModel().getColumn(2).setPreferredWidth(60);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(40);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(250);
-        }
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 797, 320));
-
-        pnlPrincipal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 797, 325));
-
-        jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 40, 816, 480));
+        jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 40, 785, 516));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE)
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 815, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
         );
 
         pack();
@@ -240,23 +179,23 @@ public class pnlAjustes extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_rSButtonMetro2ActionPerformed
 
-    private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
-        pnlAgregarAjusteIncremento poper = new pnlAgregarAjusteIncremento(null, true);
-        poper.setVisible(true);
-    }//GEN-LAST:event_pnlagregarMouseClicked
+    private void pnlagregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseExited
+        pnlagregar.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
+    }//GEN-LAST:event_pnlagregarMouseExited
 
     private void pnlagregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseEntered
         pnlagregar.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
     }//GEN-LAST:event_pnlagregarMouseEntered
 
-    private void pnlagregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseExited
-        pnlagregar.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
-    }//GEN-LAST:event_pnlagregarMouseExited
+    private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
+       
+
+    }//GEN-LAST:event_pnlagregarMouseClicked
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                pnlAjustes dialog = new pnlAjustes(new javax.swing.JFrame(), true);
+                pnlAgregarAjusteIncremento dialog = new pnlAgregarAjusteIncremento(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -283,17 +222,13 @@ public class pnlAjustes extends javax.swing.JDialog {
     public static javax.swing.JLabel info;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlagregar;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
-    public static javax.swing.JTable tabla;
+    public static javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
 
     

@@ -141,7 +141,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         info.setForeground(new java.awt.Color(102, 102, 102));
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         info.setText("Tipo de Servicio");
-        jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 30));
+        jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 30));
 
         rSButtonMetro2.setText("X");
         rSButtonMetro2.setToolTipText("Cerrar");
@@ -379,15 +379,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlagregarMouseClicked
 
     private void tablabitacoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablabitacoraMouseClicked
-        JTable table =(JTable) evt.getSource();
-        Point point = evt.getPoint();
-        int row = table.rowAtPoint(point);
-        if (evt.getClickCount() == 1)
-        {
-            String a = tablabitacora.getValueAt(tablabitacora.getSelectedRow() , 0).toString();
-            int id = Integer.parseInt(a);
-            Opciones.CargarDatos(id);
-        }
+      
     }//GEN-LAST:event_tablabitacoraMouseClicked
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
