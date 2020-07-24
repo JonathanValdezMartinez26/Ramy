@@ -30,12 +30,12 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="ffcfdec3-d95f-43c8-9c72-c12d622427ab"/>
-	<parameter name="ID_Cliente" class="java.lang.Integer">
+	<parameter name="ID_Cotizacion" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[select ID_Cotizacion,Nombre_Servicio,Precio from servicios
-where ID_Cotizacion=$P{ID_Cliente}]]>
+where ID_Cotizacion=$P{ID_Cotizacion}]]>
 	</queryString>
 	<field name="ID_Cotizacion" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
