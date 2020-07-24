@@ -95,11 +95,8 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         AWTUtilities.setOpaque(this, false);
         this.setLocationRelativeTo(parent);
-        Clientes();
-       
-        
-        Periodo();
-        
+        Clientes();       
+        Periodo();        
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(false);
          
@@ -766,7 +763,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
             Opciones.listarCotizaciones("");
-            IDCotizacion.setVisible(true);
+            //IDCotizacion.setVisible(true);
             
          }
     }//GEN-LAST:event_cmbClienteItemStateChanged
@@ -833,7 +830,15 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
        String concepto=txtTipo_Concepto.getText();
         
 ////////////////////Verifica si no hay combos seleccionados
-  if(this.tablaR.getRowCount()!=0){
+ if(this.tablaR.getRowCount()!=0){
+       int existenombre2 = 0;
+            int existeprecio2 = 0;
+            for (int i = 0; i < tablaR.getRowCount(); i++) {                                                 
+                 if(tablaR.getValueAt(i, 3).toString().equals("0")){
+                     existeprecio2++;
+                 }                                 
+        }
+    if(existeprecio2 ==0){        
         ///////////////////////verifica si la tabla destino no esta vacia y la recorre para validar campos vacios 
      if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){        
             int existenombre = 0;
@@ -851,6 +856,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
              Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
              Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
              ver();
+             
                 this.dispose();        
                     }else{            
                           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -865,14 +871,22 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                         //////sin agregar ningun servicio, todo esto mediante este metodo
                        finalizar();
                        //JOptionPane.showMessageDialog(null,"Finaliza directo");
-                    }   
-                    }else{
-                                Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-                                AC.msj1.setText("¡Porfavor Asigne!");
-                                AC.msj2.setText("Un Cliente-Concepto-Periodo");
-                                AC.msj3.setText("Para poder Finalizar Cotizacion");
-                                AC.setVisible(true);
-        }
+                    }
+    
+                                    }else{
+                                            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                                            AC.msj1.setText("¡Porfavor Asigne!");
+                                            AC.msj2.setText("Precios");
+                                            AC.msj3.setText("Para poder Finalizar Cotizacion");
+                                            AC.setVisible(true);
+                                    }               
+                                                    }else{
+                                                        Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                                                        AC.msj1.setText("¡Porfavor Asigne!");
+                                                        AC.msj2.setText("Un Cliente-Concepto-Periodo");
+                                                        AC.msj3.setText("Para poder Finalizar Cotizacion");
+                                                        AC.setVisible(true);
+                                                }
 
               
     }//GEN-LAST:event_pnlFinalizarMouseClicked

@@ -241,7 +241,8 @@ public class pnlAjustes extends javax.swing.JDialog {
     }//GEN-LAST:event_rSButtonMetro2ActionPerformed
 
     private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
-
+        pnlAgregarAjusteIncremento poper = new pnlAgregarAjusteIncremento(null, true);
+        poper.setVisible(true);
     }//GEN-LAST:event_pnlagregarMouseClicked
 
     private void pnlagregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseEntered
