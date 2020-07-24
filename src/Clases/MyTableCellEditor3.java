@@ -65,7 +65,7 @@ public class MyTableCellEditor3 extends AbstractCellEditor implements TableCellE
             {   //Si existe algun error al actualizar, escribe viejo valor en la celda
                 //JOptionPane.showMessageDialog(null,"Error: No se puede actualizar");
                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                            AC.msj1.setText("¡Error al modificar Precio!");
+                            AC.msj1.setText("¡Error al modificar Nombre!");
                             AC.msj2.setText("Ingrese caracteres validos");
                             AC.setVisible(true);
                 

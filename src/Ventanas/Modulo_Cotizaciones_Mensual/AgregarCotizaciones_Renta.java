@@ -18,11 +18,18 @@ import static Clases.Cotizaciones.ObtenID;
 import Clases.CotizacionesRentaMen;
 import Clases.MyTableCellEditor;
 import Clases.MyTableCellEditor2;
+import Clases.MyTableCellEditor3;
+import Clases.MyTableCellEditor4;
+import Clases.MyTableCellEditorServMensNombre;
+import Clases.MyTableCellEditorServMensPrecio;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
+import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.tabla1;
+import static Ventanas.Modulo_Cotizaciones.Opciones.cn;
 import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -63,6 +70,9 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 import Ventanas.Modulo_Cotizaciones_Mensual.Opciones;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
@@ -85,11 +95,8 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         AWTUtilities.setOpaque(this, false);
         this.setLocationRelativeTo(parent);
-        Clientes();
-       
-        
-        Periodo();
-        
+        Clientes();       
+        Periodo();        
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(false);
          
@@ -111,8 +118,8 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
-        
-        tablaR.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor2(db,"Precio"));
+        tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorServMensNombre(db,"Nombre del Servicio"));//Columna Precio
+        tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorServMensPrecio(db,"Precio"));//Columna Precio
         
     }
     
@@ -294,6 +301,23 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                      }
         }
          }
+    
+    public static void cargarServicio(){
+        int ID_Cotizacion;
+        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());
+        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.insertarServicio(ID_Cotizacion);
+        //Opciones.llenarServicio(ID_Cotizacion);
+        
+    }
+    public static void finalizar(){
+        
+        Alerts.AlertBasic.WarningFinalizarMensual AC = new  Alerts.AlertBasic.WarningFinalizarMensual(null, true);
+        AC.ID.setText(IDCotizacion.getText());
+        AC.setVisible(true);
+      
+    
+    //AgregarCotizaciones.dispose();
+    }
                         
                     
                    
@@ -392,20 +416,19 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID_", "Nombre del Servicio", "Precio"
+                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio", "Supr para Borrar"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, true, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -416,13 +439,24 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tabla1.setRowHeight(20);
+        tabla1.setRowHeight(30);
         tabla1.getTableHeader().setReorderingAllowed(false);
+        tabla1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tabla1KeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla1);
         if (tabla1.getColumnModel().getColumnCount() > 0) {
             tabla1.getColumnModel().getColumn(0).setMinWidth(0);
             tabla1.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla1.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
+            tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
+            tabla1.getColumnModel().getColumn(4).setMinWidth(100);
+            tabla1.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tabla1.getColumnModel().getColumn(4).setMaxWidth(100);
         }
 
         tablaR.setModel(new javax.swing.table.DefaultTableModel(
@@ -729,6 +763,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
             Opciones.listarCotizaciones("");
+            //IDCotizacion.setVisible(true);
             
          }
     }//GEN-LAST:event_cmbClienteItemStateChanged
@@ -784,11 +819,75 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-    ver();
-    String ID_Cotizacion=IDCotizacion.getText();
-    Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
-    Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
-    this.dispose();
+//    ver();
+//    String ID_Cotizacion=IDCotizacion.getText();
+//    Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
+//    Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
+//    this.dispose();
+
+int comboPeriodo=cmbPeriodo.getSelectedIndex();
+       String ID_Coti=IDCotizacion.getText();
+       String concepto=txtTipo_Concepto.getText();
+        
+////////////////////Verifica si no hay combos seleccionados
+ if(this.tablaR.getRowCount()!=0){
+       int existenombre2 = 0;
+            int existeprecio2 = 0;
+            for (int i = 0; i < tablaR.getRowCount(); i++) {                                                 
+                 if(tablaR.getValueAt(i, 3).toString().equals("0")){
+                     existeprecio2++;
+                 }                                 
+        }
+    if(existeprecio2 ==0){        
+        ///////////////////////verifica si la tabla destino no esta vacia y la recorre para validar campos vacios 
+     if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){        
+            int existenombre = 0;
+            int existeprecio = 0;
+            for (int i = 0; i < tabla1.getRowCount(); i++) {
+                 if(tabla1.getValueAt(i, 2).toString().equals("")){
+                     existenombre++;
+                 }                                 
+                 if(tabla1.getValueAt(i, 3).toString().equals("0")){
+                     existeprecio++;
+                 }                                 
+        }
+        if (existenombre == 0 && existeprecio == 0) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
+             String ID_Cotizacion = IDCotizacion.getText();
+             Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
+             Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
+             ver();
+             
+                this.dispose();        
+                    }else{            
+                          Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                          AC.msj1.setText("¡Campos Vacios!");
+                          AC.msj2.setText("Porfavor llene Completamente ");
+                          AC.msj3.setText("La Tabla de Servicios");                                    
+                          AC.setVisible(true);
+                    }
+               }
+                else{  
+                        ////////Si la tabla1 esta vacia, se le pregunta al cliente, si desea finalizar cotizacion 
+                        //////sin agregar ningun servicio, todo esto mediante este metodo
+                       finalizar();
+                       //JOptionPane.showMessageDialog(null,"Finaliza directo");
+                    }
+    
+                                    }else{
+                                            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                                            AC.msj1.setText("¡Porfavor Asigne!");
+                                            AC.msj2.setText("Precios");
+                                            AC.msj3.setText("Para poder Finalizar Cotizacion");
+                                            AC.setVisible(true);
+                                    }               
+                                                    }else{
+                                                        Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                                                        AC.msj1.setText("¡Porfavor Asigne!");
+                                                        AC.msj2.setText("Un Cliente-Concepto-Periodo");
+                                                        AC.msj3.setText("Para poder Finalizar Cotizacion");
+                                                        AC.setVisible(true);
+                                                }
+
               
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
@@ -801,7 +900,49 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlFinalizarMouseExited
 
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-        //        Modificar();
+
+    if(this.tablaR.getRowCount()!=0){//Si la tablaR no esta vacia, permitir agregar servicios
+        if(this.tabla1.getRowCount()==0){ /////Si tabla1 esta vacia, se agrega el primer campo       
+        cargarServicio();
+        int ID_Cotizacion;
+        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());        
+        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicio(ID_Cotizacion);
+        this.tabla1.getSelectionModel().setSelectionInterval(0,0);
+
+        }else{//////////Si tabla1 esta llena, recorrerla para validar campos vacios
+            int existenombre = 0;
+            int existeprecio = 0;
+            for (int i = 0; i < tabla1.getRowCount(); i++) {
+                 if(tabla1.getValueAt(i, 2).toString().equals("")){
+                     existenombre++;
+                 }                                 
+                 if(tabla1.getValueAt(i, 3).toString().equals("0")){
+                     existeprecio++;
+                 }                                 
+        }
+            if(existenombre==0 && existeprecio==0){////////Si ningun campo esta vacio, se puede agregar otro nuevo campo
+                cargarServicio();
+                int ID_Cotizacion;
+                ID_Cotizacion = Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());
+                Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicio(ID_Cotizacion);
+                //this.tabla1.getSelectionModel().setSelectionInterval(0, 0);             
+    //JOptionPane.showMessageDialog(null, "exitennombre="+existenombre+ " existePrecio= "+existeprecio );
+                    }else{            
+                          Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                          AC.msj1.setText("¡Campos Vacios!");
+                          AC.msj2.setText("Para Agregar otro Servicio");
+                          AC.msj3.setText("Asigne un Nombre y Precio");                                    
+                          AC.setVisible(true);
+                    }
+         }
+        } else {
+                                Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                                AC.msj1.setText("¡Porfavor Seleccione!");
+                                AC.msj2.setText("Un Cliente-Concepto-Periodo");
+                                AC.msj3.setText("Para poder Asignar Servicios");
+                                AC.setVisible(true);
+        }
+    
     }//GEN-LAST:event_pnleditarMouseClicked
 
     private void pnleditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseEntered
@@ -838,6 +979,17 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
          
     }//GEN-LAST:event_cmbPeriodoKeyTyped
 
+    private void tabla1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyTyped
+                int ID_Cotizacion;        
+        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());        
+        int a1=Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(),0).toString());
+        DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
+        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.eliminarServicio(a1);
+        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicio(ID_Cotizacion);
+        this.tabla1.getSelectionModel().setSelectionInterval(0,0);
+
+    }//GEN-LAST:event_tabla1KeyTyped
+
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -855,7 +1007,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IDCotizacion;
+    public static javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
@@ -895,7 +1047,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     public static javax.swing.JTable tablaR;
     public static app.bolivia.swing.JCTextField txtTipo_Concepto;
     // End of variables declaration//GEN-END:variables
-public void ver() {
+public static void ver() {
         Clases.Conexion cc = new Clases.Conexion();
         int ID = Integer.parseInt(IDCotizacion.getText());
         if (ID >= 0) {
@@ -931,5 +1083,42 @@ public void ver() {
             AC.setVisible(true);
         }
 }
+public static void listarCotizaciones(String busca) {
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla.getModel();
+
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
         
+        String sql = "";
+        if (busca.equals("")) {
+            //sql = "Select * from cotizacionesv";
+            sql = "Select * from cotizacionesv where Estado = 0";
+        } else {
+            
+//            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionesv where Estado = 0 AND Nombre_Cliente LIKE '%" + busca +"%' OR Atencion LIKE '%"+ busca +"%' OR Fecha_Alta LIKE '%"+ busca +"%' OR Estatus LIKE '%"+busca+"%'";
+            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionesv where Estado = 0 AND Nombre_Cliente LIKE '%" + busca +"%' AND Estado=0 OR Atencion LIKE '%"+ busca +"%'  AND Estado=0 OR Fecha_Alta LIKE '%"+ busca +"%' AND Estado=0 OR Estatus LIKE '%"+busca+"%'AND Estado=0";
+            
+           }
+        String datos[] = new String[5];
+        try {           
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                datos [0] = String.valueOf(rs.getInt(1));
+                datos [1] = rs.getString(2);
+                datos [2] = rs.getString(3);
+                datos [3] = rs.getString(4);
+                datos [4] = rs.getString(5);
+                
+                modelo.addRow(datos);
+            }
+            
+            modelo.fireTableDataChanged();
+        } catch (SQLException ex) {
+            Logger.getLogger(Ventanas.Modulo_Cotizaciones.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+            
 }

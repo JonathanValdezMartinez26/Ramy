@@ -1,11 +1,11 @@
 
-package Ventanas.Modulo_Cotizaciones;
+package Alerts.AlertBasic;
 
-import Alerts.AlertBasic.*;
 import Alerts.*;
 import Ventanas.Modulo_Cliente.Opciones;
 import Ventanas.Modulo_Cliente.Registrar;
 import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
+import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
 import com.sun.glass.events.KeyEvent;
 import java.awt.event.WindowEvent;
@@ -14,9 +14,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import necesario.RSAWTUtilities;
 
-public class WarningFinalizar extends javax.swing.JDialog {
+public class WarningFinalizarMensual extends javax.swing.JDialog {
 
-    public WarningFinalizar(java.awt.Frame parent, boolean modal) {
+    public WarningFinalizarMensual(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
@@ -67,7 +67,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
 
         NombreEmpresa.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         NombreEmpresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NombreEmpresa.setText("Servicio");
+        NombreEmpresa.setText("Servicios");
         jPanel1.add(NombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 380, 30));
 
         msj2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
@@ -93,8 +93,8 @@ public class WarningFinalizar extends javax.swing.JDialog {
 
         msj3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         msj3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        msj3.setText("Estara finalizando la Cotizacion pero no incluirá ningun:");
-        jPanel1.add(msj3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 300, 20));
+        msj3.setText("Podra Finalizar la Cotizacion pero no incluirá:");
+        jPanel1.add(msj3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 290, 20));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 280, 10));
 
         msj4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -152,21 +152,18 @@ public class WarningFinalizar extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
-        this.dispose();
-        String ID_Cotizacion = ID.getText();
+    this.dispose();
+  String ID_Cotizacion=ID.getText();
+//     
+    Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
+    Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");   
+    AgregarCotizaciones_Renta.ver();
+    //JOptionPane.showMessageDialog(null, "DEbe cerrarse la venbtana");
+    
+     AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
+     AC.dispose();
 
-        Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
-        Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
-        AgregarCotizaciones.ver();
-        JOptionPane.showMessageDialog(null, "DESDE WARNING COTIZACIONES");
-        
-        AgregarCotizaciones AC1=new AgregarCotizaciones(null,true);
-        AC1.setVisible(false);
-        AgregarCotizaciones.AC.setVisible(true);
-        AgregarCotizaciones.AC.dispose();
-        AgregarCotizaciones.AC.disable();
-        //AgregarCotizaciones.AC.dispose();
-
+//AgregarCotizaciones.aceptarFinalizar();
         
     
     }//GEN-LAST:event_log2ActionPerformed
