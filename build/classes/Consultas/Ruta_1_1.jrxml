@@ -51,7 +51,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 		<groupHeader>
 			<band height="50">
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="28" y="30" width="210" height="20" forecolor="#000000" backcolor="#FF9900" uuid="a26e166d-c40e-4147-9bca-025f3baaf464"/>
+					<reportElement style="Column header" mode="Opaque" x="29" y="30" width="209" height="20" forecolor="#000000" backcolor="#FF9900" uuid="a26e166d-c40e-4147-9bca-025f3baaf464"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
