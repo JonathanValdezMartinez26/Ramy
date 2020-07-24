@@ -876,10 +876,13 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             
             cmbCliente.setEnabled(false);
             Cotizaciones.Agregar_Cotizacion(ID_Cliente);
-            //lblatencion.setVisible(true);
+            lblatencion.setVisible(true);
+            
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
+            IDCotizacion.setVisible(true);
             Opciones.listarCotizaciones("");
+            
             
          }
     }//GEN-LAST:event_cmbClienteItemStateChanged
