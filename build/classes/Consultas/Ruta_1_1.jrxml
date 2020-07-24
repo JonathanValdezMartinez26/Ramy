@@ -49,9 +49,9 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 	<group name="report">
 		<groupExpression><![CDATA[$F{ID_Cotizacion}]]></groupExpression>
 		<groupHeader>
-			<band height="50">
+			<band height="22">
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="29" y="30" width="209" height="20" forecolor="#000000" backcolor="#FF9900" uuid="a26e166d-c40e-4147-9bca-025f3baaf464"/>
+					<reportElement style="Column header" mode="Opaque" x="0" y="0" width="209" height="20" forecolor="#000000" backcolor="#FF9900" uuid="a26e166d-c40e-4147-9bca-025f3baaf464"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -65,7 +65,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 					<text><![CDATA[                                   Servicio]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="238" y="30" width="210" height="20" forecolor="#000000" backcolor="#FF9900" uuid="ba089bef-8452-4352-a581-53b348851326"/>
+					<reportElement style="Column header" mode="Opaque" x="209" y="0" width="210" height="20" forecolor="#000000" backcolor="#FF9900" uuid="ba089bef-8452-4352-a581-53b348851326"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
