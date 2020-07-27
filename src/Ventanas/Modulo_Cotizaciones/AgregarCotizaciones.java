@@ -266,7 +266,6 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         int comboDestino = cmbDestinos.getSelectedIndex();
         int comboTransporte = cmbTransportes.getSelectedIndex();
         
-      
         ////////////////
         int ID_Client = cmbCliente.getSelectedIndex();
         int ID_Cliente = ID_Cli[ID_Client];
@@ -346,7 +345,6 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                                 {
                                     if(Ventanas.Modulo_Cotizaciones.Opciones.verificaRutaCotizacion(ID_Cotizacion, ID_Rutas)==0)
                                     {   
-
                                         Cotizaciones.Agregar_RutaCotizacion(ID_Cotizacion, ID_Rutas);
                                         Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotizacion);
 
@@ -354,7 +352,6 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                                         this.cmbDestinos.setSelectedItem(0);
                                         this.cmbTransportes.setSelectedItem(0);
                                         ID_rutas.setText("");
-
                                     }
                                     else
                                     {
@@ -1224,7 +1221,7 @@ public static void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\RVC.RVC-PC\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            String archivo = "C:\\Users\\RVC.RVC-PC\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionD_1.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);
