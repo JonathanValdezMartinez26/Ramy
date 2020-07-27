@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="51"/>
+	<property name="ireport.y" value="297"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -32,6 +32,9 @@
 	<subDataset name="Table Dataset 1" uuid="ffcfdec3-d95f-43c8-9c72-c12d622427ab"/>
 	<parameter name="ID_Cotizacion" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT * FROM `Reporte_Renta` WHERE ID_Cotizacion=$P{ID_Cotizacion}]]>
@@ -240,7 +243,7 @@
 				<text><![CDATA[Costo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" mode="Opaque" x="0" y="21" width="292" height="15" forecolor="#000000" backcolor="#FFFF01" uuid="45da5608-a402-4178-8cd2-a2c5661e093c">
+				<reportElement style="Column header" mode="Opaque" x="7" y="21" width="285" height="15" forecolor="#000000" backcolor="#FFFF01" uuid="45da5608-a402-4178-8cd2-a2c5661e093c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<box>
@@ -256,7 +259,7 @@
 				<text><![CDATA[Concepto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" mode="Opaque" x="414" y="21" width="133" height="15" forecolor="#000000" backcolor="#FFFF01" uuid="7cf16fe4-59c8-4b9d-aab9-a20c2cb3b6bc">
+				<reportElement style="Column header" mode="Opaque" x="414" y="21" width="126" height="15" forecolor="#000000" backcolor="#FFFF01" uuid="7cf16fe4-59c8-4b9d-aab9-a20c2cb3b6bc">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 				</reportElement>
 				<box>
@@ -274,9 +277,9 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="19" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="-1" width="292" height="20" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>
+				<reportElement x="7" y="-1" width="285" height="20" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -299,7 +302,7 @@
 				<textFieldExpression><![CDATA["$"+$F{Precio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="414" y="-1" width="133" height="20" uuid="7dacf4c4-c574-4028-989f-fbd47877c032"/>
+				<reportElement x="414" y="-1" width="126" height="20" uuid="7dacf4c4-c574-4028-989f-fbd47877c032"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -313,7 +316,16 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="53" splitType="Stretch"/>
+		<band height="98" splitType="Stretch">
+			<subreport>
+				<reportElement x="7" y="5" width="200" height="87" uuid="070eb805-cc27-4e2f-a2cf-772ada82d4d5"/>
+				<subreportParameter name="ID_Cotizacion">
+					<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band height="20" splitType="Stretch">
