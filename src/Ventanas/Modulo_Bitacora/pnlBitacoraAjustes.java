@@ -6,6 +6,7 @@ import A_tabla.EstiloTablaRenderer;
 import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import Clases.Conexion;
+import static Ventanas.Modulo_Bitacora.pnlBitacora.buscar;
 import Ventanas.Modulo_Servicios.ModificarServicio;
 import java.awt.Color;
 import java.awt.MouseInfo;
@@ -26,7 +27,16 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     public pnlBitacoraAjustes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        Opciones.listar("");
+        if(buscar.getText().equals(""))
+        {
+            Opciones.listarAjustes("");
+        }
+        else
+        {
+            Opciones.listar(buscar.getText());
+        }
+        
+        
         setLocationRelativeTo(null);
         AWTUtilities.setOpaque(this, false);
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -379,7 +389,8 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlagregarMouseClicked
 
     private void tablabitacoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablabitacoraMouseClicked
-      
+        
+        
     }//GEN-LAST:event_tablabitacoraMouseClicked
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed

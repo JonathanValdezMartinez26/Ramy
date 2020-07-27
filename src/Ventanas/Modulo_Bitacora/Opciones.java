@@ -145,7 +145,40 @@ public class Opciones {
     }
     ///////////////////////////////////////////////////////////////////
 
-   
+
+    public static void listarAjustes(String busca) {
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Bitacora.pnlBitacora.tablabitacora.getModel();
+        DefaultTableModel modelot = (DefaultTableModel) Ventanas.Modulo_Bitacora.pnlBitacora.tabla.getModel();
+
+        modelot.setRowCount(0);
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        String sql = "";
+        if (busca.equals("")) {
+            sql = Clases.Bitacora.LISTARM;
+        } else {        
+            //sql = "select ID_Medico,concat_ws(' ',Nombres,Apellidos) as Medico, Cedula from medico where concat_ws(' ',Nombres,Apellidos) LIKE '%" + busca +"%' OR ID_Medico LIKE '"+ busca +"%' OR Cedula LIKE '"+ busca +"%' and Estado = true";
+            //sql = "select clientes(' ',Nombres,Apellidos) as Medico, Cedula from medico where concat_ws(' ',Nombres,Apellidos) LIKE '%" + busca +"%' OR ID_Medico LIKE '"+ busca +"%' OR Cedula LIKE '"+ busca +"%' and Estado = true";
+            sql = "SELECT ID_cliente, Nombre_cliente FROM clientes WHERE (Nombre_cliente LIKE'" + busca + "%' OR ID_cliente LIKE'"+busca+"%')"
+                    + " ORDER BY Nombre_cliente";
+           }
+        String datos[] = new String[2];
+        try {           
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                datos [0] = String.valueOf(rs.getInt(1));
+                datos [1] = rs.getString(2);
+//                datos [2] = rs.getString(3);
+                
+                modelo.addRow(datos);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
     
     
