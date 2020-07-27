@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="200" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="150" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -30,12 +30,12 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="ffcfdec3-d95f-43c8-9c72-c12d622427ab"/>
-	<parameter name="ID_Cliente" class="java.lang.Integer">
+	<parameter name="ID_Cotizacion" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[select ID_Cotizacion,Nombre_Servicio,Precio from servicios
-where ID_Cotizacion=$P{ID_Cliente}]]>
+where ID_Cotizacion=$P{ID_Cotizacion}]]>
 	</queryString>
 	<field name="ID_Cotizacion" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -49,9 +49,9 @@ where ID_Cotizacion=$P{ID_Cliente}]]>
 	<group name="report">
 		<groupExpression><![CDATA[$F{ID_Cotizacion}]]></groupExpression>
 		<groupHeader>
-			<band height="50">
+			<band height="2">
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="28" y="30" width="210" height="20" forecolor="#000000" backcolor="#FF9900" uuid="a26e166d-c40e-4147-9bca-025f3baaf464"/>
+					<reportElement style="Column header" mode="Opaque" x="-17" y="-18" width="274" height="20" forecolor="#000000" backcolor="#FF9900" uuid="a26e166d-c40e-4147-9bca-025f3baaf464"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -62,10 +62,10 @@ where ID_Cotizacion=$P{ID_Cliente}]]>
 					<textElement textAlignment="Left">
 						<font fontName="Arial" size="10" isBold="true"/>
 					</textElement>
-					<text><![CDATA[                                   Servicio]]></text>
+					<text><![CDATA[                                           Servicio]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="238" y="30" width="210" height="20" forecolor="#000000" backcolor="#FF9900" uuid="ba089bef-8452-4352-a581-53b348851326"/>
+					<reportElement style="Column header" mode="Opaque" x="257" y="-18" width="264" height="20" forecolor="#000000" backcolor="#FF9900" uuid="ba089bef-8452-4352-a581-53b348851326"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -76,7 +76,7 @@ where ID_Cotizacion=$P{ID_Cliente}]]>
 					<textElement textAlignment="Left">
 						<font fontName="Arial" size="10" isBold="true"/>
 					</textElement>
-					<text><![CDATA[                                    Precio]]></text>
+					<text><![CDATA[                                           Precio]]></text>
 				</staticText>
 			</band>
 		</groupHeader>
@@ -85,13 +85,29 @@ where ID_Cotizacion=$P{ID_Cliente}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="20" splitType="Stretch">
+		<band height="21" splitType="Stretch">
 			<textField>
-				<reportElement x="307" y="0" width="100" height="20" uuid="7b31d39c-2f13-4ca7-8769-d0ceb70dd753"/>
-				<textFieldExpression><![CDATA[$F{Precio}]]></textFieldExpression>
+				<reportElement x="257" y="0" width="264" height="20" uuid="7b31d39c-2f13-4ca7-8769-d0ceb70dd753"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["$"+$F{Precio}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="79" y="0" width="100" height="20" uuid="0ed2ea8b-2cd4-4aaa-a005-a3de69a2b3b4"/>
+				<reportElement x="-17" y="0" width="274" height="20" uuid="0ed2ea8b-2cd4-4aaa-a005-a3de69a2b3b4"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{Nombre_Servicio}]]></textFieldExpression>
 			</textField>
 		</band>

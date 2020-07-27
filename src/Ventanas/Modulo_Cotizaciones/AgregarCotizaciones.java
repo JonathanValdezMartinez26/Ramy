@@ -61,6 +61,8 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 import Ventanas.Modulo_Cotizaciones.Opciones;
+import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
+import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
 
 
@@ -1124,17 +1126,34 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbTransportesActionPerformed
 
     private void tabla1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyPressed
+        int press = evt.getKeyCode();
+        if (this.tabla1.getSelectedRow() != -1 && press == 127) {
+            int ID_Cotizacion;
+            ID_Cotizacion = Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());
+            int a1 = Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(), 0).toString());
+            DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
+            Opciones.eliminarServicio(a1);
+            Opciones.llenarServicio(ID_Cotizacion);
+            this.tabla1.getSelectionModel().setSelectionInterval(0, 0);
 
+        } 
+//        else {
+//            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+//            AC.msj1.setText("¡Porfavor Seleccione!");
+//            AC.msj2.setText("Un Servicio");
+//            AC.msj3.setText("Para Eliminarlo");
+//            AC.setVisible(true);
+//        }
     }//GEN-LAST:event_tabla1KeyPressed
 
     private void tabla1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyTyped
-        int ID_Cotizacion;        
-        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());        
-        int a1=Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(),0).toString());
-        DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
-        Opciones.eliminarServicio(a1);
-        Opciones.llenarServicio(ID_Cotizacion);
-        this.tabla1.getSelectionModel().setSelectionInterval(0,0);
+//        int ID_Cotizacion;        
+//        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());        
+//        int a1=Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(),0).toString());
+//        DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
+//        Opciones.eliminarServicio(a1);
+//        Opciones.llenarServicio(ID_Cotizacion);
+//        this.tabla1.getSelectionModel().setSelectionInterval(0,0);
 
     }//GEN-LAST:event_tabla1KeyTyped
 
@@ -1202,7 +1221,7 @@ public static void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\RVC.RVC-PC\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            String archivo = "C:\\Users\\RVC.RVC-PC\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionD_1.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);
