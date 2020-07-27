@@ -65,7 +65,7 @@
 		<groupHeader>
 			<band height="30">
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="22" y="15" width="518" height="15" forecolor="#000000" backcolor="#33FFCC" uuid="45da5608-a402-4178-8cd2-a2c5661e093c">
+					<reportElement style="Column header" mode="Opaque" x="6" y="15" width="539" height="15" forecolor="#000000" backcolor="#33FFCC" uuid="45da5608-a402-4178-8cd2-a2c5661e093c">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 					</reportElement>
 					<box>
@@ -85,7 +85,7 @@
 		<groupFooter>
 			<band height="275">
 				<subreport>
-					<reportElement x="4" y="19" width="530" height="100" uuid="6e265f31-c9ec-4fd1-aa14-56fc92b49eb1"/>
+					<reportElement x="3" y="27" width="530" height="100" uuid="6e265f31-c9ec-4fd1-aa14-56fc92b49eb1"/>
 					<subreportParameter name="ID_Cotizacion">
 						<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
 					</subreportParameter>
@@ -217,7 +217,7 @@
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cotización de Servicio]]></text>
+				<text><![CDATA[Cotización de Consolidaddo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="320" y="150" width="79" height="16" forecolor="#000000" uuid="48736689-56f8-489c-a354-00ae1364fa11"/>
@@ -375,7 +375,7 @@
 	<detail>
 		<band height="36" splitType="Stretch">
 			<staticText>
-				<reportElement style="Column header" x="22" y="0" width="324" height="15" forecolor="#000000" uuid="f0d0b835-410c-4c05-b7e5-8adf0e5c8259">
+				<reportElement style="Column header" x="6" y="0" width="289" height="15" forecolor="#000000" uuid="f0d0b835-410c-4c05-b7e5-8adf0e5c8259">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 				</reportElement>
 				<box>
@@ -391,7 +391,7 @@
 				<text><![CDATA[Concepto]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="22" y="15" width="324" height="20" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>
+				<reportElement x="6" y="15" width="289" height="20" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -399,11 +399,11 @@
 					<bottomPen lineWidth="0.75"/>
 					<rightPen lineWidth="0.75"/>
 				</box>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{Consolidado}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Column header" x="346" y="0" width="194" height="15" forecolor="#000000" uuid="f3bfa76d-dd0b-442b-bae4-3eba3736ddc5">
+				<reportElement style="Column header" x="295" y="0" width="250" height="15" forecolor="#000000" uuid="f3bfa76d-dd0b-442b-bae4-3eba3736ddc5">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 				</reportElement>
 				<box>
@@ -419,7 +419,7 @@
 				<text><![CDATA[Precio]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="346" y="15" width="194" height="20" uuid="3a1e2747-509e-4d7d-b5bc-29bfa2651ba6"/>
+				<reportElement x="295" y="15" width="250" height="20" uuid="3a1e2747-509e-4d7d-b5bc-29bfa2651ba6"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -427,13 +427,13 @@
 					<bottomPen lineWidth="0.75"/>
 					<rightPen lineWidth="0.75"/>
 				</box>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["$"+$F{Precio}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="15" splitType="Stretch">
+		<band height="6" splitType="Stretch">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="1" width="555" height="1" uuid="cb229859-ab9a-4aa3-afa2-84439642f4ee"/>
 				<graphicElement>

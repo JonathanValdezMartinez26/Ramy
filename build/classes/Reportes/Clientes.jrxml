@@ -63,38 +63,14 @@
 	<title>
 		<band height="165" splitType="Stretch">
 			<staticText>
-				<reportElement style="Column header" x="132" y="1" width="206" height="15" forecolor="#000000" uuid="37041fcc-853e-4468-b5f9-747cd093a1f4"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="11" isBold="true"/>
+				<reportElement style="Column header" x="361" y="90" width="183" height="20" forecolor="#000000" uuid="e42c0138-f287-4c21-b588-0923aa318cb2"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="321" y="116" width="69" height="15" forecolor="#000000" backcolor="#FFFF01" uuid="06d0384d-c45c-4549-aee8-7f568f38f6a7"/>
-				<box>
-					<pen lineWidth="0.75" lineColor="#000000"/>
-					<topPen lineWidth="0.75" lineColor="#000000"/>
-					<leftPen lineWidth="0.75" lineColor="#000000"/>
-					<bottomPen lineWidth="0.75" lineColor="#000000"/>
-					<rightPen lineWidth="0.75" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[FECHA:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="Column header" mode="Transparent" x="132" y="42" width="258" height="20" forecolor="#000000" backcolor="#000000" uuid="90aff725-34a6-497a-b505-72d62cde547f">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement verticalAlignment="Bottom">
-					<font fontName="Arial" size="13" isBold="true" isUnderline="false"/>
-				</textElement>
-				<text><![CDATA[Express Logistics Ramy,  S.A. de C.V. ]]></text>
+				<text><![CDATA[               RAMY-GGF-09; Rev. 0]]></text>
 			</staticText>
 			<textField pattern="dd-MMM-yyyy" isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="390" y="116" width="154" height="15" isRemoveLineWhenBlank="true" forecolor="#333333" backcolor="#000000" uuid="975a9aa1-a1b6-4890-8c77-da2ea75ae352"/>
+				<reportElement mode="Transparent" x="395" y="121" width="154" height="15" isRemoveLineWhenBlank="true" forecolor="#333333" backcolor="#000000" uuid="7b418447-c26a-41aa-b7fd-ce4c32fd42b2"/>
 				<box>
 					<pen lineWidth="0.75" lineColor="#000000"/>
 					<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -109,18 +85,11 @@
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="8" y="16" width="104" height="45" uuid="bf6a1572-9351-4c23-8d11-0e7608953a3f"/>
+				<reportElement x="12" y="15" width="104" height="45" uuid="d3b3bb42-2651-475b-bccc-2b857f88b28a"/>
 				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
 			</image>
-			<staticText>
-				<reportElement style="Column header" x="321" y="131" width="79" height="16" forecolor="#000000" uuid="3fc55840-8683-4f07-849e-aeb9899ebc26"/>
-				<textElement>
-					<font fontName="Arial" size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
 			<line>
-				<reportElement x="11" y="81" width="532" height="1" uuid="4a2ba47f-b227-4c9a-ace8-1cea832c472f">
+				<reportElement x="16" y="86" width="532" height="1" uuid="30d6b8f6-9ace-4329-ad50-97b1ed3476b2">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -129,25 +98,56 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="132" y="61" width="206" height="19" forecolor="#000000" uuid="279ffe81-ae25-4a79-b092-a6f64c023c45"/>
+				<reportElement style="Column header" x="136" y="60" width="206" height="19" forecolor="#000000" uuid="adf8e941-d07a-48f7-9a86-ea8a7714d27b"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="356" y="81" width="183" height="20" forecolor="#000000" uuid="daa28988-b77b-4b96-8d15-0511a54a6682"/>
-				<textElement textAlignment="Right" verticalAlignment="Top">
-					<font fontName="Arial" size="10" isBold="false"/>
+				<reportElement style="Column header" x="136" y="0" width="206" height="15" forecolor="#000000" uuid="f33f40eb-f8fb-4e83-a632-2d945097d8a2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<text><![CDATA[               RAMY-GGF-09; Rev. 0]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="390" y="42" width="145" height="20" forecolor="#000000" uuid="a11ee576-7127-4502-bdb0-5f593ed809d3"/>
+				<reportElement style="Column header" mode="Transparent" x="126" y="35" width="268" height="20" forecolor="#000000" backcolor="#000000" uuid="1293fd94-c3d4-42a6-a746-7025aae70851">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="13" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Express Logistics Ramy,  S.A. de C.V. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="326" y="136" width="79" height="22" forecolor="#000000" uuid="905eea83-9d06-444b-b536-631b4d408d8f"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="394" y="35" width="145" height="20" forecolor="#000000" uuid="fc36bdfa-2768-4e4c-b3b2-4ee1730d4793"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Clientes de la Empresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="326" y="121" width="69" height="15" forecolor="#000000" backcolor="#FFFF01" uuid="34619f4c-d4fd-49c6-b0e2-1acf6dbc1c23"/>
+				<box>
+					<pen lineWidth="0.75" lineColor="#000000"/>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -207,45 +207,46 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="21" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="cb229859-ab9a-4aa3-afa2-84439642f4ee"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
+		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement style="Detail" x="0" y="0" width="63" height="16" uuid="04d8201a-dd27-40b2-bf98-823dbed7fbae">
+				<reportElement style="Detail" x="0" y="0" width="63" height="21" uuid="04d8201a-dd27-40b2-bf98-823dbed7fbae">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="114b4394-6dc3-4147-8fc6-3b3cefed4954"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{ID_cliente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="249" y="0" width="109" height="16" uuid="7b6d4540-110d-42ac-8d86-20bbb293330a">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{Atencion}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="Detail" x="101" y="0" width="109" height="16" uuid="3b39d711-9eb0-4bce-9388-6d14b6144afb">
+				<reportElement style="Detail" x="101" y="0" width="109" height="23" uuid="3b39d711-9eb0-4bce-9388-6d14b6144afb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{Nombre_cliente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="403" y="0" width="109" height="16" uuid="8dfa90c3-6222-42d6-8838-67fdbd97a2fc">
+				<reportElement style="Detail" x="403" y="0" width="109" height="21" uuid="8dfa90c3-6222-42d6-8838-67fdbd97a2fc">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{Localidad}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement style="Detail" x="252" y="0" width="109" height="23" uuid="7b6d4540-110d-42ac-8d86-20bbb293330a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Atencion}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="36" splitType="Stretch"/>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="555" height="1" uuid="cb229859-ab9a-4aa3-afa2-84439642f4ee"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band height="20" splitType="Stretch">

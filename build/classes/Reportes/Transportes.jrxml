@@ -76,7 +76,7 @@
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" mode="Transparent" x="131" y="41" width="258" height="20" forecolor="#000000" backcolor="#000000" uuid="a068590c-5202-4d34-9d08-50a783394f88">
+				<reportElement style="Column header" mode="Transparent" x="113" y="39" width="265" height="20" forecolor="#000000" backcolor="#000000" uuid="a068590c-5202-4d34-9d08-50a783394f88">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -128,14 +128,14 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="355" y="80" width="183" height="20" forecolor="#000000" uuid="6f0e7009-7704-4a8c-82db-6c6b7c91dc8b"/>
+				<reportElement style="Column header" x="351" y="85" width="183" height="20" forecolor="#000000" uuid="6f0e7009-7704-4a8c-82db-6c6b7c91dc8b"/>
 				<textElement textAlignment="Right" verticalAlignment="Top">
 					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[               RAMY-GGF-09; Rev. 0]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="389" y="40" width="145" height="20" forecolor="#000000" uuid="3e565f48-b047-44c9-a4f6-bc3874f226a6"/>
+				<reportElement style="Column header" x="378" y="40" width="156" height="20" forecolor="#000000" uuid="3e565f48-b047-44c9-a4f6-bc3874f226a6"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
@@ -191,28 +191,22 @@
 	</columnHeader>
 	<detail>
 		<band height="21" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="cb229859-ab9a-4aa3-afa2-84439642f4ee"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
 			<textField>
-				<reportElement style="Detail" x="0" y="0" width="63" height="16" uuid="04d8201a-dd27-40b2-bf98-823dbed7fbae">
+				<reportElement style="Detail" x="0" y="0" width="63" height="21" uuid="04d8201a-dd27-40b2-bf98-823dbed7fbae">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="114b4394-6dc3-4147-8fc6-3b3cefed4954"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{ID_Transporte}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="113" y="0" width="109" height="16" uuid="3b39d711-9eb0-4bce-9388-6d14b6144afb">
+				<reportElement style="Detail" x="113" y="0" width="109" height="21" uuid="3b39d711-9eb0-4bce-9388-6d14b6144afb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{Nombre_Transporte}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="366" y="0" width="109" height="16" uuid="7b6d4540-110d-42ac-8d86-20bbb293330a">
+				<reportElement style="Detail" x="366" y="0" width="109" height="21" uuid="7b6d4540-110d-42ac-8d86-20bbb293330a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -221,7 +215,14 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="88" splitType="Stretch"/>
+		<band height="88" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="555" height="1" uuid="cb229859-ab9a-4aa3-afa2-84439642f4ee"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band height="20" splitType="Stretch">

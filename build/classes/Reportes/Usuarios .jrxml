@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="154"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
@@ -82,7 +82,7 @@
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" mode="Transparent" x="132" y="40" width="258" height="20" forecolor="#000000" backcolor="#000000" uuid="8880cb2d-e00b-4ee3-93a1-f8aad3203c82">
+				<reportElement style="Column header" mode="Transparent" x="124" y="37" width="279" height="20" forecolor="#000000" backcolor="#000000" uuid="8880cb2d-e00b-4ee3-93a1-f8aad3203c82">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -118,7 +118,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<line>
-				<reportElement x="11" y="79" width="532" height="1" uuid="ff7a88b0-3df1-455e-bbbc-d02e7bae4c12">
+				<reportElement x="11" y="82" width="532" height="1" uuid="ff7a88b0-3df1-455e-bbbc-d02e7bae4c12">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -127,21 +127,21 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="132" y="59" width="206" height="19" forecolor="#000000" uuid="e0c002d3-8ae5-43d3-a009-0a74b6dafc08"/>
+				<reportElement style="Column header" x="132" y="62" width="206" height="19" forecolor="#000000" uuid="e0c002d3-8ae5-43d3-a009-0a74b6dafc08"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="356" y="79" width="183" height="20" forecolor="#000000" uuid="301310d8-78f9-4d31-bc36-4992b0d3175b"/>
+				<reportElement style="Column header" x="357" y="83" width="183" height="20" forecolor="#000000" uuid="301310d8-78f9-4d31-bc36-4992b0d3175b"/>
 				<textElement textAlignment="Right" verticalAlignment="Top">
 					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[               RAMY-GGF-09; Rev. 0]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="390" y="39" width="145" height="20" forecolor="#000000" uuid="d5694c38-cda5-489d-80f6-9fc381a8aa4b"/>
+				<reportElement style="Column header" x="406" y="37" width="134" height="20" forecolor="#000000" uuid="d5694c38-cda5-489d-80f6-9fc381a8aa4b"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
@@ -206,35 +206,29 @@
 	</columnHeader>
 	<detail>
 		<band height="21" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="cb229859-ab9a-4aa3-afa2-84439642f4ee"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
 			<textField>
-				<reportElement style="Detail" x="0" y="0" width="63" height="16" uuid="04d8201a-dd27-40b2-bf98-823dbed7fbae">
+				<reportElement style="Detail" x="0" y="0" width="63" height="21" uuid="04d8201a-dd27-40b2-bf98-823dbed7fbae">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="114b4394-6dc3-4147-8fc6-3b3cefed4954"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{ID_Usuario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="81" y="0" width="139" height="16" uuid="3b39d711-9eb0-4bce-9388-6d14b6144afb">
+				<reportElement style="Detail" x="81" y="0" width="139" height="21" uuid="3b39d711-9eb0-4bce-9388-6d14b6144afb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{Nombre_usuario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="277" y="0" width="126" height="16" uuid="7b6d4540-110d-42ac-8d86-20bbb293330a">
+				<reportElement style="Detail" x="261" y="0" width="142" height="21" uuid="7b6d4540-110d-42ac-8d86-20bbb293330a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{Correo_Electronico}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="424" y="0" width="113" height="16" uuid="636331d9-1ed5-469d-a86f-c85bf23fe66c">
+				<reportElement style="Detail" x="424" y="0" width="113" height="21" uuid="636331d9-1ed5-469d-a86f-c85bf23fe66c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -243,7 +237,14 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="88" splitType="Stretch"/>
+		<band height="88" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="555" height="1" uuid="cb229859-ab9a-4aa3-afa2-84439642f4ee"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band height="20" splitType="Stretch">

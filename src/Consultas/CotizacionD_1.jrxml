@@ -516,32 +516,32 @@
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="283" y="0" width="68" height="23" backcolor="#FFFFFF" uuid="faf51273-7f5a-4641-af8a-355ed4d2dc5f"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{CAMIONETA_TRES_CINCO_TON}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="351" y="0" width="60" height="23" backcolor="#FFFFFF" uuid="6bffa775-e756-488b-a7c8-78ea816c6429"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{TORTHON}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="220" y="0" width="63" height="23" backcolor="#FFFFFF" uuid="627ee650-20f4-4e6e-b552-5ab8a564e7a0"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{CAMIONETA_UNO_CINCO_TON}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="462" y="0" width="44" height="23" backcolor="#FFFFFF" uuid="27549562-da04-4c65-b145-96467c0f5ee9"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{FULL}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="411" y="0" width="51" height="23" backcolor="#FFFFFF" uuid="e6004563-af3d-4263-8780-158587ae8937"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{TRÁILER}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="506" y="0" width="41" height="23" backcolor="#FFFFFF" uuid="42c85c04-e616-4cde-8f91-82c1d8d66cc0"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{FULL}.intValue()]]></textFieldExpression>
 			</textField>
 		</band>

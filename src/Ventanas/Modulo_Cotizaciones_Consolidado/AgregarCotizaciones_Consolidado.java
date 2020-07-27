@@ -683,7 +683,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
         txtTipo_Concepto.setBorder(null);
         txtTipo_Concepto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtTipo_Concepto.setPlaceholder("Ej. Remolque");
+        txtTipo_Concepto.setPlaceholder("Ej. Tarima");
         txtTipo_Concepto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTipo_ConceptoKeyTyped(evt);
