@@ -284,9 +284,6 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         }
          }
                         
-                   
-                
-        
     
     ////////////////////////////////////////////////////////////////////////
     
