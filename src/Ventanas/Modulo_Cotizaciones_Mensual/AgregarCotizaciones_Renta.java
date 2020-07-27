@@ -442,6 +442,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         tabla1.setRowHeight(30);
         tabla1.getTableHeader().setReorderingAllowed(false);
         tabla1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tabla1KeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 tabla1KeyTyped(evt);
             }
@@ -980,15 +983,35 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
     }//GEN-LAST:event_cmbPeriodoKeyTyped
 
     private void tabla1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyTyped
-                int ID_Cotizacion;        
-        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());        
-        int a1=Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(),0).toString());
-        DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
-        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.eliminarServicio(a1);
-        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicio(ID_Cotizacion);
-        this.tabla1.getSelectionModel().setSelectionInterval(0,0);
+//        int press=evt.getKeyCode();
+//        
+//        JOptionPane.showMessageDialog(null,"La tecla presionada es "+press);
+        
 
     }//GEN-LAST:event_tabla1KeyTyped
+
+    private void tabla1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyPressed
+        // TODO add your handling code here:
+        int press=evt.getKeyCode();        
+        if(this.tabla1.getSelectedRow()!=-1 && press==127 ){
+            int ID_Cotizacion;
+            ID_Cotizacion = Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());
+            int a1 = Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(), 0).toString());
+            DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
+            Ventanas.Modulo_Cotizaciones_Mensual.Opciones.eliminarServicio(a1);
+            Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicio(ID_Cotizacion);
+            this.tabla1.getSelectionModel().setSelectionInterval(0, 0);
+
+        }
+//        else{
+//            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+//                                AC.msj1.setText("¡Porfavor Seleccione!");
+//                                AC.msj2.setText("Un Servicio");
+//                                AC.msj3.setText("Para Eliminarlo");
+//                                AC.setVisible(true);
+//        }
+        
+    }//GEN-LAST:event_tabla1KeyPressed
 
     public static void main(String args[]) {
      

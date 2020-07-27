@@ -5,24 +5,19 @@
             <url>src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones.java</url>
             <bookmark id="1">
                 <name/>
-                <line>371</line>
+                <line>373</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
-=======
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Consultas/CotizacionD.jrxml</file>
->>>>>>> b5463d1c693e7dd29a096d5493d84e8df136186f
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones_Consolidado/Opciones.java</file>
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones_Mensual/Opciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Consultas/Cotizacion_1.jrxml</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
->>>>>>> ee56575acaa20f81bcb552b74ca1d3526602824b
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones_Mensual/AgregarCotizaciones_Renta.java</file>
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones_Consolidado/AgregarCotizaciones_Consolidado.java</file>
         </group>
     </open-files>
 </project-private>
