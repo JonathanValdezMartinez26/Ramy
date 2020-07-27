@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="216"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
@@ -105,16 +105,16 @@ ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
 	<title>
 		<band height="171" splitType="Stretch">
 			<textField>
-				<reportElement style="Detail" x="236" y="156" width="163" height="15" uuid="3ffc4215-c080-4510-92d6-11edb9c5d998">
+				<reportElement style="Detail" x="280" y="156" width="163" height="15" uuid="3ffc4215-c080-4510-92d6-11edb9c5d998">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nombre_Cliente}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Column header" x="11" y="156" width="225" height="15" forecolor="#000000" uuid="41a24bc9-7bda-487f-8ba6-cc9195e8d198">
+				<reportElement style="Column header" x="11" y="156" width="267" height="15" forecolor="#000000" uuid="41a24bc9-7bda-487f-8ba6-cc9195e8d198">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -127,7 +127,7 @@ ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
 				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement style="Column header" x="399" y="40" width="145" height="20" forecolor="#000000" uuid="60bffe33-0788-457a-94e7-23bce2b43c4c"/>
+				<reportElement style="Column header" x="419" y="40" width="125" height="20" forecolor="#000000" uuid="60bffe33-0788-457a-94e7-23bce2b43c4c"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
@@ -155,7 +155,7 @@ ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="330" y="130" width="79" height="16" forecolor="#000000" uuid="a80d2e3d-d91e-4816-ad3f-543d00e0ca8b"/>
+				<reportElement style="Column header" x="330" y="130" width="79" height="26" forecolor="#000000" uuid="a80d2e3d-d91e-4816-ad3f-543d00e0ca8b"/>
 				<textElement>
 					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
@@ -200,7 +200,7 @@ ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" mode="Transparent" x="141" y="41" width="258" height="20" forecolor="#000000" backcolor="#000000" uuid="c6f5d47f-41fc-49d5-b27e-bea750d93497">
+				<reportElement style="Column header" mode="Transparent" x="141" y="41" width="278" height="20" forecolor="#000000" backcolor="#000000" uuid="c6f5d47f-41fc-49d5-b27e-bea750d93497">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -209,15 +209,22 @@ ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
 				</textElement>
 				<text><![CDATA[Express Logistics Ramy,  S.A. de C.V. ]]></text>
 			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="399" y="99" width="79" height="16" forecolor="#000000" uuid="934c1dc4-35e8-48ce-96ad-38b8520317ca"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<detail>
-		<band height="18" splitType="Stretch">
+		<band height="26" splitType="Stretch">
 			<textField pattern="">
-				<reportElement style="table_TD" mode="Transparent" x="11" y="1" width="295" height="16" uuid="f96294fa-239c-4e4d-a09c-9ce0dcac2123">
+				<reportElement style="table_TD" mode="Transparent" x="11" y="0" width="295" height="26" uuid="f96294fa-239c-4e4d-a09c-9ce0dcac2123">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -226,18 +233,18 @@ ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
 				<textFieldExpression><![CDATA[$F{Destino}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table_CH" x="306" y="1" width="235" height="16" backcolor="#FFFFFF" uuid="0eda7d9f-8df7-4a43-a7f9-adcee1cba780">
+				<reportElement style="table_CH" x="307" y="0" width="234" height="26" backcolor="#FFFFFF" uuid="0eda7d9f-8df7-4a43-a7f9-adcee1cba780">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Calibri" size="12"/>
+					<font fontName="Calibri" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nombre_Transporte}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="22">
+		<band height="20">
 			<textField>
 				<reportElement style="Column header" x="482" y="0" width="66" height="20" uuid="23192db4-92f8-4003-a6e4-40f4a7b9e5df"/>
 				<textElement>
