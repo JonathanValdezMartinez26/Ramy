@@ -4,7 +4,11 @@
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
+<<<<<<< HEAD
 	<property name="ireport.y" value="160"/>
+=======
+	<property name="ireport.y" value="127"/>
+>>>>>>> b5463d1c693e7dd29a096d5493d84e8df136186f
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -98,7 +102,7 @@
 	<group name="origen">
 		<groupExpression><![CDATA[$F{Origen}]]></groupExpression>
 		<groupHeader>
-			<band height="41">
+			<band height="42">
 				<staticText>
 					<reportElement style="Column header" mode="Opaque" x="9" y="6" width="210" height="20" forecolor="#000000" backcolor="#FF9900" uuid="f3db395b-0d1a-4e5e-9eaa-09b8884fe810"/>
 					<box>
@@ -220,7 +224,7 @@
 	<group name="ret">
 		<groupExpression><![CDATA[$F{Nombre_Transporte}]]></groupExpression>
 		<groupHeader>
-			<band height="3"/>
+			<band/>
 		</groupHeader>
 		<groupFooter>
 			<band height="107">

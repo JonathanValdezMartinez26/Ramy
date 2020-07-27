@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="102"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -33,6 +33,9 @@
 	<parameter name="ID_Cotizacion" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\"]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT * FROM `Reporte_consolidacion` WHERE ID_Cotizacion=$P{ID_Cotizacion}]]>
 	</queryString>
@@ -57,11 +60,134 @@
 	<field name="Precio" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<group name="report">
+		<groupExpression><![CDATA[$P{ID_Cotizacion}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="22" y="35" width="518" height="15" forecolor="#000000" backcolor="#33FFCC" uuid="45da5608-a402-4178-8cd2-a2c5661e093c">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Consolidado]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="236">
+				<subreport>
+					<reportElement x="10" y="0" width="530" height="100" uuid="6e265f31-c9ec-4fd1-aa14-56fc92b49eb1"/>
+					<subreportParameter name="ID_Cotizacion">
+						<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement style="Column header" x="2" y="143" width="540" height="16" forecolor="#000000" uuid="e7b14e76-7613-4daa-a2d5-1c18561d7dec"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[**PRECIOS LIBRES DE MANIOBRA DE CARGA Y DESCARGA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="68" y="205" width="171" height="15" forecolor="#000000" uuid="4862c380-5dbf-4424-ac9a-bb5c598abfdf"/>
+					<textElement textAlignment="Left">
+						<font fontName="Verdana" size="9" isBold="false"/>
+					</textElement>
+					<text><![CDATA[ALFONSO RAMIREZ VALDEZ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="177" y="173" width="206" height="13" forecolor="#000000" uuid="248ef7e4-6522-4f6f-9b18-2a9df1d0d718"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ATENTAMENTE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="6" y="110" width="480" height="16" forecolor="#000000" uuid="5be9b344-41e4-405f-bef8-ba21c54f20b3"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="9" isBold="false"/>
+					</textElement>
+					<text><![CDATA[              A ESTOS PRECIOS SE LES AUMENTARA EL IMPUESTO AL VALOR AGREGADO (I.V.A)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="346" y="221" width="161" height="15" forecolor="#000000" uuid="ccaf5056-2223-4fe5-bbc7-00c88bdb3198"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DEPTO. DE FACTURACIÓN ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="186" y="160" width="206" height="13" forecolor="#000000" uuid="98d377e4-5994-4010-82ae-56581a06bdf5"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<line>
+					<reportElement x="58" y="197" width="181" height="1" uuid="7add5265-bbca-4d16-8c39-5f43d19453e0">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement style="Column header" x="2" y="126" width="542" height="16" forecolor="#000000" uuid="19390738-f1f6-4cc5-b788-ad67c6cf83be"/>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[                    LAS CARGAS VIAJAN POR CUENTA Y RIESGO DEL REMITENTE Y/O DESTINATARIO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="58" y="220" width="161" height="15" forecolor="#000000" uuid="099e4e80-33b2-4509-af07-79267c23b524"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[GERENTE GENERAL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="366" y="206" width="153" height="15" forecolor="#000000" uuid="6e34a2d2-059c-48c1-9d14-461bb8f9a1d0"/>
+					<textElement textAlignment="Left">
+						<font fontName="Verdana" size="9" isBold="false"/>
+					</textElement>
+					<text><![CDATA[MARIO JESUS SALAZAR SALAZAR]]></text>
+				</staticText>
+				<line>
+					<reportElement x="338" y="198" width="181" height="1" uuid="a4d38fc4-b1ce-47ba-aace-10f2c3077e1c">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement style="Column header" x="177" y="100" width="206" height="10" forecolor="#000000" uuid="b62433ac-b1d7-4be1-8f67-cd4c6c1e2a8e"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="177" y="186" width="206" height="11" forecolor="#000000" uuid="ffda2ee5-fa81-414a-a482-d7de270d557c"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="185" splitType="Stretch">
+		<band height="226" splitType="Stretch">
 			<line>
 				<reportElement x="0" y="53" width="550" height="1" uuid="f7a5d605-26cd-4685-979b-7403dba8a009">
 					<property name="local_mesure_unitheight" value="pixel"/>
@@ -190,10 +316,10 @@
 	<pageHeader>
 		<band splitType="Stretch"/>
 	</pageHeader>
-	<columnHeader>
-		<band height="60" splitType="Stretch">
+	<detail>
+		<band height="69" splitType="Stretch">
 			<staticText>
-				<reportElement style="Column header" x="72" y="15" width="262" height="15" forecolor="#000000" uuid="f0d0b835-410c-4c05-b7e5-8adf0e5c8259">
+				<reportElement style="Column header" x="22" y="0" width="324" height="15" forecolor="#000000" uuid="f0d0b835-410c-4c05-b7e5-8adf0e5c8259">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 				</reportElement>
 				<box>
@@ -208,17 +334,8 @@
 				</textElement>
 				<text><![CDATA[Concepto]]></text>
 			</staticText>
-			<staticText>
-				<reportElement style="Column header" mode="Opaque" x="72" y="0" width="384" height="15" forecolor="#000000" backcolor="#33FFCC" uuid="45da5608-a402-4178-8cd2-a2c5661e093c">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[Consolidado]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="72" y="30" width="262" height="20" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>
+				<reportElement x="22" y="15" width="324" height="20" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -230,7 +347,7 @@
 				<textFieldExpression><![CDATA[$F{Consolidado}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Column header" x="334" y="15" width="122" height="15" forecolor="#000000" uuid="f3bfa76d-dd0b-442b-bae4-3eba3736ddc5">
+				<reportElement style="Column header" x="346" y="0" width="194" height="15" forecolor="#000000" uuid="f3bfa76d-dd0b-442b-bae4-3eba3736ddc5">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 				</reportElement>
 				<box>
@@ -246,7 +363,7 @@
 				<text><![CDATA[Precio]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="334" y="30" width="122" height="20" uuid="3a1e2747-509e-4d7d-b5bc-29bfa2651ba6"/>
+				<reportElement x="346" y="15" width="194" height="20" uuid="3a1e2747-509e-4d7d-b5bc-29bfa2651ba6"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -258,12 +375,9 @@
 				<textFieldExpression><![CDATA["$"+$F{Precio}]]></textFieldExpression>
 			</textField>
 		</band>
-	</columnHeader>
-	<detail>
-		<band height="69" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
-		<band height="88" splitType="Stretch">
+		<band height="6" splitType="Stretch">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="1" width="555" height="1" uuid="cb229859-ab9a-4aa3-afa2-84439642f4ee"/>
 				<graphicElement>
