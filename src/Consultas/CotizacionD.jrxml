@@ -4,7 +4,11 @@
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
+<<<<<<< HEAD
 	<property name="ireport.y" value="858"/>
+=======
+	<property name="ireport.y" value="85"/>
+>>>>>>> ee56575acaa20f81bcb552b74ca1d3526602824b
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
