@@ -7,6 +7,7 @@ import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import Clases.Conexion;
 import static Ventanas.Modulo_Bitacora.pnlBitacora.buscar;
+import static Ventanas.Modulo_Bitacora.pnlBitacora.tablabitacora;
 import Ventanas.Modulo_Servicios.ModificarServicio;
 import java.awt.Color;
 import java.awt.MouseInfo;
@@ -27,22 +28,33 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     public pnlBitacoraAjustes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        if(buscar.getText().equals(""))
+        if(buscarClienteAjuste.getText().equals(""))
         {
-            Opciones.listarAjustes("");
+            Opciones.listarClientesAjustes("");
         }
         else
         {
-            Opciones.listar(buscar.getText());
+            Opciones.listarClientesAjustes(buscarClienteAjuste.getText());
         }
         
         
         setLocationRelativeTo(null);
         AWTUtilities.setOpaque(this, false);
-        tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
-        this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
-        this.tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tablaDatosAjuste.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.tablaDatosAjuste.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.tablaDatosAjuste.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.tablaDatosAjuste.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        tablabitacora.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.tablabitacora.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.tablabitacora.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.tablabitacora.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        tablaFAjuste.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.tablaFAjuste.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.tablaFAjuste.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.tablaFAjuste.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
@@ -55,11 +67,11 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     
      public void Modificar()
     {
-        int Fila = tabla.getSelectedRow();
+        int Fila = tablaDatosAjuste.getSelectedRow();
       
             if(Fila >= 0)
         {
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            int ID = Integer.parseInt(tablaDatosAjuste.getValueAt(Fila, 0).toString());
             ModificarTipoServicio ME = new ModificarTipoServicio(null, true);
             ME.CargarDatos(ID);
 //            ME.setVE(this);
@@ -75,6 +87,16 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         
         
     }
+     public static void CargarDatosAjustes(String busca,int ID,String fecha){
+     
+         Opciones.listarDatosAjustes(busca, ID, fecha);
+         
+     }
+     
+    public static void cargarBusquedaDatosAjuste(String busca){
+        
+        
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -92,15 +114,15 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablabitacora = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
-        buscar = new app.bolivia.swing.JCTextField();
+        buscarClienteAjuste = new app.bolivia.swing.JCTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        buscarBitacora = new app.bolivia.swing.JCTextField();
+        buscarDatosAjuste = new app.bolivia.swing.JCTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
+        tablaDatosAjuste = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tabla2 = new javax.swing.JTable();
+        tablaFAjuste = new javax.swing.JTable();
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -227,73 +249,84 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablabitacoraMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablabitacoraMousePressed(evt);
+            }
         });
         jScrollPane1.setViewportView(tablabitacora);
+        if (tablabitacora.getColumnModel().getColumnCount() > 0) {
+            tablabitacora.getColumnModel().getColumn(0).setPreferredWidth(2);
+        }
 
         pnlPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 156, 290, 352));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        buscar.setBorder(null);
-        buscar.setForeground(new java.awt.Color(0, 144, 183));
-        buscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buscar.setPlaceholder("BUSCAR CLIENTE");
-        buscar.addActionListener(new java.awt.event.ActionListener() {
+        buscarClienteAjuste.setBorder(null);
+        buscarClienteAjuste.setForeground(new java.awt.Color(0, 144, 183));
+        buscarClienteAjuste.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        buscarClienteAjuste.setPlaceholder("BUSCAR CLIENTE");
+        buscarClienteAjuste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarActionPerformed(evt);
+                buscarClienteAjusteActionPerformed(evt);
             }
         });
-        buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+        buscarClienteAjuste.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                buscarKeyReleased(evt);
+                buscarClienteAjusteKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                buscarKeyTyped(evt);
+                buscarClienteAjusteKeyTyped(evt);
             }
         });
-        jPanel4.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 20, 140, 30));
+        jPanel4.add(buscarClienteAjuste, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 20, 140, 30));
         jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 990, 5));
 
-        buscarBitacora.setBorder(null);
-        buscarBitacora.setForeground(new java.awt.Color(0, 144, 183));
-        buscarBitacora.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buscarBitacora.setPlaceholder("BUSCAR BITACORA");
-        buscarBitacora.addActionListener(new java.awt.event.ActionListener() {
+        buscarDatosAjuste.setBorder(null);
+        buscarDatosAjuste.setForeground(new java.awt.Color(0, 144, 183));
+        buscarDatosAjuste.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        buscarDatosAjuste.setPlaceholder("BUSCAR BITACORA");
+        buscarDatosAjuste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarBitacoraActionPerformed(evt);
+                buscarDatosAjusteActionPerformed(evt);
             }
         });
-        buscarBitacora.addKeyListener(new java.awt.event.KeyAdapter() {
+        buscarDatosAjuste.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                buscarBitacoraKeyReleased(evt);
+                buscarDatosAjusteKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                buscarBitacoraKeyTyped(evt);
+                buscarDatosAjusteKeyTyped(evt);
             }
         });
-        jPanel4.add(buscarBitacora, new org.netbeans.lib.awtextra.AbsoluteConstraints(835, 20, 140, 30));
+        jPanel4.add(buscarDatosAjuste, new org.netbeans.lib.awtextra.AbsoluteConstraints(835, 20, 140, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 210, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
+        jLabel3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jLabel3KeyTyped(evt);
+            }
+        });
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 210, -1));
 
         pnlPrincipal.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1010, 85));
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
+        tablaDatosAjuste.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre de Viaje", "Costo Antiguo", "Costo Actual", "Transporte", "Modificación"
+                "ID_Ajuste_Bitacora", "Nombre de Viaje", "Costo Antiguo", "Costo Actual", "Transporte"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -307,25 +340,35 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(tabla);
+        tablaDatosAjuste.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaDatosAjusteMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tablaDatosAjuste);
+        if (tablaDatosAjuste.getColumnModel().getColumnCount() > 0) {
+            tablaDatosAjuste.getColumnModel().getColumn(0).setMinWidth(0);
+            tablaDatosAjuste.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tablaDatosAjuste.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         pnlPrincipal.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 158, 550, 350));
 
         jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabla2.setModel(new javax.swing.table.DefaultTableModel(
+        tablaFAjuste.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Ajuste"
+                "ID_Ajuste", "Ajuste"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class
+                java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -336,7 +379,17 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(tabla2);
+        tablaFAjuste.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaFAjusteMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tablaFAjuste);
+        if (tablaFAjuste.getColumnModel().getColumnCount() > 0) {
+            tablaFAjuste.getColumnModel().getColumn(0).setMinWidth(0);
+            tablaFAjuste.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tablaFAjuste.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         pnlPrincipal.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 158, 130, 350));
 
@@ -350,7 +403,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
         );
 
         pack();
@@ -390,18 +443,23 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
 
     private void tablabitacoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablabitacoraMouseClicked
         
-        
+         if (evt.getClickCount() == 1)
+        {
+            String a = tablabitacora.getValueAt(tablabitacora.getSelectedRow() , 0).toString();
+            int id = Integer.parseInt(a);
+            Opciones.listarAjustes(id);
+        }
     }//GEN-LAST:event_tablabitacoraMouseClicked
 
-    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+    private void buscarClienteAjusteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClienteAjusteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buscarActionPerformed
+    }//GEN-LAST:event_buscarClienteAjusteActionPerformed
 
-    private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-        Opciones.listar(this.buscar.getText().trim());
-    }//GEN-LAST:event_buscarKeyReleased
+    private void buscarClienteAjusteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarClienteAjusteKeyReleased
+        Opciones.listarClientesAjustes(this.buscarClienteAjuste.getText().trim());
+    }//GEN-LAST:event_buscarClienteAjusteKeyReleased
 
-    private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
+    private void buscarClienteAjusteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarClienteAjusteKeyTyped
         char letras = evt.getKeyChar();
 
         if (Character.isLowerCase(letras)) {
@@ -409,19 +467,20 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
             letras = cad.charAt(0);
             evt.setKeyChar(letras);
         }
-    }//GEN-LAST:event_buscarKeyTyped
+    }//GEN-LAST:event_buscarClienteAjusteKeyTyped
 
-    private void buscarBitacoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBitacoraActionPerformed
+    private void buscarDatosAjusteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarDatosAjusteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buscarBitacoraActionPerformed
+    }//GEN-LAST:event_buscarDatosAjusteActionPerformed
 
-    private void buscarBitacoraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarBitacoraKeyReleased
+    private void buscarDatosAjusteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarDatosAjusteKeyReleased
 
-        Opciones.listarBitacora(this.buscarBitacora.getText().trim());
+        //Opciones.listarBitacora(this.buscarDatosAjuste.getText().trim());
+        cargarBusquedaDatosAjuste(this.buscarDatosAjuste.getText().trim());
         // TODO add your handling code here:
-    }//GEN-LAST:event_buscarBitacoraKeyReleased
+    }//GEN-LAST:event_buscarDatosAjusteKeyReleased
 
-    private void buscarBitacoraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarBitacoraKeyTyped
+    private void buscarDatosAjusteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarDatosAjusteKeyTyped
         // TODO add your handling code here:
         char letras = evt.getKeyChar();
 
@@ -430,7 +489,35 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
             letras = cad.charAt(0);
             evt.setKeyChar(letras);
         }
-    }//GEN-LAST:event_buscarBitacoraKeyTyped
+    }//GEN-LAST:event_buscarDatosAjusteKeyTyped
+
+    private void tablaDatosAjusteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDatosAjusteMouseClicked
+        
+        
+    }//GEN-LAST:event_tablaDatosAjusteMouseClicked
+
+    private void tablaFAjusteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaFAjusteMouseClicked
+                 if (evt.getClickCount() == 1)
+        {
+            String a = tablaFAjuste.getValueAt(tablaFAjuste.getSelectedRow() , 0).toString();
+            int idCliente=Integer.parseInt(a);
+            String fecha = tablaFAjuste.getValueAt(tablaFAjuste.getSelectedRow() , 1).toString();
+            String buscar="";
+            
+                
+            CargarDatosAjustes(buscar,idCliente,fecha);
+        }
+
+        
+    }//GEN-LAST:event_tablaFAjusteMouseClicked
+
+    private void tablabitacoraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablabitacoraMousePressed
+    
+    }//GEN-LAST:event_tablabitacoraMousePressed
+
+    private void jLabel3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel3KeyTyped
+        Opciones.listarClientesAjustes(this.buscarClienteAjuste.getText().trim());        
+    }//GEN-LAST:event_jLabel3KeyTyped
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -459,8 +546,8 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static app.bolivia.swing.JCTextField buscar;
-    public static app.bolivia.swing.JCTextField buscarBitacora;
+    public static app.bolivia.swing.JCTextField buscarClienteAjuste;
+    public static app.bolivia.swing.JCTextField buscarDatosAjuste;
     public static javax.swing.JLabel info;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -477,9 +564,9 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     public static javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlagregar;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
-    public static javax.swing.JTable tabla;
     public static javax.swing.JTable tabla1;
-    public static javax.swing.JTable tabla2;
+    public static javax.swing.JTable tablaDatosAjuste;
+    public static javax.swing.JTable tablaFAjuste;
     public static javax.swing.JTable tablabitacora;
     // End of variables declaration//GEN-END:variables
 

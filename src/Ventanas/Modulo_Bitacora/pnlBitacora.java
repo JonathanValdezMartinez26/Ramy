@@ -167,14 +167,14 @@ public class pnlBitacora extends javax.swing.JPanel {
         pnlpdf1.setBackground(new java.awt.Color(225, 225, 225));
         pnlpdf1.setToolTipText("Visualizar Bitacora");
         pnlpdf1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlpdf1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlpdf1MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnlpdf1MouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlpdf1MouseClicked(evt);
             }
         });
         pnlpdf1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -354,7 +354,9 @@ public class pnlBitacora extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlpdf1MouseExited
 
     private void pnlpdf1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseClicked
-        // TODO add your handling code here:
+        pnlBitacoraAjustes PBA =new pnlBitacoraAjustes(null, true);
+        PBA.setVisible(true);
+        
     }//GEN-LAST:event_pnlpdf1MouseClicked
 
         DefaultTableModel model = new DefaultTableModel() {
