@@ -175,7 +175,7 @@
 					<textElement textAlignment="Left">
 						<font fontName="Arial" size="10" isBold="true"/>
 					</textElement>
-					<text><![CDATA[                                    DESTINO]]></text>
+					<text><![CDATA[                                DESTINO]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" mode="Opaque" x="462" y="18" width="44" height="34" forecolor="#000000" backcolor="#FF9900" uuid="df1c2ab9-dc8f-4c6b-8b2f-fc49d227abd7"/>
@@ -445,7 +445,7 @@
 					<bottomPen lineWidth="1.0" lineColor="#0000FF"/>
 					<rightPen lineWidth="1.0" lineColor="#0000FF"/>
 				</box>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[  POR MEDIO DE LA PRESENTE PONEMOS A SU CONSIDERACION LA SIGUIENTE COTIZACION  EN VIAJES DIRECTOS ]]></text>

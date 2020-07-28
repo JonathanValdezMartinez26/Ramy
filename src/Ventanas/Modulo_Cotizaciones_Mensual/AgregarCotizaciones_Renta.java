@@ -319,11 +319,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     //AgregarCotizaciones.dispose();
     }
                         
-                    
-                   
-                
-        
-    
+
     ////////////////////////////////////////////////////////////////////////
     
     

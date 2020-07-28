@@ -78,7 +78,7 @@ ORDER BY fecha_mod DESC]]>
 	<group name="bitacora">
 		<groupExpression><![CDATA[$F{ID_Bitacora}]]></groupExpression>
 		<groupHeader>
-			<band height="62">
+			<band height="75">
 				<textField>
 					<reportElement style="Detail" mode="Opaque" x="10" y="7" width="531" height="16" backcolor="#FFE687" uuid="fa09bfcb-cf8a-41e2-a581-dd9070f56e9f">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
@@ -195,28 +195,32 @@ ORDER BY fecha_mod DESC]]>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Transporte}]]></textFieldExpression>
 				</textField>
+				<staticText>
+					<reportElement style="Column header" x="277" y="59" width="79" height="16" forecolor="#000000" uuid="963e996f-e6ac-46ba-bcae-f5345d1bbb9a"/>
+					<textElement>
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
 			</band>
 		</groupHeader>
-		<groupFooter>
-			<band height="18"/>
-		</groupFooter>
 	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="186" splitType="Stretch">
+		<band height="198" splitType="Stretch">
 			<textField>
-				<reportElement style="Detail" x="238" y="165" width="177" height="16" uuid="3ffc4215-c080-4510-92d6-11edb9c5d998">
+				<reportElement style="Detail" x="277" y="165" width="177" height="16" uuid="3ffc4215-c080-4510-92d6-11edb9c5d998">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nombre_cliente}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Column header" x="0" y="166" width="236" height="15" forecolor="#000000" uuid="41a24bc9-7bda-487f-8ba6-cc9195e8d198">
+				<reportElement style="Column header" x="0" y="166" width="260" height="15" forecolor="#000000" uuid="41a24bc9-7bda-487f-8ba6-cc9195e8d198">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -246,7 +250,7 @@ ORDER BY fecha_mod DESC]]>
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" mode="Transparent" x="132" y="43" width="258" height="20" forecolor="#000000" backcolor="#000000" uuid="28bdbf5a-5e33-4df4-bcad-4700d52cf2bd">
+				<reportElement style="Column header" mode="Transparent" x="126" y="43" width="264" height="20" forecolor="#000000" backcolor="#000000" uuid="28bdbf5a-5e33-4df4-bcad-4700d52cf2bd">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -282,7 +286,7 @@ ORDER BY fecha_mod DESC]]>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<line>
-				<reportElement x="11" y="82" width="532" height="1" uuid="bd514dc6-749d-49d0-9740-0fd9980f3b16">
+				<reportElement x="11" y="83" width="532" height="1" uuid="bd514dc6-749d-49d0-9740-0fd9980f3b16">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -291,14 +295,14 @@ ORDER BY fecha_mod DESC]]>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="132" y="62" width="206" height="19" forecolor="#000000" uuid="c0ffc4a9-4c60-4376-a752-e1b8244ca669"/>
+				<reportElement style="Column header" x="132" y="63" width="206" height="18" forecolor="#000000" uuid="c0ffc4a9-4c60-4376-a752-e1b8244ca669"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="356" y="82" width="183" height="20" forecolor="#000000" uuid="1fe84696-0fd7-439f-80a4-6567468604ad"/>
+				<reportElement style="Column header" x="357" y="84" width="183" height="20" forecolor="#000000" uuid="1fe84696-0fd7-439f-80a4-6567468604ad"/>
 				<textElement textAlignment="Right" verticalAlignment="Top">
 					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
@@ -311,16 +315,27 @@ ORDER BY fecha_mod DESC]]>
 				</textElement>
 				<text><![CDATA[Bitacora de Costos]]></text>
 			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="390" y="103" width="79" height="14" forecolor="#000000" uuid="53b34055-40fc-4a42-b52a-37fac0ce6837"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="8" y="181" width="79" height="16" forecolor="#000000" uuid="b9b988d4-8a25-4f0a-abde-be303d3d2ab8"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band splitType="Stretch"/>
 	</pageHeader>
-	<detail>
-		<band height="4" splitType="Stretch"/>
-	</detail>
 	<pageFooter>
-		<band height="29">
+		<band height="22">
 			<textField>
 				<reportElement style="Column header" x="482" y="0" width="66" height="20" uuid="23192db4-92f8-4003-a6e4-40f4a7b9e5df"/>
 				<textElement>

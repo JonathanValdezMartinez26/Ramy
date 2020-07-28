@@ -95,7 +95,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 					<bottomPen lineWidth="0.75"/>
 					<rightPen lineWidth="0.75"/>
 				</box>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["$"+$F{Precio}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -107,7 +107,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 					<bottomPen lineWidth="0.75"/>
 					<rightPen lineWidth="0.75"/>
 				</box>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{Nombre_Servicio}]]></textFieldExpression>
 			</textField>
 		</band>
