@@ -9,15 +9,26 @@ import Clases.Conexion;
 import static Ventanas.Modulo_Bitacora.pnlBitacora.buscar;
 import static Ventanas.Modulo_Bitacora.pnlBitacora.tablabitacora;
 import Ventanas.Modulo_Servicios.ModificarServicio;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JRViewer;
 
 public class pnlBitacoraAjustes extends javax.swing.JDialog {
 
@@ -111,6 +122,9 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         pnlagregar = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        pnlorigenes = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablabitacora = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -218,6 +232,30 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         pnlagregar.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 69));
+
+        pnlorigenes.setBackground(new java.awt.Color(225, 225, 225));
+        pnlorigenes.setToolTipText("Visualizar Cotizacion");
+        pnlorigenes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlorigenesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlorigenesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlorigenesMouseExited(evt);
+            }
+        });
+        pnlorigenes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setText("   Visualizar");
+        pnlorigenes.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N
+        pnlorigenes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
+
+        jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, -1, 69));
 
         pnlPrincipal.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
 
@@ -385,11 +423,6 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
             }
         });
         jScrollPane4.setViewportView(tablaFAjuste);
-        if (tablaFAjuste.getColumnModel().getColumnCount() > 0) {
-            tablaFAjuste.getColumnModel().getColumn(0).setMinWidth(0);
-            tablaFAjuste.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tablaFAjuste.getColumnModel().getColumn(0).setMaxWidth(0);
-        }
 
         pnlPrincipal.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 158, 130, 350));
 
@@ -519,6 +552,19 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         Opciones.listarClientesAjustes(this.buscarClienteAjuste.getText().trim());        
     }//GEN-LAST:event_jLabel3KeyTyped
 
+    private void pnlorigenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseClicked
+        ver();
+        //Origenes();
+    }//GEN-LAST:event_pnlorigenesMouseClicked
+
+    private void pnlorigenesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseEntered
+        pnlorigenes.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
+    }//GEN-LAST:event_pnlorigenesMouseEntered
+
+    private void pnlorigenesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseExited
+        pnlorigenes.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
+    }//GEN-LAST:event_pnlorigenesMouseExited
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -549,6 +595,8 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     public static app.bolivia.swing.JCTextField buscarClienteAjuste;
     public static app.bolivia.swing.JCTextField buscarDatosAjuste;
     public static javax.swing.JLabel info;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
@@ -563,12 +611,61 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     private jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlagregar;
+    private javax.swing.JPanel pnlorigenes;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla1;
     public static javax.swing.JTable tablaDatosAjuste;
     public static javax.swing.JTable tablaFAjuste;
     public static javax.swing.JTable tablabitacora;
     // End of variables declaration//GEN-END:variables
+    public void ver() {
+        Clases.Conexion cc = new Clases.Conexion();
+        
+        int Fila = tablabitacora.getSelectedRow();
+        int Fila1 = tablaFAjuste.getSelectedRow();
+        int Filita = 1; 
+  
+        if (Fila >= 0 && Fila1 >= 0) {
 
+            int ID = Integer.parseInt(tablabitacora.getValueAt(Fila, 0).toString());
+//            int Modificacion1 = Integer.parseInt(tablaFAjuste.getValueAt(Fila1, 1).toString());
+            String Modificacion= String.valueOf(tablaFAjuste.getValueAt(Fila1, 1));
+    
+       try {
+            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Bitacora_1.jasper";
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+           Map parametro = new HashMap();
+            parametro.put("ID_Cliente", ID);
+            parametro.put("Modificacion",Modificacion);
+            
+//            parametro1.put("Modificacion",Modificacion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+            
+            JRViewer jrv = new JRViewer(jasperPrint);
+            jrv.setZoomRatio((float) 0.75);
+            
+            r.contenedor.removeAll();
+
+            r.contenedor.setLayout(new BorderLayout());
+            r.contenedor.add(jrv, BorderLayout.CENTER);
+
+            r.contenedor.repaint();
+            r.contenedor.revalidate();
+            jrv.setVisible(true);
+            
+            r.setVisible(true);
+        } catch (JRException ex) {
+            System.err.println("Error iReport: " + ex.getMessage());
+        }
+    }
+        else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Seleccione el registro!");
+            AC.msj2.setText("a visualizar");
+            AC.setVisible(true);
+        }
+}
     
 }
