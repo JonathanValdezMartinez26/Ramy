@@ -85,7 +85,7 @@
 		<groupFooter>
 			<band height="275">
 				<subreport>
-					<reportElement x="3" y="27" width="530" height="100" uuid="6e265f31-c9ec-4fd1-aa14-56fc92b49eb1"/>
+					<reportElement x="5" y="27" width="530" height="100" uuid="6e265f31-c9ec-4fd1-aa14-56fc92b49eb1"/>
 					<subreportParameter name="ID_Cotizacion">
 						<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
 					</subreportParameter>

@@ -194,7 +194,7 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="406" y="21" width="142" height="15" forecolor="#000000" uuid="9ad766a1-477d-44be-b058-22ab7f635866">
+				<reportElement style="Column header" x="440" y="21" width="108" height="15" forecolor="#000000" uuid="9ad766a1-477d-44be-b058-22ab7f635866">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -221,14 +221,14 @@
 				<textFieldExpression><![CDATA[$F{Nombre_usuario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="261" y="0" width="142" height="21" uuid="7b6d4540-110d-42ac-8d86-20bbb293330a">
+				<reportElement style="Detail" x="265" y="0" width="165" height="21" uuid="7b6d4540-110d-42ac-8d86-20bbb293330a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{Correo_Electronico}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[         $F{Correo_Electronico}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="424" y="0" width="113" height="21" uuid="636331d9-1ed5-469d-a86f-c85bf23fe66c">
+				<reportElement style="Detail" x="452" y="0" width="85" height="21" uuid="636331d9-1ed5-469d-a86f-c85bf23fe66c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
