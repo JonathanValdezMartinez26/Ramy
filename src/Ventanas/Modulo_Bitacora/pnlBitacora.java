@@ -84,6 +84,7 @@ public class pnlBitacora extends javax.swing.JPanel {
         buscarBitacora = new app.bolivia.swing.JCTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
 
@@ -238,6 +239,9 @@ public class pnlBitacora extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 210, -1));
 
+        jLabel1.setText("ID");
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
+
         add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1105, 85));
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
@@ -290,7 +294,8 @@ public class pnlBitacora extends javax.swing.JPanel {
         {
             String a = tablabitacora.getValueAt(tablabitacora.getSelectedRow() , 0).toString();
             int id = Integer.parseInt(a);
-            Opciones.CargarDatos(id);
+            
+            Opciones.CargarDatos("",id);
         }
     }//GEN-LAST:event_tablabitacoraMouseClicked
 
@@ -372,6 +377,7 @@ public class pnlBitacora extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static app.bolivia.swing.JCTextField buscar;
     public static app.bolivia.swing.JCTextField buscarBitacora;
+    public static javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;

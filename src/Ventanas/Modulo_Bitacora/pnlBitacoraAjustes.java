@@ -28,6 +28,8 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     public pnlBitacoraAjustes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        lblAjuste.setVisible(false);
+        lblIDCliente.setVisible(false);
         if(buscarClienteAjuste.getText().equals(""))
         {
             Opciones.listarClientesAjustes("");
@@ -87,16 +89,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         
         
     }
-     public static void CargarDatosAjustes(String busca,int ID,String fecha){
-     
-         Opciones.listarDatosAjustes(busca, ID, fecha);
-         
-     }
-     
-    public static void cargarBusquedaDatosAjuste(String busca){
-        
-        
-}
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -119,6 +112,8 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         buscarDatosAjuste = new app.bolivia.swing.JCTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        lblIDCliente = new javax.swing.JLabel();
+        lblAjuste = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaDatosAjuste = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -313,6 +308,12 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         });
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 210, -1));
 
+        lblIDCliente.setText("Id");
+        jPanel4.add(lblIDCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, -1, -1));
+
+        lblAjuste.setText("aj");
+        jPanel4.add(lblAjuste, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, -1, -1));
+
         pnlPrincipal.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1010, 85));
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
@@ -446,7 +447,8 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
          if (evt.getClickCount() == 1)
         {
             String a = tablabitacora.getValueAt(tablabitacora.getSelectedRow() , 0).toString();
-            int id = Integer.parseInt(a);
+            
+            int id = Integer.parseInt(a);            
             Opciones.listarAjustes(id);
         }
     }//GEN-LAST:event_tablabitacoraMouseClicked
@@ -475,8 +477,10 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
 
     private void buscarDatosAjusteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarDatosAjusteKeyReleased
 
-        //Opciones.listarBitacora(this.buscarDatosAjuste.getText().trim());
-        cargarBusquedaDatosAjuste(this.buscarDatosAjuste.getText().trim());
+        String ID=lblIDCliente.getText();
+        int IDC=Integer.parseInt(lblIDCliente.getText());
+        String fecha=lblAjuste.getText();
+        Opciones.listarDatosAjustes(this.buscarDatosAjuste.getText().trim(),IDC,fecha);
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarDatosAjusteKeyReleased
 
@@ -503,9 +507,10 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
             int idCliente=Integer.parseInt(a);
             String fecha = tablaFAjuste.getValueAt(tablaFAjuste.getSelectedRow() , 1).toString();
             String buscar="";
-            
+            lblIDCliente.setText(a);
+            lblAjuste.setText(fecha);
                 
-            CargarDatosAjustes(buscar,idCliente,fecha);
+            Opciones.listarDatosAjustes("",idCliente,fecha);
         }
 
         
@@ -561,6 +566,8 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private jcMousePanel.jcMousePanel jcMousePanel1;
+    public static javax.swing.JLabel lblAjuste;
+    public static javax.swing.JLabel lblIDCliente;
     public static javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlagregar;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
