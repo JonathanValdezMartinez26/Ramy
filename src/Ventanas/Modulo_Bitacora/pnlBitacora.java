@@ -32,6 +32,7 @@ public class pnlBitacora extends javax.swing.JPanel {
 
     public pnlBitacora() {
         initComponents();
+        lblID.setVisible(false);
         if(buscar.getText().equals(""))
         {
             Opciones.listar("");
@@ -84,7 +85,7 @@ public class pnlBitacora extends javax.swing.JPanel {
         buscarBitacora = new app.bolivia.swing.JCTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
 
@@ -239,8 +240,8 @@ public class pnlBitacora extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 210, -1));
 
-        jLabel1.setText("ID");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
+        lblID.setText("ID");
+        jPanel4.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
 
         add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1105, 85));
 
@@ -293,14 +294,16 @@ public class pnlBitacora extends javax.swing.JPanel {
         if (evt.getClickCount() == 1)
         {
             String a = tablabitacora.getValueAt(tablabitacora.getSelectedRow() , 0).toString();
-            int id = Integer.parseInt(a);
-            
+            lblID.setText(a);
+            int id = Integer.parseInt(a);            
             Opciones.CargarDatos("",id);
+            buscarBitacora.setText("");
         }
     }//GEN-LAST:event_tablabitacoraMouseClicked
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-        Opciones.listar(this.buscar.getText().trim());        
+        Opciones.listar(this.buscar.getText().trim());  
+        buscarBitacora.setText("");
     }//GEN-LAST:event_buscarKeyReleased
 
     private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
@@ -334,8 +337,9 @@ public class pnlBitacora extends javax.swing.JPanel {
     }//GEN-LAST:event_buscarBitacoraActionPerformed
 
     private void buscarBitacoraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarBitacoraKeyReleased
-        
-        Opciones.listarBitacora(this.buscarBitacora.getText().trim());        
+        String slblID=lblID.getText();
+        int ID=Integer.parseInt(slblID);
+        Opciones.CargarDatos(this.buscarBitacora.getText().trim(),ID);        
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarBitacoraKeyReleased
 
@@ -377,7 +381,6 @@ public class pnlBitacora extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static app.bolivia.swing.JCTextField buscar;
     public static app.bolivia.swing.JCTextField buscarBitacora;
-    public static javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -391,6 +394,7 @@ public class pnlBitacora extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    public static javax.swing.JLabel lblID;
     private javax.swing.JPanel pnlpdf;
     private javax.swing.JPanel pnlpdf1;
     public static javax.swing.JTable tabla;

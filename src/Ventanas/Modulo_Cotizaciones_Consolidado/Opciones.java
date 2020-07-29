@@ -73,8 +73,9 @@ public class Opciones {
            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado where ID_Cotizacion="+ ID;
         } else {
             
-            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado where  Consolidado LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' AND ID_Cotizacion =" + ID;
-            
+            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado"
+                    + " where (ID_Cotizacion ="+ID+" AND Consolidado LIKE '%"+ busca +"%') "
+                    + "OR (ID_Cotizacion ="+ID+" AND Precio LIKE '"+ busca +"%')";            
            }
         String datos[] = new String[3];
         try {           

@@ -319,7 +319,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         buscarDatosAjuste.setBorder(null);
         buscarDatosAjuste.setForeground(new java.awt.Color(0, 144, 183));
         buscarDatosAjuste.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buscarDatosAjuste.setPlaceholder("BUSCAR BITACORA");
+        buscarDatosAjuste.setPlaceholder("BUSCAR AJUSTE");
         buscarDatosAjuste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarDatosAjusteActionPerformed(evt);
@@ -483,6 +483,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
             
             int id = Integer.parseInt(a);            
             Opciones.listarAjustes(id);
+            buscarDatosAjuste.setText("");
         }
     }//GEN-LAST:event_tablabitacoraMouseClicked
 
@@ -492,6 +493,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
 
     private void buscarClienteAjusteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarClienteAjusteKeyReleased
         Opciones.listarClientesAjustes(this.buscarClienteAjuste.getText().trim());
+        buscarDatosAjuste.setText("");
     }//GEN-LAST:event_buscarClienteAjusteKeyReleased
 
     private void buscarClienteAjusteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarClienteAjusteKeyTyped

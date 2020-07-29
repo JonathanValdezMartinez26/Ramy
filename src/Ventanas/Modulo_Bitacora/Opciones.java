@@ -33,12 +33,13 @@ public class Opciones {
         if (busca.equals("")) {
             sql ="Select Nombre_Viaje,costo_antiguo,costo_nuevo,transporte,Fecha_Mod from bitacora_costos Where ID_ClienteB = "+ id;
         } else {        
-            //sql = "select ID_Medico,concat_ws(' ',Nombres,Apellidos) as Medico, Cedula from medico where concat_ws(' ',Nombres,Apellidos) LIKE '%" + busca +"%' OR ID_Medico LIKE '"+ busca +"%' OR Cedula LIKE '"+ busca +"%' and Estado = true";
-            //sql = "select clientes(' ',Nombres,Apellidos) as Medico, Cedula from medico where concat_ws(' ',Nombres,Apellidos) LIKE '%" + busca +"%' OR ID_Medico LIKE '"+ busca +"%' OR Cedula LIKE '"+ busca +"%' and Estado = true";
-            //sql = "SELECT ID_cli, Nombre_cliente FROM clientes WHERE (Nombre_cliente LIKE'" + busca + "%' OR ID_cliente LIKE'"+busca+"%')"
-              //      + " ORDER BY Nombre_cliente";
-            sql = "SELECT Nombre_Viaje, costo_antiguo,costo_nuevo,transporte,Fecha_Mod from bitacora_costos WHERE (Nombre_Viaje LIKE'%" + busca + "%' OR costo_antiguo LIKE'"+busca+"%'"
-                    + "OR costo_nuevo LIKE'"+busca+"%'OR transporte LIKE'"+busca+"%'OR Fecha_Mod LIKE'%"+busca+"%')"
+           
+            sql = "SELECT Nombre_Viaje, costo_antiguo,costo_nuevo,transporte,Fecha_Mod from bitacora_costos "
+                    + "WHERE (ID_ClienteB="+id+" AND Nombre_Viaje LIKE'%" + busca + "%')"
+                    + "OR (ID_ClienteB="+id+" AND costo_antiguo LIKE'"+busca+"%')"
+                    + "OR (ID_ClienteB="+id+" AND costo_nuevo LIKE'"+busca+"%')"
+                    + "OR (ID_ClienteB="+id+" AND transporte LIKE'"+busca+"%')"
+                    + "OR (ID_ClienteB="+id+" AND Fecha_Mod LIKE'%"+busca+"%')"
                     + " ORDER BY Fecha_Mod";
             
            }
