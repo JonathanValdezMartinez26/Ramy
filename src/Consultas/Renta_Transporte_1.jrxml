@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="284"/>
+	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -169,7 +169,7 @@
 				<text><![CDATA[  POR MEDIO DE LA PRESENTE PONEMOS A SU CONSIDERACION LA SIGUIENTE COTIZACION]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" mode="Transparent" x="131" y="31" width="265" height="20" forecolor="#000000" backcolor="#000000" uuid="84d836df-dffb-459a-be90-9301b8680f97">
+				<reportElement style="Column header" mode="Transparent" x="132" y="31" width="265" height="20" forecolor="#000000" backcolor="#000000" uuid="84d836df-dffb-459a-be90-9301b8680f97">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -179,11 +179,11 @@
 				<text><![CDATA[Express Logistics Ramy,  S.A. de C.V. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="396" y="31" width="145" height="20" forecolor="#000000" uuid="3761cb6c-b8d1-4f9a-b071-6a72f68586bb"/>
+				<reportElement style="Column header" x="397" y="31" width="145" height="20" forecolor="#000000" uuid="3761cb6c-b8d1-4f9a-b071-6a72f68586bb"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cotización de Servicio]]></text>
+				<text><![CDATA[Cotización por Renta]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="317" y="150" width="79" height="16" forecolor="#000000" uuid="4857588b-be96-42cc-9d48-29d09a28c3cd"/>
@@ -208,18 +208,18 @@
 				<textFieldExpression><![CDATA[$F{Atencion}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="13" y="15" width="104" height="45" uuid="95cac173-e7a0-4bd8-9af7-51d4ebb3b1f6"/>
+				<reportElement x="14" y="15" width="104" height="45" uuid="95cac173-e7a0-4bd8-9af7-51d4ebb3b1f6"/>
 				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="10" y="77" width="331" height="20" uuid="e7018660-5bcb-4ffb-a5fc-f079f6855514"/>
+				<reportElement x="11" y="77" width="331" height="20" uuid="e7018660-5bcb-4ffb-a5fc-f079f6855514"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nombre_cliente}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Column header" x="358" y="71" width="183" height="20" forecolor="#000000" uuid="3560cfde-c362-4584-9fd2-4344453ad89f"/>
+				<reportElement style="Column header" x="359" y="71" width="183" height="20" forecolor="#000000" uuid="3560cfde-c362-4584-9fd2-4344453ad89f"/>
 				<textElement textAlignment="Right" verticalAlignment="Top">
 					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
@@ -248,7 +248,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<line>
-				<reportElement x="10" y="70" width="532" height="1" uuid="d7358bb9-22ff-42b6-bae4-1a82e0efd416">
+				<reportElement x="11" y="70" width="532" height="1" uuid="d7358bb9-22ff-42b6-bae4-1a82e0efd416">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -257,7 +257,7 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="142" y="53" width="206" height="17" forecolor="#000000" uuid="6b4d06f0-604f-4bea-80a1-15dad62fdbc5"/>
+				<reportElement style="Column header" x="143" y="53" width="206" height="17" forecolor="#000000" uuid="6b4d06f0-604f-4bea-80a1-15dad62fdbc5"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
@@ -278,7 +278,7 @@
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="137" y="0" width="206" height="15" forecolor="#000000" uuid="d90a93fe-02bc-4e98-becc-e1795b78a931"/>
+				<reportElement style="Column header" x="138" y="0" width="206" height="15" forecolor="#000000" uuid="d90a93fe-02bc-4e98-becc-e1795b78a931"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
@@ -299,14 +299,14 @@
 				<text><![CDATA[AT´N:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="10" y="98" width="317" height="13" backcolor="#FFFFFF" uuid="2dda5221-8a31-4f76-9225-ca2656117c20"/>
+				<reportElement x="11" y="98" width="317" height="13" backcolor="#FFFFFF" uuid="2dda5221-8a31-4f76-9225-ca2656117c20"/>
 				<textElement textAlignment="Left" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Localidad}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Title" x="10" y="113" width="317" height="14" backcolor="#FFFFFF" uuid="dda4e582-9a64-4698-a3f0-fed20d098030"/>
+				<reportElement style="Title" x="11" y="113" width="317" height="14" backcolor="#FFFFFF" uuid="dda4e582-9a64-4698-a3f0-fed20d098030"/>
 				<textElement textAlignment="Left">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>

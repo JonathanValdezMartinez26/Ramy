@@ -24,6 +24,7 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import Ventanas.CotizacionReporte.ConfigCotizacionConsolidado;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
@@ -778,7 +779,9 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlEliminarMouseExited
 
     private void pnlVistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseClicked
-      
+      ConfigCotizacionConsolidado VE=new ConfigCotizacionConsolidado(null, true);
+     VE.CargarDatos();
+     VE.setVisible(true);
     }//GEN-LAST:event_pnlVistaMouseClicked
 
     private void pnlVistaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseEntered

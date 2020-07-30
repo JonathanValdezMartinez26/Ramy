@@ -142,6 +142,24 @@ public static ResultSet resultado;
         }
         return existe;
     }
+    ///////////////////////////////////////////////////////////////////
+    public static int ObtenerIDRutaGlobal(int ID_Cliente) {
+        int existe = 0;
+  
+        String SQL = "SELECT Id_Ruta from rutav where (ID_Cliente = "+ID_Cliente+")";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                existe = rs.getInt(1);
+            }           
+        } catch (SQLException ex) {
+             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return existe;
+    }
+    ////////////////////////////////////////////////////////////////////////////
+    
     
     public static int ObtenerIDCotizacionRuta(int ID_Origenes,String Destino ,int ID_Transporte) {
         int existe = 0;
@@ -236,7 +254,7 @@ public static ResultSet resultado;
     }
        
        
-            public static void Agregar_Tipo(String Nombre) {
+    public static void Agregar_Tipo(String Nombre) {
         try 
         {
             CallableStatement consulta = Conexion.con.prepareCall("{call AgregarTipotran (?)}");
@@ -259,6 +277,34 @@ public static ResultSet resultado;
         }
     }
 
+    private int ID_Asigna_Cotizacion;
+    private int ID_Cotizacion;
+    private String Consolidado;
+    
+    public int getID_Asigna_Cotizacion() {
+        return ID_Asigna_Cotizacion;
+    }
+
+    public void setID_Asigna_Cotizacion(int ID_Asigna_Cotizacion) {
+        this.ID_Asigna_Cotizacion = ID_Asigna_Cotizacion;
+    }
+    
+     public int getID_Cotizacion() {
+        return ID_Cotizacion;
+    }
+
+    public void setID_Cotizacion(int ID_Cotizacion) {
+        this.ID_Cotizacion = ID_Cotizacion;
+    }
+
+    
+    public String getConsolidado() {
+        return Consolidado;
+    }
+
+    public void setConsolidado(String Consolidado) {
+        this.Consolidado = Consolidado;
+    }
 
 
 }

@@ -78,7 +78,7 @@
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
                               <Component id="jLabel1" min="-2" pref="491" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -89,10 +89,7 @@
                                       <Component id="txtparte3" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="txtparte2" alignment="1" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="txtparte1" min="-2" pref="425" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtparte1" alignment="0" min="-2" pref="425" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -300,7 +297,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Tipo de Servicio"/>
+                <Property name="text" type="java.lang.String" value="Cotizacion Directa"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

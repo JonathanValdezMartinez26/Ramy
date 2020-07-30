@@ -289,10 +289,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                                   AC.msj2.setText("ya existe ");
                                   AC.setVisible(true);
                             }
-                              
-                                
-                                
-                                
+                      
                      }
         }
          }

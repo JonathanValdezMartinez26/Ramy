@@ -23,7 +23,7 @@ public class ConfigCotizaciones {
             consulta.execute();
 
             Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Datos del Servicio !");
+            AC.msj1.setText("¡Datos de Pie de pagina !");
             AC.msj2.setText("Guardados correctamente");
             AC.setVisible(true);
             
@@ -31,7 +31,7 @@ public class ConfigCotizaciones {
         {
             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
             AC.msj1.setText("¡Error 3714!");
-            AC.msj2.setText("¡Contacte a servicios ProMedic!");
+            AC.msj2.setText("¡Contacte a servicios!");
             AC.setVisible(true);
         }
     }
