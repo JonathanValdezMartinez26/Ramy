@@ -315,7 +315,7 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
         info.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         info.setForeground(new java.awt.Color(102, 102, 102));
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info.setText("Tipo de Servicio");
+        info.setText("Cotizacion por Consolidado");
         jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 30));
 
         rSButtonMetro2.setText("X");

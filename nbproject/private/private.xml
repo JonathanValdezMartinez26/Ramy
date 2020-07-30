@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< HEAD
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones1.java</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
-=======
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
         <file>
             <url>src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones.java</url>
@@ -19,13 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones_Mensual/AgregarCotizaciones_Renta.java</file>
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones_Consolidado/AgregarCotizaciones_Consolidado.java</file>
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Consultas/PIE_1.jrxml</file>
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/CotizacionReporte/ConfigCotizacionConsolidado.java</file>
-            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Consultas/Renta_Consolidacion.jrxml</file>
->>>>>>> 5d4f24112e5426b532c8b7f9dfa336d588e04216
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/pnlCotizaciones.java</file>
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Ruta_Cotizacion/WarningFinalizarPrueba.java</file>
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Ruta_Cotizacion/prueba.java</file>
+            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
         </group>
     </open-files>
 </project-private>

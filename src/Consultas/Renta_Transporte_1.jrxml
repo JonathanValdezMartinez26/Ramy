@@ -183,7 +183,7 @@
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cotización de Servicio]]></text>
+				<text><![CDATA[Cotización por Renta]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="317" y="150" width="79" height="16" forecolor="#000000" uuid="4857588b-be96-42cc-9d48-29d09a28c3cd"/>

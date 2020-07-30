@@ -3,8 +3,8 @@
 	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="209"/>
+	<property name="ireport.y" value="547"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -216,48 +216,6 @@
 					</textElement>
 					<text><![CDATA[]]></text>
 				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="10" y="84" width="480" height="16" forecolor="#000000" uuid="df8afde7-26bf-4912-910f-9c4267a9c360"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[              A ESTOS PRECIOS SE LES AUMENTARA EL IMPUESTO AL VALOR AGREGADO (I.V.A)]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="181" y="160" width="206" height="11" forecolor="#000000" uuid="6ae23052-acd3-4416-833b-cc63731d38fd"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="190" y="134" width="206" height="13" forecolor="#000000" uuid="863ff40a-4238-486a-8737-580ba961f0b3"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="6" y="100" width="542" height="16" forecolor="#000000" uuid="5ed3fcbb-379f-4111-aa6e-f21de88c27bc"/>
-					<textElement textAlignment="Left">
-						<font fontName="Times New Roman" size="10" isBold="true"/>
-					</textElement>
-					<text><![CDATA[                    LAS CARGAS VIAJAN POR CUENTA Y RIESGO DEL REMITENTE Y/O DESTINATARIO]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="6" y="117" width="540" height="16" forecolor="#000000" uuid="5db4066b-11de-47c5-ad84-e2c10c27fe9d"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="10" isBold="true"/>
-					</textElement>
-					<text><![CDATA[**PRECIOS LIBRES DE MANIOBRA DE CARGA Y DESCARGA]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="181" y="147" width="206" height="13" forecolor="#000000" uuid="4686f9cb-3047-45a8-b555-61c058e3d1fe"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[ATENTAMENTE]]></text>
-				</staticText>
 				<subreport>
 					<reportElement x="5" y="19" width="535" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
 					<subreportParameter name="ID_Cotizacion">
@@ -266,52 +224,6 @@
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
 				</subreport>
-				<line>
-					<reportElement x="62" y="171" width="181" height="1" uuid="2cc7e37a-5229-45d0-8f69-6cf6002a1271">
-						<property name="local_mesure_unitheight" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
-					</graphicElement>
-				</line>
-				<staticText>
-					<reportElement style="Column header" x="72" y="179" width="171" height="15" forecolor="#000000" uuid="9d69b5d0-3da3-4dcc-8dbc-93d7642fc282"/>
-					<textElement textAlignment="Left">
-						<font fontName="Verdana" size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[ALFONSO RAMIREZ VALDEZ]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="62" y="194" width="161" height="15" forecolor="#000000" uuid="82d90b3f-87fd-4db4-bce7-ee4298cadf84"/>
-					<textElement textAlignment="Center">
-						<font fontName="Verdana" size="9" isBold="true"/>
-					</textElement>
-					<text><![CDATA[GERENTE GENERAL]]></text>
-				</staticText>
-				<line>
-					<reportElement x="342" y="172" width="181" height="1" uuid="1d1606c4-0328-4ce4-a329-345d4faf17cd">
-						<property name="local_mesure_unitheight" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
-					</graphicElement>
-				</line>
-				<staticText>
-					<reportElement style="Column header" x="370" y="180" width="153" height="15" forecolor="#000000" uuid="01e30609-9aed-485a-b291-bb4b3d6bcd63"/>
-					<textElement textAlignment="Left">
-						<font fontName="Verdana" size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[MARIO JESUS SALAZAR SALAZAR]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="350" y="195" width="161" height="15" forecolor="#000000" uuid="6ccaa55c-41bc-4e9c-8079-49fee48573ec"/>
-					<textElement textAlignment="Center">
-						<font fontName="Verdana" size="9" isBold="true"/>
-					</textElement>
-					<text><![CDATA[DEPTO. DE FACTURACIÓN ]]></text>
-				</staticText>
 				<staticText>
 					<reportElement style="Column header" x="180" y="0" width="206" height="19" forecolor="#000000" uuid="310d9172-ca29-4f19-876a-d3749ffd83ef"/>
 					<textElement textAlignment="Center">
@@ -319,6 +231,11 @@
 					</textElement>
 					<text><![CDATA[]]></text>
 				</staticText>
+				<subreport>
+					<reportElement x="10" y="84" width="496" height="100" uuid="5c3f5c41-27d2-4c52-8cc3-745eda2a6b75"/>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PIE_1.jasper"]]></subreportExpression>
+				</subreport>
 			</band>
 		</groupFooter>
 	</group>
