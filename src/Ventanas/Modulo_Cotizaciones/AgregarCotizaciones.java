@@ -361,7 +361,6 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                                         AC.msj3.setText("Registrados con el Mismo Transporte");
                                         AC.setVisible(true);
                                     }
-                                    
                                 }
                             }
                         }

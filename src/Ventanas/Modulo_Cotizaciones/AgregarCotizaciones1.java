@@ -62,6 +62,9 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 import Ventanas.Modulo_Cotizaciones.Opciones;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
+import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class AgregarCotizaciones1 extends javax.swing.JDialog {
@@ -171,12 +174,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         } catch (SQLException ex) {
 
         }
-
         ID_Origen++;
-
         ID_Ori = new int[ID_Origen];
         ID_Ori[0] = 0;
-        
     }
     
     public void Destinos()
@@ -195,11 +195,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         }
 
         ID_Destino++;
-
         ID_Des = new int[ID_Destino];
-
         ID_Des[0] = 0;
-        
     }
     
     public void Transportes()
@@ -722,7 +719,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
     private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
-         if (evt.getStateChange() == ItemEvent.SELECTED) {
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
         
         int ID_Client = cmbCliente.getSelectedIndex();
         int ID_Cliente = ID_Cli[ID_Client];
@@ -735,14 +732,51 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         
         if(Origenes == "Todos los Origenes")
         {
-            
+            cmbOrigenes.removeAllItems();
+            cmbOrigenes.addItem("Seleccione un Origen");
+            try {
+
+                resultado = Conexion.consulta("SELECT ID_ruta from ruta where (ID_Cliente = "+ID_Cliente+")");
+                int ID = 0;
+                int ID_Cotiza = Integer.parseInt(IDCotizacion.getText());
+                while (resultado.next()) 
+                {
+                     ID = resultado.getInt(1);
+                    i++;
+                    
+                    String q = " INSERT INTO asigna_cotizacion(ID_asigna_Cotizacion,ID_Cotizacion,ID_ruta,Fecha_Alta)"
+                                        + "VALUES (NULL,'"+ID_Cotiza+"',"+ID+",current_timestamp())";      
+                                        try {
+                                            PreparedStatement pstm = cn.prepareStatement(q);
+                                            pstm.execute();
+                                            pstm.close();
+                                    
+                                            }
+                                        catch(SQLException e)
+                                        {            
+                                            System.out.println(e);
+                                        }
+                }
+                 Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotiza);
+            } 
+            catch (SQLException ex) {
+
+            }
         }
         else
         {
-             
+             String Origeness = (String) cmbOrigenes.getSelectedItem();
+            
+            if(Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == ""
+                    || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == ""
+                    || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" 
+                    || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" 
+                    || Origenes == ""  || Origenes == ""  || Origenes == ""  || Origenes == ""  || Origenes == "" 
+                    || Origenes == ""  || Origenes == ""  || Origenes == ""  || Origenes == "" )
+            {
+                
+            }
         }
-        
-        
       }
     }//GEN-LAST:event_cmbOrigenesItemStateChanged
 
