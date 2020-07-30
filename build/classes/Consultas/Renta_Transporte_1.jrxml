@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="251"/>
+	<property name="ireport.y" value="284"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -128,95 +128,7 @@
 					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
 				</subreport>
 				<staticText>
-					<reportElement style="Column header" x="9" y="177" width="536" height="16" forecolor="#000000" uuid="88288c24-0b2c-4d41-9615-25312c88d84d"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="10" isBold="true"/>
-					</textElement>
-					<text><![CDATA[**PRECIOS LIBRES DE MANIOBRA DE CARGA Y DESCARGA]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="71" y="239" width="171" height="15" forecolor="#000000" uuid="14ac0b2a-9e8d-441c-97a0-d3515dbf8a4e"/>
-					<textElement textAlignment="Left">
-						<font fontName="Verdana" size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[ALFONSO RAMIREZ VALDEZ]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="180" y="207" width="206" height="13" forecolor="#000000" uuid="30293e4f-36cd-46a1-bf68-eb8645a9a2d6"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[ATENTAMENTE]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="9" y="144" width="480" height="16" forecolor="#000000" uuid="a1e1f094-e036-4ec4-8278-dc8e865d81b2"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[              A ESTOS PRECIOS SE LES AUMENTARA EL IMPUESTO AL VALOR AGREGADO (I.V.A)]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="349" y="255" width="161" height="15" forecolor="#000000" uuid="2d7ac120-9563-4de4-9dca-0a9d05ec323e"/>
-					<textElement textAlignment="Center">
-						<font fontName="Verdana" size="9" isBold="true"/>
-					</textElement>
-					<text><![CDATA[DEPTO. DE FACTURACIÓN ]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="189" y="194" width="197" height="13" forecolor="#000000" uuid="877f2405-bb63-4e8b-962b-55c401270f58"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[]]></text>
-				</staticText>
-				<line>
-					<reportElement x="61" y="231" width="181" height="1" uuid="3275b383-cc0e-4628-9590-8560623c679b">
-						<property name="local_mesure_unitheight" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
-					</graphicElement>
-				</line>
-				<staticText>
-					<reportElement style="Column header" x="5" y="160" width="542" height="16" forecolor="#000000" uuid="89103920-84bb-43bf-89af-d5b7f4db3ab6"/>
-					<textElement textAlignment="Left">
-						<font fontName="Times New Roman" size="10" isBold="true"/>
-					</textElement>
-					<text><![CDATA[                    LAS CARGAS VIAJAN POR CUENTA Y RIESGO DEL REMITENTE Y/O DESTINATARIO]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="61" y="254" width="161" height="15" forecolor="#000000" uuid="68ad3cce-35f7-4e52-9e7d-412895017693"/>
-					<textElement textAlignment="Center">
-						<font fontName="Verdana" size="9" isBold="true"/>
-					</textElement>
-					<text><![CDATA[GERENTE GENERAL]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="369" y="240" width="153" height="15" forecolor="#000000" uuid="9bb1e787-c0ae-4129-af97-8050f6a05c0f"/>
-					<textElement textAlignment="Left">
-						<font fontName="Verdana" size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[MARIO JESUS SALAZAR SALAZAR]]></text>
-				</staticText>
-				<line>
-					<reportElement x="341" y="232" width="181" height="1" uuid="ef4d18a2-8bd6-4ca3-8ac4-5645d4908fb6">
-						<property name="local_mesure_unitheight" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
-					</graphicElement>
-				</line>
-				<staticText>
-					<reportElement style="Column header" x="180" y="134" width="206" height="10" forecolor="#000000" uuid="6d0dd739-9bb2-486a-9d93-e6eb24d918ea"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="180" y="220" width="206" height="11" forecolor="#000000" uuid="68ea91ae-2f6f-4a42-9468-04db94fd6a1a"/>
+					<reportElement style="Column header" x="180" y="122" width="206" height="10" forecolor="#000000" uuid="6d0dd739-9bb2-486a-9d93-e6eb24d918ea"/>
 					<textElement textAlignment="Center">
 						<font fontName="Times New Roman" size="11" isBold="true"/>
 					</textElement>
@@ -229,6 +141,11 @@
 					</textElement>
 					<text><![CDATA[]]></text>
 				</staticText>
+				<subreport>
+					<reportElement x="7" y="132" width="503" height="100" uuid="18f7a747-e62c-4c1f-99f9-25326b2a721c"/>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PIE_1.jasper"]]></subreportExpression>
+				</subreport>
 			</band>
 		</groupFooter>
 	</group>

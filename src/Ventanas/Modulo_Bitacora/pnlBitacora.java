@@ -145,14 +145,14 @@ public class pnlBitacora extends javax.swing.JPanel {
         pnlpdf.setBackground(new java.awt.Color(225, 225, 225));
         pnlpdf.setToolTipText("Visualizar Bitacora");
         pnlpdf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlpdfMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlpdfMouseClicked(evt);
             }
         });
         pnlpdf.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -167,7 +167,7 @@ public class pnlBitacora extends javax.swing.JPanel {
         jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 69));
 
         pnlpdf1.setBackground(new java.awt.Color(225, 225, 225));
-        pnlpdf1.setToolTipText("Visualizar Bitacora");
+        pnlpdf1.setToolTipText("Ajustes");
         pnlpdf1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlpdf1MouseClicked(evt);
@@ -354,18 +354,17 @@ public class pnlBitacora extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buscarBitacoraKeyTyped
 
-    private void pnlpdf1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlpdf1MouseEntered
-
     private void pnlpdf1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_pnlpdf1MouseExited
 
+    private void pnlpdf1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlpdf1MouseEntered
+
     private void pnlpdf1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseClicked
-        pnlBitacoraAjustes PBA =new pnlBitacoraAjustes(null, true);
+     pnlBitacoraAjustes PBA =new pnlBitacoraAjustes(null, true);
         PBA.setVisible(true);
-        
     }//GEN-LAST:event_pnlpdf1MouseClicked
 
         DefaultTableModel model = new DefaultTableModel() {

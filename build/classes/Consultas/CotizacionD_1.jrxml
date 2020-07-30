@@ -4,7 +4,7 @@
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="163"/>
+	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -259,7 +259,7 @@
 					<text><![CDATA[ATENTAMENTE]]></text>
 				</staticText>
 				<subreport>
-					<reportElement x="5" y="19" width="532" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
+					<reportElement x="5" y="19" width="535" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
 					<subreportParameter name="ID_Cotizacion">
 						<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
 					</subreportParameter>
