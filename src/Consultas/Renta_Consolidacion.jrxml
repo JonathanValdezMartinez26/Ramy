@@ -85,7 +85,7 @@
 		<groupFooter>
 			<band height="275">
 				<subreport>
-					<reportElement x="5" y="27" width="530" height="100" uuid="6e265f31-c9ec-4fd1-aa14-56fc92b49eb1"/>
+					<reportElement x="5" y="27" width="535" height="100" uuid="6e265f31-c9ec-4fd1-aa14-56fc92b49eb1"/>
 					<subreportParameter name="ID_Cotizacion">
 						<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
 					</subreportParameter>
@@ -93,95 +93,7 @@
 					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
 				</subreport>
 				<staticText>
-					<reportElement style="Column header" x="-4" y="162" width="540" height="16" forecolor="#000000" uuid="e7b14e76-7613-4daa-a2d5-1c18561d7dec"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="10" isBold="true"/>
-					</textElement>
-					<text><![CDATA[**PRECIOS LIBRES DE MANIOBRA DE CARGA Y DESCARGA]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="62" y="224" width="171" height="15" forecolor="#000000" uuid="4862c380-5dbf-4424-ac9a-bb5c598abfdf"/>
-					<textElement textAlignment="Left">
-						<font fontName="Verdana" size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[ALFONSO RAMIREZ VALDEZ]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="171" y="192" width="206" height="13" forecolor="#000000" uuid="248ef7e4-6522-4f6f-9b18-2a9df1d0d718"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[ATENTAMENTE]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="0" y="129" width="480" height="16" forecolor="#000000" uuid="5be9b344-41e4-405f-bef8-ba21c54f20b3"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[              A ESTOS PRECIOS SE LES AUMENTARA EL IMPUESTO AL VALOR AGREGADO (I.V.A)]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="340" y="240" width="161" height="15" forecolor="#000000" uuid="ccaf5056-2223-4fe5-bbc7-00c88bdb3198"/>
-					<textElement textAlignment="Center">
-						<font fontName="Verdana" size="9" isBold="true"/>
-					</textElement>
-					<text><![CDATA[DEPTO. DE FACTURACIÓN ]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="180" y="179" width="206" height="13" forecolor="#000000" uuid="98d377e4-5994-4010-82ae-56581a06bdf5"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[]]></text>
-				</staticText>
-				<line>
-					<reportElement x="52" y="216" width="181" height="1" uuid="7add5265-bbca-4d16-8c39-5f43d19453e0">
-						<property name="local_mesure_unitheight" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
-					</graphicElement>
-				</line>
-				<staticText>
-					<reportElement style="Column header" x="-4" y="145" width="542" height="16" forecolor="#000000" uuid="19390738-f1f6-4cc5-b788-ad67c6cf83be"/>
-					<textElement textAlignment="Left">
-						<font fontName="Times New Roman" size="10" isBold="true"/>
-					</textElement>
-					<text><![CDATA[                    LAS CARGAS VIAJAN POR CUENTA Y RIESGO DEL REMITENTE Y/O DESTINATARIO]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="52" y="239" width="161" height="15" forecolor="#000000" uuid="099e4e80-33b2-4509-af07-79267c23b524"/>
-					<textElement textAlignment="Center">
-						<font fontName="Verdana" size="9" isBold="true"/>
-					</textElement>
-					<text><![CDATA[GERENTE GENERAL]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="360" y="225" width="153" height="15" forecolor="#000000" uuid="6e34a2d2-059c-48c1-9d14-461bb8f9a1d0"/>
-					<textElement textAlignment="Left">
-						<font fontName="Verdana" size="9" isBold="false"/>
-					</textElement>
-					<text><![CDATA[MARIO JESUS SALAZAR SALAZAR]]></text>
-				</staticText>
-				<line>
-					<reportElement x="332" y="217" width="181" height="1" uuid="a4d38fc4-b1ce-47ba-aace-10f2c3077e1c">
-						<property name="local_mesure_unitheight" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
-					</graphicElement>
-				</line>
-				<staticText>
 					<reportElement style="Column header" x="171" y="119" width="206" height="10" forecolor="#000000" uuid="b62433ac-b1d7-4be1-8f67-cd4c6c1e2a8e"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="171" y="205" width="206" height="11" forecolor="#000000" uuid="ffda2ee5-fa81-414a-a482-d7de270d557c"/>
 					<textElement textAlignment="Center">
 						<font fontName="Times New Roman" size="11" isBold="true"/>
 					</textElement>
@@ -194,6 +106,18 @@
 					</textElement>
 					<text><![CDATA[]]></text>
 				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="155" y="129" width="206" height="19" forecolor="#000000" uuid="2d34df5f-5842-4af5-87d8-9bd0e155b068"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<subreport>
+					<reportElement x="9" y="148" width="525" height="100" uuid="3881fe48-938f-49c0-ae31-f7eec95250be"/>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PIE_1.jasper"]]></subreportExpression>
+				</subreport>
 			</band>
 		</groupFooter>
 	</group>
@@ -203,7 +127,7 @@
 	<title>
 		<band height="284" splitType="Stretch">
 			<staticText>
-				<reportElement style="Column header" mode="Transparent" x="134" y="31" width="265" height="20" forecolor="#000000" backcolor="#000000" uuid="43554a4a-8eb8-487a-bddb-8947d44bd816">
+				<reportElement style="Column header" mode="Transparent" x="129" y="31" width="265" height="20" forecolor="#000000" backcolor="#000000" uuid="43554a4a-8eb8-487a-bddb-8947d44bd816">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -213,11 +137,11 @@
 				<text><![CDATA[Express Logistics Ramy,  S.A. de C.V. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="399" y="31" width="145" height="20" forecolor="#000000" uuid="c9181998-e78d-4518-9ef4-4e1b4b1f3fb8"/>
+				<reportElement style="Column header" x="397" y="31" width="144" height="20" forecolor="#000000" uuid="c9181998-e78d-4518-9ef4-4e1b4b1f3fb8"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cotización de Consolidaddo]]></text>
+				<text><![CDATA[Cotización Consolidado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="320" y="150" width="79" height="16" forecolor="#000000" uuid="48736689-56f8-489c-a354-00ae1364fa11"/>
@@ -242,18 +166,18 @@
 				<textFieldExpression><![CDATA[$F{Atencion}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="16" y="15" width="104" height="45" uuid="11eebc9e-cc0f-400c-93c9-55c924764bbc"/>
+				<reportElement x="14" y="15" width="104" height="45" uuid="11eebc9e-cc0f-400c-93c9-55c924764bbc"/>
 				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="13" y="77" width="331" height="20" uuid="dd219bcc-50a2-4f07-a513-d50942fef260"/>
+				<reportElement x="11" y="77" width="331" height="20" uuid="dd219bcc-50a2-4f07-a513-d50942fef260"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nombre_cliente}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Column header" x="361" y="71" width="183" height="20" forecolor="#000000" uuid="9ade8bd7-3d70-4ba1-a455-e09535a6f087"/>
+				<reportElement style="Column header" x="359" y="71" width="183" height="20" forecolor="#000000" uuid="9ade8bd7-3d70-4ba1-a455-e09535a6f087"/>
 				<textElement textAlignment="Right" verticalAlignment="Top">
 					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
@@ -282,7 +206,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<line>
-				<reportElement x="13" y="70" width="532" height="1" uuid="26462418-d43a-4d1b-a356-a99f4b3d6ed9">
+				<reportElement x="11" y="70" width="532" height="1" uuid="26462418-d43a-4d1b-a356-a99f4b3d6ed9">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -291,7 +215,7 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="142" y="51" width="206" height="19" forecolor="#000000" uuid="36acd782-26b2-4a92-beee-7f58f8ae12d2"/>
+				<reportElement style="Column header" x="140" y="51" width="206" height="19" forecolor="#000000" uuid="36acd782-26b2-4a92-beee-7f58f8ae12d2"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
@@ -312,7 +236,7 @@
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="140" y="0" width="206" height="15" forecolor="#000000" uuid="b2d0a38e-036d-40cb-8fd0-2532e20a1501"/>
+				<reportElement style="Column header" x="144" y="0" width="206" height="15" forecolor="#000000" uuid="b2d0a38e-036d-40cb-8fd0-2532e20a1501"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
@@ -333,14 +257,14 @@
 				<text><![CDATA[AT´N:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="13" y="98" width="317" height="13" backcolor="#FFFFFF" uuid="a0693059-a493-441c-8b12-5fa7d0debb75"/>
+				<reportElement x="11" y="98" width="317" height="13" backcolor="#FFFFFF" uuid="a0693059-a493-441c-8b12-5fa7d0debb75"/>
 				<textElement textAlignment="Left" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Localidad}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Title" x="13" y="113" width="317" height="14" backcolor="#FFFFFF" uuid="7d79c792-fe66-45d7-b30a-f4ad93234e42"/>
+				<reportElement style="Title" x="11" y="113" width="317" height="14" backcolor="#FFFFFF" uuid="7d79c792-fe66-45d7-b30a-f4ad93234e42"/>
 				<textElement textAlignment="Left">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
