@@ -64,7 +64,7 @@ public class Opciones {
     ///////////////////////////////////////
     
     public static void listar(String busca, int ID) {
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
@@ -260,6 +260,8 @@ catch(SQLException e) {
     JOptionPane.showMessageDialog(null, e.getMessage());
 }
     }
+    
+    
 }
     
     
