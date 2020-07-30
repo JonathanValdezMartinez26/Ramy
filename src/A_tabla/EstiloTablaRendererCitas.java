@@ -27,21 +27,21 @@ public class EstiloTablaRendererCitas extends DefaultTableCellRenderer {
         this.setBorder(null);
         this.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 1, 1, new java.awt.Color(198, 202, 193)));
         
-        if(tabla.getValueAt(row, 4).toString().equals("CANCELADA"))
+        if(tabla.getValueAt(row, 5).toString().equals("CANCELADA"))
         {
             componenete.setBackground(new Color(223,76,100));
             componenete.setForeground(new Color(255, 255, 255));
         } 
         else 
         {
-            if(tabla.getValueAt(row, 4).toString().equals("PENDIENTE"))
+            if(tabla.getValueAt(row, 5).toString().equals("PENDIENTE"))
             {
                 componenete.setBackground(new Color(232,113,47));
                 componenete.setForeground(new Color(255, 255, 255));
             } 
             else
             {
-                if(tabla.getValueAt(row, 4).toString().equals("FINALIZADA"))
+                if(tabla.getValueAt(row, 5).toString().equals("FINALIZADA"))
                 {
                     componenete.setBackground(new Color(124, 198, 35));
                     componenete.setForeground(new Color(255, 255, 255));
@@ -51,7 +51,7 @@ public class EstiloTablaRendererCitas extends DefaultTableCellRenderer {
         
         if (isSelected) {
             
-            if(tabla.getValueAt(row, 4).toString().equals("CANCELADA"))
+            if(tabla.getValueAt(row, 5).toString().equals("CANCELADA"))
             {
                 componenete.setBackground(new Color(223,76,100));
                 componenete.setForeground(new Color(255, 255, 255));
@@ -59,7 +59,7 @@ public class EstiloTablaRendererCitas extends DefaultTableCellRenderer {
             } 
             else 
             {
-                if(tabla.getValueAt(row, 4).toString().equals("PENDIENTE"))
+                if(tabla.getValueAt(row, 5).toString().equals("PENDIENTE"))
                 {
                     componenete.setBackground(new Color(232,113,47));
                     componenete.setForeground(new Color(255, 255, 255));
@@ -67,7 +67,7 @@ public class EstiloTablaRendererCitas extends DefaultTableCellRenderer {
                 } 
                 else
                 {
-                    if(tabla.getValueAt(row, 4).toString().equals("FINALIZADA"))
+                    if(tabla.getValueAt(row, 5).toString().equals("FINALIZADA"))
                     {
                         componenete.setBackground(new Color(124, 198, 35));
                         componenete.setForeground(new Color(255, 255, 255));

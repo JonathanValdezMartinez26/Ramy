@@ -240,14 +240,14 @@ public class pnlCotizaciones extends javax.swing.JPanel {
 
             },
             new String [] {
-                "No.", "Nombre del Cliente", "Atención", "Fecha de Alta", "Estatus"
+                "No.", "Nombre del Cliente", "Atención", "Fecha de Alta", "Tipo de Cotización", "Estatus"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -276,8 +276,8 @@ public class pnlCotizaciones extends javax.swing.JPanel {
             tabla.getColumnModel().getColumn(2).setPreferredWidth(230);
             tabla.getColumnModel().getColumn(3).setResizable(false);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(4).setResizable(false);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(5).setResizable(false);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
         }
 
         pnlPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 155, 1086, 480));
@@ -297,14 +297,14 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
         pnlagregar.setToolTipText("Agregar Cotizacion Directa");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlagregarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlagregarMouseClicked(evt);
             }
         });
         pnlagregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
