@@ -128,18 +128,22 @@ public class Opciones {
     }
     //////////////////////////////////////////////////////////////////
      public static void listarModificar(String busca, int ID) {
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.tablaR.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
         
-        String sql = "";
+     String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where ID_Cotizacion =" + ID;
+           sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
         } else {
+    
             
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
+            sql = "Select ID_asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_Rentav"
+                    + " where  (ID_Cotizacion =" +ID+" AND Periodo LIKE '%"+ busca +"%')"
+                    + " OR (ID_Cotizacion =" +ID+" AND Concepto LIKE '"+ busca +"%')"
+                    + " OR (ID_Cotizacion =" +ID+" AND Precio LIKE '"+ busca +"%')";
             
            }
         String datos[] = new String[4];

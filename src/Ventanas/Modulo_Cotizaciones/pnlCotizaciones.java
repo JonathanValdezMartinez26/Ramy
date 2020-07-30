@@ -17,6 +17,7 @@ import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
 import Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado;
 import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
+import Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Point;
@@ -61,15 +62,33 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         int Filita = 1; 
   
         if (Fila >= 0) {
-            String status = (tabla.getValueAt(Fila, 4).toString());
+            String status = (tabla.getValueAt(Fila, 5).toString());
+            String tipo = (tabla.getValueAt(Fila, 4).toString());
             
                     if(status.equals("PENDIENTE")){
-                    int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
-
-                    ModificarCotizaciones MP = new ModificarCotizaciones(null, true);
-                    MP.CargarDatos(ID);
-                    MP.setPP(this);
-                    MP.setVisible(true);
+                        if(tipo.equals("DIRECTA")){
+                        int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+                        ModificarCotizaciones MP = new ModificarCotizaciones(null, true);
+                        MP.CargarDatos(ID);
+                        MP.setPP(this);
+                        MP.setVisible(true);
+                        }else{
+                            if(tipo.equals("RENTA")){
+                                int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+                                ModificarCotizaciones_Renta MR = new ModificarCotizaciones_Renta(null, true);
+                                MR.CargarDatos(ID);
+                                MR.setVisible(true);
+                            }else{
+                                if(tipo.equals("CONSOLIDADO")){
+                                    JOptionPane.showMessageDialog(null, "se debe modificar POR consolidado");
+                                }else{
+                                    if(tipo.equals("RUTA")){
+                                        JOptionPane.showMessageDialog(null, "se debe modificar por ruta");
+                                    }
+                                }
+                            }
+                        }
+                    
                     }else{
                         Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                         AC.msj1.setText("¡Esta cotización!");
@@ -247,7 +266,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -321,14 +340,14 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
         pnleditar.setToolTipText("Editar Cotizacion");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnleditarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnleditarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnleditarMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnleditarMouseClicked(evt);
             }
         });
         pnleditar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
