@@ -578,10 +578,13 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     private void pnlagregar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregar2MouseClicked
 
         //AgregarCotizaciones poper = new AgregarCotizaciones(null, true);
-//        AgregarCotizacionesRuta poper =new Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta(null, true);
-//        poper.setVisible(true);
-        Ventanas.Modulo_Ruta_Cotizacion.prueba p=new Ventanas.Modulo_Ruta_Cotizacion.prueba();
-        p.setVisible(true);
+        AgregarCotizacionesRuta poper =new Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta(null, true);
+        poper.setVisible(true);
+
+
+
+//        Ventanas.Modulo_Ruta_Cotizacion.prueba p=new Ventanas.Modulo_Ruta_Cotizacion.prueba();
+//        p.setVisible(true);
         
         // TODO add your handling code here:
     }//GEN-LAST:event_pnlagregar2MouseClicked

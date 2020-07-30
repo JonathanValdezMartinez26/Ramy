@@ -11,6 +11,8 @@ import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Desktop;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import static java.lang.System.exit;
@@ -21,6 +23,7 @@ import necesario.RSAWTUtilities;
 
 public class WarningFinalizarPrueba extends javax.swing.JDialog {
 
+    
     public WarningFinalizarPrueba(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -30,10 +33,24 @@ public class WarningFinalizarPrueba extends javax.swing.JDialog {
         FadeEffect.fadeIn(this, 20, 0.1f);
         this.setLocationRelativeTo(this);
         ID.setVisible(false);
+        prueba v=new prueba();
         
+        
+        
+        
+        log2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+               //v.setVisible(true);
+                
+            }
+        });
 
     }
-
+    
+    public static void agregarJFrame(prueba j) {
+        j.dispose();
+        }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -53,6 +70,7 @@ public class WarningFinalizarPrueba extends javax.swing.JDialog {
         ID = new javax.swing.JLabel();
         msj6 = new javax.swing.JLabel();
         msj7 = new javax.swing.JLabel();
+        lblBander2 = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
@@ -148,6 +166,7 @@ public class WarningFinalizarPrueba extends javax.swing.JDialog {
         msj7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         msj7.setText("*Tome en cuenta que al presionar este boton");
         jPanel1.add(msj7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 290, 20));
+        jPanel1.add(lblBander2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 70, 20));
 
         rSPanelImage1.add(jPanel1);
         jPanel1.setBounds(6, 4, 408, 230);
@@ -165,10 +184,15 @@ public class WarningFinalizarPrueba extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
         
-        this.dispose();
+//     variable.
+       // v.setVisible();
+//        this.setVisible(false);
+//        prueba.lblBander.setText("OK");
+//        lblBander2.setText("OK");
 //        JOptionPane.showMessageDialog(null, "Debe cerrarse prueba");
 //        Ventanas.Modulo_Ruta_Cotizacion.prueba p = new Ventanas.Modulo_Ruta_Cotizacion.prueba();
 //        p.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -181,11 +205,19 @@ public class WarningFinalizarPrueba extends javax.swing.JDialog {
 //	}
 //});  
 //        
+//this.dispose();
 
+        
+        
+        
+        
     }//GEN-LAST:event_log2ActionPerformed
 
     private void log3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log3ActionPerformed
         this.dispose();
+        prueba p =new prueba();
+        p.setVisible(true);
+    
     }//GEN-LAST:event_log3ActionPerformed
 
     private void log2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_log2KeyTyped
@@ -220,6 +252,7 @@ public class WarningFinalizarPrueba extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    public static javax.swing.JLabel lblBander2;
     public static JButtonEspecial.JButtonEspecial log2;
     private JButtonEspecial.JButtonEspecial log3;
     public static javax.swing.JLabel msj2;

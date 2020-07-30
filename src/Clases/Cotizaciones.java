@@ -23,7 +23,7 @@ public static ResultSet resultado;
         {
             CallableStatement consulta = Conexion.con.prepareCall("{call AgregarCotizacion (?) }");
         
-            consulta.setInt(1, ID_Cliente);
+            consulta.setInt(1, ID_Cliente);            
             consulta.execute();
             
             Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);

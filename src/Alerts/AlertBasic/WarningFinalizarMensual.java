@@ -160,9 +160,6 @@ public class WarningFinalizarMensual extends javax.swing.JDialog {
     AgregarCotizaciones_Renta.ver();
     //JOptionPane.showMessageDialog(null, "DEbe cerrarse la venbtana");
     
-     AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
-     AC.dispose();
-
 //AgregarCotizaciones.aceptarFinalizar();
         
     
@@ -170,6 +167,7 @@ public class WarningFinalizarMensual extends javax.swing.JDialog {
 
     private void log3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log3ActionPerformed
         this.dispose();
+        
     }//GEN-LAST:event_log3ActionPerformed
 
     public static void main(String args[]) {

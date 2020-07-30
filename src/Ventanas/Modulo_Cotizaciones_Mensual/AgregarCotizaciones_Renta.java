@@ -865,7 +865,9 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                 else{  
                         ////////Si la tabla1 esta vacia, se le pregunta al cliente, si desea finalizar cotizacion 
                         //////sin agregar ningun servicio, todo esto mediante este metodo
-                       finalizar();
+                       //this.setVisible(false);
+                        finalizar();
+                       
                        //JOptionPane.showMessageDialog(null,"Finaliza directo");
                     }
     
