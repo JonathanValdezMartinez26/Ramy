@@ -18,12 +18,13 @@ public static ResultSet resultado;
     public static String LISTAR = "Select C.ID_Cliente,C.Nombre_Cliente,C.Atencion,E.estado,M.municipio,L.localidad,C.Calle from\n" +
  " Clientes C left Join t_localidad L ON L.id_localidad = C.id_localidad left Join t_municipio M ON M.id_municipio = L.id_municipio left Join t_estado E ON E.id_estado = M.id_estado\n";
     
-     public static void Agregar_Cotizacion(int ID_Cliente) {
+     public static void Agregar_Cotizacion(int ID_Cliente, int ID_Tipo_Cotizacion) {
         try 
         {
-            CallableStatement consulta = Conexion.con.prepareCall("{call AgregarCotizacion (?) }");
+            CallableStatement consulta = Conexion.con.prepareCall("{call AgregarCotizacion (?, ?) }");
         
-            consulta.setInt(1, ID_Cliente);            
+            consulta.setInt(1, ID_Cliente);  
+            consulta.setInt(2, ID_Tipo_Cotizacion);  
             consulta.execute();
             
             Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
