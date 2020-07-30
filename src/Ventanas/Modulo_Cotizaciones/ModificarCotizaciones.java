@@ -420,7 +420,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         l2 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
-        buscar = new app.bolivia.swing.JCTextField();
+        buscarMod = new app.bolivia.swing.JCTextField();
         jLabel4 = new javax.swing.JLabel();
         pnlEliminar = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
@@ -600,19 +600,19 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(225, 225, 225));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        buscar.setBorder(null);
-        buscar.setForeground(new java.awt.Color(0, 144, 183));
-        buscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buscar.setPlaceholder("BUSCAR");
-        buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+        buscarMod.setBorder(null);
+        buscarMod.setForeground(new java.awt.Color(0, 144, 183));
+        buscarMod.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        buscarMod.setPlaceholder("BUSCAR");
+        buscarMod.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                buscarKeyReleased(evt);
+                buscarModKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                buscarKeyTyped(evt);
+                buscarModKeyTyped(evt);
             }
         });
-        jPanel1.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 140, 30));
+        jPanel1.add(buscarMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 140, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 210, -1));
@@ -905,11 +905,14 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
       }
     }//GEN-LAST:event_cmbOrigenesItemStateChanged
 
-    private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-        
-    }//GEN-LAST:event_buscarKeyReleased
+    private void buscarModKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarModKeyReleased
+        String a=IDCotizacion.getText();
+        int IDC=Integer.parseInt(a);
+        Ventanas.Modulo_Cotizaciones.Opciones.listarModificar(buscarMod.getText(), IDC);       
 
-    private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
+    }//GEN-LAST:event_buscarModKeyReleased
+
+    private void buscarModKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarModKeyTyped
         char letras = evt.getKeyChar();
 
         if (Character.isLowerCase(letras)) {
@@ -917,7 +920,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             letras = cad.charAt(0);
             evt.setKeyChar(letras);
         }
-    }//GEN-LAST:event_buscarKeyTyped
+    }//GEN-LAST:event_buscarModKeyTyped
 
     private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
         eliminar();
@@ -991,7 +994,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel ID_rutas;
-    public static app.bolivia.swing.JCTextField buscar;
+    public static app.bolivia.swing.JCTextField buscarMod;
     private ComboBox.SComboBox cmbCliente;
     private ComboBox.SComboBox cmbDestinos;
     private ComboBox.SComboBox cmbOrigenes;

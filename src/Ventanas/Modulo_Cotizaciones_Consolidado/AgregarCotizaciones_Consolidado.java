@@ -99,7 +99,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         
         
         ID_rutas.setVisible(false);
-        IDCotizacion.setVisible(false);
+        IDCotizacion.setVisible(true);
          
         tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -337,7 +337,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         l2 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
-        buscar = new app.bolivia.swing.JCTextField();
+        buscarConso = new app.bolivia.swing.JCTextField();
         jLabel4 = new javax.swing.JLabel();
         pnlEliminar = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
@@ -528,19 +528,19 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(225, 225, 225));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        buscar.setBorder(null);
-        buscar.setForeground(new java.awt.Color(0, 144, 183));
-        buscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buscar.setPlaceholder("BUSCAR");
-        buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+        buscarConso.setBorder(null);
+        buscarConso.setForeground(new java.awt.Color(0, 144, 183));
+        buscarConso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        buscarConso.setPlaceholder("BUSCAR");
+        buscarConso.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                buscarKeyReleased(evt);
+                buscarConsoKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                buscarKeyTyped(evt);
+                buscarConsoKeyTyped(evt);
             }
         });
-        jPanel1.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 140, 30));
+        jPanel1.add(buscarConso, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 140, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 210, -1));
@@ -749,17 +749,14 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     Guardar();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-     
-//         IDCotizacion.setText(""+ObtenID());
+    private void buscarConsoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarConsoKeyReleased
+
          int ID = Integer.parseInt(IDCotizacion.getText());
-         Opciones.listar(buscar.getText(), ID);
+         Opciones.listar(buscarConso.getText(), ID);
          
+    }//GEN-LAST:event_buscarConsoKeyReleased
 
-         
-    }//GEN-LAST:event_buscarKeyReleased
-
-    private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
+    private void buscarConsoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarConsoKeyTyped
         char letras = evt.getKeyChar();
 
         if (Character.isLowerCase(letras)) {
@@ -767,7 +764,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             letras = cad.charAt(0);
             evt.setKeyChar(letras);
         }
-    }//GEN-LAST:event_buscarKeyTyped
+    }//GEN-LAST:event_buscarConsoKeyTyped
 
     private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
         eliminar();
@@ -986,7 +983,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel ID_rutas;
-    public static app.bolivia.swing.JCTextField buscar;
+    public static app.bolivia.swing.JCTextField buscarConso;
     private ComboBox.SComboBox cmbCliente;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
