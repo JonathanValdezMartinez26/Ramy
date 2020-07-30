@@ -36,7 +36,11 @@ public class Opciones {
             sql = "Select * from cotizacionesv where Estado=0";
         } else {
             
-            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionesv where Estado=0 AND Nombre_Cliente LIKE '%" + busca +"%' AND Estado=0 OR Atencion LIKE '%"+ busca +"%'  AND Estado=0 OR Fecha_Alta LIKE '%"+ busca +"%' AND Estado=0 OR Estatus LIKE '%"+busca+"%' AND Estado=0 ";
+            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta,Tipo_Cotizacion ,Estatus from cotizacionesv"
+                    + " where Estado=0 AND Nombre_Cliente LIKE '%" + busca +"%' AND Estado=0 "
+                    + " OR Atencion LIKE '%"+ busca +"%'  AND Estado=0"
+                    + " OR Fecha_Alta LIKE '%"+ busca +"%' AND Estado=0"
+                    + " OR Estatus LIKE '%"+busca+"%' AND Estado=0 ";
             
            }
         String datos[] = new String[6];
@@ -50,6 +54,7 @@ public class Opciones {
                 datos [2] = rs.getString(3);
                 datos [3] = rs.getString(4);
                 datos [4] = rs.getString(5);
+                datos [5] = rs.getString(6);
                 
                 modelo.addRow(datos);
             }
