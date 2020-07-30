@@ -6,6 +6,7 @@ import Alerts.*;
 import Ventanas.Modulo_Cliente.Opciones;
 import Ventanas.Modulo_Cliente.Registrar;
 import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
+import Ventanas.Modulo_Cotizaciones.pnlCotizaciones;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
 import com.sun.glass.events.KeyEvent;
@@ -88,9 +89,19 @@ public class WarningFinalizarPrueba extends javax.swing.JDialog {
         log2.setColorPressed(new java.awt.Color(153, 153, 153));
         log2.setColorTextHover(new java.awt.Color(128, 128, 131));
         log2.setColorTextNormal(new java.awt.Color(128, 128, 131));
+        log2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                log2MouseClicked(evt);
+            }
+        });
         log2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 log2ActionPerformed(evt);
+            }
+        });
+        log2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                log2KeyTyped(evt);
             }
         });
         jPanel1.add(log2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 230, 30));
@@ -156,28 +167,35 @@ public class WarningFinalizarPrueba extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
-    this.dispose();
-    
-     
-     
-     
-     JOptionPane.showMessageDialog(null, "Debe cerrarse prueba");
-        Ventanas.Modulo_Ruta_Cotizacion.prueba p=new Ventanas.Modulo_Ruta_Cotizacion.prueba();
-        p.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);           
-p.addWindowListener(new WindowAdapter() {     	
-@Override
-	public void windowClosing(WindowEvent e) {
-                //Este método se deshace de la ventana una vez que el usuario hace clic en el botón de cierre.
-		dispose();
-	}
-});  
         
+        this.dispose();
+//        JOptionPane.showMessageDialog(null, "Debe cerrarse prueba");
+//        Ventanas.Modulo_Ruta_Cotizacion.prueba p = new Ventanas.Modulo_Ruta_Cotizacion.prueba();
+//        p.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+//        
+//        p.addWindowListener(new WindowAdapter() {     	
+//        @Override
+//	public void windowClosing(WindowEvent e) {
+//                //Este método se deshace de la ventana una vez que el usuario hace clic en el botón de cierre.
+//		dispose();
+//	}
+//});  
+//        
 
     }//GEN-LAST:event_log2ActionPerformed
 
     private void log3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log3ActionPerformed
         this.dispose();
     }//GEN-LAST:event_log3ActionPerformed
+
+    private void log2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_log2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_log2KeyTyped
+
+    private void log2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_log2MouseClicked
+        pnlCotizaciones pc=new pnlCotizaciones();
+        pc.setVisible(false);
+    }//GEN-LAST:event_log2MouseClicked
 
     public static void main(String args[]) {
        

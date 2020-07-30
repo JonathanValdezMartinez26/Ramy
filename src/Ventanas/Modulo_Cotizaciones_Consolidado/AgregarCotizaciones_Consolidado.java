@@ -229,9 +229,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         
         int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
         int comboCliente = cmbCliente.getSelectedIndex();
-//        Date Fecha_I = txtFechaI.getDate();
-//        Date Fecha_F = txtFechaF.getDate();
-       String Consolidado = txtTipo_Concepto.getText();
+        String Consolidado = txtTipo_Concepto.getText();
         
         
         if(comboCliente==0)
@@ -252,7 +250,6 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                    }
                     else
                     {
-
                       if(Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.verificaConsolidado(ID_Cotizacion,Consolidado)==0)
                       { 
                           Clases.CotizacionesConsolidado fichaIden = new Clases.CotizacionesConsolidado();
@@ -260,7 +257,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                             fichaIden.setID_Cotizacion(ID_Cotizacion);
                             fichaIden.setConsolidado(Consolidado);
 
-                            if (Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.registrar(fichaIden))
+                            if (Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.registrarCotizaConsoli(ID_Cotizacion,Consolidado))
                             {
                                 Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
                                       AC.msj1.setText("¡Datos de la cotizacion!");

@@ -1,6 +1,7 @@
 package Ventanas.Modulo_Cotizaciones_Mensual;
 import Clases.Conexion;
 import static Ventanas.Modulo_Cotizaciones.Opciones.cn;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.cn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -198,6 +199,22 @@ public class Opciones {
         }
         System.out.println(sql);
         return false;
+    }
+        public static boolean registrarCotiRenta(int IdCot,String concepto,int IdPer) {
+
+            String q = " INSERT INTO asigna_cotizaciones_renta (ID_Asigna_Cotizacion_Renta,ID_Cotizacion,Concepto,ID_Periodo,Precio)"
+                    + "VALUES (NULL,'" + IdCot + "','" + concepto + "','" + IdPer + "',0)";
+            try {
+                PreparedStatement pstm = cn.prepareStatement(q);
+                pstm.execute();
+                pstm.close();
+                return true;
+
+            } catch (SQLException e) {
+                System.out.println(e);
+                return false;
+            }
+
     }
     
      ///////////////////////////////////////////////////////////////////

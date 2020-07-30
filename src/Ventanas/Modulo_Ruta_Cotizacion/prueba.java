@@ -7,6 +7,9 @@ package Ventanas.Modulo_Ruta_Cotizacion;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.FocusManager;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -19,7 +22,7 @@ public class prueba extends javax.swing.JFrame {
      */
     public prueba() {
         initComponents();
-    
+        
     }
 
     /**
@@ -36,7 +39,7 @@ public class prueba extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jButton1.setText("Cerrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -66,8 +69,27 @@ public class prueba extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Ventanas.Modulo_Ruta_Cotizacion.WarningFinalizarPrueba w =new Ventanas.Modulo_Ruta_Cotizacion.WarningFinalizarPrueba(null,true);
-        w.setVisible(true);
+        Ventanas.Modulo_Ruta_Cotizacion.prueba p = new Ventanas.Modulo_Ruta_Cotizacion.prueba();
+        p.setVisible(false);
+        p.dispose();
+        p.pack();
+        
+        if(evt.getActionCommand().equals("Cerrars")){
+            JOptionPane.showMessageDialog(null, "se a presionado el boton");
+}
+        JOptionPane.showMessageDialog(null, "se a presionado el botonnnnnnnnn");
+        //Ventanas.Modulo_Ruta_Cotizacion.prueba= FocusManager.getCurrentManager().getActiveWindow();
+//        p.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+//        
+//        p.addWindowListener(new WindowAdapter() {     	
+//        @Override
+//	public void windowClosing(WindowEvent e) {
+//                //Este método se deshace de la ventana una vez que el usuario hace clic en el botón de cierre.
+//		dispose();
+//	}
+//});  
+
+    //dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -106,6 +128,6 @@ public class prueba extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public static javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

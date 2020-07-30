@@ -223,18 +223,15 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
            
     }
     ////////////////////////////////////////////////////////////////////////////
-    private void Guardar(){
-        
-        int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-        int comboCliente = cmbCliente.getSelectedIndex();
+    private void Guardar(){        
 //        Date Fecha_I = txtFechaI.getDate();
 //        Date Fecha_F = txtFechaF.getDate();
-        String Concepto = txtTipo_Concepto.getText();
-        
-        
+        String Concepto = txtTipo_Concepto.getText();        
         int ID_Periodos = cmbPeriodo.getSelectedIndex();
         int ID_Periodo= ID_Per[ID_Periodos];
-     
+        int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+        int comboCliente = cmbCliente.getSelectedIndex();
+        
         if(comboCliente==0)
             {
                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -263,7 +260,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                             fichaIdent.setID_Periodo(ID_Periodo);
                             
 
-                            if (Ventanas.Modulo_Cotizaciones_Mensual.Opciones.registrar(fichaIdent)) 
+                            if (Ventanas.Modulo_Cotizaciones_Mensual.Opciones.registrarCotiRenta(ID_Cotizacion,Concepto,ID_Periodo)) 
                             {
                                 Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
                                       AC.msj1.setText("¡Datos de la cotizacion!");
