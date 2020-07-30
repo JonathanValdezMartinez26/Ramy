@@ -73,8 +73,9 @@ public class Opciones {
            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado where ID_Cotizacion="+ ID;
         } else {
             
-            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado where  Consolidado LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' AND ID_Cotizacion =" + ID;
-            
+            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado"
+                    + " where (ID_Cotizacion ="+ID+" AND Consolidado LIKE '%"+ busca +"%') "
+                    + "OR (ID_Cotizacion ="+ID+" AND Precio LIKE '"+ busca +"%')";            
            }
         String datos[] = new String[3];
         try {           
@@ -84,8 +85,7 @@ public class Opciones {
             {
                 datos [0] = String.valueOf(rs.getInt(1));
                 datos [1] = rs.getString(2);
-                datos [2] = String.valueOf(rs.getInt(3));
-                
+                datos [2] = rs.getString(3);                
                 modelo.addRow(datos);
             }
             
@@ -191,7 +191,23 @@ public class Opciones {
         System.out.println(sql);
         return false;
     }
-    
+
+           public static boolean registrarCotizaConsoli(int IdCot,String consolidado) {
+               
+               String q = " INSERT INTO asigna_cotizacion_consolidado (ID_cotizacion_consolidado,ID_Cotizacion,consolidado,Precio)"
+                       + "VALUES (NULL,'"+IdCot+"','"+consolidado+"',0)";
+               try {
+                   PreparedStatement pstm = cn.prepareStatement(q);
+                   pstm.execute();
+                   pstm.close();
+                   return true; 
+
+               } catch (SQLException e) {
+                   System.out.println(e);
+                   return false;
+               }
+
+    }
      ///////////////////////////////////////////////////////////////////
     
 

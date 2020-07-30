@@ -133,8 +133,10 @@ public class Opciones {
             sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where ID_Cotizacion =" + ID;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
-            
+            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv"
+                    + " where  (ID_Cotizacion =" +ID+" AND Origen LIKE '%" + busca +"%')"
+                    + " OR (ID_Cotizacion =" +ID+" AND Destino LIKE '%"+ busca +"%')"
+                    + " OR (ID_Cotizacion =" +ID+" AND Precio LIKE '"+ busca +"%')";            
            }
         String datos[] = new String[4];
         try {           

@@ -1,6 +1,7 @@
 package Ventanas.Modulo_Cotizaciones_Mensual;
 import Clases.Conexion;
 import static Ventanas.Modulo_Cotizaciones.Opciones.cn;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.cn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -72,8 +73,12 @@ public class Opciones {
         if (busca.equals("")) {
            sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
         } else {
+    
             
-            sql = "Select ID_asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_Rentav where  Periodo LIKE '"+ busca +"%' OR Concepto LIKE '"+ busca +"%' OR ID_Cotizacion =" + ID;
+            sql = "Select ID_asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_Rentav"
+                    + " where  (ID_Cotizacion =" +ID+" AND Periodo LIKE '%"+ busca +"%')"
+                    + " OR (ID_Cotizacion =" +ID+" AND Concepto LIKE '"+ busca +"%')"
+                    + " OR (ID_Cotizacion =" +ID+" AND Precio LIKE '"+ busca +"%')";
             
            }
         String datos[] = new String[4];
@@ -85,7 +90,7 @@ public class Opciones {
                 datos [0] = String.valueOf(rs.getInt(1));
                 datos [1] = rs.getString(2);
                 datos [2] = rs.getString(3);
-                datos [3] = String.valueOf(rs.getInt(4));
+                datos [3] = rs.getString(4);
                 
                 modelo.addRow(datos);
             }
@@ -194,6 +199,22 @@ public class Opciones {
         }
         System.out.println(sql);
         return false;
+    }
+        public static boolean registrarCotiRenta(int IdCot,String concepto,int IdPer) {
+
+            String q = " INSERT INTO asigna_cotizaciones_renta (ID_Asigna_Cotizacion_Renta,ID_Cotizacion,Concepto,ID_Periodo,Precio)"
+                    + "VALUES (NULL,'" + IdCot + "','" + concepto + "','" + IdPer + "',0)";
+            try {
+                PreparedStatement pstm = cn.prepareStatement(q);
+                pstm.execute();
+                pstm.close();
+                return true;
+
+            } catch (SQLException e) {
+                System.out.println(e);
+                return false;
+            }
+
     }
     
      ///////////////////////////////////////////////////////////////////

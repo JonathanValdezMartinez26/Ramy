@@ -32,6 +32,7 @@ public class pnlBitacora extends javax.swing.JPanel {
 
     public pnlBitacora() {
         initComponents();
+        lblID.setVisible(false);
         if(buscar.getText().equals(""))
         {
             Opciones.listar("");
@@ -84,6 +85,7 @@ public class pnlBitacora extends javax.swing.JPanel {
         buscarBitacora = new app.bolivia.swing.JCTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
 
@@ -143,14 +145,14 @@ public class pnlBitacora extends javax.swing.JPanel {
         pnlpdf.setBackground(new java.awt.Color(225, 225, 225));
         pnlpdf.setToolTipText("Visualizar Bitacora");
         pnlpdf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlpdfMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlpdfMouseClicked(evt);
             }
         });
         pnlpdf.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -165,16 +167,16 @@ public class pnlBitacora extends javax.swing.JPanel {
         jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 69));
 
         pnlpdf1.setBackground(new java.awt.Color(225, 225, 225));
-        pnlpdf1.setToolTipText("Visualizar Bitacora");
+        pnlpdf1.setToolTipText("Ajustes");
         pnlpdf1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlpdf1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlpdf1MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 pnlpdf1MouseExited(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlpdf1MouseClicked(evt);
             }
         });
         pnlpdf1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -238,6 +240,9 @@ public class pnlBitacora extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 210, -1));
 
+        lblID.setText("ID");
+        jPanel4.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
+
         add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1105, 85));
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
@@ -289,13 +294,16 @@ public class pnlBitacora extends javax.swing.JPanel {
         if (evt.getClickCount() == 1)
         {
             String a = tablabitacora.getValueAt(tablabitacora.getSelectedRow() , 0).toString();
-            int id = Integer.parseInt(a);
-            Opciones.CargarDatos(id);
+            lblID.setText(a);
+            int id = Integer.parseInt(a);            
+            Opciones.CargarDatos("",id);
+            buscarBitacora.setText("");
         }
     }//GEN-LAST:event_tablabitacoraMouseClicked
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-        Opciones.listar(this.buscar.getText().trim());        
+        Opciones.listar(this.buscar.getText().trim());  
+        buscarBitacora.setText("");
     }//GEN-LAST:event_buscarKeyReleased
 
     private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
@@ -329,8 +337,9 @@ public class pnlBitacora extends javax.swing.JPanel {
     }//GEN-LAST:event_buscarBitacoraActionPerformed
 
     private void buscarBitacoraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarBitacoraKeyReleased
-        
-        Opciones.listarBitacora(this.buscarBitacora.getText().trim());        
+        String slblID=lblID.getText();
+        int ID=Integer.parseInt(slblID);
+        Opciones.CargarDatos(this.buscarBitacora.getText().trim(),ID);        
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarBitacoraKeyReleased
 
@@ -345,16 +354,17 @@ public class pnlBitacora extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buscarBitacoraKeyTyped
 
-    private void pnlpdf1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlpdf1MouseEntered
-
     private void pnlpdf1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_pnlpdf1MouseExited
 
-    private void pnlpdf1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseClicked
+    private void pnlpdf1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseEntered
         // TODO add your handling code here:
+    }//GEN-LAST:event_pnlpdf1MouseEntered
+
+    private void pnlpdf1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdf1MouseClicked
+     pnlBitacoraAjustes PBA =new pnlBitacoraAjustes(null, true);
+        PBA.setVisible(true);
     }//GEN-LAST:event_pnlpdf1MouseClicked
 
         DefaultTableModel model = new DefaultTableModel() {
@@ -383,6 +393,7 @@ public class pnlBitacora extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    public static javax.swing.JLabel lblID;
     private javax.swing.JPanel pnlpdf;
     private javax.swing.JPanel pnlpdf1;
     public static javax.swing.JTable tabla;

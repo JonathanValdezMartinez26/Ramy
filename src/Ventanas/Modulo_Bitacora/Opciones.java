@@ -20,17 +20,35 @@ public class Opciones {
     public static Connection cn = cc.conexion();
     static PreparedStatement ps;
 
-        public static void CargarDatos(int id){
+        public static void CargarDatos(String busca,int id){
     
     DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Bitacora.pnlBitacora.tabla.getModel();
     modelo.setRowCount(0);
     
-    int contador = 0;
-    String datos[] = new String[6];
+    //modelo.setRowCount(0);
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        String sql = "";
+        if (busca.equals("")) {
+            sql ="Select Nombre_Viaje,costo_antiguo,costo_nuevo,transporte,Fecha_Mod from bitacora_costos Where ID_ClienteB = "+ id;
+        } else {        
+           
+            sql = "SELECT Nombre_Viaje, costo_antiguo,costo_nuevo,transporte,Fecha_Mod from bitacora_costos "
+                    + "WHERE (ID_ClienteB="+id+" AND Nombre_Viaje LIKE'%" + busca + "%')"
+                    + "OR (ID_ClienteB="+id+" AND costo_antiguo LIKE'"+busca+"%')"
+                    + "OR (ID_ClienteB="+id+" AND costo_nuevo LIKE'"+busca+"%')"
+                    + "OR (ID_ClienteB="+id+" AND transporte LIKE'"+busca+"%')"
+                    + "OR (ID_ClienteB="+id+" AND Fecha_Mod LIKE'%"+busca+"%')"
+                    + " ORDER BY Fecha_Mod";
+            
+           }
     
-        String sql ="Select Nombre_Viaje,costo_antiguo,costo_nuevo,transporte,Fecha_Mod from bitacora_costos Where ID_ClienteB = "+ id;
+    
+        
+        String datos[] = new String[6];
         try {    
-            String ed= "";
+            
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
@@ -146,21 +164,22 @@ public class Opciones {
     ///////////////////////////////////////////////////////////////////
 
 
-    public static void listarAjustes(String busca) {
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Bitacora.pnlBitacora.tablabitacora.getModel();
-        DefaultTableModel modelot = (DefaultTableModel) Ventanas.Modulo_Bitacora.pnlBitacora.tabla.getModel();
+    public static void listarClientesAjustes(String busca) {
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Bitacora.pnlBitacoraAjustes.tablabitacora.getModel();
+        DefaultTableModel modelot = (DefaultTableModel) Ventanas.Modulo_Bitacora.pnlBitacoraAjustes.tablaFAjuste.getModel();
+        DefaultTableModel modelod = (DefaultTableModel) Ventanas.Modulo_Bitacora.pnlBitacoraAjustes.tablaDatosAjuste.getModel();
 
+        //////inicializar tablas Ajuste y DatosAjuste
         modelot.setRowCount(0);
+        modelod.setRowCount(0);
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
         String sql = "";
-        if (busca.equals("")) {
-            sql = Clases.Bitacora.LISTARM;
-        } else {        
-            //sql = "select ID_Medico,concat_ws(' ',Nombres,Apellidos) as Medico, Cedula from medico where concat_ws(' ',Nombres,Apellidos) LIKE '%" + busca +"%' OR ID_Medico LIKE '"+ busca +"%' OR Cedula LIKE '"+ busca +"%' and Estado = true";
-            //sql = "select clientes(' ',Nombres,Apellidos) as Medico, Cedula from medico where concat_ws(' ',Nombres,Apellidos) LIKE '%" + busca +"%' OR ID_Medico LIKE '"+ busca +"%' OR Cedula LIKE '"+ busca +"%' and Estado = true";
-            sql = "SELECT ID_cliente, Nombre_cliente FROM clientes WHERE (Nombre_cliente LIKE'" + busca + "%' OR ID_cliente LIKE'"+busca+"%')"
+        if (busca.equals("")) {        
+            sql = "select ID_cliente, Nombre_cliente from clientes";
+        } else {                    
+            sql = "SELECT ID_cliente, Nombre_cliente FROM clientes WHERE (Nombre_cliente LIKE'" + busca + "%')"
                     + " ORDER BY Nombre_cliente";
            }
         String datos[] = new String[2];
@@ -171,13 +190,83 @@ public class Opciones {
             {
                 datos [0] = String.valueOf(rs.getInt(1));
                 datos [1] = rs.getString(2);
-//                datos [2] = rs.getString(3);
-                
                 modelo.addRow(datos);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public static void listarAjustes(int id){
+    
+    DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Bitacora.pnlBitacoraAjustes.tablaFAjuste.getModel();
+    DefaultTableModel modelo1 = (DefaultTableModel) Ventanas.Modulo_Bitacora.pnlBitacoraAjustes.tablaDatosAjuste.getModel();
+    modelo.setRowCount(0);
+    modelo1.setRowCount(0);
+    
+    int contador = 0;
+    String datos[] = new String[6];
+    
+        String sql ="Select ID_Cliente,Fecha_Ajuste from ajuste_precio where ID_Cliente= "+ id;
+        try {    
+            String ed= "";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {               
+            datos [0] = rs.getString(1);
+            datos [1] = rs.getString(2);
+
+            modelo.addRow(datos);
+            }
+           
+        }
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public static void listarDatosAjustes(String busca,int idCliente,String fecha){
+        
+    DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Bitacora.pnlBitacoraAjustes.tablaDatosAjuste.getModel();
+    modelo.setRowCount(0);
+    
+        
+         while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        String sql = "";
+        if (busca.equals("")) {        
+         sql ="Select ID_Ajuste_Bitacora,Nombre_Viaje,Costo_Antiguo,Costo_Actual,Transporte from asigna_ajuste_bitacora"
+                + " where Modificacion= '"+fecha+"' AND ID_Cliente='"+idCliente+"'";
+        } else {                    
+            sql ="Select ID_Ajuste_Bitacora,Nombre_Viaje,Costo_Antiguo,Costo_Actual,Transporte from asigna_ajuste_bitacora"
+                + " where (Modificacion= '"+fecha+"' AND ID_Cliente='"+idCliente+"' AND Nombre_Viaje LIKE'%"+busca+"%')"
+                    + "OR (Modificacion= '"+fecha+"' AND ID_Cliente='"+idCliente+"' AND Costo_Antiguo LIKE'%"+busca+"%')"
+                    + "OR (Modificacion= '"+fecha+"' AND ID_Cliente='"+idCliente+"' AND Costo_Actual LIKE'%"+busca+"%')"
+                    + "OR (Modificacion= '"+fecha+"' AND ID_Cliente='"+idCliente+"' AND Transporte LIKE'%"+busca+"%')";
+        }
+        
+        
+        String datos[] = new String[7];
+        try {                
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {               
+            datos [0] = String.valueOf(rs.getInt(1));
+            datos [1] = rs.getString(2);
+            datos [2] = rs.getString(3);
+            datos [3] = rs.getString(4);
+            datos [4] = rs.getString(5);
+            
+            
+            modelo.addRow(datos);
+            }
+           
+        }
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    //JOptionPane.showMessageDialog(null,"La fecha es: "+fecha+" y el cliente es: "+idCliente);
     }
 }
     

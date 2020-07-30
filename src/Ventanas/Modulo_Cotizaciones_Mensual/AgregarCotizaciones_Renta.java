@@ -26,6 +26,7 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import Ventanas.CotizacionReporte.ConfigCotizacionRenta;
 import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.tabla1;
@@ -160,9 +161,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }
     
   
-    
-    
-    
     public void Periodo()
     {
         int ID_Periodo = 0;
@@ -223,18 +221,15 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
            
     }
     ////////////////////////////////////////////////////////////////////////////
-    private void Guardar(){
-        
-        int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-        int comboCliente = cmbCliente.getSelectedIndex();
+    private void Guardar(){        
 //        Date Fecha_I = txtFechaI.getDate();
 //        Date Fecha_F = txtFechaF.getDate();
-        String Concepto = txtTipo_Concepto.getText();
-        
-        
+        String Concepto = txtTipo_Concepto.getText();        
         int ID_Periodos = cmbPeriodo.getSelectedIndex();
         int ID_Periodo= ID_Per[ID_Periodos];
-     
+        int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+        int comboCliente = cmbCliente.getSelectedIndex();
+        
         if(comboCliente==0)
             {
                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -263,7 +258,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                             fichaIdent.setID_Periodo(ID_Periodo);
                             
 
-                            if (Ventanas.Modulo_Cotizaciones_Mensual.Opciones.registrar(fichaIdent)) 
+                            if (Ventanas.Modulo_Cotizaciones_Mensual.Opciones.registrarCotiRenta(ID_Cotizacion,Concepto,ID_Periodo)) 
                             {
                                 Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
                                       AC.msj1.setText("¡Datos de la cotizacion!");
@@ -319,11 +314,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     //AgregarCotizaciones.dispose();
     }
                         
-                    
-                   
-                
-        
-    
+
     ////////////////////////////////////////////////////////////////////////
     
     
@@ -810,7 +801,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlEliminarMouseExited
 
     private void pnlVistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseClicked
-      
+     ConfigCotizacionRenta VE=new ConfigCotizacionRenta(null, true);
+     VE.CargarDatos();
+     VE.setVisible(true);      
     }//GEN-LAST:event_pnlVistaMouseClicked
 
     private void pnlVistaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseEntered
@@ -965,11 +958,11 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
     }//GEN-LAST:event_cmbPeriodoItemStateChanged
 
     private void txtTipo_ConceptoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipo_ConceptoKeyTyped
-        char c=evt.getKeyChar();
-        if(Character.isDigit(c)) {
-            getToolkit().beep();
-            evt.consume();
-        }
+//        char c=evt.getKeyChar();
+//        if(Character.isDigit(c)) {
+//            getToolkit().beep();
+//            evt.consume();
+//        }
         int limite =40;
         if (txtTipo_Concepto.getText().length()== limite)
         {

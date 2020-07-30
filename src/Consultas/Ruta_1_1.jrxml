@@ -89,25 +89,25 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 			<textField>
 				<reportElement x="257" y="0" width="264" height="20" uuid="7b31d39c-2f13-4ca7-8769-d0ceb70dd753"/>
 				<box>
-					<pen lineWidth="0.75"/>
-					<topPen lineWidth="0.75"/>
-					<leftPen lineWidth="0.75"/>
-					<bottomPen lineWidth="0.75"/>
-					<rightPen lineWidth="0.75"/>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["$"+$F{Precio}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="-17" y="0" width="274" height="20" uuid="0ed2ea8b-2cd4-4aaa-a005-a3de69a2b3b4"/>
 				<box>
-					<pen lineWidth="0.75"/>
-					<topPen lineWidth="0.75"/>
-					<leftPen lineWidth="0.75"/>
-					<bottomPen lineWidth="0.75"/>
-					<rightPen lineWidth="0.75"/>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{Nombre_Servicio}]]></textFieldExpression>
 			</textField>
 		</band>

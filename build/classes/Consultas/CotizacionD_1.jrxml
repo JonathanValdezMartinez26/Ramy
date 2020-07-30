@@ -4,7 +4,7 @@
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="163"/>
+	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -175,7 +175,7 @@
 					<textElement textAlignment="Left">
 						<font fontName="Arial" size="10" isBold="true"/>
 					</textElement>
-					<text><![CDATA[                                    DESTINO]]></text>
+					<text><![CDATA[                                DESTINO]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" mode="Opaque" x="462" y="18" width="44" height="34" forecolor="#000000" backcolor="#FF9900" uuid="df1c2ab9-dc8f-4c6b-8b2f-fc49d227abd7"/>
@@ -259,7 +259,7 @@
 					<text><![CDATA[ATENTAMENTE]]></text>
 				</staticText>
 				<subreport>
-					<reportElement x="5" y="19" width="532" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
+					<reportElement x="5" y="19" width="535" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
 					<subreportParameter name="ID_Cotizacion">
 						<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
 					</subreportParameter>
@@ -445,7 +445,7 @@
 					<bottomPen lineWidth="1.0" lineColor="#0000FF"/>
 					<rightPen lineWidth="1.0" lineColor="#0000FF"/>
 				</box>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[  POR MEDIO DE LA PRESENTE PONEMOS A SU CONSIDERACION LA SIGUIENTE COTIZACION  EN VIAJES DIRECTOS ]]></text>
@@ -525,14 +525,14 @@
 				<textFieldExpression><![CDATA["$"+" "+$F{TORTHON}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
+				<reportElement style="table_TH" x="462" y="0" width="44" height="23" backcolor="#FFFFFF" uuid="27549562-da04-4c65-b145-96467c0f5ee9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["$"+" "+$F{FULL}.intValue()]]></textFieldExpression>
+			</textField>
+			<textField>
 				<reportElement style="table_TH" x="220" y="0" width="63" height="23" backcolor="#FFFFFF" uuid="627ee650-20f4-4e6e-b552-5ab8a564e7a0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{CAMIONETA_UNO_CINCO_TON}.intValue()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table_TH" x="462" y="0" width="44" height="23" backcolor="#FFFFFF" uuid="27549562-da04-4c65-b145-96467c0f5ee9"/>
-				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{FULL}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="411" y="0" width="51" height="23" backcolor="#FFFFFF" uuid="e6004563-af3d-4263-8780-158587ae8937"/>
@@ -541,7 +541,7 @@
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="506" y="0" width="41" height="23" backcolor="#FFFFFF" uuid="42c85c04-e616-4cde-8f91-82c1d8d66cc0"/>
-				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["$"+" "+$F{FULL}.intValue()]]></textFieldExpression>
 			</textField>
 		</band>

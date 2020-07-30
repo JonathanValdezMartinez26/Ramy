@@ -21,6 +21,7 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import Ventanas.CotizacionReporte.ConfigCotizacion;
 import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.Registrar.tabla3;
 import static configInicio.Configuracion.txtEmail;
@@ -984,7 +985,12 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlEliminarMouseExited
 
     private void pnlVistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseClicked
-      
+     ConfigCotizacion poper = new ConfigCotizacion(null, true);
+        
+     poper.CargarDatos();
+     
+     poper.setVisible(true);
+     
     }//GEN-LAST:event_pnlVistaMouseClicked
 
     private void pnlVistaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseEntered
@@ -1220,7 +1226,7 @@ public static void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\RVC.RVC-PC\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionD_1.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionD_1_1.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);
