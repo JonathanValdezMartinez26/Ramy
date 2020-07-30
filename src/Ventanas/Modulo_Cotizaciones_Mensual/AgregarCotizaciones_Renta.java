@@ -26,6 +26,7 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import Ventanas.CotizacionReporte.ConfigCotizacionRenta;
 import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.tabla1;
@@ -160,9 +161,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }
     
   
-    
-    
-    
     public void Periodo()
     {
         int ID_Periodo = 0;
@@ -806,7 +804,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlEliminarMouseExited
 
     private void pnlVistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseClicked
-      
+     ConfigCotizacionRenta VE=new ConfigCotizacionRenta(null, true);
+     VE.CargarDatos();
+     VE.setVisible(true);      
     }//GEN-LAST:event_pnlVistaMouseClicked
 
     private void pnlVistaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseEntered
@@ -961,11 +961,11 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
     }//GEN-LAST:event_cmbPeriodoItemStateChanged
 
     private void txtTipo_ConceptoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipo_ConceptoKeyTyped
-        char c=evt.getKeyChar();
-        if(Character.isDigit(c)) {
-            getToolkit().beep();
-            evt.consume();
-        }
+//        char c=evt.getKeyChar();
+//        if(Character.isDigit(c)) {
+//            getToolkit().beep();
+//            evt.consume();
+//        }
         int limite =40;
         if (txtTipo_Concepto.getText().length()== limite)
         {

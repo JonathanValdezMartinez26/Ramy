@@ -186,7 +186,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         info.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         info.setForeground(new java.awt.Color(102, 102, 102));
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info.setText("Tipo de Servicio");
+        info.setText("Bitacora de Ajustes");
         jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 30));
 
         rSButtonMetro2.setText("X");
@@ -234,7 +234,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 69));
 
         pnlorigenes.setBackground(new java.awt.Color(225, 225, 225));
-        pnlorigenes.setToolTipText("Visualizar Cotizacion");
+        pnlorigenes.setToolTipText("Visualizar Ajuste");
         pnlorigenes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlorigenesMouseClicked(evt);
@@ -255,7 +255,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N
         pnlorigenes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, -1, 69));
+        jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 69));
 
         pnlPrincipal.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
 
@@ -423,6 +423,11 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
             }
         });
         jScrollPane4.setViewportView(tablaFAjuste);
+        if (tablaFAjuste.getColumnModel().getColumnCount() > 0) {
+            tablaFAjuste.getColumnModel().getColumn(0).setMinWidth(0);
+            tablaFAjuste.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tablaFAjuste.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         pnlPrincipal.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 158, 130, 350));
 
@@ -635,11 +640,10 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
             String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Bitacora_1.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
-           Map parametro = new HashMap();
+            Map parametro = new HashMap();
             parametro.put("ID_Cliente", ID);
             parametro.put("Modificacion",Modificacion);
             
-//            parametro1.put("Modificacion",Modificacion);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
             
             JRViewer jrv = new JRViewer(jasperPrint);
