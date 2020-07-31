@@ -17,7 +17,7 @@ import Clases.Cotizaciones;
 import static Clases.Cotizaciones.ObtenID;
 import Clases.CotizacionesRentaMen;
 import Clases.MyTableCellEditor;
-import Clases.MyTableCellEditor2;
+import Clases.MyTableCellEditorCotiRentaPrecio;
 import Clases.MyTableCellEditor5;
 import Clases.MyTableCellEditorConsM;
 import Clases.MyTableCellEditorServMensNombre;

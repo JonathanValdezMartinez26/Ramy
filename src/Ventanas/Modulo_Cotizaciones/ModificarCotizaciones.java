@@ -367,6 +367,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     
     public void CargarDatos(int ID){
         Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID);
+        
         IDCotizacion.setText(""+ID);
         String Nombre="";
         String Atencion="", Calle = "";

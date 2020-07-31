@@ -188,6 +188,38 @@ public class database {
         }
         return res;
     }
+  public boolean updateCotizacionRentaConcepto(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE Asigna_cotizaciones_renta SET Concepto ='"+valores+"' WHERE ID_Asigna_Cotizacion_Renta= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+  public boolean updateCotizacionRentaPeriodo(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE Asigna_cotizaciones_renta SET ID_Periodo ='"+valores+"' WHERE ID_Asigna_Cotizacion_Renta= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
   
     public boolean updateCotizacionConsolidado(String valores, String id)
     {
