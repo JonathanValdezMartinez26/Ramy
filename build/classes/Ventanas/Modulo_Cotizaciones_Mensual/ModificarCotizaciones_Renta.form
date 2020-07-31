@@ -111,7 +111,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="     Cotizaciones &gt; Nueva Cotizacion para renta de unidades"/>
+                <Property name="text" type="java.lang.String" value="     Cotizaciones &gt; Modificar Cotizacion para renta de unidades"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
