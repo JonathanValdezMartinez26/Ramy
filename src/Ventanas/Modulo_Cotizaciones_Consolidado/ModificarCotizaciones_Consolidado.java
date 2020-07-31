@@ -920,7 +920,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
         cargarServicio();
         int ID_Cotizacion;
         ID_Cotizacion=Integer.parseInt(ModificarCotizaciones_Consolidado.IDCotizacion.getText());        
-        Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.llenarServicio(ID_Cotizacion);
+        Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.llenarServicioModificar(ID_Cotizacion);
         this.tabla1.getSelectionModel().setSelectionInterval(0,0);
 
         }else{//////////Si tabla1 esta llena, recorrerla para validar campos vacios
