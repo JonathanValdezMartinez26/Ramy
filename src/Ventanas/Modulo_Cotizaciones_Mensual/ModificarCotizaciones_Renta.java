@@ -326,44 +326,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         String Nombre="";
         String Atencion="", Calle = "";
         int localidad = 0;
-<<<<<<< HEAD
-        int IDD=0;
-
-         Opciones.listar(buscar.getText(), ID);
-//        IDCotizacion.setText(""+ID);
-//        String Nombre="";
-//        String Atencion="", Calle = "";
-//        int localidad = 0;
-//        int IDD=0;
-//        
-//        try{
-//            
-//            resultado = Conexion.consulta("Select * from cotizacionesv Where ID_Cotizacion = "+ID);
-//            
-//            while(resultado.next()){
-//             IDD = resultado.getInt(1);
-//             Nombre = resultado.getString(2);
-//             Atencion = resultado.getString(3);
-//             localidad = resultado.getInt(4);
-//             Calle = resultado.getString(5);
-//            }
-//            
-//        }catch(SQLException ex){}
-//        //JOptionPane.showMessageDialog(null,IDD+" "+Nombre);
-////       lblAtencion.setText(Nombre);
-//        //cmbCliente.set
-//        cmbCliente.setSelectedItem(Nombre);
-//        //lblatencion.setVisible(true);
-//        lblNombre.setText(Atencion);
-////        txtCalle.setText(Calle);
-////        cmbColonia.setSelectedItem(localidad);
-//        
-//      
-
-//        
-=======
-        int IDD=0;//        
->>>>>>> fa4aaf0cbae56619b420019095592b5a0676c9a3
+                int IDD=0;
         try{
             
             resultado = Conexion.consulta("Select * from cotizacionesv Where ID_Cotizacion = "+ID);
