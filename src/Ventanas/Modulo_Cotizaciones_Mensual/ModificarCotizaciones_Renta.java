@@ -313,6 +313,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
     }
     public void CargarDatos(int ID){
         Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarModificar("", ID);
+         Opciones.listar(buscar.getText(), ID);
 //        IDCotizacion.setText(""+ID);
 //        String Nombre="";
 //        String Atencion="", Calle = "";

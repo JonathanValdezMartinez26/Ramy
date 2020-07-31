@@ -15,6 +15,7 @@ import static Ventanas.Modulo_Cliente.Registrar.C;
 import static Ventanas.Modulo_Cliente.Registrar.PanelDesliza;
 import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
 import Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado;
+import Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado;
 import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta;
@@ -80,7 +81,10 @@ public class pnlCotizaciones extends javax.swing.JPanel {
                                 MR.setVisible(true);
                             }else{
                                 if(tipo.equals("CONSOLIDADO")){
-                                    JOptionPane.showMessageDialog(null, "se debe modificar POR consolidado");
+                                int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+                                ModificarCotizaciones_Consolidado MR = new ModificarCotizaciones_Consolidado(null, true);
+                                MR.CargarDatos(ID);
+                                MR.setVisible(true);
                                 }else{
                                     if(tipo.equals("RUTA")){
                                         JOptionPane.showMessageDialog(null, "se debe modificar por ruta");

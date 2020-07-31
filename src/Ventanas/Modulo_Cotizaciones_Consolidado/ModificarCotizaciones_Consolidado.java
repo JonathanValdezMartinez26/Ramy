@@ -9,6 +9,7 @@ import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import static Alerts.AlertBasic.AgregarDestinos.ID;
 import Alerts.AlertBasic.EliminarCon;
+import Alerts.AlertBasic.EliminarConmod;
 import Alerts.FadeEffect;
 import Clases.Clientes;
 import Clases.Conexion;
@@ -18,6 +19,7 @@ import Clases.CotizacionesRentaMen;
 import Clases.MyTableCellEditor;
 import Clases.MyTableCellEditor2;
 import Clases.MyTableCellEditor5;
+import Clases.MyTableCellEditorConsM;
 import Clases.MyTableCellEditorServMensNombre;
 import Clases.MyTableCellEditorServMensPrecio;
 import Clases.database;
@@ -83,6 +85,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
     boolean res = true;
     int  MunicipioItem = 0;
     int ID;
+    int IDD;
     ResultSet resultado, nombre;
     int ID_Per [];
     int ID_Cli[];
@@ -122,12 +125,13 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
         
         
         tablaR.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor5(db,"Precio"));
+        tablaR.getColumnModel().getColumn( 1 ).setCellEditor(new MyTableCellEditorConsM(db,"Consolidado"));
         tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorServMensNombre(db,"Nombre del Servicio"));//Columna Precio
         tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorServMensPrecio(db,"Precio"));//Columna Precio
         
         
     }
-    
+
     public void Clientes()
     {
         int ID_Cliente = 0;
@@ -209,11 +213,11 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
           int ID = Integer.parseInt(tablaR.getValueAt(Fila, 0).toString());
 //            int ID = Integer.parseInt(IDCotizacion.getText());
 
-            EliminarCon ME = new EliminarCon(null, true);
+            EliminarConmod ME = new EliminarConmod(null, true);
             ME.ID.setText(""+ID);
 //            ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);
-            Opciones.listar("",ID);
+            Opciones.listarModificar("",ID);
 //           JOptionPane.showMessageDialog(null,""+ID);
         }
     else
@@ -264,7 +268,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
                                       AC.msj1.setText("¡Datos de la cotizacion!");
                                       AC.msj2.setText("Guardados correctamente");
                                       AC.setVisible(true);
-                                      Opciones.listar("", ID_Cotizacion);
+                                      Opciones.listarModificar("", ID_Cotizacion);
                                      txtTipo_Concepto.setText("");
 
                             }
@@ -294,11 +298,12 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
                 }
         }
          }
+
     public static void cargarServicio(){
         int ID_Cotizacion;
         ID_Cotizacion=Integer.parseInt(ModificarCotizaciones_Consolidado.IDCotizacion.getText());
         Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.insertarServicio(ID_Cotizacion);
-        //Opciones.llenarServicio(ID_Cotizacion);
+        Opciones.llenarServicioModificar(ID_Cotizacion);
         
     }
     public static void finalizar(){
@@ -309,6 +314,42 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
       
     
     //AgregarCotizaciones.dispose();
+    }
+    
+        public void CargarDatos(int ID){
+        Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.listarModificar("", ID);
+        Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.llenarServicioModificar(ID);
+        
+        IDCotizacion.setText(""+ID);
+        String Nombre="";
+        String Atencion="", Calle = "";
+        int localidad = 0;
+        int IDD=0;
+        
+        try{
+            
+            resultado = Conexion.consulta("Select * from cotizacionesv Where ID_Cotizacion = "+ID);
+            
+            while(resultado.next()){
+             IDD = resultado.getInt(1);
+             Nombre = resultado.getString(2);
+             Atencion = resultado.getString(3);
+             localidad = resultado.getInt(4);
+             Calle = resultado.getString(5);
+            }
+            
+        }catch(SQLException ex){}
+        //JOptionPane.showMessageDialog(null,IDD+" "+Nombre);
+//       lblAtencion.setText(Nombre);
+        //cmbCliente.set
+        cmbCliente.setSelectedItem(Nombre);
+        //lblatencion.setVisible(true);
+        lblNombre.setText(Atencion);
+//        txtCalle.setText(Calle);
+//        cmbColonia.setSelectedItem(localidad);
+        
+      
+        
     }
      
                         
@@ -354,7 +395,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
         ID_rutas = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        lblatencion1 = new javax.swing.JLabel();
+        lblatencion = new javax.swing.JLabel();
         txtTipo_Concepto = new app.bolivia.swing.JCTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -415,7 +456,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -498,8 +539,9 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -675,9 +717,9 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
         jLabel6.setText("Seleccione un Consolidado ");
         jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 180, 20));
 
-        lblatencion1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblatencion1.setText("Atención a:");
-        jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, 30));
+        lblatencion.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblatencion.setText("Atención a:");
+        jcMousePanel1.add(lblatencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, 30));
 
         txtTipo_Concepto.setBorder(null);
         txtTipo_Concepto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -727,20 +769,20 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
     }//GEN-LAST:event_jPanel7MousePressed
 
     private void cmbClienteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbClienteItemStateChanged
-         if (evt.getStateChange() == ItemEvent.SELECTED) {
-            
-            int ID_Client = cmbCliente.getSelectedIndex();
-           int ID_Cliente = ID_Cli[ID_Client];
-            int i = 1;
-            
             cmbCliente.setEnabled(false);
-            Cotizaciones.Agregar_Cotizacion(ID_Cliente,2);
-           
-            lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
-            IDCotizacion.setText(""+ObtenID());
-            Opciones.listarCotizaciones("");
-            
-         }
+        
+//        if (evt.getStateChange() == ItemEvent.SELECTED) {
+//            
+//            int ID_Client = cmbCliente.getSelectedIndex();
+//           int ID_Cliente = ID_Cli[ID_Client];
+//            int i = 1;
+//            Cotizaciones.Agregar_Cotizacion(ID_Cliente,2);
+//           
+//            lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
+////          IDCotizacion.setText(""+ObtenID());
+//            Opciones.listarCotizaciones("");
+//            
+//         }
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -750,7 +792,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
     private void buscarConsoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarConsoKeyReleased
 
          int ID = Integer.parseInt(IDCotizacion.getText());
-         Opciones.listar(buscarConso.getText(), ID);
+         Opciones.listarModificar(buscarConso.getText(), ID);
          
     }//GEN-LAST:event_buscarConsoKeyReleased
 
@@ -767,7 +809,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
     private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
         eliminar();
         int ID = Integer.parseInt(IDCotizacion.getText());
-        Opciones.listar("",ID);
+        Opciones.listarModificar("",ID);
     }//GEN-LAST:event_pnlEliminarMouseClicked
 
     private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered
@@ -1009,7 +1051,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
     public static javax.swing.JSeparator l2;
     private javax.swing.JLabel lblNombre;
     public static javax.swing.JLabel lblNombreNuevo17;
-    private javax.swing.JLabel lblatencion1;
+    private javax.swing.JLabel lblatencion;
     private javax.swing.JPanel pnlEliminar;
     private javax.swing.JPanel pnlFinalizar;
     private javax.swing.JPanel pnlVista;
