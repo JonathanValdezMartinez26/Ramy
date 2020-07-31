@@ -314,6 +314,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
     }
     public void CargarDatos(int ID){
         Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarModificar("", ID);
+<<<<<<< HEAD
         Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicioMod(ID);
         
          IDCotizacion.setText(""+ID);
@@ -321,6 +322,38 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         String Atencion="", Calle = "";
         int localidad = 0;
         int IDD=0;
+=======
+         Opciones.listar(buscar.getText(), ID);
+//        IDCotizacion.setText(""+ID);
+//        String Nombre="";
+//        String Atencion="", Calle = "";
+//        int localidad = 0;
+//        int IDD=0;
+//        
+//        try{
+//            
+//            resultado = Conexion.consulta("Select * from cotizacionesv Where ID_Cotizacion = "+ID);
+//            
+//            while(resultado.next()){
+//             IDD = resultado.getInt(1);
+//             Nombre = resultado.getString(2);
+//             Atencion = resultado.getString(3);
+//             localidad = resultado.getInt(4);
+//             Calle = resultado.getString(5);
+//            }
+//            
+//        }catch(SQLException ex){}
+//        //JOptionPane.showMessageDialog(null,IDD+" "+Nombre);
+////       lblAtencion.setText(Nombre);
+//        //cmbCliente.set
+//        cmbCliente.setSelectedItem(Nombre);
+//        //lblatencion.setVisible(true);
+//        lblNombre.setText(Atencion);
+////        txtCalle.setText(Calle);
+////        cmbColonia.setSelectedItem(localidad);
+//        
+//      
+>>>>>>> f794ad0c7725a29095f2f9ab8e1612a3ed5c5fab
 //        
         try{
             
