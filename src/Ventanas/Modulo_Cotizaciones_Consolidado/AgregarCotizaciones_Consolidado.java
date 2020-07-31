@@ -101,7 +101,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         
         
         ID_rutas.setVisible(false);
-        IDCotizacion.setVisible(true);
+        IDCotizacion.setVisible(false);
          
         tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
