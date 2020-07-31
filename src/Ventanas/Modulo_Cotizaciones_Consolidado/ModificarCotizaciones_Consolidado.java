@@ -938,9 +938,13 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
                 cargarServicio();
                 int ID_Cotizacion;
                 ID_Cotizacion = Integer.parseInt(ModificarCotizaciones_Consolidado.IDCotizacion.getText());
-                Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.llenarServicio(ID_Cotizacion);
-                //this.tabla1.getSelectionModel().setSelectionInterval(0, 0);             
-    //JOptionPane.showMessageDialog(null, "exitennombre="+existenombre+ " existePrecio= "+existeprecio );
+                Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.llenarServicioModificar(ID_Cotizacion);
+                
+                
+                
+                
+                
+                
                     }else{            
                           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                           AC.msj1.setText("¡Campos Vacios!");
