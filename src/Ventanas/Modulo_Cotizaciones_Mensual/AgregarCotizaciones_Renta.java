@@ -243,7 +243,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             if (txtTipo_Concepto.getText().equals("") || ID_Periodos == 0) {
                 Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                 AC.msj1.setText("¡Llene todos los campos!");
-                AC.msj2.setText("Seleccione Correctamente");
+                AC.msj2.setText("Para Agregar Renta");
                 AC.setVisible(true);
             } else {
                 if (Ventanas.Modulo_Cotizaciones_Mensual.Opciones.verificaRentaM(ID_Cotizacion, Concepto, ID_Periodo) == 0) {                    
@@ -855,7 +855,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                                     }else{
                                             Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                                             AC.msj1.setText("¡Porfavor Asigne!");
-                                            AC.msj2.setText("Precios");
+                                            AC.msj2.setText("Precio(s)");
                                             AC.msj3.setText("Para poder Finalizar Cotizacion");
                                             AC.setVisible(true);
                                     }               

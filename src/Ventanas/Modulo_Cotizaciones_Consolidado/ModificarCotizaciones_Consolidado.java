@@ -238,7 +238,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
         if(IDCotizacion.getText().equals(""))
             
             {
-                JOptionPane.showMessageDialog(null, "se debe modificar por ruta");
+                //JOptionPane.showMessageDialog(null, "se debe modificar por ruta");
                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                 AC.msj1.setText("¡Elija un");
                 AC.msj2.setText("Cliente para Continuar");
@@ -254,7 +254,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
                    {
                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                    AC.msj1.setText("¡Llene todos los campos!");
-                   AC.msj2.setText("");
+                   AC.msj2.setText("Para Agregar Consolidado");
                    AC.setVisible(true);
                    }
                     else

@@ -372,9 +372,10 @@ catch(SQLException e) {
                             pstm.execute();
                             pstm.close();                            
                         Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-                        AC.msj1.setText("¡Esta cotización!");
-                        AC.msj2.setText("A sido Finalizada");
+                        AC.msj1.setText("¡Cotizacion Finalizada!");
+                        AC.msj2.setText("Cierre la Ventana para Continuar");
                         AC.setVisible(true);
+                        
                             
                             //res=true;
                          }catch(SQLException e){            

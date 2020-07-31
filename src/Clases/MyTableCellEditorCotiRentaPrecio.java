@@ -61,7 +61,7 @@ public class MyTableCellEditorCotiRentaPrecio extends AbstractCellEditor impleme
             {   //Si existe algun error al actualizar, escribe viejo valor en la celda
                 //JOptionPane.showMessageDialog(null,"Error: No se puede actualizar");
                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                            AC.msj1.setText("¡Error al modificar Concepto!");
+                            AC.msj1.setText("¡Error al modificar Precio!");
                             AC.msj2.setText("Ingrese caracteres validos");
                             AC.setVisible(true);
                 
@@ -71,11 +71,11 @@ public class MyTableCellEditorCotiRentaPrecio extends AbstractCellEditor impleme
             else{
 //                JOptionPane.showMessageDialog(null,NameColum+"=="+NewValue+"   "+ID );
             
-                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-                AC.msj1.setText("¡Datos del Concepto!");
-                AC.msj2.setText("Guardados correctamente");
-                AC.msj3.setText("Concepto de $"+OldValue+" a $"+NewValue);
-                AC.setVisible(true);
+//                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+//                AC.msj1.setText("¡Datos del Concepto!");
+//                AC.msj2.setText("Guardados correctamente");
+//                AC.msj3.setText("Concepto de $"+OldValue+" a $"+NewValue);
+//                AC.setVisible(true);
             }
         }
         return super.stopCellEditing();

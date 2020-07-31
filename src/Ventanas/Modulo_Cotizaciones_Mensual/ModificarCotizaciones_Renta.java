@@ -250,7 +250,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
                    {
                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                    AC.msj1.setText("¡Llene todos los campos!");
-                   AC.msj2.setText("Para Agregar");
+                   AC.msj2.setText("Para Agregar Renta");
                    AC.setVisible(true);
                    }
                     else

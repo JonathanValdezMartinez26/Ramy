@@ -13,6 +13,7 @@ import java.awt.event.WindowEvent;
 import static java.lang.System.exit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import necesario.RSAWTUtilities;
 
 public class WarningFinalizarConsolidado extends javax.swing.JDialog {
@@ -157,15 +158,18 @@ public class WarningFinalizarConsolidado extends javax.swing.JDialog {
   String ID_Cotizacion=ID.getText();
 //     
     Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.finalizarCotizacion(ID_Cotizacion);
-    Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.listarCotizaciones("");   
-        //AgregarCotizaciones_Consolidado.ver();
-    //JOptionPane.showMessageDialog(null, "DEbe cerrarse la venbtana");
+    Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.listarCotizaciones("");  
+        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.jButton3.setEnabled(false);
+        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.pnlFinalizar.setEnabled(false);
+        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.txtTipo_Concepto.setEnabled(false);
+        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.buscarConso.setEnabled(false);
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.tablaR.getModel();
+        DefaultTableModel modelot = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.tabla1.getModel();
+        modelo.setRowCount(0); 
+        modelot.setRowCount(0); 
     
-     AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
-     AC.dispose();
-
-//AgregarCotizaciones.aceptarFinalizar();
-        
+    
+    
     
     }//GEN-LAST:event_log2ActionPerformed
 

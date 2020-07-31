@@ -251,7 +251,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                    {
                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                    AC.msj1.setText("¡Llene todos los campos!");
-                   AC.msj2.setText("");
+                   AC.msj2.setText("Para Agregar Consolidado");
                    AC.setVisible(true);
                    }
                     else
@@ -849,7 +849,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                                     }else{
                                             Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                                             AC.msj1.setText("¡Porfavor Asigne!");
-                                            AC.msj2.setText("Precios");
+                                            AC.msj2.setText("Precio'(s)'");
                                             AC.msj3.setText("Para poder Finalizar Cotizacion");
                                             AC.setVisible(true);
                                     }               
@@ -990,7 +990,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscarConso;
     private ComboBox.SComboBox cmbCliente;
-    private javax.swing.JButton jButton3;
+    public static javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1016,7 +1016,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     public static javax.swing.JLabel lblNombreNuevo17;
     private javax.swing.JLabel lblatencion1;
     private javax.swing.JPanel pnlEliminar;
-    private javax.swing.JPanel pnlFinalizar;
+    public static javax.swing.JPanel pnlFinalizar;
     private javax.swing.JPanel pnlVista;
     private javax.swing.JPanel pnleditar;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
