@@ -230,15 +230,15 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
            
     }
     ////////////////////////////////////////////////////////////////////////////
-    private void Guardar(){
+    public void Guardar(){
         
-        int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-        int comboCliente = cmbCliente.getSelectedIndex();
-        String Consolidado = txtTipo_Concepto.getText();
+       
         
         
-        if(comboCliente==0)
+        if(IDCotizacion.getText().equals(""))
+            
             {
+                JOptionPane.showMessageDialog(null, "se debe modificar por ruta");
                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                 AC.msj1.setText("¡Elija un");
                 AC.msj2.setText("Cliente para Continuar");
@@ -246,6 +246,10 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
             }
                else
                     {
+                       int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+                      int comboCliente = cmbCliente.getSelectedIndex();
+                      String Consolidado = txtTipo_Concepto.getText(); 
+                        
                     if("".equals(Consolidado))
                    {
                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -437,7 +441,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
         lblNombreNuevo17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombreNuevo17.setText("     Cotizaciones > Nueva Cotizacion para renta por consolidaddo");
+        lblNombreNuevo17.setText("     Cotizaciones > Modificar Cotizacion para renta por consolidaddo");
         jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 877, 30));
 
         jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 13, 905, -1));

@@ -14,10 +14,12 @@ import static Ventanas.Modulo_Cliente.Registrar.B;
 import static Ventanas.Modulo_Cliente.Registrar.C;
 import static Ventanas.Modulo_Cliente.Registrar.PanelDesliza;
 import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
+import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
 import Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado;
 import Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado;
 import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
+import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.IDCotizacion;
 import Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -290,9 +292,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
             tabla.getColumnModel().getColumn(1).setResizable(false);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(230);
             tabla.getColumnModel().getColumn(2).setResizable(false);
@@ -553,7 +553,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     }//GEN-LAST:event_pnleditarMouseExited
 
     private void pnlorigenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseClicked
-       ver();
+       reporte();
 //Origenes();
     }//GEN-LAST:event_pnlorigenesMouseClicked
 
@@ -676,23 +676,62 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
      
-    public void ver() {
-        Clases.Conexion cc = new Clases.Conexion();
-        
+    
+    
+        public void reporte() {
+
         int Fila = tabla.getSelectedRow();
         int Filita = 1; 
   
         if (Fila >= 0) {
-
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            String status = (tabla.getValueAt(Fila, 5).toString());
+            String tipo = (tabla.getValueAt(Fila, 4).toString());
             
-    
+                    
+                        if(tipo.equals("DIRECTA")){
+                        int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());           
+                        ver2(ID);
+                        
+//                        MP.setVisible(true);
+                        }else{
+                            if(tipo.equals("RENTA")){
+                               int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+                                ver1(ID);
+                                
+                            }else{
+                                if(tipo.equals("CONSOLIDADO")){
+                                int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+                                ver(ID);
+                                
+                                }else{
+                                    if(tipo.equals("RUTA")){
+                                        JOptionPane.showMessageDialog(null, "se debe modificar por ruta");
+                                    }
+                                }
+                            }
+                        }
+        } else {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Seleccione el registro!");
+            AC.msj2.setText("A modificar");
+            AC.setVisible(true);
+        }
+   
+
+    }
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////77
+public void ver(int ID) {
+        Clases.Conexion cc = new Clases.Conexion();
+//        int ID = Integer.parseInt(IDCotizacion.getText());
+
+        if (ID >= 0) {
+
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Consolidacion.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
-            parametro.put("ID_Cliente", ID);
+            parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
             JRViewer jrv = new JRViewer(jasperPrint);
@@ -713,9 +752,90 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         else
         {
             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("a visualizar");
+            AC.msj1.setText("¡Error  generar la Cotizacion!");
+            AC.msj2.setText("Verifique que se agregaron los datos ");
             AC.setVisible(true);
         }
 }
+
+///////////////////////////////////////////////////////////////////////////////77
+public static void ver1(int ID) {
+        Clases.Conexion cc = new Clases.Conexion();
+        
+        if (ID >= 0) {
+
+       try {
+            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Transporte_1.jasper";
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            Map parametro = new HashMap();
+            parametro.put("ID_Cotizacion", ID);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+
+            JRViewer jrv = new JRViewer(jasperPrint);
+            jrv.setZoomRatio((float) 0.75);
+            r.contenedor.removeAll();
+
+            r.contenedor.setLayout(new BorderLayout());
+            r.contenedor.add(jrv, BorderLayout.CENTER);
+
+            r.contenedor.repaint();
+            r.contenedor.revalidate();
+            jrv.setVisible(true);
+            r.setVisible(true);
+        } catch (JRException ex) {
+            System.err.println("Error iReport: " + ex.getMessage());
+        }
+    }
+        else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error  generar la Cotizacion!");
+            AC.msj2.setText("Verifique que se agregaron los datos ");
+            AC.setVisible(true);
+        }
+}
+////////////////////////////////////////////////////////////////////////////////77
+public static void ver2(int ID) {
+        Clases.Conexion cc = new Clases.Conexion();
+        
+        if (ID >= 0) {
+
+       try {
+            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionD_1_1.jasper";
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            Map parametro = new HashMap();
+            parametro.put("ID_Cotizacion", ID);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+
+            JRViewer jrv = new JRViewer(jasperPrint);
+            jrv.setZoomRatio((float) 0.75);
+            r.contenedor.removeAll();
+
+            r.contenedor.setLayout(new BorderLayout());
+            r.contenedor.add(jrv, BorderLayout.CENTER);
+
+            r.contenedor.repaint();
+            r.contenedor.revalidate();
+            jrv.setVisible(true);
+            r.setVisible(true);
+        } catch (JRException ex) {
+            System.err.println("Error iReport: " + ex.getMessage());
+        }
+    }
+        else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error  generar la Cotizacion!");
+            AC.msj2.setText("Verifique que se agregaron los datos ");
+            AC.setVisible(true);
+        }
+}
+        
+    
+    
+    
+    
+    
     }

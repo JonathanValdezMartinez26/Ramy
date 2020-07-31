@@ -314,7 +314,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
     }
     public void CargarDatos(int ID){
         Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarModificar("", ID);
-<<<<<<< HEAD
+
         Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicioMod(ID);
         
          IDCotizacion.setText(""+ID);
@@ -322,7 +322,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         String Atencion="", Calle = "";
         int localidad = 0;
         int IDD=0;
-=======
+
          Opciones.listar(buscar.getText(), ID);
 //        IDCotizacion.setText(""+ID);
 //        String Nombre="";
@@ -353,7 +353,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
 ////        cmbColonia.setSelectedItem(localidad);
 //        
 //      
->>>>>>> f794ad0c7725a29095f2f9ab8e1612a3ed5c5fab
+
 //        
         try{
             

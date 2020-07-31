@@ -26,6 +26,7 @@ import Clases.localidades;
 import Clases.municipios;
 import Ventanas.CotizacionReporte.ConfigCotizacionConsolidado;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -226,15 +227,15 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
            
     }
     ////////////////////////////////////////////////////////////////////////////
-    private void Guardar(){
-        
-        int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-        int comboCliente = cmbCliente.getSelectedIndex();
-        String Consolidado = txtTipo_Concepto.getText();
+    public void Guardar(){
         
         
-        if(comboCliente==0)
+        
+        
+        
+       if(IDCotizacion.getText().equals(""))
             {
+                
                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                 AC.msj1.setText("¡Elija un");
                 AC.msj2.setText("Cliente para Continuar");
@@ -242,6 +243,10 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             }
                else
                     {
+                    int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+                    int comboCliente = cmbCliente.getSelectedIndex();
+                    String Consolidado = txtTipo_Concepto.getText();
+                    
                     if("".equals(Consolidado))
                    {
                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
