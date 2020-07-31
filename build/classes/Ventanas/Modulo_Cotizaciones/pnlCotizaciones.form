@@ -65,7 +65,7 @@
                     <Column editable="false" title="Nombre del Cliente" type="java.lang.String"/>
                     <Column editable="false" title="Atenci&#xf3;n" type="java.lang.String"/>
                     <Column editable="false" title="Fecha de Alta" type="java.lang.String"/>
-                    <Column editable="true" title="Tipo de Cotizaci&#xf3;n" type="java.lang.Object"/>
+                    <Column editable="false" title="Tipo de Cotizaci&#xf3;n" type="java.lang.Object"/>
                     <Column editable="false" title="Estatus" type="java.lang.String"/>
                   </Table>
                 </Property>
@@ -221,9 +221,9 @@
                 <Property name="toolTipText" type="java.lang.String" value="Editar Cotizacion"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnleditarMouseClicked"/>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnleditarMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnleditarMouseExited"/>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnleditarMouseClicked"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

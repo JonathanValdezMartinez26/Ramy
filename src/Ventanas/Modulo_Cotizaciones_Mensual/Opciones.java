@@ -37,10 +37,10 @@ public class Opciones {
             sql = "Select * from cotizacionesv where Estado=0";
         } else {
             
-            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionesv where Estado=0 AND Nombre_Cliente LIKE '%" + busca +"%' AND Estado=0 OR Atencion LIKE '%"+ busca +"%'  AND Estado=0 OR Fecha_Alta LIKE '%"+ busca +"%' AND Estado=0 OR Estatus LIKE '%"+busca+"%' AND Estado=0 ";
+            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta,Tipo_Cotizacion,Estatus from cotizacionesv where Estado=0 AND Nombre_Cliente LIKE '%" + busca +"%' AND Estado=0 OR Atencion LIKE '%"+ busca +"%'  AND Estado=0 OR Fecha_Alta LIKE '%"+ busca +"%' AND Estado=0 OR Estatus LIKE '%"+busca+"%' AND Estado=0 ";
             
            }
-        String datos[] = new String[6];
+        String datos[] = new String[7];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -51,6 +51,7 @@ public class Opciones {
                 datos [2] = rs.getString(3);
                 datos [3] = rs.getString(4);
                 datos [4] = rs.getString(5);
+                datos [5] = rs.getString(6);
                 
                 modelo.addRow(datos);
             }
@@ -115,7 +116,7 @@ public class Opciones {
                         AC.msj1.setText("¡Este Registro!");
                         AC.msj2.setText("A sido Eliminado");
                         AC.setVisible(true);
-                        Opciones.listar("", ID);
+                        Opciones.listarModificar("",ID);              
                         pstm.close();
                         
                             //res=true;
@@ -127,18 +128,22 @@ public class Opciones {
     }
     //////////////////////////////////////////////////////////////////
      public static void listarModificar(String busca, int ID) {
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.tablaR.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
         
-        String sql = "";
+     String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where ID_Cotizacion =" + ID;
+           sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
         } else {
+    
             
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
+            sql = "Select ID_asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_Rentav"
+                    + " where  (ID_Cotizacion =" +ID+" AND Periodo LIKE '%"+ busca +"%')"
+                    + " OR (ID_Cotizacion =" +ID+" AND Concepto LIKE '"+ busca +"%')"
+                    + " OR (ID_Cotizacion =" +ID+" AND Precio LIKE '"+ busca +"%')";
             
            }
         String datos[] = new String[4];
@@ -276,6 +281,41 @@ public static void insertarServicio(int ID_Cotizacion){
 
 
     DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1.getModel();
+
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        
+        String sql = "";
+        
+            sql = "Select ID_Servicio, ID_Cotizacion, Nombre_Servicio,Precio from servicios where ID_Cotizacion =" + ID_Cotizacion;
+        
+        String datos[] = new String[5];
+        try {           
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                datos [0] = String.valueOf(rs.getInt(1));
+                datos [1] = rs.getString(2);
+                datos [2] = rs.getString(3);
+                datos [3] = rs.getString(4);
+                datos [4] = "";
+                
+                modelo.addRow(datos);
+            }
+            
+            modelo.fireTableDataChanged();
+        } catch (SQLException ex) {
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+   
+    public static void llenarServicioMod(int ID_Cotizacion){
+
+
+    DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.tabla1.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);

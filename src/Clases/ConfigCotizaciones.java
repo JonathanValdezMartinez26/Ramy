@@ -23,9 +23,9 @@ public class ConfigCotizaciones {
             consulta.execute();
 
             Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Datos de Pie de pagina !");
-            AC.msj2.setText("Guardados correctamente");
-            AC.setVisible(true);
+                AC.msj1.setText("¡Datos del Tipo de Servicio!");
+                AC.msj2.setText("Actualizados Correctamente");
+                AC.setVisible(true);
             
         } catch (SQLException ex) 
         {
@@ -53,17 +53,18 @@ public class ConfigCotizaciones {
                 
                 consulta.execute();
             
+                
                 Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-                AC.msj1.setText("¡Datos del Tipo de Servicio!");
-                AC.msj2.setText("Actualizados Correctamente");
-                AC.setVisible(true);
+            AC.msj1.setText("¡Datos de Pie de pagina !");
+            AC.msj2.setText("Guardados correctamente");
+            AC.setVisible(true);
                 
         } 
         catch (SQLException ex) 
         {
             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
             AC.msj1.setText("¡Error 3714!");
-            AC.msj2.setText("¡Contacte a servicios ProMedic!");
+            AC.msj2.setText("¡Contacte a servicios!");
             AC.setVisible(true);
         }
     }

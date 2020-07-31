@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="265"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -120,7 +120,7 @@
 		<groupFooter>
 			<band height="443">
 				<subreport>
-					<reportElement x="4" y="22" width="506" height="100" uuid="aae918b1-a507-433c-8105-61d5a8625104"/>
+					<reportElement x="4" y="22" width="506" height="85" uuid="aae918b1-a507-433c-8105-61d5a8625104"/>
 					<subreportParameter name="ID_Cotizacion">
 						<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
 					</subreportParameter>
@@ -128,7 +128,7 @@
 					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
 				</subreport>
 				<staticText>
-					<reportElement style="Column header" x="180" y="122" width="206" height="10" forecolor="#000000" uuid="6d0dd739-9bb2-486a-9d93-e6eb24d918ea"/>
+					<reportElement style="Column header" x="180" y="109" width="206" height="10" forecolor="#000000" uuid="6d0dd739-9bb2-486a-9d93-e6eb24d918ea"/>
 					<textElement textAlignment="Center">
 						<font fontName="Times New Roman" size="11" isBold="true"/>
 					</textElement>
@@ -142,7 +142,7 @@
 					<text><![CDATA[]]></text>
 				</staticText>
 				<subreport>
-					<reportElement x="7" y="132" width="503" height="100" uuid="18f7a747-e62c-4c1f-99f9-25326b2a721c"/>
+					<reportElement x="7" y="121" width="503" height="100" uuid="18f7a747-e62c-4c1f-99f9-25326b2a721c"/>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PIE_1.jasper"]]></subreportExpression>
 				</subreport>

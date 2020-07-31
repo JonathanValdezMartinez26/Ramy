@@ -16,7 +16,7 @@ import Clases.Cotizaciones;
 import static Clases.Cotizaciones.ObtenID;
 import Clases.CotizacionesRentaMen;
 import Clases.MyTableCellEditor;
-import Clases.MyTableCellEditor2;
+import Clases.MyTableCellEditorCotiRentaPrecio;
 import Clases.MyTableCellEditor5;
 import Clases.MyTableCellEditorServMensNombre;
 import Clases.MyTableCellEditorServMensPrecio;
@@ -26,6 +26,7 @@ import Clases.localidades;
 import Clases.municipios;
 import Ventanas.CotizacionReporte.ConfigCotizacionConsolidado;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -100,7 +101,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         
         
         ID_rutas.setVisible(false);
-        IDCotizacion.setVisible(true);
+        IDCotizacion.setVisible(false);
          
         tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -226,15 +227,15 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
            
     }
     ////////////////////////////////////////////////////////////////////////////
-    private void Guardar(){
-        
-        int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-        int comboCliente = cmbCliente.getSelectedIndex();
-        String Consolidado = txtTipo_Concepto.getText();
+    public void Guardar(){
         
         
-        if(comboCliente==0)
+        
+        
+        
+       if(IDCotizacion.getText().equals(""))
             {
+                
                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                 AC.msj1.setText("¡Elija un");
                 AC.msj2.setText("Cliente para Continuar");
@@ -242,11 +243,15 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             }
                else
                     {
+                    int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+                    int comboCliente = cmbCliente.getSelectedIndex();
+                    String Consolidado = txtTipo_Concepto.getText();
+                    
                     if("".equals(Consolidado))
                    {
                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                    AC.msj1.setText("¡Llene todos los campos!");
-                   AC.msj2.setText("");
+                   AC.msj2.setText("Para Agregar Consolidado");
                    AC.setVisible(true);
                    }
                     else
@@ -734,7 +739,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             int i = 1;
             
             cmbCliente.setEnabled(false);
-            Cotizaciones.Agregar_Cotizacion(ID_Cliente);
+            Cotizaciones.Agregar_Cotizacion(ID_Cliente,2);
            
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
@@ -808,7 +813,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         }
     if(existeprecio2 ==0){        
         ///////////////////////verifica si la tabla destino no esta vacia y la recorre para validar campos vacios 
-     if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){        
+     if(this.tabla1.getRowCount()!=0){        
             int existenombre = 0;
             int existeprecio = 0;
             for (int i = 0; i < tabla1.getRowCount(); i++) {
@@ -844,7 +849,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                                     }else{
                                             Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                                             AC.msj1.setText("¡Porfavor Asigne!");
-                                            AC.msj2.setText("Precios");
+                                            AC.msj2.setText("Precio'(s)'");
                                             AC.msj3.setText("Para poder Finalizar Cotizacion");
                                             AC.setVisible(true);
                                     }               
@@ -985,7 +990,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscarConso;
     private ComboBox.SComboBox cmbCliente;
-    private javax.swing.JButton jButton3;
+    public static javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1011,7 +1016,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     public static javax.swing.JLabel lblNombreNuevo17;
     private javax.swing.JLabel lblatencion1;
     private javax.swing.JPanel pnlEliminar;
-    private javax.swing.JPanel pnlFinalizar;
+    public static javax.swing.JPanel pnlFinalizar;
     private javax.swing.JPanel pnlVista;
     private javax.swing.JPanel pnleditar;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;

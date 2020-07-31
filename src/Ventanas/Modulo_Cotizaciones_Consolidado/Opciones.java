@@ -36,7 +36,11 @@ public class Opciones {
             sql = "Select * from cotizacionesv where Estado=0";
         } else {
             
-            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionesv where Estado=0 AND Nombre_Cliente LIKE '%" + busca +"%' AND Estado=0 OR Atencion LIKE '%"+ busca +"%'  AND Estado=0 OR Fecha_Alta LIKE '%"+ busca +"%' AND Estado=0 OR Estatus LIKE '%"+busca+"%' AND Estado=0 ";
+            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta,Tipo_Cotizacion ,Estatus from cotizacionesv"
+                    + " where Estado=0 AND Nombre_Cliente LIKE '%" + busca +"%' AND Estado=0 "
+                    + " OR Atencion LIKE '%"+ busca +"%'  AND Estado=0"
+                    + " OR Fecha_Alta LIKE '%"+ busca +"%' AND Estado=0"
+                    + " OR Estatus LIKE '%"+busca+"%' AND Estado=0 ";
             
            }
         String datos[] = new String[6];
@@ -50,6 +54,7 @@ public class Opciones {
                 datos [2] = rs.getString(3);
                 datos [3] = rs.getString(4);
                 datos [4] = rs.getString(5);
+                datos [5] = rs.getString(6);
                 
                 modelo.addRow(datos);
             }
@@ -119,9 +124,36 @@ public class Opciones {
                         }
 
     }
+    
+    public static void eliminarCotizacionmodificar(int ID) {
+        
+        String sql = "";
+               //JOptionPane.showMessageDialog(null, ID);
+               sql="delete from asigna_cotizacion_consolidado where ID_Cotizacion_Consolidado =" + ID;
+
+                try {
+                            PreparedStatement pstm = cn.prepareStatement(sql);
+                            pstm.execute();
+                            pstm.close();
+                            
+                        Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+                        AC.msj1.setText("¡Esta Registro!");
+                        AC.msj2.setText("A sido Eliminado");
+                        AC.setVisible(true);
+                        Opciones.listarModificar("", ID);
+                        pstm.close();
+                        
+                            //res=true;
+                         }catch(SQLException e){            
+                            System.out.println(e);
+                            
+                        }
+
+    }
+    
     //////////////////////////////////////////////////////////////////
-     public static void listarModificar(String busca, int ID) {
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
+  public static void listarModificar(String busca,  int ID) {
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.tablaR.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
@@ -129,13 +161,14 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where ID_Cotizacion =" + ID;
+           sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado where ID_Cotizacion="+ ID;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
-            
+            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado"
+                    + " where (ID_Cotizacion ="+ID+" AND Consolidado LIKE '%"+ busca +"%') "
+                    + "OR (ID_Cotizacion ="+ID+" AND Precio LIKE '"+ busca +"%')";            
            }
-        String datos[] = new String[4];
+        String datos[] = new String[3];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -143,9 +176,7 @@ public class Opciones {
             {
                 datos [0] = String.valueOf(rs.getInt(1));
                 datos [1] = rs.getString(2);
-                datos [2] = rs.getString(3);
-                datos [3] = rs.getString(4);
-                
+                datos [2] = rs.getString(3);                
                 modelo.addRow(datos);
             }
             
@@ -280,6 +311,44 @@ public class Opciones {
         }
         
     }
+    
+        public static void llenarServicioModificar(int ID_Cotizacion){
+
+
+    DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.tabla1.getModel();
+
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        
+        String sql = "";
+        
+            sql = "Select ID_Servicio, ID_Cotizacion, Nombre_Servicio,Precio from servicios where ID_Cotizacion =" + ID_Cotizacion;
+        
+        String datos[] = new String[5];
+        try {           
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                datos [0] = String.valueOf(rs.getInt(1));
+                datos [1] = rs.getString(2);
+                datos [2] = rs.getString(3);
+                datos [3] = rs.getString(4);
+                datos [4] = "";
+                
+                modelo.addRow(datos);
+            }
+            
+            modelo.fireTableDataChanged();
+        } catch (SQLException ex) {
+            Logger.getLogger(Ventanas.Modulo_Cotizaciones_Mensual.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
+    
    
     public static void eliminarServicio(int idRow){
      
@@ -303,9 +372,10 @@ catch(SQLException e) {
                             pstm.execute();
                             pstm.close();                            
                         Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-                        AC.msj1.setText("¡Esta cotización!");
-                        AC.msj2.setText("A sido Finalizada");
+                        AC.msj1.setText("¡Cotizacion Finalizada!");
+                        AC.msj2.setText("Cierre la Ventana para Continuar");
                         AC.setVisible(true);
+                        
                             
                             //res=true;
                          }catch(SQLException e){            

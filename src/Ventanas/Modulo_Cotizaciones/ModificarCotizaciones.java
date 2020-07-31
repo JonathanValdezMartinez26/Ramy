@@ -367,6 +367,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     
     public void CargarDatos(int ID){
         Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID);
+        
         IDCotizacion.setText(""+ID);
         String Nombre="";
         String Atencion="", Calle = "";
@@ -1039,7 +1040,7 @@ public void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionD_1_1.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cliente", ID);
