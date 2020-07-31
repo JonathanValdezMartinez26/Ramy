@@ -9,6 +9,7 @@ import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import static Alerts.AlertBasic.AgregarDestinos.ID;
 import Alerts.AlertBasic.Eliminar;
+import Alerts.AlertBasic.EliminarCot_Renta_Mod;
 import Alerts.AlertBasic.EliminarTran;
 import Alerts.FadeEffect;
 import Clases.Clientes;
@@ -99,8 +100,8 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         Clientes();       
         Periodo();        
-        ID_rutas.setVisible(false);
-        IDCotizacion.setVisible(false);
+        ID_rutas.setVisible(true);
+        IDCotizacion.setVisible(true);
          
         tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -205,11 +206,11 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
           int ID = Integer.parseInt(tablaR.getValueAt(Fila, 0).toString());
 //            int ID = Integer.parseInt(IDCotizacion.getText());
 
-            EliminarTran ME = new EliminarTran(null, true);
+            EliminarCot_Renta_Mod ME = new EliminarCot_Renta_Mod(null, true);
             ME.ID.setText(""+ID);
 //            ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);
-            Opciones.listar("",ID);
+            //Opciones.listarModificar("",ID);
 //           JOptionPane.showMessageDialog(null,""+ID);
         }
     else
@@ -240,11 +241,11 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
             }
                     else
                     {
-                    if("".equals(txtTipo_Concepto)||ID_Periodos==0)
+                    if(txtTipo_Concepto.getText().equals("") || ID_Periodos==0)
                    {
                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                    AC.msj1.setText("¡Llene todos los campos!");
-                   AC.msj2.setText("Seleccione Correctamente");
+                   AC.msj2.setText("Para Agregar");
                    AC.setVisible(true);
                    }
                     else
@@ -252,12 +253,12 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
                       if(Ventanas.Modulo_Cotizaciones_Mensual.Opciones.verificaRentaM(ID_Cotizacion,Concepto,ID_Periodo)==0)
                       { 
                           
-                          Clases.CotizacionesRentaMen fichaIdent = new Clases.CotizacionesRentaMen();
-
-                            fichaIdent.setID_Cotizacion(ID_Cotizacion);
-                            fichaIdent.setConcepto(Concepto);
-                            fichaIdent.setID_Periodo(ID_Periodo);
-                            
+//                          Clases.CotizacionesRentaMen fichaIdent = new Clases.CotizacionesRentaMen();
+//
+//                            fichaIdent.setID_Cotizacion(ID_Cotizacion);
+//                            fichaIdent.setConcepto(Concepto);
+//                            fichaIdent.setID_Periodo(ID_Periodo);
+//                            
 
                             if (Ventanas.Modulo_Cotizaciones_Mensual.Opciones.registrarCotiRenta(ID_Cotizacion,Concepto,ID_Periodo)) 
                             {
@@ -265,7 +266,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
                                       AC.msj1.setText("¡Datos de la cotizacion!");
                                       AC.msj2.setText("Guardados correctamente");
                                       AC.setVisible(true);
-                                      Opciones.listar("", ID_Cotizacion);
+                                      Opciones.listarModificar("", ID_Cotizacion);
 
                                       txtTipo_Concepto.setText("");
                                       cmbPeriodo.setSelectedIndex(0);
@@ -313,36 +314,34 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
     }
     public void CargarDatos(int ID){
         Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarModificar("", ID);
-//        IDCotizacion.setText(""+ID);
-//        String Nombre="";
-//        String Atencion="", Calle = "";
-//        int localidad = 0;
-//        int IDD=0;
+        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicioMod(ID);
+        
+         IDCotizacion.setText(""+ID);
+        String Nombre="";
+        String Atencion="", Calle = "";
+        int localidad = 0;
+        int IDD=0;
 //        
-//        try{
-//            
-//            resultado = Conexion.consulta("Select * from cotizacionesv Where ID_Cotizacion = "+ID);
-//            
-//            while(resultado.next()){
-//             IDD = resultado.getInt(1);
-//             Nombre = resultado.getString(2);
-//             Atencion = resultado.getString(3);
-//             localidad = resultado.getInt(4);
-//             Calle = resultado.getString(5);
-//            }
-//            
-//        }catch(SQLException ex){}
-//        //JOptionPane.showMessageDialog(null,IDD+" "+Nombre);
-////       lblAtencion.setText(Nombre);
-//        //cmbCliente.set
-//        cmbCliente.setSelectedItem(Nombre);
-//        //lblatencion.setVisible(true);
-//        lblNombre.setText(Atencion);
-////        txtCalle.setText(Calle);
-////        cmbColonia.setSelectedItem(localidad);
-//        
-//      
-//        
+        try{
+            
+            resultado = Conexion.consulta("Select * from cotizacionesv Where ID_Cotizacion = "+ID);
+            
+            while(resultado.next()){
+             IDD = resultado.getInt(1);
+             Nombre = resultado.getString(2);
+             Atencion = resultado.getString(3);
+             localidad = resultado.getInt(4);
+             Calle = resultado.getString(5);
+            }
+            
+        }catch(SQLException ex){}        
+        cmbCliente.setSelectedItem(Nombre);        
+        lblNombre.setText(Atencion);
+//        txtCalle.setText(Calle);
+//        cmbColonia.setSelectedItem(localidad);
+        
+      
+        
     }
                         
 
@@ -776,21 +775,21 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
     }//GEN-LAST:event_jPanel7MousePressed
 
     private void cmbClienteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbClienteItemStateChanged
-         if (evt.getStateChange() == ItemEvent.SELECTED) {
+         
+               cmbCliente.setEnabled(false);
+//            int ID_Client = cmbCliente.getSelectedIndex();
+//           int ID_Cliente = ID_Cli[ID_Client];
+//            int i = 1;
+//            
+//         
+//            //Cotizaciones.Agregar_Cotizacion(ID_Cliente,4);
+//           
+//            lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
+//            IDCotizacion.setText(""+ObtenID());
+//            Opciones.listarCotizaciones("");
+//            //IDCotizacion.setVisible(true);
             
-            int ID_Client = cmbCliente.getSelectedIndex();
-           int ID_Cliente = ID_Cli[ID_Client];
-            int i = 1;
-            
-            cmbCliente.setEnabled(false);
-            Cotizaciones.Agregar_Cotizacion(ID_Cliente,4);
-           
-            lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
-            IDCotizacion.setText(""+ObtenID());
-            Opciones.listarCotizaciones("");
-            //IDCotizacion.setVisible(true);
-            
-         }
+         
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -801,7 +800,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
      
 //         IDCotizacion.setText(""+ObtenID());
          int ID = Integer.parseInt(IDCotizacion.getText());
-         Opciones.listar(buscar.getText(), ID);
+         Opciones.listarModificar(buscar.getText(), ID);
          
 
          
@@ -820,7 +819,9 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
     private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
         eliminar();
         int ID = Integer.parseInt(IDCotizacion.getText());
-        Opciones.listar("",ID);
+        Opciones.listarModificar("",ID);
+        buscar.setText("");
+        
     }//GEN-LAST:event_pnlEliminarMouseClicked
 
     private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered
@@ -935,7 +936,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
         cargarServicio();
         int ID_Cotizacion;
         ID_Cotizacion=Integer.parseInt(ModificarCotizaciones_Renta.IDCotizacion.getText());        
-        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicio(ID_Cotizacion);
+        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicioMod(ID_Cotizacion);
         this.tabla1.getSelectionModel().setSelectionInterval(0,0);
 
         }else{//////////Si tabla1 esta llena, recorrerla para validar campos vacios
@@ -953,7 +954,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                 cargarServicio();
                 int ID_Cotizacion;
                 ID_Cotizacion = Integer.parseInt(ModificarCotizaciones_Renta.IDCotizacion.getText());
-                Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicio(ID_Cotizacion);
+                Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicioMod(ID_Cotizacion);
                 //this.tabla1.getSelectionModel().setSelectionInterval(0, 0);             
     //JOptionPane.showMessageDialog(null, "exitennombre="+existenombre+ " existePrecio= "+existeprecio );
                     }else{            
@@ -1025,7 +1026,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
             int a1 = Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(), 0).toString());
             DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
             Ventanas.Modulo_Cotizaciones_Mensual.Opciones.eliminarServicio(a1);
-            Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicio(ID_Cotizacion);
+            Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicioMod(ID_Cotizacion);
             this.tabla1.getSelectionModel().setSelectionInterval(0, 0);
 
         }

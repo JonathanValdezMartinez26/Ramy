@@ -787,6 +787,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         eliminar();
         int ID = Integer.parseInt(IDCotizacion.getText());
         Opciones.listar("",ID);
+        buscar.setText("");
     }//GEN-LAST:event_pnlEliminarMouseClicked
 
     private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered

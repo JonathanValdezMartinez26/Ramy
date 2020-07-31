@@ -116,7 +116,7 @@ public class Opciones {
                         AC.msj1.setText("¡Este Registro!");
                         AC.msj2.setText("A sido Eliminado");
                         AC.setVisible(true);
-                        Opciones.listar("", ID);
+                        Opciones.listarModificar("",ID);              
                         pstm.close();
                         
                             //res=true;
@@ -281,6 +281,41 @@ public static void insertarServicio(int ID_Cotizacion){
 
 
     DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1.getModel();
+
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        
+        String sql = "";
+        
+            sql = "Select ID_Servicio, ID_Cotizacion, Nombre_Servicio,Precio from servicios where ID_Cotizacion =" + ID_Cotizacion;
+        
+        String datos[] = new String[5];
+        try {           
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                datos [0] = String.valueOf(rs.getInt(1));
+                datos [1] = rs.getString(2);
+                datos [2] = rs.getString(3);
+                datos [3] = rs.getString(4);
+                datos [4] = "";
+                
+                modelo.addRow(datos);
+            }
+            
+            modelo.fireTableDataChanged();
+        } catch (SQLException ex) {
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+   
+    public static void llenarServicioMod(int ID_Cotizacion){
+
+
+    DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.tabla1.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
