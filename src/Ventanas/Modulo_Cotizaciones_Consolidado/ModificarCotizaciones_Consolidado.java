@@ -1008,7 +1008,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
             int a1 = Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(), 0).toString());
             DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
             Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.eliminarServicio(a1);
-            Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.llenarServicio(ID_Cotizacion);
+            Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.llenarServicioModificar(ID_Cotizacion);
             this.tabla1.getSelectionModel().setSelectionInterval(0, 0);
         } 
 
