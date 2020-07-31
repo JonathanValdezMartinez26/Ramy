@@ -102,8 +102,8 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         Clientes();       
         Periodo();        
-        ID_rutas.setVisible(true);
-        IDCotizacion.setVisible(true);
+        ID_rutas.setVisible(false);
+        IDCotizacion.setVisible(false);
          
         tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
