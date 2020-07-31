@@ -73,13 +73,13 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino, Nombre_Transporte, Precio from asigna_cotizacionv where ID_Cotizacion =" + ID;
+            sql = "Select ID_asigna_Cotizacion, Origen, Destino, Nombre_Transporte, Precio, Estado from asigna_cotizacionv where ID_Cotizacion =" + ID;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID +" Order By ID_Asigna_Cotizacion ";
+            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio, Estado from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID +" Order By ID_Asigna_Cotizacion ";
             
            }
-        String datos[] = new String[5];
+        String datos[] = new String[6];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -90,6 +90,7 @@ public class Opciones {
                 datos [2] = rs.getString(3);
                 datos [3] = rs.getString(4);
                 datos [4] = rs.getString(5);
+                datos [5] = rs.getString(6);
                 
                 modelo.addRow(datos);
             }
