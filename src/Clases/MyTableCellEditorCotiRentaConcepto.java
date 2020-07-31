@@ -71,11 +71,11 @@ public class MyTableCellEditorCotiRentaConcepto extends AbstractCellEditor imple
             else{
 //                JOptionPane.showMessageDialog(null,NameColum+"=="+NewValue+"   "+ID );
             
-                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-                AC.msj1.setText("¡Datos del Concepto!");
-                AC.msj2.setText("Guardados correctamente");
-                AC.msj3.setText("Concepto de $"+OldValue+" a $"+NewValue);
-                AC.setVisible(true);
+//                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+//                AC.msj1.setText("¡Datos del Concepto!");
+//                AC.msj2.setText("Guardados correctamente");
+//                AC.msj3.setText("Concepto de $"+OldValue+" a $"+NewValue);
+//                AC.setVisible(true);
             }
         }
         return super.stopCellEditing();

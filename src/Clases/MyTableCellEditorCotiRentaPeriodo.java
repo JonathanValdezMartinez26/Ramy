@@ -74,11 +74,11 @@ public class MyTableCellEditorCotiRentaPeriodo extends AbstractCellEditor implem
                     ((JTextField) component).setText(OldValue);
                 } ///////////////////////////Si no exixste ninguna excepcion se realiza el registro en la bitacora
                 else {
-                    Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
-                    AC.msj1.setText("¡Datos del Concepto!");
-                    AC.msj2.setText("Guardados correctamente");
-                    //AC.msj3.setText("Concepto de $" + OldValue + " a $" + NewValue);
-                    AC.setVisible(true);
+//                    Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+//                    AC.msj1.setText("¡Datos del Concepto!");
+//                    AC.msj2.setText("Guardados correctamente");
+//                    //AC.msj3.setText("Concepto de $" + OldValue + " a $" + NewValue);
+//                    AC.setVisible(true);
                 }
             }
 
@@ -99,11 +99,11 @@ public class MyTableCellEditorCotiRentaPeriodo extends AbstractCellEditor implem
                         ((JTextField) component).setText(OldValue);
                     } ///////////////////////////Si no exixste ninguna excepcion se realiza el registro en la bitacora
                     else {
-                        Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
-                        AC.msj1.setText("¡Datos del Concepto!");
-                        AC.msj2.setText("Guardados correctamente");
-                        //AC.msj3.setText("Concepto de $" + OldValue + " a $" + NewValue);
-                        AC.setVisible(true);
+//                        Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+//                        AC.msj1.setText("¡Datos del Concepto!");
+//                        AC.msj2.setText("Guardados correctamente");
+//                        //AC.msj3.setText("Concepto de $" + OldValue + " a $" + NewValue);
+//                        AC.setVisible(true);
                 }
             }
                             
@@ -123,11 +123,11 @@ public class MyTableCellEditorCotiRentaPeriodo extends AbstractCellEditor implem
                         ((JTextField) component).setText(OldValue);
                     } ///////////////////////////Si no exixste ninguna excepcion se realiza el registro en la bitacora
                     else {
-                        Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
-                        AC.msj1.setText("¡Datos del Concepto!");
-                        AC.msj2.setText("Guardados correctamente");
-                        //AC.msj3.setText("Concepto de $" + OldValue + " a $" + NewValue);
-                        AC.setVisible(true);
+//                        Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+//                        AC.msj1.setText("¡Datos del Concepto!");
+//                        AC.msj2.setText("Guardados correctamente");
+//                        //AC.msj3.setText("Concepto de $" + OldValue + " a $" + NewValue);
+//                        AC.setVisible(true);
                 }
             }
                 }else{
@@ -145,11 +145,11 @@ public class MyTableCellEditorCotiRentaPeriodo extends AbstractCellEditor implem
                         ((JTextField) component).setText(OldValue);
                     } ///////////////////////////Si no exixste ninguna excepcion se realiza el registro en la bitacora
                     else {
-                        Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
-                        AC.msj1.setText("¡Datos del Concepto!");
-                        AC.msj2.setText("Guardados correctamente");
-                        //AC.msj3.setText("Concepto de $" + OldValue + " a $" + NewValue);
-                        AC.setVisible(true);
+//                        Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+//                        AC.msj1.setText("¡Datos del Concepto!");
+//                        AC.msj2.setText("Guardados correctamente");
+//                        //AC.msj3.setText("Concepto de $" + OldValue + " a $" + NewValue);
+//                        AC.setVisible(true);
                 }
             }
                     }
