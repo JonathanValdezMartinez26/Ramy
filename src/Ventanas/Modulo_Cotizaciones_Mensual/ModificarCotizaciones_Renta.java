@@ -18,9 +18,11 @@ import Clases.Cotizaciones;
 import static Clases.Cotizaciones.ObtenID;
 import Clases.CotizacionesRentaMen;
 import Clases.MyTableCellEditor;
-import Clases.MyTableCellEditor2;
+import Clases.MyTableCellEditorCotiRentaPrecio;
 import Clases.MyTableCellEditor3;
 import Clases.MyTableCellEditor4;
+import Clases.MyTableCellEditorCotiRentaConcepto;
+import Clases.MyTableCellEditorCotiRentaPeriodo;
 import Clases.MyTableCellEditorServMensNombre;
 import Clases.MyTableCellEditorServMensPrecio;
 import Clases.database;
@@ -123,7 +125,10 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         
         tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorServMensNombre(db,"Nombre del Servicio"));//Columna Precio
         tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorServMensPrecio(db,"Precio"));//Columna Precio
-        tablaR.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor2(db,"Precio"));//Columna Precio
+        
+        tablaR.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorCotiRentaPrecio(db,"Precio"));//Columna Precio
+        tablaR.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorCotiRentaPeriodo(db,"Periodo"));//Columna Precio
+        tablaR.getColumnModel().getColumn( 1 ).setCellEditor(new MyTableCellEditorCotiRentaConcepto(db,"Concepto"));//Columna Precio
     }
     
     public void Clientes()
@@ -314,47 +319,14 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
     }
     public void CargarDatos(int ID){
         Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarModificar("", ID);
-<<<<<<< HEAD
+
         Ventanas.Modulo_Cotizaciones_Mensual.Opciones.llenarServicioMod(ID);
         
          IDCotizacion.setText(""+ID);
         String Nombre="";
         String Atencion="", Calle = "";
         int localidad = 0;
-        int IDD=0;
-=======
-         Opciones.listar(buscar.getText(), ID);
-//        IDCotizacion.setText(""+ID);
-//        String Nombre="";
-//        String Atencion="", Calle = "";
-//        int localidad = 0;
-//        int IDD=0;
-//        
-//        try{
-//            
-//            resultado = Conexion.consulta("Select * from cotizacionesv Where ID_Cotizacion = "+ID);
-//            
-//            while(resultado.next()){
-//             IDD = resultado.getInt(1);
-//             Nombre = resultado.getString(2);
-//             Atencion = resultado.getString(3);
-//             localidad = resultado.getInt(4);
-//             Calle = resultado.getString(5);
-//            }
-//            
-//        }catch(SQLException ex){}
-//        //JOptionPane.showMessageDialog(null,IDD+" "+Nombre);
-////       lblAtencion.setText(Nombre);
-//        //cmbCliente.set
-//        cmbCliente.setSelectedItem(Nombre);
-//        //lblatencion.setVisible(true);
-//        lblNombre.setText(Atencion);
-////        txtCalle.setText(Calle);
-////        cmbColonia.setSelectedItem(localidad);
-//        
-//      
->>>>>>> f794ad0c7725a29095f2f9ab8e1612a3ed5c5fab
-//        
+        int IDD=0;//        
         try{
             
             resultado = Conexion.consulta("Select * from cotizacionesv Where ID_Cotizacion = "+ID);
@@ -528,7 +500,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -592,6 +564,11 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         buscar.setForeground(new java.awt.Color(0, 144, 183));
         buscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         buscar.setPlaceholder("BUSCAR");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
         buscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarKeyReleased(evt);
@@ -1072,6 +1049,10 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
 //        }
         
     }//GEN-LAST:event_tabla1KeyPressed
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarActionPerformed
 
     public static void main(String args[]) {
      
