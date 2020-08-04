@@ -167,7 +167,7 @@
                       <Table columnCount="5" rowCount="0">
                         <Column editable="false" title="ID_Servicio" type="java.lang.Integer"/>
                         <Column editable="false" title="ID_Cotizacion" type="java.lang.String"/>
-                        <Column editable="true" title="Nombre del Servicio" type="java.lang.String"/>
+                        <Column editable="true" title="Nombre del Adicional" type="java.lang.String"/>
                         <Column editable="true" title="Precio" type="java.lang.String"/>
                         <Column editable="false" title="Supr para Borrar" type="java.lang.Object"/>
                       </Table>
@@ -568,8 +568,11 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Agregar Servicios"/>
+                <Property name="toolTipText" type="java.lang.String" value="Agregar Adicionales"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Ag"/>
+              </AccessibilityProperties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnleditarMouseClicked"/>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnleditarMouseEntered"/>
@@ -590,7 +593,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="    Servicios"/>
+                    <Property name="text" type="java.lang.String" value="  Adicionales"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

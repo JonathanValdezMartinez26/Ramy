@@ -874,7 +874,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             }
             
             cmbCliente.setEnabled(false);
-            Cotizaciones.Agregar_Cotizacion(ID_Cliente);
+            Cotizaciones.Agregar_Cotizacion(ID_Cliente,2);
             lblatencion.setVisible(true);
             
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));

@@ -17,6 +17,7 @@ import static Clases.Cotizaciones.ObtenID;
 import Clases.MyTableCellEditor;
 import Clases.MyTableCellEditor3;
 import Clases.MyTableCellEditor4;
+import Clases.Render;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
@@ -65,6 +66,8 @@ import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDesti
 import java.sql.PreparedStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JCheckBox;
 
 
 public class AgregarCotizaciones1 extends javax.swing.JDialog {
@@ -76,14 +79,13 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     int  MunicipioItem = 0;
     int ID;
     
-    ResultSet resultado, nombre;
+    ResultSet resultado, resultados;
     int ID_Tran [];
     int ID_Ori [];
     int ID_Des [];
     int ID_Cli[];
     private database db = new database();
     public static AgregarCotizaciones1 AC=new AgregarCotizaciones1(null, true);
-    
     
     
     public AgregarCotizaciones1(java.awt.Frame parent, boolean modal) {
@@ -120,6 +122,12 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor3(db,"Nombre del Servicio"));//Columna Precio
         tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor4(db,"Precio"));//Columna Precio
+        
+        tabla1.setDefaultRenderer(Object.class, new Render());
+                                               
+
+
+
         
         
     }
@@ -365,7 +373,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, true
@@ -622,7 +630,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
         jcMousePanel1.add(ID_rutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 140, 20));
 
-        cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Origen" }));
+        cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Asigne Origen" }));
         cmbOrigenes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbOrigenes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -733,7 +741,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         if(Origenes == "Todos los Origenes")
         {
             cmbOrigenes.removeAllItems();
-            cmbOrigenes.addItem("Seleccione un Origen");
+            cmbOrigenes.addItem("Sin Origenes Disponibles...");
             try {
 
                 resultado = Conexion.consulta("SELECT ID_ruta from ruta where (ID_Cliente = "+ID_Cliente+")");
@@ -744,8 +752,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                      ID = resultado.getInt(1);
                     i++;
                     
-                    String q = " INSERT INTO asigna_cotizacion(ID_asigna_Cotizacion,ID_Cotizacion,ID_ruta,Fecha_Alta)"
-                                        + "VALUES (NULL,'"+ID_Cotiza+"',"+ID+",current_timestamp())";      
+                    String q = " INSERT INTO asigna_cotizacion(ID_asigna_Cotizacion,ID_Cotizacion,ID_ruta,Fecha_Alta, Estado)"
+                                        + "VALUES (NULL,'"+ID_Cotiza+"',"+ID+",current_timestamp(), 0)";      
                                         try {
                                             PreparedStatement pstm = cn.prepareStatement(q);
                                             pstm.execute();
@@ -763,21 +771,10 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
 
             }
         }
-        else
-        {
-             String Origeness = (String) cmbOrigenes.getSelectedItem();
-            
-            if(Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == ""
-                    || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == ""
-                    || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" 
-                    || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" || Origenes == "" 
-                    || Origenes == ""  || Origenes == ""  || Origenes == ""  || Origenes == ""  || Origenes == "" 
-                    || Origenes == ""  || Origenes == ""  || Origenes == ""  || Origenes == "" )
-            {
-                
-            }
-        }
-      }
+       
+    }        
+
+
     }//GEN-LAST:event_cmbOrigenesItemStateChanged
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased

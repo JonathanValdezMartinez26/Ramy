@@ -149,6 +149,8 @@ public static ResultSet resultado;
      
   private int ID_Asigna_Cotizacion;
   private int ID_Cotizacion;
+  private int ID_Origen;
+  private int ID_Destino;
   private String Consolidado;
     
     public int getID_Asigna_Cotizacion() {
@@ -166,7 +168,23 @@ public static ResultSet resultado;
     public void setID_Cotizacion(int ID_Cotizacion) {
         this.ID_Cotizacion = ID_Cotizacion;
     }
+    
+        public int getID_Origen() {
+        return ID_Origen;
+    }
 
+    public void setID_Origen(int ID_Origen) {
+        this.ID_Origen = ID_Origen;
+    }
+    
+    
+      public int getID_Destino() {
+        return ID_Destino;
+    }
+
+    public void setID_Destino (int ID_Destino) {
+        this.ID_Destino = ID_Destino;
+    }
     
     public String getConsolidado() {
         return Consolidado;

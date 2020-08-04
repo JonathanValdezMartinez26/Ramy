@@ -75,14 +75,16 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado where ID_Cotizacion="+ ID;
+           sql = "Select ID_Cotizacion_Consolidado, Origen,Destino, Consolidado, Precio from asigna_cotizacion_Consolidadov where ID_Cotizacion="+ ID;
         } else {
             
-            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado"
-                    + " where (ID_Cotizacion ="+ID+" AND Consolidado LIKE '%"+ busca +"%') "
+            sql = "Select ID_Cotizacion_Consolidado,Origen,Destino, Consolidado, Precio from asigna_cotizacion_Consolidado"
+                    + " where (ID_Cotizacion ="+ID+" AND Origen LIKE '%"+ busca +"%') "
+                    + "OR (ID_Cotizacion ="+ID+" AND Destino LIKE '"+ busca +"%')"
+                    + "OR (ID_Cotizacion ="+ID+" AND consolidado LIKE '"+ busca +"%')"
                     + "OR (ID_Cotizacion ="+ID+" AND Precio LIKE '"+ busca +"%')";            
            }
-        String datos[] = new String[3];
+        String datos[] = new String[5];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -90,7 +92,9 @@ public class Opciones {
             {
                 datos [0] = String.valueOf(rs.getInt(1));
                 datos [1] = rs.getString(2);
-                datos [2] = rs.getString(3);                
+                datos [2] = rs.getString(3);   
+                datos [3] = rs.getString(4);
+                datos [4] = rs.getString(5); 
                 modelo.addRow(datos);
             }
             
@@ -186,7 +190,7 @@ public class Opciones {
         }
     }
     ///////////////////////////////////////////////////////////////////
-    public static int verificaConsolidado(int ID_Cotizacion,String Consolidado) {
+    public static int verificaConsolidado(int ID_Cotizacion,int ID_Origen,int ID_Destino,String Consolidado) {
         int c = 0;
         String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizacion_Consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (Consolidado = '"+Consolidado+"')";
         try {
@@ -223,10 +227,10 @@ public class Opciones {
         return false;
     }
 
-           public static boolean registrarCotizaConsoli(int IdCot,String consolidado) {
+           public static boolean registrarCotizaConsoli(int IdCot,int ID_Origen,int ID_Destino,String consolidado) {
                
-               String q = " INSERT INTO asigna_cotizacion_consolidado (ID_cotizacion_consolidado,ID_Cotizacion,consolidado,Precio)"
-                       + "VALUES (NULL,'"+IdCot+"','"+consolidado+"',0)";
+               String q = " INSERT INTO asigna_cotizacion_consolidado (ID_cotizacion_consolidado,ID_Cotizacion,ID_Origen,ID_Destino,consolidado,Precio)"
+                       + "VALUES (NULL,'"+IdCot+"','"+ID_Origen+"','"+ID_Destino+"','"+consolidado+"',0)";
                try {
                    PreparedStatement pstm = cn.prepareStatement(q);
                    pstm.execute();
