@@ -62,7 +62,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 					<textElement textAlignment="Left">
 						<font fontName="Arial" size="10" isBold="true"/>
 					</textElement>
-					<text><![CDATA[                                           Servicio]]></text>
+					<text><![CDATA[                                           Adicional]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" mode="Opaque" x="257" y="-18" width="264" height="20" forecolor="#000000" backcolor="#FF9900" uuid="ba089bef-8452-4352-a581-53b348851326"/>

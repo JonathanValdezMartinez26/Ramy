@@ -87,6 +87,8 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     ResultSet resultado, nombre;
     int ID_Per [];
     int ID_Cli[];
+    int ID_Ori [];
+    int ID_Des [];
     
     private database db = new database();
     
@@ -98,8 +100,9 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         
         Clientes();
-        
-        
+        Origenes();
+        Destinos();
+      
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(false);
          
@@ -129,7 +132,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         
     }
     
-    public void Clientes()
+      public void Clientes()
     {
         int ID_Cliente = 0;
         try 
@@ -164,6 +167,53 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
         }
     }
+    
+     public void Origenes()
+    {
+         int ID_Origen = 0;
+
+        try {
+
+            resultado = Conexion.consulta("Select Max(ID_ruta) from rutav");
+
+            while (resultado.next()) {
+                ID_Origen = resultado.getInt(1);
+            }
+        } catch (SQLException ex) {
+
+        }
+
+        ID_Origen++;
+
+        ID_Ori = new int[ID_Origen];
+        ID_Ori[0] = 0;
+        
+    }
+    
+    public void Destinos()
+    {
+         int ID_Destino = 0;
+
+        try {
+
+            resultado = Conexion.consulta("Select Max(ID_ruta) from rutav");
+
+            while (resultado.next()) {
+                ID_Destino = resultado.getInt(1);
+            }
+        } catch (SQLException ex) {
+
+        }
+
+        ID_Destino++;
+
+        ID_Des = new int[ID_Destino];
+
+        ID_Des[0] = 0;
+        
+    }
+    
+   
     
 //    public void Consolidado()
 //    {
@@ -230,9 +280,6 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     public void Guardar(){
         
         
-        
-        
-        
        if(IDCotizacion.getText().equals(""))
             {
                 
@@ -245,7 +292,40 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                     {
                     int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
                     int comboCliente = cmbCliente.getSelectedIndex();
+                     int comboOrigen= cmbOrigenes.getSelectedIndex();
+                     int comboDestino = cmbDestinos.getSelectedIndex();
                     String Consolidado = txtTipo_Concepto.getText();
+                    
+                    int ID_Client = cmbCliente.getSelectedIndex();
+                    int ID_Cliente = ID_Cli[ID_Client];
+
+                    int ID_Origenes = cmbOrigenes.getSelectedIndex();
+                    int ID_Origen = ID_Ori[ID_Origenes];
+
+                    int ID_Destinos = cmbDestinos.getSelectedIndex();
+                    int ID_Destino = ID_Des[ID_Destinos];
+                    
+              
+                if(comboOrigen==0)
+                    {
+                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                        AC.msj1.setText("¡Elija un !");
+                        AC.msj2.setText("Origen");
+                        AC.setVisible(true);
+                    }
+                
+                else
+                {
+                    if(comboDestino==0)
+                    {
+                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                        AC.msj1.setText("¡Elija un !");
+                        AC.msj2.setText("Destino");
+                        AC.setVisible(true);
+                    }
+                    
+                 else
+                {   
                     
                     if("".equals(Consolidado))
                    {
@@ -256,14 +336,17 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                    }
                     else
                     {
-                      if(Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.verificaConsolidado(ID_Cotizacion,Consolidado)==0)
+                      if(Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.verificaConsolidado(ID_Cotizacion,ID_Origen,ID_Destino,Consolidado)==0)
                       { 
                           Clases.CotizacionesConsolidado fichaIden = new Clases.CotizacionesConsolidado();
 
                             fichaIden.setID_Cotizacion(ID_Cotizacion);
+                            fichaIden.setID_Origen(ID_Origen);
+                            fichaIden.setID_Destino(ID_Destino);
+                            
                             fichaIden.setConsolidado(Consolidado);
 
-                            if (Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.registrarCotizaConsoli(ID_Cotizacion,Consolidado))
+                            if (Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.registrarCotizaConsoli(ID_Cotizacion,ID_Origen,ID_Destino,Consolidado))
                             {
                                 Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
                                       AC.msj1.setText("¡Datos de la cotizacion!");
@@ -297,6 +380,9 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                                 
                                 
                 }
+            }
+                    
+            }       
         }
          }
     public static void cargarServicio(){
@@ -359,10 +445,14 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         ID_rutas = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        lblatencion1 = new javax.swing.JLabel();
+        lblatencion = new javax.swing.JLabel();
         txtTipo_Concepto = new app.bolivia.swing.JCTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        cmbOrigenes = new ComboBox.SComboBox();
+        cmbDestinos = new ComboBox.SComboBox();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -413,14 +503,14 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "Consolidado", "Precio"
+                "ID_", "Origen", "Destino", "Consolidado", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -440,9 +530,9 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             tablaR.getColumnModel().getColumn(0).setMinWidth(0);
             tablaR.getColumnModel().getColumn(0).setPreferredWidth(0);
             tablaR.getColumnModel().getColumn(0).setMaxWidth(0);
-            tablaR.getColumnModel().getColumn(2).setMinWidth(140);
-            tablaR.getColumnModel().getColumn(2).setPreferredWidth(140);
-            tablaR.getColumnModel().getColumn(2).setMaxWidth(140);
+            tablaR.getColumnModel().getColumn(4).setMinWidth(140);
+            tablaR.getColumnModel().getColumn(4).setPreferredWidth(140);
+            tablaR.getColumnModel().getColumn(4).setMaxWidth(140);
         }
         tablaR.getAccessibleContext().setAccessibleName("");
         tablaR.getAccessibleContext().setAccessibleDescription("");
@@ -503,12 +593,14 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 880, 360));
+        jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 880, 330));
 
         cmbCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Cliente" }));
         cmbCliente.setToolTipText("");
@@ -518,7 +610,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                 cmbClienteItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 380, 30));
+        jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 380, 30));
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 380, 30));
@@ -526,7 +618,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel5.setText("Seleccione una empresa o cliente para inciar la cotización.");
         jcMousePanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 430, 20));
-        jcMousePanel1.add(l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 860, 3));
+        jcMousePanel1.add(l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 860, 3));
 
         jPanel1.setBackground(new java.awt.Color(225, 225, 225));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -664,7 +756,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
         jPanel1.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
 
-        jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 890, 70));
+        jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 890, 70));
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
         jcMousePanel1.add(ID_rutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 140, 20));
 
@@ -674,15 +766,15 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 170, 30));
+        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 170, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel6.setText("Seleccione un Consolidado ");
-        jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 180, 20));
+        jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 180, 20));
 
-        lblatencion1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblatencion1.setText("Atención a:");
-        jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, 30));
+        lblatencion.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblatencion.setText("Atención a:");
+        jcMousePanel1.add(lblatencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
 
         txtTipo_Concepto.setBorder(null);
         txtTipo_Concepto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -692,13 +784,39 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                 txtTipo_ConceptoKeyTyped(evt);
             }
         });
-        jcMousePanel1.add(txtTipo_Concepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 370, 30));
+        jcMousePanel1.add(txtTipo_Concepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 370, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
-        jcMousePanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 250, -1));
+        jcMousePanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 250, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
-        jcMousePanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 250, -1));
+        jcMousePanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 250, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel7.setText("Origenes disponibles para la empresa/cliente seleccionado(a):");
+        jcMousePanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 420, 20));
+
+        cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Origen" }));
+        cmbOrigenes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cmbOrigenes.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbOrigenesItemStateChanged(evt);
+            }
+        });
+        jcMousePanel1.add(cmbOrigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 420, 30));
+
+        cmbDestinos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Destino" }));
+        cmbDestinos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cmbDestinos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbDestinosItemStateChanged(evt);
+            }
+        });
+        jcMousePanel1.add(cmbDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 420, 30));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel9.setText("Destinos disponibles para el origen seleccionado:");
+        jcMousePanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 430, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -711,7 +829,9 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -732,20 +852,42 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     }//GEN-LAST:event_jPanel7MousePressed
 
     private void cmbClienteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbClienteItemStateChanged
-         if (evt.getStateChange() == ItemEvent.SELECTED) {
+            if (evt.getStateChange() == ItemEvent.SELECTED) {
             
             int ID_Client = cmbCliente.getSelectedIndex();
            int ID_Cliente = ID_Cli[ID_Client];
             int i = 1;
+
+           //JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
+            cmbOrigenes.removeAllItems();
+            cmbOrigenes.addItem("Seleccione un Origen");
+
+            try {
+
+                resultado = Conexion.consulta("SELECT ID_Municipio_Origen, Origen from rutav where "
+                        + "(ID_Cliente = "+ID_Cliente+") GROUP BY Origen");
+
+                while (resultado.next()) {
+                    ID_Ori[i] = resultado.getInt(1);
+                    cmbOrigenes.addItem(resultado.getString(2).trim());
+                    i++;
+                }
+            } 
+            catch (SQLException ex) {
+            }
             
             cmbCliente.setEnabled(false);
             Cotizaciones.Agregar_Cotizacion(ID_Cliente,2);
-           
+            lblatencion.setVisible(true);
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
             Opciones.listarCotizaciones("");
             
          }
+         
+         
+         
+         
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -860,7 +1002,8 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                                                         AC.msj3.setText("Para poder Finalizar Cotizacion");
                                                         AC.setVisible(true);
                                                 }
-
+  int comboOrigen= cmbOrigenes.getSelectedIndex();
+ int comboDestino = cmbDestinos.getSelectedIndex();
               
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
@@ -929,20 +1072,6 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void txtTipo_ConceptoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipo_ConceptoKeyTyped
-        char c=evt.getKeyChar();
-        if(Character.isDigit(c)) {
-            getToolkit().beep();
-            evt.consume();
-        }
-        int limite =40;
-        if (txtTipo_Concepto.getText().length()== limite)
-        {
-            evt.consume();
-        }
-
-    }//GEN-LAST:event_txtTipo_ConceptoKeyTyped
-
     private void tabla1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyTyped
 //        
 //        int ID_Cotizacion;        
@@ -969,6 +1098,82 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
     }//GEN-LAST:event_tabla1KeyPressed
 
+    private void txtTipo_ConceptoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipo_ConceptoKeyTyped
+        char c=evt.getKeyChar();
+        if(Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        int limite =40;
+        if (txtTipo_Concepto.getText().length()== limite)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTipo_ConceptoKeyTyped
+
+    private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+        
+        int ID_Client = cmbCliente.getSelectedIndex();
+        int ID_Cliente = ID_Cli[ID_Client];
+        int i = 1;
+        
+        int ID_Origen = cmbOrigenes.getSelectedIndex();
+        int ID_Origenes = ID_Ori[ID_Origen];
+        
+        
+        cmbDestinos.removeAllItems();
+        cmbDestinos.addItem("Seleccione un Destino");
+        
+        try {
+            resultado = Conexion.consulta("SELECT ID_Municipio_Destino, Destino from rutav where "
+                    + "(ID_Cliente = "+ID_Cliente+") and (ID_Municipio_Origen = "+ID_Origenes+") GROUP BY Destino");
+
+            while (resultado.next()) {
+                ID_Des[i] = resultado.getInt(1);
+                cmbDestinos.addItem(resultado.getString(2).trim());
+                i++;
+            }
+        } catch (SQLException ex) {
+
+        }
+      }
+    }//GEN-LAST:event_cmbOrigenesItemStateChanged
+
+    private void cmbDestinosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbDestinosItemStateChanged
+if (evt.getStateChange() == ItemEvent.SELECTED) {
+            int ID_Client = cmbCliente.getSelectedIndex();
+            int ID_Cliente = ID_Cli[ID_Client];
+            
+            int ID_Origen = cmbOrigenes.getSelectedIndex();
+            int ID_Origenes = ID_Ori[ID_Origen];
+            
+            int ID_Destin = cmbDestinos.getSelectedIndex();
+            int ID_Destinos = ID_Des[ID_Destin];
+            int i = 1;
+            
+//            cmbTransportes.removeAllItems();
+//            cmbTransportes.addItem("Seleccione un Transporte");
+
+//            try {
+//
+////                 resultado = Conexion.consulta("SELECT ID_Transporte, Nombre_Transporte from rutav where "
+////                        + "(ID_Cliente = "+ID_Cliente+") and (ID_Municipio_Origen = "+ID_Origenes+") and (ID_Municipio_Destino = "+ID_Destinos+") GROUP BY Nombre_Transporte");
+////
+////                while (resultado.next()) {
+////                    ID_Tran[i] = resultado.getInt(1);
+////                    cmbTransportes.addItem(resultado.getString(2).trim());
+////                    i++;
+////                }
+////            } 
+////            catch (SQLException ex) {
+////
+////            }
+//        
+        }
+
+    }//GEN-LAST:event_cmbDestinosItemStateChanged
+
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -990,6 +1195,8 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscarConso;
     private ComboBox.SComboBox cmbCliente;
+    private ComboBox.SComboBox cmbDestinos;
+    private ComboBox.SComboBox cmbOrigenes;
     public static javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -1004,6 +1211,8 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -1014,7 +1223,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     public static javax.swing.JSeparator l2;
     private javax.swing.JLabel lblNombre;
     public static javax.swing.JLabel lblNombreNuevo17;
-    private javax.swing.JLabel lblatencion1;
+    private javax.swing.JLabel lblatencion;
     private javax.swing.JPanel pnlEliminar;
     public static javax.swing.JPanel pnlFinalizar;
     private javax.swing.JPanel pnlVista;
@@ -1022,7 +1231,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla1;
     public static javax.swing.JTable tablaR;
-    public static app.bolivia.swing.JCTextField txtTipo_Concepto;
+    private app.bolivia.swing.JCTextField txtTipo_Concepto;
     // End of variables declaration//GEN-END:variables
 public void ver() {
         Clases.Conexion cc = new Clases.Conexion();

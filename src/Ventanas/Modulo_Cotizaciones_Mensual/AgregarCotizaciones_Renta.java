@@ -397,7 +397,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio", "Supr para Borrar"
+                "ID_Servicio", "ID_Cotizacion", "Nombre del Adicional", "Precio", "Supr para Borrar"
             }
         ) {
             Class[] types = new Class [] {
@@ -620,7 +620,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 250, 70));
 
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
-        pnleditar.setToolTipText("Agregar Servicios");
+        pnleditar.setToolTipText("Agregar Adicionales");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnleditarMouseClicked(evt);
@@ -635,13 +635,14 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         pnleditar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel13.setText("    Servicios");
+        jLabel13.setText("  Adicionales");
         pnleditar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-servicios-40.png"))); // NOI18N
         pnleditar.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel1.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
+        pnleditar.getAccessibleContext().setAccessibleDescription("Ag");
 
         jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 890, 70));
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
