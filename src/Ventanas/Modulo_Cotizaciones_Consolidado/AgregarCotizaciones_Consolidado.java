@@ -1194,13 +1194,13 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
     public static javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscarConso;
-<<<<<<< HEAD
+
     public static ComboBox.SComboBox cmbCliente;
-=======
-    private ComboBox.SComboBox cmbCliente;
+
+   
     private ComboBox.SComboBox cmbDestinos;
     private ComboBox.SComboBox cmbOrigenes;
->>>>>>> 8f8b616d10e3df4cf14cfd9d062f6ef433a0f76c
+
     public static javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
