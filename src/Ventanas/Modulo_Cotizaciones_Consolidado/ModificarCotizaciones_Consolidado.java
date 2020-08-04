@@ -1034,8 +1034,8 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
     public static javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscarConso;
-    private ComboBox.SComboBox cmbCliente;
-    private javax.swing.JButton jButton3;
+    public static ComboBox.SComboBox cmbCliente;
+    public static javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1057,7 +1057,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     public static jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JSeparator l2;
-    private javax.swing.JLabel lblNombre;
+    public static javax.swing.JLabel lblNombre;
     public static javax.swing.JLabel lblNombreNuevo17;
     private javax.swing.JLabel lblatencion;
     private javax.swing.JPanel pnlEliminar;

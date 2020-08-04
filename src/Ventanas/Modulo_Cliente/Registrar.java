@@ -526,8 +526,8 @@ public class Registrar extends javax.swing.JDialog {
 
         jcMousePanel1 = new jcMousePanel.jcMousePanel();
         jPanel7 = new javax.swing.JPanel();
-        rSButtonMetro2 = new JButtonEspecial.JButtonEspecial();
         lblNombreNuevo17 = new javax.swing.JLabel();
+        rSButtonMetro2 = new JButtonEspecial.JButtonEspecial();
         barra_estado = new javax.swing.JPanel();
         a3 = new javax.swing.JLabel();
         a2 = new javax.swing.JLabel();
@@ -600,6 +600,12 @@ public class Registrar extends javax.swing.JDialog {
         });
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblNombreNuevo17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
+        lblNombreNuevo17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombreNuevo17.setText("     Clientes > Ata Origen, Destinos y Asignación");
+        jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 750, 30));
+
         rSButtonMetro2.setText("X");
         rSButtonMetro2.setToolTipText("Cerrar");
         rSButtonMetro2.setColorHover(new java.awt.Color(102, 102, 102));
@@ -610,13 +616,7 @@ public class Registrar extends javax.swing.JDialog {
                 rSButtonMetro2ActionPerformed(evt);
             }
         });
-        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(747, 0, 30, 30));
-
-        lblNombreNuevo17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
-        lblNombreNuevo17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombreNuevo17.setText("     Clientes > Ata Origen, Destinos y Asignación");
-        jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 750, 30));
+        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 30, 30));
 
         jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, 777, -1));
 
@@ -1032,7 +1032,7 @@ public class Registrar extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 807, Short.MAX_VALUE)
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 991, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

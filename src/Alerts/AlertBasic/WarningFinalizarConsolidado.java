@@ -159,14 +159,27 @@ public class WarningFinalizarConsolidado extends javax.swing.JDialog {
 //     
     Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.finalizarCotizacion(ID_Cotizacion);
     Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.listarCotizaciones("");  
-        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.jButton3.setEnabled(false);
-        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.pnlFinalizar.setEnabled(false);
-        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.txtTipo_Concepto.setEnabled(false);
-        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.buscarConso.setEnabled(false);
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.tablaR.getModel();
-        DefaultTableModel modelot = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.tabla1.getModel();
-        modelo.setRowCount(0); 
-        modelot.setRowCount(0); 
+//        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.jButton3.setEnabled(false);
+//        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.pnlFinalizar.setEnabled(false);
+//        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.txtTipo_Concepto.setEnabled(false);
+//        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.buscarConso.setEnabled(false);
+//        //Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.cmbCliente.setSelectedIndex(0);
+//        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.lblNombre.setText("");
+//        
+//        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.tablaR.getModel();       
+//        modelo.setRowCount(0); 
+//       
+//        
+//        Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.jButton3.setEnabled(false);        
+//        Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.txtTipo_Concepto.setEnabled(false);
+//        Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.buscarConso.setEnabled(false);
+//        Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.cmbCliente.setSelectedIndex(0);
+//        Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.lblNombre.setText("");
+//        
+//        DefaultTableModel modelo2 = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.tablaR.getModel();
+//        
+//        modelo2.setRowCount(0); 
+
     
     
     

@@ -12,6 +12,7 @@ import java.awt.event.WindowEvent;
 import static java.lang.System.exit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import necesario.RSAWTUtilities;
 
 public class WarningFinalizarMensual extends javax.swing.JDialog {
@@ -158,6 +159,29 @@ public class WarningFinalizarMensual extends javax.swing.JDialog {
     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");   
     AgregarCotizaciones_Renta.ver();
+    
+//    Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.jButton3.setEnabled(false);
+//        
+//        Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.txtTipo_Concepto.setEnabled(false);
+//        Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.buscar.setEnabled(false);
+//        //Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.cmbCliente.setSelectedIndex(0);
+//        Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.cmbPeriodo.setSelectedIndex(0);
+//        Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.lblNombre.setText("");
+//        
+//        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tablaR.getModel();        
+//        modelo.setRowCount(0); 
+//        
+//        
+//        Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.txtTipo_Concepto.setEnabled(false);
+//        Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.buscar.setEnabled(false);
+//        Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.cmbCliente.setSelectedIndex(0);
+//        Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.cmbPeriodo.setSelectedIndex(0);
+//        Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.lblNombre.setText("");
+//        
+//        DefaultTableModel modelo3 = (DefaultTableModel) Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.tablaR.getModel();
+//        
+//        modelo3.setRowCount(0); 
+//        
     //JOptionPane.showMessageDialog(null, "DEbe cerrarse la venbtana");
     
 //AgregarCotizaciones.aceptarFinalizar();
