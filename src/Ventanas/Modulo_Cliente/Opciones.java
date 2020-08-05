@@ -1,6 +1,7 @@
 package Ventanas.Modulo_Cliente;
 
 import Clases.Conexion;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.cn;
 import static Ventanas.Modulo_Tipo_Transportes.Opciones.cn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -165,10 +166,10 @@ public class Opciones {
     }
     
     ////////////////////////////////////////////////////
-   public static int verificaRutaCotizacion(int ID_Cliente, int ID_Origen, int ID_Destino, int ID_Transporte) {
+   public static int verificaRutaCotizacion(int ID_Cliente, int ID_Origen, int ID_Destino) {
         int existe = 0;
   
-        String SQL = "SELECT count(Id_Ruta) from ruta where (ID_Cliente = "+ID_Cliente+") and (ID_Origen = "+ID_Origen+") and (ID_Destino = "+ID_Destino+") and (ID_Transporte = "+ID_Transporte+")";
+        String SQL = "SELECT count(Id_Ruta) from ruta where (ID_Cliente = "+ID_Cliente+") and (ID_Origen = "+ID_Origen+") and (ID_Destino = "+ID_Destino+")";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -220,9 +221,10 @@ public class Opciones {
             modelo.removeRow(0);
         }
         //String sql = "Select ID_Ruta, Origen, Destino, Nombre_Transporte,Precio from rutav where ID_Cliente =" + ID;
-        String sql= "Select ID_Ruta, Origen, Destino, Nombre_Transporte,Precio from rutav where ID_Cliente ="+ID+" ORDER BY Origen,Destino,  Nombre_Transporte";
+        //String sql= "Select ID_Ruta, Origen, Destino, Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav where ID_Cliente ="+ID+" ORDER BY Origen,Destino";
       
-            String datos[] = new String[5];
+        String sql= "Select ID_Ruta, Origen, Destino, Camioneta_1_5,Camioneta_3_5 from rutav where ID_Cliente ="+ID+" ORDER BY Origen,Destino";
+            String datos[] = new String[9];
         try 
         {    
             Statement st = cn.createStatement();
@@ -233,7 +235,7 @@ public class Opciones {
                 datos[2] = rs.getString(3).trim();
                 datos[3] = rs.getString(4);
                 datos[4] = rs.getString(5);
-                
+                               
                 modelo.addRow(datos);
             }
            
@@ -361,6 +363,32 @@ public static void listarDetalles(int ID,String nombre, String atencion, String 
             }
         
     }     
+    public static void AgregarRuta(int IDCliente,int IDOrigen,int IDDestino){
+    
+        String q = " INSERT INTO ruta (ID_Ruta,ID_Cliente,ID_Origen,ID_Destino,PCamioneta_1_5,PCamioneta_3_5,Rabon,Torthon,Trailer,Full)"
+                       + "VALUES (NULL,'"+IDCliente+"','"+IDOrigen+"','"+IDDestino+"',0,0,0,0,0,0)";
+               try {
+                   PreparedStatement pstm = cn.prepareStatement(q);
+                   pstm.execute();
+                   pstm.close();
+                   
+                   Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                   AC.msj1.setText("¡Datos de Origen-Destino!");
+                   AC.msj2.setText("Guardados correctamente");
+                   AC.setVisible(true);
+                   
+
+               } catch (SQLException e) {
+                   System.out.println(e);
+                   
+                   Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                   AC.msj1.setText("¡Error 3714!");
+                   AC.msj2.setText("¡Contacte a servicios ProSystem!");
+                   AC.setVisible(true);
+                   
+               }
+        
+    }
 }
   
     

@@ -336,7 +336,10 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                    }
                     else
                     {
-                      if(Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.verificaConsolidado(ID_Cotizacion,ID_Origen,ID_Destino,Consolidado)==0)
+                        int ID_OrigenB=Integer.parseInt(lblID_Origen.getText()) ;
+                            int ID_DestinoB=Integer.parseInt(lblID_Destino.getText()) ;
+                            
+                      if(Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.verificaConsolidado(ID_Cotizacion,ID_OrigenB,ID_DestinoB,Consolidado)==0)
                       { 
                           Clases.CotizacionesConsolidado fichaIden = new Clases.CotizacionesConsolidado();
 
@@ -345,8 +348,8 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                             fichaIden.setID_Destino(ID_Destino);
                             
                             fichaIden.setConsolidado(Consolidado);
-
-                            if (Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.registrarCotizaConsoli(ID_Cotizacion,ID_Origen,ID_Destino,Consolidado))
+                            
+                            if (Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.registrarCotizaConsoli(ID_Cotizacion,ID_OrigenB,ID_DestinoB,Consolidado))
                             {
                                 Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
                                       AC.msj1.setText("¡Datos de la cotizacion!");
@@ -453,6 +456,8 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         cmbOrigenes = new ComboBox.SComboBox();
         cmbDestinos = new ComboBox.SComboBox();
         jLabel9 = new javax.swing.JLabel();
+        lblID_Destino = new javax.swing.JLabel();
+        lblID_Origen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -766,7 +771,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 170, 30));
+        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 170, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel6.setText("Seleccione un Consolidado ");
@@ -817,6 +822,12 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel9.setText("Destinos disponibles para el origen seleccionado:");
         jcMousePanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 430, 20));
+
+        lblID_Destino.setText("0");
+        jcMousePanel1.add(lblID_Destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 110, 60, -1));
+
+        lblID_Origen.setText("0");
+        jcMousePanel1.add(lblID_Origen, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 30, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1120,8 +1131,29 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         
         int ID_Origen = cmbOrigenes.getSelectedIndex();
         int ID_Origenes = ID_Ori[ID_Origen];
+        int ID_OrigenB=0;
         
         
+        ///////Obtener Id origen
+                    try {
+                resultado = Conexion.consulta("SELECT ID_Origen from origen where "
+                        + "ID_Municipio="+ID_Origenes);
+                //select ID_Origen from origen WHERE ID_Municipio=688
+
+                while (resultado.next()) {
+                    ID_OrigenB = resultado.getInt(1);
+                    //cmbOrigenes.addItem(resultado.getString(2).trim());
+                    i++;
+                }
+            } 
+            catch (SQLException ex) {
+            }            
+                    lblID_Origen.setText(""+ID_OrigenB);
+                    
+         /////////////////
+         
+         
+         
         cmbDestinos.removeAllItems();
         cmbDestinos.addItem("Seleccione un Destino");
         
@@ -1150,8 +1182,30 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
             
             int ID_Destin = cmbDestinos.getSelectedIndex();
             int ID_Destinos = ID_Des[ID_Destin];
-            int i = 1;
-            
+            int i = 1;        
+            int ID_DestinoB=0;
+        
+        
+        ///////Obtener Id origen
+                    try {
+                resultado = Conexion.consulta("SELECT ID_Destino from destino where "
+                        + "ID_Municipio="+ID_Destinos);
+                //select ID_Origen from origen WHERE ID_Municipio=688
+
+                while (resultado.next()) {
+                    ID_DestinoB = resultado.getInt(1);
+                    //cmbOrigenes.addItem(resultado.getString(2).trim());
+                    i++;
+                }
+            } 
+            catch (SQLException ex) {
+            }            
+                    lblID_Destino.setText(""+ID_DestinoB);
+                    
+         /////////////////
+        
+         
+         
 //            cmbTransportes.removeAllItems();
 //            cmbTransportes.addItem("Seleccione un Transporte");
 
@@ -1195,7 +1249,11 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscarConso;
     public static ComboBox.SComboBox cmbCliente;
+
     private ComboBox.SComboBox cmbDestinos;
+
+    
+
     public static ComboBox.SComboBox cmbOrigenes;
     public static javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -1221,6 +1279,8 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
     private javax.swing.JScrollPane jScrollPane1;
     public static jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JSeparator l2;
+    private javax.swing.JLabel lblID_Destino;
+    private javax.swing.JLabel lblID_Origen;
     public static javax.swing.JLabel lblNombre;
     public static javax.swing.JLabel lblNombreNuevo17;
     private javax.swing.JLabel lblatencion;

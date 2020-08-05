@@ -71,7 +71,7 @@ public class Registrar extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         FadeEffect.fadeIn(this, 1, 0.1f);
         ocultarAciertos();
-        Actualizar_Tabla();
+        //Actualizar_Tabla();
         
         ID_C.setVisible(false);
         
@@ -93,33 +93,33 @@ public class Registrar extends javax.swing.JDialog {
         tabla2.getColumnModel().getColumn(0).setMinWidth(0);
         tabla2.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
         tabla2.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+//        
+//        tabla3.getColumnModel().getColumn(0).setMaxWidth(0);
+//        tabla3.getColumnModel().getColumn(0).setMinWidth(0);
+//        tabla3.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+//        tabla3.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+//        
+//        tabla3.getColumnModel().getColumn(1).setMaxWidth(240);
+//        tabla3.getColumnModel().getColumn(1).setMinWidth(240);
+//        tabla3.getTableHeader().getColumnModel().getColumn(1).setMaxWidth(240);
+//        tabla3.getTableHeader().getColumnModel().getColumn(1).setMinWidth(240);
+//        
+//        tabla3.getColumnModel().getColumn(2).setMaxWidth(240);
+//        tabla3.getColumnModel().getColumn(2).setMinWidth(240);
+//        tabla3.getTableHeader().getColumnModel().getColumn(2).setMaxWidth(240);
+//        tabla3.getTableHeader().getColumnModel().getColumn(2).setMinWidth(240);
+//        
+//        tabla3.getColumnModel().getColumn(3).setMaxWidth(150);
+//        tabla3.getColumnModel().getColumn(3).setMinWidth(150);
+//        tabla3.getTableHeader().getColumnModel().getColumn(3).setMaxWidth(150);
+//        tabla3.getTableHeader().getColumnModel().getColumn(3).setMinWidth(150);
+//        
+//        tabla3.getColumnModel().getColumn(4).setMaxWidth(100);
+//        tabla3.getColumnModel().getColumn(4).setMinWidth(100);
+//        tabla3.getTableHeader().getColumnModel().getColumn(4).setMaxWidth(100);
+//        tabla3.getTableHeader().getColumnModel().getColumn(4).setMinWidth(100);
         
-        tabla3.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabla3.getColumnModel().getColumn(0).setMinWidth(0);
-        tabla3.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
-        tabla3.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
-        
-        tabla3.getColumnModel().getColumn(1).setMaxWidth(240);
-        tabla3.getColumnModel().getColumn(1).setMinWidth(240);
-        tabla3.getTableHeader().getColumnModel().getColumn(1).setMaxWidth(240);
-        tabla3.getTableHeader().getColumnModel().getColumn(1).setMinWidth(240);
-        
-        tabla3.getColumnModel().getColumn(2).setMaxWidth(240);
-        tabla3.getColumnModel().getColumn(2).setMinWidth(240);
-        tabla3.getTableHeader().getColumnModel().getColumn(2).setMaxWidth(240);
-        tabla3.getTableHeader().getColumnModel().getColumn(2).setMinWidth(240);
-        
-        tabla3.getColumnModel().getColumn(3).setMaxWidth(150);
-        tabla3.getColumnModel().getColumn(3).setMinWidth(150);
-        tabla3.getTableHeader().getColumnModel().getColumn(3).setMaxWidth(150);
-        tabla3.getTableHeader().getColumnModel().getColumn(3).setMinWidth(150);
-        
-        tabla3.getColumnModel().getColumn(4).setMaxWidth(100);
-        tabla3.getColumnModel().getColumn(4).setMinWidth(100);
-        tabla3.getTableHeader().getColumnModel().getColumn(4).setMaxWidth(100);
-        tabla3.getTableHeader().getColumnModel().getColumn(4).setMinWidth(100);
-        
-        tabla3.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditor(db,"Precio"));//Columna Precio
+        //tabla3.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditor(db,"Precio"));//Columna Precio
         
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader1());
@@ -159,7 +159,7 @@ public class Registrar extends javax.swing.JDialog {
         Opciones.listarViaje(null, ID);
     }
     
-    ///////////////////////////////
+    /////////////////////////////
     private void Actualizar_Tabla(){
         //actualiza los datos de la tabla realizando una consulta a la base de datos
         int id=74;
@@ -320,7 +320,7 @@ public class Registrar extends javax.swing.JDialog {
                     while(resultado.next())
                     {
                         ID_Tran [i] = resultado.getInt(1);
-                        cmbTransportes.addItem(resultado.getString(2).trim());
+                        //cmbTransportes.addItem(resultado.getString(2).trim());
                         i++;
                     }
                 }
@@ -415,8 +415,8 @@ public class Registrar extends javax.swing.JDialog {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     public void GuardarOD(){
-        int comboTransporte = cmbTransportes.getSelectedIndex();
-        int ID_Transporte = ID_Tran[comboTransporte];
+//        int comboTransporte = cmbTransportes.getSelectedIndex();
+        //int ID_Transporte = ID_Tran[comboTransporte];
         int comboOrigen = cmbOrigenes.getSelectedIndex();
         int ID_Origen = ID_Ori[comboOrigen];
         int comboDestino = cmbDestinos.getSelectedIndex();
@@ -424,15 +424,6 @@ public class Registrar extends javax.swing.JDialog {
         
         //JOptionPane.showMessageDialog(null, "ID_Transporte: " + ID_Transporte);
         
-        if(comboTransporte==0)
-            {
-                Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                AC.msj1.setText("¡Elija un");
-                AC.msj2.setText("Trasnporte válido");
-                AC.setVisible(true);
-            }
-            else
-            {
                 if(comboOrigen==0)
                     {
                         Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -451,11 +442,11 @@ public class Registrar extends javax.swing.JDialog {
                     }
                     else
                     {
-                        if(comboTransporte==0 || comboOrigen==0 || comboDestino==0)
+                        if(comboOrigen==0 || comboDestino==0)
                         {
                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                             AC.msj1.setText("¡Seleccione un!");
-                            AC.msj2.setText("Transporte,Origen y Destino");
+                            AC.msj2.setText("Origen y Destino");
                             AC.setVisible(true);
                         }
                         else
@@ -463,13 +454,14 @@ public class Registrar extends javax.swing.JDialog {
                             
                             
                             ID = Integer.parseInt(ID_C.getText());
-                            if(Ventanas.Modulo_Cliente.Opciones.verificaRutaCotizacion(ID,ID_Origen, ID_Destino,ID_Transporte )==0)
+                            if(Ventanas.Modulo_Cliente.Opciones.verificaRutaCotizacion(ID,ID_Origen, ID_Destino)==0)
                             {
                                   
-                                Clientes.Agregar_Ruta(ID, ID_Origen, ID_Destino, 0, ID_Transporte);
+                                //Clientes.Agregar_Ruta(ID, ID_Origen, ID_Destino, 0, ID_Transporte);
+                                Opciones.AgregarRuta(ID, ID_Origen, ID_Destino);
 //                                Opciones.listarDestino(null, ID);
                                     
-                                  this.cmbTransportes.setSelectedIndex(0);
+//                                  this.cmbTransportes.setSelectedIndex(0);
 //                                this.cmbOrigenes.setSelectedIndex(0);
                                   this.cmbDestinos.setSelectedIndex(0);
                             }
@@ -485,7 +477,7 @@ public class Registrar extends javax.swing.JDialog {
                         }
                     }
                 }
-            }
+            
         
         
     }
@@ -564,7 +556,6 @@ public class Registrar extends javax.swing.JDialog {
         cmbDestinos = new ComboBox.SComboBox();
         jButton3 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
-        cmbTransportes = new ComboBox.SComboBox();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla3 = new javax.swing.JTable();
@@ -884,15 +875,6 @@ public class Registrar extends javax.swing.JDialog {
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 130, 30));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 95, 688, 10));
 
-        cmbTransportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una Unidad" }));
-        cmbTransportes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cmbTransportes.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbTransportesItemStateChanged(evt);
-            }
-        });
-        jPanel3.add(cmbTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 290, 30));
-
         C.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 730, 110));
 
         tabla3.setModel(new javax.swing.table.DefaultTableModel(
@@ -900,14 +882,14 @@ public class Registrar extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_Ruta", "Origen", "Destino", "Transporte", "Precio"
+                "ID_Ruta", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -918,34 +900,36 @@ public class Registrar extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tabla3.setColumnSelectionAllowed(true);
+        tabla3.setPreferredSize(new java.awt.Dimension(600, 0));
         tabla3.setRowHeight(30);
         tabla3.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tabla3);
+        tabla3.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tabla3.getColumnModel().getColumnCount() > 0) {
-            tabla3.getColumnModel().getColumn(0).setResizable(false);
+            tabla3.getColumnModel().getColumn(0).setMinWidth(0);
             tabla3.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla3.getColumnModel().getColumn(1).setResizable(false);
+            tabla3.getColumnModel().getColumn(0).setMaxWidth(0);
             tabla3.getColumnModel().getColumn(1).setPreferredWidth(200);
-            tabla3.getColumnModel().getColumn(2).setResizable(false);
             tabla3.getColumnModel().getColumn(2).setPreferredWidth(200);
-            tabla3.getColumnModel().getColumn(3).setResizable(false);
-            tabla3.getColumnModel().getColumn(3).setPreferredWidth(150);
-            tabla3.getColumnModel().getColumn(4).setResizable(false);
-            tabla3.getColumnModel().getColumn(4).setPreferredWidth(50);
+            tabla3.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tabla3.getColumnModel().getColumn(4).setPreferredWidth(100);
         }
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
         );
 
-        C.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 730, 260));
+        C.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 900, 260));
 
         jLabel3.setText("Seleccione un Estado y Posteriormente un Municipio");
         C.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 610, -1));
@@ -1025,14 +1009,16 @@ public class Registrar extends javax.swing.JDialog {
 
         PanelDesliza.add(D, "card5");
 
-        jcMousePanel1.add(PanelDesliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 130, 750, 450));
+        jcMousePanel1.add(PanelDesliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 130, 920, 450));
         jcMousePanel1.add(l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 750, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 991, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1002, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1123,9 +1109,7 @@ public class Registrar extends javax.swing.JDialog {
         if(Opciones.verificaDestino(ID, MunicipioItem) == 0)
         {
             PanelDesliza.setPanelSlider(2, C, RSPanelsSlider.DIRECT.RIGHT);
-            a3.setText("Asignación a Servicios.");
-            cmbTransportes.removeAllItems();
-            cmbTransportes.addItem("Seleccione un Transporte");
+            a3.setText("Asignación a Servicios.");            
             ComboTransportes();
 
             cmbOrigenes.removeAllItems();
@@ -1157,10 +1141,6 @@ public class Registrar extends javax.swing.JDialog {
      ID = Integer.parseInt(ID_C.getText());
     Opciones.listarViaje(null, ID);
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void cmbTransportesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTransportesItemStateChanged
-    
-    }//GEN-LAST:event_cmbTransportesItemStateChanged
 
     private void log4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log4ActionPerformed
         PanelDesliza.setPanelSlider(2, D, RSPanelsSlider.DIRECT.RIGHT);
@@ -1238,7 +1218,6 @@ public class Registrar extends javax.swing.JDialog {
     private ComboBox.SComboBox cmbMunicipio;
     private ComboBox.SComboBox cmbMunicipio1;
     private ComboBox.SComboBox cmbOrigenes;
-    private ComboBox.SComboBox cmbTransportes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
