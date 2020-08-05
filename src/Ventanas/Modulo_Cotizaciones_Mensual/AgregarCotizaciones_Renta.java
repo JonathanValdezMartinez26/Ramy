@@ -910,7 +910,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                     }else{            
                           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                           AC.msj1.setText("¡Campos Vacios!");
-                          AC.msj2.setText("Para Agregar otro Servicio");
+                          AC.msj2.setText("Para Agregar otro Adicional");
                           AC.msj3.setText("Asigne un Nombre y Precio");                                    
                           AC.setVisible(true);
                     }
@@ -919,7 +919,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                                 Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                                 AC.msj1.setText("¡Porfavor Seleccione!");
                                 AC.msj2.setText("Un Cliente-Concepto-Periodo");
-                                AC.msj3.setText("Para poder Asignar Servicios");
+                                AC.msj3.setText("Para poder Asignar Adicionales");
                                 AC.setVisible(true);
         }
     

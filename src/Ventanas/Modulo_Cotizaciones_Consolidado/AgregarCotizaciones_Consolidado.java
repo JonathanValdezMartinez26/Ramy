@@ -542,7 +542,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio", "Supr para Borrar"
+                "ID_Servicio", "ID_Cotizacion", "Nombre del Adicional", "Precio", "Supr para Borrar"
             }
         ) {
             Class[] types = new Class [] {
@@ -748,7 +748,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         pnleditar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel13.setText("    Servicios");
+        jLabel13.setText(" Adicionales");
         pnleditar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-servicios-40.png"))); // NOI18N
@@ -1046,7 +1046,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                     }else{            
                           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                           AC.msj1.setText("¡Campos Vacios!");
-                          AC.msj2.setText("Para Agregar otro Servicio");
+                          AC.msj2.setText("Para Agregar otro Adicional");
                           AC.msj3.setText("Asigne un Nombre y Precio");                                    
                           AC.setVisible(true);
                     }
@@ -1194,13 +1194,9 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
     public static javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscarConso;
-
     public static ComboBox.SComboBox cmbCliente;
-
-   
     private ComboBox.SComboBox cmbDestinos;
-    private ComboBox.SComboBox cmbOrigenes;
-
+    public static ComboBox.SComboBox cmbOrigenes;
     public static javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -1235,7 +1231,7 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla1;
     public static javax.swing.JTable tablaR;
-    private app.bolivia.swing.JCTextField txtTipo_Concepto;
+    public static app.bolivia.swing.JCTextField txtTipo_Concepto;
     // End of variables declaration//GEN-END:variables
 public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
