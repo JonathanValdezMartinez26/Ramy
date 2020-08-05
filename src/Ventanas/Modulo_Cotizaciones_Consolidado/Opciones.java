@@ -231,6 +231,8 @@ public class Opciones {
                
                String q = " INSERT INTO asigna_cotizacion_consolidado (ID_cotizacion_consolidado,ID_Cotizacion,ID_Origen,ID_Destino,consolidado,Precio)"
                        + "VALUES (NULL,'"+IdCot+"','"+ID_Origen+"','"+ID_Destino+"','"+consolidado+"',0)";
+               
+               JOptionPane.showMessageDialog(null,"cotizacioin"+IdCot+" -Origen"+ID_Origen+" Destino"+ID_Destino+"consolidado "+consolidado);
                try {
                    PreparedStatement pstm = cn.prepareStatement(q);
                    pstm.execute();

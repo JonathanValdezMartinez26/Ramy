@@ -14,14 +14,10 @@ public void Conectar(String user,String pass)throws SQLException,ClassNotFoundEx
 
             DriverManager.registerDriver( new com.mysql.jdbc.Driver());
 
-<<<<<<< HEAD
-//          con = DriverManager.getConnection("jdbc:mysql://192.168.100.14/clinica?useUnicode=true&characterEncoding=utf-8", user, pass);
-            //con = DriverManager.getConnection("jdbc:mysql://192.168.100.14/clinica?useUnicode=true&characterEncoding=utf-8", user, pass);
-             //con = DriverManager.getConnection("jdbc:mysql://localhost/clinica?useUnicode=true&characterEncoding=utf-8","root", "");
-=======
+
 //          con = DriverManager.getConnection("jdbc:mysql://localhost/clinica?useUnicode=true&characterEncoding=utf-8", user, pass);
             con = DriverManager.getConnection("jdbc:mysql://192.168.100.14/clinica?useUnicode=true&characterEncoding=utf-8", user, pass);
->>>>>>> 8f8b616d10e3df4cf14cfd9d062f6ef433a0f76c
+
 
             state=con.createStatement(result.TYPE_SCROLL_SENSITIVE,result.CONCUR_UPDATABLE);
 }
