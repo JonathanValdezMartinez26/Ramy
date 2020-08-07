@@ -2,6 +2,7 @@ package Ventanas.Modulo_Cliente;
 
 import Clases.Conexion;
 import static Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.cn;
+import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.cn;
 import static Ventanas.Modulo_Tipo_Transportes.Opciones.cn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -225,8 +226,18 @@ public class Opciones {
             sql= "Select ID_Ruta, Origen, Destino, Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav"
                + " where ID_Cliente ="+ID+" ORDER BY Origen,Destino";
         } else {
-    
             
+            sql= "Select ID_Ruta, Origen, Destino, Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav"
+                    + " where (ID_Cliente =" + ID + " AND Origen LIKE '%" + busca + "%')"
+                    + " OR (ID_Cliente =" + ID + " AND Destino LIKE '%" + busca + "%')"
+                    + " OR (ID_Cliente =" + ID + " AND Camioneta_1_5 LIKE '" + busca + "%')"
+                    + " OR (ID_Cliente =" + ID + " AND Camioneta_3_5 LIKE '" + busca + "%')"
+                    + " OR (ID_Cliente =" + ID + " AND Rabon LIKE '" + busca + "%')"
+                    + " OR (ID_Cliente =" + ID + " AND Torthon LIKE '" + busca + "%')"
+                    + " OR (ID_Cliente =" + ID + " AND Trailer LIKE '" + busca + "%')"
+                    + " OR (ID_Cliente =" + ID + " AND Full LIKE '" + busca + "%')"
+                    + " ORDER BY Origen,Destino";
+
 //            sql = "Select ID_asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_Rentav"
 //                    + " where  (ID_Cotizacion =" +ID+" AND Periodo LIKE '%"+ busca +"%')"
 //                    + " OR (ID_Cotizacion =" +ID+" AND Concepto LIKE '"+ busca +"%')"
@@ -405,6 +416,22 @@ public static void listarDetalles(int ID,String nombre, String atencion, String 
                }
         
     }
+    public static void eliminarViaje(int idRow){
+     
+try {
+    PreparedStatement pst=(PreparedStatement) cn.prepareStatement("DELETE FROM ruta WHERE ID_Ruta="+idRow);
+    pst.executeUpdate();
+            Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+            AC.msj1.setText("¡Se a borrado!");
+            AC.msj2.setText("El Viaje");
+            AC.setVisible(true);
+        }
+catch(SQLException e) {
+    JOptionPane.showMessageDialog(null, e.getMessage());
+}
+    }
+    
+    
 }
   
     

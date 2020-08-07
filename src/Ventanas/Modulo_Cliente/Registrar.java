@@ -23,6 +23,7 @@ import MyTableCellEditor.EditarClienteTrailer;
 import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.IDCotizacion;
+import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -572,7 +573,7 @@ public class Registrar extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         lblIDOrigen = new javax.swing.JLabel();
-        buscar = new app.bolivia.swing.JCTextField();
+        buscarViaje = new app.bolivia.swing.JCTextField();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -891,24 +892,29 @@ public class Registrar extends javax.swing.JDialog {
             }
         });
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 130, 30));
-        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 940, 10));
+        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 910, 10));
 
         lblIDOrigen.setText("0");
         jPanel3.add(lblIDOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 20, -1));
 
-        buscar.setBorder(null);
-        buscar.setForeground(new java.awt.Color(0, 144, 183));
-        buscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buscar.setPlaceholder("BUSCAR");
-        buscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                buscarKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                buscarKeyTyped(evt);
+        buscarViaje.setBorder(null);
+        buscarViaje.setForeground(new java.awt.Color(0, 144, 183));
+        buscarViaje.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        buscarViaje.setPlaceholder("BUSCAR POR VIAJE");
+        buscarViaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarViajeActionPerformed(evt);
             }
         });
-        jPanel3.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 145, 30));
+        buscarViaje.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                buscarViajeKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscarViajeKeyTyped(evt);
+            }
+        });
+        jPanel3.add(buscarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 145, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 210, -1));
@@ -932,6 +938,11 @@ public class Registrar extends javax.swing.JDialog {
             }
         });
         tabla3.setRowHeight(25);
+        tabla3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tabla3KeyPressed(evt);
+            }
+        });
         jScrollPane3.setViewportView(tabla3);
         if (tabla3.getColumnModel().getColumnCount() > 0) {
             tabla3.getColumnModel().getColumn(0).setMinWidth(0);
@@ -1185,11 +1196,14 @@ public class Registrar extends javax.swing.JDialog {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String Destinos = (String) cmbDestinos.getSelectedItem();        
-        String Origenes = (String) cmbOrigenes.getSelectedItem();        
+        String Origenes = (String) cmbOrigenes.getSelectedItem();
+        int indexOrigen=cmbOrigenes.getSelectedIndex();
+        int indexDestino=cmbDestinos.getSelectedIndex();
         int existe=0;
         int existeOrigen=0;
         if(Destinos.equals("Todos los Destinos"))
         {       
+            if(indexOrigen!=0){
 //            for (int i = 0; i < tabla3.getRowCount(); i++) {
 //                 if(tabla3.getValueAt(i, 1).toString().equals(Origenes)){
 //                     existeOrigen++;
@@ -1231,61 +1245,31 @@ public class Registrar extends javax.swing.JDialog {
                     System.out.println(ex);
 
                 }
-//            } else {//////////////////////Si existe origen
-//                
-//                JOptionPane.showMessageDialog(null, "Borrar origenes");
-////                try {
-//                    int IDOrigen = Integer.parseInt(lblIDOrigen.getText());
-//                    int IDCliente = Integer.parseInt(ID_C.getText());
-//                    resultado = Conexion.consulta("SELECT ID_Destino from destino where (ID_Cliente = " + IDCliente + ")");
-//                    int ID = 0;
-//                    while (resultado.next()) {
-//                        ID = resultado.getInt(1);
-//                        if (Ventanas.Modulo_Cliente.Opciones.verificaRutaCotizacion(IDCliente, IDOrigen, ID) == 0) {
-//                            String q = " INSERT INTO ruta (ID_Ruta,ID_Cliente,ID_Origen,ID_Destino,PCamioneta_1_5,PCamioneta_3_5,Rabon,Torthon,Trailer,Full)"
-//                                    + "VALUES (NULL,'" + IDCliente + "','" + IDOrigen + "','" + ID + "',0,0,0,0,0,0)";
-//                            try {
-//                                PreparedStatement pstm = cn.prepareStatement(q);
-//                                pstm.execute();
-//                                pstm.close();
-//
-//                            } catch (SQLException e) {
-//                                System.out.println(e);
-//                            }
-//
-//                        } else {
-//                            existe++;
-//                        }
-//                    }
-//                    if (existe == 0) {
-//                        Opciones.listarViaje(null, IDCliente);
-//                    } else {
-//                        Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-//                        AC.msj1.setText("¡Este Origen y Destinos!");
-//                        AC.msj2.setText("Ya estan registrados");
-//                        AC.setVisible(true);
-//                    }
-//                } catch (SQLException ex) {
-//                    System.out.println(ex);
-//
-//                }
-
-
 //            }
-
-
-        }else{
-            GuardarOD();
-            ID = Integer.parseInt(ID_C.getText());
-            Opciones.listarViaje(null, ID);
-
-//            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-//            AC.msj1.setText("¡Seleccione!");
-//            AC.msj2.setText("Origen y Destinos");
-//            AC.msj3.setText("Para Agregar Viajes");
-//            AC.setVisible(true);
-
-        }
+            }else{
+                       Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                        AC.msj1.setText("¡Seleccione!");
+                        AC.msj2.setText("Origen");
+                        AC.msj3.setText("Para Agregar Viajes");
+                        AC.setVisible(true);
+   
+            }
+                    
+        
+                        }else{
+            
+                        if(indexDestino!=0 && indexOrigen!=0){
+                        GuardarOD();
+                        ID = Integer.parseInt(ID_C.getText());
+                        Opciones.listarViaje(null, ID);
+                        }else{
+                        Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                        AC.msj1.setText("¡Seleccione!");
+                        AC.msj2.setText("Origen y Destinos");
+                        AC.msj3.setText("Para Agregar Viajes");
+                        AC.setVisible(true);
+                        }
+                    }
 
         
         
@@ -1310,11 +1294,12 @@ public class Registrar extends javax.swing.JDialog {
 
     }//GEN-LAST:event_DFocusGained
 
-    private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-        Opciones.listar(this.buscar.getText());
-    }//GEN-LAST:event_buscarKeyReleased
+    private void buscarViajeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarViajeKeyReleased
+        int IDCliente = Integer.parseInt(ID_C.getText());
+        Opciones.listarViaje(Registrar.buscarViaje.getText(),IDCliente);
+    }//GEN-LAST:event_buscarViajeKeyReleased
 
-    private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
+    private void buscarViajeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarViajeKeyTyped
         char letras = evt.getKeyChar();
 
         if (Character.isLowerCase(letras)) {
@@ -1322,7 +1307,34 @@ public class Registrar extends javax.swing.JDialog {
             letras = cad.charAt(0);
             evt.setKeyChar(letras);
         }
-    }//GEN-LAST:event_buscarKeyTyped
+    }//GEN-LAST:event_buscarViajeKeyTyped
+
+    private void buscarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarViajeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarViajeActionPerformed
+
+    private void tabla3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla3KeyPressed
+
+        int press=evt.getKeyCode();        
+        if(this.tabla3.getSelectedRow()!=-1 && press==127 ){
+            int ID_Cliente;
+            ID_Cliente = Integer.parseInt(ID_C.getText());
+            int a1 = Integer.parseInt(tabla3.getValueAt(tabla3.getSelectedRow(), 0).toString());
+            
+            Ventanas.Modulo_Cliente.Opciones.eliminarViaje(a1);
+            Opciones.listarViaje("",ID_Cliente);
+            //this.tabla3.getSelectionModel().setSelectionInterval(0, 0);
+
+        }
+//        else{
+//            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+//                                AC.msj1.setText("¡Porfavor Seleccione!");
+//                                AC.msj2.setText("Un Servicio");
+//                                AC.msj3.setText("Para Eliminarlo");
+//                                AC.setVisible(true);
+//        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabla3KeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1375,7 +1387,7 @@ public class Registrar extends javax.swing.JDialog {
     public static javax.swing.JLabel a3;
     private javax.swing.JLabel a5;
     public static javax.swing.JPanel barra_estado;
-    public static app.bolivia.swing.JCTextField buscar;
+    public static app.bolivia.swing.JCTextField buscarViaje;
     public static ComboBox.SComboBox cmbDestinos;
     private ComboBox.SComboBox cmbEstado;
     private ComboBox.SComboBox cmbEstado1;
