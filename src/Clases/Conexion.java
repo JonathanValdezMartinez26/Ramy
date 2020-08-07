@@ -32,13 +32,10 @@ public static ResultSet consulta(String sql)throws SQLException{
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-//            con = DriverManager.getConnection("jdbc:mysql://192.168.100.14/clinica?useUnicode=true&characterEncoding=utf-8","root", "");
-//           con = DriverManager.getConnection("jdbc:mysql://192.168.100.14/clinica?useUnicode=true&characterEncoding=utf-8","root", "");
 
-            con = DriverManager.getConnection("jdbc:mysql://192.168.100.14/clinica?useUnicode=true&characterEncoding=utf-8","root", "");
+          con = DriverManager.getConnection("jdbc:mysql://192.168.100.14/clinica?useUnicode=true&characterEncoding=utf-8","root", "");
 //           con = DriverManager.getConnection("jdbc:mysql://localhost/clinica?useUnicode=true&characterEncoding=utf-8","root", "");
 
-//           con = DriverManager.getConnection("jdbc:mysql://192.168.100.14/clinica?useUnicode=true&characterEncoding=utf-8", user, pass);
         } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error en la conexión" + e);
         }

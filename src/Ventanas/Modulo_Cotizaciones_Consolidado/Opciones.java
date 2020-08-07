@@ -363,7 +363,7 @@ try {
     pst.executeUpdate();
             Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
             AC.msj1.setText("¡Se a borrado!");
-            AC.msj2.setText("El servicio");
+            AC.msj2.setText("El Adicional");
             AC.setVisible(true);
         }
 catch(SQLException e) {
