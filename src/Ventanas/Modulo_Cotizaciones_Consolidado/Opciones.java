@@ -75,10 +75,10 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Cotizacion_Consolidado, Origen,Destino, Consolidado, Precio from asigna_cotizacion_Consolidadov where ID_Cotizacion="+ ID;
+           sql = "Select ID_Cotizacion_Consolidado, Origen, Destino, Consolidado, Precio from asigna_cotizacion_Consolidadov where ID_Cotizacion="+ ID +" ORDER BY Origen , Destino ASC";
         } else {
             
-            sql = "Select ID_Cotizacion_Consolidado,Origen,Destino, Consolidado, Precio from asigna_cotizacion_Consolidado"
+            sql = "Select ID_Cotizacion_Consolidado,Origen,Destino, Consolidado, Precio from asigna_cotizacion_Consolidadov"
                     + " where (ID_Cotizacion ="+ID+" AND Origen LIKE '%"+ busca +"%') "
                     + "OR (ID_Cotizacion ="+ID+" AND Destino LIKE '"+ busca +"%')"
                     + "OR (ID_Cotizacion ="+ID+" AND consolidado LIKE '"+ busca +"%')"
@@ -165,22 +165,26 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado where ID_Cotizacion="+ ID;
+           sql = "Select ID_Cotizacion_Consolidado, Origen, Destino, Consolidado, Precio from asigna_cotizacion_Consolidadov where ID_Cotizacion="+ ID+" ORDER BY Origen , Destino ASC";
         } else {
             
-            sql = "Select ID_Cotizacion_Consolidado, Consolidado, Precio from asigna_cotizacion_Consolidado"
-                    + " where (ID_Cotizacion ="+ID+" AND Consolidado LIKE '%"+ busca +"%') "
+            sql = "Select ID_Cotizacion_Consolidado,Origen,Destino, Consolidado, Precio from asigna_cotizacion_Consolidadov"
+                    + " where (ID_Cotizacion ="+ID+" AND Origen LIKE '%"+ busca +"%') "
+                    + "OR (ID_Cotizacion ="+ID+" AND Destino LIKE '"+ busca +"%')"
+                    + "OR (ID_Cotizacion ="+ID+" AND consolidado LIKE '"+ busca +"%')"
                     + "OR (ID_Cotizacion ="+ID+" AND Precio LIKE '"+ busca +"%')";            
            }
-        String datos[] = new String[3];
+        String datos[] = new String[5];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
-                datos [0] = String.valueOf(rs.getInt(1));
+                 datos [0] = String.valueOf(rs.getInt(1));
                 datos [1] = rs.getString(2);
-                datos [2] = rs.getString(3);                
+                datos [2] = rs.getString(3);   
+                datos [3] = rs.getString(4);
+                datos [4] = rs.getString(5); 
                 modelo.addRow(datos);
             }
             
@@ -192,7 +196,7 @@ public class Opciones {
     ///////////////////////////////////////////////////////////////////
     public static int verificaConsolidado(int ID_Cotizacion,int ID_Origen,int ID_Destino,String Consolidado) {
         int c = 0;
-        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizacion_Consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (Consolidado = '"+Consolidado+"')";
+        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizacion_Consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Origen = "+ID_Origen+") and (ID_Destino = "+ID_Destino+") and (Consolidado = '"+Consolidado+"')";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -232,7 +236,7 @@ public class Opciones {
                String q = " INSERT INTO asigna_cotizacion_consolidado (ID_cotizacion_consolidado,ID_Cotizacion,ID_Origen,ID_Destino,consolidado,Precio)"
                        + "VALUES (NULL,'"+IdCot+"','"+ID_Origen+"','"+ID_Destino+"','"+consolidado+"',0)";
                
-               JOptionPane.showMessageDialog(null,"cotizacioin"+IdCot+" -Origen"+ID_Origen+" Destino"+ID_Destino+"consolidado "+consolidado);
+               
                try {
                    PreparedStatement pstm = cn.prepareStatement(q);
                    pstm.execute();

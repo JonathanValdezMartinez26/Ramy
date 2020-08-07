@@ -433,9 +433,9 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(1).setMinWidth(0);
             tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
-            tabla1.getColumnModel().getColumn(4).setMinWidth(100);
-            tabla1.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tabla1.getColumnModel().getColumn(4).setMaxWidth(100);
+            tabla1.getColumnModel().getColumn(4).setMinWidth(150);
+            tabla1.getColumnModel().getColumn(4).setPreferredWidth(150);
+            tabla1.getColumnModel().getColumn(4).setMaxWidth(150);
         }
 
         tablaR.setModel(new javax.swing.table.DefaultTableModel(

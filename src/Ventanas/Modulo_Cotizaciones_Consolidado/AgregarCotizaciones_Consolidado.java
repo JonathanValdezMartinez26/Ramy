@@ -26,7 +26,7 @@ import Clases.localidades;
 import Clases.municipios;
 import Ventanas.CotizacionReporte.ConfigCotizacionConsolidado;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
-import static Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.IDCotizacion;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado1.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -105,6 +105,9 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
       
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(false);
+        lblID_Origen.setVisible(false);
+        lblID_Destino.setVisible(false);
+        IDCotizacion.setVisible(false);
          
         tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -125,7 +128,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
         
-        tablaR.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor5(db,"Precio"));
+        tablaR.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditor5(db,"Precio"));
         tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorServMensNombre(db,"Nombre del Servicio"));//Columna Precio
         tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorServMensPrecio(db,"Precio"));//Columna Precio
         
@@ -300,10 +303,10 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                     int ID_Cliente = ID_Cli[ID_Client];
 
                     int ID_Origenes = cmbOrigenes.getSelectedIndex();
-                    int ID_Origen = ID_Ori[ID_Origenes];
+                    int ID_Origen1 = ID_Ori[ID_Origenes];
 
                     int ID_Destinos = cmbDestinos.getSelectedIndex();
-                    int ID_Destino = ID_Des[ID_Destinos];
+                    int ID_Destino1 = ID_Des[ID_Destinos];
                     
               
                 if(comboOrigen==0)
@@ -336,10 +339,10 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                    }
                     else
                     {
-                        int ID_OrigenB=Integer.parseInt(lblID_Origen.getText()) ;
-                            int ID_DestinoB=Integer.parseInt(lblID_Destino.getText()) ;
+                        int ID_Origen=Integer.parseInt(lblID_Origen.getText()) ;
+                        int ID_Destino=Integer.parseInt(lblID_Destino.getText()) ;
                             
-                      if(Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.verificaConsolidado(ID_Cotizacion,ID_OrigenB,ID_DestinoB,Consolidado)==0)
+                      if(Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.verificaConsolidado(ID_Cotizacion,ID_Origen,ID_Destino,Consolidado)==0)
                       { 
                           Clases.CotizacionesConsolidado fichaIden = new Clases.CotizacionesConsolidado();
 
@@ -349,7 +352,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                             
                             fichaIden.setConsolidado(Consolidado);
                             
-                            if (Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.registrarCotizaConsoli(ID_Cotizacion,ID_OrigenB,ID_DestinoB,Consolidado))
+                            if (Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.registrarCotizaConsoli(ID_Cotizacion,ID_Origen,ID_Destino,Consolidado))
                             {
                                 Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
                                       AC.msj1.setText("¡Datos de la cotizacion!");
@@ -583,9 +586,9 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(1).setMinWidth(0);
             tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
-            tabla1.getColumnModel().getColumn(4).setMinWidth(100);
-            tabla1.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tabla1.getColumnModel().getColumn(4).setMaxWidth(100);
+            tabla1.getColumnModel().getColumn(4).setMinWidth(150);
+            tabla1.getColumnModel().getColumn(4).setPreferredWidth(150);
+            tabla1.getColumnModel().getColumn(4).setMaxWidth(150);
         }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -599,13 +602,13 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 880, 330));
+        jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 880, 380));
 
         cmbCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Cliente" }));
         cmbCliente.setToolTipText("");
@@ -618,7 +621,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 380, 30));
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 380, 30));
+        jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 380, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel5.setText("Seleccione una empresa o cliente para inciar la cotización.");
@@ -841,8 +844,8 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         pack();
@@ -1127,11 +1130,15 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         
         int ID_Client = cmbCliente.getSelectedIndex();
         int ID_Cliente = ID_Cli[ID_Client];
-        int i = 1;
+        int i = 0;
         
         int ID_Origen = cmbOrigenes.getSelectedIndex();
         int ID_Origenes = ID_Ori[ID_Origen];
         int ID_OrigenB=0;
+        
+        int ID_Destin = cmbDestinos.getSelectedIndex();
+            int ID_Destinos = ID_Des[ID_Destin];
+            int ID_DestinoB=0;
         
         
         ///////Obtener Id origen
@@ -1153,7 +1160,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
          /////////////////
          
          
-         
+//         
         cmbDestinos.removeAllItems();
         cmbDestinos.addItem("Seleccione un Destino");
         
@@ -1176,22 +1183,22 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 if (evt.getStateChange() == ItemEvent.SELECTED) {
             int ID_Client = cmbCliente.getSelectedIndex();
             int ID_Cliente = ID_Cli[ID_Client];
+            int i = 2; 
+            
             
             int ID_Origen = cmbOrigenes.getSelectedIndex();
             int ID_Origenes = ID_Ori[ID_Origen];
-            
+
             int ID_Destin = cmbDestinos.getSelectedIndex();
             int ID_Destinos = ID_Des[ID_Destin];
-            int i = 1;        
             int ID_DestinoB=0;
-        
-        
         ///////Obtener Id origen
-                    try {
+        
+        try {
                 resultado = Conexion.consulta("SELECT ID_Destino from destino where "
                         + "ID_Municipio="+ID_Destinos);
-                //select ID_Origen from origen WHERE ID_Municipio=688
-
+//                select ID_Origen from origen WHERE ID_Municipio=688
+                  
                 while (resultado.next()) {
                     ID_DestinoB = resultado.getInt(1);
                     //cmbOrigenes.addItem(resultado.getString(2).trim());
@@ -1203,27 +1210,8 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
                     lblID_Destino.setText(""+ID_DestinoB);
                     
          /////////////////
-        
+      
          
-         
-//            cmbTransportes.removeAllItems();
-//            cmbTransportes.addItem("Seleccione un Transporte");
-
-//            try {
-//
-////                 resultado = Conexion.consulta("SELECT ID_Transporte, Nombre_Transporte from rutav where "
-////                        + "(ID_Cliente = "+ID_Cliente+") and (ID_Municipio_Origen = "+ID_Origenes+") and (ID_Municipio_Destino = "+ID_Destinos+") GROUP BY Nombre_Transporte");
-////
-////                while (resultado.next()) {
-////                    ID_Tran[i] = resultado.getInt(1);
-////                    cmbTransportes.addItem(resultado.getString(2).trim());
-////                    i++;
-////                }
-////            } 
-////            catch (SQLException ex) {
-////
-////            }
-//        
         }
 
     }//GEN-LAST:event_cmbDestinosItemStateChanged
@@ -1249,11 +1237,7 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscarConso;
     public static ComboBox.SComboBox cmbCliente;
-
-    private ComboBox.SComboBox cmbDestinos;
-
-    
-
+    public static ComboBox.SComboBox cmbDestinos;
     public static ComboBox.SComboBox cmbOrigenes;
     public static javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -1280,7 +1264,7 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
     public static jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JSeparator l2;
     private javax.swing.JLabel lblID_Destino;
-    private javax.swing.JLabel lblID_Origen;
+    public javax.swing.JLabel lblID_Origen;
     public static javax.swing.JLabel lblNombre;
     public static javax.swing.JLabel lblNombreNuevo17;
     private javax.swing.JLabel lblatencion;

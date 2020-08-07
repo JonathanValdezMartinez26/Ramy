@@ -72,7 +72,7 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
+           sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID+" ORDER BY Periodo , Concepto ASC";;
         } else {
     
             

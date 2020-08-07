@@ -17,6 +17,7 @@ import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
 import Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado;
 import Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado;
+
 import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.IDCotizacion;
@@ -516,7 +517,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
-        AgregarCotizaciones1 AC = new AgregarCotizaciones1(null, true);
+        AgregarCotizaciones AC = new AgregarCotizaciones(null, true);
         AC.setVisible(true);
     }//GEN-LAST:event_pnlagregarMouseClicked
 

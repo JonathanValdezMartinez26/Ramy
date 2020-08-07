@@ -784,7 +784,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                 cmbDestinosItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 300, 30));
+        jcMousePanel1.add(cmbDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 300, 30));
 
         jButton3.setText("Agregar Destino");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {

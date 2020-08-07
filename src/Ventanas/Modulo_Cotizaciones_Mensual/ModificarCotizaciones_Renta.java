@@ -483,9 +483,9 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(1).setMinWidth(0);
             tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
-            tabla1.getColumnModel().getColumn(4).setMinWidth(100);
-            tabla1.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tabla1.getColumnModel().getColumn(4).setMaxWidth(100);
+            tabla1.getColumnModel().getColumn(4).setMinWidth(150);
+            tabla1.getColumnModel().getColumn(4).setPreferredWidth(150);
+            tabla1.getColumnModel().getColumn(4).setMaxWidth(150);
         }
 
         tablaR.setModel(new javax.swing.table.DefaultTableModel(
@@ -500,7 +500,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true
+                false, true, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -690,7 +690,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         pnleditar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel13.setText("    Servicios");
+        jLabel13.setText("  Adicionales");
         pnleditar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-servicios-40.png"))); // NOI18N
@@ -971,7 +971,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                     }else{            
                           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                           AC.msj1.setText("¡Campos Vacios!");
-                          AC.msj2.setText("Para Agregar otro Servicio");
+                          AC.msj2.setText("Para Agregar otro Adicional");
                           AC.msj3.setText("Asigne un Nombre y Precio");                                    
                           AC.setVisible(true);
                     }
