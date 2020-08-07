@@ -220,10 +220,11 @@ public class Opciones {
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
-        //String sql = "Select ID_Ruta, Origen, Destino, Nombre_Transporte,Precio from rutav where ID_Cliente =" + ID;
-        //String sql= "Select ID_Ruta, Origen, Destino, Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav where ID_Cliente ="+ID+" ORDER BY Origen,Destino";
+        
+        
+       String sql= "Select ID_Ruta, Origen, Destino, Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav"
+               + " where ID_Cliente ="+ID+" ORDER BY Origen,Destino";
       
-        String sql= "Select ID_Ruta, Origen, Destino, Camioneta_1_5,Camioneta_3_5 from rutav where ID_Cliente ="+ID+" ORDER BY Origen,Destino";
             String datos[] = new String[9];
         try 
         {    
@@ -235,6 +236,10 @@ public class Opciones {
                 datos[2] = rs.getString(3).trim();
                 datos[3] = rs.getString(4);
                 datos[4] = rs.getString(5);
+                datos[5] = rs.getString(6);
+                datos[6] = rs.getString(7);
+                datos[7] = rs.getString(8);
+                datos[8] = rs.getString(9);
                                
                 modelo.addRow(datos);
             }

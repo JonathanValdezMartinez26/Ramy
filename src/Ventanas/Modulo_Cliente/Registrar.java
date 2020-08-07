@@ -8,13 +8,22 @@ import static Alerts.AlertBasic.AgregarDestinos.ID;
 import Alerts.FadeEffect;
 import Clases.Clientes;
 import Clases.Conexion;
+//import Clases.EditarClienteCamioneta15;
 import Clases.MyTableCellEditor;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import MyTableCellEditor.EditarClienteCamioneta15;
+import MyTableCellEditor.EditarClienteCamioneta35;
+import MyTableCellEditor.EditarClienteFull;
+import MyTableCellEditor.EditarClienteRabon;
+import MyTableCellEditor.EditarClienteTorthon;
+import MyTableCellEditor.EditarClienteTrailer;
 import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
+import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.IDCotizacion;
+import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
 import java.awt.Color;
@@ -35,6 +44,7 @@ import rojerusan.RSPanelsSlider;
 import java.awt.Color;
 import java.awt.Font; 
 import java.awt.event.ItemEvent;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
@@ -71,8 +81,7 @@ public class Registrar extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         FadeEffect.fadeIn(this, 1, 0.1f);
         ocultarAciertos();
-        //Actualizar_Tabla();
-        
+        cmbDestinos.addItem("Todos los Destinos");
         ID_C.setVisible(false);
         
         
@@ -119,7 +128,12 @@ public class Registrar extends javax.swing.JDialog {
 //        tabla3.getTableHeader().getColumnModel().getColumn(4).setMaxWidth(100);
 //        tabla3.getTableHeader().getColumnModel().getColumn(4).setMinWidth(100);
         
-        //tabla3.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditor(db,"Precio"));//Columna Precio
+        tabla3.getColumnModel().getColumn( 3 ).setCellEditor(new EditarClienteCamioneta15(db,"CAMIONETA 1.5 TON"));
+        tabla3.getColumnModel().getColumn( 4 ).setCellEditor(new EditarClienteCamioneta35(db,"CAMIONETA 3.5 TON"));
+        tabla3.getColumnModel().getColumn( 5 ).setCellEditor(new EditarClienteRabon(db,"RABÓN"));
+        tabla3.getColumnModel().getColumn( 6 ).setCellEditor(new EditarClienteTorthon(db,"TORTHON"));
+        tabla3.getColumnModel().getColumn( 7 ).setCellEditor(new EditarClienteTrailer(db,"TRÁILER"));
+        tabla3.getColumnModel().getColumn( 8 ).setCellEditor(new EditarClienteFull(db,"FULL"));
         
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader1());
@@ -156,7 +170,7 @@ public class Registrar extends javax.swing.JDialog {
     {
         Opciones.listarOrigen(null, ID);
         Opciones.listarDestino(null, ID);
-        Opciones.listarViaje(null, ID);
+        Opciones.listarViaje("", ID);
     }
     
     /////////////////////////////
@@ -394,7 +408,8 @@ public class Registrar extends javax.swing.JDialog {
                 ID_Des = new int[ID_Destino];
 
                 ID_Des [0] = 0; 
-                int i = 1;
+                /////empezar a partir del item no.2
+                int i = 2;
 
                 try
                 {
@@ -452,7 +467,7 @@ public class Registrar extends javax.swing.JDialog {
                         else
                         {
                             
-                            
+                            lblIDOrigen.setText(""+ID_Origen);
                             ID = Integer.parseInt(ID_C.getText());
                             if(Ventanas.Modulo_Cliente.Opciones.verificaRutaCotizacion(ID,ID_Origen, ID_Destino)==0)
                             {
@@ -468,9 +483,9 @@ public class Registrar extends javax.swing.JDialog {
                             else
                             {
                                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                AC.msj1.setText("¡Error!");
-                                AC.msj2.setText("El Origen y Destino");
-                                AC.msj3.setText("ya estan Registrados");
+                                
+                                AC.msj1.setText("¡El Origen y Destino!");
+                                AC.msj2.setText("ya estan Registrados");
                                 AC.setVisible(true);
                                 this.cmbMunicipio1.setSelectedIndex(0);
                             }
@@ -556,6 +571,7 @@ public class Registrar extends javax.swing.JDialog {
         cmbDestinos = new ComboBox.SComboBox();
         jButton3 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
+        lblIDOrigen = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla3 = new javax.swing.JTable();
@@ -607,9 +623,9 @@ public class Registrar extends javax.swing.JDialog {
                 rSButtonMetro2ActionPerformed(evt);
             }
         });
-        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 30, 30));
+        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, 30, 30));
 
-        jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, 777, -1));
+        jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, 970, -1));
 
         barra_estado.setBackground(new java.awt.Color(255, 255, 255));
         barra_estado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -872,57 +888,61 @@ public class Registrar extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 130, 30));
-        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 95, 688, 10));
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 130, 30));
+        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 95, 910, 10));
 
-        C.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 730, 110));
+        lblIDOrigen.setText("0");
+        jPanel3.add(lblIDOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 20, -1));
+
+        C.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 930, 110));
 
         tabla3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID_Ruta", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5"
+                "ID_Ruta", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Rabon", "Torthon", "Trailer", "Full"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true
+                false, false, false, true, true, true, true, true, true
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tabla3.setColumnSelectionAllowed(true);
-        tabla3.setPreferredSize(new java.awt.Dimension(600, 0));
-        tabla3.setRowHeight(30);
-        tabla3.getTableHeader().setReorderingAllowed(false);
+        tabla3.setRowHeight(25);
         jScrollPane3.setViewportView(tabla3);
-        tabla3.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tabla3.getColumnModel().getColumnCount() > 0) {
             tabla3.getColumnModel().getColumn(0).setMinWidth(0);
             tabla3.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla3.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla3.getColumnModel().getColumn(1).setPreferredWidth(200);
-            tabla3.getColumnModel().getColumn(2).setPreferredWidth(200);
-            tabla3.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tabla3.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tabla3.getColumnModel().getColumn(3).setMinWidth(120);
+            tabla3.getColumnModel().getColumn(3).setPreferredWidth(120);
+            tabla3.getColumnModel().getColumn(3).setMaxWidth(120);
+            tabla3.getColumnModel().getColumn(4).setMinWidth(120);
+            tabla3.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tabla3.getColumnModel().getColumn(4).setMaxWidth(120);
+            tabla3.getColumnModel().getColumn(5).setMinWidth(70);
+            tabla3.getColumnModel().getColumn(5).setPreferredWidth(70);
+            tabla3.getColumnModel().getColumn(5).setMaxWidth(70);
+            tabla3.getColumnModel().getColumn(6).setMinWidth(90);
+            tabla3.getColumnModel().getColumn(6).setPreferredWidth(90);
+            tabla3.getColumnModel().getColumn(6).setMaxWidth(90);
+            tabla3.getColumnModel().getColumn(7).setMinWidth(70);
+            tabla3.getColumnModel().getColumn(7).setPreferredWidth(70);
+            tabla3.getColumnModel().getColumn(7).setMaxWidth(70);
+            tabla3.getColumnModel().getColumn(8).setMinWidth(70);
+            tabla3.getColumnModel().getColumn(8).setPreferredWidth(70);
+            tabla3.getColumnModel().getColumn(8).setMaxWidth(70);
         }
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1010,7 +1030,7 @@ public class Registrar extends javax.swing.JDialog {
         PanelDesliza.add(D, "card5");
 
         jcMousePanel1.add(PanelDesliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 130, 920, 450));
-        jcMousePanel1.add(l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 750, 10));
+        jcMousePanel1.add(l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 940, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1128,18 +1148,128 @@ public class Registrar extends javax.swing.JDialog {
     }//GEN-LAST:event_log3ActionPerformed
 
     private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
-        // TODO add your handling code here:
+        
+        int comboOrigen = cmbOrigenes.getSelectedIndex();
+        int ID_Origen = ID_Ori[comboOrigen];
+        lblIDOrigen.setText(""+ID_Origen);
+        
     }//GEN-LAST:event_cmbOrigenesItemStateChanged
 
     private void cmbDestinosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbDestinosItemStateChanged
-        // TODO add your handling code here:
+
+    if (evt.getStateChange() == ItemEvent.SELECTED) {
+    
+       
+    }
+        
     }//GEN-LAST:event_cmbDestinosItemStateChanged
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String Destinos = (String) cmbDestinos.getSelectedItem();        
+        String Origenes = (String) cmbOrigenes.getSelectedItem();        
+        int existe=0;
+        int existeOrigen=0;
+        if(Destinos.equals("Todos los Destinos"))
+        {       
+//            for (int i = 0; i < tabla3.getRowCount(); i++) {
+//                 if(tabla3.getValueAt(i, 1).toString().equals(Origenes)){
+//                     existeOrigen++;
+//                 }                                                  
+//        }
+            //if (existeOrigen == 0) {
+                try {
+                    int IDOrigen = Integer.parseInt(lblIDOrigen.getText());
+                    int IDCliente = Integer.parseInt(ID_C.getText());
+                    resultado = Conexion.consulta("SELECT ID_Destino from destino where (ID_Cliente = " + IDCliente + ")");
+                    int ID = 0;
+                    while (resultado.next()) {
+                        ID = resultado.getInt(1);
+                        if (Ventanas.Modulo_Cliente.Opciones.verificaRutaCotizacion(IDCliente, IDOrigen, ID) == 0) {
+                            String q = " INSERT INTO ruta (ID_Ruta,ID_Cliente,ID_Origen,ID_Destino,PCamioneta_1_5,PCamioneta_3_5,Rabon,Torthon,Trailer,Full)"
+                                    + "VALUES (NULL,'" + IDCliente + "','" + IDOrigen + "','" + ID + "',0,0,0,0,0,0)";
+                            try {
+                                PreparedStatement pstm = cn.prepareStatement(q);
+                                pstm.execute();
+                                pstm.close();
+
+                            } catch (SQLException e) {
+                                System.out.println(e);
+                            }
+
+                        } else {
+                            existe++;
+                        }
+                    }
+                    if (existe == 0) {
+                        Opciones.listarViaje("", IDCliente);
+                    } else {
+                        Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                        AC.msj1.setText("¡Este Origen y Destinos!");
+                        AC.msj2.setText("Ya estan registrados");
+                        AC.setVisible(true);
+                    }
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+
+                }
+//            } else {//////////////////////Si existe origen
+//                
+//                JOptionPane.showMessageDialog(null, "Borrar origenes");
+////                try {
+//                    int IDOrigen = Integer.parseInt(lblIDOrigen.getText());
+//                    int IDCliente = Integer.parseInt(ID_C.getText());
+//                    resultado = Conexion.consulta("SELECT ID_Destino from destino where (ID_Cliente = " + IDCliente + ")");
+//                    int ID = 0;
+//                    while (resultado.next()) {
+//                        ID = resultado.getInt(1);
+//                        if (Ventanas.Modulo_Cliente.Opciones.verificaRutaCotizacion(IDCliente, IDOrigen, ID) == 0) {
+//                            String q = " INSERT INTO ruta (ID_Ruta,ID_Cliente,ID_Origen,ID_Destino,PCamioneta_1_5,PCamioneta_3_5,Rabon,Torthon,Trailer,Full)"
+//                                    + "VALUES (NULL,'" + IDCliente + "','" + IDOrigen + "','" + ID + "',0,0,0,0,0,0)";
+//                            try {
+//                                PreparedStatement pstm = cn.prepareStatement(q);
+//                                pstm.execute();
+//                                pstm.close();
+//
+//                            } catch (SQLException e) {
+//                                System.out.println(e);
+//                            }
+//
+//                        } else {
+//                            existe++;
+//                        }
+//                    }
+//                    if (existe == 0) {
+//                        Opciones.listarViaje(null, IDCliente);
+//                    } else {
+//                        Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+//                        AC.msj1.setText("¡Este Origen y Destinos!");
+//                        AC.msj2.setText("Ya estan registrados");
+//                        AC.setVisible(true);
+//                    }
+//                } catch (SQLException ex) {
+//                    System.out.println(ex);
+//
+//                }
+
+
+//            }
+
+
+        }else{
+            GuardarOD();
+            ID = Integer.parseInt(ID_C.getText());
+            Opciones.listarViaje(null, ID);
+
+//            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+//            AC.msj1.setText("¡Seleccione!");
+//            AC.msj2.setText("Origen y Destinos");
+//            AC.msj3.setText("Para Agregar Viajes");
+//            AC.setVisible(true);
+
+        }
+
         
-        GuardarOD();
-     ID = Integer.parseInt(ID_C.getText());
-    Opciones.listarViaje(null, ID);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void log4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log4ActionPerformed
@@ -1212,12 +1342,12 @@ public class Registrar extends javax.swing.JDialog {
     public static javax.swing.JLabel a3;
     private javax.swing.JLabel a5;
     public static javax.swing.JPanel barra_estado;
-    private ComboBox.SComboBox cmbDestinos;
+    public static ComboBox.SComboBox cmbDestinos;
     private ComboBox.SComboBox cmbEstado;
     private ComboBox.SComboBox cmbEstado1;
     private ComboBox.SComboBox cmbMunicipio;
     private ComboBox.SComboBox cmbMunicipio1;
-    private ComboBox.SComboBox cmbOrigenes;
+    public static ComboBox.SComboBox cmbOrigenes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1242,6 +1372,7 @@ public class Registrar extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator3;
     public static jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JSeparator l1;
+    private javax.swing.JLabel lblIDOrigen;
     public static javax.swing.JLabel lblNombreNuevo17;
     public static JButtonEspecial.JButtonEspecial log1;
     public static JButtonEspecial.JButtonEspecial log2;
