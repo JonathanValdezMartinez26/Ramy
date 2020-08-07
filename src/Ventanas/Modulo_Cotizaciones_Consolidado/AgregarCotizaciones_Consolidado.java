@@ -26,7 +26,7 @@ import Clases.localidades;
 import Clases.municipios;
 import Ventanas.CotizacionReporte.ConfigCotizacionConsolidado;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
-import static Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado1.IDCotizacion;
+
 import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -870,7 +870,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             
             int ID_Client = cmbCliente.getSelectedIndex();
            int ID_Cliente = ID_Cli[ID_Client];
-            int i = 1;
+            int i = 0;
 
            //JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
             cmbOrigenes.removeAllItems();
