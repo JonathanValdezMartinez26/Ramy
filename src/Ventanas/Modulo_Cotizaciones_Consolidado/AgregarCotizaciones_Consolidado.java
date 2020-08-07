@@ -870,7 +870,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             
             int ID_Client = cmbCliente.getSelectedIndex();
            int ID_Cliente = ID_Cli[ID_Client];
-            int i = 0;
+            int i = 1;
 
            //JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
             cmbOrigenes.removeAllItems();
