@@ -220,10 +220,21 @@ public class Opciones {
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
-        
-        
-       String sql= "Select ID_Ruta, Origen, Destino, Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav"
+        String sql = "";
+        if (busca.equals("")) {
+            sql= "Select ID_Ruta, Origen, Destino, Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav"
                + " where ID_Cliente ="+ID+" ORDER BY Origen,Destino";
+        } else {
+    
+            
+//            sql = "Select ID_asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_Rentav"
+//                    + " where  (ID_Cotizacion =" +ID+" AND Periodo LIKE '%"+ busca +"%')"
+//                    + " OR (ID_Cotizacion =" +ID+" AND Concepto LIKE '"+ busca +"%')"
+//                    + " OR (ID_Cotizacion =" +ID+" AND Precio LIKE '"+ busca +"%')";
+//            
+           }
+        
+      
       
             String datos[] = new String[9];
         try 

@@ -169,12 +169,7 @@ public class Registrar extends javax.swing.JDialog {
     public void listar(int ID)
     {
         Opciones.listarOrigen(null, ID);
-        Opciones.listarDestino(null, ID);
-        
-        
-        
-        
-        
+        Opciones.listarDestino(null, ID);        
         Opciones.listarViaje("", ID);
     }
     
@@ -577,6 +572,8 @@ public class Registrar extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         lblIDOrigen = new javax.swing.JLabel();
+        buscar = new app.bolivia.swing.JCTextField();
+        jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla3 = new javax.swing.JTable();
@@ -894,12 +891,29 @@ public class Registrar extends javax.swing.JDialog {
             }
         });
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 130, 30));
-        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 95, 910, 10));
+        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 940, 10));
 
         lblIDOrigen.setText("0");
-        jPanel3.add(lblIDOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 20, -1));
+        jPanel3.add(lblIDOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 20, -1));
 
-        C.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 930, 110));
+        buscar.setBorder(null);
+        buscar.setForeground(new java.awt.Color(0, 144, 183));
+        buscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        buscar.setPlaceholder("BUSCAR");
+        buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                buscarKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscarKeyTyped(evt);
+            }
+        });
+        jPanel3.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 145, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 210, -1));
+
+        C.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 930, 120));
 
         tabla3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -951,10 +965,10 @@ public class Registrar extends javax.swing.JDialog {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
         );
 
-        C.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 900, 260));
+        C.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 900, 260));
 
         jLabel3.setText("Seleccione un Estado y Posteriormente un Municipio");
         C.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 610, -1));
@@ -972,7 +986,7 @@ public class Registrar extends javax.swing.JDialog {
                 log4ActionPerformed(evt);
             }
         });
-        C.add(log4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, -1, -1));
+        C.add(log4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, -1, -1));
 
         log5.setBackground(new java.awt.Color(204, 204, 204));
         log5.setForeground(new java.awt.Color(128, 128, 131));
@@ -987,7 +1001,7 @@ public class Registrar extends javax.swing.JDialog {
                 log5ActionPerformed(evt);
             }
         });
-        C.add(log5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, -1, -1));
+        C.add(log5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, -1, -1));
 
         PanelDesliza.add(C, "card4");
 
@@ -1035,7 +1049,7 @@ public class Registrar extends javax.swing.JDialog {
         PanelDesliza.add(D, "card5");
 
         jcMousePanel1.add(PanelDesliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 130, 920, 450));
-        jcMousePanel1.add(l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 940, 10));
+        jcMousePanel1.add(l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 920, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1296,6 +1310,20 @@ public class Registrar extends javax.swing.JDialog {
 
     }//GEN-LAST:event_DFocusGained
 
+    private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
+        Opciones.listar(this.buscar.getText());
+    }//GEN-LAST:event_buscarKeyReleased
+
+    private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
+        char letras = evt.getKeyChar();
+
+        if (Character.isLowerCase(letras)) {
+            String cad = ("" + letras).toUpperCase();
+            letras = cad.charAt(0);
+            evt.setKeyChar(letras);
+        }
+    }//GEN-LAST:event_buscarKeyTyped
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1347,6 +1375,7 @@ public class Registrar extends javax.swing.JDialog {
     public static javax.swing.JLabel a3;
     private javax.swing.JLabel a5;
     public static javax.swing.JPanel barra_estado;
+    public static app.bolivia.swing.JCTextField buscar;
     public static ComboBox.SComboBox cmbDestinos;
     private ComboBox.SComboBox cmbEstado;
     private ComboBox.SComboBox cmbEstado1;
@@ -1359,6 +1388,7 @@ public class Registrar extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
