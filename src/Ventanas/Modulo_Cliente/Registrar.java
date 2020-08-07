@@ -170,6 +170,11 @@ public class Registrar extends javax.swing.JDialog {
     {
         Opciones.listarOrigen(null, ID);
         Opciones.listarDestino(null, ID);
+        
+        
+        
+        
+        
         Opciones.listarViaje("", ID);
     }
     
