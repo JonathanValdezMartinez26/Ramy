@@ -579,6 +579,7 @@ public class pnlClientes extends javax.swing.JPanel {
             a.a3.setText("Asignación a Servicios.");
             a.ComboDestino(ID);
             a.ComboOrigen(ID);
+            
             a.ComboTransportes();
             a.setVisible(true);
             

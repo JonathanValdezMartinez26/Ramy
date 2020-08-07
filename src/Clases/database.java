@@ -254,6 +254,103 @@ public class database {
         }
         return res;
     }
+    public boolean updateClienteCamioneta15(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE ruta SET PCamioneta_1_5=" + valores + " WHERE ID_Ruta= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+ 
+    public boolean updateClienteCamioneta35(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE ruta SET PCamioneta_3_5=" + valores + " WHERE ID_Ruta= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateClienteRabon(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE ruta SET Rabon=" + valores + " WHERE ID_Ruta= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateClienteTorthon(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE ruta SET Torthon=" + valores + " WHERE ID_Ruta= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateClienteTrailer(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE ruta SET Trailer=" + valores + " WHERE ID_Ruta= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateClienteFull(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE ruta SET Full=" + valores + " WHERE ID_Ruta= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
  
   
 
