@@ -62,6 +62,9 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 import Ventanas.Modulo_Cotizaciones.Opciones;
+import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
+import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
+import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tablaR;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
 import java.sql.PreparedStatement;
 import java.util.logging.Level;
@@ -369,14 +372,14 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "Origen", "Destino", "Transporte", "Precio", ""
+                "ID_", "ID_Cotizacion", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Selecciona"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true
+                false, false, false, false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -389,19 +392,27 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         });
         tabla.setRowHeight(20);
         tabla.getTableHeader().setReorderingAllowed(false);
+        tabla.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tablaKeyPressed(evt);
+            }
+        });
         jScrollPane.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(150);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(4).setMinWidth(140);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(140);
-            tabla.getColumnModel().getColumn(4).setMaxWidth(140);
-            tabla.getColumnModel().getColumn(5).setResizable(false);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(30);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(5).setMinWidth(140);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(140);
+            tabla.getColumnModel().getColumn(5).setMaxWidth(140);
+            tabla.getColumnModel().getColumn(6).setResizable(false);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(30);
         }
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
@@ -637,6 +648,11 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                 cmbOrigenesItemStateChanged(evt);
             }
         });
+        cmbOrigenes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbOrigenesActionPerformed(evt);
+            }
+        });
         jcMousePanel1.add(cmbOrigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 420, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -647,7 +663,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -740,8 +758,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         
         if(Origenes == "Todos los Origenes")
         {
-            cmbOrigenes.removeAllItems();
-            cmbOrigenes.addItem("Sin Origenes Disponibles...");
+//            cmbOrigenes.removeAllItems();
+//            cmbOrigenes.addItem("Sin Origenes Disponibles...");
             try {
 
                 resultado = Conexion.consulta("SELECT ID_ruta from ruta where (ID_Cliente = "+ID_Cliente+")");
@@ -821,7 +839,49 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-      
+        ////////////////////Verifica si no hay combos seleccionados
+        if (this.tabla.getRowCount() != 0) {
+            
+            DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+            int Filas = modelo.getRowCount();
+
+            for (int i = 0; i < Filas; i++) {
+
+                String IDAsignaCot = tabla.getValueAt(i, 0).toString();
+                String IDCot = tabla.getValueAt(i, 1).toString();
+                String Origen = tabla.getValueAt(i, 2).toString();
+                String Destino = tabla.getValueAt(i, 3).toString();
+                String Camioneta15 = tabla.getValueAt(i, 4).toString();
+                String Camioneta35 = tabla.getValueAt(i, 5).toString();
+//                    String Rabon = tabla.getValueAt(i, 6).toString();
+//                    String Torthon = tabla.getValueAt(i, 7).toString();
+//                    String Trailer = tabla.getValueAt(i, 8).toString();
+//                    String Rabon = tabla.getValueAt(i, 9).toString();                                                            
+                String sql;
+                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full)"
+                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','0','0','0','0')";
+
+                try {
+                    PreparedStatement pstm = cn.prepareStatement(sql);
+                    pstm.execute();
+                    pstm.close();
+
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
+
+            }
+            JOptionPane.showMessageDialog(null, "Cotizacion Finalizada");
+
+        } else {
+
+            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Porfavor Asigne!");
+            AC.msj2.setText("Un Cliente-Concepto-Periodo");
+            AC.msj3.setText("Para poder Finalizar Cotizacion");
+            AC.setVisible(true);
+
+        }
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
     private void pnlFinalizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseEntered
@@ -909,6 +969,27 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         this.tabla1.getSelectionModel().setSelectionInterval(0,0);
 
     }//GEN-LAST:event_tabla1KeyTyped
+
+    private void cmbOrigenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrigenesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbOrigenesActionPerformed
+
+    private void tablaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaKeyPressed
+    
+        int press=evt.getKeyCode();        
+        if(this.tabla.getSelectedRow()!=-1 && press==127 ){
+            int ID_Cotizacion;
+            //ID_Cotizacion = Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());
+            int a1 = Integer.parseInt(tabla.getValueAt(tabla.getSelectedRow(), 0).toString());
+            
+            /////Remover datos de la tabla sin modificar bd
+            DefaultTableModel modelo = (DefaultTableModel) this.tabla.getModel();
+            modelo.removeRow(tabla.getSelectedRow());
+            //this.tabla.getSelectionModel().setSelectionInterval(0, 0);
+
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablaKeyPressed
 
     public static void main(String args[]) {
      
