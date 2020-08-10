@@ -40,10 +40,10 @@ public class Opciones {
             sql = "Select * from cotizacionesv where Estado=0";
         } else {
             
-            sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta, Estatus from cotizacionesv where Estado=0 AND Nombre_Cliente LIKE '%" + busca +"%' AND Estado=0 OR Atencion LIKE '%"+ busca +"%'  AND Estado=0 OR Fecha_Alta LIKE '%"+ busca +"%' AND Estado=0 OR Estatus LIKE '%"+busca+"%' AND Estado=0 ";
+          sql = "Select ID_Cotizacion, Nombre_Cliente, Atencion, Fecha_Alta,Tipo_Cotizacion,Estatus from cotizacionesv where Estado=0 AND Nombre_Cliente LIKE '%" + busca +"%' AND Estado=0 OR Atencion LIKE '%"+ busca +"%'  AND Estado=0 OR Fecha_Alta LIKE '%"+ busca +"%' AND Estado=0 OR Estatus LIKE '%"+busca+"%' AND Estado=0 ";
             
            }
-        String datos[] = new String[5];
+        String datos[] = new String[6];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -54,6 +54,7 @@ public class Opciones {
                 datos [2] = rs.getString(3);
                 datos [3] = rs.getString(4);
                 datos [4] = rs.getString(5);
+                datos [5] = rs.getString(6);
                 
                 modelo.addRow(datos);
             }
@@ -64,7 +65,7 @@ public class Opciones {
         }
     }
     ///////////////////////////////////////
-    public static int verificaRutaCotizacion1(int ID_Cotizacion, int ID_Ruta) {
+    public static int verificaRutaCotizacion1(int ID_Cotizacion, int ID_Ruta,int IDCliente) {
         int existe = 0;
   
         String SQL = "SELECT count(Id_Cotizacion) from asigna_ruta_servicio where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_CotizacionRuta = "+ID_Ruta+")";
@@ -80,9 +81,9 @@ public class Opciones {
         return existe;
     }
     
-    public static void registrarCotizacionesRuta(int IDOrigen,String Origen,String destino,int ID_Transporte,String Transportes){
-        String q = " INSERT INTO  cotizaciones_ruta(ID_CotizacionRuta,ID_Origen,Origen,Destino,ID_Transporte,Transporte,Precio)"
-                     + "VALUES (NULL,'"+IDOrigen+"','"+Origen+"','"+destino+"','"+ID_Transporte+"','"+Transportes+"','0')";      
+    public static void registrarCotizacionesRuta(int ID_Cotizacion,int ID_Cliente, int IDOrigen,String Origen,String destino,int ID_Transporte,String Transportes){
+        String q = " INSERT INTO  cotizaciones_ruta(ID_CotizacionRuta,ID_Cotizacion,ID_Cliente,ID_Origen,Origen,Destino,ID_Transporte,Transporte,Precio)"
+                     + "VALUES (NULL,'"+ID_Cotizacion+"','"+ID_Cliente+"','"+IDOrigen+"','"+Origen+"','"+destino+"','"+ID_Transporte+"','"+Transportes+"','0')";      
                                         try {PreparedStatement pstm = cn.prepareStatement(q);
                                     pstm.execute();
                                     pstm.close();
@@ -99,9 +100,10 @@ public class Opciones {
                                         AC.msj2.setText("Correctamente");
                                         AC.msj3.setText("Asigne el precio correspondiente");
                                         AC.setVisible(true);
+                                        Opciones.listar("",ID_Cotizacion );
         
     }
-    public static void listar(String busca, int ID) {
+    public static void listar(String busca, int ID_Cotizacion) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.tabla.getModel();
 
         while (modelo.getRowCount() > 0) {
@@ -110,13 +112,13 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where ID_Cotizacion =" + ID;
+            sql = "Select ID_Cotizacion, Origen, Destino,Transporte,Precio from Cotizaciones_ruta where ID_Cotizacion =" + ID_Cotizacion;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
+            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID_Cotizacion;
             
            }
-        String datos[] = new String[4];
+        String datos[] = new String[5];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -126,7 +128,7 @@ public class Opciones {
                 datos [1] = rs.getString(2);
                 datos [2] = rs.getString(3);
                 datos [3] = rs.getString(4);
-                
+                datos [4] = rs.getString(5);
                 modelo.addRow(datos);
             }
             
@@ -313,7 +315,7 @@ public class Opciones {
     public static void agregarCotizacionRuta(int IDCotizacion, int IDRuta, int IDCliente){        
                                     
            try {
-          String q = " INSERT INTO asigna_ruta_servicio (ID_AsignaRutaServicio,ID_CotizacionRuta,ID_Cliente,ID_Cotizacion)"
+          String q = " INSERT INTO asigna_ruta_servicio (ID_AsignaRutaServicio,ID_CotizacionRuta,ID_CotizacionRuta,ID_Cliente,ID_Cotizacion)"
                      + "VALUES (NULL,'"+IDRuta+"','"+IDCliente+"','"+IDCotizacion+"')";      
                                     
                                     PreparedStatement pstm = cn.prepareStatement(q);
@@ -340,8 +342,8 @@ public class Opciones {
     
     
     public static int verificaCliente(int ID_Cliente) {
-        int existe = 0;
-  
+        int existe = 5;
+ 
         //SELECT count(Id_Cliente) from cotizaciones_ruta where (ID_Cliente = "72")
         String SQL = "SELECT count(Id_Cliente) from cotizaciones_ruta where (ID_Cliente = "+ID_Cliente+")";
         try {
@@ -366,7 +368,7 @@ public class Opciones {
             modelo.removeRow(0);
         }
         
-            sql = "Select ID_CotizacionRuta,ID_Cotizacion,ID_Cliente ,ID_Origen,Origen, Destino,ID_Transporte,Transporte,Precio from cotizaciones_ruta where ID_Cotizacion ='244' AND ID_Cliente="+IDCliente;
+            sql = "Select ID_CotizacionRuta,ID_Cotizacion,ID_Cliente ,ID_Origen,Origen, Destino,ID_Transporte,Transporte,Precio from cotizaciones_ruta where ID_Cotizacion ="+IDCotizacion+" AND ID_Cliente="+IDCliente;
         
             String datos[] = new String[12];
         try 
@@ -458,7 +460,8 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_AsignaRutaServicio, Origen, Destino,Transporte,Precio from asigna_ruta_servicio";
+            sql = "Select ID_Cotizacion_Ruta,ID_Cliente,ID_Origen, Origen, Destino,ID_Transporte,Transporte,Precio from Cotizaciones_ruta";
+//            sql = "Select ID_AsignaRutaServicio, Origen, Destino,Transporte,Precio from asigna_ruta_servicio";
         } else {
             
             //sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
@@ -471,10 +474,13 @@ public class Opciones {
             while (rs.next()) 
             {
                 datos [0] = String.valueOf(rs.getInt(1));
-                datos [1] = rs.getString(2);
-                datos [2] = rs.getString(3);
+                datos [1] = String.valueOf(rs.getInt(2));
+                datos [2] = String.valueOf(rs.getInt(3));
                 datos [3] = rs.getString(4);
                 datos [4] = rs.getString(5);
+                datos [5] = String.valueOf(rs.getInt(6));
+                datos [6] = rs.getString(7);
+                datos [7] = rs.getString(8);
                 
                 modelo.addRow(datos);
             }

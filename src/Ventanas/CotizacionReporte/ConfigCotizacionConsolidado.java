@@ -57,7 +57,8 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
         String puesto="";
         String segundap="";
         String puesto2="";
-        
+        txtsegundap.setVisible(false);
+        txtpuesto.setVisible(false);
        
         try{
             
@@ -156,7 +157,6 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
         txtsegundap = new app.bolivia.swing.JCTextField();
         txtpuesto2 = new app.bolivia.swing.JCTextField();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         pnlagregar = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -251,21 +251,20 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(txtparte3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtparte3, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE))
                             .addComponent(txtparte2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtparte1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtparte1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +342,7 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
                 txtpuestoKeyTyped(evt);
             }
         });
-        jcMousePanel1.add(txtpuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 630, 170, 30));
+        jcMousePanel1.add(txtpuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 580, 50, 30));
 
         txtat.setBorder(null);
         txtat.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -356,7 +355,7 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
                 txtatKeyTyped(evt);
             }
         });
-        jcMousePanel1.add(txtat, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 150, 30));
+        jcMousePanel1.add(txtat, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 570, 150, 30));
 
         txtprimerap.setBorder(null);
         txtprimerap.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -369,7 +368,7 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
                 txtprimerapKeyTyped(evt);
             }
         });
-        jcMousePanel1.add(txtprimerap, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, 190, 30));
+        jcMousePanel1.add(txtprimerap, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 620, 190, 30));
 
         txtsegundap.setBorder(null);
         txtsegundap.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -382,7 +381,7 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
                 txtsegundapKeyTyped(evt);
             }
         });
-        jcMousePanel1.add(txtsegundap, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 610, 180, 30));
+        jcMousePanel1.add(txtsegundap, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, 40, 30));
 
         txtpuesto2.setBorder(null);
         txtpuesto2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -395,13 +394,10 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
                 txtpuesto2KeyTyped(evt);
             }
         });
-        jcMousePanel1.add(txtpuesto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 630, 160, 30));
+        jcMousePanel1.add(txtpuesto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 640, 190, 30));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
-        jcMousePanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, 160, -1));
-
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
-        jcMousePanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 600, 160, -1));
+        jcMousePanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 610, 160, -1));
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
         pnlagregar.setToolTipText("Guardar Servicio");
@@ -425,7 +421,7 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/guardar (2).png"))); // NOI18N
         pnlagregar.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jcMousePanel1.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, 80, 70));
+        jcMousePanel1.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, 80, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -595,7 +591,6 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;

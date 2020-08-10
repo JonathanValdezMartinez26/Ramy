@@ -134,7 +134,7 @@
 					<font fontName="Verdana" size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{puesto}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{puesto2}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

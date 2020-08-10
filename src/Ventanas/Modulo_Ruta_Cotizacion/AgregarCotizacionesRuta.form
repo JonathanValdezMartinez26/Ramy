@@ -617,7 +617,7 @@
         <Component class="javax.swing.JLabel" name="IDCotizacion">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="460" y="50" width="150" height="20"/>
+              <AbsoluteConstraints x="460" y="50" width="80" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -627,7 +627,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="610" y="60" width="140" height="20"/>
+              <AbsoluteConstraints x="660" y="60" width="140" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -650,7 +650,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="40" y="200" width="300" height="30"/>
+              <AbsoluteConstraints x="30" y="200" width="310" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -817,14 +817,14 @@
         <Component class="javax.swing.JLabel" name="IDCotizacion1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="50" width="150" height="20"/>
+              <AbsoluteConstraints x="440" y="50" width="70" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="IDCotizacion2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="50" width="150" height="20"/>
+              <AbsoluteConstraints x="570" y="50" width="90" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -850,12 +850,15 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lblID_Cliente">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="610" y="50" width="150" height="20"/>
+              <AbsoluteConstraints x="890" y="60" width="20" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
