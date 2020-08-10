@@ -58,6 +58,7 @@ public class ConfigCotizacionRenta extends javax.swing.JDialog {
         String segundap="";
         String puesto2="";
         
+        
        
         try{
             
@@ -73,6 +74,9 @@ public class ConfigCotizacionRenta extends javax.swing.JDialog {
              puesto = resultado.getString(7);
              segundap = resultado.getString(8);
              puesto2 = resultado.getString(9);
+        txtsegundap.setVisible(false);
+        txtpuesto.setVisible(false);
+
              
             }
             
@@ -156,7 +160,6 @@ public class ConfigCotizacionRenta extends javax.swing.JDialog {
         txtsegundap = new app.bolivia.swing.JCTextField();
         txtpuesto2 = new app.bolivia.swing.JCTextField();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         pnlagregar = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -342,7 +345,7 @@ public class ConfigCotizacionRenta extends javax.swing.JDialog {
                 txtpuestoKeyTyped(evt);
             }
         });
-        jcMousePanel1.add(txtpuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 630, 170, 30));
+        jcMousePanel1.add(txtpuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 650, 30, 30));
 
         txtat.setBorder(null);
         txtat.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -355,7 +358,7 @@ public class ConfigCotizacionRenta extends javax.swing.JDialog {
                 txtatKeyTyped(evt);
             }
         });
-        jcMousePanel1.add(txtat, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 150, 30));
+        jcMousePanel1.add(txtat, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 570, 150, 30));
 
         txtprimerap.setBorder(null);
         txtprimerap.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -368,7 +371,7 @@ public class ConfigCotizacionRenta extends javax.swing.JDialog {
                 txtprimerapKeyTyped(evt);
             }
         });
-        jcMousePanel1.add(txtprimerap, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, 190, 30));
+        jcMousePanel1.add(txtprimerap, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 630, 190, 30));
 
         txtsegundap.setBorder(null);
         txtsegundap.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -381,7 +384,7 @@ public class ConfigCotizacionRenta extends javax.swing.JDialog {
                 txtsegundapKeyTyped(evt);
             }
         });
-        jcMousePanel1.add(txtsegundap, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 610, 180, 30));
+        jcMousePanel1.add(txtsegundap, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 610, 20, 30));
 
         txtpuesto2.setBorder(null);
         txtpuesto2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -394,13 +397,10 @@ public class ConfigCotizacionRenta extends javax.swing.JDialog {
                 txtpuesto2KeyTyped(evt);
             }
         });
-        jcMousePanel1.add(txtpuesto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 630, 160, 30));
+        jcMousePanel1.add(txtpuesto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 650, 170, 30));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
-        jcMousePanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, 160, -1));
-
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
-        jcMousePanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 600, 160, -1));
+        jcMousePanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 620, 160, -1));
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
         pnlagregar.setToolTipText("Guardar Servicio");
@@ -424,7 +424,7 @@ public class ConfigCotizacionRenta extends javax.swing.JDialog {
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/guardar (2).png"))); // NOI18N
         pnlagregar.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jcMousePanel1.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, 80, 70));
+        jcMousePanel1.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, 80, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -594,7 +594,6 @@ public class ConfigCotizacionRenta extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;

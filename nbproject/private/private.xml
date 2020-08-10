@@ -12,12 +12,17 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/pnlCotizaciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/Opciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones1.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones_Mensual/AgregarCotizaciones_Renta.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/Registrar.java</file>
+=======
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Clases/Conexion.java</file>
+>>>>>>> a619740dd3ca9954e3c6456fa7d9860ef329106f
         </group>
     </open-files>
 </project-private>

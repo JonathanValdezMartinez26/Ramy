@@ -95,6 +95,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         Destinos();
         llenarTransportes();
         lblatencion.setVisible(true);
+        lblID_Cliente.setVisible(true);
         ID_rutas.setVisible(true);
         IDCotizacion.setVisible(true);
      
@@ -279,7 +280,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         }
     }
     ////////////////////////////////////////////////////////////////////////////
-    private void Guardar(String destino,int IDOrigen){
+    private void Guardar(String destino,int IDOrigen ,int IDClient,int IDCot ){
         int ID_Ruta = 0;
         
         int comboCliente = cmbCliente.getSelectedIndex();
@@ -289,8 +290,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         
       
         ////////////////
-        int ID_Client = cmbCliente.getSelectedIndex();
-        int ID_Cliente = ID_Cli[ID_Client];
+        int ID_Client1 = cmbCliente.getSelectedIndex();
+        int ID_Cliente = ID_Cli[ID_Client1];
             
         int ID_Origen = cmbOrigenes.getSelectedIndex();
         int ID_Origenes = ID_Ori[ID_Origen];
@@ -348,18 +349,22 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                             }
                             else
                             {
-                                if(Cotizaciones.ObtenerIDCotizacionRuta(IDOrigen, destino, ID_Transportes)==0){
+                                if(Cotizaciones.ObtenerIDCotizacionRuta(ID_Cliente,IDOrigen, destino, ID_Transportes)==0){
                                     //////Si la ruta no existe, agrega los datos selecionados a la tabla cotizaciones_ruta
+                                   int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
                                     String Origen =AgregarCotizacionesRuta.cmbOrigenes.getSelectedItem().toString();                                    
                                     String Transportes=AgregarCotizacionesRuta.cmbTransportes.getSelectedItem().toString();                                    
-                                    Opciones.registrarCotizacionesRuta(IDOrigen,Origen,destino,ID_Transporte,Transportes);
+                                    Opciones.registrarCotizacionesRuta(IDCot,IDClient,IDOrigen,Origen,destino,ID_Transporte,Transportes);
+                                    Opciones.listar("",ID_Cotizacion );
                                 }else{
                                
-                                ID_rutas.setText(""+ Cotizaciones.ObtenerIDCotizacionRuta(IDOrigen, destino, ID_Transportes));
+                                ID_rutas.setText(""+ Cotizaciones.ObtenerIDCotizacionRuta(ID_Cliente,IDOrigen, destino, ID_Transportes));
                                 int ID_Rutas = Integer.parseInt(ID_rutas.getText());
+                                 int IDCliente=Integer.parseInt(lblID_Cliente.getText());
                                 int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-                                float precio = Cotizaciones.ObtenerPrecio(ID_Rutas);
                                 
+                                float precio = Cotizaciones.ObtenerPrecio(ID_Rutas);
+                                Opciones.listar("",ID_Cotizacion );
 //                                if(precio == 0)
 //                                {
 //                                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -371,14 +376,15 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
 //                                }
 //                                else
 //                                {
-                                    if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion, ID_Rutas)==0)
+                                    if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion, ID_Rutas,IDCliente)==0)
                                     {   
 
-                                        int IDCliente=Integer.parseInt(lblID_Cliente.getText());
-                                        JOptionPane.showMessageDialog(null, "todo correcto"+ " El Origen y destino aun no estan registrados ID Cliente"+IDCliente);
+                                       
+//                                          JOptionPane.showMessageDialog(null," "+IDCliente);
+                                        JOptionPane.showMessageDialog(null, "todo clorrecto"+ " El Origen y destino aun no estan registrados ID Cliente"+IDCliente);
                                         Opciones.agregarCotizacionRuta(ID_Cotizacion, ID_Rutas, IDCliente);
                                   //      Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotizacion);
-
+                                        Opciones.listar("",ID_Cotizacion );
                                         this.cmbOrigenes.setSelectedItem(0);
                                         this.cmbDestinos.setSelectedItem(0);
                                         this.cmbTransportes.setSelectedItem(0);
@@ -774,8 +780,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         jPanel1.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
 
         jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 890, 70));
-        jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 150, 20));
-        jcMousePanel1.add(ID_rutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 140, 20));
+        jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 80, 20));
+        jcMousePanel1.add(ID_rutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 140, 20));
 
         cmbDestinos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Destino" }));
         cmbDestinos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -784,7 +790,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                 cmbDestinosItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 300, 30));
+        jcMousePanel1.add(cmbDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 310, 30));
 
         jButton3.setText("Agregar Destino");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -881,12 +887,14 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             }
         });
         jcMousePanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 440, 30));
-        jcMousePanel1.add(IDCotizacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
-        jcMousePanel1.add(IDCotizacion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
+        jcMousePanel1.add(IDCotizacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 70, 20));
+        jcMousePanel1.add(IDCotizacion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 90, 20));
         jcMousePanel1.add(IDCotizacion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
         jcMousePanel1.add(IDCotizacion4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
         jcMousePanel1.add(IDCotizacion5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
-        jcMousePanel1.add(lblID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 150, 20));
+
+        lblID_Cliente.setText("0");
+        jcMousePanel1.add(lblID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, 20, 20));
         jcMousePanel1.add(lblID_Origen, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 150, 20));
         jcMousePanel1.add(lblIDTrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 150, 20));
         jcMousePanel1.add(lblIDCoti, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 150, 20));
@@ -921,11 +929,14 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
 
     private void cmbClienteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbClienteItemStateChanged
          if (evt.getStateChange() == ItemEvent.SELECTED) {
-            String cliente=cmbCliente.getSelectedItem().toString();            
+//            String cliente=cmbCliente.getSelectedItem().toString();            
             int ID_Client = cmbCliente.getSelectedIndex();
             int ID_Cliente = ID_Cli[ID_Client];
-            String ID_ClienteString="";
+//            String ID_ClienteString="";
+    
             int i = 1;
+            int er;
+//             int IDR = Integer.parseInt(IDCotizacion2.getText());
             //JOptionPane.showMessageDialog(null, ID_Client);
           
             try {
@@ -942,15 +953,19 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             }            
             lblID_Cliente.setText(""+ID_Cliente);
             cmbCliente.setEnabled(false);
-            Cotizaciones.Agregar_Cotizacion(ID_Cliente);
+            Cotizaciones.Agregar_Cotizacion(ID_Cliente,3);
             lblatencion.setVisible(true);
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
-            Opciones.listarCotizaciones("");
+//            Opciones.listarCotizaciones("");
+            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+            Opciones.listar("",ID_Cotizacion );
+            
             
             if(Opciones.verificaCliente(ID_Cliente)==0)///falta decirle que compare por origen, destino y cliente
                 {
                     JOptionPane.showMessageDialog(null, "No existe ninguna ruta con ese cliente");
+                    Opciones.listar("",ID_Cotizacion );
                 }
             else{
                     //JOptionPane.showMessageDialog(null, "Este clietne ya tiene ruta");
@@ -959,7 +974,9 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                     RG.setVisible(true);
                     //JOptionPane.showMessageDialog(null, ID+" "+clientes);
                     //llenarDetalles(ID_Cliente, cliente);
-                    //poper.Opciones.listarDetallesCotizaciones(ID_Cliente, cliente);                                    
+                    //poper.Opciones.listarDetallesCotizaciones(ID_Cliente, cliente);  
+//                    int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+//                    Opciones.listar("",ID_Cotizacion );
                 }
          }
     }//GEN-LAST:event_cmbClienteItemStateChanged
@@ -1159,7 +1176,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+   
        
         
         String origen =cmbOrigenes.getSelectedItem().toString();
@@ -1169,6 +1186,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         String IDTrans=lblIDTrans.getText();
         String IDCoti=IDCotizacion.getText();
         int IDOri=Integer.parseInt(lblID_Origen.getText());
+        int IDClient=Integer.parseInt(lblID_Cliente.getText());
+        int IDCot=Integer.parseInt(IDCotizacion.getText());
         
         //if(this.tablaDestinos.getRowCount()!=0 && this.tablaDestinos.getSelectedRow()!=-1){
 
@@ -1177,7 +1196,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
                  destino+="|".concat(tablaDestinos.getValueAt(i, 1).toString());                
         }
-                Guardar(destino,IDOri);
+                Guardar(destino,IDOri,IDClient,IDCot);
+                
         //Opciones.guardarFake(IDCoti,IDCliente,IDOrigen,origen,IDTrans,transporte,destino);
         //Opciones.listarCotizacionRuta("",IDCoti);
 

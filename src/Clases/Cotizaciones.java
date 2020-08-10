@@ -162,11 +162,11 @@ public static ResultSet resultado;
     ////////////////////////////////////////////////////////////////////////////
     
     
-    public static int ObtenerIDCotizacionRuta(int ID_Origenes,String Destino ,int ID_Transporte) {
+    public static int ObtenerIDCotizacionRuta(int ID_Cliente,int ID_Origenes,String Destino ,int ID_Transporte) {
         int existe = 0;
   
         //String SQL = "SELECT ID_CotizacionRuta from cotizaciones_ruta where (ID_Origen = "+ID_Origenes+") and (Destino = '"+Destino+"') and (ID_Transporte = "+ID_Transporte+")";
-        String SQL ="SELECT ID_CotizacionRuta from cotizaciones_ruta where (ID_Origen ='"+ID_Origenes+"' ) and (Destino = '"+Destino+"') and (ID_Transporte = '"+ID_Transporte+"')";
+        String SQL ="SELECT ID_CotizacionRuta from cotizaciones_ruta where (ID_Cliente ='"+ID_Cliente+"' ) and (ID_Origen ='"+ID_Origenes+"' ) and (Destino = '"+Destino+"') and (ID_Transporte = '"+ID_Transporte+"')";
         //String SQL ="SELECT ID_CotizacionRuta from cotizaciones_ruta where (ID_Origen ='82' ) and (Destino = '|Valle de Bravo, Estado de México') and (ID_Transporte = '1')";
         try {
             Statement st = cn.createStatement();
