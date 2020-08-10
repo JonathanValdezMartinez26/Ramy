@@ -372,14 +372,14 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "ID_Cotizacion", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Selecciona"
+                "ID_", "ID_Cotizacion", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Rabon", "Torthon", "Trailer", "Fulll", "Selecciona"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, true
+                false, false, false, false, false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -407,12 +407,27 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(1).setMaxWidth(0);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(150);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(5).setMinWidth(140);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(140);
-            tabla.getColumnModel().getColumn(5).setMaxWidth(140);
-            tabla.getColumnModel().getColumn(6).setResizable(false);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(30);
+            tabla.getColumnModel().getColumn(4).setMinWidth(120);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(4).setMaxWidth(120);
+            tabla.getColumnModel().getColumn(5).setMinWidth(120);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(5).setMaxWidth(120);
+            tabla.getColumnModel().getColumn(6).setMinWidth(70);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(70);
+            tabla.getColumnModel().getColumn(6).setMaxWidth(70);
+            tabla.getColumnModel().getColumn(7).setMinWidth(70);
+            tabla.getColumnModel().getColumn(7).setPreferredWidth(70);
+            tabla.getColumnModel().getColumn(7).setMaxWidth(70);
+            tabla.getColumnModel().getColumn(8).setMinWidth(70);
+            tabla.getColumnModel().getColumn(8).setPreferredWidth(70);
+            tabla.getColumnModel().getColumn(8).setMaxWidth(70);
+            tabla.getColumnModel().getColumn(9).setMinWidth(70);
+            tabla.getColumnModel().getColumn(9).setPreferredWidth(70);
+            tabla.getColumnModel().getColumn(9).setMaxWidth(70);
+            tabla.getColumnModel().getColumn(10).setMinWidth(100);
+            tabla.getColumnModel().getColumn(10).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(10).setMaxWidth(100);
         }
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
@@ -466,8 +481,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
+            .addComponent(jScrollPane)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -477,7 +492,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
         );
 
-        jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 880, 360));
+        jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 1130, 360));
 
         cmbCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Cliente" }));
         cmbCliente.setToolTipText("");
@@ -664,8 +679,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -846,6 +861,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             int Filas = modelo.getRowCount();
 
             for (int i = 0; i < Filas; i++) {
+                
 
                 String IDAsignaCot = tabla.getValueAt(i, 0).toString();
                 String IDCot = tabla.getValueAt(i, 1).toString();
@@ -853,25 +869,31 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                 String Destino = tabla.getValueAt(i, 3).toString();
                 String Camioneta15 = tabla.getValueAt(i, 4).toString();
                 String Camioneta35 = tabla.getValueAt(i, 5).toString();
-//                    String Rabon = tabla.getValueAt(i, 6).toString();
-//                    String Torthon = tabla.getValueAt(i, 7).toString();
-//                    String Trailer = tabla.getValueAt(i, 8).toString();
-//                    String Rabon = tabla.getValueAt(i, 9).toString();                                                            
+                String Rabon = tabla.getValueAt(i, 6).toString();
+                String Torthon = tabla.getValueAt(i, 7).toString();
+                String Trailer = tabla.getValueAt(i, 8).toString();
+                String Full = tabla.getValueAt(i, 9).toString();
+                
+                Boolean checked = Boolean.valueOf(tabla.getValueAt(i,10).toString());
+                    
                 String sql;
-                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full)"
-                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','0','0','0','0')";
+                if(checked){
+                    sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full)"
+                            + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "')";
 
-                try {
-                    PreparedStatement pstm = cn.prepareStatement(sql);
-                    pstm.execute();
-                    pstm.close();
+                    try {
+                        PreparedStatement pstm = cn.prepareStatement(sql);
+                        pstm.execute();
+                        pstm.close();
 
-                } catch (SQLException e) {
-                    System.out.println(e);
+                    } catch (SQLException e) {
+                        System.out.println(e);
+                    }
+
                 }
 
             }
-            JOptionPane.showMessageDialog(null, "Cotizacion Finalizada");
+            //JOptionPane.showMessageDialog(null, "Cotizacion Finalizada");
 
         } else {
 
