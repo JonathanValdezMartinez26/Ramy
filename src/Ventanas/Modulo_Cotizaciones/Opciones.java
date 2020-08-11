@@ -83,10 +83,11 @@ public class Opciones {
         } else {
             
              sql = "Select ID_asigna_Cotizacion,ID_Cotizacion, Origen, Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full,Estado from asigna_cotizacionv"
-                    + " where ID_Cotizacion =" + ID;
-            
+                    + " where ID_Cotizacion =" + ID+" AND Destino LIKE '%"+busca+"%'"
+                     + "OR ID_Cotizacion =" + ID+" AND Camioneta_1_5 LIKE '%"+busca+"%'";
+              
            }
-        //String datos[] = new String[12];
+        
         Object datos[] = new Object[12];
         try {           
             Statement st = cn.createStatement();
@@ -109,10 +110,6 @@ public class Opciones {
 			}else{
 			 datos[10]=Boolean.FALSE;
 			}	
-//                //datos [10] = rs.getInt(11);
-//           
-                
-                
                 modelo.addRow(datos);
             }
             

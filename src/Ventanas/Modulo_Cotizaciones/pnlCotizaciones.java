@@ -519,6 +519,7 @@ public class pnlCotizaciones extends javax.swing.JPanel {
     private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
         AgregarCotizaciones1 AC = new AgregarCotizaciones1(null, true);
         AC.setVisible(true);
+        AC.setLocationRelativeTo(null);
     }//GEN-LAST:event_pnlagregarMouseClicked
 
     private void pnlagregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseEntered

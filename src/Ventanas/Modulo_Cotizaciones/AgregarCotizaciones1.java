@@ -63,18 +63,24 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 import Ventanas.Modulo_Cotizaciones.Opciones;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
+import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tablaR;
+import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.ver;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
 import java.sql.PreparedStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
+import javax.swing.RowFilter;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 
 public class AgregarCotizaciones1 extends javax.swing.JDialog {
-
+    
+    //final TableRowSorter sorter;
     private boolean minimiza = false;
 
     int x, y;
@@ -87,6 +93,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     int ID_Ori [];
     int ID_Des [];
     int ID_Cli[];
+    
     private database db = new database();
     public static AgregarCotizaciones1 AC=new AgregarCotizaciones1(null, true);
     
@@ -303,8 +310,6 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         l2 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
-        buscar = new app.bolivia.swing.JCTextField();
-        jLabel4 = new javax.swing.JLabel();
         pnlEliminar = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -314,7 +319,6 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         pnlFinalizar = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         pnleditar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -322,6 +326,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         ID_rutas = new javax.swing.JLabel();
         cmbOrigenes = new ComboBox.SComboBox();
         jLabel6 = new javax.swing.JLabel();
+        buscar = new app.bolivia.swing.JCTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -355,7 +362,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                 rSButtonMetro2ActionPerformed(evt);
             }
         });
-        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(875, 0, 30, 30));
+        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 0, 30, 30));
 
         lblNombreNuevo17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
@@ -363,7 +370,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         lblNombreNuevo17.setText("     Cotizaciones > Nueva Cotizacion para Fletes Directos");
         jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 877, 30));
 
-        jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 13, 905, -1));
+        jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 13, 1157, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -392,6 +399,11 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         });
         tabla.setRowHeight(20);
         tabla.getTableHeader().setReorderingAllowed(false);
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
         tabla.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tablaKeyPressed(evt);
@@ -481,8 +493,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
-            .addComponent(jScrollPane)
+            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -492,7 +504,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
         );
 
-        jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 1130, 360));
+        jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 1140, 360));
 
         cmbCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Cliente" }));
         cmbCliente.setToolTipText("");
@@ -514,27 +526,10 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel5.setText("Seleccione una empresa o cliente para inciar la cotización.");
         jcMousePanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 430, 20));
-        jcMousePanel1.add(l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 860, 3));
+        jcMousePanel1.add(l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 1140, 3));
 
         jPanel1.setBackground(new java.awt.Color(225, 225, 225));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        buscar.setBorder(null);
-        buscar.setForeground(new java.awt.Color(0, 144, 183));
-        buscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buscar.setPlaceholder("BUSCAR");
-        buscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                buscarKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                buscarKeyTyped(evt);
-            }
-        });
-        jPanel1.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 140, 30));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 210, -1));
 
         pnlEliminar.setBackground(new java.awt.Color(225, 225, 225));
         pnlEliminar.setToolTipText("Eliminar Registro");
@@ -613,21 +608,6 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
 
         jPanel1.add(pnlFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 70));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 250, 70));
-
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
         pnleditar.setToolTipText("Agregar Servicio");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -673,6 +653,38 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel6.setText("Origenes disponibles para la empresa/cliente seleccionado(a):");
         jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 420, 20));
+
+        buscar.setBorder(null);
+        buscar.setForeground(new java.awt.Color(0, 144, 183));
+        buscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        buscar.setPlaceholder("BUSCAR");
+        buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                buscarKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscarKeyTyped(evt);
+            }
+        });
+        jcMousePanel1.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 200, 140, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
+        jcMousePanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 190, 210, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+        );
+
+        jcMousePanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 180, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -813,7 +825,17 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
 //    
       int ID = Integer.parseInt(IDCotizacion.getText());
-      Ventanas.Modulo_Cotizaciones.Opciones.listar(buscar.getText(), ID);
+      //Ventanas.Modulo_Cotizaciones.Opciones.listar(buscar.getText(), ID);
+      DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
+      final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
+      tabla.setRowSorter(sorter);
+      
+      String text = buscar.getText();
+        if (text.length() == 0) {
+          sorter.setRowFilter(null);
+        } else {
+          sorter.setRowFilter(RowFilter.regexFilter(text));
+        }
       
     }//GEN-LAST:event_buscarKeyReleased
 
@@ -854,15 +876,16 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-        ////////////////////Verifica si no hay combos seleccionados
-        if (this.tabla.getRowCount() != 0) {
-            
-            DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-            int Filas = modelo.getRowCount();
+         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
+        final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
+        tabla.setRowSorter(sorter);
+        sorter.setRowFilter(null);
 
+////////////////////Verifica si no hay combos seleccionados
+        if (this.tabla.getRowCount() != 0) {
+            int Filas = modelo.getRowCount();
             for (int i = 0; i < Filas; i++) {
                 
-
                 String IDAsignaCot = tabla.getValueAt(i, 0).toString();
                 String IDCot = tabla.getValueAt(i, 1).toString();
                 String Origen = tabla.getValueAt(i, 2).toString();
@@ -889,17 +912,26 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     } catch (SQLException e) {
                         System.out.println(e);
                     }
-
+             
                 }
 
-            }
-            //JOptionPane.showMessageDialog(null, "Cotizacion Finalizada");
-
+            }      
+            
+            String ID_Cotizacion = IDCotizacion.getText();
+            Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
+            Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
+            //ver();
+            Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+            AC.msj1.setText("¡Esta cotización!");
+            AC.msj2.setText("A sido Finalizada");
+            AC.setVisible(true);
+            this.dispose();
+            
         } else {
 
             Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
             AC.msj1.setText("¡Porfavor Asigne!");
-            AC.msj2.setText("Un Cliente-Concepto-Periodo");
+            AC.msj2.setText("Un Cliente-Origen");
             AC.msj3.setText("Para poder Finalizar Cotizacion");
             AC.setVisible(true);
 
@@ -1012,6 +1044,17 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_tablaKeyPressed
+
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+////        buscar.setText("");    
+//        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
+//      final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
+//      tabla.setRowSorter(sorter);
+//          sorter.setRowFilter(null);
+//        
+      
+
+    }//GEN-LAST:event_tablaMouseClicked
 
     public static void main(String args[]) {
      
