@@ -234,7 +234,7 @@ public class Opciones {
     public static void llenarServicio(int ID_Cotizacion){
 
 
-    DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.tabla1.getModel();
+    DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.jTable1.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);

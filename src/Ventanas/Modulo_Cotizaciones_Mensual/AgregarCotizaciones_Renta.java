@@ -817,7 +817,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                  }                                 
         }
     if(existeprecio2 ==0){        
-        ///////////////////////verifica si la tabla destino no esta vacia y la recorre para validar campos vacios 
+        ///////////////////////verifica si la tabla1 no esta vacia y la recorre para validar campos vacios 
      if(this.tabla1.getRowCount()!=0){        
             int existenombre = 0;
             int existeprecio = 0;
@@ -840,7 +840,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                           AC.msj1.setText("¡Campos Vacios!");
                           AC.msj2.setText("Porfavor llene Completamente ");
-                          AC.msj3.setText("La Tabla de Servicios");                                    
+                          AC.msj3.setText("La Tabla de Adicionales");                                    
                           AC.setVisible(true);
                     }
                }
