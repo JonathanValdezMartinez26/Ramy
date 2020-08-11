@@ -8,8 +8,8 @@ public class database {
   private String login = "root"; //USUARIO
   private String password = ""; //CONTRASEÑA
 
- private String url = "jdbc:mysql://192.168.100.14/"+bd;
-//  private String url = "jdbc:mysql://localhost/"+bd;
+// private String url = "jdbc:mysql://192.168.100.14/"+bd;
+  private String url = "jdbc:mysql://localhost/"+bd;
   private Connection conn = null;
 
   /* Constructor de clase: Se conecta a la base de datos
@@ -159,7 +159,7 @@ public class database {
     {
         boolean res = false;
         //JOptionPane.showMessageDialog(null, valores+ " "+ id);
-        String q = " UPDATE  asigna_ruta_servicio SET " + valores + " WHERE ID_AsignaRutaServicio= " + id;
+        String q = " UPDATE  Cotizaciones_ruta SET " + valores + " WHERE ID_CotizacionRuta= " + id;
         //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
         try {
             PreparedStatement pstm = conn.prepareStatement(q);

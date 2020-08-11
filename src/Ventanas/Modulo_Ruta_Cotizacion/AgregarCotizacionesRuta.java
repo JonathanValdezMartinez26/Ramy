@@ -17,6 +17,7 @@ import Clases.Cotizaciones;
 import static Clases.Cotizaciones.ObtenID;
 import Clases.MyTableCellEditor;
 import Clases.MyTableCellEditor1;
+import Clases.MyTableCellEditorRuta;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
@@ -117,7 +118,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
-        tabla.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditor1(db,"Precio"));//Columna Precio
+        tabla.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditorRuta(db,"Precio"));//Columna Precio
     }
     
     public void Clientes()
@@ -288,7 +289,14 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         int comboDestino = cmbDestinos.getSelectedIndex();
         int comboTransporte = cmbTransportes.getSelectedIndex();
         
-      
+        int ID_ORIGEN = Integer.parseInt(lblID_Origen.getText());
+        int ID_TRAN = Integer.parseInt(lblIDTrans.getText());
+        
+        
+      String destino1="";
+           for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
+               destino1+="|".concat(tablaDestinos.getValueAt(i, 1).toString());
+           }
         ////////////////
         int ID_Client1 = cmbCliente.getSelectedIndex();
         int ID_Cliente = ID_Cli[ID_Client1];
@@ -301,7 +309,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         
         int ID_Transporte = cmbTransportes.getSelectedIndex();
         int ID_Transportes = ID_Tran[ID_Transporte];
-      
+       int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
         
         if(comboCliente==0)
             {
@@ -349,56 +357,48 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                             }
                             else
                             {
-                                if(Cotizaciones.ObtenerIDCotizacionRuta(ID_Cliente,IDOrigen, destino, ID_Transportes)==0){
+                                if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion,ID_ORIGEN, destino1,ID_TRAN)==0){
                                     //////Si la ruta no existe, agrega los datos selecionados a la tabla cotizaciones_ruta
-                                   int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+//                                   int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
                                     String Origen =AgregarCotizacionesRuta.cmbOrigenes.getSelectedItem().toString();                                    
                                     String Transportes=AgregarCotizacionesRuta.cmbTransportes.getSelectedItem().toString();                                    
                                     Opciones.registrarCotizacionesRuta(IDCot,IDClient,IDOrigen,Origen,destino,ID_Transporte,Transportes);
                                     Opciones.listar("",ID_Cotizacion );
                                 }else{
-                               
-                                ID_rutas.setText(""+ Cotizaciones.ObtenerIDCotizacionRuta(ID_Cliente,IDOrigen, destino, ID_Transportes));
-                                int ID_Rutas = Integer.parseInt(ID_rutas.getText());
-                                 int IDCliente=Integer.parseInt(lblID_Cliente.getText());
-                                int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-                                
-                                float precio = Cotizaciones.ObtenerPrecio(ID_Rutas);
-                                Opciones.listar("",ID_Cotizacion );
-//                                if(precio == 0)
-//                                {
-//                                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-//                                    AC.msj1.setText("¡Error!");
-//                                    AC.msj2.setText("El servicio tiene un valor");
-//                                    AC.msj3.setText("No valido, !Verifique!");
-//                                    AC.setVisible(true);
-//                                    JOptionPane.showMessageDialog(null, "el destino es "+destino+ " "+ID_Cotizacion+" "+ID_Transportes+ " "+IDOrigen);
-//                                }
-//                                else
-//                                {
-                                    if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion, ID_Rutas,IDCliente)==0)
-                                    {   
-
-                                       
-//                                          JOptionPane.showMessageDialog(null," "+IDCliente);
-                                        JOptionPane.showMessageDialog(null, "todo clorrecto"+ " El Origen y destino aun no estan registrados ID Cliente"+IDCliente);
-                                        Opciones.agregarCotizacionRuta(ID_Cotizacion, ID_Rutas, IDCliente);
-                                  //      Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotizacion);
-                                        Opciones.listar("",ID_Cotizacion );
-                                        this.cmbOrigenes.setSelectedItem(0);
-                                        this.cmbDestinos.setSelectedItem(0);
-                                        this.cmbTransportes.setSelectedItem(0);
-                                        ID_rutas.setText("");
-
-                                    }
-                                    else
-                                    {
-                                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                    
+                                     Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                                         AC.msj1.setText("¡Error!");
                                         AC.msj2.setText("El Origen - Destino ya Estan");
                                         AC.msj3.setText("Registrados con el Mismo Transporte");
                                         AC.setVisible(true);
-                                    }
+                               
+//                                ID_rutas.setText(""+ Cotizaciones.ObtenerIDCotizacionRuta(ID_Cliente,IDOrigen, destino, ID_Transportes));
+//                                int ID_Rutas = Integer.parseInt(ID_rutas.getText());
+//                                 int IDCliente=Integer.parseInt(lblID_Cliente.getText());
+//                                int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+                                
+//                                
+//                                Opciones.listar("",ID_Cotizacion );
+//                                
+//                                String destino1="";
+//                                        for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
+//                                                 destino1+="|".concat(tablaDestinos.getValueAt(i, 1).toString());                
+//                                        }
+
+                                         
+//                                    if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion,ID_Origen,destino1)==0)
+//                                    {   
+//
+//                                        Opciones.agregarCotizacionRuta(ID_Cotizacion, ID_Rutas, IDCliente);
+//                                  //      Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotizacion);
+//                                        Opciones.listar("",ID_Cotizacion );
+//                                        this.cmbOrigenes.setSelectedItem(0);
+//                                        this.cmbDestinos.setSelectedItem(0);
+//                                        this.cmbTransportes.setSelectedItem(0);
+////                                        ID_rutas.setText("");
+//
+//                                    }
+                                   
                                     
                                     //}
                                 }
@@ -540,7 +540,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, true
@@ -554,7 +554,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tabla.setRowHeight(20);
+        tabla.setRowHeight(25);
         tabla.getTableHeader().setReorderingAllowed(false);
         jScrollPane.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
@@ -957,27 +957,27 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             lblatencion.setVisible(true);
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
-//            Opciones.listarCotizaciones("");
-            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-            Opciones.listar("",ID_Cotizacion );
+            Opciones.listarCotizaciones("");
+//            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+//            Opciones.listar("",ID_Cotizacion );
             
             
-            if(Opciones.verificaCliente(ID_Cliente)==0)///falta decirle que compare por origen, destino y cliente
-                {
-                    JOptionPane.showMessageDialog(null, "No existe ninguna ruta con ese cliente");
-                    Opciones.listar("",ID_Cotizacion );
-                }
-            else{
-                    //JOptionPane.showMessageDialog(null, "Este clietne ya tiene ruta");
-                    pnlRutasGuardadas RG=new pnlRutasGuardadas(null,true);
-                    //RG.Opciones.listarDetallesCotizaciones(ID_Cliente,cliente);
-                    RG.setVisible(true);
-                    //JOptionPane.showMessageDialog(null, ID+" "+clientes);
-                    //llenarDetalles(ID_Cliente, cliente);
-                    //poper.Opciones.listarDetallesCotizaciones(ID_Cliente, cliente);  
-//                    int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+//            if(Opciones.verificaCliente(ID_Cliente)==0)///falta decirle que compare por origen, destino y cliente
+//                {
+//                    JOptionPane.showMessageDialog(null, "No existe ninguna ruta con ese cliente");
 //                    Opciones.listar("",ID_Cotizacion );
-                }
+//                }
+//            else{
+//                    //JOptionPane.showMessageDialog(null, "Este clietne ya tiene ruta");
+//                    pnlRutasGuardadas RG=new pnlRutasGuardadas(null,true);
+//                    //RG.Opciones.listarDetallesCotizaciones(ID_Cliente,cliente);
+//                    RG.setVisible(true);
+//                    //JOptionPane.showMessageDialog(null, ID+" "+clientes);
+//                    //llenarDetalles(ID_Cliente, cliente);
+//                    //poper.Opciones.listarDetallesCotizaciones(ID_Cliente, cliente);  
+////                    int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+////                    Opciones.listar("",ID_Cotizacion );
+//                }
          }
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
@@ -1009,7 +1009,11 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         
         ////si el combo no se ha seleccionado, pedir seleccionar uno
         if (comboDestino==0) {
-        JOptionPane.showMessageDialog(null, "Selecciona un destino");
+         Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+          AC.msj1.setText("¡Seleccione Un Destino!");
+          AC.msj2.setText("Para Continuar.");
+          AC.msj3.setText("");
+          AC.setVisible(true);
         }       
         else{//////////Se permite añadir hasta 10 destinos                         
              String datos[] = new String[10];
@@ -1018,7 +1022,14 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                 for(int i = 0; i<tablaDestinos.getRowCount(); i++){
                     //////Compara el valor a ingresar con los datos de la tabla y si son identicos activa la bandera a true 
                         if(tablaDestinos.getValueAt(i, 1).equals(destino)){
-                        JOptionPane.showMessageDialog(null, "El "+ destino + " ya existe en la tabla.");                       
+                            
+                              Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                              AC.msj1.setText( "¡El  destino  ya existe!");
+                              AC.msj2.setText("Verifique los datos.");
+                              AC.msj3.setText("");
+                              AC.setVisible(true);
+                            
+//                        JOptionPane.showMessageDialog(null, "El "+ destino + " ya existe en la tabla.");                       
                         avisar=true;                        
                          }
                        }
@@ -1160,7 +1171,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbTransportesItemStateChanged
 
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-        //        Modificar();
+//                Modificar();
     }//GEN-LAST:event_pnleditarMouseClicked
 
     private void pnleditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseEntered
@@ -1176,44 +1187,61 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-   
+       if((this.tablaDestinos.getRowCount()==0)){
+           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+           AC.msj1.setText("¡Asigne Destinos a la tabla!");
+           AC.msj2.setText("Para poder asignar cotizacion");
+           //AC.msj3.setText("Registrados con el Mismo Transporte");
+           AC.setVisible(true);
+       }else{
+           
+           
+           String origen =cmbOrigenes.getSelectedItem().toString();
+           String transporte=cmbTransportes.getSelectedItem().toString();
+           String IDCliente=lblID_Cliente.getText();
+           String IDOrigen=lblID_Origen.getText();
+           String IDTrans=lblIDTrans.getText();
+           String IDCoti=IDCotizacion.getText();
+           int IDOri=Integer.parseInt(lblID_Origen.getText());
+           int IDClient=Integer.parseInt(lblID_Cliente.getText());
+           int IDCot=Integer.parseInt(IDCotizacion.getText());
+           
+           
+           
+           
+           String destino="";
+           for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
+               destino+="|".concat(tablaDestinos.getValueAt(i, 1).toString());
+           }
+           Guardar(destino,IDOri,IDClient,IDCot);
+           
+           
+           
+       }
+       this.cmbDestinos.setSelectedIndex(0);
+       this.cmbTransportes.setSelectedIndex(0);
        
-        
-        String origen =cmbOrigenes.getSelectedItem().toString();
-        String transporte=cmbTransportes.getSelectedItem().toString();
-        String IDCliente=lblID_Cliente.getText();
-        String IDOrigen=lblID_Origen.getText();
-        String IDTrans=lblIDTrans.getText();
-        String IDCoti=IDCotizacion.getText();
-        int IDOri=Integer.parseInt(lblID_Origen.getText());
-        int IDClient=Integer.parseInt(lblID_Cliente.getText());
-        int IDCot=Integer.parseInt(IDCotizacion.getText());
-        
-        //if(this.tablaDestinos.getRowCount()!=0 && this.tablaDestinos.getSelectedRow()!=-1){
-
-
-        String destino="";
-        for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
-                 destino+="|".concat(tablaDestinos.getValueAt(i, 1).toString());                
-        }
-                Guardar(destino,IDOri,IDClient,IDCot);
-                
-        //Opciones.guardarFake(IDCoti,IDCliente,IDOrigen,origen,IDTrans,transporte,destino);
-        //Opciones.listarCotizacionRuta("",IDCoti);
-
-//        cmbTransportes.setSelectedItem(0);
-//        cmbDestinos.setSelectedItem(0);
-//        cmbTransportes.setSelectedItem(0);
-        //Opciones.inicializarCombox();
-        
-//        }else{
-//             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-//                                        AC.msj1.setText("¡Asigne Destinos a la tabla!");
-//                                        AC.msj2.setText("Para poder asignar cotizacion");
-//                                        //AC.msj3.setText("Registrados con el Mismo Transporte");
-//                                        AC.setVisible(true);
+//         DefaultTableModel temp;
+//        try{
+//            temp = (DefaultTableModel) tablaDestinos.getModel();
+//            int a =temp.getRowCount()-1;
+//            for(int i=0; i<a; i++)
+//                temp.removeRow(0); //aquí estaba el error, antes pasaba la i como parametro.... soy un bacín  XD
+//        }catch(Exception e){
+//            System.out.println(e);
 //        }
-//        
+//         if( tablaDestinos.getRowCount()>0){
+//            javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(0, tablaDestinos.getColumnCount());
+//             
+//            tablaDestinos.setModel(modelo);
+//        }
+       DefaultTableModel myTableModel = (DefaultTableModel) this.tablaDestinos.getModel(); 
+       while (myTableModel.getRowCount() > 0) { 
+       myTableModel.removeRow(0); 
+} 
+
+
+//        tablaDestinos
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
@@ -1310,14 +1338,15 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
 public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
         int ID = Integer.parseInt(IDCotizacion.getText());
+        
         if (ID >= 0) {
 
-       try {
+              try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_ruta.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
-            parametro.put("ID_Cliente", ID);
+            parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
             JRViewer jrv = new JRViewer(jasperPrint);

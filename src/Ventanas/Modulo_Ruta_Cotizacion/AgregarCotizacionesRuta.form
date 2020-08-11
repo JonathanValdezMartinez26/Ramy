@@ -165,7 +165,7 @@
                         <Column editable="false" title="Origen" type="java.lang.String"/>
                         <Column editable="false" title="Destinos" type="java.lang.String"/>
                         <Column editable="false" title="Unidad" type="java.lang.Object"/>
-                        <Column editable="true" title="Precio" type="java.lang.Object"/>
+                        <Column editable="true" title="Precio" type="java.lang.Float"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -197,7 +197,7 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
-                    <Property name="rowHeight" type="int" value="20"/>
+                    <Property name="rowHeight" type="int" value="25"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>

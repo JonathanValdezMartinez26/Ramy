@@ -7,7 +7,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.TableCellEditor;
 
-public class MyTableCellEditor1 extends AbstractCellEditor implements TableCellEditor{
+public class MyTableCellEditorRuta extends AbstractCellEditor implements TableCellEditor{
 
     private database db;
     private String OldValue=""; //Valor antiguo de la celda
@@ -18,11 +18,13 @@ public class MyTableCellEditor1 extends AbstractCellEditor implements TableCellE
     private String destino="";// Llave del registro
     private String transporte="";// Llave del registro
     private String precio="";// Llave del registro
+    private String nombreServicio="";// Llave del registro
+    
     
     
     private JComponent component = new JTextField();
 
-    public MyTableCellEditor1(database db, String NameColumn)
+    public MyTableCellEditorRuta(database db, String NameColumn)
     {
             this.db = db;
             this.NameColum = NameColumn;
@@ -37,9 +39,9 @@ public class MyTableCellEditor1 extends AbstractCellEditor implements TableCellE
         {
             OldValue = value.toString();//Toma valor de celda antes de cualquier modificación
             ID = table.getValueAt(row,0).toString();//obtiene el ID unico del registro
-            //origen = table.getValueAt(row,1).toString();//obtiene el ID unico del registro
-            //destino = table.getValueAt(row,2).toString();//obtiene el ID unico del registro
-            //transporte = table.getValueAt(row,3).toString();//obtiene el ID unico del registro
+//            nombreServicio = table.getValueAt(row,1).toString();//obtiene el ID unico del registro
+//            destino = table.getValueAt(row,2).toString();//obtiene el ID unico del registro
+//            transporte = table.getValueAt(row,3).toString();//obtiene el ID unico del registro
              //precio = table.getValueAt(row,4).toString();//obtiene el ID unico del registro
             
             ((JTextField)component).setText(value.toString());//coloca valor de la celda al JTextField
@@ -57,7 +59,7 @@ public class MyTableCellEditor1 extends AbstractCellEditor implements TableCellE
         //Compara valores, si no son iguales, debe actualizar registro
         if( !NewValue.equals(OldValue))
         {   //Realiza la actualizacion
-            if( !db.updateCotizacionRuta(NewValue, ID ) )
+            if( !db.updateCotizacionRuta(NameColum+"='"+NewValue+"' ", ID ) )
             {   //Si existe algun error al actualizar, escribe viejo valor en la celda
                 //JOptionPane.showMessageDialog(null,"Error: No se puede actualizar");
                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -69,13 +71,13 @@ public class MyTableCellEditor1 extends AbstractCellEditor implements TableCellE
             }
             ///////////////////////////Si no exixste ninguna excepcion se realiza el registro en la bitacora
             else{
-                
+//                JOptionPane.showMessageDialog(null,NameColum+"=="+NewValue+"   "+ID );
             
-                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Datos del Precio!");
-            AC.msj2.setText("Guardados correctamente");
-            AC.msj3.setText("Precio de $"+OldValue+" a $"+NewValue);
-            AC.setVisible(true);
+//                Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
+//                AC.msj1.setText("¡Datos del Concepto!");
+//                AC.msj2.setText("Guardados correctamente");
+//                AC.msj3.setText("Concepto de $"+OldValue+" a $"+NewValue);
+//                AC.setVisible(true);
             }
         }
         return super.stopCellEditing();

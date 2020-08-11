@@ -65,10 +65,10 @@ public class Opciones {
         }
     }
     ///////////////////////////////////////
-    public static int verificaRutaCotizacion1(int ID_Cotizacion, int ID_Ruta,int IDCliente) {
+    public static int verificaRutaCotizacion1(int ID_Cotizacion, int ID_Origen, String Destinos ,int ID_transporte) {
         int existe = 0;
   
-        String SQL = "SELECT count(Id_Cotizacion) from asigna_ruta_servicio where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_CotizacionRuta = "+ID_Ruta+")";
+        String SQL = "SELECT count(Id_Cotizacion) from Cotizaciones_ruta where (ID_Cotizacion = "+ID_Cotizacion+")  and (ID_Origen = "+ID_Origen+") and  (Destino = '" + Destinos +"') and  (ID_Transporte = "+ID_transporte+") ";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -104,7 +104,7 @@ public class Opciones {
         
     }
     public static void listar(String busca, int ID_Cotizacion) {
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tabla.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
@@ -112,10 +112,10 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_Cotizacion, Origen, Destino,Transporte,Precio from Cotizaciones_ruta where ID_Cotizacion =" + ID_Cotizacion;
+            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from Cotizaciones_ruta where ID_Cotizacion =" + ID_Cotizacion;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID_Cotizacion;
+            sql = "Select ID_CotizacionRuta, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID_Cotizacion;
             
            }
         String datos[] = new String[5];
@@ -210,101 +210,7 @@ public class Opciones {
         }
         return existe;
     }
-    public static void guardarFake(String IDCotizacion,String IDCliente ,String IDOrigen,String origen,String IDTrans,String transporte,String destino){
-        
-        int comboCliente = AgregarCotizacionesRuta.cmbCliente.getSelectedIndex();
-        int comboOrigen= AgregarCotizacionesRuta.cmbOrigenes.getSelectedIndex();
-        int comboDestino = AgregarCotizacionesRuta.cmbDestinos.getSelectedIndex();
-        int comboTransporte = AgregarCotizacionesRuta.cmbTransportes.getSelectedIndex();
-        
-        if(comboCliente==0)
-            {
-                Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                AC.msj1.setText("¡Elija un");
-                AC.msj2.setText("Cliente para Continuar");
-                AC.setVisible(true);
-            }
-            else
-            {
-                if(comboOrigen==0)
-                    {
-                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                        AC.msj1.setText("¡Elija un !");
-                        AC.msj2.setText("Origen");
-                        AC.setVisible(true);
-                    }
-                else
-                {
-                    if(comboDestino==0 && AgregarCotizacionesRuta.tablaDestinos.getRowCount()!=0 && AgregarCotizacionesRuta.tablaDestinos.getSelectedRow()!=-1)
-                    {
-                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                        AC.msj1.setText("¡Agrege un Destino!");
-                        AC.msj2.setText("a la tabla");
-                        AC.setVisible(true);
-                    }
-                    else
-                    {
-                        if(comboTransporte==0)
-                        {
-                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                            AC.msj1.setText("¡Elija un !");
-                            AC.msj2.setText("Transporte");
-                            AC.setVisible(true);
-                        }
-                        else
-                        {
-                             if(comboCliente==0 || comboOrigen==0 || comboDestino==0 || comboTransporte==0)
-                            {
-                                Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                AC.msj1.setText("¡Seleccione Un!");
-                                AC.msj2.setText("Cliente, Origen - Destino y Transporte");
-                                AC.msj3.setText("Para Continuar");
-                                AC.setVisible(true);
-                            }
-                            
-                             
-                                else
-                                {
-//                                    if(Ventanas.Modulo_Cotizaciones.Opciones.verificaRutaCotizacion(ID_Cotizacion, ID_Rutas)==0)
-//                                    {   
-
-//                                        Cotizaciones.Agregar_RutaCotizacion(ID_Cotizacion, ID_Rutas);
-//                                        Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotizacion);
-                                        
-                                          String q = " INSERT INTO cotizaciones_ruta (ID_CotizacionRuta,ID_Cotizacion,ID_Cliente,ID_Origen,Origen,Destino,ID_Transporte,Transporte,Precio)"
-                                        + "VALUES (NULL,'"+IDCotizacion+"','"+IDCliente+"','"+IDOrigen+"','"+origen+"','"+destino+"','"+IDTrans+"','"+transporte+"','0')";      
-                                        try {PreparedStatement pstm = cn.prepareStatement(q);
-                                    pstm.execute();
-                                    pstm.close();
-                                    }catch(SQLException e){            
-                                    System.out.println(e);}
-                                        
-                                        AgregarCotizacionesRuta.cmbOrigenes.setSelectedItem(0);
-                                        AgregarCotizacionesRuta.cmbDestinos.setSelectedItem(0);
-                                        AgregarCotizacionesRuta.cmbTransportes.setSelectedItem(0);
-                                        AgregarCotizacionesRuta.ID_rutas.setText("");
-                                        
-                                        Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
-                                        AC.msj1.setText("¡Cotizacion Agregada!");
-                                        AC.msj2.setText("Correctamente");
-                                        AC.msj3.setText("Asigne el precio correspondiente");
-                                        AC.setVisible(true);
-//                                    }
-//                                    else
-//                                    {
-//                                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-//                                        AC.msj1.setText("¡Error!");
-//                                        AC.msj2.setText("El Origen - Destino ya Estan");
-//                                        AC.msj3.setText("Registrados con el Mismo Transporte");
-//                                        AC.setVisible(true);
-//                                    }
-                                 
-                            }    
-                        }
-                    }
-                }  
-        } 
-    }
+  
     public static void inicializarCombox(){
                                          AgregarCotizacionesRuta.cmbOrigenes.setSelectedItem(0);
                                         AgregarCotizacionesRuta.cmbDestinos.setSelectedItem(0);
@@ -410,7 +316,7 @@ public class Opciones {
             sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from cotizaciones_ruta where ID_Cotizacion =" + ID;
         } else {
             
-            sql = "Select ID_asigna_Cotizacion, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
+            sql = "Select ID_CotizacionRuta, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID;
             
            }
         String datos[] = new String[6];
@@ -433,24 +339,24 @@ public class Opciones {
             Logger.getLogger(Ventanas.Modulo_Ruta_Cotizacion.Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static void agregarAsigna(String IDCR,String IDCoti,String IDCli,String IDOri,String Ori,String Desti,String IDTrans,String Trans,String Precio){
-        
-        String q = " INSERT INTO asigna_ruta_servicio (ID_AsignaRutaServicio,ID_RutaCotizacion,ID_Cliente,ID_Origen,Origen,Destino,ID_Transporte,Transporte,Precio)"
-                + "VALUES (NULL,'"+IDCR+"','"+IDCli+"','"+IDOri+"','"+Ori+"','"+Desti+"','"+IDTrans+"','"+Trans+"','"+Precio+"')";
-        ////INSERT INTO `bitacora_costos` (`ID_Bitacora`, `Nombre_Viaje`, `costo_antiguo`, `costo_nuevo`,
-        //`Fecha_Mod`, `ID_ClienteB`) VALUES (NULL, 'Villa,donato', '300', '400', current_timestamp(), '71');
-        try {
-            PreparedStatement pstm = cn.prepareStatement(q);
-            pstm.execute();
-            pstm.close();
-            
-         }catch(SQLException e){            
-            System.out.println(e);
-        }
-        JOptionPane.showMessageDialog(null, "Datos agregados");
-        
-    }
+//    
+//    public static void agregarAsigna(String IDCR,String IDCoti,String IDCli,String IDOri,String Ori,String Desti,String IDTrans,String Trans,String Precio){
+//        
+//        String q = " INSERT INTO asigna_ruta_servicio (ID_AsignaRutaServicio,ID_RutaCotizacion,ID_Cliente,ID_Origen,Origen,Destino,ID_Transporte,Transporte,Precio)"
+//                + "VALUES (NULL,'"+IDCR+"','"+IDCli+"','"+IDOri+"','"+Ori+"','"+Desti+"','"+IDTrans+"','"+Trans+"','"+Precio+"')";
+//        ////INSERT INTO `bitacora_costos` (`ID_Bitacora`, `Nombre_Viaje`, `costo_antiguo`, `costo_nuevo`,
+//        //`Fecha_Mod`, `ID_ClienteB`) VALUES (NULL, 'Villa,donato', '300', '400', current_timestamp(), '71');
+//        try {
+//            PreparedStatement pstm = cn.prepareStatement(q);
+//            pstm.execute();
+//            pstm.close();
+//            
+//         }catch(SQLException e){            
+//            System.out.println(e);
+//        }
+//        JOptionPane.showMessageDialog(null, "Datos agregados");
+//        
+//    }
     public static void listarAsigna(String busca/*,String ID*/) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tabla.getModel();
 
