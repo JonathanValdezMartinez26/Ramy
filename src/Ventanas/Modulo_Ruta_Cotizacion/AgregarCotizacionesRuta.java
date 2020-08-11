@@ -18,6 +18,8 @@ import static Clases.Cotizaciones.ObtenID;
 import Clases.MyTableCellEditor;
 import Clases.MyTableCellEditor1;
 import Clases.MyTableCellEditorRuta;
+import Clases.MyTableCellEditorServRutNombre;
+import Clases.MyTableCellEditorServRutPrecio;
 import Clases.database;
 import Clases.estados;
 import Clases.localidades;
@@ -25,6 +27,7 @@ import Clases.municipios;
 import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.Registrar.tabla3;
 import static Ventanas.Modulo_Cotizaciones.Opciones.cn;
+import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Ruta_Cotizacion.pnlRutasGuardadas.info;
 import Ventanas.Modulo_Tipo_Servicio.ModificarTipoServicio;
 import static Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio.tabla;
@@ -119,6 +122,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
         tabla.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditorRuta(db,"Precio"));//Columna Precio
+//        tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorServRutNombre(db,"Nombre del Servicio"));//Columna Precio
+//        tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorServRutPrecio(db,"Precio"));//Columna Precio
     }
     
     public void Clientes()
@@ -338,7 +343,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                     }
                     else
                     {
-                        if(comboTransporte==0)
+                        if(ID_TRAN==0)
                         {
                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                             AC.msj1.setText("¡Elija un !");
@@ -414,20 +419,25 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
 
         
     }
-    public void llenarDetalles(String dato){
     
-            //Opciones.listarCotizacionesID(dato);
-//            info.setText(Clientes);
-//            Opciones.listarPrecios();
-//            
-    
-    
-    }
-    public void ObtenerIDOrigen(){
+    public static void cargarServicio(){
+        int ID_Cotizacion1;
+        ID_Cotizacion1=Integer.parseInt(AgregarCotizacionesRuta.IDCotizacion.getText());
+        Ventanas.Modulo_Ruta_Cotizacion.Opciones.insertarServicio(ID_Cotizacion1);
+ 
+ }
+    public static void finalizar(){
         
+        Alerts.AlertBasic.WarningFinalizarRuta AC = new  Alerts.AlertBasic.WarningFinalizarRuta(null, true);
+        AC.ID.setText(IDCotizacion.getText());
+        AC.setVisible(true);
+      
+    
+    //AgregarCotizaciones.dispose();
     }
     
     
+//    
     ////////////////////////////////////////////////////////////////////////
     
     
@@ -579,7 +589,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -592,6 +602,11 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         });
         tabla1.setRowHeight(20);
         tabla1.getTableHeader().setReorderingAllowed(false);
+        tabla1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tabla1KeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla1);
         if (tabla1.getColumnModel().getColumnCount() > 0) {
             tabla1.getColumnModel().getColumn(0).setMinWidth(0);
@@ -610,8 +625,9 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 880, 280));
@@ -1130,9 +1146,63 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-    ver();
-    this.dispose();
-              
+    if(this.tabla.getRowCount()!=0){
+       int existenombre2 = 0;
+            int existeprecio2 = 0;
+            for (int i = 0; i < tabla.getRowCount(); i++) {                                                 
+                 if(tabla.getValueAt(i, 2).toString().equals("0")){
+                     existeprecio2++;
+                 }                                 
+        }
+    if(existeprecio2 ==0){        
+        ///////////////////////verifica si la tabla destino no esta vacia y la recorre para validar campos vacios 
+     if(this.tabla1.getRowCount()!=0){        
+            int existenombre = 0;
+            int existeprecio = 0;
+            for (int i = 0; i < tabla1.getRowCount(); i++) {
+                 if(tabla1.getValueAt(i, 2).toString().equals("")){
+                     existenombre++;
+                 }                                 
+                 if(tabla1.getValueAt(i, 3).toString().equals("0")){
+                     existeprecio++;
+                 }                                 
+        }
+        if (existenombre == 0 && existeprecio == 0) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
+             String ID_Cotizacion = IDCotizacion.getText();
+             Ventanas.Modulo_Ruta_Cotizacion.Opciones.finalizarCotizacion(ID_Cotizacion);
+             Ventanas.Modulo_Ruta_Cotizacion.Opciones.listarCotizaciones("");
+             ver();
+             
+                this.dispose();        
+                    }else{            
+                          Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                          AC.msj1.setText("¡Campos Vacios!");
+                          AC.msj2.setText("Porfavor llene Completamente ");
+                          AC.msj3.setText("La Tabla de Servicios");                                    
+                          AC.setVisible(true);
+                    }
+               }
+                else{  
+                        ////////Si la tabla1 esta vacia, se le pregunta al cliente, si desea finalizar cotizacion 
+                        //////sin agregar ningun servicio, todo esto mediante este metodo
+                       finalizar();
+                       //JOptionPane.showMessageDialog(null,"Finaliza directo");
+                    }
+    
+                                    }else{
+                                            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                                            AC.msj1.setText("¡Porfavor Asigne!");
+                                            AC.msj2.setText("Precio'(s)'");
+                                            AC.msj3.setText("Para poder Finalizar Cotizacion");
+                                            AC.setVisible(true);
+                                    }               
+                                                    }else{
+                                                        Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                                                        AC.msj1.setText("¡Porfavor Asigne!");
+                                                        AC.msj2.setText("Un Cliente-Consolidado");
+                                                        AC.msj3.setText("Para poder Finalizar Cotizacion");
+                                                        AC.setVisible(true);
+                                                        }
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
     private void pnlFinalizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseEntered
@@ -1171,7 +1241,47 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbTransportesItemStateChanged
 
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-//                Modificar();
+      if(this.tabla.getRowCount()!=0){//Si la tablaR no esta vacia, permitir agregar servicios
+        if(this.tabla1.getRowCount()==0){ /////Si tabla1 esta vacia, se agrega el primer campo       
+        cargarServicio();
+        int ID_Cotizacion;
+        ID_Cotizacion=Integer.parseInt(AgregarCotizacionesRuta.IDCotizacion.getText());        
+        Ventanas.Modulo_Ruta_Cotizacion.Opciones.llenarServicio(ID_Cotizacion);
+        this.tabla1.getSelectionModel().setSelectionInterval(0,0);
+
+        }else{//////////Si tabla1 esta llena, recorrerla para validar campos vacios
+            int existenombre = 0;
+            int existeprecio = 0;
+            for (int i = 0; i < tabla1.getRowCount(); i++) {
+                 if(tabla1.getValueAt(i, 2).toString().equals("")){
+                     existenombre++;
+                 }                                 
+                 if(tabla1.getValueAt(i, 3).toString().equals("0")){
+                     existeprecio++;
+                 }                                 
+        }
+            if(existenombre==0 && existeprecio==0){////////Si ningun campo esta vacio, se puede agregar otro nuevo campo
+                cargarServicio();
+                int ID_Cotizacion;
+                ID_Cotizacion = Integer.parseInt(AgregarCotizacionesRuta.IDCotizacion.getText());
+                Ventanas.Modulo_Ruta_Cotizacion.Opciones.insertarServicio(ID_Cotizacion);
+                //this.tabla1.getSelectionModel().setSelectionInterval(0, 0);             
+    //JOptionPane.showMessageDialog(null, "exitennombre="+existenombre+ " existePrecio= "+existeprecio );
+                    }else{            
+                          Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                          AC.msj1.setText("¡Campos Vacios!");
+                          AC.msj2.setText("Para Agregar otro Adicional");
+                          AC.msj3.setText("Asigne un Nombre y Precio");                                    
+                          AC.setVisible(true);
+                    }
+         }
+        } else {
+                                Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                                AC.msj1.setText("¡Porfavor Seleccione!");
+                                AC.msj2.setText("Un Cliente-Consolidado");
+                                AC.msj3.setText("Para poder Asignar Servicios");
+                                AC.setVisible(true);
+        }
     }//GEN-LAST:event_pnleditarMouseClicked
 
     private void pnleditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseEntered
@@ -1261,10 +1371,22 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbClienteActionPerformed
 
     private void cmbTransportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTransportesActionPerformed
-                //JOptionPane.showMessageDialog(null,"Action PErformed");
-
-        // TODO add your handling code here:
+         
     }//GEN-LAST:event_cmbTransportesActionPerformed
+
+    private void tabla1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyPressed
+       int press = evt.getKeyCode();
+        if (this.tabla1.getSelectedRow() != -1 && press == 127) {
+            int ID_Cotizacion;
+            ID_Cotizacion = Integer.parseInt(AgregarCotizacionesRuta.IDCotizacion.getText());
+            int a1 = Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(), 0).toString());
+            DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
+            Ventanas.Modulo_Ruta_Cotizacion.Opciones.eliminarServicio(a1);
+            Ventanas.Modulo_Ruta_Cotizacion.Opciones.llenarServicio(ID_Cotizacion);
+            this.tabla1.getSelectionModel().setSelectionInterval(0, 0);
+        } 
+
+    }//GEN-LAST:event_tabla1KeyPressed
 
     public static void main(String args[]) {
      
@@ -1283,7 +1405,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IDCotizacion;
+    public static javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel IDCotizacion1;
     private javax.swing.JLabel IDCotizacion2;
     private javax.swing.JLabel IDCotizacion3;
