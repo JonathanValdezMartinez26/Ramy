@@ -21,9 +21,9 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import necesario.RSAWTUtilities;
 
-public class WarningFinalizar extends javax.swing.JDialog {
+public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
 
-    public WarningFinalizar(java.awt.Frame parent, boolean modal) {
+    public WarningFinalizarCotizacionModi(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
@@ -161,7 +161,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
     
         String ID_Cotizacion = ID.getText();
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
         final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
         tabla.setRowSorter(sorter);
         sorter.setRowFilter(null);

@@ -311,7 +311,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         l2 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
-        pnlEliminar = new javax.swing.JPanel();
+        pnlEliminar2 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         pnlVista = new javax.swing.JPanel();
@@ -323,6 +323,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         pnleditar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        pnlEliminar = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         IDCotizacion = new javax.swing.JLabel();
         ID_rutas = new javax.swing.JLabel();
         cmbOrigenes = new ComboBox.SComboBox();
@@ -524,29 +527,29 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(225, 225, 225));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnlEliminar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlEliminar.setToolTipText("Eliminar Registro");
-        pnlEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnlEliminar2.setBackground(new java.awt.Color(225, 225, 225));
+        pnlEliminar2.setToolTipText("Eliminar Registro");
+        pnlEliminar2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlEliminarMouseClicked(evt);
+                pnlEliminar2MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlEliminarMouseEntered(evt);
+                pnlEliminar2MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlEliminarMouseExited(evt);
+                pnlEliminar2MouseExited(evt);
             }
         });
-        pnlEliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlEliminar2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel19.setText("    Eliminar");
-        pnlEliminar.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
+        jLabel19.setText("    Guardar");
+        pnlEliminar2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eliminar.png"))); // NOI18N
-        pnlEliminar.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/guardar (2).png"))); // NOI18N
+        pnlEliminar2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jPanel1.add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
+        jPanel1.add(pnlEliminar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 80, 70));
 
         pnlVista.setBackground(new java.awt.Color(225, 225, 225));
         pnlVista.setToolTipText("Visualizar Cotizacion");
@@ -599,7 +602,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         });
         pnlFinalizar.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jPanel1.add(pnlFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 70));
+        jPanel1.add(pnlFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, 70));
 
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
         pnleditar.setToolTipText("Agregar Servicio");
@@ -625,6 +628,30 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         pnleditar.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel1.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
+
+        pnlEliminar.setBackground(new java.awt.Color(225, 225, 225));
+        pnlEliminar.setToolTipText("Eliminar Registro");
+        pnlEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlEliminarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlEliminarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlEliminarMouseExited(evt);
+            }
+        });
+        pnlEliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setText("    Eliminar");
+        pnlEliminar.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eliminar.png"))); // NOI18N
+        pnlEliminar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
+
+        jPanel1.add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
 
         jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 890, 70));
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
@@ -843,19 +870,19 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_buscarKeyTyped
 
-    private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
+    private void pnlEliminar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminar2MouseClicked
         eliminar();
         int ID = Integer.parseInt(IDCotizacion.getText());
         Opciones.listar("",ID);
-    }//GEN-LAST:event_pnlEliminarMouseClicked
+    }//GEN-LAST:event_pnlEliminar2MouseClicked
 
-    private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered
-        pnlEliminar.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
-    }//GEN-LAST:event_pnlEliminarMouseEntered
+    private void pnlEliminar2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminar2MouseEntered
+        pnlEliminar2.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
+    }//GEN-LAST:event_pnlEliminar2MouseEntered
 
-    private void pnlEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseExited
-        pnlEliminar.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
-    }//GEN-LAST:event_pnlEliminarMouseExited
+    private void pnlEliminar2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminar2MouseExited
+        pnlEliminar2.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
+    }//GEN-LAST:event_pnlEliminar2MouseExited
 
     private void pnlVistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseClicked
       
@@ -943,8 +970,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                             }
                         }
                         String ID_Cotizacion = IDCotizacion.getText();
-                        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
-                        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
+                        Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
+                        Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
                         //ver();
                         this.dispose();
                     } else {
@@ -1099,6 +1126,18 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTable1KeyPressed
 
+    private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlEliminarMouseClicked
+
+    private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlEliminarMouseEntered
+
+    private void pnlEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlEliminarMouseExited
+
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1129,6 +1168,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1145,6 +1186,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     public static javax.swing.JLabel lblNombreNuevo17;
     private javax.swing.JLabel lblatencion;
     private javax.swing.JPanel pnlEliminar;
+    private javax.swing.JPanel pnlEliminar2;
     private javax.swing.JPanel pnlFinalizar;
     private javax.swing.JPanel pnlVista;
     private javax.swing.JPanel pnleditar;
