@@ -66,7 +66,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
 
         NombreEmpresa.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         NombreEmpresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NombreEmpresa.setText("Servicios");
+        NombreEmpresa.setText("Adicionales");
         jPanel1.add(NombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 380, 30));
 
         msj2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
@@ -156,7 +156,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
 //     
     Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
     Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");   
-    AgregarCotizaciones.ver();
+    //AgregarCotizaciones.ver();
     //JOptionPane.showMessageDialog(null, "DEbe cerrarse la venbtana");
     
      AgregarCotizaciones AC=new AgregarCotizaciones(null, true);

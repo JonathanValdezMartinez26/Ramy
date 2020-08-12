@@ -64,6 +64,7 @@ import net.sf.jasperreports.view.JRViewer;
 import Ventanas.Modulo_Cotizaciones.Opciones;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.IDCotizacion;
+import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.finalizar;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tablaR;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.ver;
@@ -117,24 +118,24 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
         this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
         this.tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane.getVerticalScrollBar().setUI(new MyScrollbarUI());
-        jScrollPane.getHorizontalScrollBar().setUI(new MyScrollbarUI());
-        
-        tabla1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.tabla1.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
-        this.tabla1.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
-        this.tabla1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
-        tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor3(db,"Nombre del Servicio"));//Columna Precio
-        tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor4(db,"Precio"));//Columna Precio
         
-        tabla1.setDefaultRenderer(Object.class, new Render());
-                                               
+        jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.jTable1.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.jTable1.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane2.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.getVerticalScrollBar().setUI(new MyScrollbarUI());
+        jScrollPane2.getHorizontalScrollBar().setUI(new MyScrollbarUI());
+        jTable1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor3(db,"Nombre del Servicio"));//Columna Precio
+        jTable1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor4(db,"Precio"));//Columna Precio
+        
+        //jTable1.setDefaultRenderer(Object.class, new Render());
+//                                               
 
 
 
@@ -300,10 +301,10 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         rSButtonMetro2 = new JButtonEspecial.JButtonEspecial();
         lblNombreNuevo17 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla1 = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         cmbCliente = new ComboBox.SComboBox();
         lblatencion = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
@@ -368,7 +369,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreNuevo17.setText("     Cotizaciones > Nueva Cotizacion para Fletes Directos");
-        jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 877, 30));
+        jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 30));
 
         jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 13, 1157, -1));
 
@@ -409,7 +410,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                 tablaKeyPressed(evt);
             }
         });
-        jScrollPane.setViewportView(tabla);
+        jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
@@ -442,66 +443,58 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(10).setMaxWidth(100);
         }
 
-        tabla1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio", "Supr para Borrar"
+                "ID", "IDCoti", "Nombre del Adicional", "Precio", "Supr para Borrar"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
             boolean[] canEdit = new boolean [] {
                 false, false, true, true, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tabla1.setRowHeight(30);
-        tabla1.getTableHeader().setReorderingAllowed(false);
-        tabla1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTable1.setRowHeight(30);
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                tabla1KeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tabla1KeyTyped(evt);
+                jTable1KeyPressed(evt);
             }
         });
-        jScrollPane1.setViewportView(tabla1);
-        if (tabla1.getColumnModel().getColumnCount() > 0) {
-            tabla1.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla1.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla1.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla1.getColumnModel().getColumn(1).setMinWidth(0);
-            tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
-            tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
-            tabla1.getColumnModel().getColumn(4).setMinWidth(100);
-            tabla1.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tabla1.getColumnModel().getColumn(4).setMaxWidth(100);
+        jScrollPane2.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setMinWidth(0);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(0);
+            jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
+            jTable1.getColumnModel().getColumn(1).setMinWidth(0);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(0);
+            jTable1.getColumnModel().getColumn(1).setMaxWidth(0);
+            jTable1.getColumnModel().getColumn(3).setMinWidth(350);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(350);
+            jTable1.getColumnModel().getColumn(3).setMaxWidth(350);
+            jTable1.getColumnModel().getColumn(4).setMinWidth(150);
+            jTable1.getColumnModel().getColumn(4).setPreferredWidth(150);
+            jTable1.getColumnModel().getColumn(4).setMaxWidth(150);
         }
-        tabla1.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 1140, 360));
@@ -624,7 +617,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         pnleditar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel13.setText("    Servicios");
+        jLabel13.setText("  Adicionales");
+        jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pnleditar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-servicios-40.png"))); // NOI18N
@@ -737,7 +731,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
 
                 while (resultado.next()) {
                     ID_Ori[i] = resultado.getInt(1);
-                    cmbOrigenes.addItem(resultado.getString(2).trim());
+                    //cmbOrigenes.addItem(resultado.getString(2).trim());
                     i++;
                 }
             } 
@@ -751,7 +745,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
 
                 while (resultado.next()) {
                     ID_Ori[i] = resultado.getInt(1);
-                    cmbOrigenes.addItem(resultado.getString(2).trim());
+                    //cmbOrigenes.addItem(resultado.getString(2).trim());
                     i++;
                 }
             } 
@@ -876,45 +870,100 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
         final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
         tabla.setRowSorter(sorter);
         sorter.setRowFilter(null);
-
+        int existe = 0;
 ////////////////////Verifica si no hay combos seleccionados
         if (this.tabla.getRowCount() != 0) {
             int Filas = modelo.getRowCount();
-            for (int i = 0; i < Filas; i++) {
-                
-                String IDAsignaCot = tabla.getValueAt(i, 0).toString();
-                String IDCot = tabla.getValueAt(i, 1).toString();
-                String Origen = tabla.getValueAt(i, 2).toString();
-                String Destino = tabla.getValueAt(i, 3).toString();
-                String Camioneta15 = tabla.getValueAt(i, 4).toString();
-                String Camioneta35 = tabla.getValueAt(i, 5).toString();
-                String Rabon = tabla.getValueAt(i, 6).toString();
-                String Torthon = tabla.getValueAt(i, 7).toString();
-                String Trailer = tabla.getValueAt(i, 8).toString();
-                String Full = tabla.getValueAt(i, 9).toString();
-                
-                Boolean checked = Boolean.valueOf(tabla.getValueAt(i,10).toString());
-                    
-                String sql;
-                if(checked){
-                    sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full)"
-                            + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "')";
-
-                    try {
-                        PreparedStatement pstm = cn.prepareStatement(sql);
-                        pstm.execute();
-                        pstm.close();
-
-                    } catch (SQLException e) {
-                        System.out.println(e);
+            for (int j = 0; j < Filas; j++) {
+                Boolean validar = Boolean.valueOf(tabla.getValueAt(j, 10).toString());
+                if (validar) {///////Verifica si existen checks seleccionados
+                    existe++;
+                }
+            }
+            if (existe > 0) {////Si existen combos palomeados, verifica la tabla adicionales
+                ///////////////////////verifica si la Adicionales no esta vacia y la recorre para validar campos vacios 
+                if (this.jTable1.getRowCount() != 0) {
+                    int existenombre = 0;
+                    int existeprecio = 0;
+                    for (int i = 0; i < jTable1.getRowCount(); i++) {
+                        if (jTable1.getValueAt(i, 2).toString().equals("")) {
+                            existenombre++;
+                        }
+                        if (jTable1.getValueAt(i, 3).toString().equals("0")) {
+                            existeprecio++;
+                        }
                     }
-             
+                    if (existenombre == 0 && existeprecio == 0) {//////////verifica si la Adicionales no tiene campos vacios, registra datos y finaliza cotizxacion
+
+                        int Filas1 = modelo.getRowCount();
+                        for (int i = 0; i < Filas1; i++) {
+                            String IDAsignaCot = tabla.getValueAt(i, 0).toString();
+                            String IDCot = tabla.getValueAt(i, 1).toString();
+                            String Origen = tabla.getValueAt(i, 2).toString();
+                            String Destino = tabla.getValueAt(i, 3).toString();
+                            String Camioneta15 = tabla.getValueAt(i, 4).toString();
+                            String Camioneta35 = tabla.getValueAt(i, 5).toString();
+                            String Rabon = tabla.getValueAt(i, 6).toString();
+                            String Torthon = tabla.getValueAt(i, 7).toString();
+                            String Trailer = tabla.getValueAt(i, 8).toString();
+                            String Full = tabla.getValueAt(i, 9).toString();
+
+                            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 10).toString());
+
+                            String sql;
+                            if (checked) {
+                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+
+                                try {
+                                    PreparedStatement pstm = cn.prepareStatement(sql);
+                                    pstm.execute();
+                                    pstm.close();
+
+                                } catch (SQLException e) {
+                                    System.out.println(e);
+                                }
+
+                            } else {
+                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+
+                                try {
+                                    PreparedStatement pstm = cn.prepareStatement(sql);
+                                    pstm.execute();
+                                    pstm.close();
+
+                                } catch (SQLException e) {
+                                    System.out.println(e);
+                                }
+                            }
+                        }
+                        String ID_Cotizacion = IDCotizacion.getText();
+                        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
+                        Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
+                        //ver();
+                        this.dispose();
+                    } else {
+                        Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                        AC.msj1.setText("¡Campos Vacios!");
+                        AC.msj2.setText("Porfavor llene Completamente ");
+                        AC.msj3.setText("La Tabla de Adicionales");
+                        AC.setVisible(true);
+                    }
+                } else {
+                    ////////Si la tabla1 esta vacia, se le pregunta al cliente, si desea finalizar cotizacion 
+                    //////sin agregar ningun servicio, todo esto mediante este metodo
+                    //this.setVisible(false);
+                    finalizar();
+
+                    //JOptionPane.showMessageDialog(null,"Finaliza directo");
                 }
 
+<<<<<<< HEAD
             }      
             
             String ID_Cotizacion = IDCotizacion.getText();
@@ -927,6 +976,16 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             AC.setVisible(true);
             this.dispose();
             
+=======
+            } else {
+                Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                AC.msj1.setText("¡Porfavor Marque!");
+                AC.msj2.setText("Al menos un Viaje");
+                AC.msj3.setText("Para poder Finalizar Cotizacion");
+                AC.setVisible(true);
+            }
+
+>>>>>>> 83ef4e2a66b428b997a2f09fa5b6e6d693f1468b
         } else {
 
             Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
@@ -951,21 +1010,21 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         String  IDCotiza=IDCotizacion.getText();
 
     if(this.tabla.getRowCount()!=0){
-        if(this.tabla1.getRowCount()==0){ /////Si tabla1 esta vacia, se agrega el primer campo       
+        if(this.jTable1.getRowCount()==0){ /////Si tabla1 esta vacia, se agrega el primer campo       
         cargarServicio();
         int ID_Cotizacion;
         ID_Cotizacion=Integer.parseInt(AgregarCotizaciones1.IDCotizacion.getText());        
-        Opciones.llenarServicio(ID_Cotizacion);
-        this.tabla1.getSelectionModel().setSelectionInterval(0,0);
+        Ventanas.Modulo_Cotizaciones.Opciones.llenarServicio(ID_Cotizacion);
+        this.jTable1.getSelectionModel().setSelectionInterval(0,0);
 
         }else{//////////Si tabla1 esta llena, recorrerla para validar campos vacios
             int existenombre = 0;
             int existeprecio = 0;
-            for (int i = 0; i < tabla1.getRowCount(); i++) {
-                 if(tabla1.getValueAt(i, 2).toString().equals("")){
+            for (int i = 0; i < jTable1.getRowCount(); i++) {
+                 if(jTable1.getValueAt(i, 2).toString().equals("")){
                      existenombre++;
                  }                                 
-                 if(tabla1.getValueAt(i, 3).toString().equals("0")){
+                 if(jTable1.getValueAt(i, 3).toString().equals("0")){
                      existeprecio++;
                  }                                 
         }
@@ -978,7 +1037,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     }else{            
                           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                           AC.msj1.setText("¡Campos Vacios!");
-                          AC.msj2.setText("Para Agregar otro Servicio");
+                          AC.msj2.setText("Para Agregar otro Adicional");
                           AC.msj3.setText("Asigne un Nombre y Precio");                                    
                           AC.setVisible(true);
                     }
@@ -986,8 +1045,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         } else {
                                 Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                                 AC.msj1.setText("¡Porfavor Asigne!");
-                                AC.msj2.setText("Un Origen-Destino-Transporte");
-                                AC.msj3.setText("Para poder Asignar Servicios");
+                                AC.msj2.setText("Viajes");
+                                AC.msj3.setText("Para poder Asignar Adicionales");
                                 AC.setVisible(true);
         }
      
@@ -1009,39 +1068,24 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void tabla1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyPressed
-
-    }//GEN-LAST:event_tabla1KeyPressed
-
-    private void tabla1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyTyped
-        int ID_Cotizacion;        
-        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones1.IDCotizacion.getText());        
-        int a1=Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(),0).toString());
-        DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
-        Opciones.eliminarServicio(a1);
-        Opciones.llenarServicio(ID_Cotizacion);
-        this.tabla1.getSelectionModel().setSelectionInterval(0,0);
-
-    }//GEN-LAST:event_tabla1KeyTyped
-
     private void cmbOrigenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrigenesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbOrigenesActionPerformed
 
     private void tablaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaKeyPressed
     
-        int press=evt.getKeyCode();        
-        if(this.tabla.getSelectedRow()!=-1 && press==127 ){
-            int ID_Cotizacion;
-            //ID_Cotizacion = Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());
-            int a1 = Integer.parseInt(tabla.getValueAt(tabla.getSelectedRow(), 0).toString());
-            
-            /////Remover datos de la tabla sin modificar bd
-            DefaultTableModel modelo = (DefaultTableModel) this.tabla.getModel();
-            modelo.removeRow(tabla.getSelectedRow());
-            //this.tabla.getSelectionModel().setSelectionInterval(0, 0);
-
-        }
+//        int press=evt.getKeyCode();        
+//        if(this.tabla.getSelectedRow()!=-1 && press==127 ){
+//            int ID_Cotizacion;
+//            //ID_Cotizacion = Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());
+//            int a1 = Integer.parseInt(tabla.getValueAt(tabla.getSelectedRow(), 0).toString());
+//            
+//            /////Remover datos de la tabla sin modificar bd
+//            DefaultTableModel modelo = (DefaultTableModel) this.tabla.getModel();
+//            modelo.removeRow(tabla.getSelectedRow());
+//            //this.tabla.getSelectionModel().setSelectionInterval(0, 0);
+//
+//        }
         // TODO add your handling code here:
     }//GEN-LAST:event_tablaKeyPressed
 
@@ -1055,6 +1099,20 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
       
 
     }//GEN-LAST:event_tablaMouseClicked
+
+    private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
+        int press=evt.getKeyCode();        
+        if(this.jTable1.getSelectedRow()!=-1 && press==127 ){
+            int ID_Cotizacion;
+            ID_Cotizacion = Integer.parseInt(AgregarCotizaciones1.IDCotizacion.getText());
+            int a1 = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+            //DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
+            Ventanas.Modulo_Cotizaciones_Mensual.Opciones.eliminarServicio(a1);
+            Ventanas.Modulo_Cotizaciones.Opciones.llenarServicio(ID_Cotizacion);
+            this.jTable1.getSelectionModel().setSelectionInterval(0, 0);
+
+        }
+    }//GEN-LAST:event_jTable1KeyPressed
 
     public static void main(String args[]) {
      
@@ -1087,14 +1145,15 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    public static javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    public static javax.swing.JTable jTable1;
     public static jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JSeparator l2;
     private javax.swing.JLabel lblNombre;
@@ -1106,7 +1165,6 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     private javax.swing.JPanel pnleditar;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla;
-    public static javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
 public static void ver() {
         Clases.Conexion cc = new Clases.Conexion();
