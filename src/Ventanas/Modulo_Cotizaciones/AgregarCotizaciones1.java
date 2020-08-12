@@ -990,6 +990,20 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     //JOptionPane.showMessageDialog(null,"Finaliza directo");
                 }
 
+
+            }      
+            
+            String ID_Cotizacion = IDCotizacion.getText();
+            Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
+            Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
+            ver();
+            Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+            AC.msj1.setText("¡Esta cotización!");
+            AC.msj2.setText("A sido Finalizada");
+            AC.setVisible(true);
+            this.dispose();
+            
+
             } else {
                 Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                 AC.msj1.setText("¡Porfavor Marque!");
@@ -998,15 +1012,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                 AC.setVisible(true);
             }
 
-        } else {
 
-            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Porfavor Asigne!");
-            AC.msj2.setText("Un Cliente-Origen");
-            AC.msj3.setText("Para poder Finalizar Cotizacion");
-            AC.setVisible(true);
-
-        }
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
     private void pnlFinalizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseEntered
@@ -1200,7 +1206,7 @@ public static void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\RVC.RVC-PC\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionD_1_1.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);

@@ -10,6 +10,7 @@ import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import static Alerts.AlertBasic.AgregarDestinos.ID;
 import Alerts.AlertBasic.Eliminar;
+import Alerts.AlertBasic.EliminarRut;
 import Alerts.FadeEffect;
 import Clases.Clientes;
 import Clases.Conexion;
@@ -99,9 +100,11 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         Destinos();
         llenarTransportes();
         lblatencion.setVisible(true);
-        lblID_Cliente.setVisible(true);
-        ID_rutas.setVisible(true);
-        IDCotizacion.setVisible(true);
+        lblID_Cliente.setVisible(false);
+        ID_rutas.setVisible(false);
+        IDCotizacion.setVisible(false);
+        lblID_Origen.setVisible(false);
+        
      
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -265,17 +268,40 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         }
 
     }
-    public void eliminar()
+//    public void eliminar()
+//    {
+//        int Fila = tabla.getSelectedRow();
+//            if(Fila >= 0)
+//        {
+//            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+//            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+//            Eliminar ME = new Eliminar(null, true);
+//            ME.ID.setText(""+ID);
+//            ME.Cotizacion.setText(""+ID_Cotizacion);
+//            ME.setVisible(true);
+//        }
+//    else
+//        {
+//            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+//            AC.msj1.setText("¡Seleccione el registro!");
+//            AC.msj2.setText("A eliminar");
+//            AC.setVisible(true);
+//        }
+//    }
+       public void eliminar()
     {
         int Fila = tabla.getSelectedRow();
             if(Fila >= 0)
         {
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-            Eliminar ME = new Eliminar(null, true);
+          int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+//            int ID = Integer.parseInt(IDCotizacion.getText());
+
+            EliminarRut ME = new EliminarRut(null, true);
             ME.ID.setText(""+ID);
-            ME.Cotizacion.setText(""+ID_Cotizacion);
+//            ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);
+            Opciones.listar("",ID);
+//           JOptionPane.showMessageDialog(null,""+ID);
         }
     else
         {
@@ -284,7 +310,12 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             AC.msj2.setText("A eliminar");
             AC.setVisible(true);
         }
+           
     }
+    
+    
+    
+    
     ////////////////////////////////////////////////////////////////////////////
     private void Guardar(String destino,int IDOrigen ,int IDClient,int IDCot ){
         int ID_Ruta = 0;
@@ -343,7 +374,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                     }
                     else
                     {
-                        if(ID_TRAN==0)
+                        if(lblIDTrans.getText().equals(""))
                         {
                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                             AC.msj1.setText("¡Elija un !");
@@ -1108,7 +1139,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbOrigenesItemStateChanged
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-        
+    int ID = Integer.parseInt(IDCotizacion.getText());
+         Opciones.listar(buscar.getText(), ID);        
     }//GEN-LAST:event_buscarKeyReleased
 
     private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
@@ -1234,7 +1266,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         }
         
    lblIDTrans.setText(IDTrans);
-   JOptionPane.showMessageDialog(null, IDTrans);
+  
         }
     
 
@@ -1371,7 +1403,13 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbClienteActionPerformed
 
     private void cmbTransportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTransportesActionPerformed
-         
+         if(lblIDTrans.getText().equals(""))
+                        {
+                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                            AC.msj1.setText("¡Elija un !");
+                            AC.msj2.setText("Transporte");
+                            AC.setVisible(true);
+                        }
     }//GEN-LAST:event_cmbTransportesActionPerformed
 
     private void tabla1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyPressed

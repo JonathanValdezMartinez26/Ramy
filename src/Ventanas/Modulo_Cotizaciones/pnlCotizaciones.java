@@ -19,6 +19,7 @@ import Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado;
 import Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado;
 
 import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
+import Ventanas.Modulo_Ruta_Cotizacion.ModificarCotizacionesRuta;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.IDCotizacion;
 import Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta;
@@ -90,7 +91,10 @@ public class pnlCotizaciones extends javax.swing.JPanel {
                                 MR.setVisible(true);
                                 }else{
                                     if(tipo.equals("RUTA")){
-                                        JOptionPane.showMessageDialog(null, "se debe modificar por ruta");
+                                int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+                                ModificarCotizacionesRuta MR = new ModificarCotizacionesRuta(null, true);
+                                MR.CargarDatos(ID);
+                                MR.setVisible(true);
                                     }
                                 }
                             }
@@ -709,7 +713,8 @@ public class pnlCotizaciones extends javax.swing.JPanel {
                                 
                                 }else{
                                     if(tipo.equals("RUTA")){
-                                        JOptionPane.showMessageDialog(null, "se debe modificar por ruta");
+                                        int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+                                ver3(ID);
                                     }
                                 }
                             }
@@ -837,6 +842,42 @@ public static void ver2(int ID) {
         }
 }
         
+public static void ver3(int ID) {
+        Clases.Conexion cc = new Clases.Conexion();
+        
+        if (ID >= 0) {
+
+       try {
+            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Ruta.jasper";
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            Map parametro = new HashMap();
+            parametro.put("ID_Cotizacion", ID);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+
+            JRViewer jrv = new JRViewer(jasperPrint);
+            jrv.setZoomRatio((float) 0.75);
+            r.contenedor.removeAll();
+
+            r.contenedor.setLayout(new BorderLayout());
+            r.contenedor.add(jrv, BorderLayout.CENTER);
+
+            r.contenedor.repaint();
+            r.contenedor.revalidate();
+            jrv.setVisible(true);
+            r.setVisible(true);
+        } catch (JRException ex) {
+            System.err.println("Error iReport: " + ex.getMessage());
+        }
+    }
+        else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error  generar la Cotizacion!");
+            AC.msj2.setText("Verifique que se agregaron los datos ");
+            AC.setVisible(true);
+        }
+}
     
     
     
