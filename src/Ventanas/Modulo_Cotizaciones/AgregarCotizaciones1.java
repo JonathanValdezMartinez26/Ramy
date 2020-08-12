@@ -963,7 +963,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     //JOptionPane.showMessageDialog(null,"Finaliza directo");
                 }
 
-<<<<<<< HEAD
+
             }      
             
             String ID_Cotizacion = IDCotizacion.getText();
@@ -976,7 +976,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             AC.setVisible(true);
             this.dispose();
             
-=======
+
             } else {
                 Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                 AC.msj1.setText("¡Porfavor Marque!");
@@ -985,16 +985,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                 AC.setVisible(true);
             }
 
->>>>>>> 83ef4e2a66b428b997a2f09fa5b6e6d693f1468b
-        } else {
 
-            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Porfavor Asigne!");
-            AC.msj2.setText("Un Cliente-Origen");
-            AC.msj3.setText("Para poder Finalizar Cotizacion");
-            AC.setVisible(true);
-
-        }
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
     private void pnlFinalizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseEntered
