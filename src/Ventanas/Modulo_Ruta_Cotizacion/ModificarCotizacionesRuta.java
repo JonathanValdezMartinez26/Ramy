@@ -10,6 +10,7 @@ import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import static Alerts.AlertBasic.AgregarDestinos.ID;
 import Alerts.AlertBasic.Eliminar;
+import Alerts.AlertBasic.EliminarRutMod;
 import Alerts.FadeEffect;
 import Clases.Clientes;
 import Clases.Conexion;
@@ -30,7 +31,7 @@ import static Ventanas.Modulo_Cotizaciones.Opciones.cn;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Ruta_Cotizacion.pnlRutasGuardadas.info;
 import Ventanas.Modulo_Tipo_Servicio.ModificarTipoServicio;
-import static Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio.tabla;
+import static Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
 import java.awt.BorderLayout;
@@ -99,14 +100,15 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         Destinos();
         llenarTransportes();
         lblatencion.setVisible(true);
-        lblID_Cliente.setVisible(true);
-        ID_rutas.setVisible(true);
-        IDCotizacion.setVisible(true);
+        lblID_Cliente.setVisible(false);
+        ID_rutas.setVisible(false);
+        IDCotizacion.setVisible(false);
+        lblID_Origen.setVisible(false);
      
-        tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
-        this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
-        this.tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.tablaR.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane.getVerticalScrollBar().setUI(new MyScrollbarUI());
@@ -121,7 +123,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
-        tabla.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditorRuta(db,"Precio"));//Columna Precio
+        tablaR.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditorRuta(db,"Precio"));//Columna Precio
 //        tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorServRutNombre(db,"Nombre del Servicio"));//Columna Precio
 //        tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorServRutPrecio(db,"Precio"));//Columna Precio
     }
@@ -265,17 +267,41 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         }
 
     }
-    public void eliminar()
+//    public void eliminar()
+//    {
+//        int Fila = tablaR.getSelectedRow();
+//            if(Fila >= 0)
+//        {
+//            int ID = Integer.parseInt(tablaR.getValueAt(Fila, 0).toString());
+//            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
+//            Eliminar ME = new Eliminar(null, true);
+//            ME.ID.setText(""+ID);
+//            ME.Cotizacion.setText(""+ID_Cotizacion);
+//            ME.setVisible(true);
+//        }
+//    else
+//        {
+//            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+//            AC.msj1.setText("¡Seleccione el registro!");
+//            AC.msj2.setText("A eliminar");
+//            AC.setVisible(true);
+//        }
+//    }
+    
+           public void eliminar()
     {
-        int Fila = tabla.getSelectedRow();
+        int Fila = tablaR.getSelectedRow();
             if(Fila >= 0)
         {
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-            Eliminar ME = new Eliminar(null, true);
+          int ID = Integer.parseInt(tablaR.getValueAt(Fila, 0).toString());
+//            int ID = Integer.parseInt(IDCotizacion.getText());
+
+            EliminarRutMod ME = new EliminarRutMod(null, true);
             ME.ID.setText(""+ID);
-            ME.Cotizacion.setText(""+ID_Cotizacion);
+//            ME.Cotizacion.setText(""+ID_Cotizacion);
             ME.setVisible(true);
+            Opciones.listarModificar("",ID);
+//           JOptionPane.showMessageDialog(null,""+ID);
         }
     else
         {
@@ -284,7 +310,9 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
             AC.msj2.setText("A eliminar");
             AC.setVisible(true);
         }
+           
     }
+    
     ////////////////////////////////////////////////////////////////////////////
     private void Guardar(String destino,int IDOrigen ,int IDClient,int IDCot ){
         int ID_Ruta = 0;
@@ -367,8 +395,8 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
 //                                   int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
                                     String Origen =ModificarCotizacionesRuta.cmbOrigenes.getSelectedItem().toString();                                    
                                     String Transportes=ModificarCotizacionesRuta.cmbTransportes.getSelectedItem().toString();                                    
-                                    Opciones.registrarCotizacionesRuta(IDCot,IDClient,IDOrigen,Origen,destino,ID_Transporte,Transportes);
-                                    Opciones.listar("",ID_Cotizacion );
+                                    Opciones.registrarCotizacionesRuta1(IDCot,IDClient,IDOrigen,Origen,destino,ID_Transporte,Transportes);
+                                    Opciones.listarModificar("",ID_Cotizacion );
                                 }else{
                                     
                                      Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -436,6 +464,38 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
     //AgregarCotizaciones.dispose();
     }
     
+        public void CargarDatos(int ID){
+        Ventanas.Modulo_Ruta_Cotizacion.Opciones.listarModificar("", ID);
+
+//        Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.llenarServicioModificar(ID);
+        
+         IDCotizacion.setText(""+ID);
+        String Nombre="";
+        String Atencion="", Calle = "";
+        int localidad = 0;
+                int IDD=0;
+        try{
+            
+            resultado = Conexion.consulta("Select * from cotizacionesv Where ID_Cotizacion = "+ID);
+            
+            while(resultado.next()){
+             IDD = resultado.getInt(1);
+             Nombre = resultado.getString(2);
+             Atencion = resultado.getString(3);
+             localidad = resultado.getInt(4);
+             Calle = resultado.getString(5);
+            }
+            
+        }catch(SQLException ex){}        
+        cmbCliente.setSelectedItem(Nombre);        
+        lblNombre.setText(Atencion);
+//        txtCalle.setText(Calle);
+//        cmbColonia.setSelectedItem(localidad);
+        
+      
+        
+    }
+    
     
 //    
     ////////////////////////////////////////////////////////////////////////
@@ -451,7 +511,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         lblNombreNuevo17 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
+        tablaR = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
         cmbCliente = new ComboBox.SComboBox();
@@ -541,7 +601,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
+        tablaR.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -564,16 +624,16 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tabla.setRowHeight(25);
-        tabla.getTableHeader().setReorderingAllowed(false);
-        jScrollPane.setViewportView(tabla);
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(4).setMinWidth(140);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(140);
-            tabla.getColumnModel().getColumn(4).setMaxWidth(140);
+        tablaR.setRowHeight(25);
+        tablaR.getTableHeader().setReorderingAllowed(false);
+        jScrollPane.setViewportView(tablaR);
+        if (tablaR.getColumnModel().getColumnCount() > 0) {
+            tablaR.getColumnModel().getColumn(0).setMinWidth(0);
+            tablaR.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tablaR.getColumnModel().getColumn(0).setMaxWidth(0);
+            tablaR.getColumnModel().getColumn(4).setMinWidth(140);
+            tablaR.getColumnModel().getColumn(4).setPreferredWidth(140);
+            tablaR.getColumnModel().getColumn(4).setMaxWidth(140);
         }
 
         tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
@@ -944,20 +1004,51 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_jPanel7MousePressed
 
     private void cmbClienteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbClienteItemStateChanged
-         if (evt.getStateChange() == ItemEvent.SELECTED) {
-//            String cliente=cmbCliente.getSelectedItem().toString();            
-            int ID_Client = cmbCliente.getSelectedIndex();
-            int ID_Cliente = ID_Cli[ID_Client];
-//            String ID_ClienteString="";
-    
-            int i = 1;
-            int er;
-//             int IDR = Integer.parseInt(IDCotizacion2.getText());
-            //JOptionPane.showMessageDialog(null, ID_Client);
-          
+            cmbCliente.setEnabled(false);
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            
+             int ID_Cliente = cmbCliente.getSelectedIndex();
+//           int ID_Cliente = ID_Cli[ID_Client];
+            int i = 0;
+//              int ID = Integer.parseInt(IDCotizacion.getText());
+            int R=0;
+//              IDCotizacion.setText(""+ObtenID());
+//
+//                int ID = Integer.parseInt(IDCotizacion.getText());
+//                int ID = 118;
+              int Fila = tabla.getSelectedRow();
+              int IDE = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+             
+            cmbOrigenes.removeAllItems();
+            cmbOrigenes.addItem("Seleccione un Origen");
+            
+            int ID1=0;
+            
             try {
+                resultado = Conexion.consulta("SELECT ID_Cliente from cotizaciones where "
+                        + "ID_Cotizacion="+IDE);
+                //select ID_Origen from origen WHERE ID_Municipio=688
+
+                while (resultado.next()) {
+                    ID1 = resultado.getInt(1);
+                    //cmbOrigenes.addItem(resultado.getString(2).trim());
+                    i++;
+                }
+//                JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
+            }
+            catch (SQLException ex) {
+            }            
+                    lblID_Cliente.setText(""+ID1);
+            
+            
+            
+            int IDR = Integer.parseInt(lblID_Cliente.getText());
+
+
+            try {
+
                 resultado = Conexion.consulta("SELECT ID_Municipio_Origen, Origen from rutav where "
-                        + "(ID_Cliente = "+ID_Cliente+") GROUP BY Origen");
+                        + "(ID_Cliente = "+IDR+") GROUP BY Origen");
 
                 while (resultado.next()) {
                     ID_Ori[i] = resultado.getInt(1);
@@ -966,35 +1057,18 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
                 }
             } 
             catch (SQLException ex) {
-            }            
-            lblID_Cliente.setText(""+ID_Cliente);
-            cmbCliente.setEnabled(false);
-            Cotizaciones.Agregar_Cotizacion(ID_Cliente,3);
-            lblatencion.setVisible(true);
-            lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
-            IDCotizacion.setText(""+ObtenID());
+            }
+//            
+//            cmbCliente.setEnabled(false);
+//            Cotizaciones.Agregar_Cotizacion(ID_Cliente,2);
+//            lblatencion.setVisible(true);
+//            lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
+//            IDCotizacion.setText(""+ObtenID());
             Opciones.listarCotizaciones("");
-//            int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-//            Opciones.listar("",ID_Cotizacion );
-            
-            
-//            if(Opciones.verificaCliente(ID_Cliente)==0)///falta decirle que compare por origen, destino y cliente
-//                {
-//                    JOptionPane.showMessageDialog(null, "No existe ninguna ruta con ese cliente");
-//                    Opciones.listar("",ID_Cotizacion );
-//                }
-//            else{
-//                    //JOptionPane.showMessageDialog(null, "Este clietne ya tiene ruta");
-//                    pnlRutasGuardadas RG=new pnlRutasGuardadas(null,true);
-//                    //RG.Opciones.listarDetallesCotizaciones(ID_Cliente,cliente);
-//                    RG.setVisible(true);
-//                    //JOptionPane.showMessageDialog(null, ID+" "+clientes);
-//                    //llenarDetalles(ID_Cliente, cliente);
-//                    //poper.Opciones.listarDetallesCotizaciones(ID_Cliente, cliente);  
-////                    int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-////                    Opciones.listar("",ID_Cotizacion );
-//                }
+           Ventanas.Modulo_Ruta_Cotizacion.Opciones.listarModificar("", IDE);
          }
+         
+         
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
     private void cmbDestinosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbDestinosItemStateChanged
@@ -1146,11 +1220,11 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-    if(this.tabla.getRowCount()!=0){
+    if(this.tablaR.getRowCount()!=0){
        int existenombre2 = 0;
             int existeprecio2 = 0;
-            for (int i = 0; i < tabla.getRowCount(); i++) {                                                 
-                 if(tabla.getValueAt(i, 2).toString().equals("0")){
+            for (int i = 0; i < tablaR.getRowCount(); i++) {                                                 
+                 if(tablaR.getValueAt(i, 2).toString().equals("0")){
                      existeprecio2++;
                  }                                 
         }
@@ -1234,14 +1308,14 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         }
         
    lblIDTrans.setText(IDTrans);
-   JOptionPane.showMessageDialog(null, IDTrans);
+   
         }
     
 
     }//GEN-LAST:event_cmbTransportesItemStateChanged
 
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-      if(this.tabla.getRowCount()!=0){//Si la tablaR no esta vacia, permitir agregar servicios
+      if(this.tablaR.getRowCount()!=0){//Si la tablaR no esta vacia, permitir agregar servicios
         if(this.tabla1.getRowCount()==0){ /////Si tabla1 esta vacia, se agrega el primer campo       
         cargarServicio();
         int ID_Cotizacion;
@@ -1453,9 +1527,9 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
     private javax.swing.JPanel pnlVista;
     private javax.swing.JPanel pnleditar;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
-    public static javax.swing.JTable tabla;
     public static javax.swing.JTable tabla1;
     public static javax.swing.JTable tablaDestinos;
+    public static javax.swing.JTable tablaR;
     // End of variables declaration//GEN-END:variables
 public void ver() {
         Clases.Conexion cc = new Clases.Conexion();

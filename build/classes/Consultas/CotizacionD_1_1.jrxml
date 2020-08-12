@@ -3,8 +3,8 @@
 	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="209"/>
-	<property name="ireport.y" value="547"/>
+	<property name="ireport.x" value="151"/>
+	<property name="ireport.y" value="354"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -39,15 +39,21 @@
 		<defaultValueExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT *FROM DATOS WHERE ID_COTIZACION=$P{ID_Cotizacion}]]>
+		<![CDATA[SELECT *FROM Reporte_directa WHERE ID_Cotizacion=$P{ID_Cotizacion}]]>
 	</queryString>
-	<field name="ID_Ruta" class="java.lang.Long">
+	<field name="ID_Cotizacion" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="ID_Cliente" class="java.lang.Long">
+	<field name="Nombre_cliente" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Nombre_Cliente" class="java.lang.String">
+	<field name="Atencion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Localidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calle" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Origen" class="java.lang.String">
@@ -56,37 +62,22 @@
 	<field name="Destino" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Nombre_Transporte" class="java.lang.String">
+	<field name="Camioneta_15" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Precio" class="java.lang.Float">
+	<field name="Camioneta_35" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Atencion" class="java.lang.String">
+	<field name="Rabon" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Calle" class="java.lang.String">
+	<field name="Torthon" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Localidad" class="java.lang.String">
+	<field name="Trailer" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="TRÁILER" class="java.lang.Double">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="CAMIONETA_UNO_CINCO_TON" class="java.lang.Double">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="CAMIONETA_TRES_CINCO_TON" class="java.lang.Double">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="TORTHON" class="java.lang.Double">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="FULL" class="java.lang.Double">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="ID_Cotizacion" class="java.lang.Long">
+	<field name="Full" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<group name="origen">
@@ -351,7 +342,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="16"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Nombre_Cliente}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Nombre_cliente}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="Column header" x="10" y="197" width="532" height="33" forecolor="#000000" uuid="fe426815-12c8-4c35-8002-8c2a66cb8079"/>
@@ -393,7 +384,7 @@
 				<textElement textAlignment="Left">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Calle}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{calle}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="Column header" x="137" y="0" width="206" height="15" forecolor="#000000" uuid="7eb78d90-1559-4c21-a491-bcbd6c9ff543"/>
@@ -434,32 +425,32 @@
 			<textField>
 				<reportElement style="table_TH" x="283" y="0" width="68" height="23" backcolor="#FFFFFF" uuid="faf51273-7f5a-4641-af8a-355ed4d2dc5f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{CAMIONETA_TRES_CINCO_TON}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Camioneta_35}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="351" y="0" width="60" height="23" backcolor="#FFFFFF" uuid="6bffa775-e756-488b-a7c8-78ea816c6429"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{TORTHON}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Torthon}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="462" y="0" width="44" height="23" backcolor="#FFFFFF" uuid="27549562-da04-4c65-b145-96467c0f5ee9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{FULL}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Full}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="220" y="0" width="63" height="23" backcolor="#FFFFFF" uuid="627ee650-20f4-4e6e-b552-5ab8a564e7a0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{CAMIONETA_UNO_CINCO_TON}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Camioneta_15}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="411" y="0" width="51" height="23" backcolor="#FFFFFF" uuid="e6004563-af3d-4263-8780-158587ae8937"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{TRÁILER}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Trailer}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="506" y="0" width="41" height="23" backcolor="#FFFFFF" uuid="42c85c04-e616-4cde-8f91-82c1d8d66cc0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{FULL}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Rabon}.intValue()]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
