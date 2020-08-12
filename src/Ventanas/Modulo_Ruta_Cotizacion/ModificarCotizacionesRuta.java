@@ -1182,7 +1182,8 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbOrigenesItemStateChanged
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-        
+    int ID = Integer.parseInt(IDCotizacion.getText());
+         Opciones.listarModificar(buscar.getText(), ID);         
     }//GEN-LAST:event_buscarKeyReleased
 
     private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped
