@@ -145,7 +145,7 @@ public class Opciones {
             
             sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from Cotizaciones_ruta "
                    + " where  (ID_Cotizacion =" +ID_Cotizacion+" AND Origen LIKE '%"+ busca +"%')"
-                    + " OR (ID_Cotizacion =" +ID_Cotizacion+" AND Destino LIKE '"+ busca +"%')"
+                     + " OR (ID_Cotizacion =" +ID_Cotizacion+" AND Destino LIKE '"+ busca +"%')"
                     + " OR (ID_Cotizacion =" +ID_Cotizacion+" AND Transporte LIKE '"+ busca +"%')"
                     + " OR (ID_Cotizacion =" +ID_Cotizacion+" AND Precio LIKE '"+ busca +"%')";
             
@@ -182,7 +182,11 @@ public class Opciones {
             sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from Cotizaciones_ruta where ID_Cotizacion =" + ID_Cotizacion;
         } else {
             
-            sql = "Select ID_CotizacionRuta, Origen, Destino,Precio from asigna_cotizacionv where  Origen LIKE '%" + busca +"%' OR Destino LIKE '"+ busca +"%' OR Precio LIKE '"+ busca +"%' and ID_Cotizacion =" + ID_Cotizacion;
+            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from Cotizaciones_ruta "
+                   + " where  (ID_Cotizacion =" +ID_Cotizacion+" AND Origen LIKE '%"+ busca +"%')"
+                     + " OR (ID_Cotizacion =" +ID_Cotizacion+" AND Destino LIKE '"+ busca +"%')"
+                    + " OR (ID_Cotizacion =" +ID_Cotizacion+" AND Transporte LIKE '"+ busca +"%')"
+                    + " OR (ID_Cotizacion =" +ID_Cotizacion+" AND Precio LIKE '"+ busca +"%')";
             
            }
         String datos[] = new String[5];
