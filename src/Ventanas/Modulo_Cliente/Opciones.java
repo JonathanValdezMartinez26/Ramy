@@ -182,6 +182,21 @@ public class Opciones {
         }
         return existe;
     }
+   public static int verificaViaje(int ID_Cliente) {
+        int existe = 0;
+  
+        String SQL = "SELECT count(ID_Cliente) from rutav where (ID_Cliente = '"+ID_Cliente+"')";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                existe = rs.getInt(1);
+            }           
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return existe;
+    }
     ////////////////////////////////////////////////////
     
     public static void listarOrigen(String busca, int ID) {
@@ -430,6 +445,8 @@ catch(SQLException e) {
     JOptionPane.showMessageDialog(null, e.getMessage());
 }
     }
+
+    
     
     
 }

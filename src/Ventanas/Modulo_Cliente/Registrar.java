@@ -82,9 +82,8 @@ public class Registrar extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         FadeEffect.fadeIn(this, 1, 0.1f);
         ocultarAciertos();
-        cmbDestinos.addItem("Todos los Destinos");
-        ID_C.setVisible(false);
         
+        ID_C.setVisible(false);
         
         ///////////////////////////
 //        ID_C.setVisible(false);
@@ -165,6 +164,22 @@ public class Registrar extends javax.swing.JDialog {
         
         /////////////////////
         
+            
+            
+        
+        
+    }
+    public static void validar(int ID){
+        
+            
+            //Opciones.verificaViaje(int ID);
+//            if(existe==0){
+//                cmbDestinos.addItem("Todos los Destinos");
+//            }else{
+//                JOptionPane.showMessageDialog(null, "Las filas son: "+existe);
+//                cmbDestinos.addItem("------------------");
+//            }
+
     }
     ////////////////////////////////////////////////////////////////////////////
     public void listar(int ID)
@@ -429,6 +444,48 @@ public class Registrar extends javax.swing.JDialog {
                 }
     }
     ////////////////////////////////////////////////////////////////////////////
+    public void ComboDestinoNormal(int ID)
+    {
+        int ID_Destino = 0;
+
+          try
+            {
+                resultado = Conexion.consulta("Select Max(ID_Destino) from destinovv");
+
+                while(resultado.next())
+                {
+                    ID_Destino = resultado.getInt(1);
+                }
+            }
+            catch(SQLException ex)
+            {
+
+            }
+
+                ID_Destino++;
+                ID_Des = new int[ID_Destino];
+
+                ID_Des [0] = 0; 
+                /////empezar a partir del item no.2
+                int i = 1;
+
+                try
+                {
+                    resultado = Conexion.consulta("Select ID_Destino, Destino from destinovv where ID_Cliente ="+ID);
+
+                    while(resultado.next())
+                    {
+                        ID_Des [i] = resultado.getInt(1);
+                        cmbDestinos.addItem(resultado.getString(2).trim());
+                        i++;
+                    }
+                }
+                catch(SQLException ex)
+                {
+
+                }
+    }
+    
     ////////////////////////////////////////////////////////////////////////////
     public void GuardarOD(){
 //        int comboTransporte = cmbTransportes.getSelectedIndex();
@@ -475,7 +532,7 @@ public class Registrar extends javax.swing.JDialog {
                                   
                                 //Clientes.Agregar_Ruta(ID, ID_Origen, ID_Destino, 0, ID_Transporte);
                                 Opciones.AgregarRuta(ID, ID_Origen, ID_Destino);
-//                                Opciones.listarDestino(null, ID);
+                                Opciones.listarViaje("", ID);
                                     
 //                                  this.cmbTransportes.setSelectedIndex(0);
 //                                this.cmbOrigenes.setSelectedIndex(0);
@@ -527,6 +584,12 @@ public class Registrar extends javax.swing.JDialog {
 //        this.cmbDestinos.setSelectedIndex(0);
 //        this.cmbTransportes.setSelectedIndex(0);
     }
+//    public static void setSelectedIndex(int index) { 
+//        int index;
+//    if (!cmbDestinos.contains(index)) { 
+//     super.setSelectedIndex(index); 
+//    } 
+//} 
  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -1203,7 +1266,8 @@ public class Registrar extends javax.swing.JDialog {
     private void cmbDestinosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbDestinosItemStateChanged
 
     if (evt.getStateChange() == ItemEvent.SELECTED) {
-    
+        //cmbDestinos.removeItem("Todos los Destinos");
+        //setSelectedIndex(1);
        
     }
         
@@ -1271,6 +1335,8 @@ public class Registrar extends javax.swing.JDialog {
     }//GEN-LAST:event_tabla3KeyPressed
 
     private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+    
+        
 
         String Destinos = (String) cmbDestinos.getSelectedItem();        
         String Origenes = (String) cmbOrigenes.getSelectedItem();
@@ -1313,6 +1379,7 @@ public class Registrar extends javax.swing.JDialog {
                     if (existe == 0) {
                         Opciones.listarViaje("", IDCliente);
                     } else {
+                        
                         Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                         AC.msj1.setText("¡Este Origen y Destinos!");
                         AC.msj2.setText("Ya estan registrados");
@@ -1337,8 +1404,9 @@ public class Registrar extends javax.swing.JDialog {
             
                         if(indexDestino!=0 && indexOrigen!=0){
                         GuardarOD();
-                        ID = Integer.parseInt(ID_C.getText());
-                        Opciones.listarViaje(null, ID);
+                        
+//                        int IDC = Integer.parseInt(ID_C.getText());
+//                        Opciones.listarViaje("", IDC);
                         }else{
                         Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                         AC.msj1.setText("¡Seleccione!");
