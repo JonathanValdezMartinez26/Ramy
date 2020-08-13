@@ -547,8 +547,8 @@ public class Registrar extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         cmbEstado = new ComboBox.SComboBox();
         cmbMunicipio = new ComboBox.SComboBox();
-        jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jButton1 = new JButtonEspecial.JButtonEspecial();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
@@ -558,8 +558,8 @@ public class Registrar extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         cmbEstado1 = new ComboBox.SComboBox();
         cmbMunicipio1 = new ComboBox.SComboBox();
-        jButton2 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
+        jButton2 = new JButtonEspecial.JButtonEspecial();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla2 = new javax.swing.JTable();
@@ -570,11 +570,11 @@ public class Registrar extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         cmbOrigenes = new ComboBox.SComboBox();
         cmbDestinos = new ComboBox.SComboBox();
-        jButton3 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         lblIDOrigen = new javax.swing.JLabel();
         buscarViaje = new app.bolivia.swing.JCTextField();
         jLabel4 = new javax.swing.JLabel();
+        jButton33 = new JButtonEspecial.JButtonEspecial();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla3 = new javax.swing.JTable();
@@ -614,7 +614,7 @@ public class Registrar extends javax.swing.JDialog {
         lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreNuevo17.setText("     Clientes > Ata Origen, Destinos y Asignación");
-        jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 750, 30));
+        jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 900, 30));
 
         rSButtonMetro2.setText("X");
         rSButtonMetro2.setToolTipText("Cerrar");
@@ -626,9 +626,9 @@ public class Registrar extends javax.swing.JDialog {
                 rSButtonMetro2ActionPerformed(evt);
             }
         });
-        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, 30, 30));
+        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(914, 0, 30, 30));
 
-        jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, 970, -1));
+        jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 12, 944, -1));
 
         barra_estado.setBackground(new java.awt.Color(255, 255, 255));
         barra_estado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -677,17 +677,25 @@ public class Registrar extends javax.swing.JDialog {
             }
         });
         jPanel1.add(cmbMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 230, 30));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 900, 10));
 
-        jButton1.setText("Agregar");
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setForeground(new java.awt.Color(128, 128, 131));
+        jButton1.setText("Aceptar");
+        jButton1.setColorBorde(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        jButton1.setColorHover(new java.awt.Color(204, 204, 204));
+        jButton1.setColorNormal(new java.awt.Color(204, 204, 204));
+        jButton1.setColorPressed(new java.awt.Color(153, 153, 153));
+        jButton1.setColorTextHover(new java.awt.Color(128, 128, 131));
+        jButton1.setColorTextNormal(new java.awt.Color(128, 128, 131));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 80, 30));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 688, 10));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 220, 30));
 
-        A.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 730, 60));
+        A.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 900, 60));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -720,14 +728,14 @@ public class Registrar extends javax.swing.JDialog {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
 
-        A.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 730, 300));
+        A.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 900, 300));
 
         jLabel1.setText("Seleccione un Origen y Posteriormente un Destino ");
         A.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 610, -1));
@@ -773,17 +781,25 @@ public class Registrar extends javax.swing.JDialog {
             }
         });
         jPanel2.add(cmbMunicipio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 230, 30));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 880, 10));
 
-        jButton2.setText("Agregar");
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
+        jButton2.setForeground(new java.awt.Color(128, 128, 131));
+        jButton2.setText("Aceptar");
+        jButton2.setColorBorde(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        jButton2.setColorHover(new java.awt.Color(204, 204, 204));
+        jButton2.setColorNormal(new java.awt.Color(204, 204, 204));
+        jButton2.setColorPressed(new java.awt.Color(153, 153, 153));
+        jButton2.setColorTextHover(new java.awt.Color(128, 128, 131));
+        jButton2.setColorTextNormal(new java.awt.Color(128, 128, 131));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 80, 30));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 688, 10));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 220, 30));
 
-        B.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 730, 60));
+        B.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 900, 60));
 
         tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -816,14 +832,14 @@ public class Registrar extends javax.swing.JDialog {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
 
-        B.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 730, 300));
+        B.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 900, 300));
 
         jLabel2.setText("Seleccione un Estado y Posteriormente un Municipio para agregar un Destino");
         B.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 610, -1));
@@ -862,6 +878,7 @@ public class Registrar extends javax.swing.JDialog {
 
         C.setBackground(new java.awt.Color(255, 255, 255));
         C.setName("C"); // NOI18N
+        C.setPreferredSize(new java.awt.Dimension(950, 445));
         C.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -884,15 +901,7 @@ public class Registrar extends javax.swing.JDialog {
             }
         });
         jPanel3.add(cmbDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 290, 30));
-
-        jButton3.setText("Agregar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 130, 30));
-        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 910, 10));
+        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 900, 10));
 
         lblIDOrigen.setText("0");
         jPanel3.add(lblIDOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 20, -1));
@@ -919,7 +928,23 @@ public class Registrar extends javax.swing.JDialog {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/campo-buscar.png"))); // NOI18N
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 210, -1));
 
-        C.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 930, 120));
+        jButton33.setBackground(new java.awt.Color(204, 204, 204));
+        jButton33.setForeground(new java.awt.Color(128, 128, 131));
+        jButton33.setText("Aceptar");
+        jButton33.setColorBorde(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        jButton33.setColorHover(new java.awt.Color(204, 204, 204));
+        jButton33.setColorNormal(new java.awt.Color(204, 204, 204));
+        jButton33.setColorPressed(new java.awt.Color(153, 153, 153));
+        jButton33.setColorTextHover(new java.awt.Color(128, 128, 131));
+        jButton33.setColorTextNormal(new java.awt.Color(128, 128, 131));
+        jButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton33ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 220, 30));
+
+        C.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 900, 120));
 
         tabla3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1060,15 +1085,13 @@ public class Registrar extends javax.swing.JDialog {
         PanelDesliza.add(D, "card5");
 
         jcMousePanel1.add(PanelDesliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 130, 920, 450));
-        jcMousePanel1.add(l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 920, 10));
+        jcMousePanel1.add(l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 120, 903, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1002, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1108,10 +1131,6 @@ public class Registrar extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cmbMunicipioItemStateChanged
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Guardar();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void log1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log1ActionPerformed
         ID = Integer.parseInt(ID_C.getText());
         if(Opciones.verificaOrigen1(ID) == 0)
@@ -1145,10 +1164,6 @@ public class Registrar extends javax.swing.JDialog {
             MunicipioItem = mun.getId();
         }
     }//GEN-LAST:event_cmbMunicipio1ItemStateChanged
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Guardar1();
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
         PanelDesliza.setPanelSlider(2, A, RSPanelsSlider.DIRECT.RIGHT);
@@ -1194,7 +1209,69 @@ public class Registrar extends javax.swing.JDialog {
         
     }//GEN-LAST:event_cmbDestinosItemStateChanged
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void log4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log4ActionPerformed
+        PanelDesliza.setPanelSlider(2, D, RSPanelsSlider.DIRECT.RIGHT);
+        barra_estado.setVisible(false);
+        l1.setVisible(false);
+    }//GEN-LAST:event_log4ActionPerformed
+
+    private void log5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log5ActionPerformed
+        PanelDesliza.setPanelSlider(2, B, RSPanelsSlider.DIRECT.RIGHT);
+        a3.setText("Destinos.");
+    }//GEN-LAST:event_log5ActionPerformed
+
+    private void log8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log8ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_log8ActionPerformed
+
+    private void DFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DFocusGained
+
+    }//GEN-LAST:event_DFocusGained
+
+    private void buscarViajeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarViajeKeyReleased
+        int IDCliente = Integer.parseInt(ID_C.getText());
+        Opciones.listarViaje(Registrar.buscarViaje.getText(),IDCliente);
+    }//GEN-LAST:event_buscarViajeKeyReleased
+
+    private void buscarViajeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarViajeKeyTyped
+        char letras = evt.getKeyChar();
+
+        if (Character.isLowerCase(letras)) {
+            String cad = ("" + letras).toUpperCase();
+            letras = cad.charAt(0);
+            evt.setKeyChar(letras);
+        }
+    }//GEN-LAST:event_buscarViajeKeyTyped
+
+    private void buscarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarViajeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarViajeActionPerformed
+
+    private void tabla3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla3KeyPressed
+
+        int press=evt.getKeyCode();        
+        if(this.tabla3.getSelectedRow()!=-1 && press==127 ){
+            int ID_Cliente;
+            ID_Cliente = Integer.parseInt(ID_C.getText());
+            int a1 = Integer.parseInt(tabla3.getValueAt(tabla3.getSelectedRow(), 0).toString());
+            
+            Ventanas.Modulo_Cliente.Opciones.eliminarViaje(a1);
+            Opciones.listarViaje("",ID_Cliente);
+            //this.tabla3.getSelectionModel().setSelectionInterval(0, 0);
+
+        }
+//        else{
+//            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+//                                AC.msj1.setText("¡Porfavor Seleccione!");
+//                                AC.msj2.setText("Un Servicio");
+//                                AC.msj3.setText("Para Eliminarlo");
+//                                AC.setVisible(true);
+//        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabla3KeyPressed
+
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+
         String Destinos = (String) cmbDestinos.getSelectedItem();        
         String Origenes = (String) cmbOrigenes.getSelectedItem();
         int indexOrigen=cmbOrigenes.getSelectedIndex();
@@ -1271,70 +1348,16 @@ public class Registrar extends javax.swing.JDialog {
                         }
                     }
 
-        
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void log4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log4ActionPerformed
-        PanelDesliza.setPanelSlider(2, D, RSPanelsSlider.DIRECT.RIGHT);
-        barra_estado.setVisible(false);
-        l1.setVisible(false);
-    }//GEN-LAST:event_log4ActionPerformed
+    }//GEN-LAST:event_jButton33ActionPerformed
 
-    private void log5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log5ActionPerformed
-        PanelDesliza.setPanelSlider(2, B, RSPanelsSlider.DIRECT.RIGHT);
-        a3.setText("Destinos.");
-    }//GEN-LAST:event_log5ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    Guardar1();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void log8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log8ActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_log8ActionPerformed
-
-    private void DFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DFocusGained
-
-    }//GEN-LAST:event_DFocusGained
-
-    private void buscarViajeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarViajeKeyReleased
-        int IDCliente = Integer.parseInt(ID_C.getText());
-        Opciones.listarViaje(Registrar.buscarViaje.getText(),IDCliente);
-    }//GEN-LAST:event_buscarViajeKeyReleased
-
-    private void buscarViajeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarViajeKeyTyped
-        char letras = evt.getKeyChar();
-
-        if (Character.isLowerCase(letras)) {
-            String cad = ("" + letras).toUpperCase();
-            letras = cad.charAt(0);
-            evt.setKeyChar(letras);
-        }
-    }//GEN-LAST:event_buscarViajeKeyTyped
-
-    private void buscarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarViajeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscarViajeActionPerformed
-
-    private void tabla3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla3KeyPressed
-
-        int press=evt.getKeyCode();        
-        if(this.tabla3.getSelectedRow()!=-1 && press==127 ){
-            int ID_Cliente;
-            ID_Cliente = Integer.parseInt(ID_C.getText());
-            int a1 = Integer.parseInt(tabla3.getValueAt(tabla3.getSelectedRow(), 0).toString());
-            
-            Ventanas.Modulo_Cliente.Opciones.eliminarViaje(a1);
-            Opciones.listarViaje("",ID_Cliente);
-            //this.tabla3.getSelectionModel().setSelectionInterval(0, 0);
-
-        }
-//        else{
-//            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-//                                AC.msj1.setText("¡Porfavor Seleccione!");
-//                                AC.msj2.setText("Un Servicio");
-//                                AC.msj3.setText("Para Eliminarlo");
-//                                AC.setVisible(true);
-//        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabla3KeyPressed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Guardar();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1394,9 +1417,9 @@ public class Registrar extends javax.swing.JDialog {
     private ComboBox.SComboBox cmbMunicipio;
     private ComboBox.SComboBox cmbMunicipio1;
     public static ComboBox.SComboBox cmbOrigenes;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    public static JButtonEspecial.JButtonEspecial jButton1;
+    public static JButtonEspecial.JButtonEspecial jButton2;
+    public static JButtonEspecial.JButtonEspecial jButton33;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
