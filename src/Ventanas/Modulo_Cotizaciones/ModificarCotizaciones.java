@@ -22,7 +22,14 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import MyTableCellEditor.EditarCotizGCamioneta15;
+import MyTableCellEditor.EditarCotizGCamioneta35;
+import MyTableCellEditor.EditarCotizGFull;
+import MyTableCellEditor.EditarCotizGRabon;
+import MyTableCellEditor.EditarCotizGTorthon;
+import MyTableCellEditor.EditarCotizGTrailer;
 import static Ventanas.Modulo_Cliente.Opciones.*;
+import static Ventanas.Modulo_Cliente.Registrar.ID_C;
 import static Ventanas.Modulo_Cliente.Registrar.tabla3;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -62,6 +69,9 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 import Ventanas.Modulo_Cotizaciones.Opciones;
+import static Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.cmbCliente;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado.cmbOrigenes;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.finalizar;
@@ -78,6 +88,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.RowFilter;
+import javax.swing.SwingConstants;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -134,9 +145,16 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         jScrollPane2.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane2.getHorizontalScrollBar().setUI(new MyScrollbarUI());
+        
         jTable1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor3(db,"Nombre del Servicio"));//Columna Precio
         jTable1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor4(db,"Precio"));//Columna Precio
         
+        tabla.getColumnModel().getColumn( 4 ).setCellEditor(new EditarCotizGCamioneta15(db,"CAMIONETA 1.5 TON"));
+        tabla.getColumnModel().getColumn( 5 ).setCellEditor(new EditarCotizGCamioneta35(db,"CAMIONETA 3.5 TON"));
+        tabla.getColumnModel().getColumn( 6 ).setCellEditor(new EditarCotizGRabon(db,"RABÓN"));
+        tabla.getColumnModel().getColumn( 7 ).setCellEditor(new EditarCotizGTorthon(db,"TORTHON"));
+        tabla.getColumnModel().getColumn( 8 ).setCellEditor(new EditarCotizGTrailer(db,"TRÁILER"));
+        tabla.getColumnModel().getColumn( 9 ).setCellEditor(new EditarCotizGFull(db,"FULL"));
         //jTable1.setDefaultRenderer(Object.class, new Render());
 //                                               
 
@@ -294,10 +312,10 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         
     }
     public void CargarDatos(int ID){
-          Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID);
-//        
-            Ventanas.Modulo_Cotizaciones.Opciones.llenarServicioMod(ID);
-            cmbOrigenes.addItem("Todos los origenes han sido Asignados");
+          Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID);  
+          Ventanas.Modulo_Cotizaciones.Opciones.llenarServicioMod(ID);
+          cargarOrigenes();
+          cargarDestinos();
         
          IDCotizacion.setText(""+ID);
         String Nombre="";
@@ -320,11 +338,158 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         cmbCliente.setSelectedItem(Nombre);        
         lblNombre.setText(Atencion);
         
-//        txtCalle.setText(Calle);
+//            txtCalle.setText(Calle);
 //        cmbColonia.setSelectedItem(localidad);
         
       
         
+    }
+    public void Guardar(){
+        int comboOrigen = cmbOrigenes.getSelectedIndex();
+        int comboDestino = cmbDestinos.getSelectedIndex();
+        
+        
+        if(comboOrigen==0)
+            {
+                Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                AC.msj1.setText("¡Elija un");
+                AC.msj2.setText("Origen válido");
+                AC.setVisible(true);
+            }
+            else
+            {
+                if(comboDestino==0)
+                    {
+                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                        AC.msj1.setText("¡Elija un !");
+                        AC.msj2.setText("Destino válido");
+                        AC.setVisible(true);
+                    }
+                else
+                {
+                    if(comboOrigen==0 || comboDestino==0)
+                    {
+                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                        AC.msj1.setText("¡Seleccione un!");
+                        AC.msj2.setText("Origen y un Destino");
+                        AC.setVisible(true);
+                    }
+                    else
+                    {
+                        ID = Integer.parseInt(IDCotizacion.getText());
+                        String VerificaOrigen=cmbOrigenes.getSelectedItem().toString().trim();
+                        String VerificaDestino=cmbDestinos.getSelectedItem().toString().trim();
+                        if(Ventanas.Modulo_Cotizaciones.Opciones.verificaViajeGuardado(ID,VerificaOrigen,VerificaDestino)==0)
+                        {
+                          
+                            Ventanas.Modulo_Cotizaciones.Opciones.AgregarViajeGuardado(ID,VerificaOrigen,VerificaDestino);
+                            Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID);
+                             Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                            AC.msj1.setText("¡Origen y Destino!");
+                            AC.msj2.setText("Añadidos correctamente");
+                            AC.setVisible(true);
+                            this.cmbOrigenes.setSelectedIndex(0);
+                            this.cmbDestinos.setSelectedIndex(0);
+                        }
+                        else
+                        {
+                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                            AC.msj1.setText("¡Error!");
+                            AC.msj2.setText("El Origen y Destino");
+                            AC.msj3.setText("ya estan Registrados");
+                            AC.setVisible(true);
+                            //this.cmbMunicipio.setSelectedIndex(0);
+                        }
+                    }
+                }
+            }
+        
+        
+    }
+    
+    public void cargarOrigenes(){
+                    
+                int i = 0;
+            int R=0;              
+            //int IDE = Integer.parseInt(IDCotizacion.getText());
+            int Fila = Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla.getSelectedRow();
+            int IDE = Integer.parseInt(Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla.getValueAt(Fila, 0).toString());
+             
+//            cmbOrigenes.removeAllItems();
+//            cmbOrigenes.addItem("Seleccione un Origen");            
+            int ID1=0;
+            
+            try {
+                resultado = Conexion.consulta("SELECT ID_Cliente from cotizaciones where "
+                        + "ID_Cotizacion="+IDE);
+
+
+                while (resultado.next()) {
+                    ID1 = resultado.getInt(1);
+                    System.out.println(ID1);
+                   
+                }
+            }
+            catch (SQLException ex) {
+                System.out.println(ex);
+            }            
+  
+            try {
+
+                resultado = Conexion.consulta("SELECT ID_Origen, CONCAT_WS(', ',`municipio`,`estado`) AS Origen from origenv where "
+                        + "(ID_Cliente = "+ID1+")");
+                
+
+
+                while (resultado.next()) {
+                    ID_Ori[i] = resultado.getInt(1);
+                    cmbOrigenes.addItem(resultado.getString(2).trim());
+                    i++;
+                }
+            } 
+            catch (SQLException ex) {
+                System.out.println(ex);
+            }       
+
+
+
+    }
+    public void cargarDestinos(){
+    
+        int i = 0;
+            int R=0;              
+            int Fila = Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla.getSelectedRow();
+            int IDE = Integer.parseInt(Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla.getValueAt(Fila, 0).toString());
+             
+//            cmbOrigenes.removeAllItems();
+//            cmbOrigenes.addItem("Seleccione un Origen");            
+            int ID1=0;
+            
+            try {
+                resultado = Conexion.consulta("SELECT ID_Cliente from cotizaciones where "
+                        + "ID_Cotizacion="+IDE);
+
+
+                while (resultado.next()) {
+                    ID1 = resultado.getInt(1);
+                }
+            }
+            catch (SQLException ex) {
+            }            
+  
+            try {
+
+                resultado = Conexion.consulta("SELECT ID_Destino, CONCAT_WS(', ', `municipio`,`estado`) AS Destino from destinov where "
+                        + "(ID_Cliente = "+ID1+")");
+
+                while (resultado.next()) {
+                    ID_Ori[i] = resultado.getInt(1);
+                    cmbDestinos.addItem(resultado.getString(2).trim());
+                    i++;
+                }
+            } 
+            catch (SQLException ex) {
+            }       
     }
     
     
@@ -367,6 +532,10 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         buscar = new app.bolivia.swing.JCTextField();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        cmbDestinos = new ComboBox.SComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        lblID_Destino = new javax.swing.JLabel();
+        jButton1 = new JButtonEspecial.JButtonEspecial();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -400,12 +569,12 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                 rSButtonMetro2ActionPerformed(evt);
             }
         });
-        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 0, 30, 30));
+        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1126, 0, 30, 30));
 
         lblNombreNuevo17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombreNuevo17.setText("     Cotizaciones > Nueva Cotizacion para Fletes Directos");
+        lblNombreNuevo17.setText("     Cotizaciones > Modificar Cotizacion para Fletes Directos");
         jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 30));
 
         jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 13, 1157, -1));
@@ -424,7 +593,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                 java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, true
+                false, false, false, false, true, true, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -449,12 +618,12 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(1).setMinWidth(0);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(0).setMinWidth(40);
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(40);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(40);
+            tabla.getColumnModel().getColumn(1).setMinWidth(40);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(40);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(40);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(4).setMinWidth(120);
@@ -528,9 +697,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -667,7 +836,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
         jcMousePanel1.add(ID_rutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 140, 20));
 
-        cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Origenes" }));
+        cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Origen" }));
         cmbOrigenes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbOrigenes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -717,13 +886,43 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
 
         jcMousePanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 180, -1, -1));
 
+        cmbDestinos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Destino" }));
+        cmbDestinos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cmbDestinos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbDestinosItemStateChanged(evt);
+            }
+        });
+        jcMousePanel1.add(cmbDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 420, 30));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel9.setText("Destinos disponibles para el origen seleccionado:");
+        jcMousePanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 430, 20));
+
+        lblID_Destino.setText("0");
+        jcMousePanel1.add(lblID_Destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 110, 60, -1));
+
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setForeground(new java.awt.Color(128, 128, 131));
+        jButton1.setText("Aceptar");
+        jButton1.setColorBorde(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        jButton1.setColorHover(new java.awt.Color(204, 204, 204));
+        jButton1.setColorNormal(new java.awt.Color(204, 204, 204));
+        jButton1.setColorPressed(new java.awt.Color(153, 153, 153));
+        jButton1.setColorTextHover(new java.awt.Color(128, 128, 131));
+        jButton1.setColorTextNormal(new java.awt.Color(128, 128, 131));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jcMousePanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 140, 220, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 69, Short.MAX_VALUE))
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -752,57 +951,17 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
 
     private void cmbClienteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbClienteItemStateChanged
                         cmbCliente.setEnabled(false);
+            if (evt.getStateChange() == ItemEvent.SELECTED) {
+             
+            
+                        }
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
     private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
-//        if (evt.getStateChange() == ItemEvent.SELECTED) {
-//        
-        int ID_Client = cmbCliente.getSelectedIndex();
-        int ID_Cliente = ID_Cli[ID_Client];
-        int i = 1;
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
         
-        int ID_Origen = cmbOrigenes.getSelectedIndex();
-        int ID_Origenes = ID_Ori[ID_Origen];
-        
-        String Origenes = (String) cmbOrigenes.getSelectedItem();
-        
-        if(Origenes == "Todos los Origenes")
-        {
-//            cmbOrigenes.removeAllItems();
-//            cmbOrigenes.addItem("Sin Origenes Disponibles...");
-            try {
 
-                resultado = Conexion.consulta("SELECT ID_ruta from ruta where (ID_Cliente = "+ID_Cliente+")");
-                int ID = 0;
-                int ID_Cotiza = Integer.parseInt(IDCotizacion.getText());
-                while (resultado.next()) 
-                {
-                     ID = resultado.getInt(1);
-                    i++;
-                    
-                    String q = " INSERT INTO asigna_cotizacion(ID_asigna_Cotizacion,ID_Cotizacion,ID_ruta,Fecha_Alta, Estado)"
-                                        + "VALUES (NULL,'"+ID_Cotiza+"',"+ID+",current_timestamp(), 0)";      
-                                        try {
-                                            PreparedStatement pstm = cn.prepareStatement(q);
-                                            pstm.execute();
-                                            pstm.close();
-                                    
-                                            }
-                                        catch(SQLException e)
-                                        {            
-                                            System.out.println(e);
-                                        }
-                }
-                 Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotiza);
-            } 
-            catch (SQLException ex) {
-
-            }
         }
-//       
-//    }        
-
-
     }//GEN-LAST:event_cmbOrigenesItemStateChanged
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
@@ -905,8 +1064,8 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
 
                             String sql;
                             if (checked) {
-                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
 
                                 try {
                                     PreparedStatement pstm = cn.prepareStatement(sql);
@@ -920,8 +1079,8 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
 
                             } else {
                                 
-                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
 
                                 try {
                                     PreparedStatement pstm = cn.prepareStatement(sql);
@@ -1090,6 +1249,45 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTable1KeyPressed
 
+    private void cmbDestinosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbDestinosItemStateChanged
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+//            int ID_Client = cmbCliente.getSelectedIndex();
+//            int ID_Cliente = ID_Cli[ID_Client];
+//            int i = 2;
+//
+//            int ID_Origen = cmbOrigenes.getSelectedIndex();
+//            int ID_Origenes = ID_Ori[ID_Origen];
+//
+//            int ID_Destin = cmbDestinos.getSelectedIndex();
+//            int ID_Destinos = ID_Des[ID_Destin];
+//            int ID_DestinoB=0;
+//            ///////Obtener Id origen
+//
+//            try {
+//                resultado = Conexion.consulta("SELECT ID_Destino from destino where "
+//                    + "ID_Municipio="+ID_Destinos);
+//                //                select ID_Origen from origen WHERE ID_Municipio=688
+//
+//                while (resultado.next()) {
+//                    ID_DestinoB = resultado.getInt(1);
+//                    //cmbOrigenes.addItem(resultado.getString(2).trim());
+//                    i++;
+//                }
+//            }
+//            catch (SQLException ex) {
+//            }
+//            lblID_Destino.setText(""+ID_DestinoB);
+//
+//            /////////////////
+//
+        }
+
+    }//GEN-LAST:event_cmbDestinosItemStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Guardar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1111,7 +1309,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
+    public static ComboBox.SComboBox cmbDestinos;
     private ComboBox.SComboBox cmbOrigenes;
+    public static JButtonEspecial.JButtonEspecial jButton1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1123,6 +1323,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -1132,6 +1333,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     public static javax.swing.JTable jTable1;
     public static jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JSeparator l2;
+    private javax.swing.JLabel lblID_Destino;
     private javax.swing.JLabel lblNombre;
     public static javax.swing.JLabel lblNombreNuevo17;
     private javax.swing.JLabel lblatencion;

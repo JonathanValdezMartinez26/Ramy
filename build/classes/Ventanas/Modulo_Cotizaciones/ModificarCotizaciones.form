@@ -24,10 +24,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jcMousePanel1" min="-2" pref="1200" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="69" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jcMousePanel1" min="-2" pref="1200" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -100,7 +97,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="1130" y="0" width="30" height="30"/>
+                  <AbsoluteConstraints x="1126" y="0" width="30" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -113,7 +110,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="     Cotizaciones &gt; Nueva Cotizacion para Fletes Directos"/>
+                <Property name="text" type="java.lang.String" value="     Cotizaciones &gt; Modificar Cotizacion para Fletes Directos"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -148,9 +145,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="174" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="220" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="169" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="123" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -172,23 +169,23 @@
                         <Column editable="false" title="ID_Cotizacion" type="java.lang.Object"/>
                         <Column editable="false" title="Origen" type="java.lang.String"/>
                         <Column editable="false" title="Destino" type="java.lang.String"/>
-                        <Column editable="false" title="Camioneta 1.5" type="java.lang.Object"/>
-                        <Column editable="false" title="Camioneta 3.5" type="java.lang.String"/>
-                        <Column editable="false" title="Rabon" type="java.lang.Object"/>
-                        <Column editable="false" title="Torthon" type="java.lang.Object"/>
-                        <Column editable="false" title="Trailer" type="java.lang.Object"/>
-                        <Column editable="false" title="Fulll" type="java.lang.Object"/>
+                        <Column editable="true" title="Camioneta 1.5" type="java.lang.Object"/>
+                        <Column editable="true" title="Camioneta 3.5" type="java.lang.String"/>
+                        <Column editable="true" title="Rabon" type="java.lang.Object"/>
+                        <Column editable="true" title="Torthon" type="java.lang.Object"/>
+                        <Column editable="true" title="Trailer" type="java.lang.Object"/>
+                        <Column editable="true" title="Fulll" type="java.lang.Object"/>
                         <Column editable="true" title="Selecciona" type="java.lang.Boolean"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
+                        <Column maxWidth="40" minWidth="40" prefWidth="40" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
+                        <Column maxWidth="40" minWidth="40" prefWidth="40" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -629,7 +626,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
-                <StringItem index="0" value="Origenes"/>
+                <StringItem index="0" value="Seleccione un Origen"/>
               </StringArray>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -722,6 +719,96 @@
             </DimensionLayout>
           </Layout>
         </Container>
+        <Component class="ComboBox.SComboBox" name="cmbDestinos">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="1">
+                <StringItem index="0" value="Seleccione un Destino"/>
+              </StringArray>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="1"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cmbDestinosItemStateChanged"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="470" y="140" width="420" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel9">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="13" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Destinos disponibles para el origen seleccionado:"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="470" y="120" width="430" height="20"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblID_Destino">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="830" y="110" width="60" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="JButtonEspecial.JButtonEspecial" name="jButton1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="83" green="80" red="80" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Aceptar"/>
+            <Property name="colorBorde" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder thickness="2">
+                  <Color PropertyName="color" blue="99" green="99" red="99" type="rgb"/>
+                </LineBorder>
+              </Border>
+            </Property>
+            <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="colorNormal" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="colorTextHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="83" green="80" red="80" type="rgb"/>
+            </Property>
+            <Property name="colorTextNormal" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="83" green="80" red="80" type="rgb"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="910" y="140" width="220" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

@@ -166,24 +166,23 @@ public class WarningFinalizar extends javax.swing.JDialog {
         tabla.setRowSorter(sorter);
         sorter.setRowFilter(null);
         int Filas1 = modelo.getRowCount();
-        for (int i = 0; i < Filas1; i++) {
-            String IDAsignaCot = tabla.getValueAt(i, 0).toString();
-            String IDCot = tabla.getValueAt(i, 1).toString();
-            String Origen = tabla.getValueAt(i, 2).toString();
-            String Destino = tabla.getValueAt(i, 3).toString();
-            String Camioneta15 = tabla.getValueAt(i, 4).toString();
-            String Camioneta35 = tabla.getValueAt(i, 5).toString();
-            String Rabon = tabla.getValueAt(i, 6).toString();
-            String Torthon = tabla.getValueAt(i, 7).toString();
-            String Trailer = tabla.getValueAt(i, 8).toString();
-            String Full = tabla.getValueAt(i, 9).toString();
+        for (int i = 0; i < Filas1; i++) {            
+            String IDCot = tabla.getValueAt(i, 0).toString();
+            String Origen = tabla.getValueAt(i, 1).toString();
+            String Destino = tabla.getValueAt(i, 2).toString();
+            String Camioneta15 = tabla.getValueAt(i, 3).toString();
+            String Camioneta35 = tabla.getValueAt(i, 4).toString();
+            String Rabon = tabla.getValueAt(i, 5).toString();
+            String Torthon = tabla.getValueAt(i, 6).toString();
+            String Trailer = tabla.getValueAt(i, 7).toString();
+            String Full = tabla.getValueAt(i, 8).toString();
 
-            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 10).toString());
+            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 9).toString());
 
             String sql;
             if (checked) {
-                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
 
                 try {
                     PreparedStatement pstm = cn.prepareStatement(sql);
@@ -195,8 +194,8 @@ public class WarningFinalizar extends javax.swing.JDialog {
                 }
 
             } else {
-                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
 
                 try {
                     PreparedStatement pstm = cn.prepareStatement(sql);

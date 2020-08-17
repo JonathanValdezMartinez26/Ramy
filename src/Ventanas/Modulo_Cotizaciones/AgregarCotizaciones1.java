@@ -383,14 +383,14 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "ID_Cotizacion", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Rabon", "Torthon", "Trailer", "Fulll", "Selecciona"
+                "ID_Cotizacion", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Rabon", "Torthon", "Trailer", "Fulll", "Selecciona"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -418,17 +418,17 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(1).setMinWidth(0);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tabla.getColumnModel().getColumn(3).setMinWidth(120);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(120);
             tabla.getColumnModel().getColumn(4).setMinWidth(120);
             tabla.getColumnModel().getColumn(4).setPreferredWidth(120);
             tabla.getColumnModel().getColumn(4).setMaxWidth(120);
-            tabla.getColumnModel().getColumn(5).setMinWidth(120);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(120);
-            tabla.getColumnModel().getColumn(5).setMaxWidth(120);
+            tabla.getColumnModel().getColumn(5).setMinWidth(70);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(70);
+            tabla.getColumnModel().getColumn(5).setMaxWidth(70);
             tabla.getColumnModel().getColumn(6).setMinWidth(70);
             tabla.getColumnModel().getColumn(6).setPreferredWidth(70);
             tabla.getColumnModel().getColumn(6).setMaxWidth(70);
@@ -438,12 +438,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(8).setMinWidth(70);
             tabla.getColumnModel().getColumn(8).setPreferredWidth(70);
             tabla.getColumnModel().getColumn(8).setMaxWidth(70);
-            tabla.getColumnModel().getColumn(9).setMinWidth(70);
-            tabla.getColumnModel().getColumn(9).setPreferredWidth(70);
-            tabla.getColumnModel().getColumn(9).setMaxWidth(70);
-            tabla.getColumnModel().getColumn(10).setMinWidth(100);
-            tabla.getColumnModel().getColumn(10).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(10).setMaxWidth(100);
+            tabla.getColumnModel().getColumn(9).setMinWidth(100);
+            tabla.getColumnModel().getColumn(9).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(9).setMaxWidth(100);
         }
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -494,9 +491,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -878,34 +875,34 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         if (this.tabla.getRowCount() != 0) {
             int Filas = modelo.getRowCount();
             for (int j = 0; j < Filas; j++) {
-                Boolean validar = Boolean.valueOf(tabla.getValueAt(j, 10).toString());
+                Boolean validar = Boolean.valueOf(Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getValueAt(j, 9).toString());
                 if (validar) {///////Verifica si existen checks seleccionados
                     existe++;
                 }
             }
             if (existe > 0) {////Si existen combos palomeados, verifica la tabla adicionales
                 ///////////////////////verifica si la Adicionales no esta vacia y la recorre para validar campos vacios 
-                                    
-
+                       
+//
                         int Filas1 = modelo.getRowCount();
                         for (int i = 0; i < Filas1; i++) {
-                            String IDAsignaCot = tabla.getValueAt(i, 0).toString();
-                            String IDCot = tabla.getValueAt(i, 1).toString();
-                            String Origen = tabla.getValueAt(i, 2).toString();
-                            String Destino = tabla.getValueAt(i, 3).toString();
-                            String Camioneta15 = tabla.getValueAt(i, 4).toString();
-                            String Camioneta35 = tabla.getValueAt(i, 5).toString();
-                            String Rabon = tabla.getValueAt(i, 6).toString();
-                            String Torthon = tabla.getValueAt(i, 7).toString();
-                            String Trailer = tabla.getValueAt(i, 8).toString();
-                            String Full = tabla.getValueAt(i, 9).toString();
+                            //String IDAsignaCot = tabla.getValueAt(i, 0).toString();
+                            String IDCot = tabla.getValueAt(i, 0).toString();
+                            String Origen = tabla.getValueAt(i, 1).toString();
+                            String Destino = tabla.getValueAt(i, 2).toString();
+                            String Camioneta15 = tabla.getValueAt(i, 3).toString();
+                            String Camioneta35 = tabla.getValueAt(i, 4).toString();
+                            String Rabon = tabla.getValueAt(i, 5).toString();
+                            String Torthon = tabla.getValueAt(i, 6).toString();
+                            String Trailer = tabla.getValueAt(i, 7).toString();
+                            String Full = tabla.getValueAt(i, 8).toString();
 
-                            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 10).toString());
+                            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 9).toString());
 
                             String sql;
                             if (checked) {
-                                sql = "insert guardar_cotizacion_directa(ID_GuardarCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+                                sql = "insert guardar_cotizacion_directa(ID_GuardarCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL, '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
 
                                 try {
                                     PreparedStatement pstm = cn.prepareStatement(sql);
@@ -917,8 +914,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                                 }
 
                             } else {
-                                sql = "insert guardar_cotizacion_directa(ID_GuardarCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+                                sql = "insert guardar_cotizacion_directa(ID_GuardarCotD, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
 
                                 try {
                                     PreparedStatement pstm = cn.prepareStatement(sql);
@@ -938,11 +935,17 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                         //AC.msj3.setText("Para poder Finalizar Cotizacion");
                         AC.setVisible(true);
                         this.dispose();                    
+            }else{
+                Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                AC.msj1.setText("¡Porfavor Marque!");
+                AC.msj2.setText("Al menos un Viaje");
+                AC.msj3.setText("Para poder Guardar Cotizacion");
+                AC.setVisible(true);
             }      
 
             } else {
                 Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-                AC.msj1.setText("¡Porfavor Marque!");
+                AC.msj1.setText("¡Porfavor Asigne!");
                 AC.msj2.setText("Al menos un Viaje");
                 AC.msj3.setText("Para poder Finalizar Cotizacion");
                 AC.setVisible(true);
@@ -980,7 +983,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         if (this.tabla.getRowCount() != 0) {
             int Filas = modelo.getRowCount();
             for (int j = 0; j < Filas; j++) {
-                Boolean validar = Boolean.valueOf(tabla.getValueAt(j, 10).toString());
+                Boolean validar = Boolean.valueOf(tabla.getValueAt(j, 9).toString());
                 if (validar) {///////Verifica si existen checks seleccionados
                     existe++;
                 }
@@ -1002,23 +1005,23 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
 
                         int Filas1 = modelo.getRowCount();
                         for (int i = 0; i < Filas1; i++) {
-                            String IDAsignaCot = tabla.getValueAt(i, 0).toString();
-                            String IDCot = tabla.getValueAt(i, 1).toString();
-                            String Origen = tabla.getValueAt(i, 2).toString();
-                            String Destino = tabla.getValueAt(i, 3).toString();
-                            String Camioneta15 = tabla.getValueAt(i, 4).toString();
-                            String Camioneta35 = tabla.getValueAt(i, 5).toString();
-                            String Rabon = tabla.getValueAt(i, 6).toString();
-                            String Torthon = tabla.getValueAt(i, 7).toString();
-                            String Trailer = tabla.getValueAt(i, 8).toString();
-                            String Full = tabla.getValueAt(i, 9).toString();
+                            
+                            String IDCot = tabla.getValueAt(i, 0).toString();
+                            String Origen = tabla.getValueAt(i, 1).toString();
+                            String Destino = tabla.getValueAt(i, 2).toString();
+                            String Camioneta15 = tabla.getValueAt(i, 3).toString();
+                            String Camioneta35 = tabla.getValueAt(i, 4).toString();
+                            String Rabon = tabla.getValueAt(i, 5).toString();
+                            String Torthon = tabla.getValueAt(i, 6).toString();
+                            String Trailer = tabla.getValueAt(i, 7).toString();
+                            String Full = tabla.getValueAt(i, 8).toString();
 
-                            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 10).toString());
+                            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 9).toString());
 
                             String sql;
                             if (checked) {
-                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
 
                                 try {
                                     PreparedStatement pstm = cn.prepareStatement(sql);
@@ -1030,8 +1033,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                                 }
 
                             } else {
-                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
 
                                 try {
                                     PreparedStatement pstm = cn.prepareStatement(sql);
@@ -1046,7 +1049,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     String ID_Cotizacion = IDCotizacion.getText();
                     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
                     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
-                    ver(); 
+                    //ver(); 
+                    this.dispose();
                     }                  
                     else {
                         Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
@@ -1065,13 +1069,19 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     //JOptionPane.showMessageDialog(null,"Finaliza directo");
                 }
 
+            }else{
+                    Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                AC.msj1.setText("¡Porfavor Seleccione!");
+                AC.msj2.setText("Al menos un Viaje");
+                AC.msj3.setText("Para poder Finalizar Cotizacion");
+                AC.setVisible(true);
             }      
             
             
 
             } else {
                 Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-                AC.msj1.setText("¡Porfavor Marque!");
+                AC.msj1.setText("¡Porfavor Asigne!");
                 AC.msj2.setText("Al menos un Viaje");
                 AC.msj3.setText("Para poder Finalizar Cotizacion");
                 AC.setVisible(true);

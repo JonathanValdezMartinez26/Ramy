@@ -182,8 +182,8 @@ public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
 
             String sql;
             if (checked) {
-                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
 
                 try {
                     PreparedStatement pstm = cn.prepareStatement(sql);
@@ -196,8 +196,8 @@ public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
                 
 
             } else {
-                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
 
                 try {
                     PreparedStatement pstm = cn.prepareStatement(sql);

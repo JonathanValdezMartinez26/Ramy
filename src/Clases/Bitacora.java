@@ -52,5 +52,20 @@ public static ResultSet resultado;
         }
         return c;
     }
+public static int ObtenerClienteModificacion(int cotizacion){
+        int c = 0;
+        String SQL = "SELECT ID_cliente FROM cotizaciones where ID_Cotizacion="+cotizacion;
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                c = rs.getInt(1);
+            }
+            return c;
 
+        } catch (SQLException ex) {
+            //Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return c;
+    }
 }

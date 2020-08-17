@@ -351,7 +351,106 @@ public class database {
         }
         return res;
     }
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public boolean updateViajeModCamioneta15(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE guardar_cotizacion_directa SET Camioneta_15=" + valores + " WHERE ID_GuardarCotD= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
  
+    public boolean updateViajeModCamioneta35(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE guardar_cotizacion_directa SET Camioneta_35=" + valores + " WHERE ID_GuardarCotD= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateViajeModRabon(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE guardar_cotizacion_directa SET Rabon=" + valores + " WHERE ID_GuardarCotD= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateViajeModTorthon(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE guardar_cotizacion_directa SET Torthon=" + valores + " WHERE ID_GuardarCotD= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateViajeModTrailer(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE guardar_cotizacion_directa SET Trailer=" + valores + " WHERE ID_GuardarCotD= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateViajeModFull(String valores, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE guardar_cotizacion_directa SET Full=" + valores + " WHERE ID_GuardarCotD= " + id;
+        //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+ 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
 
         ////////Ejecuta la inserccion a la bitacora de reistros, siempre y cuando se realize una modificacion
@@ -360,6 +459,27 @@ public class database {
         int id_Cliente=0;
         int id2=Integer.parseInt(ID);      
         id_Cliente=Bitacora.ObtenerCliente(id2);////////////
+        boolean res = false;        
+        String q = " INSERT INTO bitacora_costos (ID_Bitacora,Nombre_Viaje,costo_antiguo,costo_nuevo,transporte,Fecha_Mod,ID_ClienteB)"
+                + "VALUES (NULL,'"+origen+"','"+costoA+"','"+costoN+"','"+transporte+"',(now()),'"+id_Cliente+"')";
+        ////INSERT INTO `bitacora_costos` (`ID_Bitacora`, `Nombre_Viaje`, `costo_antiguo`, `costo_nuevo`,
+        //`Fecha_Mod`, `ID_ClienteB`) VALUES (NULL, 'Villa,donato', '300', '400', current_timestamp(), '71');
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+        ////////Ejecuta la inserccion a la bitacora de reistros, siempre y cuando se realize una modificacion
+    public boolean insertBitacoraModificacion(String origen,String costoA, String costoN,String transporte,String ID)
+        {            
+        int id_Cliente=0;
+        int id2=Integer.parseInt(ID);      
+        id_Cliente=Bitacora.ObtenerClienteModificacion(id2);////////////
         boolean res = false;        
         String q = " INSERT INTO bitacora_costos (ID_Bitacora,Nombre_Viaje,costo_antiguo,costo_nuevo,transporte,Fecha_Mod,ID_ClienteB)"
                 + "VALUES (NULL,'"+origen+"','"+costoA+"','"+costoN+"','"+transporte+"',(now()),'"+id_Cliente+"')";

@@ -649,6 +649,11 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
                 cmbClienteItemStateChanged(evt);
             }
         });
+        cmbCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbClienteActionPerformed(evt);
+            }
+        });
         jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 380, 30));
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1281,6 +1286,10 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
         }
 
     }//GEN-LAST:event_cmbDestinosItemStateChanged
+
+    private void cmbClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbClienteActionPerformed
 
     public static void main(String args[]) {
      
