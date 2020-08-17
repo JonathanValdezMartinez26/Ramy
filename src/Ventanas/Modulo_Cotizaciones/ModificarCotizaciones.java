@@ -379,9 +379,19 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                         ID = Integer.parseInt(IDCotizacion.getText());
                         String VerificaOrigen=cmbOrigenes.getSelectedItem().toString().trim();
                         String VerificaDestino=cmbDestinos.getSelectedItem().toString().trim();
-                        if(Ventanas.Modulo_Cotizaciones.Opciones.verificaViajeGuardado(ID,VerificaOrigen,VerificaDestino)==0)
+                        int existeOrigen = 0;
+                        int existeDestino = 0;
+                        for (int i = 0; i < tabla.getRowCount(); i++) {
+                            if (tabla.getValueAt(i, 2).toString().trim().equals(VerificaOrigen) && tabla.getValueAt(i, 3).toString().trim().equals(VerificaDestino)) {
+                                existeOrigen++;                                       
+                                //System.out.println("Dato tabla:/"+tabla.getValueAt(i, 2).toString().trim()+"/ Dato combo:/"+VerificaOrigen+"/");
+                            }
+                            
+                        }
+                        if(existeOrigen==0)
                         {
                           
+                            //JOptionPane.showMessageDialog(null, "Se agrega Origen y destino");
                             Ventanas.Modulo_Cotizaciones.Opciones.AgregarViajeGuardado(ID,VerificaOrigen,VerificaDestino);
                             Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID);
                              Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
@@ -393,12 +403,13 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                         }
                         else
                         {
+                            //JOptionPane.showMessageDialog(null, "Origen existe= "+existeOrigen+ " Destino existe="+existeDestino);
                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                             AC.msj1.setText("¡Error!");
                             AC.msj2.setText("El Origen y Destino");
                             AC.msj3.setText("ya estan Registrados");
                             AC.setVisible(true);
-                            //this.cmbMunicipio.setSelectedIndex(0);
+//                            //this.cmbMunicipio.setSelectedIndex(0);
                         }
                     }
                 }
@@ -436,8 +447,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
   
             try {
 
-                resultado = Conexion.consulta("SELECT ID_Origen, CONCAT_WS(', ',`municipio`,`estado`) AS Origen from origenv where "
-                        + "(ID_Cliente = "+ID1+")");
+//                resultado = Conexion.consulta("SELECT ID_Origen, CONCAT_WS(', ',`municipio`,`estado`) AS Origen from origenv where "
+//                        + "(ID_Cliente = "+ID1+")");
+                resultado = Conexion.consulta("Select ID_Origen, Origen from origenvv where ID_Cliente ="+ID1);
                 
 
 
@@ -479,8 +491,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
   
             try {
 
-                resultado = Conexion.consulta("SELECT ID_Destino, CONCAT_WS(', ', `municipio`,`estado`) AS Destino from destinov where "
-                        + "(ID_Cliente = "+ID1+")");
+//                resultado = Conexion.consulta("SELECT ID_Destino, CONCAT_WS(', ', `municipio`,`estado`) AS Destino from destinov where "
+//                        + "(ID_Cliente = "+ID1+")");
+                resultado = Conexion.consulta("Select ID_Destino, Destino from destinovv where ID_Cliente ="+ID1);
 
                 while (resultado.next()) {
                     ID_Ori[i] = resultado.getInt(1);
@@ -590,7 +603,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, true, true, true, true, true, true, true
@@ -618,12 +631,12 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setMinWidth(40);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(40);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(40);
-            tabla.getColumnModel().getColumn(1).setMinWidth(40);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(40);
-            tabla.getColumnModel().getColumn(1).setMaxWidth(40);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(4).setMinWidth(120);

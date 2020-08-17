@@ -166,9 +166,9 @@
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="11" rowCount="0">
                         <Column editable="false" title="ID_" type="java.lang.Integer"/>
-                        <Column editable="false" title="ID_Cotizacion" type="java.lang.Object"/>
+                        <Column editable="false" title="ID_Cotizacion" type="java.lang.String"/>
                         <Column editable="false" title="Origen" type="java.lang.String"/>
-                        <Column editable="false" title="Destino" type="java.lang.String"/>
+                        <Column editable="false" title="Destino" type="java.lang.Object"/>
                         <Column editable="true" title="Camioneta 1.5" type="java.lang.Object"/>
                         <Column editable="true" title="Camioneta 3.5" type="java.lang.String"/>
                         <Column editable="true" title="Rabon" type="java.lang.Object"/>
@@ -180,12 +180,12 @@
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="40" minWidth="40" prefWidth="40" resizable="true">
+                        <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="40" minWidth="40" prefWidth="40" resizable="true">
+                        <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>

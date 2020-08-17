@@ -154,7 +154,7 @@ public class Opciones {
         String sql = "";
         if (busca.equals("")) {
             sql = "Select ID_GuardarCotD,ID_Cotizacion, Origen, Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado from guardar_cotizacion_directa"
-                    + " where ID_Cotizacion =" + ID;
+                    + " where ID_Cotizacion =" + ID +" ORDER BY Origen, Destino ASC";
         } else {
             
 //             sql = "Select ID_asigna_Cotizacion,ID_Cotizacion, Origen, Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full,Estado from asigna_cotizacionv"
