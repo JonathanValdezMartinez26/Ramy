@@ -577,8 +577,16 @@ public class pnlClientes extends javax.swing.JPanel {
             a.log4.setVisible(false);
             a.log5.setVisible(false);
             a.a3.setText("Asignación a Servicios.");
-            a.ComboDestino(ID);
-            a.ComboOrigen(ID);
+            if (Ventanas.Modulo_Cliente.Opciones.verificaViaje(ID) == 0) {
+                Ventanas.Modulo_Cliente.Registrar.cmbDestinos.addItem("Todos los Destinos");            
+                //a.ComboDestino(ID);
+                a.ComboOrigen(ID);                
+            } else {
+                a.ComboDestinoNormal(ID);
+                a.ComboOrigen(ID);                
+            }
+            
+            
             
             a.ComboTransportes();
             a.setVisible(true);

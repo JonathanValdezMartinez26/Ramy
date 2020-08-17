@@ -151,13 +151,13 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_asigna_Cotizacion,ID_Cotizacion, Origen, Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full,Estado from asigna_cotizacionv"
+            sql = "Select ID_AsignaCotizacion,ID_Cotizacion, Origen, Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado from guardar_cotizacion_directa"
                     + " where ID_Cotizacion =" + ID;
         } else {
             
-             sql = "Select ID_asigna_Cotizacion,ID_Cotizacion, Origen, Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full,Estado from asigna_cotizacionv"
-                    + " where ID_Cotizacion =" + ID+" AND Destino LIKE '%"+busca+"%'"
-                     + "OR ID_Cotizacion =" + ID+" AND Camioneta_1_5 LIKE '%"+busca+"%'";
+//             sql = "Select ID_asigna_Cotizacion,ID_Cotizacion, Origen, Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full,Estado from asigna_cotizacionv"
+//                    + " where ID_Cotizacion =" + ID+" AND Destino LIKE '%"+busca+"%'"
+//                     + "OR ID_Cotizacion =" + ID+" AND Camioneta_1_5 LIKE '%"+busca+"%'";
               
            }
         

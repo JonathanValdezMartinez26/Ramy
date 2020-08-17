@@ -163,22 +163,22 @@ public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
         String ID_Cotizacion = ID.getText();
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
         final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
-        tabla.setRowSorter(sorter);
+        Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.setRowSorter(sorter);
         sorter.setRowFilter(null);
         int Filas1 = modelo.getRowCount();
         for (int i = 0; i < Filas1; i++) {
-            String IDAsignaCot = tabla.getValueAt(i, 0).toString();
-            String IDCot = tabla.getValueAt(i, 1).toString();
-            String Origen = tabla.getValueAt(i, 2).toString();
-            String Destino = tabla.getValueAt(i, 3).toString();
-            String Camioneta15 = tabla.getValueAt(i, 4).toString();
-            String Camioneta35 = tabla.getValueAt(i, 5).toString();
-            String Rabon = tabla.getValueAt(i, 6).toString();
-            String Torthon = tabla.getValueAt(i, 7).toString();
-            String Trailer = tabla.getValueAt(i, 8).toString();
-            String Full = tabla.getValueAt(i, 9).toString();
+            String IDAsignaCot = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 0).toString();
+            String IDCot = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 1).toString();
+            String Origen = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 2).toString();
+            String Destino = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 3).toString();
+            String Camioneta15 = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 4).toString();
+            String Camioneta35 = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 5).toString();
+            String Rabon = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 6).toString();
+            String Torthon = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 7).toString();
+            String Trailer = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 8).toString();
+            String Full = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 9).toString();
 
-            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 10).toString());
+            Boolean checked = Boolean.valueOf(Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 10).toString());
 
             String sql;
             if (checked) {
@@ -193,6 +193,7 @@ public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
                 } catch (SQLException e) {
                     System.out.println(e);
                 }
+                
 
             } else {
                 sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
@@ -206,6 +207,7 @@ public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
                 } catch (SQLException e) {
                     System.out.println(e);
                 }
+                
             }
         }
         this.dispose();

@@ -917,7 +917,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                                     System.out.println(e);
                                 }
 
+
                             } else {
+                                
                                 sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
                                         + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
 

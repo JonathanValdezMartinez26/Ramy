@@ -366,7 +366,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                 rSButtonMetro2ActionPerformed(evt);
             }
         });
-        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 0, 30, 30));
+        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1125, 0, 30, 30));
 
         lblNombreNuevo17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
@@ -711,9 +711,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 69, Short.MAX_VALUE))
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -871,9 +869,85 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     }//GEN-LAST:event_buscarKeyTyped
 
     private void pnlEliminar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminar2MouseClicked
-        eliminar();
-        int ID = Integer.parseInt(IDCotizacion.getText());
-        Opciones.listar("",ID);
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
+        final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
+        tabla.setRowSorter(sorter);
+        sorter.setRowFilter(null);
+        int existe = 0;
+////////////////////Verifica si no hay combos seleccionados
+        if (this.tabla.getRowCount() != 0) {
+            int Filas = modelo.getRowCount();
+            for (int j = 0; j < Filas; j++) {
+                Boolean validar = Boolean.valueOf(tabla.getValueAt(j, 10).toString());
+                if (validar) {///////Verifica si existen checks seleccionados
+                    existe++;
+                }
+            }
+            if (existe > 0) {////Si existen combos palomeados, verifica la tabla adicionales
+                ///////////////////////verifica si la Adicionales no esta vacia y la recorre para validar campos vacios 
+                                    
+
+                        int Filas1 = modelo.getRowCount();
+                        for (int i = 0; i < Filas1; i++) {
+                            String IDAsignaCot = tabla.getValueAt(i, 0).toString();
+                            String IDCot = tabla.getValueAt(i, 1).toString();
+                            String Origen = tabla.getValueAt(i, 2).toString();
+                            String Destino = tabla.getValueAt(i, 3).toString();
+                            String Camioneta15 = tabla.getValueAt(i, 4).toString();
+                            String Camioneta35 = tabla.getValueAt(i, 5).toString();
+                            String Rabon = tabla.getValueAt(i, 6).toString();
+                            String Torthon = tabla.getValueAt(i, 7).toString();
+                            String Trailer = tabla.getValueAt(i, 8).toString();
+                            String Full = tabla.getValueAt(i, 9).toString();
+
+                            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 10).toString());
+
+                            String sql;
+                            if (checked) {
+                                sql = "insert guardar_cotizacion_directa(ID_GuardarCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+
+                                try {
+                                    PreparedStatement pstm = cn.prepareStatement(sql);
+                                    pstm.execute();
+                                    pstm.close();
+
+                                } catch (SQLException e) {
+                                    System.out.println(e);
+                                }
+
+                            } else {
+                                sql = "insert guardar_cotizacion_directa(ID_GuardarCotD, ID_AsignaCotizacion, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDAsignaCot + "', '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+
+                                try {
+                                    PreparedStatement pstm = cn.prepareStatement(sql);
+                                    pstm.execute();
+                                    pstm.close();
+
+                                } catch (SQLException e) {
+                                    System.out.println(e);
+                                }
+                            }
+                        }
+                                               
+                        
+                        Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                        AC.msj1.setText("¡Viajes Guardados!");
+                        AC.msj2.setText("Se podran Editar Despues");
+                        //AC.msj3.setText("Para poder Finalizar Cotizacion");
+                        AC.setVisible(true);
+                        this.dispose();                    
+            }      
+
+            } else {
+                Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                AC.msj1.setText("¡Porfavor Marque!");
+                AC.msj2.setText("Al menos un Viaje");
+                AC.msj3.setText("Para poder Finalizar Cotizacion");
+                AC.setVisible(true);
+            }
+
     }//GEN-LAST:event_pnlEliminar2MouseClicked
 
     private void pnlEliminar2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminar2MouseEntered
@@ -969,18 +1043,19 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                                 }
                             }
                         }
-                        String ID_Cotizacion = IDCotizacion.getText();
-                        Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
-                        Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
-                        //ver();
-                        this.dispose();
-                    } else {
+                    String ID_Cotizacion = IDCotizacion.getText();
+                    Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
+                    Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
+                    ver(); 
+                    }                  
+                    else {
                         Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                         AC.msj1.setText("¡Campos Vacios!");
                         AC.msj2.setText("Porfavor llene Completamente ");
                         AC.msj3.setText("La Tabla de Adicionales");
                         AC.setVisible(true);
                     }
+
                 } else {
                     ////////Si la tabla1 esta vacia, se le pregunta al cliente, si desea finalizar cotizacion 
                     //////sin agregar ningun servicio, todo esto mediante este metodo
@@ -990,18 +1065,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     //JOptionPane.showMessageDialog(null,"Finaliza directo");
                 }
 
-
             }      
             
-            String ID_Cotizacion = IDCotizacion.getText();
-            Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
-            Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
-            ver();
-            Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
-            AC.msj1.setText("¡Esta cotización!");
-            AC.msj2.setText("A sido Finalizada");
-            AC.setVisible(true);
-            this.dispose();
             
 
             } else {
