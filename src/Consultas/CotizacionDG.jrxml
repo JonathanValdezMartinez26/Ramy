@@ -3,8 +3,8 @@
 	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="151"/>
-	<property name="ireport.y" value="354"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="308"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -39,7 +39,7 @@
 		<defaultValueExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT *FROM Reporte_guardar_directa WHERE ID_Cotizacion=$P{ID_Cotizacion}]]>
+		<![CDATA[SELECT *FROM Reporte_guardar_directa WHERE ID_Cotizacion=$P{ID_Cotizacion} and Estado=1]]>
 	</queryString>
 	<field name="ID_Cotizacion" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -198,37 +198,6 @@
 				</staticText>
 			</band>
 		</groupHeader>
-		<groupFooter>
-			<band height="212">
-				<staticText>
-					<reportElement style="Column header" x="181" y="74" width="206" height="10" forecolor="#000000" uuid="dbbba2fb-16f3-4209-bc49-b338e92e7d94"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[]]></text>
-				</staticText>
-				<subreport>
-					<reportElement x="5" y="19" width="535" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
-					<subreportParameter name="ID_Cotizacion">
-						<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
-					</subreportParameter>
-					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
-				</subreport>
-				<staticText>
-					<reportElement style="Column header" x="180" y="0" width="206" height="19" forecolor="#000000" uuid="310d9172-ca29-4f19-876a-d3749ffd83ef"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="11" isBold="true"/>
-					</textElement>
-					<text><![CDATA[]]></text>
-				</staticText>
-				<subreport>
-					<reportElement x="10" y="84" width="496" height="100" uuid="5c3f5c41-27d2-4c52-8cc3-745eda2a6b75"/>
-					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PIE_1.jasper"]]></subreportExpression>
-				</subreport>
-			</band>
-		</groupFooter>
 	</group>
 	<background>
 		<band splitType="Stretch"/>
@@ -455,9 +424,37 @@
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="9"/>
+		<band height="1"/>
 	</pageFooter>
 	<summary>
-		<band splitType="Stretch"/>
+		<band height="188">
+			<staticText>
+				<reportElement style="Column header" x="195" y="76" width="206" height="10" forecolor="#000000" uuid="dbbba2fb-16f3-4209-bc49-b338e92e7d94"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="5" y="21" width="535" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
+				<subreportParameter name="ID_Cotizacion">
+					<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement style="Column header" x="194" y="2" width="206" height="19" forecolor="#000000" uuid="310d9172-ca29-4f19-876a-d3749ffd83ef"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="5" y="88" width="496" height="100" uuid="5c3f5c41-27d2-4c52-8cc3-745eda2a6b75"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PIE_1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
 	</summary>
 </jasperReport>
