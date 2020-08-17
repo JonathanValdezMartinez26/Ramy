@@ -1049,7 +1049,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     String ID_Cotizacion = IDCotizacion.getText();
                     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
                     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
-                    //ver(); 
+                    ver(); 
                     this.dispose();
                     }                  
                     else {
@@ -1282,6 +1282,43 @@ public static void ver() {
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
             String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionD_1_1.jasper";
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            Map parametro = new HashMap();
+            parametro.put("ID_Cotizacion", ID);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+
+            JRViewer jrv = new JRViewer(jasperPrint);
+            jrv.setZoomRatio((float) 0.75);
+            r.contenedor.removeAll();
+
+            r.contenedor.setLayout(new BorderLayout());
+            r.contenedor.add(jrv, BorderLayout.CENTER);
+
+            r.contenedor.repaint();
+            r.contenedor.revalidate();
+            jrv.setVisible(true);
+            r.setVisible(true);
+        } catch (JRException ex) {
+            System.err.println("Error iReport: " + ex.getMessage());
+        }
+    }
+        else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error  generar la Cotizacion!");
+            AC.msj2.setText("Verifique que se agregaron los datos ");
+            AC.setVisible(true);
+        }
+}
+
+public static void verG() {
+        Clases.Conexion cc = new Clases.Conexion();
+        int ID = Integer.parseInt(IDCotizacion.getText());
+        if (ID >= 0) {
+
+       try {
+            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionDG.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);

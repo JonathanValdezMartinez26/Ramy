@@ -697,9 +697,15 @@ public class pnlCotizaciones extends javax.swing.JPanel {
             
                     
                         if(tipo.equals("DIRECTA")){
-                        int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());           
-                        ver2(ID);
                         
+                        if(status.equals("PENDIENTE")){
+                            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());           
+                            verG(ID);
+                        
+                        }else if(status.equals("FINALIZADA")){
+                             int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());           
+                             ver2(ID);
+                        }  
 //                        MP.setVisible(true);
                         }else{
                             if(tipo.equals("RENTA")){
@@ -813,6 +819,43 @@ public static void ver2(int ID) {
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
             String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionD_1_1.jasper";
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            Map parametro = new HashMap();
+            parametro.put("ID_Cotizacion", ID);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+
+            JRViewer jrv = new JRViewer(jasperPrint);
+            jrv.setZoomRatio((float) 0.75);
+            r.contenedor.removeAll();
+
+            r.contenedor.setLayout(new BorderLayout());
+            r.contenedor.add(jrv, BorderLayout.CENTER);
+
+            r.contenedor.repaint();
+            r.contenedor.revalidate();
+            jrv.setVisible(true);
+            r.setVisible(true);
+        } catch (JRException ex) {
+            System.err.println("Error iReport: " + ex.getMessage());
+        }
+    }
+        else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error  generar la Cotizacion!");
+            AC.msj2.setText("Verifique que se agregaron los datos ");
+            AC.setVisible(true);
+        }
+}
+
+public static void verG(int ID) {
+        Clases.Conexion cc = new Clases.Conexion();
+        
+        if (ID >= 0) {
+
+       try {
+            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionDG.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);

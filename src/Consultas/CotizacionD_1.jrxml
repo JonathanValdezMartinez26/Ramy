@@ -259,7 +259,7 @@
 					<text><![CDATA[ATENTAMENTE]]></text>
 				</staticText>
 				<subreport>
-					<reportElement x="5" y="19" width="535" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
+					<reportElement x="5" y="19" width="532" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
 					<subreportParameter name="ID_Cotizacion">
 						<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
 					</subreportParameter>
