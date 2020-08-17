@@ -100,6 +100,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         Periodo();        
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(false);
+        
          
         tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());

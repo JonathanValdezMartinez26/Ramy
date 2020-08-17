@@ -579,10 +579,10 @@ public class Opciones {
         
     }
     
-        public static void llenarServicioModificar(int ID_Cotizacion){
+        public static void llenarServicioMod(int ID_Cotizacion){
 
 
-    DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tabla1.getModel();
+    DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.ModificarCotizacionesRuta.tabla1.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
@@ -609,7 +609,7 @@ public class Opciones {
             
             modelo.fireTableDataChanged();
         } catch (SQLException ex) {
-            Logger.getLogger(Ventanas.Modulo_Cotizaciones_Mensual.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
