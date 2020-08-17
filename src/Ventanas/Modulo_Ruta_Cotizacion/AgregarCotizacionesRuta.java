@@ -25,6 +25,7 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import Ventanas.CotizacionReporte.ConfigCotizacionRuta;
 import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.Registrar.tabla3;
 import static Ventanas.Modulo_Cotizaciones.Opciones.cn;
@@ -104,7 +105,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(false);
         lblID_Origen.setVisible(false);
-        
+        lblIDTrans.setVisible(false);
+       
      
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -125,8 +127,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
         tabla.getColumnModel().getColumn( 4 ).setCellEditor(new MyTableCellEditorRuta(db,"Precio"));//Columna Precio
-//        tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorServRutNombre(db,"Nombre del Servicio"));//Columna Precio
-//        tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorServRutPrecio(db,"Precio"));//Columna Precio
+        tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorServRutNombre(db,"Nombre del Servicio"));//Columna Precio
+        tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorServRutPrecio(db,"Precio"));//Columna Precio
     }
     
     public void Clientes()
@@ -326,12 +328,12 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         int comboTransporte = cmbTransportes.getSelectedIndex();
         
         int ID_ORIGEN = Integer.parseInt(lblID_Origen.getText());
-        int ID_TRAN = Integer.parseInt(lblIDTrans.getText());
+//        int ID_TRAN = Integer.parseInt(lblIDTrans.getText());
         
         
       String destino1="";
            for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
-               destino1+="|".concat(tablaDestinos.getValueAt(i, 1).toString());
+               destino1+="".concat(","+tablaDestinos.getValueAt(i, 1).toString());
            }
         ////////////////
         int ID_Client1 = cmbCliente.getSelectedIndex();
@@ -374,7 +376,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                     }
                     else
                     {
-                        if(lblIDTrans.getText().equals(""))
+                        if(comboTransporte==0)
                         {
                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                             AC.msj1.setText("¡Elija un !");
@@ -393,13 +395,21 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                             }
                             else
                             {
-                                if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion,ID_ORIGEN, destino1,ID_TRAN)==0){
+                                if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion,ID_ORIGEN, destino1,ID_Transportes)==0){
                                     //////Si la ruta no existe, agrega los datos selecionados a la tabla cotizaciones_ruta
 //                                   int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
                                     String Origen =AgregarCotizacionesRuta.cmbOrigenes.getSelectedItem().toString();                                    
                                     String Transportes=AgregarCotizacionesRuta.cmbTransportes.getSelectedItem().toString();                                    
                                     Opciones.registrarCotizacionesRuta(IDCot,IDClient,IDOrigen,Origen,destino,ID_Transporte,Transportes);
                                     Opciones.listar("",ID_Cotizacion );
+                                    
+                                          DefaultTableModel myTableModel = (DefaultTableModel) this.tablaDestinos.getModel(); 
+                                          while (myTableModel.getRowCount() > 0) { 
+                                           myTableModel.removeRow(0); 
+                                           }
+                                          this.cmbDestinos.setSelectedIndex(0);
+                                          this.cmbTransportes.setSelectedIndex(0);
+                                    
                                 }else{
                                     
                                      Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -607,20 +617,19 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(4).setMaxWidth(140);
         }
 
-        tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID_", "Nombre del Servicio", "Precio"
+                "ID_Servicio", "ID_Cotizacion", "Nombre del Adicional", "Precio", "Supr para Borrar"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, true, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -631,11 +640,14 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tabla1.setRowHeight(20);
+        tabla1.setRowHeight(30);
         tabla1.getTableHeader().setReorderingAllowed(false);
         tabla1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tabla1KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tabla1KeyTyped(evt);
             }
         });
         jScrollPane1.setViewportView(tabla1);
@@ -643,6 +655,9 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(0).setMinWidth(0);
             tabla1.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla1.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
+            tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
         }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -657,7 +672,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jcMousePanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 880, 280));
@@ -1154,6 +1170,9 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
 
     private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
         eliminar();
+         int ID = Integer.parseInt(IDCotizacion.getText());
+        Opciones.listar("",ID);
+        buscar.setText("");
     }//GEN-LAST:event_pnlEliminarMouseClicked
 
     private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered
@@ -1165,7 +1184,9 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlEliminarMouseExited
 
     private void pnlVistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseClicked
-      
+     ConfigCotizacionRuta VE=new ConfigCotizacionRuta(null, true);
+     VE.CargarDatos();
+     VE.setVisible(true);        
     }//GEN-LAST:event_pnlVistaMouseClicked
 
     private void pnlVistaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseEntered
@@ -1347,20 +1368,27 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
            int IDClient=Integer.parseInt(lblID_Cliente.getText());
            int IDCot=Integer.parseInt(IDCotizacion.getText());
            
-           
-           
+//                    if(lblIDTrans.getText().equals(""))
+//                        {
+//                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+//                            AC.msj1.setText("¡Elija un !");
+//                            AC.msj2.setText("Transporte");
+//                            AC.setVisible(true);
+//                        }
+//           
            
            String destino="";
            for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
-               destino+="|".concat(tablaDestinos.getValueAt(i, 1).toString());
+               destino+="".concat(tablaDestinos.getValueAt(i, 1).toString()+" "+"/"+" ");
            }
            Guardar(destino,IDOri,IDClient,IDCot);
            
+//            this.cmbDestinos.setSelectedIndex(0);
+            this.cmbTransportes.setSelectedIndex(0);
            
            
        }
-       this.cmbDestinos.setSelectedIndex(0);
-       this.cmbTransportes.setSelectedIndex(0);
+      
        
 //         DefaultTableModel temp;
 //        try{
@@ -1376,10 +1404,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
 //             
 //            tablaDestinos.setModel(modelo);
 //        }
-       DefaultTableModel myTableModel = (DefaultTableModel) this.tablaDestinos.getModel(); 
-       while (myTableModel.getRowCount() > 0) { 
-       myTableModel.removeRow(0); 
-} 
+  
 
 
 //        tablaDestinos
@@ -1402,28 +1427,38 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbClienteActionPerformed
 
     private void cmbTransportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTransportesActionPerformed
-         if(lblIDTrans.getText().equals(""))
-                        {
-                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                            AC.msj1.setText("¡Elija un !");
-                            AC.msj2.setText("Transporte");
-                            AC.setVisible(true);
-                        }
+
     }//GEN-LAST:event_cmbTransportesActionPerformed
 
     private void tabla1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyPressed
-       int press = evt.getKeyCode();
-        if (this.tabla1.getSelectedRow() != -1 && press == 127) {
+        // TODO add your handling code here:
+        int press=evt.getKeyCode();
+        if(this.tabla1.getSelectedRow()!=-1 && press==127 ){
             int ID_Cotizacion;
-            ID_Cotizacion = Integer.parseInt(AgregarCotizacionesRuta.IDCotizacion.getText());
+            ID_Cotizacion = Integer.parseInt(AgregarCotizaciones_Renta.IDCotizacion.getText());
             int a1 = Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(), 0).toString());
             DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
             Ventanas.Modulo_Ruta_Cotizacion.Opciones.eliminarServicio(a1);
             Ventanas.Modulo_Ruta_Cotizacion.Opciones.llenarServicio(ID_Cotizacion);
             this.tabla1.getSelectionModel().setSelectionInterval(0, 0);
-        } 
+
+        }
+        //        else{
+            //            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+            //                                AC.msj1.setText("¡Porfavor Seleccione!");
+            //                                AC.msj2.setText("Un Servicio");
+            //                                AC.msj3.setText("Para Eliminarlo");
+            //                                AC.setVisible(true);
+            //        }
 
     }//GEN-LAST:event_tabla1KeyPressed
+
+    private void tabla1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyTyped
+        //        int press=evt.getKeyCode();
+        //
+        //        JOptionPane.showMessageDialog(null,"La tecla presionada es "+press);
+
+    }//GEN-LAST:event_tabla1KeyTyped
 
     public static void main(String args[]) {
      
@@ -1494,7 +1529,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     public static javax.swing.JTable tabla1;
     public static javax.swing.JTable tablaDestinos;
     // End of variables declaration//GEN-END:variables
-public void ver() {
+public static  void ver() {
         Clases.Conexion cc = new Clases.Conexion();
         int ID = Integer.parseInt(IDCotizacion.getText());
         

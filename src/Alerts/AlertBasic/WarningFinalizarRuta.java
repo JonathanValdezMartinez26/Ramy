@@ -5,8 +5,8 @@ import Alerts.*;
 import Ventanas.Modulo_Cliente.Opciones;
 import Ventanas.Modulo_Cliente.Registrar;
 import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
-import Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado;
-import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
+import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
+import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
 import com.sun.glass.events.KeyEvent;
 import java.awt.event.WindowEvent;
@@ -159,6 +159,7 @@ public class WarningFinalizarRuta extends javax.swing.JDialog {
 //     
     Ventanas.Modulo_Ruta_Cotizacion.Opciones.finalizarCotizacion(ID_Cotizacion);
     Ventanas.Modulo_Ruta_Cotizacion.Opciones.listarCotizaciones("");  
+    AgregarCotizacionesRuta.ver();
 //        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.jButton3.setEnabled(false);
 //        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.pnlFinalizar.setEnabled(false);
 //        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.txtTipo_Concepto.setEnabled(false);
