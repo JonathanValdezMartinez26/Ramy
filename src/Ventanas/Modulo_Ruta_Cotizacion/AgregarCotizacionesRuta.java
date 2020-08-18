@@ -1316,51 +1316,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
 
-<<<<<<< HEAD
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       if((this.tablaDestinos.getRowCount()==0)){
-           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-           AC.msj1.setText("¡Asigne Destinos a la tabla!");
-           AC.msj2.setText("Para poder asignar cotizacion");
-           //AC.msj3.setText("Registrados con el Mismo Transporte");
-           AC.setVisible(true);
-       }else{
-           String origen =cmbOrigenes.getSelectedItem().toString();
-           String transporte=cmbTransportes.getSelectedItem().toString();
-           String IDCliente=lblID_Cliente.getText();
-           String IDOrigen=lblID_Origen.getText();
-           String IDTrans=lblIDTrans.getText();
-           String IDCoti=IDCotizacion.getText();
-           int IDOri=Integer.parseInt(lblID_Origen.getText());
-           int IDClient=Integer.parseInt(lblID_Cliente.getText());
-           int IDCot=Integer.parseInt(IDCotizacion.getText());
-           
-           String destino="";
-           for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
-               destino+="".concat(tablaDestinos.getValueAt(i, 1).toString()+" "+"/"+" ");
-           }
-           Guardar(destino,IDOri,IDClient,IDCot);
-           
-//            this.cmbDestinos.setSelectedIndex(0);
-            this.cmbTransportes.setSelectedIndex(0);
-       }
-   
-    }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MousePressed
-
-    private void jButton3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseReleased
-
-=======
->>>>>>> b3d992dc9dd82445846c1ef2fe5232ba6cfab953
     private void cmbClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbClienteActionPerformed
