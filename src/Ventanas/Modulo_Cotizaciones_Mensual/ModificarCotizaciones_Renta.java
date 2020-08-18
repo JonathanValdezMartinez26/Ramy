@@ -389,7 +389,6 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         jLabel14 = new javax.swing.JLabel();
         IDCotizacion = new javax.swing.JLabel();
         ID_rutas = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         lblatencion1 = new javax.swing.JLabel();
         cmbPeriodo = new ComboBox.SComboBox();
@@ -397,6 +396,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         txtTipo_Concepto = new app.bolivia.swing.JCTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new JButtonEspecial.JButtonEspecial();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -702,14 +702,6 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
         jcMousePanel1.add(ID_rutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 140, 20));
 
-        jButton3.setText("Agregar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 170, 30));
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel6.setText("Seleccione un Concepto");
         jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 190, 20));
@@ -752,6 +744,22 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
         jcMousePanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 250, -1));
+
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setForeground(new java.awt.Color(128, 128, 131));
+        jButton1.setText("Aceptar");
+        jButton1.setColorBorde(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        jButton1.setColorHover(new java.awt.Color(204, 204, 204));
+        jButton1.setColorNormal(new java.awt.Color(204, 204, 204));
+        jButton1.setColorPressed(new java.awt.Color(153, 153, 153));
+        jButton1.setColorTextHover(new java.awt.Color(128, 128, 131));
+        jButton1.setColorTextNormal(new java.awt.Color(128, 128, 131));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jcMousePanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 220, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -801,10 +809,6 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
             
          
     }//GEN-LAST:event_cmbClienteItemStateChanged
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    Guardar();
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
      
@@ -1055,6 +1059,10 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Guardar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1077,7 +1085,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
     public static app.bolivia.swing.JCTextField buscar;
     public static ComboBox.SComboBox cmbCliente;
     public static ComboBox.SComboBox cmbPeriodo;
-    public static javax.swing.JButton jButton3;
+    public static JButtonEspecial.JButtonEspecial jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

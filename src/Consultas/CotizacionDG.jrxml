@@ -163,7 +163,7 @@
 						<bottomPen lineWidth="0.75" lineColor="#000000"/>
 						<rightPen lineWidth="0.75" lineColor="#000000"/>
 					</box>
-					<textElement textAlignment="Left">
+					<textElement textAlignment="Left" verticalAlignment="Middle">
 						<font fontName="Arial" size="10" isBold="true"/>
 					</textElement>
 					<text><![CDATA[                                DESTINO]]></text>
@@ -385,7 +385,7 @@
 					<bottomPen lineWidth="0.75"/>
 					<rightPen lineWidth="0.75"/>
 				</box>
-				<textElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="11"/>
 					<paragraph tabStopWidth="43"/>
 				</textElement>

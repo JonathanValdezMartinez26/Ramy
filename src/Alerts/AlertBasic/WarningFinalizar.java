@@ -211,7 +211,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
         Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
         Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
         AgregarCotizaciones AC = new AgregarCotizaciones(null, true);
-        //ver();
+        Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.ver();
         AC.dispose();
         
     }//GEN-LAST:event_log2ActionPerformed

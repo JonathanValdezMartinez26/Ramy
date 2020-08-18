@@ -71,7 +71,7 @@
 		<groupHeader>
 			<band>
 				<staticText>
-					<reportElement style="Column header" x="456" y="-16" width="92" height="15" forecolor="#000000" uuid="f3bfa76d-dd0b-442b-bae4-3eba3736ddc5">
+					<reportElement style="Column header" x="482" y="-16" width="66" height="15" forecolor="#000000" uuid="f3bfa76d-dd0b-442b-bae4-3eba3736ddc5">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 					</reportElement>
 					<box>
@@ -106,7 +106,7 @@
 					<text><![CDATA[]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" x="171" y="0" width="206" height="19" forecolor="#000000" uuid="71e374c7-add6-4d6b-a92d-04c2d10eba9f"/>
+					<reportElement style="Column header" x="171" y="8" width="206" height="19" forecolor="#000000" uuid="71e374c7-add6-4d6b-a92d-04c2d10eba9f"/>
 					<textElement textAlignment="Center">
 						<font fontName="Times New Roman" size="11" isBold="true"/>
 					</textElement>
@@ -314,7 +314,7 @@
 				<text><![CDATA[Ruta]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="309" y="268" width="147" height="15" forecolor="#000000" uuid="f0d0b835-410c-4c05-b7e5-8adf0e5c8259">
+				<reportElement style="Column header" x="342" y="268" width="140" height="15" forecolor="#000000" uuid="f0d0b835-410c-4c05-b7e5-8adf0e5c8259">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 				</reportElement>
 				<box>
@@ -330,7 +330,7 @@
 				<text><![CDATA[Unidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="140" y="268" width="169" height="15" forecolor="#000000" uuid="e001e723-e940-49e7-a746-38277cd2d706">
+				<reportElement style="Column header" x="118" y="268" width="224" height="15" forecolor="#000000" uuid="e001e723-e940-49e7-a746-38277cd2d706">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 				</reportElement>
 				<box>
@@ -346,7 +346,7 @@
 				<text><![CDATA[Destino]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="9" y="268" width="131" height="15" forecolor="#000000" uuid="b162be28-4c2d-4888-94ab-c415bf386278">
+				<reportElement style="Column header" x="9" y="268" width="109" height="15" forecolor="#000000" uuid="b162be28-4c2d-4888-94ab-c415bf386278">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 				</reportElement>
 				<box>
@@ -367,9 +367,9 @@
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<detail>
-		<band height="33" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<textField>
-				<reportElement x="456" y="0" width="92" height="33" uuid="3a1e2747-509e-4d7d-b5bc-29bfa2651ba6"/>
+				<reportElement x="482" y="0" width="66" height="40" uuid="3a1e2747-509e-4d7d-b5bc-29bfa2651ba6"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -381,7 +381,7 @@
 				<textFieldExpression><![CDATA["$"+$F{Precio}.floatValue()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="309" y="0" width="147" height="33" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>
+				<reportElement x="342" y="0" width="140" height="40" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -393,7 +393,7 @@
 				<textFieldExpression><![CDATA[$F{Transporte}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="140" y="0" width="169" height="33" uuid="d84f0127-2de7-4822-a0ad-e30cc3319a95"/>
+				<reportElement x="118" y="0" width="224" height="40" uuid="d84f0127-2de7-4822-a0ad-e30cc3319a95"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -401,11 +401,13 @@
 					<bottomPen lineWidth="0.75"/>
 					<rightPen lineWidth="0.75"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Destino}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="9" y="0" width="131" height="33" uuid="6691b392-1fa7-4eec-af0c-e975fe0293fc"/>
+				<reportElement x="9" y="0" width="109" height="40" uuid="6691b392-1fa7-4eec-af0c-e975fe0293fc"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>

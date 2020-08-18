@@ -644,8 +644,11 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
             tablaR.getColumnModel().getColumn(0).setMinWidth(0);
             tablaR.getColumnModel().getColumn(0).setPreferredWidth(0);
             tablaR.getColumnModel().getColumn(0).setMaxWidth(0);
+            tablaR.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tablaR.getColumnModel().getColumn(2).setPreferredWidth(240);
+            tablaR.getColumnModel().getColumn(3).setPreferredWidth(20);
             tablaR.getColumnModel().getColumn(4).setMinWidth(140);
-            tablaR.getColumnModel().getColumn(4).setPreferredWidth(140);
+            tablaR.getColumnModel().getColumn(4).setPreferredWidth(10);
             tablaR.getColumnModel().getColumn(4).setMaxWidth(140);
         }
 
@@ -1107,46 +1110,6 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         
     }//GEN-LAST:event_cmbDestinosItemStateChanged
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.ModificarCotizacionesRuta.tablaDestinos.getModel();          
-        boolean avisar=false;
-        int comboDestino = cmbDestinos.getSelectedIndex(); 
-        //////Obtiene el dato que se ha seleccionado y lo guarda en la variable destino
-        String destino=cmbDestinos.getSelectedItem().toString();
-        
-        ////si el combo no se ha seleccionado, pedir seleccionar uno
-        if (comboDestino==0) {
-         Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-          AC.msj1.setText("¡Seleccione Un Destino!");
-          AC.msj2.setText("Para Continuar.");
-          AC.msj3.setText("");
-          AC.setVisible(true);
-        }       
-        else{//////////Se permite añadir hasta 10 destinos                         
-             String datos[] = new String[10];
-             datos [1] = destino;
-                ///////Recorrido de la tabla
-                for(int i = 0; i<tablaDestinos.getRowCount(); i++){
-                    //////Compara el valor a ingresar con los datos de la tabla y si son identicos activa la bandera a true 
-                        if(tablaDestinos.getValueAt(i, 1).equals(destino)){
-                            
-                              Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                              AC.msj1.setText( "¡El  destino  ya existe!");
-                              AC.msj2.setText("Verifique los datos.");
-                              AC.msj3.setText("");
-                              AC.setVisible(true);
-                            
-//                        JOptionPane.showMessageDialog(null, "El "+ destino + " ya existe en la tabla.");                       
-                        avisar=true;                        
-                         }
-                       }
-                //////Si la bandera no se activa agregar a la tabla
-                if (avisar==false) {
-                modelo.addRow(datos);
-            }
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
         
@@ -1393,74 +1356,6 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       if((this.tablaDestinos.getRowCount()==0)){
-           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-           AC.msj1.setText("¡Asigne Destinos a la tabla!");
-           AC.msj2.setText("Para poder asignar cotizacion");
-           //AC.msj3.setText("Registrados con el Mismo Transporte");
-           AC.setVisible(true);
-       }else{
-           
-           
-           String origen =cmbOrigenes.getSelectedItem().toString();
-           String transporte=cmbTransportes.getSelectedItem().toString();
-           String IDCliente=lblID_Cliente.getText();
-           String IDOrigen=lblID_Origen.getText();
-           String IDTrans=lblIDTrans.getText();
-           String IDCoti=IDCotizacion.getText();
-           int IDOri=Integer.parseInt(lblID_Origen.getText());
-           int IDClient=Integer.parseInt(lblID_Cliente.getText());
-           int IDCot=Integer.parseInt(IDCotizacion.getText());
-           
-           
-           
-           
-           String destino="";
-           for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
-               destino+="".concat(tablaDestinos.getValueAt(i, 1).toString()+" "+"/"+" ");
-           }
-           Guardar(destino,IDOri,IDClient,IDCot);
-           
-//           this.cmbDestinos.setSelectedIndex(0);
-       this.cmbTransportes.setSelectedIndex(0);
-           
-       }
-       
-       
-//         DefaultTableModel temp;
-//        try{
-//            temp = (DefaultTableModel) tablaDestinos.getModel();
-//            int a =temp.getRowCount()-1;
-//            for(int i=0; i<a; i++)
-//                temp.removeRow(0); //aquí estaba el error, antes pasaba la i como parametro.... soy un bacín  XD
-//        }catch(Exception e){
-//            System.out.println(e);
-//        }
-//         if( tablaDestinos.getRowCount()>0){
-//            javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(0, tablaDestinos.getColumnCount());
-//             
-//            tablaDestinos.setModel(modelo);
-//        }
-       
- 
-
-
-//        tablaDestinos
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MousePressed
-
-    private void jButton3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseReleased
-
     private void cmbClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbClienteActionPerformed
@@ -1498,6 +1393,106 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         //        JOptionPane.showMessageDialog(null,"La tecla presionada es "+press);
 
     }//GEN-LAST:event_tabla1KeyTyped
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.ModificarCotizacionesRuta.tablaDestinos.getModel();
+        boolean avisar=false;
+        int comboDestino = cmbDestinos.getSelectedIndex();
+        //////Obtiene el dato que se ha seleccionado y lo guarda en la variable destino
+        String destino=cmbDestinos.getSelectedItem().toString();
+
+        ////si el combo no se ha seleccionado, pedir seleccionar uno
+        if (comboDestino==0) {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Seleccione Un Destino!");
+            AC.msj2.setText("Para Continuar.");
+            AC.msj3.setText("");
+            AC.setVisible(true);
+        }
+        else{//////////Se permite añadir hasta 10 destinos
+            String datos[] = new String[10];
+            datos [1] = destino;
+            ///////Recorrido de la tabla
+            for(int i = 0; i<tablaDestinos.getRowCount(); i++){
+                //////Compara el valor a ingresar con los datos de la tabla y si son identicos activa la bandera a true
+                if(tablaDestinos.getValueAt(i, 1).equals(destino)){
+
+                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                    AC.msj1.setText( "¡El  destino  ya existe!");
+                    AC.msj2.setText("Verifique los datos.");
+                    AC.msj3.setText("");
+                    AC.setVisible(true);
+
+                    //                        JOptionPane.showMessageDialog(null, "El "+ destino + " ya existe en la tabla.");
+                    avisar=true;
+                }
+            }
+            //////Si la bandera no se activa agregar a la tabla
+            if (avisar==false) {
+                modelo.addRow(datos);
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseReleased
+
+    private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MousePressed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if((this.tablaDestinos.getRowCount()==0)){
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Asigne Destinos a la tabla!");
+            AC.msj2.setText("Para poder asignar cotizacion");
+            //AC.msj3.setText("Registrados con el Mismo Transporte");
+            AC.setVisible(true);
+        }else{
+
+            String origen =cmbOrigenes.getSelectedItem().toString();
+            String transporte=cmbTransportes.getSelectedItem().toString();
+            String IDCliente=lblID_Cliente.getText();
+            String IDOrigen=lblID_Origen.getText();
+            String IDTrans=lblIDTrans.getText();
+            String IDCoti=IDCotizacion.getText();
+            int IDOri=Integer.parseInt(lblID_Origen.getText());
+            int IDClient=Integer.parseInt(lblID_Cliente.getText());
+            int IDCot=Integer.parseInt(IDCotizacion.getText());
+
+            String destino="";
+            for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
+                destino+="".concat(tablaDestinos.getValueAt(i, 1).toString()+" "+"/"+" ");
+            }
+            Guardar(destino,IDOri,IDClient,IDCot);
+
+            //           this.cmbDestinos.setSelectedIndex(0);
+            this.cmbTransportes.setSelectedIndex(0);
+
+        }
+
+        //         DefaultTableModel temp;
+        //        try{
+            //            temp = (DefaultTableModel) tablaDestinos.getModel();
+            //            int a =temp.getRowCount()-1;
+            //            for(int i=0; i<a; i++)
+            //                temp.removeRow(0); //aquí estaba el error, antes pasaba la i como parametro.... soy un bacín  XD
+            //        }catch(Exception e){
+            //            System.out.println(e);
+            //        }
+        //         if( tablaDestinos.getRowCount()>0){
+            //            javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(0, tablaDestinos.getColumnCount());
+            //
+            //            tablaDestinos.setModel(modelo);
+            //        }
+
+        //        tablaDestinos
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     public static void main(String args[]) {
      

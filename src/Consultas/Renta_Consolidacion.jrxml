@@ -288,7 +288,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="11" isBold="false"/>
 				</textElement>
-				<text><![CDATA[  POR MEDIO DE LA PRESENTE PONEMOS A SU CONSIDERACION LA SIGUIENTE COTIZACION]]></text>
+				<text><![CDATA[  POR MEDIO DE LA PRESENTE PONEMOS A SU CONSIDERACIÓN LA SIGUIENTE COTIZACIÓN]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="163" y="224" width="197" height="21" forecolor="#000000" uuid="0f1cfb13-870a-4c2d-83d5-80ffb06c73e8"/>
