@@ -392,46 +392,7 @@ public class Opciones {
 //        JOptionPane.showMessageDialog(null, existe+" "+ID_Cliente);
         return existe;
     }
-    public static void listarDetallesCotizaciones(String busca,int IDCotizacion,String cliente, String IDCliente) {
-        pnlRutasGuardadas.lblID.setText(""+IDCliente);
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.pnlRutasGuardadas.tabla.getModel();
-        int contador = 0;
-        String sql="";
-        
-        while (modelo.getRowCount() > 0) {
-            modelo.removeRow(0);
-        }
-        
-            sql = "Select ID_CotizacionRuta,ID_Cotizacion,ID_Cliente ,ID_Origen,Origen, Destino,ID_Transporte,Transporte,Precio from cotizaciones_ruta where ID_Cotizacion ="+IDCotizacion+" AND ID_Cliente="+IDCliente;
-        
-            String datos[] = new String[12];
-        try 
-        {    
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                datos[0] = String.valueOf(rs.getInt(1));
-                datos[1] = String.valueOf(rs.getInt(2));
-                datos[2] = String.valueOf(rs.getInt(3));
-                datos[3] = String.valueOf(rs.getInt(4));
-                datos[4] = rs.getString(5);
-                datos[5] = rs.getString(6);
-                datos[6] = String.valueOf(rs.getInt(7));
-                datos[7] = rs.getString(8);
-                datos[8] = rs.getString(9);
-//                datos[9] = rs.getString(10);
-                
-                modelo.addRow(datos);
-            }
-           
-        } 
-        catch (SQLException ex) 
-            {
-                Logger.getLogger(Ventanas.Modulo_Cliente.Opciones.class.getName()).log(Level.SEVERE, null, ex);
-            }
-  
-        
-    }     
+   
     public static void listarCotizacionRuta(String busca, String ID) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tabla.getModel();
 

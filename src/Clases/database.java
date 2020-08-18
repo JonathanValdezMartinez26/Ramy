@@ -8,7 +8,7 @@ public class database {
   private String login = "root"; //USUARIO
   private String password = ""; //CONTRASEÑA
 
- private String url = "jdbc:mysql://192.168.100.14/"+bd;
+ private String url = "jdbc:mysql://192.168.0.14/"+bd;
 //  private String url = "jdbc:mysql://localhost/"+bd;
   private Connection conn = null;
 

@@ -30,7 +30,7 @@ import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.Registrar.tabla3;
 import static Ventanas.Modulo_Cotizaciones.Opciones.cn;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
-import static Ventanas.Modulo_Ruta_Cotizacion.pnlRutasGuardadas.info;
+
 import Ventanas.Modulo_Tipo_Servicio.ModificarTipoServicio;
 import static Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio.tabla;
 import static configInicio.Configuracion.txtEmail;
@@ -1356,8 +1356,6 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
            //AC.msj3.setText("Registrados con el Mismo Transporte");
            AC.setVisible(true);
        }else{
-           
-           
            String origen =cmbOrigenes.getSelectedItem().toString();
            String transporte=cmbTransportes.getSelectedItem().toString();
            String IDCliente=lblID_Cliente.getText();
@@ -1368,15 +1366,6 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
            int IDClient=Integer.parseInt(lblID_Cliente.getText());
            int IDCot=Integer.parseInt(IDCotizacion.getText());
            
-//                    if(lblIDTrans.getText().equals(""))
-//                        {
-//                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-//                            AC.msj1.setText("¡Elija un !");
-//                            AC.msj2.setText("Transporte");
-//                            AC.setVisible(true);
-//                        }
-//           
-           
            String destino="";
            for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
                destino+="".concat(tablaDestinos.getValueAt(i, 1).toString()+" "+"/"+" ");
@@ -1385,29 +1374,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
            
 //            this.cmbDestinos.setSelectedIndex(0);
             this.cmbTransportes.setSelectedIndex(0);
-           
-           
        }
-      
-       
-//         DefaultTableModel temp;
-//        try{
-//            temp = (DefaultTableModel) tablaDestinos.getModel();
-//            int a =temp.getRowCount()-1;
-//            for(int i=0; i<a; i++)
-//                temp.removeRow(0); //aquí estaba el error, antes pasaba la i como parametro.... soy un bacín  XD
-//        }catch(Exception e){
-//            System.out.println(e);
-//        }
-//         if( tablaDestinos.getRowCount()>0){
-//            javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(0, tablaDestinos.getColumnCount());
-//             
-//            tablaDestinos.setModel(modelo);
-//        }
-  
-
-
-//        tablaDestinos
+   
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
