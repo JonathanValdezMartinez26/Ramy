@@ -1108,7 +1108,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                         String ID_Cotizacion = IDCotizacion.getText();
                         Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
                         Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
-                        //ver();
+                        ver();
                         this.dispose();
                     } else {
                         Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
