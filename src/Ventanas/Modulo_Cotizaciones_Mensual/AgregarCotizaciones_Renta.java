@@ -26,6 +26,7 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import Ventanas.CotizacionReporte.ConfigCotizacion;
 import Ventanas.CotizacionReporte.ConfigCotizacionRenta;
 import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
@@ -328,16 +329,22 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         pnlEliminar = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        pnlVista = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         pnlFinalizar = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        pnlVista = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         pnleditar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        pnleditar2 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        pnlAyuda = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         IDCotizacion = new javax.swing.JLabel();
         ID_rutas = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -552,6 +559,31 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
         jPanel1.add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
 
+        pnlFinalizar.setBackground(new java.awt.Color(225, 225, 225));
+        pnlFinalizar.setToolTipText("Finalizar Cotizacion");
+        pnlFinalizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pnlFinalizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlFinalizarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlFinalizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlFinalizarMouseExited(evt);
+            }
+        });
+        pnlFinalizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setText("    Finalizar");
+        pnlFinalizar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/comprobado.png"))); // NOI18N
+        pnlFinalizar.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
+
+        jPanel1.add(pnlFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 70));
+
         pnlVista.setBackground(new java.awt.Color(225, 225, 225));
         pnlVista.setToolTipText("Visualizar Cotizacion");
         pnlVista.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -575,35 +607,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         pnlVista.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel1.add(pnlVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 70));
-
-        pnlFinalizar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlFinalizar.setToolTipText("Finalizar Cotizacion");
-        pnlFinalizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlFinalizarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlFinalizarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlFinalizarMouseExited(evt);
-            }
-        });
-        pnlFinalizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel11.setText("    Finalizar");
-        pnlFinalizar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/comprobado.png"))); // NOI18N
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel12MouseClicked(evt);
-            }
-        });
-        pnlFinalizar.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
-
-        jPanel1.add(pnlFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 70));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -644,6 +647,54 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
         jPanel1.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
         pnleditar.getAccessibleContext().setAccessibleDescription("Ag");
+
+        pnleditar2.setBackground(new java.awt.Color(225, 225, 225));
+        pnleditar2.setToolTipText("Agregar Adicionales");
+        pnleditar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnleditar2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnleditar2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnleditar2MouseExited(evt);
+            }
+        });
+        pnleditar2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setText("  Adicionales");
+        pnleditar2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-servicios-40.png"))); // NOI18N
+        pnleditar2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
+
+        jPanel1.add(pnleditar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
+
+        pnlAyuda.setBackground(new java.awt.Color(225, 225, 225));
+        pnlAyuda.setToolTipText("Visualizar Cotizacion");
+        pnlAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseExited(evt);
+            }
+        });
+        pnlAyuda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("      Ayuda");
+        pnlAyuda.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda30.png"))); // NOI18N
+        pnlAyuda.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, 30, 40));
+
+        jPanel1.add(pnlAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, 70));
 
         jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 890, 70));
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
@@ -938,10 +989,6 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
         pnleditar.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnleditarMouseExited
 
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel12MouseClicked
-
     private void cmbPeriodoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPeriodoItemStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbPeriodoItemStateChanged
@@ -999,6 +1046,32 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
      Guardar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void pnleditar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditar2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnleditar2MouseClicked
+
+    private void pnleditar2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditar2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnleditar2MouseEntered
+
+    private void pnleditar2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditar2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnleditar2MouseExited
+
+    private void pnlAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseClicked
+
+        ConfigCotizacion poper =new Ventanas.CotizacionReporte.ConfigCotizacion(null, true);
+        poper.setVisible(true);
+    }//GEN-LAST:event_pnlAyudaMouseClicked
+
+    private void pnlAyudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseEntered
+        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
+    }//GEN-LAST:event_pnlAyudaMouseEntered
+
+    private void pnlAyudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseExited
+        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
+    }//GEN-LAST:event_pnlAyudaMouseExited
+
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1029,9 +1102,13 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1047,10 +1124,12 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
     public static javax.swing.JLabel lblNombre;
     public static javax.swing.JLabel lblNombreNuevo17;
     private javax.swing.JLabel lblatencion1;
+    private javax.swing.JPanel pnlAyuda;
     private javax.swing.JPanel pnlEliminar;
     private javax.swing.JPanel pnlFinalizar;
     private javax.swing.JPanel pnlVista;
     private javax.swing.JPanel pnleditar;
+    private javax.swing.JPanel pnleditar2;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla1;
     public static javax.swing.JTable tablaR;
