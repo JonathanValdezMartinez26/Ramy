@@ -279,16 +279,44 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     //AgregarCotizaciones.dispose();
     }
     
-    public void aceptarFinalizar(){
+    public void guardarAutomatico(){
     
-        //JOptionPane.showMessageDialog(null, "MEnsaje desde warning finalizar id del warning es: "+ IDCotizacionA);
-        //AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
-        
-        JOptionPane.showMessageDialog(null, "desde aceptar dinalizar");
-        this.dispose();
-        //this.dispose();
-        //AgregarCotizaciones.dispose();
-        
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
+        int Filas1 = modelo.getRowCount();  
+                        for (int i = 0; i < Filas1; i++) {
+                            //String IDAsignaCot = tabla.getValueAt(i, 0).toString();
+                            String IDCot = tabla.getValueAt(i, 0).toString();
+                            String Origen = tabla.getValueAt(i, 1).toString();
+                            String Destino = tabla.getValueAt(i, 2).toString();
+                            String Camioneta15 = tabla.getValueAt(i, 3).toString();
+                            String Camioneta35 = tabla.getValueAt(i, 4).toString();
+                            String Rabon = tabla.getValueAt(i, 5).toString();
+                            String Torthon = tabla.getValueAt(i, 6).toString();
+                            String Trailer = tabla.getValueAt(i, 7).toString();
+                            String Full = tabla.getValueAt(i, 8).toString();
+
+                            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 9).toString());
+
+                            String sql;
+                            
+                                sql = "insert guardar_cotizacion_directa(ID_GuardarCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL, '" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+
+                                try {
+                                    PreparedStatement pstm = cn.prepareStatement(sql);
+                                    pstm.execute();
+                                    pstm.close();
+                                 
+
+                                } catch (SQLException e) {
+                                    System.out.println(e);
+                                }
+                        }
+                Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                AC.msj1.setText("¡Viajes Asignados!");
+                AC.msj2.setText("Correctamente");
+                AC.setVisible(true);
+
     }
     
     
@@ -826,7 +854,10 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                                             System.out.println(e);
                                         }
                 }
-                 Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotiza);
+                Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotiza);
+                guardarAutomatico();
+                 
+                 
             } 
             catch (SQLException ex) {
 
@@ -880,10 +911,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     existe++;
                 }
             }
-            if (existe > 0) {////Si existen combos palomeados, verifica la tabla adicionales
-                ///////////////////////verifica si la Adicionales no esta vacia y la recorre para validar campos vacios 
-                       
-//
+            if (existe > 0) {//////Si existen checks seleccionados, se guardan los viajes para editarlos despues
+                        String IDC=IDCotizacion.getText();
+                        Opciones.eliminarViajesGuardados(IDC);
                         int Filas1 = modelo.getRowCount();
                         for (int i = 0; i < Filas1; i++) {
                             //String IDAsignaCot = tabla.getValueAt(i, 0).toString();
@@ -1051,6 +1081,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
                     ver(); 
                     this.dispose();
+                    Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados
                     }                  
                     else {
                         Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);

@@ -364,6 +364,14 @@ public static int verificaViajeGuardado(int ID_Cotizacion,String Origen,String D
 
         }
     }
+    public static void eliminarViajesGuardados(String IDCotizacion){
+        try {
+            PreparedStatement pst = (PreparedStatement) cn.prepareStatement("DELETE FROM guardar_cotizacion_directa WHERE ID_Cotizacion=" + IDCotizacion);
+            pst.executeUpdate();            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
     
 }
     
