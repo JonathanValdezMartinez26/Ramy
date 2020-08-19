@@ -193,8 +193,8 @@ public class AgregarCliente extends javax.swing.JDialog {
         lblNombreNuevo8 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        lblNombreNuevo21 = new javax.swing.JLabel();
         txtCalle = new app.bolivia.swing.JCTextField();
+        lblNombreNuevo21 = new javax.swing.JLabel();
         cmbMunicipio = new ComboBox.SComboBox();
         txtAtencion = new app.bolivia.swing.JCTextField();
         FechaOperaciones = new com.toedter.calendar.JDateChooser();
@@ -358,12 +358,6 @@ public class AgregarCliente extends javax.swing.JDialog {
         jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
         pnlPrincipal.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 150, -1));
 
-        lblNombreNuevo21.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblNombreNuevo21.setForeground(new java.awt.Color(102, 102, 102));
-        lblNombreNuevo21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombreNuevo21.setText("Calle y Número*");
-        pnlPrincipal.add(lblNombreNuevo21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, -1, -1));
-
         txtCalle.setBorder(null);
         txtCalle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCalle.setPlaceholder("Ej. Ámbar Toribio Gutierrez");
@@ -371,8 +365,17 @@ public class AgregarCliente extends javax.swing.JDialog {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCalleKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCalleKeyTyped(evt);
+            }
         });
         pnlPrincipal.add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 280, 30));
+
+        lblNombreNuevo21.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblNombreNuevo21.setForeground(new java.awt.Color(102, 102, 102));
+        lblNombreNuevo21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombreNuevo21.setText("Calle y Número*");
+        pnlPrincipal.add(lblNombreNuevo21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, -1, -1));
 
         cmbMunicipio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione Municipio" }));
         cmbMunicipio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -389,6 +392,9 @@ public class AgregarCliente extends javax.swing.JDialog {
         txtAtencion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtAtencionKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAtencionKeyTyped(evt);
             }
         });
         pnlPrincipal.add(txtAtencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 310, 30));
@@ -504,6 +510,22 @@ public class AgregarCliente extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtCalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCalleKeyTyped
+      int limite =40;
+        if (txtCalle.getText().length()== limite)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCalleKeyTyped
+
+    private void txtAtencionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAtencionKeyTyped
+        int limite =30;
+        if (txtAtencion.getText().length()== limite)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAtencionKeyTyped
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

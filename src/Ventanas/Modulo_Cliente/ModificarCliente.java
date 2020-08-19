@@ -715,11 +715,19 @@ public class ModificarCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtAtencionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAtencionKeyTyped
-        txtAtencion.setText(txtAtencion.getText().toUpperCase());
+        int limite =30;
+        if (txtAtencion.getText().length()== limite)
+        {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtAtencionKeyTyped
 
     private void txtCalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCalleKeyTyped
-        // TODO add your handling code here:
+        int limite =40;
+        if (txtCalle.getText().length()== limite)
+        {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtCalleKeyTyped
 
     private void cmbColonia1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbColonia1ItemStateChanged
