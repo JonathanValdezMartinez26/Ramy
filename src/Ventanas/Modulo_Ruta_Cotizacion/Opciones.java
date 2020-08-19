@@ -100,7 +100,7 @@ public class Opciones {
                                         AC.msj2.setText("Correctamente");
                                         AC.msj3.setText("Asigne el precio correspondiente");
                                         AC.setVisible(true);
-                                        Opciones.listar("",ID_Cotizacion );
+                                        //Opciones.listar("",ID_Cotizacion );
         
     }
     

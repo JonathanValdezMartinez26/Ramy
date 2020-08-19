@@ -100,6 +100,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         Origenes();
         Destinos();
         llenarTransportes();
+        
         lblatencion.setVisible(true);
         lblID_Cliente.setVisible(false);
         ID_rutas.setVisible(false);
@@ -328,13 +329,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         int comboTransporte = cmbTransportes.getSelectedIndex();
         
         int ID_ORIGEN = Integer.parseInt(lblID_Origen.getText());
-      int ID_TRAN = Integer.parseInt(lblIDTrans.getText());
         
         
-      String destino1="";
-           for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
-               destino1+="".concat(","+tablaDestinos.getValueAt(i, 1).toString());
-           }
         ////////////////
         int ID_Client1 = cmbCliente.getSelectedIndex();
         int ID_Cliente = ID_Cli[ID_Client1];
@@ -376,7 +372,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                     }
                     else
                     {
-                        if(comboTransporte==0)
+                        if(lblIDTrans.getText().equals(""))
                         {
                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                             AC.msj1.setText("¡Elija un !");
@@ -385,7 +381,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                         }
                         else
                         {
-                             if(comboCliente==0 || comboOrigen==0 || comboDestino==0 || comboTransporte==0)
+                             if(comboCliente==0 || comboOrigen==0 || comboDestino==0 || lblIDTrans.getText().equals(""))
                             {
                                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                                 AC.msj1.setText("¡Seleccione Un!");
@@ -395,11 +391,13 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                             }
                             else
                             {
-                                if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion,ID_ORIGEN, destino1,ID_Transportes)==0){
+                                if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion,ID_ORIGEN, destino,ID_Transportes)==0){
                                     //////Si la ruta no existe, agrega los datos selecionados a la tabla cotizaciones_ruta
 //                                   int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
                                     String Origen =AgregarCotizacionesRuta.cmbOrigenes.getSelectedItem().toString();                                    
-                                    String Transportes=AgregarCotizacionesRuta.cmbTransportes.getSelectedItem().toString();                                    
+                                    String Transportes=AgregarCotizacionesRuta.cmbTransportes.getSelectedItem().toString();  
+//                                    JOptionPane.showMessageDialog(null, "IDOrigen="+IDOrigen+" ID_ORIGEN="+ID_ORIGEN+" destino1="+destino1+" destino="+destino);
+//                                    JOptionPane.showMessageDialog(null, "IDTransporte="+ID_Transporte+" IDTransportes="+ID_Transportes+" lblIDTransportezs="+ID_TRAN);
                                     Opciones.registrarCotizacionesRuta(IDCot,IDClient,IDOrigen,Origen,destino,ID_Transporte,Transportes);
                                     Opciones.listar("",ID_Cotizacion );
                                     
@@ -417,36 +415,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                                         AC.msj2.setText("El Origen - Destino ya Estan");
                                         AC.msj3.setText("Registrados con el Mismo Transporte");
                                         AC.setVisible(true);
-                               
-//                                ID_rutas.setText(""+ Cotizaciones.ObtenerIDCotizacionRuta(ID_Cliente,IDOrigen, destino, ID_Transportes));
-//                                int ID_Rutas = Integer.parseInt(ID_rutas.getText());
-//                                 int IDCliente=Integer.parseInt(lblID_Cliente.getText());
-//                                int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
-                                
-//                                
-//                                Opciones.listar("",ID_Cotizacion );
-//                                
-//                                String destino1="";
-//                                        for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
-//                                                 destino1+="|".concat(tablaDestinos.getValueAt(i, 1).toString());                
-//                                        }
-
-                                         
-//                                    if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion,ID_Origen,destino1)==0)
-//                                    {   
-//
-//                                        Opciones.agregarCotizacionRuta(ID_Cotizacion, ID_Rutas, IDCliente);
-//                                  //      Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotizacion);
-//                                        Opciones.listar("",ID_Cotizacion );
-//                                        this.cmbOrigenes.setSelectedItem(0);
-//                                        this.cmbDestinos.setSelectedItem(0);
-//                                        this.cmbTransportes.setSelectedItem(0);
-////                                        ID_rutas.setText("");
-//
-//                                    }
-                                   
-                                    
-                                    //}
+                              
                                 }
                                 
                                 
@@ -930,10 +899,11 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         jcMousePanel1.add(IDCotizacion4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
         jcMousePanel1.add(IDCotizacion5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
 
+        lblID_Cliente.setForeground(new java.awt.Color(255, 255, 255));
         lblID_Cliente.setText("0");
         jcMousePanel1.add(lblID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, 20, 20));
         jcMousePanel1.add(lblID_Origen, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 150, 20));
-        jcMousePanel1.add(lblIDTrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 150, 20));
+        jcMousePanel1.add(lblIDTrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 40, 20));
         jcMousePanel1.add(lblIDCoti, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 150, 20));
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
@@ -1364,24 +1334,10 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             AC.setVisible(true);
         }else{
 
-            String origen =cmbOrigenes.getSelectedItem().toString();
-            String transporte=cmbTransportes.getSelectedItem().toString();
-            String IDCliente=lblID_Cliente.getText();
-            String IDOrigen=lblID_Origen.getText();
-            String IDTrans=lblIDTrans.getText();
-            String IDCoti=IDCotizacion.getText();
+            
             int IDOri=Integer.parseInt(lblID_Origen.getText());
             int IDClient=Integer.parseInt(lblID_Cliente.getText());
             int IDCot=Integer.parseInt(IDCotizacion.getText());
-
-            //                    if(lblIDTrans.getText().equals(""))
-            //                        {
-                //                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                //                            AC.msj1.setText("¡Elija un !");
-                //                            AC.msj2.setText("Transporte");
-                //                            AC.setVisible(true);
-                //                        }
-            //
 
             String destino="";
             for (int i = 0; i < tablaDestinos.getRowCount(); i++) {
@@ -1389,27 +1345,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             }
             Guardar(destino,IDOri,IDClient,IDCot);
 
-            //            this.cmbDestinos.setSelectedIndex(0);
-            this.cmbTransportes.setSelectedIndex(0);
-
         }
 
-        //         DefaultTableModel temp;
-        //        try{
-            //            temp = (DefaultTableModel) tablaDestinos.getModel();
-            //            int a =temp.getRowCount()-1;
-            //            for(int i=0; i<a; i++)
-            //                temp.removeRow(0); //aquí estaba el error, antes pasaba la i como parametro.... soy un bacín  XD
-            //        }catch(Exception e){
-            //            System.out.println(e);
-            //        }
-        //         if( tablaDestinos.getRowCount()>0){
-            //            javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(0, tablaDestinos.getColumnCount());
-            //
-            //            tablaDestinos.setModel(modelo);
-            //        }
-
-        //        tablaDestinos
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1506,7 +1443,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     public static jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JSeparator l2;
     public static javax.swing.JLabel lblIDCoti;
-    public static javax.swing.JLabel lblIDTrans;
+    private javax.swing.JLabel lblIDTrans;
     public static javax.swing.JLabel lblID_Cliente;
     private javax.swing.JLabel lblID_Origen;
     private javax.swing.JLabel lblNombre;
