@@ -961,8 +961,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                         
                         Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
                         AC.msj1.setText("¡Viajes Guardados!");
-                        AC.msj2.setText("Se podran Editar Despues");
-                        //AC.msj3.setText("Para poder Finalizar Cotizacion");
+                        AC.msj2.setText("Correctamente");
+                        AC.msj3.setText("Se podran seleccionar despues");
                         AC.setVisible(true);
                         this.dispose();                    
             }else{
