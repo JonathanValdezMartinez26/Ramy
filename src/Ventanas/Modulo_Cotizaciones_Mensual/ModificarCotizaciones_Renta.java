@@ -29,6 +29,7 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import Ventanas.CotizacionReporte.ConfigCotizacion;
 import Ventanas.CotizacionReporte.ConfigCotizacionRenta;
 import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
@@ -387,6 +388,9 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         pnleditar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        pnlAyuda = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         IDCotizacion = new javax.swing.JLabel();
         ID_rutas = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -692,6 +696,30 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         pnleditar.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel1.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
+
+        pnlAyuda.setBackground(new java.awt.Color(225, 225, 225));
+        pnlAyuda.setToolTipText("Visualizar Cotizacion");
+        pnlAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseExited(evt);
+            }
+        });
+        pnlAyuda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("      Ayuda");
+        pnlAyuda.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda30.png"))); // NOI18N
+        pnlAyuda.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, 30, 40));
+
+        jPanel1.add(pnlAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 80, 70));
 
         jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 890, 70));
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
@@ -1054,6 +1082,20 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
         Guardar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void pnlAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseClicked
+
+        ConfigCotizacion poper =new Ventanas.CotizacionReporte.ConfigCotizacion(null, true);
+        poper.setVisible(true);
+    }//GEN-LAST:event_pnlAyudaMouseClicked
+
+    private void pnlAyudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseEntered
+        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
+    }//GEN-LAST:event_pnlAyudaMouseEntered
+
+    private void pnlAyudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseExited
+        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
+    }//GEN-LAST:event_pnlAyudaMouseExited
+
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1084,6 +1126,8 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1102,6 +1146,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
     public static javax.swing.JLabel lblNombre;
     public static javax.swing.JLabel lblNombreNuevo17;
     private javax.swing.JLabel lblatencion1;
+    private javax.swing.JPanel pnlAyuda;
     private javax.swing.JPanel pnlEliminar;
     private javax.swing.JPanel pnlFinalizar;
     private javax.swing.JPanel pnlVista;
