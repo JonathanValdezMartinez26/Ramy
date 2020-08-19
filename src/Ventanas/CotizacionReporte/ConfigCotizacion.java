@@ -183,7 +183,7 @@ public class ConfigCotizacion extends javax.swing.JDialog {
         info.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         info.setForeground(new java.awt.Color(102, 102, 102));
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info.setText("      Ayuda");
+        info.setText("          Ayuda");
         jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 390, 30));
 
         rSButtonMetro2.setText("X");

@@ -106,7 +106,7 @@ public class ConfigCotizacionD extends javax.swing.JDialog {
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("==============================================");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AyudaP.PNG"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Ayuda1.PNG"))); // NOI18N
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/per.gif"))); // NOI18N
 
@@ -183,7 +183,7 @@ public class ConfigCotizacionD extends javax.swing.JDialog {
         info.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         info.setForeground(new java.awt.Color(102, 102, 102));
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info.setText("      Ayuda");
+        info.setText("          Ayuda");
         jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 390, 30));
 
         rSButtonMetro2.setText("X");
