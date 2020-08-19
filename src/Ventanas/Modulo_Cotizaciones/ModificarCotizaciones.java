@@ -1110,6 +1110,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                         Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
                         ver();
                         this.dispose();
+                        Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados
                     } else {
                         Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                         AC.msj1.setText("¡Campos Vacios!");
