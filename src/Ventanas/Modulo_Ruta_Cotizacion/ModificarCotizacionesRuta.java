@@ -393,7 +393,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
                             }
                             else
                             {
-                                if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion,ID_ORIGEN, destino1,ID_Transportes)==0){
+                                if(Ventanas.Modulo_Ruta_Cotizacion.Opciones.verificaRutaCotizacion1(ID_Cotizacion,ID_ORIGEN, destino,ID_Transportes)==0){
                                     //////Si la ruta no existe, agrega los datos selecionados a la tabla cotizaciones_ruta
 //                                   int ID_Cotizacion = Integer.parseInt(IDCotizacion.getText());
                                     String Origen =ModificarCotizacionesRuta.cmbOrigenes.getSelectedItem().toString();                                    
@@ -551,7 +551,6 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         IDCotizacion = new javax.swing.JLabel();
         ID_rutas = new javax.swing.JLabel();
         cmbDestinos = new ComboBox.SComboBox();
-        jButton3 = new javax.swing.JButton();
         cmbOrigenes = new ComboBox.SComboBox();
         jLabel3 = new javax.swing.JLabel();
         cmbTransportes = new ComboBox.SComboBox();
@@ -559,7 +558,6 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaDestinos = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
         IDCotizacion1 = new javax.swing.JLabel();
         IDCotizacion2 = new javax.swing.JLabel();
         IDCotizacion3 = new javax.swing.JLabel();
@@ -569,6 +567,8 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         lblID_Origen = new javax.swing.JLabel();
         lblIDTrans = new javax.swing.JLabel();
         lblIDCoti = new javax.swing.JLabel();
+        jButton1 = new JButtonEspecial.JButtonEspecial();
+        jButton2 = new JButtonEspecial.JButtonEspecial();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -888,25 +888,6 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         });
         jcMousePanel1.add(cmbDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 310, 30));
 
-        jButton3.setText("Agregar Destino");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton3MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jButton3MouseReleased(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 110, 30));
-
         cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Origen" }));
         cmbOrigenes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbOrigenes.addItemListener(new java.awt.event.ItemListener() {
@@ -975,14 +956,6 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         }
 
         jcMousePanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 440, 110));
-
-        jButton4.setText("Agregar Ruta a la cotización");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jcMousePanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 440, 30));
         jcMousePanel1.add(IDCotizacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 70, 20));
         jcMousePanel1.add(IDCotizacion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 90, 20));
         jcMousePanel1.add(IDCotizacion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
@@ -994,6 +967,39 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         jcMousePanel1.add(lblID_Origen, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 150, 20));
         jcMousePanel1.add(lblIDTrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 150, 20));
         jcMousePanel1.add(lblIDCoti, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 150, 20));
+
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setForeground(new java.awt.Color(128, 128, 131));
+        jButton1.setText("Agregar Ruta a la cotización");
+        jButton1.setColorBorde(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        jButton1.setColorHover(new java.awt.Color(204, 204, 204));
+        jButton1.setColorNormal(new java.awt.Color(204, 204, 204));
+        jButton1.setColorPressed(new java.awt.Color(153, 153, 153));
+        jButton1.setColorTextHover(new java.awt.Color(128, 128, 131));
+        jButton1.setColorTextNormal(new java.awt.Color(128, 128, 131));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jcMousePanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 440, 30));
+
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
+        jButton2.setForeground(new java.awt.Color(128, 128, 131));
+        jButton2.setText("Agregar Destino");
+        jButton2.setColorBorde(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        jButton2.setColorHover(new java.awt.Color(204, 204, 204));
+        jButton2.setColorNormal(new java.awt.Color(204, 204, 204));
+        jButton2.setColorPressed(new java.awt.Color(153, 153, 153));
+        jButton2.setColorTextHover(new java.awt.Color(128, 128, 131));
+        jButton2.setColorTextNormal(new java.awt.Color(128, 128, 131));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jcMousePanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 100, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1394,59 +1400,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
 
     }//GEN-LAST:event_tabla1KeyTyped
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.ModificarCotizacionesRuta.tablaDestinos.getModel();
-        boolean avisar=false;
-        int comboDestino = cmbDestinos.getSelectedIndex();
-        //////Obtiene el dato que se ha seleccionado y lo guarda en la variable destino
-        String destino=cmbDestinos.getSelectedItem().toString();
-
-        ////si el combo no se ha seleccionado, pedir seleccionar uno
-        if (comboDestino==0) {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione Un Destino!");
-            AC.msj2.setText("Para Continuar.");
-            AC.msj3.setText("");
-            AC.setVisible(true);
-        }
-        else{//////////Se permite añadir hasta 10 destinos
-            String datos[] = new String[10];
-            datos [1] = destino;
-            ///////Recorrido de la tabla
-            for(int i = 0; i<tablaDestinos.getRowCount(); i++){
-                //////Compara el valor a ingresar con los datos de la tabla y si son identicos activa la bandera a true
-                if(tablaDestinos.getValueAt(i, 1).equals(destino)){
-
-                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                    AC.msj1.setText( "¡El  destino  ya existe!");
-                    AC.msj2.setText("Verifique los datos.");
-                    AC.msj3.setText("");
-                    AC.setVisible(true);
-
-                    //                        JOptionPane.showMessageDialog(null, "El "+ destino + " ya existe en la tabla.");
-                    avisar=true;
-                }
-            }
-            //////Si la bandera no se activa agregar a la tabla
-            if (avisar==false) {
-                modelo.addRow(datos);
-            }
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseReleased
-
-    private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MousePressed
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if((this.tablaDestinos.getRowCount()==0)){
             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
             AC.msj1.setText("¡Asigne Destinos a la tabla!");
@@ -1491,8 +1445,48 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
             //            tablaDestinos.setModel(modelo);
             //        }
 
-        //        tablaDestinos
-    }//GEN-LAST:event_jButton4ActionPerformed
+        //   
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Ruta_Cotizacion.ModificarCotizacionesRuta.tablaDestinos.getModel();
+        boolean avisar=false;
+        int comboDestino = cmbDestinos.getSelectedIndex();
+        //////Obtiene el dato que se ha seleccionado y lo guarda en la variable destino
+        String destino=cmbDestinos.getSelectedItem().toString();
+
+        ////si el combo no se ha seleccionado, pedir seleccionar uno
+        if (comboDestino==0) {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Seleccione Un Destino!");
+            AC.msj2.setText("Para Continuar.");
+            AC.msj3.setText("");
+            AC.setVisible(true);
+        }
+        else{//////////Se permite añadir hasta 10 destinos
+            String datos[] = new String[10];
+            datos [1] = destino;
+            ///////Recorrido de la tabla
+            for(int i = 0; i<tablaDestinos.getRowCount(); i++){
+                //////Compara el valor a ingresar con los datos de la tabla y si son identicos activa la bandera a true
+                if(tablaDestinos.getValueAt(i, 1).equals(destino)){
+
+                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                    AC.msj1.setText( "¡El  destino  ya existe!");
+                    AC.msj2.setText("Verifique los datos.");
+                    AC.msj3.setText("");
+                    AC.setVisible(true);
+
+                    //                        JOptionPane.showMessageDialog(null, "El "+ destino + " ya existe en la tabla.");
+                    avisar=true;
+                }
+            }
+            //////Si la bandera no se activa agregar a la tabla
+            if (avisar==false) {
+                modelo.addRow(datos);
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
      
@@ -1523,8 +1517,8 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
     public static ComboBox.SComboBox cmbDestinos;
     public static ComboBox.SComboBox cmbOrigenes;
     public static ComboBox.SComboBox cmbTransportes;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    public static JButtonEspecial.JButtonEspecial jButton1;
+    public static JButtonEspecial.JButtonEspecial jButton2;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
