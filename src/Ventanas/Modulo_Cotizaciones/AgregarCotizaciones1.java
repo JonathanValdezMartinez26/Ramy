@@ -109,6 +109,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         Origenes();
         Destinos();
         Transportes();
+        
         lblatencion.setVisible(true);
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(false);
@@ -142,6 +143,11 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         
         
     }
+    public void AgregarCotizaciones11(){
+        boolean t=false;
+        AgregarCotizaciones1 AC=new AgregarCotizaciones1(null, t);
+        
+}
     
     public void Clientes()
     {
@@ -354,6 +360,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         pnlEliminar = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         IDCotizacion = new javax.swing.JLabel();
         ID_rutas = new javax.swing.JLabel();
         cmbOrigenes = new ComboBox.SComboBox();
@@ -677,6 +684,14 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         pnlEliminar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel1.add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, -1));
 
         jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 890, 70));
         jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
@@ -1250,6 +1265,11 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_pnlEliminarMouseExited
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        finalizar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1272,6 +1292,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
     private ComboBox.SComboBox cmbOrigenes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
