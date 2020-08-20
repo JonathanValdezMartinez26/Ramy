@@ -4,7 +4,7 @@
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="16"/>
+	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -32,19 +32,19 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="ffcfdec3-d95f-43c8-9c72-c12d622427ab"/>
-	<parameter name="ID_Cotizacion" class="java.lang.Integer">
+	<parameter name="ID_Cliente" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\"]]></defaultValueExpression>
-	</parameter>
 	<queryString>
-		<![CDATA[SELECT *FROM Reporte_guardar_directa WHERE ID_Cotizacion=$P{ID_Cotizacion} and Estado=1]]>
+		<![CDATA[SELECT *FROM Clientep WHERE ID_Cliente=$P{ID_Cliente}]]>
 	</queryString>
 	<field name="ID_Cotizacion" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Nombre_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ID_cliente" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Atencion" class="java.lang.String">
@@ -56,28 +56,10 @@
 	<field name="calle" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Origen" class="java.lang.String">
+	<field name="Fecha_Alta" class="java.sql.Timestamp">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Destino" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Camioneta_15" class="java.lang.Float">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Camioneta_35" class="java.lang.Float">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Rabon" class="java.lang.Float">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Torthon" class="java.lang.Float">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Trailer" class="java.lang.Float">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Full" class="java.lang.Float">
+	<field name="Estatus" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<group name="origen">
@@ -284,12 +266,12 @@
 					<font fontName="Arial" size="11"/>
 					<paragraph tabStopWidth="43"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Destino}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Fecha_Alta}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="343" y="0" width="103" height="23" backcolor="#FFFFFF" uuid="627ee650-20f4-4e6e-b552-5ab8a564e7a0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{Camioneta_15}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Estatus}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -305,14 +287,6 @@
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
-			<subreport>
-				<reportElement x="5" y="21" width="535" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
-				<subreportParameter name="ID_Cotizacion">
-					<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
-			</subreport>
 			<staticText>
 				<reportElement style="Column header" x="194" y="2" width="206" height="19" forecolor="#000000" uuid="310d9172-ca29-4f19-876a-d3749ffd83ef"/>
 				<textElement textAlignment="Center">
