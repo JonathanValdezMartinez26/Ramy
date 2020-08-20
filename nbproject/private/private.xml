@@ -12,13 +12,21 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones1.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Ruta_Cotizacion/AgregarCotizacionesRuta.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Ruta_Cotizacion/Opciones.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Clases/Conexion.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Ruta_Cotizacion/ModificarCotizacionesRuta.java</file>
-            <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Clases/database.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/CotizacionReporte/ConfigCotizacionViaje.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/pnlCotizaciones.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/pnlClientes.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Ruta_Cotizacion/AgregarCotizacionesRuta.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Consultas/CotizacionCliente.jrxml</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Usuario/AgregarUser.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/pnlPacientePersonalizado.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/CotizacionReporte/ConfigCotizacionbitaAju.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cliente/Registrar.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones1.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Bitacora/pnlBitacoraAjustes.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones_Consolidado/AgregarCotizaciones_Consolidado.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Bitacora/pnlBitacora.java</file>
+            <file>file:/C:/Users/Mary/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Usuario/pnlUsuarios.java</file>
         </group>
     </open-files>
 </project-private>
