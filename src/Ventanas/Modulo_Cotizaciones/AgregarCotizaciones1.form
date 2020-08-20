@@ -110,7 +110,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="     Cotizaciones &gt; Nueva Cotizacion para Fletes Directos"/>
+                <Property name="text" type="java.lang.String" value="     Cotizaciones &gt; Nueva Cotizaci&#xf3;n para Fletes Directos"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -402,7 +402,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Eliminar Registro"/>
+                <Property name="toolTipText" type="java.lang.String" value="Guardar Registros"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlEliminar2MouseClicked"/>
@@ -451,7 +451,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Visualizar Cotizacion"/>
+                <Property name="toolTipText" type="java.lang.String" value="Visualizar Cotizaci&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlVistaMouseClicked"/>
@@ -500,7 +500,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Finalizar Cotizacion"/>
+                <Property name="toolTipText" type="java.lang.String" value="Finalizar Cotizaci&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlFinalizarMouseClicked"/>
@@ -549,7 +549,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Agregar Servicio"/>
+                <Property name="toolTipText" type="java.lang.String" value="Agregar Adicional"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnleditarMouseClicked"/>
@@ -612,7 +612,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Visualizar Cotizacion"/>
+                <Property name="toolTipText" type="java.lang.String" value="Ayuda"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlAyudaMouseClicked"/>

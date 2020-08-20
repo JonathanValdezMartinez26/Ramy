@@ -560,7 +560,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jPanel1.add(pnlEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
 
         pnlFinalizar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlFinalizar.setToolTipText("Finalizar Cotizacion");
+        pnlFinalizar.setToolTipText("Finalizar Cotización");
         pnlFinalizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pnlFinalizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -585,7 +585,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jPanel1.add(pnlFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 70));
 
         pnlVista.setBackground(new java.awt.Color(225, 225, 225));
-        pnlVista.setToolTipText("Visualizar Cotizacion");
+        pnlVista.setToolTipText("Visualizar Cotización");
         pnlVista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlVistaMouseClicked(evt);
@@ -624,7 +624,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 250, 70));
 
         pnleditar.setBackground(new java.awt.Color(225, 225, 225));
-        pnleditar.setToolTipText("Agregar Adicionales");
+        pnleditar.setToolTipText("Agregar Adicional");
         pnleditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnleditarMouseClicked(evt);
@@ -673,7 +673,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         jPanel1.add(pnleditar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
 
         pnlAyuda.setBackground(new java.awt.Color(225, 225, 225));
-        pnlAyuda.setToolTipText("Visualizar Cotizacion");
+        pnlAyuda.setToolTipText("Ayuda");
         pnlAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlAyudaMouseClicked(evt);
