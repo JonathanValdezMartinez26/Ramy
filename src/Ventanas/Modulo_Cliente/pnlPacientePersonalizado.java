@@ -9,6 +9,7 @@ package Ventanas.Modulo_Cliente;
 import A_tabla.*;
 import Alerts.Ayuda3;
 import Clases.Conexion;
+import static Clases.Cotizaciones.Obten;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.File;
@@ -33,6 +34,7 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
         initComponents();
         JScrollPane scroller = new JScrollPane(jPanel2);
         lblID.setVisible(false);
+        IDCliente.setVisible(true);
         this.jLabel1.setVisible(false);
         
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -67,6 +69,7 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         info6 = new javax.swing.JLabel();
+        IDCliente = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         info1 = new javax.swing.JLabel();
@@ -150,6 +153,7 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
         info6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         info6.setText("Atención a:");
         jPanel3.add(info6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 80, 20));
+        jPanel3.add(IDCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 40, 20));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), new java.awt.Color(153, 153, 153)));
@@ -164,7 +168,7 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
         info1.setText("Cotizaciones del Cliente");
         jPanel7.add(info1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 40));
 
-        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 735, 40));
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 735, 40));
 
         jPanel9.setBackground(new java.awt.Color(251, 251, 251));
 
@@ -211,9 +215,6 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
             tabla.getColumnModel().getColumn(1).setResizable(false);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(100);
             tabla.getColumnModel().getColumn(2).setResizable(false);
@@ -293,6 +294,7 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlorigenesMouseExited
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel IDCliente;
     public static javax.swing.JLabel info1;
     public static javax.swing.JLabel info5;
     public static javax.swing.JLabel info6;
@@ -320,16 +322,14 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
  public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
-        
-        int Fila = tabla.getSelectedRow();
+        int Fila = pnlClientes.tabla.getSelectedRow();
         int Filita = 1; 
   
         if (Fila >= 0 ) {
-                      int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-    
+                      int ID = Integer.parseInt(pnlClientes.tabla.getValueAt(Fila, 0).toString());
                     try {
                         Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-                        String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Cotizacion.jasper";
+                        String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionCliente.jasper";
                         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
                         Map parametro = new HashMap();
                         parametro.put("ID_Cliente", ID);
@@ -351,13 +351,8 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
                         
                 
     }
-        }      
-        else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("a visualizar");
-            AC.setVisible(true);
-        }
+        }     
+        } 
+        
 }
-    }
+    

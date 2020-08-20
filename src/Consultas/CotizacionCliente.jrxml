@@ -32,19 +32,19 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="ffcfdec3-d95f-43c8-9c72-c12d622427ab"/>
-	<parameter name="ID_Cliente" class="java.lang.Integer">
+	<parameter name="ID_Cotizacion" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\"]]></defaultValueExpression>
+	</parameter>
 	<queryString>
-		<![CDATA[SELECT *FROM Clientep WHERE ID_Cliente=$P{ID_Cliente}]]>
+		<![CDATA[SELECT *FROM clientep WHERE ID_cliente=$P{ID_Cotizacion} ]]>
 	</queryString>
 	<field name="ID_Cotizacion" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Nombre_cliente" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="ID_cliente" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Atencion" class="java.lang.String">
@@ -56,18 +56,50 @@
 	<field name="calle" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Fecha_Alta" class="java.sql.Timestamp">
+	<field name="Origen" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Estatus" class="java.lang.String">
+	<field name="Destino" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Camioneta_15" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Camioneta_35" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Rabon" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Torthon" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Trailer" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Full" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<group name="origen">
 		<groupExpression><![CDATA[$F{Origen}]]></groupExpression>
 		<groupHeader>
-			<band height="39">
+			<band height="52">
+				<textField>
+					<reportElement mode="Opaque" x="10" y="38" width="210" height="14" backcolor="#FFFF01" uuid="1be15930-d645-4367-8a76-2ee5a63f1607"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["VIAJES DE"+" "+$F{Origen}+" "+" A: "]]></textFieldExpression>
+				</textField>
 				<staticText>
-					<reportElement style="table_TH" x="343" y="18" width="103" height="20" forecolor="#000000" backcolor="#FF9900" uuid="c0f3a2a8-439b-45ff-befe-66feb60a3e09"/>
+					<reportElement style="Column header" mode="Opaque" x="351" y="18" width="60" height="34" forecolor="#000000" backcolor="#FF9900" uuid="73aabff0-c13e-49d9-b25e-93fab2c69f3f"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -78,10 +110,52 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="9" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Estatus]]></text>
+					<text><![CDATA[TORTHON]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="133" y="18" width="210" height="20" forecolor="#000000" backcolor="#FF9900" uuid="e838c3ab-22bb-4453-95e5-7bd56c82f942"/>
+					<reportElement style="Column header" mode="Opaque" x="506" y="18" width="41" height="34" forecolor="#000000" backcolor="#FF9900" uuid="61bfd718-414f-455e-ade8-63dab732d281"/>
+					<box>
+						<pen lineWidth="0.75" lineColor="#000000"/>
+						<topPen lineWidth="0.75" lineColor="#000000"/>
+						<leftPen lineWidth="0.75" lineColor="#000000"/>
+						<bottomPen lineWidth="0.75" lineColor="#000000"/>
+						<rightPen lineWidth="0.75" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[RABON]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="283" y="18" width="68" height="34" forecolor="#000000" backcolor="#FF9900" uuid="c3fc4e10-7b12-49c9-8807-e73ad63c9d2a"/>
+					<box>
+						<pen lineWidth="0.75" lineColor="#000000"/>
+						<topPen lineWidth="0.75" lineColor="#000000"/>
+						<leftPen lineWidth="0.75" lineColor="#000000"/>
+						<bottomPen lineWidth="0.75" lineColor="#000000"/>
+						<rightPen lineWidth="0.75" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[  CAMIONETA 3.5 TON]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="table_TH" x="220" y="18" width="63" height="34" forecolor="#000000" backcolor="#FF9900" uuid="c0f3a2a8-439b-45ff-befe-66feb60a3e09"/>
+					<box>
+						<pen lineWidth="0.75" lineColor="#000000"/>
+						<topPen lineWidth="0.75" lineColor="#000000"/>
+						<leftPen lineWidth="0.75" lineColor="#000000"/>
+						<bottomPen lineWidth="0.75" lineColor="#000000"/>
+						<rightPen lineWidth="0.75" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CAMIONETA 1.5 TON]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="10" y="18" width="210" height="20" forecolor="#000000" backcolor="#FF9900" uuid="e838c3ab-22bb-4453-95e5-7bd56c82f942"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -92,7 +166,35 @@
 					<textElement textAlignment="Left" verticalAlignment="Middle">
 						<font fontName="Arial" size="10" isBold="true"/>
 					</textElement>
-					<text><![CDATA[                                Fecha de Alta]]></text>
+					<text><![CDATA[                                DESTINO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="462" y="18" width="44" height="34" forecolor="#000000" backcolor="#FF9900" uuid="df1c2ab9-dc8f-4c6b-8b2f-fc49d227abd7"/>
+					<box>
+						<pen lineWidth="0.75" lineColor="#000000"/>
+						<topPen lineWidth="0.75" lineColor="#000000"/>
+						<leftPen lineWidth="0.75" lineColor="#000000"/>
+						<bottomPen lineWidth="0.75" lineColor="#000000"/>
+						<rightPen lineWidth="0.75" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FULL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="411" y="18" width="51" height="34" forecolor="#000000" backcolor="#FF9900" uuid="3f140970-0ffa-4e14-95e9-364346ec26c3"/>
+					<box>
+						<pen lineWidth="0.75" lineColor="#000000"/>
+						<topPen lineWidth="0.75" lineColor="#000000"/>
+						<leftPen lineWidth="0.75" lineColor="#000000"/>
+						<bottomPen lineWidth="0.75" lineColor="#000000"/>
+						<rightPen lineWidth="0.75" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TRAILER]]></text>
 				</staticText>
 			</band>
 		</groupHeader>
@@ -212,9 +314,30 @@
 				<textFieldExpression><![CDATA[$F{Nombre_cliente}]]></textFieldExpression>
 			</textField>
 			<staticText>
+				<reportElement style="Column header" x="10" y="197" width="532" height="33" forecolor="#000000" uuid="fe426815-12c8-4c35-8002-8c2a66cb8079"/>
+				<box>
+					<pen lineWidth="1.0" lineColor="#0000FF"/>
+					<topPen lineWidth="1.0" lineColor="#0000FF"/>
+					<leftPen lineWidth="1.0" lineColor="#0000FF"/>
+					<bottomPen lineWidth="1.0" lineColor="#0000FF"/>
+					<rightPen lineWidth="1.0" lineColor="#0000FF"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[  POR MEDIO DE LA PRESENTE PONEMOS A SU CONSIDERACION LA SIGUIENTE COTIZACION  EN VIAJES DIRECTOS ]]></text>
+			</staticText>
+			<staticText>
 				<reportElement style="Column header" x="317" y="181" width="79" height="16" forecolor="#000000" uuid="4d61415a-58b1-49a6-b257-ff9cf5871e37"/>
 				<textElement>
 					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="131" y="230" width="206" height="19" forecolor="#000000" uuid="6d7bef11-3402-4d72-9245-a727ea6ffb00"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
@@ -254,7 +377,7 @@
 	<detail>
 		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement style="table" x="133" y="0" width="210" height="23" uuid="647b30f8-96cf-4697-a4ce-033799ffc850"/>
+				<reportElement style="table" x="10" y="0" width="210" height="23" uuid="647b30f8-96cf-4697-a4ce-033799ffc850"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -266,12 +389,37 @@
 					<font fontName="Arial" size="11"/>
 					<paragraph tabStopWidth="43"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Fecha_Alta}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Destino}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table_TH" x="343" y="0" width="103" height="23" backcolor="#FFFFFF" uuid="627ee650-20f4-4e6e-b552-5ab8a564e7a0"/>
+				<reportElement style="table_TH" x="283" y="0" width="68" height="23" backcolor="#FFFFFF" uuid="faf51273-7f5a-4641-af8a-355ed4d2dc5f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{Estatus}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Camioneta_35}.intValue()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_TH" x="351" y="0" width="60" height="23" backcolor="#FFFFFF" uuid="6bffa775-e756-488b-a7c8-78ea816c6429"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["$"+" "+$F{Torthon}.intValue()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_TH" x="462" y="0" width="44" height="23" backcolor="#FFFFFF" uuid="27549562-da04-4c65-b145-96467c0f5ee9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["$"+" "+$F{Full}.intValue()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_TH" x="220" y="0" width="63" height="23" backcolor="#FFFFFF" uuid="627ee650-20f4-4e6e-b552-5ab8a564e7a0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["$"+" "+$F{Camioneta_15}.intValue()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_TH" x="411" y="0" width="51" height="23" backcolor="#FFFFFF" uuid="e6004563-af3d-4263-8780-158587ae8937"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["$"+" "+$F{Trailer}.intValue()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_TH" x="506" y="0" width="41" height="23" backcolor="#FFFFFF" uuid="42c85c04-e616-4cde-8f91-82c1d8d66cc0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["$"+" "+$F{Rabon}.intValue()]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -287,6 +435,14 @@
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
+			<subreport>
+				<reportElement x="5" y="21" width="535" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
+				<subreportParameter name="ID_Cotizacion">
+					<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
+			</subreport>
 			<staticText>
 				<reportElement style="Column header" x="194" y="2" width="206" height="19" forecolor="#000000" uuid="310d9172-ca29-4f19-876a-d3749ffd83ef"/>
 				<textElement textAlignment="Center">

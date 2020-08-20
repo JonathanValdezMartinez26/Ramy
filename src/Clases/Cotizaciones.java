@@ -110,6 +110,22 @@ public static ResultSet resultado;
         }
         return c;
     }
+     public static int Obten() {
+        int c = 0;
+        String SQL = "SELECT MAX(ID_Cliente) FROM Clientes";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                c = rs.getInt(1);
+            }
+            return c;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return c;
+    }
      
     ///////////////////////////////////////////////////////////////////
       public static String ObtenerNombre(int ID_Cliente) {

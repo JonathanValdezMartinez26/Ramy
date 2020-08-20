@@ -128,7 +128,9 @@ public class pnlBitacora extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tablabitacora);
         if (tablabitacora.getColumnModel().getColumnCount() > 0) {
-            tablabitacora.getColumnModel().getColumn(0).setPreferredWidth(2);
+            tablabitacora.getColumnModel().getColumn(0).setMinWidth(0);
+            tablabitacora.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tablabitacora.getColumnModel().getColumn(0).setMaxWidth(0);
             tablabitacora.getColumnModel().getColumn(1).setPreferredWidth(220);
         }
 

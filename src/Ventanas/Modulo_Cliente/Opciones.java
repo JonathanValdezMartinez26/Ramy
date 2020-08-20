@@ -380,7 +380,7 @@ public static void listarDetalles(int ID,String nombre, String atencion, String 
         }
         //String sql = "Select ID_Cotizacion, Fecha_Alta, Estatus from cotizacionesv where ID_Cliente =" + ID;
         //String sql = "Select ID_Cotizacion, Fecha_Alta, Estatus from cotizaciones where ID_Cliente="+ID;
-        String sql= "Select ID_Cotizacion, Fecha_Alta, CASE Estatus WHEN 1 THEN 'Pendiente' WHEN 2 THEN 'Finalizada'"
+        String sql= "Select ID_Cliente, Fecha_Alta, CASE Estatus WHEN 1 THEN 'Pendiente' WHEN 2 THEN 'Finalizada'"
                 + "  WHEN 3 THEN 'Cancelada' END AS Estatus from cotizaciones where ID_Cliente="+ID;
       
             String datos[] = new String[3];
