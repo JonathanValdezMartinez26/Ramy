@@ -50,6 +50,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ListSelectionModel;
+import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -650,6 +651,9 @@ public class Registrar extends javax.swing.JDialog {
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         l1 = new javax.swing.JSeparator();
+        pnlAyuda = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -1150,6 +1154,30 @@ public class Registrar extends javax.swing.JDialog {
         jcMousePanel1.add(PanelDesliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 130, 920, 450));
         jcMousePanel1.add(l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 120, 903, 10));
 
+        pnlAyuda.setBackground(new java.awt.Color(225, 225, 225));
+        pnlAyuda.setToolTipText("Ayuda");
+        pnlAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseExited(evt);
+            }
+        });
+        pnlAyuda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("      Ayuda");
+        pnlAyuda.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda30.png"))); // NOI18N
+        pnlAyuda.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, 30, 40));
+
+        jcMousePanel1.add(pnlAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(882, 41, -1, 70));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1427,6 +1455,20 @@ public class Registrar extends javax.swing.JDialog {
         Guardar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void pnlAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseClicked
+
+        Ventanas.CotizacionReporte.ConfigCotizacionViaje poper =new Ventanas.CotizacionReporte.ConfigCotizacionViaje(null, true);
+        poper.setVisible(true);
+    }//GEN-LAST:event_pnlAyudaMouseClicked
+
+    private void pnlAyudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseEntered
+        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
+    }//GEN-LAST:event_pnlAyudaMouseEntered
+
+    private void pnlAyudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseExited
+        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
+    }//GEN-LAST:event_pnlAyudaMouseExited
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1489,6 +1531,8 @@ public class Registrar extends javax.swing.JDialog {
     public static JButtonEspecial.JButtonEspecial jButton2;
     public static JButtonEspecial.JButtonEspecial jButton33;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1518,6 +1562,7 @@ public class Registrar extends javax.swing.JDialog {
     public static JButtonEspecial.JButtonEspecial log4;
     public static JButtonEspecial.JButtonEspecial log5;
     private JButtonEspecial.JButtonEspecial log8;
+    private javax.swing.JPanel pnlAyuda;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla;
     public static javax.swing.JTable tabla2;

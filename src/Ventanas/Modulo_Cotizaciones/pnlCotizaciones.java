@@ -388,10 +388,10 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         pnlorigenes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setText("   Visualizar");
+        jLabel15.setText("    Reporte");
         pnlorigenes.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ReporteP.png"))); // NOI18N
         pnlorigenes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, 69));

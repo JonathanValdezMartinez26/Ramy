@@ -135,10 +135,10 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
         pnlorigenes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setText("     Global");
+        jLabel15.setText("     Reporte");
         pnlorigenes.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ReporteP.png"))); // NOI18N
         pnlorigenes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 69));
@@ -211,8 +211,9 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setResizable(false);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
             tabla.getColumnModel().getColumn(1).setResizable(false);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(100);
             tabla.getColumnModel().getColumn(2).setResizable(false);

@@ -366,7 +366,7 @@ public class pnlClientes extends javax.swing.JPanel {
         jPanel12.add(pnlviajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, 69));
 
         pnlpdf.setBackground(new java.awt.Color(225, 225, 225));
-        pnlpdf.setToolTipText("Visualizar Reporte");
+        pnlpdf.setToolTipText("Reporte");
         pnlpdf.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlpdfMouseClicked(evt);
@@ -384,7 +384,7 @@ public class pnlClientes extends javax.swing.JPanel {
         jLabel19.setText("     Global");
         pnlpdf.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ReporteP.png"))); // NOI18N
         pnlpdf.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, 69));

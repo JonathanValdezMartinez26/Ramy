@@ -6,6 +6,7 @@ import A_tabla.EstiloTablaRenderer;
 import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import Clases.Conexion;
+import Ventanas.CotizacionReporte.ConfigCotizacionbitaAju;
 import static Ventanas.Modulo_Bitacora.pnlBitacora.buscar;
 import static Ventanas.Modulo_Bitacora.pnlBitacora.tablabitacora;
 import Ventanas.Modulo_Servicios.ModificarServicio;
@@ -118,6 +119,9 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         pnlorigenes = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        pnlAyuda = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablabitacora = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -229,7 +233,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         jPanel12.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 69));
 
         pnlorigenes.setBackground(new java.awt.Color(225, 225, 225));
-        pnlorigenes.setToolTipText("Visualizar Ajuste");
+        pnlorigenes.setToolTipText("Reporte Ajuste");
         pnlorigenes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlorigenesMouseClicked(evt);
@@ -244,13 +248,37 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         pnlorigenes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setText("   Visualizar");
+        jLabel15.setText("    Reporte");
         pnlorigenes.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ReporteP.png"))); // NOI18N
         pnlorigenes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 69));
+
+        pnlAyuda.setBackground(new java.awt.Color(225, 225, 225));
+        pnlAyuda.setToolTipText("Ayuda");
+        pnlAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseExited(evt);
+            }
+        });
+        pnlAyuda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("      Ayuda");
+        pnlAyuda.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda30.png"))); // NOI18N
+        pnlAyuda.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, 30, 40));
+
+        jPanel12.add(pnlAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 69));
 
         pnlPrincipal.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
 
@@ -541,7 +569,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     }//GEN-LAST:event_tablaDatosAjusteMouseClicked
 
     private void tablaFAjusteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaFAjusteMouseClicked
-                 if (evt.getClickCount() == 1)
+        if (evt.getClickCount() == 1)
         {
             String a = tablaFAjuste.getValueAt(tablaFAjuste.getSelectedRow() , 0).toString();
             int idCliente=Integer.parseInt(a);
@@ -577,6 +605,20 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
         pnlorigenes.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlorigenesMouseExited
 
+    private void pnlAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseClicked
+
+        ConfigCotizacionbitaAju poper =new Ventanas.CotizacionReporte.ConfigCotizacionbitaAju(null, true);
+        poper.setVisible(true);
+    }//GEN-LAST:event_pnlAyudaMouseClicked
+
+    private void pnlAyudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseEntered
+        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
+    }//GEN-LAST:event_pnlAyudaMouseEntered
+
+    private void pnlAyudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseExited
+        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
+    }//GEN-LAST:event_pnlAyudaMouseExited
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -609,6 +651,8 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     public static javax.swing.JLabel info;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
@@ -623,6 +667,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     private jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JLabel lblAjuste;
     public static javax.swing.JLabel lblIDCliente;
+    private javax.swing.JPanel pnlAyuda;
     public static javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlagregar;
     private javax.swing.JPanel pnlorigenes;
