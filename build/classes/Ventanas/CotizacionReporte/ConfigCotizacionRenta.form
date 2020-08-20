@@ -289,7 +289,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Cotizacion por Renta"/>
+                <Property name="text" type="java.lang.String" value=" Cotizaci&#xf3;n por Renta"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -319,7 +319,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="520" y="0" width="30" height="30"/>
+                  <AbsoluteConstraints x="521" y="0" width="30" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>

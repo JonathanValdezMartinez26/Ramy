@@ -290,7 +290,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Cotizacion por Consolidado"/>
+                <Property name="text" type="java.lang.String" value=" Cotizaci&#xf3;n por Flete Directo"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -320,7 +320,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="520" y="0" width="30" height="30"/>
+                  <AbsoluteConstraints x="521" y="0" width="30" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -458,7 +458,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e1" green="e1" red="e1" type="rgb"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Guardar Servicio"/>
+            <Property name="toolTipText" type="java.lang.String" value="Guardar "/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlagregarMouseClicked"/>

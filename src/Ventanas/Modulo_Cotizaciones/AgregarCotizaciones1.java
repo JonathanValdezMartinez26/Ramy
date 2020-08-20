@@ -23,6 +23,7 @@ import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
 import Ventanas.CotizacionReporte.ConfigCotizacionD;
+import Ventanas.CotizacionReporte.ConfigCotizacionDire;
 import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.Registrar.tabla3;
 import static configInicio.Configuracion.txtEmail;
@@ -1003,7 +1004,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlEliminar2MouseExited
 
     private void pnlVistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseClicked
-      
+     ConfigCotizacionDire VE=new ConfigCotizacionDire(null, true);
+     VE.CargarDatos();
+     VE.setVisible(true);
     }//GEN-LAST:event_pnlVistaMouseClicked
 
     private void pnlVistaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseEntered

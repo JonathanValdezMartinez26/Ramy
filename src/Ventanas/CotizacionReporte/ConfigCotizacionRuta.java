@@ -314,7 +314,7 @@ public class ConfigCotizacionRuta extends javax.swing.JDialog {
         info.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         info.setForeground(new java.awt.Color(102, 102, 102));
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info.setText("Cotizacion por Consolidado");
+        info.setText(" Cotización por Consolidado");
         jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 30));
 
         rSButtonMetro2.setText("X");
@@ -327,7 +327,7 @@ public class ConfigCotizacionRuta extends javax.swing.JDialog {
                 rSButtonMetro2ActionPerformed(evt);
             }
         });
-        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 30, 30));
+        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 0, 30, 30));
 
         jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 13, 551, -1));
 
@@ -400,7 +400,7 @@ public class ConfigCotizacionRuta extends javax.swing.JDialog {
         jcMousePanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 610, 160, -1));
 
         pnlagregar.setBackground(new java.awt.Color(225, 225, 225));
-        pnlagregar.setToolTipText("Guardar Servicio");
+        pnlagregar.setToolTipText("Guardar ");
         pnlagregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlagregarMouseClicked(evt);

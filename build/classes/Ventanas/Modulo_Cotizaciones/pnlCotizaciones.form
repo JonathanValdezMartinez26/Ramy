@@ -169,7 +169,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Agregar Cotizacion Directa"/>
+                <Property name="toolTipText" type="java.lang.String" value="Agregar Cotizaci&#xf3;n Directa"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlagregarMouseClicked"/>
@@ -218,7 +218,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Editar Cotizacion"/>
+                <Property name="toolTipText" type="java.lang.String" value="Editar Cotizaci&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnleditarMouseClicked"/>
@@ -267,7 +267,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Visualizar Cotizacion"/>
+                <Property name="toolTipText" type="java.lang.String" value="Visualizar Cotizaci&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlorigenesMouseClicked"/>
@@ -316,7 +316,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Eliminar Cotizacion"/>
+                <Property name="toolTipText" type="java.lang.String" value="Eliminar  Cotizaci&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlpdfMouseEntered"/>
@@ -365,7 +365,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Agregar Cotizacion por Consolidado"/>
+                <Property name="toolTipText" type="java.lang.String" value="Agregar Cotizaci&#xf3;n por Consolidado"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlagregar1MouseClicked"/>
@@ -414,7 +414,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Agregar Cotizacion por Ruta"/>
+                <Property name="toolTipText" type="java.lang.String" value="Agregar Cotizaci&#xf3;n por Ruta"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlagregar2MouseClicked"/>
@@ -463,7 +463,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e1" green="e1" red="e1" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Agregar Cotizacion por Renta"/>
+                <Property name="toolTipText" type="java.lang.String" value="Agregar Cotizaci&#xf3;n por Renta"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlagregar3MouseClicked"/>

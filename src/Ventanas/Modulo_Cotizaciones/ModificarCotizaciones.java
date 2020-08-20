@@ -29,6 +29,7 @@ import MyTableCellEditor.EditarCotizGRabon;
 import MyTableCellEditor.EditarCotizGTorthon;
 import MyTableCellEditor.EditarCotizGTrailer;
 import Ventanas.CotizacionReporte.ConfigCotizacionD;
+import Ventanas.CotizacionReporte.ConfigCotizacionDire;
 import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.Registrar.ID_C;
 import static Ventanas.Modulo_Cliente.Registrar.tabla3;
@@ -1001,7 +1002,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_buscarKeyTyped
 
     private void pnlVistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseClicked
-      
+     ConfigCotizacionDire VE=new ConfigCotizacionDire(null, true);
+     VE.CargarDatos();
+     VE.setVisible(true); 
     }//GEN-LAST:event_pnlVistaMouseClicked
 
     private void pnlVistaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVistaMouseEntered
