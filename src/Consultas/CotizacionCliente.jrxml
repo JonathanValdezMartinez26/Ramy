@@ -244,20 +244,6 @@
 				<textFieldExpression><![CDATA[$F{calle}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Column header" x="22" y="197" width="512" height="26" forecolor="#000000" uuid="4742a91d-52b1-4cb7-900f-ffa67a093022"/>
-				<box>
-					<pen lineWidth="1.0" lineColor="#0000FF"/>
-					<topPen lineWidth="1.0" lineColor="#0000FF"/>
-					<leftPen lineWidth="1.0" lineColor="#0000FF"/>
-					<bottomPen lineWidth="1.0" lineColor="#0000FF"/>
-					<rightPen lineWidth="1.0" lineColor="#0000FF"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[  POR MEDIO DE LA PRESENTE PONEMOS A SU CONSIDERACION LA SIGUIENTE COTIZACION]]></text>
-			</staticText>
-			<staticText>
 				<reportElement style="Column header" x="163" y="224" width="197" height="21" forecolor="#000000" uuid="0f1cfb13-870a-4c2d-83d5-80ffb06c73e8"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
@@ -265,7 +251,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" mode="Opaque" x="320" y="269" width="142" height="15" forecolor="#000000" backcolor="#FF9900" uuid="e001e723-e940-49e7-a746-38277cd2d706">
+				<reportElement style="Column header" mode="Opaque" x="309" y="269" width="142" height="15" forecolor="#000000" backcolor="#FF9900" uuid="e001e723-e940-49e7-a746-38277cd2d706">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 				</reportElement>
 				<box>
@@ -281,7 +267,7 @@
 				<text><![CDATA[Estatus]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" mode="Opaque" x="155" y="269" width="165" height="15" forecolor="#000000" backcolor="#FF9900" uuid="b162be28-4c2d-4888-94ab-c415bf386278">
+				<reportElement style="Column header" mode="Opaque" x="144" y="269" width="165" height="15" forecolor="#000000" backcolor="#FF9900" uuid="b162be28-4c2d-4888-94ab-c415bf386278">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4d955c0-1a57-4dfc-8d51-4665545140c9"/>
 				</reportElement>
 				<box>
@@ -302,9 +288,9 @@
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<detail>
-		<band height="22" splitType="Stretch">
+		<band height="21" splitType="Stretch">
 			<textField>
-				<reportElement x="320" y="1" width="142" height="20" uuid="d84f0127-2de7-4822-a0ad-e30cc3319a95"/>
+				<reportElement x="309" y="0" width="142" height="21" uuid="d84f0127-2de7-4822-a0ad-e30cc3319a95"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -316,7 +302,7 @@
 				<textFieldExpression><![CDATA[$F{Estatus}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="155" y="1" width="165" height="20" uuid="6691b392-1fa7-4eec-af0c-e975fe0293fc"/>
+				<reportElement x="144" y="0" width="165" height="21" uuid="6691b392-1fa7-4eec-af0c-e975fe0293fc"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
