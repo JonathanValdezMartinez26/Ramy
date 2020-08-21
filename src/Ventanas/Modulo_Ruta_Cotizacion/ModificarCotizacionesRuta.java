@@ -109,6 +109,16 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         lblIDTrans.setVisible(false);
         
      
+        tablaDestinos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.tablaDestinos.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.tablaDestinos.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.tablaDestinos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane.getVerticalScrollBar().setUI(new MyScrollbarUI());
+        jScrollPane.getHorizontalScrollBar().setUI(new MyScrollbarUI());
+        
+        
         tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
         this.tablaR.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
@@ -951,7 +961,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "Destino"
+                "ID_", "Destinos"
             }
         ) {
             Class[] types = new Class [] {

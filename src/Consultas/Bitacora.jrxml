@@ -77,10 +77,13 @@ ORDER BY fecha_mod DESC]]>
 	</field>
 	<group name="bitacora">
 		<groupExpression><![CDATA[$F{ID_Bitacora}]]></groupExpression>
+	</group>
+	<group name="report">
+		<groupExpression><![CDATA[$F{Nombre_viaje}]]></groupExpression>
 		<groupHeader>
-			<band height="75">
+			<band height="48">
 				<textField>
-					<reportElement style="Detail" mode="Opaque" x="10" y="7" width="531" height="16" backcolor="#FFE687" uuid="fa09bfcb-cf8a-41e2-a581-dd9070f56e9f">
+					<reportElement style="Detail" mode="Opaque" x="17" y="15" width="531" height="16" backcolor="#FFFF01" uuid="fa09bfcb-cf8a-41e2-a581-dd9070f56e9f">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 					</reportElement>
 					<box>
@@ -96,7 +99,7 @@ ORDER BY fecha_mod DESC]]>
 					<textFieldExpression><![CDATA["VIAJE"+"                       "+$F{Nombre_viaje}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="126" y="23" width="110" height="17" forecolor="#000000" backcolor="#FFD966" uuid="665c2e7b-014d-4733-a7d8-c781728da05a">
+					<reportElement style="Column header" mode="Opaque" x="133" y="31" width="110" height="17" forecolor="#000000" backcolor="#FF9900" uuid="665c2e7b-014d-4733-a7d8-c781728da05a">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 					</reportElement>
 					<box>
@@ -111,17 +114,8 @@ ORDER BY fecha_mod DESC]]>
 					</textElement>
 					<text><![CDATA[CAMBIO A]]></text>
 				</staticText>
-				<textField>
-					<reportElement style="table_CH" x="126" y="41" width="110" height="17" backcolor="#FFFFFF" uuid="0eda7d9f-8df7-4a43-a7f9-adcee1cba780">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Calibri" size="12"/>
-					</textElement>
-					<textFieldExpression><![CDATA["$"+" "+$F{Costo_nuevo}.intValue()]]></textFieldExpression>
-				</textField>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="374" y="23" width="167" height="17" forecolor="#000000" backcolor="#FFD966" uuid="be2816fc-223b-4424-b206-04d50aa4dbe8">
+					<reportElement style="Column header" mode="Opaque" x="381" y="31" width="167" height="17" forecolor="#000000" backcolor="#FF9900" uuid="be2816fc-223b-4424-b206-04d50aa4dbe8">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 					</reportElement>
 					<box>
@@ -136,26 +130,8 @@ ORDER BY fecha_mod DESC]]>
 					</textElement>
 					<text><![CDATA[FECHA DE MODIFICACIÓN]]></text>
 				</staticText>
-				<textField>
-					<reportElement style="table_CH" x="374" y="41" width="167" height="17" backcolor="#FFFFFF" uuid="60e85442-25d8-4556-a7fb-e5f6cd3642f2">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Calibri" size="12"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{Fecha_mod}]]></textFieldExpression>
-				</textField>
-				<textField pattern="">
-					<reportElement style="table_CH" mode="Transparent" x="10" y="41" width="116" height="17" uuid="f96294fa-239c-4e4d-a09c-9ce0dcac2123">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Calibri" size="12" isItalic="false"/>
-					</textElement>
-					<textFieldExpression><![CDATA["$"+" "+$F{Costo_antiguo}.intValue()]]></textFieldExpression>
-				</textField>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="10" y="23" width="116" height="17" forecolor="#000000" backcolor="#FFD966" uuid="ed23b6da-ffbf-417e-b543-302df578d84b">
+					<reportElement style="Column header" mode="Opaque" x="17" y="31" width="116" height="17" forecolor="#000000" backcolor="#FF9900" uuid="ed23b6da-ffbf-417e-b543-302df578d84b">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 					</reportElement>
 					<box>
@@ -171,7 +147,7 @@ ORDER BY fecha_mod DESC]]>
 					<text><![CDATA[COSTO ANTIGUO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="236" y="23" width="138" height="17" forecolor="#000000" backcolor="#FFD966" uuid="ed9c903b-a1c8-44db-b198-60856ab45443">
+					<reportElement style="Column header" mode="Opaque" x="243" y="31" width="138" height="17" forecolor="#000000" backcolor="#FF9900" uuid="ed9c903b-a1c8-44db-b198-60856ab45443">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 					</reportElement>
 					<box>
@@ -186,24 +162,19 @@ ORDER BY fecha_mod DESC]]>
 					</textElement>
 					<text><![CDATA[TRANSPORTE]]></text>
 				</staticText>
-				<textField>
-					<reportElement style="table_CH" x="236" y="41" width="138" height="17" backcolor="#FFFFFF" uuid="4e950ee9-c3f0-4a5e-9988-38d400aac5ec">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Calibri" size="12"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{Transporte}]]></textFieldExpression>
-				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="10">
 				<staticText>
-					<reportElement style="Column header" x="277" y="59" width="79" height="16" forecolor="#000000" uuid="963e996f-e6ac-46ba-bcae-f5345d1bbb9a"/>
+					<reportElement style="Column header" x="278" y="0" width="79" height="10" forecolor="#000000" uuid="963e996f-e6ac-46ba-bcae-f5345d1bbb9a"/>
 					<textElement>
 						<font fontName="Arial" size="10" isBold="false"/>
 					</textElement>
 					<text><![CDATA[]]></text>
 				</staticText>
 			</band>
-		</groupHeader>
+		</groupFooter>
 	</group>
 	<background>
 		<band splitType="Stretch"/>
@@ -334,6 +305,46 @@ ORDER BY fecha_mod DESC]]>
 	<pageHeader>
 		<band splitType="Stretch"/>
 	</pageHeader>
+	<detail>
+		<band height="17">
+			<textField>
+				<reportElement style="table_CH" x="132" y="0" width="110" height="17" backcolor="#FFFFFF" uuid="0eda7d9f-8df7-4a43-a7f9-adcee1cba780">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["$"+" "+$F{Costo_nuevo}.intValue()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_CH" x="243" y="0" width="138" height="17" backcolor="#FFFFFF" uuid="4e950ee9-c3f0-4a5e-9988-38d400aac5ec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Transporte}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_CH" x="381" y="0" width="167" height="17" backcolor="#FFFFFF" uuid="60e85442-25d8-4556-a7fb-e5f6cd3642f2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha_mod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_CH" x="17" y="0" width="115" height="17" backcolor="#FFFFFF" uuid="1a16f198-f9c2-43ee-ae2a-29aecff358f2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["$"+" "+$F{Costo_antiguo}.intValue()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
 	<pageFooter>
 		<band height="20">
 			<textField>

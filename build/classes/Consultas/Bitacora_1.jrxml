@@ -70,7 +70,7 @@ order by Nombre_viaje]]>
 		<groupHeader>
 			<band height="40">
 				<textField>
-					<reportElement style="Detail" mode="Opaque" x="8" y="6" width="531" height="16" backcolor="#FFE687" uuid="fa09bfcb-cf8a-41e2-a581-dd9070f56e9f">
+					<reportElement style="Detail" mode="Opaque" x="8" y="6" width="531" height="16" backcolor="#FFFF01" uuid="fa09bfcb-cf8a-41e2-a581-dd9070f56e9f">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 					</reportElement>
 					<box>
@@ -86,7 +86,7 @@ order by Nombre_viaje]]>
 					<textFieldExpression><![CDATA["VIAJE"+"                       "+$F{Nombre_Viaje}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="130" y="22" width="128" height="17" forecolor="#000000" backcolor="#FFD966" uuid="665c2e7b-014d-4733-a7d8-c781728da05a">
+					<reportElement style="Column header" mode="Opaque" x="130" y="22" width="128" height="17" forecolor="#000000" backcolor="#FF9900" uuid="665c2e7b-014d-4733-a7d8-c781728da05a">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 					</reportElement>
 					<box>
@@ -102,7 +102,7 @@ order by Nombre_viaje]]>
 					<text><![CDATA[CAMBIO A]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="258" y="22" width="140" height="17" forecolor="#000000" backcolor="#FFD966" uuid="be2816fc-223b-4424-b206-04d50aa4dbe8">
+					<reportElement style="Column header" mode="Opaque" x="258" y="22" width="140" height="17" forecolor="#000000" backcolor="#FF9900" uuid="be2816fc-223b-4424-b206-04d50aa4dbe8">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 					</reportElement>
 					<box>
@@ -118,7 +118,7 @@ order by Nombre_viaje]]>
 					<text><![CDATA[FECHA DE MODIFICACIÓN]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="8" y="22" width="122" height="17" forecolor="#000000" backcolor="#FFD966" uuid="ed23b6da-ffbf-417e-b543-302df578d84b">
+					<reportElement style="Column header" mode="Opaque" x="8" y="22" width="122" height="17" forecolor="#000000" backcolor="#FF9900" uuid="ed23b6da-ffbf-417e-b543-302df578d84b">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 					</reportElement>
 					<box>
@@ -134,7 +134,7 @@ order by Nombre_viaje]]>
 					<text><![CDATA[COSTO ANTIGUO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="398" y="22" width="141" height="17" forecolor="#000000" backcolor="#FFD966" uuid="a0dc05f9-5af1-4a0b-940f-9da74b616b8c">
+					<reportElement style="Column header" mode="Opaque" x="398" y="22" width="141" height="17" forecolor="#000000" backcolor="#FF9900" uuid="a0dc05f9-5af1-4a0b-940f-9da74b616b8c">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 					</reportElement>
 					<box>
