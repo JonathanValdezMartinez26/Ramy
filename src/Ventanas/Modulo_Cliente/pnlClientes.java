@@ -3,6 +3,7 @@ package Ventanas.Modulo_Cliente;
 import A_tabla.*;
 import Clases.Clientes;
 import Clases.Conexion;
+import Ventanas.CotizacionReporte.ConfigCotizacionclienteayuda;
 import static Ventanas.Modulo_Cliente.Registrar.B;
 import static Ventanas.Modulo_Cliente.Registrar.C;
 import static Ventanas.Modulo_Cliente.Registrar.PanelDesliza;
@@ -174,6 +175,9 @@ public class pnlClientes extends javax.swing.JPanel {
         pnlpdf = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        pnlAyuda = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         buscar = new app.bolivia.swing.JCTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -388,6 +392,30 @@ public class pnlClientes extends javax.swing.JPanel {
         pnlpdf.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, 69));
+
+        pnlAyuda.setBackground(new java.awt.Color(225, 225, 225));
+        pnlAyuda.setToolTipText("Ayuda");
+        pnlAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlAyudaMouseExited(evt);
+            }
+        });
+        pnlAyuda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setText("      Ayuda");
+        pnlAyuda.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
+
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda30.png"))); // NOI18N
+        pnlAyuda.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, 30, 40));
+
+        jPanel12.add(pnlAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 80, 69));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -620,6 +648,20 @@ public class pnlClientes extends javax.swing.JPanel {
     private void pnlpdfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlpdfMouseClicked
         ver();
     }//GEN-LAST:event_pnlpdfMouseClicked
+
+    private void pnlAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseClicked
+
+        ConfigCotizacionclienteayuda poper =new Ventanas.CotizacionReporte.ConfigCotizacionclienteayuda(null, true);
+        poper.setVisible(true);
+    }//GEN-LAST:event_pnlAyudaMouseClicked
+
+    private void pnlAyudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseEntered
+        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
+    }//GEN-LAST:event_pnlAyudaMouseEntered
+
+    private void pnlAyudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseExited
+        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
+    }//GEN-LAST:event_pnlAyudaMouseExited
      
     DefaultTableModel model = new DefaultTableModel() {
 
@@ -643,14 +685,17 @@ public class pnlClientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel pnlAyuda;
     private javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlagregar;
     private javax.swing.JPanel pnldestinos;
