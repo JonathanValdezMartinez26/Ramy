@@ -4,7 +4,7 @@ package Alerts.AlertBasic;
 import Alerts.*;
 import Ventanas.Modulo_Cliente.Opciones;
 import Ventanas.Modulo_Cliente.Registrar;
-import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
+
 import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
 import Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;

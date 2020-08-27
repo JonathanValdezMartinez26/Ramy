@@ -28,7 +28,7 @@ import Clases.localidades;
 import Clases.municipios;
 import Ventanas.CotizacionReporte.ConfigCotizacion;
 import Ventanas.CotizacionReporte.ConfigCotizacionConsolidado;
-import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
+
 import static Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla;
 
 import static configInicio.Configuracion.txtEmail;

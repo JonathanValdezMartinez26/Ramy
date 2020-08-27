@@ -325,11 +325,11 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
  public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
-        int Fila = pnlClientes.tabla.getSelectedRow();
+        int Fila = pnlClientes.tabla1.getSelectedRow();
         int Filita = 1; 
   
         if (Fila >= 0 ) {
-                      int ID = Integer.parseInt(pnlClientes.tabla.getValueAt(Fila, 0).toString());
+                      int ID = Integer.parseInt(pnlClientes.tabla1.getValueAt(Fila, 0).toString());
                     try {
                         Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
                         String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionCliente.jasper";

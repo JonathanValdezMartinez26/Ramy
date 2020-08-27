@@ -24,7 +24,7 @@ public class Opciones {
     static PreparedStatement ps;
 
     public static void listar(String busca) {
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cliente.pnlClientes.tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cliente.pnlClientes.tabla1.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);

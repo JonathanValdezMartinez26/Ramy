@@ -86,7 +86,7 @@
 			</textField>
 			<image>
 				<reportElement x="12" y="15" width="104" height="45" uuid="d3b3bb42-2651-475b-bccc-2b857f88b28a"/>
-				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA[Reportes/reporte.png"]]></imageExpression>
 			</image>
 			<line>
 				<reportElement x="16" y="86" width="532" height="1" uuid="30d6b8f6-9ace-4329-ad50-97b1ed3476b2">

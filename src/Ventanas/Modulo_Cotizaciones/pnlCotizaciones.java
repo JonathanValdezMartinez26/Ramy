@@ -14,8 +14,7 @@ import Ventanas.CotizacionReporte.ConfigCotizacionAyuda;
 import static Ventanas.Modulo_Cliente.Registrar.B;
 import static Ventanas.Modulo_Cliente.Registrar.C;
 import static Ventanas.Modulo_Cliente.Registrar.PanelDesliza;
-import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
-import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
+
 import Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado;
 import Ventanas.Modulo_Cotizaciones_Consolidado.ModificarCotizaciones_Consolidado;
 
@@ -43,6 +42,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 import rojerusan.RSPanelsSlider;
+import static Ventanas.Modulo_Cliente.pnlClientes.tabla1;
 
 public class pnlCotizaciones extends javax.swing.JPanel {
 

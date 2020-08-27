@@ -21,7 +21,6 @@ import MyTableCellEditor.EditarClienteRabon;
 import MyTableCellEditor.EditarClienteTorthon;
 import MyTableCellEditor.EditarClienteTrailer;
 import static Ventanas.Modulo_Cliente.Opciones.*;
-import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.IDCotizacion;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
@@ -52,6 +51,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
+import static Ventanas.Modulo_Cliente.pnlClientes.tabla1;
 
 
 
