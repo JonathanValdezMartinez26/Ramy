@@ -102,7 +102,7 @@
 			</textField>
 			<image>
 				<reportElement x="7" y="15" width="104" height="45" uuid="39697629-25d5-44de-abfc-dc1e8e5d6bad"/>
-				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA["Reportes\\reporte.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement style="Column header" x="320" y="130" width="79" height="16" forecolor="#000000" uuid="3089ce3f-8e8b-499a-8114-7266d791808e"/>

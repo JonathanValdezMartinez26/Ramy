@@ -247,7 +247,7 @@ ORDER BY fecha_mod DESC]]>
 			</textField>
 			<image>
 				<reportElement x="8" y="17" width="104" height="45" uuid="c2de22e2-331a-4635-9e09-869533902599"/>
-				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA["Consultas\\reporte.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement style="Column header" x="321" y="132" width="79" height="16" forecolor="#000000" uuid="40eddf67-d9af-4354-9bc3-f978853180be"/>

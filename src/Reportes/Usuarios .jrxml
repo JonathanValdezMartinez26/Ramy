@@ -108,7 +108,7 @@
 			</textField>
 			<image>
 				<reportElement x="11" y="15" width="104" height="45" uuid="2ebeb41e-8149-4a38-a3ea-a3a5a5b454ac"/>
-				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA["Reportes\\reporte.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement style="Column header" x="321" y="129" width="79" height="16" forecolor="#000000" uuid="c7f67f8e-3af5-4b25-8e69-f4d4e24456ae"/>
@@ -225,7 +225,7 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
 				</reportElement>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[         $F{Correo_Electronico}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Correo_Electronico}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="Detail" x="452" y="0" width="85" height="21" uuid="636331d9-1ed5-469d-a86f-c85bf23fe66c">
