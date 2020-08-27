@@ -115,7 +115,7 @@ ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
 			</staticText>
 			<image>
 				<reportElement x="17" y="15" width="104" height="45" uuid="0cf01807-b485-4cf4-9fe1-a630df4847db"/>
-				<imageExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Images\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA["Consultas\\reporte.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement style="Column header" x="419" y="40" width="125" height="20" forecolor="#000000" uuid="60bffe33-0788-457a-94e7-23bce2b43c4c"/>

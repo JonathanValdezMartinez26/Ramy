@@ -755,7 +755,7 @@ public class pnlClientes extends javax.swing.JPanel {
 
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
-//            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Clientes.jasper";
+//            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Clientes.jasper";
             String archivo = "Reportes/Clientes.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
