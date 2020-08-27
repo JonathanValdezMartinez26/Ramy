@@ -33,6 +33,7 @@ import Ventanas.CotizacionReporte.ConfigCotizacionDire;
 import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.Registrar.ID_C;
 import static Ventanas.Modulo_Cliente.Registrar.tabla3;
+import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.jTable1;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
 import java.awt.BorderLayout;
@@ -128,6 +129,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         lblatencion.setVisible(true);
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(false);
+        lblID_Destino.setVisible(false);
         
      
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -317,7 +319,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
           Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID);  
           Ventanas.Modulo_Cotizaciones.Opciones.llenarServicioMod(ID);
           cargarOrigenes();
-          cargarDestinos();
+          
         
          IDCotizacion.setText(""+ID);
         String Nombre="";
@@ -474,10 +476,13 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             int R=0;              
             int Fila = Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla.getSelectedRow();
             int IDE = Integer.parseInt(Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla.getValueAt(Fila, 0).toString());
-             
-//            cmbOrigenes.removeAllItems();
-//            cmbOrigenes.addItem("Seleccione un Origen");            
+            DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
+                int Filas1 = modelo.getRowCount(); 
+            
+            //cmbOrigenes.addItem("Seleccione un Origen");            
             int ID1=0;
+            int contador=0;
+            int j;
             
             try {
                 resultado = Conexion.consulta("SELECT ID_Cliente from cotizaciones where "
@@ -492,19 +497,23 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             }            
   
             try {
-
-//                resultado = Conexion.consulta("SELECT ID_Destino, CONCAT_WS(', ', `municipio`,`estado`) AS Destino from destinov where "
-//                        + "(ID_Cliente = "+ID1+")");
-                resultado = Conexion.consulta("Select ID_Destino, Destino from destinovv where ID_Cliente ="+ID1);
-
-                while (resultado.next()) {
-                    ID_Ori[i] = resultado.getInt(1);
-                    cmbDestinos.addItem(resultado.getString(2).trim());
-                    i++;
-                }
-            } 
+                resultado = Conexion.consulta("Select ID_Destino, Destino from destinovv where ID_Cliente ="+ID1+ " ORDER BY Destino ASC");
+             
+                    while (resultado.next()) {
+                    
+                    ID_Ori[i] = resultado.getInt(1);                    
+                    cmbDestinos.addItem(resultado.getString(2).trim());                    
+                    
+                    i++;    
+                
+               }
+            }
+            
             catch (SQLException ex) {
-            }       
+            }
+            
+            
+            //JOptionPane.showMessageDialog(null, "Las filas de esta tabla son: "+Filas1);
     }
     
     
@@ -619,7 +628,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tabla.setRowHeight(20);
+        tabla.setRowHeight(25);
         tabla.getTableHeader().setReorderingAllowed(false);
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -969,8 +978,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
 
     private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
+         cmbDestinos.removeAllItems();   
+        cargarDestinos();
         
-
         }
     }//GEN-LAST:event_cmbOrigenesItemStateChanged
 

@@ -238,11 +238,11 @@ public class Opciones {
         }
         String sql = "";
         if (busca.equals("")) {
-            sql= "Select ID_Ruta, Origen, Destino, Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav"
+            sql= "Select ID_Ruta, ID_Municipio_Origen,Origen, ID_Municipio_Destino,Destino, Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav"
                + " where ID_Cliente ="+ID+" ORDER BY Origen,Destino";
         } else {
             
-            sql= "Select ID_Ruta, Origen, Destino, Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav"
+            sql= "Select ID_Ruta, ID_Municipio_Origen,Origen, ID_Municipio_Destino,Destino, Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav"
                     + " where (ID_Cliente =" + ID + " AND Origen LIKE '%" + busca + "%')"
                     + " OR (ID_Cliente =" + ID + " AND Destino LIKE '%" + busca + "%')"
                     + " OR (ID_Cliente =" + ID + " AND Camioneta_1_5 LIKE '" + busca + "%')"
@@ -262,7 +262,7 @@ public class Opciones {
         
       
       
-            String datos[] = new String[9];
+            String datos[] = new String[11];
         try 
         {    
             Statement st = cn.createStatement();
@@ -277,6 +277,8 @@ public class Opciones {
                 datos[6] = rs.getString(7);
                 datos[7] = rs.getString(8);
                 datos[8] = rs.getString(9);
+                datos[9] = rs.getString(10);
+                datos[10] = rs.getString(11);
                                
                 modelo.addRow(datos);
             }
