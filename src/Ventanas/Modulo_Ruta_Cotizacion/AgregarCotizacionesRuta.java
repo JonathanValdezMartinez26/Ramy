@@ -595,13 +595,10 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
-            tabla.getColumnModel().getColumn(1).setHeaderValue("Origen");
             tabla.getColumnModel().getColumn(2).setPreferredWidth(240);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(20);
-            tabla.getColumnModel().getColumn(3).setHeaderValue("Unidad");
             tabla.getColumnModel().getColumn(4).setResizable(false);
             tabla.getColumnModel().getColumn(4).setPreferredWidth(5);
-            tabla.getColumnModel().getColumn(4).setHeaderValue("Precio");
         }
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
@@ -645,6 +642,9 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(1).setMinWidth(0);
             tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
+            tabla1.getColumnModel().getColumn(4).setMinWidth(150);
+            tabla1.getColumnModel().getColumn(4).setPreferredWidth(150);
+            tabla1.getColumnModel().getColumn(4).setMaxWidth(150);
         }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -1175,7 +1175,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
        int existenombre2 = 0;
             int existeprecio2 = 0;
             for (int i = 0; i < tabla.getRowCount(); i++) {                                                 
-                 if(tabla.getValueAt(i, 2).toString().equals("0")){
+                 if(tabla.getValueAt(i, 4).toString().equals("0")){
                      existeprecio2++;
                  }                                 
         }

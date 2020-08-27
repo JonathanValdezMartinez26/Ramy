@@ -707,6 +707,9 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(1).setMinWidth(0);
             tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
+            tabla1.getColumnModel().getColumn(4).setMinWidth(150);
+            tabla1.getColumnModel().getColumn(4).setPreferredWidth(150);
+            tabla1.getColumnModel().getColumn(4).setMaxWidth(150);
         }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -1249,7 +1252,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
        int existenombre2 = 0;
             int existeprecio2 = 0;
             for (int i = 0; i < tablaR.getRowCount(); i++) {                                                 
-                 if(tablaR.getValueAt(i, 2).toString().equals("0")){
+                 if(tablaR.getValueAt(i, 4).toString().equals("0")){
                      existeprecio2++;
                  }                                 
         }

@@ -456,9 +456,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setMinWidth(20);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(20);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(20);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(3).setMinWidth(120);
