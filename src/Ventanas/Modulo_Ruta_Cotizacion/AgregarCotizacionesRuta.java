@@ -109,11 +109,20 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         lblID_Origen.setVisible(false);
         lblIDTrans.setVisible(false);
        
-     
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
         this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
         this.tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane.getVerticalScrollBar().setUI(new MyScrollbarUI());
+        jScrollPane.getHorizontalScrollBar().setUI(new MyScrollbarUI());
+        
+        
+        tablaDestinos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.tablaDestinos.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.tablaDestinos.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.tablaDestinos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane.getVerticalScrollBar().setUI(new MyScrollbarUI());
@@ -497,8 +506,6 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         cmbTransportes = new ComboBox.SComboBox();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tablaDestinos = new javax.swing.JTable();
         IDCotizacion1 = new javax.swing.JLabel();
         IDCotizacion2 = new javax.swing.JLabel();
         IDCotizacion3 = new javax.swing.JLabel();
@@ -510,6 +517,8 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         lblIDCoti = new javax.swing.JLabel();
         jButton1 = new JButtonEspecial.JButtonEspecial();
         jButton2 = new JButtonEspecial.JButtonEspecial();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaDestinos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -586,10 +595,13 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tabla.getColumnModel().getColumn(1).setHeaderValue("Origen");
             tabla.getColumnModel().getColumn(2).setPreferredWidth(240);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(20);
+            tabla.getColumnModel().getColumn(3).setHeaderValue("Unidad");
             tabla.getColumnModel().getColumn(4).setResizable(false);
             tabla.getColumnModel().getColumn(4).setPreferredWidth(5);
+            tabla.getColumnModel().getColumn(4).setHeaderValue("Precio");
         }
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
@@ -882,40 +894,6 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel7.setText("Destinos disponibles para el origen seleccionado:");
         jcMousePanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 430, 20));
-
-        tablaDestinos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID_", "Destino"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tablaDestinos.setRowHeight(20);
-        tablaDestinos.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(tablaDestinos);
-        if (tablaDestinos.getColumnModel().getColumnCount() > 0) {
-            tablaDestinos.getColumnModel().getColumn(0).setMinWidth(0);
-            tablaDestinos.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tablaDestinos.getColumnModel().getColumn(0).setMaxWidth(0);
-        }
-
-        jcMousePanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 440, 110));
         jcMousePanel1.add(IDCotizacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 70, 20));
         jcMousePanel1.add(IDCotizacion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 90, 20));
         jcMousePanel1.add(IDCotizacion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
@@ -961,6 +939,40 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             }
         });
         jcMousePanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 100, 30));
+
+        tablaDestinos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID_", "Destinos"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaDestinos.setRowHeight(25);
+        tablaDestinos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(tablaDestinos);
+        if (tablaDestinos.getColumnModel().getColumnCount() > 0) {
+            tablaDestinos.getColumnModel().getColumn(0).setMinWidth(0);
+            tablaDestinos.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tablaDestinos.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
+
+        jcMousePanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 440, 120));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1473,7 +1485,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     public static jcMousePanel.jcMousePanel jcMousePanel1;
     public static javax.swing.JSeparator l2;
     public static javax.swing.JLabel lblIDCoti;
