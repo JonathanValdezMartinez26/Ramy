@@ -36,18 +36,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
         this.setLocationRelativeTo(this);
         ID.setVisible(false);
         Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1 A=new AgregarCotizaciones1(new javax.swing.JFrame(), true);
-        
-        
-    log2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-               A.setVisible(false);
-               A.dispose();
-               ConexionAlert w=new ConexionAlert(new javax.swing.JFrame(),true);
-               w.dispose();
-               JOptionPane.showMessageDialog(null, "Boton secundario");
-            }
-        });
+    
     }
 
   
@@ -175,59 +164,59 @@ public class WarningFinalizar extends javax.swing.JDialog {
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
     
-//        String ID_Cotizacion = ID.getText();
-//        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
-//        final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
-//        tabla.setRowSorter(sorter);
-//        sorter.setRowFilter(null);
-//        int Filas1 = modelo.getRowCount();
-//        for (int i = 0; i < Filas1; i++) {            
-//            String IDCot = tabla.getValueAt(i, 0).toString();
-//            String Origen = tabla.getValueAt(i, 1).toString();
-//            String Destino = tabla.getValueAt(i, 2).toString();
-//            String Camioneta15 = tabla.getValueAt(i, 3).toString();
-//            String Camioneta35 = tabla.getValueAt(i, 4).toString();
-//            String Rabon = tabla.getValueAt(i, 5).toString();
-//            String Torthon = tabla.getValueAt(i, 6).toString();
-//            String Trailer = tabla.getValueAt(i, 7).toString();
-//            String Full = tabla.getValueAt(i, 8).toString();
-//
-//            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 9).toString());
-//
-//            String sql;
-//            if (checked) {
-//                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-//                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
-//
-//                try {
-//                    PreparedStatement pstm = cn.prepareStatement(sql);
-//                    pstm.execute();
-//                    pstm.close();
-//
-//                } catch (SQLException e) {
-//                    System.out.println(e);
-//                }
-//
-//            } else {
-//                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-//                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
-//
-//                try {
-//                    PreparedStatement pstm = cn.prepareStatement(sql);
-//                    pstm.execute();
-//                    pstm.close();
-//
-//                } catch (SQLException e) {
-//                    System.out.println(e);
-//                }
-//            }
-//        }
-        //this.dispose();
+        String ID_Cotizacion = ID.getText();
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
+        final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
+        tabla.setRowSorter(sorter);
+        sorter.setRowFilter(null);
+        int Filas1 = modelo.getRowCount();
+        for (int i = 0; i < Filas1; i++) {            
+            String IDCot = tabla.getValueAt(i, 0).toString();
+            String Origen = tabla.getValueAt(i, 1).toString();
+            String Destino = tabla.getValueAt(i, 2).toString();
+            String Camioneta15 = tabla.getValueAt(i, 3).toString();
+            String Camioneta35 = tabla.getValueAt(i, 4).toString();
+            String Rabon = tabla.getValueAt(i, 5).toString();
+            String Torthon = tabla.getValueAt(i, 6).toString();
+            String Trailer = tabla.getValueAt(i, 7).toString();
+            String Full = tabla.getValueAt(i, 8).toString();
+
+            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 9).toString());
+
+            String sql;
+            if (checked) {
+                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+
+                try {
+                    PreparedStatement pstm = cn.prepareStatement(sql);
+                    pstm.execute();
+                    pstm.close();
+
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
+
+            } else {
+                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+
+                try {
+                    PreparedStatement pstm = cn.prepareStatement(sql);
+                    pstm.execute();
+                    pstm.close();
+
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
+            }
+        }
+        this.dispose();
         
-//        Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
-//        Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
-//        Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.ver();        
-//        Ventanas.Modulo_Cotizaciones.Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados
+        Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
+        Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
+        //Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.ver();        
+        Ventanas.Modulo_Cotizaciones.Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados
         
         
     }//GEN-LAST:event_log2ActionPerformed

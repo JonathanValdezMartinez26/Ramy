@@ -114,7 +114,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         
         lblatencion.setVisible(true);
         ID_rutas.setVisible(false);
-        IDCotizacion.setVisible(false);
+        //IDCotizacion.setVisible(false);
         
      
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

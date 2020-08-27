@@ -1023,6 +1023,12 @@ public class Registrar extends javax.swing.JDialog {
             tabla3.getColumnModel().getColumn(0).setMinWidth(0);
             tabla3.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla3.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla3.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla3.getColumnModel().getColumn(1).setPreferredWidth(0);
+            tabla3.getColumnModel().getColumn(1).setMaxWidth(0);
+            tabla3.getColumnModel().getColumn(3).setMinWidth(0);
+            tabla3.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tabla3.getColumnModel().getColumn(3).setMaxWidth(0);
             tabla3.getColumnModel().getColumn(5).setMinWidth(120);
             tabla3.getColumnModel().getColumn(5).setPreferredWidth(120);
             tabla3.getColumnModel().getColumn(5).setMaxWidth(120);
