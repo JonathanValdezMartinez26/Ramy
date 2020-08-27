@@ -35,7 +35,8 @@ public class WarningFinalizar extends javax.swing.JDialog {
         FadeEffect.fadeIn(this, 20, 0.1f);
         this.setLocationRelativeTo(this);
         ID.setVisible(false);
-        Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1 A=new AgregarCotizaciones1(new javax.swing.JFrame(), true);
+        filas.setVisible(false);
+        
     
     }
 
@@ -59,6 +60,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
         ID = new javax.swing.JLabel();
         msj6 = new javax.swing.JLabel();
         msj7 = new javax.swing.JLabel();
+        filas = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
@@ -133,7 +135,9 @@ public class WarningFinalizar extends javax.swing.JDialog {
             }
         });
         jPanel1.add(log3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 130, 30));
-        jPanel1.add(ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        ID.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 20));
 
         msj6.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         msj6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -144,6 +148,9 @@ public class WarningFinalizar extends javax.swing.JDialog {
         msj7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         msj7.setText("*Tome en cuenta que al presionar este boton");
         jPanel1.add(msj7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 290, 20));
+
+        filas.setText("0");
+        jPanel1.add(filas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
         rSPanelImage1.add(jPanel1);
         jPanel1.setBounds(6, 4, 408, 230);
@@ -165,41 +172,43 @@ public class WarningFinalizar extends javax.swing.JDialog {
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
     
         String ID_Cotizacion = ID.getText();
-        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
-        final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
-        tabla.setRowSorter(sorter);
-        sorter.setRowFilter(null);
-        int Filas1 = modelo.getRowCount();
-        for (int i = 0; i < Filas1; i++) {            
-            String IDCot = tabla.getValueAt(i, 0).toString();
-            String Origen = tabla.getValueAt(i, 1).toString();
-            String Destino = tabla.getValueAt(i, 2).toString();
-            String Camioneta15 = tabla.getValueAt(i, 3).toString();
-            String Camioneta35 = tabla.getValueAt(i, 4).toString();
-            String Rabon = tabla.getValueAt(i, 5).toString();
-            String Torthon = tabla.getValueAt(i, 6).toString();
-            String Trailer = tabla.getValueAt(i, 7).toString();
-            String Full = tabla.getValueAt(i, 8).toString();
+        
+        int Filas11=Integer.parseInt(filas.getText());
+        for (int i = 0; i<Filas11; i++) {            
 
-            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 9).toString());
+            String IDCot = Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getValueAt(0, 0).toString();            
+            String Origen = Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getValueAt(i, 1).toString();
+            String Destino = Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getValueAt(i, 2).toString();
+            String Camioneta15 = Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getValueAt(i, 3).toString();
+            String Camioneta35 = Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getValueAt(i, 4).toString();
+            String Rabon = Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getValueAt(i, 5).toString();
+            String Torthon = Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getValueAt(i, 6).toString();
+            String Trailer = Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getValueAt(i, 7).toString();
+            String Full = Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getValueAt(i, 8).toString();
 
+            Boolean checked = Boolean.valueOf(Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getValueAt(i, 9).toString());
+            
             String sql;
             if (checked) {
+
                 sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+                + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+
 
                 try {
                     PreparedStatement pstm = cn.prepareStatement(sql);
                     pstm.execute();
                     pstm.close();
+                                   
 
                 } catch (SQLException e) {
                     System.out.println(e);
                 }
 
+        
             } else {
-                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
 
                 try {
                     PreparedStatement pstm = cn.prepareStatement(sql);
@@ -209,13 +218,14 @@ public class WarningFinalizar extends javax.swing.JDialog {
                 } catch (SQLException e) {
                     System.out.println(e);
                 }
+
             }
         }
         this.dispose();
         
         Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
         Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");
-        //Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.ver();        
+        Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.ver(ID_Cotizacion);        
         Ventanas.Modulo_Cotizaciones.Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados
         
         
@@ -244,6 +254,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel ID;
     public static javax.swing.JLabel NombreEmpresa;
+    public static javax.swing.JLabel filas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

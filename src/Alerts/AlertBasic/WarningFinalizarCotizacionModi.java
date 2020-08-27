@@ -161,6 +161,7 @@ public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
     
         String ID_Cotizacion = ID.getText();
+        JOptionPane.showMessageDialog(null, "ID_Cotizacion= "+ID_Cotizacion );
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
         final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
         Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.setRowSorter(sorter);
@@ -213,7 +214,7 @@ public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
         this.dispose();
         Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
         Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");        
-        Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.ver();
+        Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.ver(ID_Cotizacion);
         Ventanas.Modulo_Cotizaciones.Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados        
     }//GEN-LAST:event_log2ActionPerformed
 

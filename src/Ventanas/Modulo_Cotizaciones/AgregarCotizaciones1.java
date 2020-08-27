@@ -112,9 +112,10 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         Destinos();
         Transportes();
         
-        lblatencion.setVisible(true);
+        lblatencion.setVisible(false);
         ID_rutas.setVisible(false);
-        //IDCotizacion.setVisible(false);
+        IDCotizacion.setVisible(false);
+        IDCotizacion1.setVisible(false);
         
      
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -278,11 +279,14 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         
     }
     ////////////////////////////////////////////////////////////////////////
-    public static void finalizar(){
-        Alerts.AlertBasic.WarningFinalizar AC = new  Alerts.AlertBasic.WarningFinalizar(null, true);
-        AC.ID.setText(IDCotizacion.getText());
-        AC.setVisible(true);
-      
+    public static void finalizar(String ID1,int Fila){
+        
+        String F= String.valueOf(Fila);
+        Alerts.AlertBasic.WarningFinalizar AC9 = new  Alerts.AlertBasic.WarningFinalizar(null, true);
+        AC9.ID.setText(""+ID1);
+        AC9.filas.setText(""+F);
+        AC9.setVisible(true);
+      //JOptionPane.showMessageDialog(null, "Desde finalizar()"+ID1);
     
     //AgregarCotizaciones.dispose();
     }
@@ -369,6 +373,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         buscar = new app.bolivia.swing.JCTextField();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        IDCotizacion1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -451,9 +456,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(0).setMinWidth(20);
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(20);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(3).setMinWidth(120);
@@ -682,7 +687,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jPanel1.add(pnlAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 80, 70));
 
         jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 890, 70));
-        jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 20));
+        jcMousePanel1.add(IDCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 120, 20));
         jcMousePanel1.add(ID_rutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 140, 20));
 
         cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Asigne Origen" }));
@@ -734,6 +739,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         );
 
         jcMousePanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 180, -1, -1));
+        jcMousePanel1.add(IDCotizacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 150, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -811,7 +817,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
-            //IDCotizacion.setVisible(true);
+            IDCotizacion1.setText(""+ObtenID());            
             Opciones.listarCotizaciones("");
             
             
@@ -1084,7 +1090,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     String ID_Cotizacion = IDCotizacion.getText();
                     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
                     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
-                    ver(); 
+                    ver(ID_Cotizacion); 
                     this.dispose();
                     Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados en la bd
                     }                  
@@ -1100,7 +1106,13 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     ////////Si la tabla1 esta vacia, se le pregunta al cliente, si desea finalizar cotizacion 
                     //////sin agregar ningun servicio, todo esto mediante este metodo
                     //this.setVisible(false);
-                    finalizar();
+                    String IDCot="";
+                    int Filas1 = modelo.getRowCount();
+                        for (int i = 0; i < 1; i++) {
+                            IDCot = tabla.getValueAt(i, 0).toString();
+                            
+                        }
+                    finalizar(IDCot,Filas1);
 
                     //JOptionPane.showMessageDialog(null,"Finaliza directo");
                 }
@@ -1271,6 +1283,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel IDCotizacion;
+    public static javax.swing.JLabel IDCotizacion1;
     private javax.swing.JLabel ID_rutas;
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
@@ -1308,10 +1321,10 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
-public static void ver() {
+public static void ver(String ID) {
         Clases.Conexion cc = new Clases.Conexion();
-        int ID = Integer.parseInt(IDCotizacion.getText());
-        if (ID >= 0) {
+        int ID1 = Integer.parseInt(ID);
+        if (ID1 >= 0) {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
