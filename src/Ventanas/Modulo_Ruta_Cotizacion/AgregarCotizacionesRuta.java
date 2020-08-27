@@ -589,6 +589,11 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         });
         tabla.setRowHeight(25);
         tabla.getTableHeader().setReorderingAllowed(false);
+        tabla.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tablaKeyPressed(evt);
+            }
+        });
         jScrollPane.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
@@ -596,9 +601,9 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(240);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(20);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(15);
             tabla.getColumnModel().getColumn(4).setResizable(false);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(5);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(2);
         }
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
@@ -965,6 +970,11 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         });
         tablaDestinos.setRowHeight(25);
         tablaDestinos.getTableHeader().setReorderingAllowed(false);
+        tablaDestinos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tablaDestinosKeyPressed(evt);
+            }
+        });
         jScrollPane3.setViewportView(tablaDestinos);
         if (tablaDestinos.getColumnModel().getColumnCount() > 0) {
             tablaDestinos.getColumnModel().getColumn(0).setMinWidth(0);
@@ -1432,6 +1442,22 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
     private void pnlAyudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseExited
         pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlAyudaMouseExited
+
+    private void tablaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaKeyPressed
+
+        // TODO add your handling code here
+    }//GEN-LAST:event_tablaKeyPressed
+
+    private void tablaDestinosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaDestinosKeyPressed
+        int press=evt.getKeyCode();        
+        DefaultTableModel dtm = (DefaultTableModel) tablaDestinos.getModel();
+        if(this.tablaDestinos.getSelectedRow()!=-1 && press==127 ){
+            dtm.removeRow(tablaDestinos.getSelectedRow());
+            Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+            AC.msj2.setText("¡Destino removido!");            
+            AC.setVisible(true);
+        }
+    }//GEN-LAST:event_tablaDestinosKeyPressed
 
     public static void main(String args[]) {
      

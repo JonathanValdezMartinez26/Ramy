@@ -984,6 +984,11 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         });
         tablaDestinos.setRowHeight(20);
         tablaDestinos.getTableHeader().setReorderingAllowed(false);
+        tablaDestinos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tablaDestinosKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(tablaDestinos);
         if (tablaDestinos.getColumnModel().getColumnCount() > 0) {
             tablaDestinos.getColumnModel().getColumn(0).setMinWidth(0);
@@ -1533,6 +1538,18 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
     private void pnlAyudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseExited
         pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlAyudaMouseExited
+
+    private void tablaDestinosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaDestinosKeyPressed
+        int press=evt.getKeyCode();        
+        DefaultTableModel dtm = (DefaultTableModel) tablaDestinos.getModel();
+        if(this.tablaDestinos.getSelectedRow()!=-1 && press==127 ){
+                dtm.removeRow(tablaDestinos.getSelectedRow());
+            Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+            AC.msj2.setText("¡Destino removido!");            
+            AC.setVisible(true);
+            
+        }
+    }//GEN-LAST:event_tablaDestinosKeyPressed
 
     public static void main(String args[]) {
      
