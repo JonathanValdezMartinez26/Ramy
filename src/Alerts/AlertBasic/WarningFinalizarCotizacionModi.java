@@ -5,7 +5,7 @@ import Alerts.*;
 import Ventanas.Modulo_Cliente.Opciones;
 import static Ventanas.Modulo_Cliente.Opciones.cn;
 import Ventanas.Modulo_Cliente.Registrar;
-import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
+
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;

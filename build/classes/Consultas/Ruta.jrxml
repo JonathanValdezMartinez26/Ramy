@@ -34,7 +34,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT ID_Ruta, ID_Cliente, Nombre_Cliente, Origen, Destino, GROUP_CONCAT(DISTINCT SPACE(2), Nombre_Transporte,'  ') as Nombre_Transporte
+		<![CDATA[SELECT ID_Ruta, ID_Cliente, Nombre_Cliente, Origen, Destino, GROUP_CONCAT(DISTINCT SPACE(2), '  ') as Nombre_Transporte
 FROM rutav  where ID_Cliente = $P{ID_Cliente}
 GROUP BY ID_Municipio_Destino, ID_Municipio_Origen, ID_Cliente
 ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
@@ -70,15 +70,6 @@ ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Origen}]]></textFieldExpression>
 				</textField>
-				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="307" y="33" width="235" height="17" forecolor="#000000" backcolor="#FFD966" uuid="665c2e7b-014d-4733-a7d8-c781728da05a">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Calibri" size="11"/>
-					</textElement>
-					<text><![CDATA[TRANSPORTES]]></text>
-				</staticText>
 				<staticText>
 					<reportElement positionType="Float" mode="Opaque" x="11" y="33" width="296" height="17" backcolor="#E6E8E9" uuid="a52f557c-4077-4377-81a4-d1ff79da4eec"/>
 					<textElement textAlignment="Center">
@@ -231,15 +222,6 @@ ORDER BY GROUP_CONCAT(DISTINCT ORIGEN) ASC]]>
 					<font fontName="Calibri" size="12" isItalic="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Destino}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table_CH" x="307" y="0" width="234" height="26" backcolor="#FFFFFF" uuid="0eda7d9f-8df7-4a43-a7f9-adcee1cba780">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="990a9aee-c704-408a-8fc0-8690f4895a66"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Calibri" size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Nombre_Transporte}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

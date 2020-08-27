@@ -31,9 +31,7 @@ import Clases.localidades;
 import Clases.municipios;
 import Ventanas.CotizacionReporte.ConfigCotizacion;
 import Ventanas.CotizacionReporte.ConfigCotizacionRenta;
-import Ventanas.Modulo_Cotizaciones.AgregarCotizaciones;
-import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.IDCotizacion;
-import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones.tabla1;
+
 import static Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones.Opciones.cn;
 import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;

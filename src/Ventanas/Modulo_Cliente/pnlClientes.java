@@ -7,7 +7,7 @@ import Ventanas.CotizacionReporte.ConfigCotizacionclienteayuda;
 import static Ventanas.Modulo_Cliente.Registrar.B;
 import static Ventanas.Modulo_Cliente.Registrar.C;
 import static Ventanas.Modulo_Cliente.Registrar.PanelDesliza;
-import static Ventanas.Modulo_Servicios.pnlServicio.tabla;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Point;
@@ -33,10 +33,10 @@ public class pnlClientes extends javax.swing.JPanel {
     public pnlClientes() {
         initComponents();
         Opciones.listar("");
-        tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
-        this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
-        this.tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tabla1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.tabla1.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        this.tabla1.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        this.tabla1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
@@ -46,16 +46,16 @@ public class pnlClientes extends javax.swing.JPanel {
     }
     public void Modificar() {
 
-        int Fila = tabla.getSelectedRow();
+        int Fila = tabla1.getSelectedRow();
         int Filita = 1; 
   
         if (Fila >= 0) {
 
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            String localidad = (tabla.getValueAt(Fila, 5).toString());
-            String municipio = (tabla.getValueAt(Fila, 4).toString());
-            String estado = (tabla.getValueAt(Fila, 3).toString());
-            String atencion = (tabla.getValueAt(Fila, 2).toString());
+            int ID = Integer.parseInt(tabla1.getValueAt(Fila, 0).toString());
+            String localidad = (tabla1.getValueAt(Fila, 5).toString());
+            String municipio = (tabla1.getValueAt(Fila, 4).toString());
+            String estado = (tabla1.getValueAt(Fila, 3).toString());
+            String atencion = (tabla1.getValueAt(Fila, 2).toString());
             
             ModificarCliente MP = new ModificarCliente(null, true);
             MP.CargarDatos(ID,atencion, localidad, municipio, estado);
@@ -73,12 +73,12 @@ public class pnlClientes extends javax.swing.JPanel {
     ///////////////////
     public void Origenes()
     {    
-        int Fila = tabla.getSelectedRow();
+        int Fila = tabla1.getSelectedRow();
       
             if(Fila >= 0)
         {
             int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            ID = Integer.parseInt(tabla1.getValueAt(Fila, 0).toString());
             Registrar a = new  Registrar(null, true);
 //          a.PanelDesliza.setPanelSlider(2, B, RSPanelsSlider.DIRECT.RIGHT);
             a.ID_C.setText(""+ID);
@@ -98,12 +98,12 @@ public class pnlClientes extends javax.swing.JPanel {
     ////////////////////
     public void Destinos()
     {    
-        int Fila = tabla.getSelectedRow();
+        int Fila = tabla1.getSelectedRow();
       
             if(Fila >= 0)
         {
             int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            ID = Integer.parseInt(tabla1.getValueAt(Fila, 0).toString());
             Registrar a = new  Registrar(null, true);
             a.PanelDesliza.setPanelSlider(2, B, RSPanelsSlider.DIRECT.RIGHT);
             a.ID_C.setText(""+ID);
@@ -124,12 +124,12 @@ public class pnlClientes extends javax.swing.JPanel {
     ////////////////////
     public void Rutas()
     {    
-        int Fila = tabla.getSelectedRow();
+        int Fila = tabla1.getSelectedRow();
       
             if(Fila >= 0)
         {
             int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            ID = Integer.parseInt(tabla1.getValueAt(Fila, 0).toString());
             Registrar a = new  Registrar(null, true);
             a.PanelDesliza.setPanelSlider(2, C, RSPanelsSlider.DIRECT.RIGHT);
             a.ID_C.setText(""+ID);
@@ -153,7 +153,7 @@ public class pnlClientes extends javax.swing.JPanel {
 
         pnlPrincipal = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
+        tabla1 = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -189,7 +189,7 @@ public class pnlClientes extends javax.swing.JPanel {
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -212,29 +212,26 @@ public class pnlClientes extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tabla.getTableHeader().setReorderingAllowed(false);
-        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla1.getTableHeader().setReorderingAllowed(false);
+        tabla1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaMouseClicked(evt);
+                tabla1MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabla);
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(1).setResizable(false);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(190);
-            tabla.getColumnModel().getColumn(2).setResizable(false);
-            tabla.getColumnModel().getColumn(2).setPreferredWidth(154);
-            tabla.getColumnModel().getColumn(3).setResizable(false);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(4).setResizable(false);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(5).setResizable(false);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(150);
-            tabla.getColumnModel().getColumn(6).setResizable(false);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(150);
+        jScrollPane1.setViewportView(tabla1);
+        if (tabla1.getColumnModel().getColumnCount() > 0) {
+            tabla1.getColumnModel().getColumn(1).setResizable(false);
+            tabla1.getColumnModel().getColumn(1).setPreferredWidth(190);
+            tabla1.getColumnModel().getColumn(2).setResizable(false);
+            tabla1.getColumnModel().getColumn(2).setPreferredWidth(154);
+            tabla1.getColumnModel().getColumn(3).setResizable(false);
+            tabla1.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tabla1.getColumnModel().getColumn(4).setResizable(false);
+            tabla1.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tabla1.getColumnModel().getColumn(5).setResizable(false);
+            tabla1.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tabla1.getColumnModel().getColumn(6).setResizable(false);
+            tabla1.getColumnModel().getColumn(6).setPreferredWidth(150);
         }
 
         jPanel12.setBackground(new java.awt.Color(225, 225, 225));
@@ -461,17 +458,17 @@ public class pnlClientes extends javax.swing.JPanel {
         add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 652));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+    private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
         JTable table =(JTable) evt.getSource();
         Point point = evt.getPoint();
         int row = table.rowAtPoint(point);
         if (evt.getClickCount() == 2)
         {
-            String a = tabla.getValueAt(tabla.getSelectedRow() , 0).toString();
+            String a = tabla1.getValueAt(tabla1.getSelectedRow() , 0).toString();
             int id = Integer.parseInt(a);
-            String nombre = tabla.getValueAt(tabla.getSelectedRow() , 1).toString();
-            String atencion = tabla.getValueAt(tabla.getSelectedRow() , 2).toString();
-            String direccion = tabla.getValueAt(tabla.getSelectedRow() , 6).toString();
+            String nombre = tabla1.getValueAt(tabla1.getSelectedRow() , 1).toString();
+            String atencion = tabla1.getValueAt(tabla1.getSelectedRow() , 2).toString();
+            String direccion = tabla1.getValueAt(tabla1.getSelectedRow() , 6).toString();
             
             pnlPacientePersonalizado poper = new pnlPacientePersonalizado();
               
@@ -482,7 +479,7 @@ public class pnlClientes extends javax.swing.JPanel {
             pnlPrincipal.revalidate();
             pnlPrincipal.repaint();
         }
-    }//GEN-LAST:event_tablaMouseClicked
+    }//GEN-LAST:event_tabla1MouseClicked
 
     private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
         AgregarCliente poper = new AgregarCliente(null, true);
@@ -512,12 +509,12 @@ public class pnlClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_buscarKeyTyped
 
     private void pnldestinosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnldestinosMouseClicked
-        int Fila = tabla.getSelectedRow();
+        int Fila = tabla1.getSelectedRow();
       
         if(Fila >= 0)
         {
             int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            ID = Integer.parseInt(tabla1.getValueAt(Fila, 0).toString());
             Registrar a = new  Registrar(null, true);
             a.PanelDesliza.setPanelSlider(2, B, RSPanelsSlider.DIRECT.RIGHT);
             a.ID_C.setText(""+ID);
@@ -559,12 +556,12 @@ public class pnlClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_pnleditarMouseExited
 
     private void pnlorigenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseClicked
-        int Fila = tabla.getSelectedRow();
+        int Fila = tabla1.getSelectedRow();
       
             if(Fila >= 0)
         {
             int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            ID = Integer.parseInt(tabla1.getValueAt(Fila, 0).toString());
             Registrar a = new  Registrar(null, true);
             a.ID_C.setText(""+ID);
             a.listar(ID);
@@ -591,12 +588,12 @@ public class pnlClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_pnlorigenesMouseExited
 
     private void pnlviajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlviajesMouseClicked
-    int Fila = tabla.getSelectedRow();
+    int Fila = tabla1.getSelectedRow();
       
             if(Fila >= 0)
         {
             int ID = 0;
-            ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
+            ID = Integer.parseInt(tabla1.getValueAt(Fila, 0).toString());
             Registrar a = new  Registrar(null, true);
             a.PanelDesliza.setPanelSlider(2, C, RSPanelsSlider.DIRECT.RIGHT);
             a.ID_C.setText(""+ID);
@@ -703,34 +700,69 @@ public class pnlClientes extends javax.swing.JPanel {
     private javax.swing.JPanel pnlorigenes;
     private javax.swing.JPanel pnlpdf;
     private javax.swing.JPanel pnlviajes;
-    public static javax.swing.JTable tabla;
+    public static javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
      
      
    
   
     
+//    public void ver() {
+//        Clases.Conexion cc = new Clases.Conexion();
+//        
+//       int Fila = pnlClientes.tabla1.getSelectedRow();
+//        int Filita = 1; 
+//  
+//        if (Fila >= 0) {
+//
+//      int ID = Integer.parseInt(pnlClientes.tabla1.getValueAt(Fila, 0).toString());
+//            
+//    
+//       try {
+//            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
+//            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Ruta.jasper";
+//            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+//            Map parametro = new HashMap();
+//            parametro.put("ID_Cliente", ID);
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+//
+//            JRViewer jrv = new JRViewer(jasperPrint);
+//            jrv.setZoomRatio((float) 0.75);
+//            r.contenedor.removeAll();
+//
+//            r.contenedor.setLayout(new BorderLayout());
+//            r.contenedor.add(jrv, BorderLayout.CENTER);
+//
+//            r.contenedor.repaint();
+//            r.contenedor.revalidate();
+//            jrv.setVisible(true);
+//            r.setVisible(true);
+//        } catch (JRException ex) {
+//            System.err.println("Error iReport: " + ex.getMessage());
+//        }
+//    }
+//        else
+//        {
+//            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+//            AC.msj1.setText("¡Seleccione el registro!");
+//            AC.msj2.setText("a visualizar");
+//            AC.setVisible(true);
+//        }
+//}
+    
     public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
-        
-        int Fila = tabla.getSelectedRow();
-        int Filita = 1; 
-  
-        if (Fila >= 0) {
 
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            
-    
-       try {
-            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Ruta.jasper";
+        try {
+            Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
+//            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Clientes.jasper";
+            String archivo = "Reportes/Clientes.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
-            parametro.put("ID_Cliente", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
             JRViewer jrv = new JRViewer(jasperPrint);
-            jrv.setZoomRatio((float) 0.75);
+            jrv.setZoomRatio((float) 0.95);
             r.contenedor.removeAll();
 
             r.contenedor.setLayout(new BorderLayout());
@@ -744,12 +776,5 @@ public class pnlClientes extends javax.swing.JPanel {
             System.err.println("Error iReport: " + ex.getMessage());
         }
     }
-        else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("a visualizar");
-            AC.setVisible(true);
-        }
-}
+     
     }
