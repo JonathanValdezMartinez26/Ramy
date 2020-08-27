@@ -23,6 +23,7 @@ import MyTableCellEditor.EditarClienteTrailer;
 import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.pnlClientes.tabla;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.IDCotizacion;
+import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
 import static configInicio.Configuracion.txtEmail;
@@ -83,7 +84,7 @@ public class Registrar extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         FadeEffect.fadeIn(this, 1, 0.1f);
         ocultarAciertos();
-        
+        lblIDOrigen.setVisible(false);
         ID_C.setVisible(false);
         
         ///////////////////////////
@@ -104,37 +105,12 @@ public class Registrar extends javax.swing.JDialog {
         tabla2.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
         tabla2.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
 //        
-//        tabla3.getColumnModel().getColumn(0).setMaxWidth(0);
-//        tabla3.getColumnModel().getColumn(0).setMinWidth(0);
-//        tabla3.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
-//        tabla3.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
-//        
-//        tabla3.getColumnModel().getColumn(1).setMaxWidth(240);
-//        tabla3.getColumnModel().getColumn(1).setMinWidth(240);
-//        tabla3.getTableHeader().getColumnModel().getColumn(1).setMaxWidth(240);
-//        tabla3.getTableHeader().getColumnModel().getColumn(1).setMinWidth(240);
-//        
-//        tabla3.getColumnModel().getColumn(2).setMaxWidth(240);
-//        tabla3.getColumnModel().getColumn(2).setMinWidth(240);
-//        tabla3.getTableHeader().getColumnModel().getColumn(2).setMaxWidth(240);
-//        tabla3.getTableHeader().getColumnModel().getColumn(2).setMinWidth(240);
-//        
-//        tabla3.getColumnModel().getColumn(3).setMaxWidth(150);
-//        tabla3.getColumnModel().getColumn(3).setMinWidth(150);
-//        tabla3.getTableHeader().getColumnModel().getColumn(3).setMaxWidth(150);
-//        tabla3.getTableHeader().getColumnModel().getColumn(3).setMinWidth(150);
-//        
-//        tabla3.getColumnModel().getColumn(4).setMaxWidth(100);
-//        tabla3.getColumnModel().getColumn(4).setMinWidth(100);
-//        tabla3.getTableHeader().getColumnModel().getColumn(4).setMaxWidth(100);
-//        tabla3.getTableHeader().getColumnModel().getColumn(4).setMinWidth(100);
-        
-        tabla3.getColumnModel().getColumn( 3 ).setCellEditor(new EditarClienteCamioneta15(db,"CAMIONETA 1.5 TON"));
-        tabla3.getColumnModel().getColumn( 4 ).setCellEditor(new EditarClienteCamioneta35(db,"CAMIONETA 3.5 TON"));
-        tabla3.getColumnModel().getColumn( 5 ).setCellEditor(new EditarClienteRabon(db,"RABÓN"));
-        tabla3.getColumnModel().getColumn( 6 ).setCellEditor(new EditarClienteTorthon(db,"TORTHON"));
-        tabla3.getColumnModel().getColumn( 7 ).setCellEditor(new EditarClienteTrailer(db,"TRÁILER"));
-        tabla3.getColumnModel().getColumn( 8 ).setCellEditor(new EditarClienteFull(db,"FULL"));
+        tabla3.getColumnModel().getColumn( 5 ).setCellEditor(new EditarClienteCamioneta15(db,"CAMIONETA 1.5 TON"));
+        tabla3.getColumnModel().getColumn( 6 ).setCellEditor(new EditarClienteCamioneta35(db,"CAMIONETA 3.5 TON"));
+        tabla3.getColumnModel().getColumn( 7 ).setCellEditor(new EditarClienteRabon(db,"RABÓN"));
+        tabla3.getColumnModel().getColumn( 8 ).setCellEditor(new EditarClienteTorthon(db,"TORTHON"));
+        tabla3.getColumnModel().getColumn( 9 ).setCellEditor(new EditarClienteTrailer(db,"TRÁILER"));
+        tabla3.getColumnModel().getColumn( 10 ).setCellEditor(new EditarClienteFull(db,"FULL"));
         
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader1());
@@ -568,6 +544,12 @@ public class Registrar extends javax.swing.JDialog {
 
 //        focusNivel1();
     }
+     public void confirmarEliminar(String IDRuta,String IDCliente){
+         Alerts.AlertBasic.WarningEliminarViaje AC = new Alerts.AlertBasic.WarningEliminarViaje(null, true);
+         AC.ID.setText(IDRuta);
+         AC.IDC.setText(IDCliente);
+         AC.setVisible(true);    
+     }
  
 //    private void focusNivel1()
 //    {
@@ -591,6 +573,7 @@ public class Registrar extends javax.swing.JDialog {
 //     super.setSelectedIndex(index); 
 //    } 
 //} 
+    
  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -971,7 +954,7 @@ public class Registrar extends javax.swing.JDialog {
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 900, 10));
 
         lblIDOrigen.setText("0");
-        jPanel3.add(lblIDOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 20, -1));
+        jPanel3.add(lblIDOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 10, 20));
 
         buscarViaje.setBorder(null);
         buscarViaje.setForeground(new java.awt.Color(0, 144, 183));
@@ -1018,11 +1001,11 @@ public class Registrar extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_Ruta", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Rabon", "Torthon", "Trailer", "Full"
+                "ID_Ruta", "ID_Origen", "Origen", "ID_Destino", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Rabon", "Torthon", "Trailer", "Full"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true, true, true, true, true
+                false, false, false, false, false, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1040,24 +1023,24 @@ public class Registrar extends javax.swing.JDialog {
             tabla3.getColumnModel().getColumn(0).setMinWidth(0);
             tabla3.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla3.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla3.getColumnModel().getColumn(3).setMinWidth(120);
-            tabla3.getColumnModel().getColumn(3).setPreferredWidth(120);
-            tabla3.getColumnModel().getColumn(3).setMaxWidth(120);
-            tabla3.getColumnModel().getColumn(4).setMinWidth(120);
-            tabla3.getColumnModel().getColumn(4).setPreferredWidth(120);
-            tabla3.getColumnModel().getColumn(4).setMaxWidth(120);
-            tabla3.getColumnModel().getColumn(5).setMinWidth(70);
-            tabla3.getColumnModel().getColumn(5).setPreferredWidth(70);
-            tabla3.getColumnModel().getColumn(5).setMaxWidth(70);
-            tabla3.getColumnModel().getColumn(6).setMinWidth(90);
-            tabla3.getColumnModel().getColumn(6).setPreferredWidth(90);
-            tabla3.getColumnModel().getColumn(6).setMaxWidth(90);
+            tabla3.getColumnModel().getColumn(5).setMinWidth(120);
+            tabla3.getColumnModel().getColumn(5).setPreferredWidth(120);
+            tabla3.getColumnModel().getColumn(5).setMaxWidth(120);
+            tabla3.getColumnModel().getColumn(6).setMinWidth(120);
+            tabla3.getColumnModel().getColumn(6).setPreferredWidth(120);
+            tabla3.getColumnModel().getColumn(6).setMaxWidth(120);
             tabla3.getColumnModel().getColumn(7).setMinWidth(70);
             tabla3.getColumnModel().getColumn(7).setPreferredWidth(70);
             tabla3.getColumnModel().getColumn(7).setMaxWidth(70);
-            tabla3.getColumnModel().getColumn(8).setMinWidth(70);
-            tabla3.getColumnModel().getColumn(8).setPreferredWidth(70);
-            tabla3.getColumnModel().getColumn(8).setMaxWidth(70);
+            tabla3.getColumnModel().getColumn(8).setMinWidth(90);
+            tabla3.getColumnModel().getColumn(8).setPreferredWidth(90);
+            tabla3.getColumnModel().getColumn(8).setMaxWidth(90);
+            tabla3.getColumnModel().getColumn(9).setMinWidth(70);
+            tabla3.getColumnModel().getColumn(9).setPreferredWidth(70);
+            tabla3.getColumnModel().getColumn(9).setMaxWidth(70);
+            tabla3.getColumnModel().getColumn(10).setMinWidth(70);
+            tabla3.getColumnModel().getColumn(10).setPreferredWidth(70);
+            tabla3.getColumnModel().getColumn(10).setMaxWidth(70);
         }
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1343,44 +1326,25 @@ public class Registrar extends javax.swing.JDialog {
 
         int press=evt.getKeyCode();        
         if(this.tabla3.getSelectedRow()!=-1 && press==127 ){
-            int ID_Cliente;
-            ID_Cliente = Integer.parseInt(ID_C.getText());
-            int a1 = Integer.parseInt(tabla3.getValueAt(tabla3.getSelectedRow(), 0).toString());
-            
-            Ventanas.Modulo_Cliente.Opciones.eliminarViaje(a1);
-            Opciones.listarViaje("",ID_Cliente);
-            //this.tabla3.getSelectionModel().setSelectionInterval(0, 0);
-
+            String IDRuta =tabla3.getValueAt(tabla3.getSelectedRow(), 0).toString();            
+            String IDCliente=ID_C.getText();           
+            confirmarEliminar(IDRuta,IDCliente);
         }
-//        else{
-//            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-//                                AC.msj1.setText("¡Porfavor Seleccione!");
-//                                AC.msj2.setText("Un Servicio");
-//                                AC.msj3.setText("Para Eliminarlo");
-//                                AC.setVisible(true);
-//        }
-        // TODO add your handling code here:
     }//GEN-LAST:event_tabla3KeyPressed
 
     private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
-    
-        
-
         String Destinos = (String) cmbDestinos.getSelectedItem();        
         String Origenes = (String) cmbOrigenes.getSelectedItem();
         int indexOrigen=cmbOrigenes.getSelectedIndex();
         int indexDestino=cmbDestinos.getSelectedIndex();
         int existe=0;
         int existeOrigen=0;
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cliente.Registrar.tabla3.getModel();
+        int Filas1 = modelo.getRowCount();
+        
         if(Destinos.equals("Todos los Destinos"))
         {       
             if(indexOrigen!=0){
-//            for (int i = 0; i < tabla3.getRowCount(); i++) {
-//                 if(tabla3.getValueAt(i, 1).toString().equals(Origenes)){
-//                     existeOrigen++;
-//                 }                                                  
-//        }
-            //if (existeOrigen == 0) {
                 try {
                     int IDOrigen = Integer.parseInt(lblIDOrigen.getText());
                     int IDCliente = Integer.parseInt(ID_C.getText());
@@ -1388,9 +1352,10 @@ public class Registrar extends javax.swing.JDialog {
                     int ID = 0;
                     while (resultado.next()) {
                         ID = resultado.getInt(1);
+                        
                         if (Ventanas.Modulo_Cliente.Opciones.verificaRutaCotizacion(IDCliente, IDOrigen, ID) == 0) {
-                            String q = " INSERT INTO ruta (ID_Ruta,ID_Cliente,ID_Origen,ID_Destino,PCamioneta_1_5,PCamioneta_3_5,Rabon,Torthon,Trailer,Full)"
-                                    + "VALUES (NULL,'" + IDCliente + "','" + IDOrigen + "','" + ID + "',0,0,0,0,0,0)";
+                        String q = " INSERT INTO ruta (ID_Ruta,ID_Cliente,ID_Origen,ID_Destino,PCamioneta_1_5,PCamioneta_3_5,Rabon,Torthon,Trailer,Full)"
+                                     + "VALUES (NULL,'" + IDCliente + "','" + IDOrigen + "','" + ID + "',0,0,0,0,0,0)";
                             try {
                                 PreparedStatement pstm = cn.prepareStatement(q);
                                 pstm.execute();
@@ -1399,18 +1364,23 @@ public class Registrar extends javax.swing.JDialog {
                             } catch (SQLException e) {
                                 System.out.println(e);
                             }
-
                         } else {
                             existe++;
                         }
                     }
                     if (existe == 0) {
                         Opciones.listarViaje("", IDCliente);
-                    } else {
+                        Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                        AC.msj1.setText("¡Origen y Destinos!");
+                        AC.msj2.setText("Han sido registrados");
+                        AC.setVisible(true);
                         
-                        Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-                        AC.msj1.setText("¡Este Origen y Destinos!");
-                        AC.msj2.setText("Ya estan registrados");
+                    } else {
+                        Opciones.listarViaje("", IDCliente);
+                        
+                        Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                        AC.msj1.setText("¡Origen y Destinos!");
+                        AC.msj2.setText("Han sido registrados");
                         AC.setVisible(true);
                     }
                 } catch (SQLException ex) {
@@ -1568,5 +1538,7 @@ public class Registrar extends javax.swing.JDialog {
     public static javax.swing.JTable tabla2;
     public static javax.swing.JTable tabla3;
     // End of variables declaration//GEN-END:variables
+
+    
 
 }

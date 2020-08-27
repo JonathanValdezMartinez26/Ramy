@@ -359,7 +359,6 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         pnleditar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         pnlAyuda = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -438,7 +437,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tabla.setRowHeight(20);
+        tabla.setRowHeight(25);
         tabla.getTableHeader().setReorderingAllowed(false);
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -658,14 +657,6 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
 
         jPanel1.add(pnleditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 69));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, -1));
-
         pnlAyuda.setBackground(new java.awt.Color(225, 225, 225));
         pnlAyuda.setToolTipText("Ayuda");
         pnlAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -820,7 +811,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             
             lblNombre.setText(Cotizaciones.ObtenerNombre(ID_Cliente));
             IDCotizacion.setText(""+ObtenID());
-            IDCotizacion.setVisible(true);
+            //IDCotizacion.setVisible(true);
             Opciones.listarCotizaciones("");
             
             
@@ -1047,7 +1038,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     }
                     if (existenombre == 0 && existeprecio == 0) {//////////verifica si la Adicionales no tiene campos vacios, registra datos y finaliza cotizxacion
 
-                        int Filas1 = modelo.getRowCount();
+                            int Filas1 = modelo.getRowCount();
                         for (int i = 0; i < Filas1; i++) {
                             
                             String IDCot = tabla.getValueAt(i, 0).toString();
@@ -1095,7 +1086,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
                     ver(); 
                     this.dispose();
-                    Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados
+                    Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados en la bd
                     }                  
                     else {
                         Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
@@ -1248,11 +1239,6 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTable1KeyPressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        finalizar();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void pnlAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseClicked
 
         ConfigCotizacionD poper =new Ventanas.CotizacionReporte.ConfigCotizacionD(null, true);
@@ -1289,7 +1275,6 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
     private ComboBox.SComboBox cmbOrigenes;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
