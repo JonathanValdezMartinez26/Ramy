@@ -67,14 +67,13 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 import Ventanas.Modulo_Cotizaciones_Consolidado.Opciones;
-import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
-import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.IDCotizacion;
-import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.cargarServicio;
-import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.finalizar;
-import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
-import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tablaR;
-import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.txtTipo_Concepto;
-import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.ver;
+
+
+import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.finalizar;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.tabla1;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.tablaR;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.txtTipo_Concepto;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.ver;
 
 public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
@@ -1006,6 +1005,7 @@ public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                      existeprecio++;
                  }                                 
         }
+            
         if (existenombre == 0 && existeprecio == 0) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
              String ID_Cotizacion = IDCotizacion.getText();
              Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.finalizarCotizacion(ID_Cotizacion);
@@ -1320,14 +1320,14 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
     public static javax.swing.JTable tablaR;
     public static app.bolivia.swing.JCTextField txtTipo_Concepto;
     // End of variables declaration//GEN-END:variables
-public void ver() {
+public static void ver() {
         Clases.Conexion cc = new Clases.Conexion();
         int ID = Integer.parseInt(IDCotizacion.getText());
         if (ID >= 0) {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\RVC.RVC-PC\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Consolidacion.jasper";
+            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Consolidacion.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);

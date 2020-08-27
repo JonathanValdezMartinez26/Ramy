@@ -158,7 +158,8 @@ public class WarningFinalizarConsolidado extends javax.swing.JDialog {
   String ID_Cotizacion=ID.getText();
 //     
     Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.finalizarCotizacion(ID_Cotizacion);
-    Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.listarCotizaciones("");  
+    Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.listarCotizaciones(""); 
+    AgregarCotizaciones_Consolidado.ver();
 //        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.jButton3.setEnabled(false);
 //        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.pnlFinalizar.setEnabled(false);
 //        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.txtTipo_Concepto.setEnabled(false);
