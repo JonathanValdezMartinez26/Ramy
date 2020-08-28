@@ -161,7 +161,7 @@ public class ConfigCotizacionViaje extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(130, 130, 130)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(590, Short.MAX_VALUE)))
+                    .addContainerGap(647, Short.MAX_VALUE)))
         );
 
         jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 450, 450));
