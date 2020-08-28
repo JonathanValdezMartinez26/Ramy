@@ -39,8 +39,8 @@ public class EditarClienteRabon extends AbstractCellEditor implements TableCellE
         {
             OldValue = value.toString();//Toma valor de celda antes de cualquier modificación
             ID = table.getValueAt(row,0).toString();//obtiene el ID unico del registro
-            origen = table.getValueAt(row,1).toString();//obtiene el ID unico del registro
-            destino = table.getValueAt(row,2).toString();//obtiene el ID unico del registro            
+            origen = table.getValueAt(row,2).toString();//obtiene el ID unico del registro
+            destino = table.getValueAt(row,4).toString();//obtiene el ID unico del registro            
             ((JTextField)component).setText(value.toString());//coloca valor de la celda al JTextField
         }
         catch(Exception ex)

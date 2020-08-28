@@ -160,8 +160,7 @@ public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
 
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
     
-        String ID_Cotizacion = ID.getText();
-        JOptionPane.showMessageDialog(null, "ID_Cotizacion= "+ID_Cotizacion );
+        String ID_Cotizacion = ID.getText();        
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
         final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
         Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.setRowSorter(sorter);
