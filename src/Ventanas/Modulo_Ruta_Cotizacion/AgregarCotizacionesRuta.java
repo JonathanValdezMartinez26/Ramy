@@ -599,11 +599,16 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tabla.getColumnModel().getColumn(1).setMinWidth(190);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(190);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(190);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(240);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(15);
-            tabla.getColumnModel().getColumn(4).setResizable(false);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(2);
+            tabla.getColumnModel().getColumn(3).setMinWidth(125);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(125);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(125);
+            tabla.getColumnModel().getColumn(4).setMinWidth(90);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(90);
+            tabla.getColumnModel().getColumn(4).setMaxWidth(90);
         }
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(

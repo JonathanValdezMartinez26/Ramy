@@ -136,15 +136,10 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         jScrollPane2.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane2.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         jTable1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor3(db,"Nombre del Servicio"));//Columna Precio
-        jTable1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor4(db,"Precio"));//Columna Precio
-        
+        jTable1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor4(db,"Precio"));//Columna Precio        
         //jTable1.setDefaultRenderer(Object.class, new Render());
 //                                               
-
-
-
-        
-        
+    
     }
     public void AgregarCotizaciones11(){
         boolean t=false;
