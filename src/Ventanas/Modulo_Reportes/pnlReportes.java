@@ -382,7 +382,8 @@ public class pnlReportes extends javax.swing.JPanel {
 
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Usuarios .jasper";
+            String archivo = "Reportes/Usuarios .jasper";
+            //String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Usuarios .jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
@@ -408,8 +409,8 @@ public class pnlReportes extends javax.swing.JPanel {
 
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
-            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Servicios.jasper";
-//            String archivo = "Reportes/Servicios.jasper";
+//            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Servicios.jasper";
+            String archivo = "src/Reportes/Servicios.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
@@ -436,7 +437,7 @@ public class pnlReportes extends javax.swing.JPanel {
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
 //            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Clientes.jasper";
-            String archivo = "Reportes/Clientes.jasper";
+            String archivo = "src/Reportes/Clientes.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
@@ -463,7 +464,7 @@ public class pnlReportes extends javax.swing.JPanel {
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
 //            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Transportes.jasper";
-            String archivo = "Reportes/Transportes.jasper";
+            String archivo = "src/Reportes/Transportes.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
@@ -489,7 +490,7 @@ public class pnlReportes extends javax.swing.JPanel {
 
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
-            String archivo = "Reportes/Pacientes.jasper";
+            String archivo = "src/Reportes/Pacientes.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
@@ -516,7 +517,7 @@ public class pnlReportes extends javax.swing.JPanel {
 
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
-            String archivo = "Reportes/Consultas.jasper";
+            String archivo = "src/Reportes/Consultas.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());

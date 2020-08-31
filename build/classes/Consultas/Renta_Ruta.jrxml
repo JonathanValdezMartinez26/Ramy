@@ -34,7 +34,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["src\\Consultas\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[Select * from Reporte_ruta where ID_Cotizacion=$P{ID_Cotizacion}]]>

@@ -213,7 +213,8 @@ public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
         this.dispose();
         Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
         Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");        
-        Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.ver(ID_Cotizacion);
+        //Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.ver(ID_Cotizacion);
+        Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.ver();
         Ventanas.Modulo_Cotizaciones.Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados        
     }//GEN-LAST:event_log2ActionPerformed
 

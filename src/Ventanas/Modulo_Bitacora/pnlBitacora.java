@@ -459,9 +459,10 @@ public void ver() {
     
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "Consultas/Bitacora.jasper";
+            String archivo = "src/Consultas/Bitacora.jasper";
 //            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Bitacora.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            //JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource("/Consultas/Bitacora.jasper"));
             Map parametro = new HashMap();
             parametro.put("ID_Cliente", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());

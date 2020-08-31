@@ -692,7 +692,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "Consultas/Bitacora_1.jasper";
+            String archivo = "src/Consultas/Bitacora_1.jasper";
 //            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Bitacora_1.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             Map parametro = new HashMap();

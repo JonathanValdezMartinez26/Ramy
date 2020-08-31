@@ -1327,8 +1327,8 @@ public static void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "Consultas/Renta_Consolidacion.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            String archivo = "src/Consultas/Renta_Consolidacion.jasper";            
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));            
             Map parametro = new HashMap();
             parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
