@@ -436,17 +436,12 @@
 	<summary>
 		<band height="179">
 			<subreport>
-				<reportElement x="5" y="92" width="496" height="87" uuid="5c3f5c41-27d2-4c52-8cc3-745eda2a6b75"/>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PIE_1.jasper"]]></subreportExpression>
-			</subreport>
-			<subreport>
 				<reportElement x="5" y="18" width="535" height="55" uuid="daa4eccf-172e-4b3a-8a37-c193db86d6da"/>
 				<subreportParameter name="ID_Cotizacion">
 					<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} +"\\Ruta_1_1.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
 				<reportElement style="Column header" x="111" y="73" width="206" height="19" forecolor="#000000" uuid="807408f5-7caf-4396-915f-3c162cfb878f"/>

@@ -1327,9 +1327,12 @@ public void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "src/Consultas/Renta_Consolidacion.jasper";            
+             String archivo = "src/Consultas/CotizacionDG.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));            
+            //JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));
             Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 

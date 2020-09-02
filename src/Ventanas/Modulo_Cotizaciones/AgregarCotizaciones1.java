@@ -69,7 +69,6 @@ import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.IDC
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.finalizar;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tablaR;
-import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.ver;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
 import java.sql.PreparedStatement;
 import java.util.logging.Level;

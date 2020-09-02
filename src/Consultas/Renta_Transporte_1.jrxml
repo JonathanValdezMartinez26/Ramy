@@ -36,6 +36,7 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["src\\Consultas\\"]]></defaultValueExpression>
 	</parameter>
+	<parameter name="logo" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[SELECT * FROM `Reporte_Renta` WHERE ID_Cotizacion=$P{ID_Cotizacion}]]>
 	</queryString>
@@ -209,7 +210,7 @@
 			</textField>
 			<image>
 				<reportElement x="14" y="15" width="104" height="45" uuid="95cac173-e7a0-4bd8-9af7-51d4ebb3b1f6"/>
-				<imageExpression><![CDATA["Consultas\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="11" y="77" width="331" height="20" uuid="e7018660-5bcb-4ffb-a5fc-f079f6855514"/>

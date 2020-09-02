@@ -80,7 +80,7 @@ import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.IDC
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.finalizar;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tablaR;
-import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.ver;
+
 import static Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.cmbCliente;
 import static Ventanas.Modulo_Cotizaciones_Mensual.ModificarCotizaciones_Renta.lblNombre;
@@ -1363,7 +1363,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
-public static void ver() {
+public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
         int ID = Integer.parseInt(IDCotizacion.getText());
         if (ID >= 0) {

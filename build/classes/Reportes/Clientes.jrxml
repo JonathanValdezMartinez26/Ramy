@@ -147,7 +147,7 @@
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<image>
-				<reportElement x="14" y="22" width="104" height="45" uuid="60b27a88-a902-433f-8716-5b073e2a99d2"/>
+				<reportElement x="14" y="24" width="104" height="45" uuid="60b27a88-a902-433f-8716-5b073e2a99d2"/>
 				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 			</image>
 		</band>

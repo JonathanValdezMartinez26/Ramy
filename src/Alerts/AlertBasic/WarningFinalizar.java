@@ -294,6 +294,8 @@ public void ver(String ID) {
             //JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));
             Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             parametro.put("ID_Cotizacion", ID1);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
             JRViewer jrv = new JRViewer(jasperPrint);
