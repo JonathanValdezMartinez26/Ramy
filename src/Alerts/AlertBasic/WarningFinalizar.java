@@ -210,7 +210,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
                     PreparedStatement pstm = cn.prepareStatement(sql);
                     pstm.execute();
                     pstm.close();
-                                   
+                    
 
                 } catch (SQLException e) {
                     System.out.println(e);

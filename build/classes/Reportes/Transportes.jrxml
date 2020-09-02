@@ -37,7 +37,7 @@
        E.Nombre_Transporte,
        U.Tipo_Transporte
    from
-       Transportes E
+       Transportesv E
    Inner Join Tipo_Transporte U
    On E.ID_Tipo_Transporte = E.ID_Tipo_Transporte]]>
 	</queryString>

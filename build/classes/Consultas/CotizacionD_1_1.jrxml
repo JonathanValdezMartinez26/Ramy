@@ -441,7 +441,7 @@
 					<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} +"\\Ruta_1_1.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} +"Ruta_1_1.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
 				<reportElement style="Column header" x="111" y="73" width="206" height="19" forecolor="#000000" uuid="807408f5-7caf-4396-915f-3c162cfb878f"/>
