@@ -332,10 +332,12 @@ public class pnlPacientePersonalizado extends javax.swing.JPanel {
                       int ID = Integer.parseInt(pnlClientes.tabla1.getValueAt(Fila, 0).toString());
                     try {
                         Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-                        String archivo = "src/Consultas/CotizacionCliente.jasper";
+                        String archivo = "/Consultas/CotizacionCliente.jasper";
 //                        String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionCliente.jasper";
-                        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+                        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));
                         Map parametro = new HashMap();
+                        parametro.clear();
+                        parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
                         parametro.put("ID_Cotizacion", ID);
                         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 

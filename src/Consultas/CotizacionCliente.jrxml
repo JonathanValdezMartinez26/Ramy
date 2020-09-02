@@ -36,6 +36,7 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\"]]></defaultValueExpression>
 	</parameter>
+	<parameter name="logo" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[SELECT * FROM `Clientep` WHERE ID_Cliente=$P{ID_Cotizacion}]]>
 	</queryString>
@@ -140,7 +141,7 @@
 			</textField>
 			<image>
 				<reportElement x="14" y="15" width="104" height="45" uuid="11eebc9e-cc0f-400c-93c9-55c924764bbc"/>
-				<imageExpression><![CDATA["Consultas\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="11" y="77" width="331" height="20" uuid="dd219bcc-50a2-4f07-a513-d50942fef260"/>

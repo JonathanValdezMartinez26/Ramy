@@ -459,13 +459,15 @@ public void ver() {
     
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "src/Consultas/Bitacora.jasper";
+            String archivo = "/Consultas/Bitacora.jasper";
 //            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Bitacora.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));
             //JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource("/Consultas/Bitacora.jasper"));
             Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             parametro.put("ID_Cliente", ID);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro,cc.conexion());
 
             JRViewer jrv = new JRViewer(jasperPrint);
             jrv.setZoomRatio((float) 0.75);

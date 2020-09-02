@@ -30,6 +30,7 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="ffcfdec3-d95f-43c8-9c72-c12d622427ab"/>
+	<parameter name="logo" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[Select 
         U.ID_Usuario,
@@ -108,7 +109,7 @@
 			</textField>
 			<image>
 				<reportElement x="11" y="15" width="104" height="45" uuid="2ebeb41e-8149-4a38-a3ea-a3a5a5b454ac"/>
-				<imageExpression><![CDATA["Reportes\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement style="Column header" x="321" y="129" width="79" height="16" forecolor="#000000" uuid="c7f67f8e-3af5-4b25-8e69-f4d4e24456ae"/>

@@ -36,6 +36,7 @@
 	<parameter name="Modificacion" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="logo" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[Select * from ajuste_bitacora where id_cliente=$P{ID_Cliente} and Modificacion=$P{Modificacion}
 
@@ -263,7 +264,7 @@ order by Nombre_viaje]]>
 			</textField>
 			<image>
 				<reportElement x="8" y="17" width="104" height="45" uuid="c2de22e2-331a-4635-9e09-869533902599"/>
-				<imageExpression><![CDATA["Consultas\\reporte.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement style="Column header" x="321" y="132" width="79" height="16" forecolor="#000000" uuid="40eddf67-d9af-4354-9bc3-f978853180be"/>
