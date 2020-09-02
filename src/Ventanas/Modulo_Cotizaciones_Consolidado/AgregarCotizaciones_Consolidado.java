@@ -73,7 +73,7 @@ import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Conso
 import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.tabla1;
 import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.tablaR;
 import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.txtTipo_Concepto;
-import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.ver;
+//import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.ver;
 
 public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
@@ -1320,7 +1320,7 @@ if (evt.getStateChange() == ItemEvent.SELECTED) {
     public static javax.swing.JTable tablaR;
     public static app.bolivia.swing.JCTextField txtTipo_Concepto;
     // End of variables declaration//GEN-END:variables
-public static void ver() {
+public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
         int ID = Integer.parseInt(IDCotizacion.getText());
         if (ID >= 0) {

@@ -30,6 +30,7 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="ffcfdec3-d95f-43c8-9c72-c12d622427ab"/>
+	<parameter name="logo" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[Select 
        E.ID_cliente,
@@ -84,10 +85,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="12" y="15" width="104" height="45" uuid="d3b3bb42-2651-475b-bccc-2b857f88b28a"/>
-				<imageExpression><![CDATA["Reportes\\reporte.png"]]></imageExpression>
-			</image>
 			<line>
 				<reportElement x="16" y="86" width="532" height="1" uuid="30d6b8f6-9ace-4329-ad50-97b1ed3476b2">
 					<property name="local_mesure_unitheight" value="pixel"/>
@@ -149,6 +146,10 @@
 				</textElement>
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
+			<image>
+				<reportElement x="16" y="15" width="100" height="50" uuid="60b27a88-a902-433f-8716-5b073e2a99d2"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

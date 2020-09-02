@@ -95,6 +95,6 @@
     <delete dir="${store.dir}/lib"/>
     <delete file="${store.dir}/README.TXT"/>
     </target>
-    -->
+-->    
 
 </project>

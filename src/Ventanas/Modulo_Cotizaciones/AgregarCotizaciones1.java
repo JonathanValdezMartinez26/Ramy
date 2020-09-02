@@ -1316,7 +1316,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
-public static void ver(String ID) {
+public void ver(String ID) {
     
         Clases.Conexion cc = new Clases.Conexion();
         int ID1 = Integer.parseInt(ID);
@@ -1324,9 +1324,13 @@ public static void ver(String ID) {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "src/Consultas/CotizacionD_1_1.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            //String archivo = "src/Consultas/CotizacionD_1_1.jasper";
+            String archivo = "/Consultas/CotizacionD_1_1.jasper";
+            //JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));            
             Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             parametro.put("ID_Cotizacion", ID1);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
             JRViewer jrv = new JRViewer(jasperPrint);
@@ -1360,7 +1364,8 @@ public static void verG() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-             String archivo = "src/Consultas/CotizacionDG.jasper";
+             //String archivo = "src/Consultas/CotizacionDG.jasper";
+             String archivo = "Consultas/CotizacionDG.jasper";
             
 //            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\CotizacionDG.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));

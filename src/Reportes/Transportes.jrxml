@@ -30,6 +30,7 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="ffcfdec3-d95f-43c8-9c72-c12d622427ab"/>
+	<parameter name="logo" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[Select 
        E.ID_Transporte,
@@ -100,10 +101,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="7" y="15" width="104" height="45" uuid="39697629-25d5-44de-abfc-dc1e8e5d6bad"/>
-				<imageExpression><![CDATA["Reportes\\reporte.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement style="Column header" x="320" y="130" width="79" height="16" forecolor="#000000" uuid="3089ce3f-8e8b-499a-8114-7266d791808e"/>
 				<textElement>
@@ -141,6 +138,10 @@
 				</textElement>
 				<text><![CDATA[Transportes de la Empresa]]></text>
 			</staticText>
+			<image>
+				<reportElement x="10" y="15" width="79" height="45" uuid="1591d734-fa30-473f-85c9-36fb2b671813"/>
+				<imageExpression><![CDATA["C:\\Users\\RVC.RVC-PC\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\reporte.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

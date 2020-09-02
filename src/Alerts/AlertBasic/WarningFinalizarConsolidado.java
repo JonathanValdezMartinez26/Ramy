@@ -6,15 +6,26 @@ import Ventanas.Modulo_Cliente.Opciones;
 import Ventanas.Modulo_Cliente.Registrar;
 
 import Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado;
+import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.IDCotizacion;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
 import com.sun.glass.events.KeyEvent;
+import java.awt.BorderLayout;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import static java.lang.System.exit;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import necesario.RSAWTUtilities;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JRViewer;
 
 public class WarningFinalizarConsolidado extends javax.swing.JDialog {
 
@@ -159,7 +170,7 @@ public class WarningFinalizarConsolidado extends javax.swing.JDialog {
 //     
     Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.finalizarCotizacion(ID_Cotizacion);
     Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.listarCotizaciones(""); 
-    AgregarCotizaciones_Consolidado.ver();
+    ver();
 //        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.jButton3.setEnabled(false);
 //        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.pnlFinalizar.setEnabled(false);
 //        Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.txtTipo_Concepto.setEnabled(false);
@@ -224,4 +235,41 @@ public class WarningFinalizarConsolidado extends javax.swing.JDialog {
     public static javax.swing.JLabel msj7;
     private rojerusan.RSPanelImage rSPanelImage1;
     // End of variables declaration//GEN-END:variables
+public void ver() {
+        Clases.Conexion cc = new Clases.Conexion();
+        int ID1 = Integer.parseInt(ID.getText());
+        
+        if (ID1 >= 0) {
+
+       try {
+            Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
+            String archivo = "src/Consultas/Renta_Consolidacion.jasper";            
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));            
+            Map parametro = new HashMap();
+            parametro.put("ID_Cotizacion", ID1);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
+
+            JRViewer jrv = new JRViewer(jasperPrint);
+            jrv.setZoomRatio((float) 0.75);
+            r.contenedor.removeAll();
+
+            r.contenedor.setLayout(new BorderLayout());
+            r.contenedor.add(jrv, BorderLayout.CENTER);
+
+            r.contenedor.repaint();
+            r.contenedor.revalidate();
+            jrv.setVisible(true);
+            r.setVisible(true);
+        } catch (JRException ex) {
+            System.err.println("Error iReport: " + ex.getMessage());
+        }
+    }
+        else
+        {
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Error  generar la Cotizacion!");
+            AC.msj2.setText("Verifique que se agregaron los datos ");
+            AC.setVisible(true);
+        }
+}
 }

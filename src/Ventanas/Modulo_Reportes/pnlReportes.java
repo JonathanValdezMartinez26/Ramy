@@ -26,6 +26,7 @@ import net.sf.jasperreports.view.JRViewer;
  * @author Jonathan Valdez
  */
 public class pnlReportes extends javax.swing.JPanel {
+    private final String logotipo="/Consultas/reporte.png";
 
     /**
      * Creates new form Inicio
@@ -437,9 +438,13 @@ public class pnlReportes extends javax.swing.JPanel {
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
 //            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Clientes.jasper";
-            String archivo = "src/Reportes/Clientes.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            String archivo = "/Reportes/Clientes.jasper";
+            //String archivo = "src/Reportes/Clientes.jasper";
+            //JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));
             Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
             JRViewer jrv = new JRViewer(jasperPrint);
@@ -464,8 +469,10 @@ public class pnlReportes extends javax.swing.JPanel {
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
 //            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Transportes.jasper";
-            String archivo = "src/Reportes/Transportes.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            //String archivo = "src/Reportes/Transportes.jasper";
+            String archivo = "/Reportes/Transportes.jasper";
+            //JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));
             Map parametro = new HashMap();
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
