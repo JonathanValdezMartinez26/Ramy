@@ -5,16 +5,22 @@ import javax.swing.JOptionPane;
 public class database {
  /* DATOS PARA LA CONEXION */
     
-//    private String bd = "ramy8102_ctz_01";//BASE DE DATOS
-//  private String login = "ramy8102_ctz_01"; //USUARIO
-//  private String password = "RAMY_001CTZ"; //CONTRASEÑA
-  
-  private String bd = "Clinica";//BASE DE DATOS
-  private String login = "root"; //USUARIO
-  private String password = ""; //CONTRASEÑA
 
- private String url = "jdbc:mysql://192.168.0.14/"+bd;
-//   private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?noAccessToProcedureBodies=true";
+      private String bd = "ramy8102_ctz_01";//BASE DE DATOS
+  private String login = "ramy8102"; //USUARIO
+  private String password = "V-ROTCIV159"; //CONTRASEÑA
+  
+  
+  
+//  private String bd = "Clinica";//BASE DE DATOS
+//  private String login = "root"; //USUARIO
+//  private String password = ""; //CONTRASEÑA
+
+
+// private String url = "jdbc:mysql://192.168.0.14/"+bd;
+   private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?noAccessToProcedureBodies=true";
+   //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?useUnicode=true&useJDBCCompilantTimezoneShift=true";
+
   //private String url = "jdbc:mysql://localhost/"+bd;
   private Connection conn = null;
 
