@@ -1304,7 +1304,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                 cargarServicio();
                 int ID_Cotizacion;
                 ID_Cotizacion = Integer.parseInt(AgregarCotizacionesRuta.IDCotizacion.getText());
-                Ventanas.Modulo_Ruta_Cotizacion.Opciones.insertarServicio(ID_Cotizacion);
+                Ventanas.Modulo_Ruta_Cotizacion.Opciones.llenarServicio(ID_Cotizacion);
                 //this.tabla1.getSelectionModel().setSelectionInterval(0, 0);             
     //JOptionPane.showMessageDialog(null, "exitennombre="+existenombre+ " existePrecio= "+existeprecio );
                     }else{            

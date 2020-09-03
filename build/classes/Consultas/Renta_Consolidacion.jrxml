@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="16"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" fontName="Arial" isBold="true"/>
@@ -90,7 +90,7 @@
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="275">
+			<band height="226">
 				<subreport>
 					<reportElement x="5" y="27" width="535" height="100" uuid="6e265f31-c9ec-4fd1-aa14-56fc92b49eb1"/>
 					<subreportParameter name="ID_Cotizacion">
@@ -121,7 +121,7 @@
 					<text><![CDATA[]]></text>
 				</staticText>
 				<subreport>
-					<reportElement x="9" y="148" width="525" height="100" uuid="3881fe48-938f-49c0-ae31-f7eec95250be"/>
+					<reportElement x="9" y="148" width="525" height="75" uuid="3881fe48-938f-49c0-ae31-f7eec95250be"/>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PIE_1.jasper"]]></subreportExpression>
 				</subreport>
@@ -419,16 +419,6 @@
 			</textField>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="6" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="1" width="555" height="1" uuid="cb229859-ab9a-4aa3-afa2-84439642f4ee"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
-		</band>
-	</columnFooter>
 	<pageFooter>
 		<band height="20" splitType="Stretch">
 			<textField>
