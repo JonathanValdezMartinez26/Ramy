@@ -18,7 +18,7 @@ public class database {
 //  private String password = ""; //CONTRASEÑA
 
 // private String url = "jdbc:mysql://192.168.0.14/"+bd;
-   private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?noAccessToProcedureBodies=true";
+   private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?noAccessToProcedureBodies=true?useUnicode=true&useJDBCCompilantTimezoneShift=true";
    //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?useUnicode=true&useJDBCCompilantTimezoneShift=true";
   //private String url = "jdbc:mysql://localhost/"+bd;
   private Connection conn = null;
