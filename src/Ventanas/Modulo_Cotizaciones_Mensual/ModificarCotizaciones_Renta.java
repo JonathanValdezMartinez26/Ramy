@@ -189,7 +189,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         int i = 1;
         try 
         {
-            resultado = Conexion.consulta("SELECT ID_Periodo, Periodo from Periodo");
+            resultado = Conexion.consulta("SELECT ID_Periodo, Periodo from periodo");
             while (resultado.next()) 
             {
                 ID_Per [i] = resultado.getInt(1);
