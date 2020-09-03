@@ -89,7 +89,7 @@ public static ResultSet resultado;
      
      public static int ObtenID() {
         int c = 0;
-        String SQL = "SELECT MAX(ID_cliente) FROM Clientes";
+        String SQL = "SELECT MAX(ID_cliente) FROM clientes";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
