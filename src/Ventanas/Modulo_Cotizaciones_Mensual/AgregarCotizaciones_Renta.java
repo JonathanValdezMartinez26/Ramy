@@ -168,7 +168,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
         try 
         {
-            resultado = Conexion.consulta("Select Max(ID_Periodo) from Periodo");
+            resultado = Conexion.consulta("Select Max(ID_Periodo) from periodo");
             while (resultado.next()) 
             {
                 ID_Periodo = resultado.getInt(1);
@@ -184,7 +184,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         int i = 1;
         try 
         {
-            resultado = Conexion.consulta("SELECT ID_Periodo, Periodo from Periodo");
+            resultado = Conexion.consulta("SELECT ID_Periodo, Periodo from periodo");
             while (resultado.next()) 
             {
                 ID_Per [i] = resultado.getInt(1);

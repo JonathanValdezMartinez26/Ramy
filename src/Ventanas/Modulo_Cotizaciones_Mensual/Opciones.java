@@ -72,11 +72,11 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID+" ORDER BY Periodo , Concepto ASC";
+           sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio from asigna_cotizaciones_rentav where ID_Cotizacion="+ ID+" ORDER BY Periodo , Concepto ASC";
         } else {
     
             
-            sql = "Select ID_asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_Rentav"
+            sql = "Select ID_asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_rentav"
                     + " where  (ID_Cotizacion =" +ID+" AND Periodo LIKE '%"+ busca +"%')"
                     + " OR (ID_Cotizacion =" +ID+" AND Concepto LIKE '"+ busca +"%')"
                     + " OR (ID_Cotizacion =" +ID+" AND Precio LIKE '"+ busca +"%')";
@@ -168,7 +168,7 @@ public class Opciones {
     ///////////////////////////////////////////////////////////////////
     public static int verificaRentaM(int ID_Cotizacion,String Concepto,int ID_Periodo) {
         int c = 0;
-        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizaciones_Renta where (ID_Cotizacion = "+ID_Cotizacion+") and  (Concepto = '" + Concepto +"')  and  (ID_Periodo = "+ID_Periodo+")";
+        String SQL = "SELECT COUNT(Id_Cotizacion)FROM asigna_cotizaciones_renta where (ID_Cotizacion = "+ID_Cotizacion+") and  (Concepto = '" + Concepto +"')  and  (ID_Periodo = "+ID_Periodo+")";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
