@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
 	<property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
-	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.zoom" value="0.75"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
@@ -446,7 +446,7 @@
 					<subreportParameterExpression><![CDATA[$P{ID_Cotizacion}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Ruta_1_1.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+ "Ruta_1_1.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
 				<reportElement style="Column header" x="111" y="73" width="206" height="19" forecolor="#000000" uuid="807408f5-7caf-4396-915f-3c162cfb878f"/>

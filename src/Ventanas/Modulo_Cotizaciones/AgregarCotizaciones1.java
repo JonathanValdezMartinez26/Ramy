@@ -70,6 +70,7 @@ import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.fin
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
 import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tablaR;
 import static Ventanas.Modulo_Ruta_Cotizacion.AgregarCotizacionesRuta.tablaDestinos;
+import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,6 +79,7 @@ import javax.swing.JCheckBox;
 import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
 
 
 public class AgregarCotizaciones1 extends javax.swing.JDialog {
@@ -1324,12 +1326,21 @@ public void ver(String ID) {
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
             //String archivo = "src/Consultas/CotizacionD_1_1.jasper";
+            //ServletContext sc = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
+            //Ser
             String archivo = "/Consultas/CotizacionD_1_1.jasper";
+            //String subreportePath = sc.getRealPath("/Consultas/");
+            String subreportePath = "\\Consultas\\";
+            
             //JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));            
             Map parametro = new HashMap();
             parametro.clear();
             parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
+            
+            parametro.put("SUBREPORT_DIR", subreportePath);
+            //parametro.put("SUBREPORT_DIR", subreportePath);
+            //parametro.put("SUBREPORT_DIR", subreportePath);
             parametro.put("ID_Cotizacion", ID1);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
             JRViewer jrv = new JRViewer(jasperPrint);

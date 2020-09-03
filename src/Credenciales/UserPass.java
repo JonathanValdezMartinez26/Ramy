@@ -11,7 +11,9 @@ package Credenciales;
  */
 public class UserPass {
     
-    public static String User = "root";
-    public static String Pass = "";
+        public static String User = "ramy8102_ctz_01";
+    public static String Pass = "RAMY_001CTZ";
+//    public static String User = "root";
+//    public static String Pass = "";
     
 }
