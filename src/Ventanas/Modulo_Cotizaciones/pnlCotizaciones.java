@@ -826,7 +826,7 @@ public void ver1(int ID) {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "src/Consultas/Renta_Transporte_1.jasper";
+            String archivo = "/Consultas/Renta_Transporte_1.jasper";
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));            
             Map parametro = new HashMap();
             parametro.clear();

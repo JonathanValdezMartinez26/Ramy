@@ -188,7 +188,7 @@ public class database {
     {
         boolean res = false;
         //JOptionPane.showMessageDialog(null, valores+ " "+ id);
-        String q = " UPDATE Asigna_cotizaciones_renta SET " + valores + " WHERE ID_Asigna_cotizacion_renta= " + id;
+        String q = " UPDATE asigna_cotizaciones_renta SET " + valores + " WHERE ID_Asigna_cotizacion_renta= " + id;
         //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
         try {
             PreparedStatement pstm = conn.prepareStatement(q);
