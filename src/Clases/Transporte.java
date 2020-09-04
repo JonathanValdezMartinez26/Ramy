@@ -11,7 +11,7 @@ public class Transporte {
 
     public static ResultSet resultado;
     
-    public static String LISTAR = "select * from Transportev order by ID_Transporte";
+    public static String LISTAR = "select * from transportev order by ID_Transporte";
 
      public static void Agregar_Tipo(String Nombre_Transporte, int ID_Tipo_Transporte) {
         try 
