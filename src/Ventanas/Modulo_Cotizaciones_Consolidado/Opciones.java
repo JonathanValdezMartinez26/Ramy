@@ -75,10 +75,10 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Cotizacion_Consolidado, Origen, Destino, Consolidado, Precio from asigna_cotizacion_Consolidadov where ID_Cotizacion="+ ID +" ORDER BY Origen , Destino ASC";
+           sql = "Select ID_Cotizacion_Consolidado, Origen, Destino, Consolidado, Precio from asigna_cotizacion_consolidadov where ID_Cotizacion="+ ID +" ORDER BY Origen , Destino ASC";
         } else {
             
-            sql = "Select ID_Cotizacion_Consolidado,Origen,Destino, Consolidado, Precio from asigna_cotizacion_Consolidadov"
+            sql = "Select ID_Cotizacion_Consolidado,Origen,Destino, Consolidado, Precio from asigna_cotizacion_consolidadov"
                     + " where (ID_Cotizacion ="+ID+" AND Origen LIKE '%"+ busca +"%') "
                     + "OR (ID_Cotizacion ="+ID+" AND Destino LIKE '"+ busca +"%')"
                     + "OR (ID_Cotizacion ="+ID+" AND consolidado LIKE '"+ busca +"%')"
@@ -165,10 +165,10 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Cotizacion_Consolidado, Origen, Destino, Consolidado, Precio from asigna_cotizacion_Consolidadov where ID_Cotizacion="+ ID+" ORDER BY Origen , Destino ASC";
+           sql = "Select ID_cotizacion_consolidado, Origen, Destino, consolidado, Precio from asigna_cotizacion_consolidadov where ID_Cotizacion="+ ID+" ORDER BY Origen , Destino ASC";
         } else {
             
-            sql = "Select ID_Cotizacion_Consolidado,Origen,Destino, Consolidado, Precio from asigna_cotizacion_Consolidadov"
+            sql = "Select ID_cotizacion_consolidado,Origen,Destino, consolidado, Precio from asigna_cotizacion_consolidadov"
                     + " where (ID_Cotizacion ="+ID+" AND Origen LIKE '%"+ busca +"%') "
                     + "OR (ID_Cotizacion ="+ID+" AND Destino LIKE '"+ busca +"%')"
                     + "OR (ID_Cotizacion ="+ID+" AND consolidado LIKE '"+ busca +"%')"
@@ -196,7 +196,7 @@ public class Opciones {
     ///////////////////////////////////////////////////////////////////
     public static int verificaConsolidado(int ID_Cotizacion,int ID_Origen,int ID_Destino,String Consolidado) {
         int c = 0;
-        String SQL = "SELECT COUNT(Id_Cotizacion)FROM Asigna_Cotizacion_Consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Origen = "+ID_Origen+") and (ID_Destino = "+ID_Destino+") and (Consolidado = '"+Consolidado+"')";
+        String SQL = "SELECT COUNT(Id_Cotizacion)FROM asigna_cotizacion_consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Origen = "+ID_Origen+") and (ID_Destino = "+ID_Destino+") and (Consolidado = '"+Consolidado+"')";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);

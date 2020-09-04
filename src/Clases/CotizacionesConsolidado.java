@@ -20,7 +20,7 @@ public class CotizacionesConsolidado {
 
 public static ResultSet resultado;
  
-    public static String LISTAR = "Select * from Asigna_Cotizaciones_Rentav";
+    public static String LISTAR = "Select * from asigna_Cotizaciones_Rentav";
     public static String LISTA = "select * from Consolidado order by ID_Consolidado";
      public static void Agregar_Cotizacion(int ID_Cliente) {
         try 
@@ -140,7 +140,7 @@ public static ResultSet resultado;
             AC.setVisible(true);
         }
     }
-    public static String registrar = "INSERT INTO Asigna_Cotizacion_Consolidado("
+    public static String registrar = "INSERT INTO asigna_cotizacion_consolidado("
            + "ID_Cotizacion_Consolidado,"
             + "ID_Cotizacion,"
             + "Consolidado)"

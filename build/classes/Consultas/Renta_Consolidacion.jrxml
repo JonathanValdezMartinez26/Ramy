@@ -38,7 +38,7 @@
 	</parameter>
 	<parameter name="logo" class="java.io.InputStream"/>
 	<queryString>
-		<![CDATA[SELECT * FROM `Reporte_consolidacion` WHERE ID_Cotizacion=$P{ID_Cotizacion}]]>
+		<![CDATA[SELECT * FROM `reporte_consolidacion` WHERE ID_Cotizacion=$P{ID_Cotizacion}]]>
 	</queryString>
 	<field name="ID_Cotizacion" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>

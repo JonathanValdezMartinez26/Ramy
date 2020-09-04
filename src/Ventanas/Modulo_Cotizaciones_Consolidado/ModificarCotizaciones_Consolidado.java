@@ -176,7 +176,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
 
         try {
 
-            resultado = Conexion.consulta("Select Max(ID_ruta) from rutav");
+            resultado = Conexion.consulta("Select Max(ID_Ruta) from rutav");
 
             while (resultado.next()) {
                 ID_Origen = resultado.getInt(1);
@@ -198,7 +198,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
 
         try {
 
-            resultado = Conexion.consulta("Select Max(ID_ruta) from rutav");
+            resultado = Conexion.consulta("Select Max(ID_Ruta) from rutav");
 
             while (resultado.next()) {
                 ID_Destino = resultado.getInt(1);
