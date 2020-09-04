@@ -15,12 +15,12 @@ public void Conectar(String user,String pass)throws SQLException,ClassNotFoundEx
 
         //con = DriverManager.getConnection("jdbc:mysql://localhost/clinica?useUnicode=true&characterEncoding=utf-8", user, pass);
 //          con = DriverManager.getConnection("jdbc:mysql://192.168.0.14/clinica?useUnicode=true&characterEncoding=utf-8", user, pass);
-
-//          con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?noAccessToProcedureBodies=true&autoReconnect=true", user, pass);
-
-          con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?noAccessToProcedureBodies=true?useUnicode=true&useJDBCCompilantTimezoneShift=true", user, pass);
+//<<<<<<< HEAD
+          con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?noAccessToProcedureBodies=true&autoReconnect=true", user, pass);
+//=======
+          //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?noAccessToProcedureBodies=true?useUnicode=true&useJDBCCompilantTimezoneShift=true", user, pass);
           //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?useUnicode=true&useJDBCCompilantTimezoneShift=true", user, pass);
-
+//>>>>>>> ff28b341112a70353bd0ef7ff2dab7deaa65fd05
 
 
             state=con.createStatement(result.TYPE_SCROLL_SENSITIVE,result.CONCUR_UPDATABLE);
@@ -37,14 +37,14 @@ public static ResultSet consulta(String sql)throws SQLException{
             Class.forName("com.mysql.jdbc.Driver");
 
 
-
+//<<<<<<< HEAD
             con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?noAccessToProcedureBodies=true&autoReconnect=true","ramy8102_ctz_01", "RAMY_001CTZ");
-
+//=======
 
             //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?useUnicode=true&useJDBCCompilantTimezoneShift=true","ramy8102", "V-ROTCIV159");
             //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?useUnicode=true&useJDBCCompilantTimezoneShift=true?useUnicode=true&useJDBCCompilantTimezoneShift=true","ramy8102_ctz_01", "RAMY_001CTZ");
             //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?noAccessToProcedureBodies=true","ramy8102_ctz_01", "RAMY_001CTZ");
-
+//>>>>>>> ff28b341112a70353bd0ef7ff2dab7deaa65fd05
   //con = DriverManager.getConnection("jdbc:mysql://192.168.0.14/clinica?useUnicode=true&characterEncoding=utf-8","root", "");
 
         //con = DriverManager.getConnection("jdbc:mysql://localhost/clinica?useUnicode=true&characterEncoding=utf-8","root", "");
