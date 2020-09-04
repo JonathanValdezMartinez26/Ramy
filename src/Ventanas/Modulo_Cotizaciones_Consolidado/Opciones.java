@@ -75,7 +75,7 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Cotizacion_Consolidado, Origen, Destino, Consolidado, Precio from asigna_cotizacion_consolidadov where ID_Cotizacion="+ ID +" ORDER BY Origen , Destino ASC";
+           sql = "Select ID_cotizacion_consolidado, Origen, Destino, consolidado, Precio from asigna_cotizacion_consolidadov where ID_Cotizacion="+ ID +" ORDER BY Origen , Destino ASC";
         } else {
             
             sql = "Select ID_Cotizacion_Consolidado,Origen,Destino, Consolidado, Precio from asigna_cotizacion_consolidadov"
@@ -196,7 +196,7 @@ public class Opciones {
     ///////////////////////////////////////////////////////////////////
     public static int verificaConsolidado(int ID_Cotizacion,int ID_Origen,int ID_Destino,String Consolidado) {
         int c = 0;
-        String SQL = "SELECT COUNT(Id_Cotizacion)FROM asigna_cotizacion_consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Origen = "+ID_Origen+") and (ID_Destino = "+ID_Destino+") and (Consolidado = '"+Consolidado+"')";
+        String SQL = "SELECT COUNT(ID_Cotizacion)FROM asigna_cotizacion_consolidado where (ID_Cotizacion = "+ID_Cotizacion+") and (ID_Origen = "+ID_Origen+") and (ID_Destino = "+ID_Destino+") and (Consolidado = '"+Consolidado+"')";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -233,7 +233,7 @@ public class Opciones {
 
            public static boolean registrarCotizaConsoli(int IdCot,int ID_Origen,int ID_Destino,String consolidado) {
                
-               String q = " INSERT INTO asigna_cotizacion_consolidado (ID_cotizacion_consolidado,ID_Cotizacion,ID_Origen,ID_Destino,consolidado,Precio)"
+               String q = " INSERT INTO asigna_cotizacion_consolidado (ID_Cotizacion_Consolidado,ID_Cotizacion,ID_Origen,ID_Destino,consolidado,Precio)"
                        + "VALUES (NULL,'"+IdCot+"','"+ID_Origen+"','"+ID_Destino+"','"+consolidado+"',0)";
                
                
@@ -254,7 +254,7 @@ public class Opciones {
 
      public static int verificaTipo(String Nombre) {
         int existe = 0;
-        String SQL = "select count(Consolidado) from Consolidado where Consolidado = '"+ Nombre+"'";
+        String SQL = "select count(Consolidado) from consolidado where Consolidado = '"+ Nombre+"'";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
