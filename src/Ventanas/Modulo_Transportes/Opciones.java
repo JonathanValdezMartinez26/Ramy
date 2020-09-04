@@ -33,7 +33,7 @@ public class Opciones {
             sql = Clases.Transporte.LISTAR;
         } else {
             
-            sql = "SELECT * FROM Transportev WHERE (ID_Transporte LIKE'" + busca + "%' OR "
+            sql = "SELECT * FROM transportev WHERE (ID_Transporte LIKE'" + busca + "%' OR "
                     + "Nombre_Transporte LIKE'" + busca + "%' OR Tipo_Transporte LIKE'" + busca + "%')"
                     + " ORDER BY ID_Transporte";
            }
@@ -60,7 +60,7 @@ public class Opciones {
     
  public static int verificaTran(String Nombre) {
         int c = 0;
-        String SQL = "SELECT COUNT(*) FROM Transportes where Nombre_Transporte = '" + Nombre +"'";
+        String SQL = "SELECT COUNT(*) FROM transportes where Nombre_Transporte = '" + Nombre +"'";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -78,7 +78,7 @@ public class Opciones {
  
   public static int verificarTransporte(String Nombre, int id) {
         int c = 0;
-        String SQL = "SELECT COUNT(*) FROM Transportes where Nombre_Transporte = " + Nombre +" and ID_Tipo_Transporte != " + id;
+        String SQL = "SELECT COUNT(*) FROM transportes where Nombre_Transporte = " + Nombre +" and ID_Tipo_Transporte != " + id;
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);

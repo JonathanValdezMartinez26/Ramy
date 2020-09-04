@@ -322,7 +322,7 @@ public class Registrar extends javax.swing.JDialog {
 
                 try
                 {
-                    resultado = Conexion.consulta("Select ID_Transporte, Nombre_Transporte from Transportes");
+                    resultado = Conexion.consulta("Select ID_Transporte, Nombre_Transporte from transportes");
 
                     while(resultado.next())
                     {

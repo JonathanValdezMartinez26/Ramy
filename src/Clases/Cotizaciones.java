@@ -16,7 +16,7 @@ public class Cotizaciones {
 public static ResultSet resultado;
  
     public static String LISTAR = "Select C.ID_Cliente,C.Nombre_Cliente,C.Atencion,E.estado,M.municipio,L.localidad,C.Calle from\n" +
- " Clientes C left Join t_localidad L ON L.id_localidad = C.id_localidad left Join t_municipio M ON M.id_municipio = L.id_municipio left Join t_estado E ON E.id_estado = M.id_estado\n";
+ " clientes C left Join t_localidad L ON L.id_localidad = C.id_localidad left Join t_municipio M ON M.id_municipio = L.id_municipio left Join t_estado E ON E.id_estado = M.id_estado\n";
     
      public static void Agregar_Cotizacion(int ID_Cliente, int ID_Tipo_Cotizacion) {
         try 
@@ -96,7 +96,7 @@ public static ResultSet resultado;
      
      public static int ObtenID() {
         int c = 0;
-        String SQL = "SELECT MAX(ID_Cotizacion) FROM Cotizaciones";
+        String SQL = "SELECT MAX(ID_Cotizacion) FROM cotizaciones";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -112,7 +112,7 @@ public static ResultSet resultado;
     }
      public static int Obten() {
         int c = 0;
-        String SQL = "SELECT MAX(ID_Cliente) FROM Clientes";
+        String SQL = "SELECT MAX(ID_Cliente) FROM clientes";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);

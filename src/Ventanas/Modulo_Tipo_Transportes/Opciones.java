@@ -37,7 +37,7 @@ public class Opciones {
             sql = Clases.Tipo_Transporte.LISTAR;
         } else {
             
-            sql = "SELECT * FROM Tipo_Transporte WHERE (ID_Tipo_Transporte LIKE'" + busca + "%' OR "
+            sql = "SELECT * FROM tipo_transporte WHERE (ID_Tipo_Transporte LIKE'" + busca + "%' OR "
                     + "Tipo_Transporte LIKE'" + busca + "%') "
                     + "ORDER BY ID_Tipo_Transporte";
            }

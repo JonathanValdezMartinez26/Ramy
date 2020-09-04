@@ -93,7 +93,7 @@ public class Opciones {
     ///////////////////////////////////////////////////////////////////
     public static int verificaOrigen(int ID, int Municipio) {
         int existe = 0;
-        String SQL = "select count(ID_Municipio) from Origen where ID_Cliente = '"+ ID+"' and ID_Municipio = '" + Municipio +"'";
+        String SQL = "select count(ID_Municipio) from origen where ID_Cliente = '"+ ID+"' and ID_Municipio = '" + Municipio +"'";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -108,7 +108,7 @@ public class Opciones {
     ///////////////////////////////////////////////////////////////////
     public static int verificaOrigen1(int ID) {
         int existe = 0;
-        String SQL = "select count(*) from Origen where ID_Cliente = '"+ ID+"'";
+        String SQL = "select count(*) from origen where ID_Cliente = '"+ ID+"'";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -123,7 +123,7 @@ public class Opciones {
     //////////////////////////////////////////////////////////////////
     public static int verificaDestino(int ID, int Municipio) {
         int existe = 0;
-        String SQL = "select count(ID_Municipio) from Destino where ID_Cliente = '"+ ID+"' and ID_Municipio = '" + Municipio +"'";
+        String SQL = "select count(ID_Municipio) from destino where ID_Cliente = '"+ ID+"' and ID_Municipio = '" + Municipio +"'";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -138,7 +138,7 @@ public class Opciones {
     ///////////////////////////////////////////////////////////////////
     public static int verificaOrigenID(int ID) {
         int existe = 0;
-        String SQL = "select count(ID_Municipio) from Origen where ID_Cliente = '"+ ID+"'";
+        String SQL = "select count(ID_Municipio) from origen where ID_Cliente = '"+ ID+"'";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -153,7 +153,7 @@ public class Opciones {
     
     public static int verificaDestinoID(int ID) {
         int existe = 0;
-        String SQL = "select count(ID_Municipio) from Destino where ID_Cliente = '"+ ID+"'";
+        String SQL = "select count(ID_Municipio) from destino where ID_Cliente = '"+ ID+"'";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
