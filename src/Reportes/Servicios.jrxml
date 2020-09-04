@@ -36,8 +36,8 @@
        E.Nombre_Servicio,
        U.Nombre_Tipo_Servicio
    from
-       Servicio E
-   Inner Join Tipo_Servicio U
+       servicio E
+   Inner Join tipo_servicio U
    On E.ID_Tipo_Servicio = U.ID_Tipo_Servicio]]>
 	</queryString>
 	<field name="ID_Servicio" class="java.lang.Long">

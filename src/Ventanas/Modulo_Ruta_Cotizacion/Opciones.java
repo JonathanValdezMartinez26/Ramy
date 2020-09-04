@@ -68,7 +68,7 @@ public class Opciones {
     public static int verificaRutaCotizacion1(int ID_Cotizacion, int ID_Origen, String Destinos ,int ID_transporte) {
         int existe = 0;
   
-        String SQL = "SELECT count(Id_Cotizacion) from Cotizaciones_ruta where (ID_Cotizacion = "+ID_Cotizacion+")  and (ID_Origen = "+ID_Origen+") and  (Destino = '" + Destinos +"') and  (ID_Transporte = "+ID_transporte+") ";
+        String SQL = "SELECT count(Id_Cotizacion) from cotizaciones_ruta where (ID_Cotizacion = "+ID_Cotizacion+")  and (ID_Origen = "+ID_Origen+") and  (Destino = '" + Destinos +"') and  (ID_Transporte = "+ID_transporte+") ";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -140,10 +140,10 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from Cotizaciones_ruta where ID_Cotizacion =" + ID_Cotizacion;
+            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from cotizaciones_ruta where ID_Cotizacion =" + ID_Cotizacion;
         } else {
             
-            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from Cotizaciones_ruta "
+            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from cotizaciones_ruta "
                    + " where  (ID_Cotizacion =" +ID_Cotizacion+" AND Origen LIKE '%"+ busca +"%')"
                      + " OR (ID_Cotizacion =" +ID_Cotizacion+" AND Destino LIKE '"+ busca +"%')"
                     + " OR (ID_Cotizacion =" +ID_Cotizacion+" AND Transporte LIKE '"+ busca +"%')"
@@ -179,10 +179,10 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from Cotizaciones_ruta where ID_Cotizacion =" + ID_Cotizacion;
+            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from cotizaciones_ruta where ID_Cotizacion =" + ID_Cotizacion;
         } else {
             
-            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from Cotizaciones_ruta "
+            sql = "Select ID_CotizacionRuta, Origen, Destino,Transporte,Precio from cotizaciones_ruta "
                    + " where  (ID_Cotizacion =" +ID_Cotizacion+" AND Origen LIKE '%"+ busca +"%')"
                      + " OR (ID_Cotizacion =" +ID_Cotizacion+" AND Destino LIKE '"+ busca +"%')"
                     + " OR (ID_Cotizacion =" +ID_Cotizacion+" AND Transporte LIKE '"+ busca +"%')"
@@ -455,7 +455,7 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_Cotizacion_Ruta,ID_Cliente,ID_Origen, Origen, Destino,ID_Transporte,Transporte,Precio from Cotizaciones_ruta";
+            sql = "Select ID_Cotizacion_Ruta,ID_Cliente,ID_Origen, Origen, Destino,ID_Transporte,Transporte,Precio from cotizaciones_ruta";
 //            sql = "Select ID_AsignaRutaServicio, Origen, Destino,Transporte,Precio from asigna_ruta_servicio";
         } else {
             

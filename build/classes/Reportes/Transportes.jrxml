@@ -35,11 +35,9 @@
 		<![CDATA[Select 
        E.ID_Transporte,
        E.Nombre_Transporte,
-       U.Tipo_Transporte
+       E.Tipo_Transporte
    from
-       Transportesv E
-   Inner Join Tipo_Transporte U
-   On E.ID_Tipo_Transporte = E.ID_Tipo_Transporte]]>
+       transportev E]]>
 	</queryString>
 	<field name="ID_Transporte" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>

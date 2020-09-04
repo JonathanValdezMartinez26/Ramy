@@ -37,7 +37,7 @@
 		<defaultValueExpression><![CDATA["src\\Consultas\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[Select * from Reporte_ruta where ID_Cotizacion=$P{ID_Cotizacion}]]>
+		<![CDATA[Select * from reporte_ruta where ID_Cotizacion=$P{ID_Cotizacion}]]>
 	</queryString>
 	<field name="ID_Cotizacion" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
