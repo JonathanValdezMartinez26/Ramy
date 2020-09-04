@@ -819,7 +819,7 @@ public void ver(int ID) {
 }
 
 ///////////////////////////////////////////////////////////////////////////////77
-public static void ver1(int ID) {
+public void ver1(int ID) {
         Clases.Conexion cc = new Clases.Conexion();
         
         if (ID >= 0) {
@@ -827,8 +827,10 @@ public static void ver1(int ID) {
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
             String archivo = "src/Consultas/Renta_Transporte_1.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));            
             Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
@@ -856,16 +858,18 @@ public static void ver1(int ID) {
         }
 }
 ////////////////////////////////////////////////////////////////////////////////77
-public static void ver2(int ID) {
+public void ver2(int ID) {
         Clases.Conexion cc = new Clases.Conexion();
         
         if (ID >= 0) {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "src/Consultas/CotizacionD_1_1.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            String archivo = "/Consultas/CotizacionD_1_1.jasper";
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));            
             Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
@@ -893,16 +897,18 @@ public static void ver2(int ID) {
         }
 }
 
-public static void verG(int ID) {
+public void verG(int ID) {
         Clases.Conexion cc = new Clases.Conexion();
         
         if (ID >= 0) {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "src/Consultas/CotizacionDG.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            String archivo = "/Consultas/CotizacionDG.jasper";
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));            
             Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
