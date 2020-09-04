@@ -39,7 +39,7 @@
         U.Correo_Electronico,
    CASE U.Estado WHEN U.Estado= true THEN 'Activo' ELSE 'Inactivo' END AS Estado
    from
-        Usuario U]]>
+        usuario U]]>
 	</queryString>
 	<field name="ID_Usuario" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>

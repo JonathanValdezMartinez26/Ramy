@@ -147,7 +147,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         int ID_Cliente = 0;
         try 
         {
-            resultado = Conexion.consulta("Select Max(ID_Cliente) from clientes");
+            resultado = Conexion.consulta("Select Max(ID_cliente) from clientes");
             while (resultado.next()) 
             {
                 ID_Cliente = resultado.getInt(1);
@@ -184,7 +184,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
 
         try {
 
-            resultado = Conexion.consulta("Select Max(ID_ruta) from rutav");
+            resultado = Conexion.consulta("Select Max(ID_Ruta) from rutav");
 
             while (resultado.next()) {
                 ID_Origen = resultado.getInt(1);
@@ -206,7 +206,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
 
         try {
 
-            resultado = Conexion.consulta("Select Max(ID_ruta) from rutav");
+            resultado = Conexion.consulta("Select Max(ID_Ruta) from rutav");
 
             while (resultado.next()) {
                 ID_Destino = resultado.getInt(1);
@@ -229,7 +229,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
 
           try
             {
-                resultado = Conexion.consulta("Select Max(ID_transporte) from transportes");
+                resultado = Conexion.consulta("Select Max(ID_Transporte) from transportes");
 
                 while(resultado.next())
                 {

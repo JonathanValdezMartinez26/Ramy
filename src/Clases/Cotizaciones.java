@@ -131,7 +131,7 @@ public static ResultSet resultado;
       public static String ObtenerNombre(int ID_Cliente) {
         String existe = "";
   
-        String SQL = "SELECT Atencion from clientes where ID_Cliente = "+ID_Cliente;
+        String SQL = "SELECT Atencion from clientes where ID_cliente = "+ID_Cliente;
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
