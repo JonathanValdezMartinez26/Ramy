@@ -173,7 +173,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
 
         try 
         {
-            resultado = Conexion.consulta("Select Max(ID_Periodo) from Periodo");
+            resultado = Conexion.consulta("Select Max(ID_Periodo) from periodo");
             while (resultado.next()) 
             {
                 ID_Periodo = resultado.getInt(1);

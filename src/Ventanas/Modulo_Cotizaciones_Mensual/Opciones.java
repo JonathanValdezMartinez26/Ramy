@@ -76,7 +76,7 @@ public class Opciones {
         } else {
     
             
-            sql = "Select ID_asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_rentav"
+            sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_rentav"
                     + " where  (ID_Cotizacion =" +ID+" AND Periodo LIKE '%"+ busca +"%')"
                     + " OR (ID_Cotizacion =" +ID+" AND Concepto LIKE '"+ busca +"%')"
                     + " OR (ID_Cotizacion =" +ID+" AND Precio LIKE '"+ busca +"%')";
@@ -136,11 +136,11 @@ public class Opciones {
         
      String sql = "";
         if (busca.equals("")) {
-           sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio from asigna_cotizaciones_Rentav where ID_Cotizacion="+ ID;
+           sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio from asigna_cotizaciones_rentav where ID_Cotizacion="+ ID;
         } else {
     
             
-            sql = "Select ID_asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_Rentav"
+            sql = "Select ID_Asigna_Cotizacion_Renta,Concepto, Periodo,Precio  from asigna_cotizaciones_rentav"
                     + " where  (ID_Cotizacion =" +ID+" AND Periodo LIKE '%"+ busca +"%')"
                     + " OR (ID_Cotizacion =" +ID+" AND Concepto LIKE '"+ busca +"%')"
                     + " OR (ID_Cotizacion =" +ID+" AND Precio LIKE '"+ busca +"%')";
