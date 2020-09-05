@@ -75,7 +75,7 @@ import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Conso
 import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.txtTipo_Concepto;
 //import static Ventanas.Modulo_Cotizaciones_Consolidado.AgregarCotizaciones_Consolidado.ver;
 
-public class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
+public final class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
 
     private boolean minimiza = false;
 

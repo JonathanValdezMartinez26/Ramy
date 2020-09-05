@@ -26,7 +26,9 @@ public class Opciones {
 ///////////////////////////////////////
     public static void listarCotizaciones(String busca) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.pnlCotizaciones.tabla.getModel();
-
+        Statement st= null;
+        ResultSet rs=null;
+        
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
@@ -42,8 +44,8 @@ public class Opciones {
            }
         String datos[] = new String[7];
         try {           
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+             st = cn.createStatement();
+             rs = st.executeQuery(sql);
             while (rs.next()) 
             {
                 datos [0] = String.valueOf(rs.getInt(1));
@@ -60,6 +62,11 @@ public class Opciones {
         } catch (SQLException ex) {
             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
+//        finally{
+//            try { st.close();} catch (SQLException ex) {}
+//            try { rs.close();} catch (SQLException ex) {}
+//            try { cn.close();} catch (SQLException ex) {}            
+//        }
     }
     ///////////////////////////////////////
     
@@ -365,20 +372,24 @@ catch(SQLException e) {
     
 public static void finalizarCotizacion(String IDCotizacion){
         String sql = "";               
+        PreparedStatement pstm = null;
                sql="UPDATE cotizaciones Set Estatus = '2' Where ID_Cotizacion =" + IDCotizacion;
                 try {
-                            PreparedStatement pstm = cn.prepareStatement(sql);
+                            pstm = cn.prepareStatement(sql);
                             pstm.execute();
                             pstm.close();                            
                         Alerts.AlertBasic.Success AC = new  Alerts.AlertBasic.Success(null, true);
                         AC.msj1.setText("¡Esta cotización!");
                         AC.msj2.setText("A sido Finalizada");
-                        AC.setVisible(true);
-                            
+                        AC.setVisible(true);                            
                             //res=true;
                          }catch(SQLException e){            
                             System.out.println(e);
                         }
+                finally{
+                            try { pstm.close();} catch (SQLException ex) {}
+                            //try { cn.close();} catch (SQLException ex) {}            
+                }
 
     }    
 }   

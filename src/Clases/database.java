@@ -7,8 +7,8 @@ public class database {
     
 
       private String bd = "ramy8102_ctz_01";//BASE DE DATOS
-  private String login = "ramy8102"; //USUARIO
-  private String password = "V-ROTCIV159"; //CONTRASEÑA
+  private String login = "ramy8102_ctz_01"; //USUARIO
+  private String password = "RAMY_001CTZ"; //CONTRASEÑA
   
   
   
@@ -18,8 +18,11 @@ public class database {
 
 
 // private String url = "jdbc:mysql://192.168.0.14/"+bd;
-   private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?noAccessToProcedureBodies=true&useUnicode=true&useJDBCCompilantTimezoneShift=true";
-   //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?useUnicode=true&useJDBCCompilantTimezoneShift=true";
+  private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema = true"; 
+  //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&noAccessToProcedureBodies=true";
+   //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?noAccessToProcedureBodies=true&useUnicode=true&useJDBCCompilantTimezoneShift=true";
+//private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?useUnicode=true&useUnicode=true&characterEncoding=utf-8";   
+//private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?useUnicode=true&useJDBCCompilantTimezoneShift=true";
 
   //private String url = "jdbc:mysql://localhost/"+bd;
   private Connection conn = null;
@@ -29,7 +32,7 @@ public class database {
    public database(){
       try{
          //obtenemos el driver de para mysql
-         Class.forName("com.mysql.jdbc.Driver");
+         Class.forName("com.mysql.cj.jdbc.Driver");
          //obtenemos la conexión
          conn = DriverManager.getConnection(url,login,password);
          if (conn!=null){

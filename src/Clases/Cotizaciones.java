@@ -130,16 +130,30 @@ public static ResultSet resultado;
     ///////////////////////////////////////////////////////////////////
       public static String ObtenerNombre(int ID_Cliente) {
         String existe = "";
-  
+        Statement st=null;
+        ResultSet rs=null;
         String SQL = "SELECT Atencion from clientes where ID_cliente = "+ID_Cliente;
         try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(SQL);
+            st = cn.createStatement();
+            rs = st.executeQuery(SQL);
             if (rs.next()) {
                 existe = rs.getString(1);
             }           
         } catch (SQLException ex) {
              Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Cotizaciones.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Cotizaciones.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
         return existe;
     }
