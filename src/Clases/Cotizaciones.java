@@ -142,19 +142,19 @@ public static ResultSet resultado;
         } catch (SQLException ex) {
              Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-        finally{
-            try {
-                st.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(Cotizaciones.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                rs.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(Cotizaciones.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        }
+//        finally{
+//            try {
+//                st.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Cotizaciones.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            try {
+//                rs.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Cotizaciones.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            
+//        }
         return existe;
     }
     //////////////////////////////////////////////////////////////////
