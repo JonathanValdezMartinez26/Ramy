@@ -130,7 +130,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         int ID_Cliente = 0;
         try 
         {
-            resultado = Conexion.consulta("Select Max(ID_Cliente) from clientes");
+            resultado = Conexion.consulta("Select Max(ID_cliente) from clientes");
             while (resultado.next()) 
             {
                 ID_Cliente = resultado.getInt(1);

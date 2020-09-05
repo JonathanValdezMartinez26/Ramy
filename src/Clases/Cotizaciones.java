@@ -89,7 +89,7 @@ public static ResultSet resultado;
         
             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
             AC.msj1.setText("¡Error 3714!");
-            AC.msj2.setText("¡Contacte a servicios ProSystem!");
+            AC.msj2.setText("¡Contacte a servicios!");
             AC.setVisible(true);
         }
     }  
@@ -112,7 +112,7 @@ public static ResultSet resultado;
     }
      public static int Obten() {
         int c = 0;
-        String SQL = "SELECT MAX(ID_Cliente) FROM clientes";
+        String SQL = "SELECT MAX(ID_cliente) FROM clientes";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -303,7 +303,7 @@ public static ResultSet resultado;
         {
             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
             AC.msj1.setText("¡Error 3714!");
-            AC.msj2.setText("¡Contacte a servicios ProMedic!");
+            AC.msj2.setText("¡Contacte a servicios");
             AC.setVisible(true);
         }
     }
