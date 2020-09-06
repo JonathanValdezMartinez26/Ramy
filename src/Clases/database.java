@@ -9,7 +9,7 @@ public class database {
       private String bd = "ramy8102_ctz_01";//BASE DE DATOS
   private String login = "ramy8102_ctz_01"; //USUARIO
   private String password = "RAMY_001CTZ"; //CONTRASEÑA
-  
+//  
   
   
 //  private String bd = "Clinica";//BASE DE DATOS
@@ -18,12 +18,15 @@ public class database {
 
 
 // private String url = "jdbc:mysql://192.168.0.14/"+bd;
-  private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema = true"; 
+  private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema = true"; 
+  //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?confluence&autoReconnect=true&useInformationSchema = true"; 
+  
   //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&noAccessToProcedureBodies=true";
    //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?noAccessToProcedureBodies=true&useUnicode=true&useJDBCCompilantTimezoneShift=true";
 //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?useUnicode=true&useUnicode=true&characterEncoding=utf-8";   
 //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?useUnicode=true&useJDBCCompilantTimezoneShift=true";
 
+  //private String url = "jdbc:mysql://192.168.0.14:3306/"+bd+"?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema = true"; 
   //private String url = "jdbc:mysql://localhost/"+bd;
   private Connection conn = null;
 
