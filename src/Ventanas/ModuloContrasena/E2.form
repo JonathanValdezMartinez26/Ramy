@@ -50,7 +50,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\jvald\Documents\NetBeansProjects\Copias Clinica Dr.Enrique\24112019\src\Images\tips.PNG"/>
+              <Image iconType="3" name="/Images/tips.PNG"/>
             </Property>
           </Properties>
           <AuxValues>

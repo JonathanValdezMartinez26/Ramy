@@ -114,8 +114,8 @@ public class AsistenciaContrasena extends javax.swing.JFrame{
         jLabel3.setText("De esta forma, sabremos que la cuenta te pertenece.");
         pnlHome.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 320, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/2.png"))); // NOI18N
-        pnlHome.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, -1, 390));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/22.png"))); // NOI18N
+        pnlHome.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 210, 390));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         pnlHome.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 10, 388));

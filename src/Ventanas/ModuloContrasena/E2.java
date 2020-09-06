@@ -42,7 +42,7 @@ public class E2 extends javax.swing.JPanel {
         info2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         info2.setForeground(new java.awt.Color(102, 102, 102));
         info2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info2.setIcon(new javax.swing.ImageIcon("C:\\Users\\jvald\\Documents\\NetBeansProjects\\Copias Clinica Dr.Enrique\\24112019\\src\\Images\\tips.PNG")); // NOI18N
+        info2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/tips.PNG"))); // NOI18N
         D.add(info2);
         info2.setBounds(0, 0, 350, 330);
 
