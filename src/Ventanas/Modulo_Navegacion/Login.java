@@ -11,6 +11,8 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.event.WindowEvent;
 import java.awt.font.TextAttribute;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -22,6 +24,10 @@ import javax.swing.JLabel;
 public class Login extends javax.swing.JFrame {
    
     int x, y;
+    static Conexion cc = new Conexion();
+    public static Connection cn = cc.conexion();
+    static PreparedStatement ps;
+    ResultSet resultado;
     
     public Login() {
         initComponents();
@@ -35,32 +41,21 @@ public class Login extends javax.swing.JFrame {
     
     @SuppressWarnings("unchecked")
      
-    ResultSet resultado;
+    
     public void Conectar() {
 
         String User = txtUser.getText().trim();
         String Pass = txtPass.getText().trim();
+        
 
         if (!"".equals(User) && !"".equals(Pass)) {
             
-            try 
-            {
-                Conexion C = new Conexion();
-                C.Conectar(Credenciales.UserPass.User, Credenciales.UserPass.Pass);
-            } 
-            catch (SQLException | ClassNotFoundException ex) 
-            {
-                System.out.println(ex.getMessage());
-                txtUser.setText("");
-                txtPass.setText("");
-                return;
-            }
             int ID_Usuario = 0, Rol = 0;
             String Nombre = "";
 
             try {
 
-                resultado = Conexion.consulta("Select ID_Usuario, ID_Rol_Usuario, Nombre_Usuario from usuario where Usuario = '" + User + "' "
+                resultado = cc.consulta("Select ID_Usuario, ID_Rol_Usuario, Nombre_Usuario from usuario where Usuario = '" + User + "' "
                         + " and Contrasena_Usuario = '" + Pass + "' and Estado = " + true);
 
                 while (resultado.next()) {

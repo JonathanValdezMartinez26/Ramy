@@ -22,7 +22,7 @@ public void Conectar(String user,String pass)throws SQLException,ClassNotFoundEx
     //con = DriverManager.getConnection("jdbc:mysql://192.168.0.14:3306/clinica?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema=true",user, pass);            
             state=con.createStatement(result.TYPE_SCROLL_SENSITIVE,result.CONCUR_UPDATABLE);
 }
-public static ResultSet consulta(String sql)throws SQLException{
+    public static ResultSet consulta(String sql)throws SQLException{
         
         state1 = (Statement) con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,result1.CONCUR_READ_ONLY);
         result1 = state1.executeQuery(sql);//aqui hago consultas y devuelvo los resultados
