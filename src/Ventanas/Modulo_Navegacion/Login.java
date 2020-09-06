@@ -26,7 +26,6 @@ public class Login extends javax.swing.JFrame {
     int x, y;
     static Conexion cc = new Conexion();
     public static Connection cn = cc.conexion();
-    static PreparedStatement ps;
     ResultSet resultado;
     
     public Login() {
