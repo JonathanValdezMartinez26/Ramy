@@ -60,7 +60,7 @@ public class Login extends javax.swing.JFrame {
 
             try {
 
-                resultado = Conexion.consulta("Select ID_Usuario, ID_Rol_Usuario, Nombre_Usuario from Usuario where Usuario = '" + User + "' "
+                resultado = Conexion.consulta("Select ID_Usuario, ID_Rol_Usuario, Nombre_Usuario from usuario where Usuario = '" + User + "' "
                         + " and Contrasena_Usuario = '" + Pass + "' and Estado = " + true);
 
                 while (resultado.next()) {
