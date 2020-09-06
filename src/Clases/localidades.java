@@ -1,7 +1,6 @@
 package Clases;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.*;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
