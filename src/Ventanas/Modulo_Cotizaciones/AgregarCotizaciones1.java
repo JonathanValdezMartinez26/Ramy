@@ -834,8 +834,8 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         
         if(Origenes == "Todos los Origenes")
         {
-//            cmbOrigenes.removeAllItems();
-//            cmbOrigenes.addItem("Sin Origenes Disponibles...");
+//          cmbOrigenes.removeAllItems();
+//          cmbOrigenes.addItem("Sin Origenes Disponibles...");
             try {
 
                 resultado = Conexion.consulta("SELECT ID_ruta from ruta where (ID_Cliente = "+ID_Cliente+")");

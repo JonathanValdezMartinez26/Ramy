@@ -392,10 +392,10 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         pnlorigenes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setText("    Reporte");
+        jLabel15.setText("  ReImprimir");
         pnlorigenes.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ReporteP.png"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/reimprimir.png"))); // NOI18N
         pnlorigenes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, 69));
@@ -512,11 +512,11 @@ public class pnlCotizaciones extends javax.swing.JPanel {
         pnlAyuda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setText("      Ayuda");
+        jLabel17.setText("     Ayuda");
         pnlAyuda.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda30.png"))); // NOI18N
-        pnlAyuda.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, 30, 40));
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda.png"))); // NOI18N
+        pnlAyuda.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 40, 40));
 
         jPanel12.add(pnlAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, -1, 69));
 

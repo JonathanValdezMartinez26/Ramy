@@ -326,7 +326,7 @@ public class Principal_Admin extends javax.swing.JFrame {
         tres.setBackground(new java.awt.Color(239, 238, 244));
         tres.setForeground(new java.awt.Color(128, 128, 131));
         tres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/services.png"))); // NOI18N
-        tres.setText("Servicios");
+        tres.setText("Comparativo Costos");
         tres.setColorHover(new java.awt.Color(204, 204, 204));
         tres.setColorNormal(new java.awt.Color(239, 238, 244));
         tres.setColorPressed(new java.awt.Color(204, 204, 204));

@@ -385,7 +385,7 @@ public class pnlClientes extends javax.swing.JPanel {
         jLabel19.setText("     Global");
         pnlpdf.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ReporteP.png"))); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N
         pnlpdf.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
         jPanel12.add(pnlpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, 69));
@@ -406,11 +406,11 @@ public class pnlClientes extends javax.swing.JPanel {
         pnlAyuda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel21.setText("      Ayuda");
+        jLabel21.setText("     Ayuda");
         pnlAyuda.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda30.png"))); // NOI18N
-        pnlAyuda.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, 30, 40));
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda.png"))); // NOI18N
+        pnlAyuda.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 40, 40));
 
         jPanel12.add(pnlAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 80, 69));
 
