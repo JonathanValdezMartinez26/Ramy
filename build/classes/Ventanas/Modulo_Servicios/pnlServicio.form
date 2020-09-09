@@ -157,7 +157,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="ComboBox.SComboBox" name="cmbOrigen">
+        <Component class="ComboBox.SComboBox" name="cmbOrigenes">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
@@ -169,7 +169,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cmbOrigenItemStateChanged"/>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cmbOrigenesItemStateChanged"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -258,10 +258,15 @@
         <Component class="javax.swing.JTable" name="tabla">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="3" rowCount="0">
+              <Table columnCount="8" rowCount="0">
                 <Column editable="false" title="No." type="java.lang.String"/>
-                <Column editable="false" title="Servicio" type="java.lang.String"/>
-                <Column editable="false" title="Tipo de Servicio" type="java.lang.String"/>
+                <Column editable="false" title="Nombre Cliente" type="java.lang.String"/>
+                <Column editable="false" title="Camioneta 1.5" type="java.lang.String"/>
+                <Column editable="false" title="Camioneta 3.5" type="java.lang.Object"/>
+                <Column editable="false" title="Rab&#xf3;n" type="java.lang.Object"/>
+                <Column editable="false" title="Torthon" type="java.lang.Object"/>
+                <Column editable="false" title="Tr&#xe1;iler" type="java.lang.Object"/>
+                <Column editable="false" title="Fulll" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -271,12 +276,37 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="200" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="200" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="250" resizable="false">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>

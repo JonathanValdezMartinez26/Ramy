@@ -281,10 +281,8 @@ public final class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
     ////////////////////////////////////////////////////////////////////////////
     public void Guardar(){
         
-        
        if(IDCotizacion.getText().equals(""))
             {
-                
                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                 AC.msj1.setText("¡Elija un");
                 AC.msj2.setText("Cliente para Continuar");
@@ -307,7 +305,6 @@ public final class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                     int ID_Destinos = cmbDestinos.getSelectedIndex();
                     int ID_Destino1 = ID_Des[ID_Destinos];
                     
-              
                 if(comboOrigen==0)
                     {
                         Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
@@ -315,7 +312,6 @@ public final class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                         AC.msj2.setText("Origen");
                         AC.setVisible(true);
                     }
-                
                 else
                 {
                     if(comboDestino==0)
@@ -898,7 +894,7 @@ public final class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             if (evt.getStateChange() == ItemEvent.SELECTED) {
             
             int ID_Client = cmbCliente.getSelectedIndex();
-           int ID_Cliente = ID_Cli[ID_Client];
+            int ID_Cliente = ID_Cli[ID_Client];
             int i = 1;
 
            //JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
@@ -927,10 +923,6 @@ public final class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
             Opciones.listarCotizaciones("");
             
          }
-         
-         
-         
-         
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
     private void buscarConsoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarConsoKeyReleased

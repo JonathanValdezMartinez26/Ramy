@@ -170,9 +170,9 @@
                         <Column editable="false" title="Destino" type="java.lang.String"/>
                         <Column editable="false" title="Camioneta 1.5" type="java.lang.Object"/>
                         <Column editable="false" title="Camioneta 3.5" type="java.lang.String"/>
-                        <Column editable="false" title="Rabon" type="java.lang.Object"/>
+                        <Column editable="false" title="Rab&#xf3;n" type="java.lang.Object"/>
                         <Column editable="false" title="Torthon" type="java.lang.Object"/>
-                        <Column editable="false" title="Trailer" type="java.lang.Object"/>
+                        <Column editable="false" title="Tr&#xe1;iler" type="java.lang.Object"/>
                         <Column editable="false" title="Fulll" type="java.lang.Object"/>
                         <Column editable="true" title="Selecciona" type="java.lang.Boolean"/>
                       </Table>
