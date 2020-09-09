@@ -1,6 +1,5 @@
 package Ventanas.Modulo_Bitacora;
 
-import Ventanas.Modulo_Tipo_Servicio.*;
 import A_tabla.EstiloTablaHeader;
 import A_tabla.EstiloTablaRenderer;
 import A_tabla.MyScrollbarUI;
@@ -9,7 +8,6 @@ import Clases.Conexion;
 import Ventanas.CotizacionReporte.ConfigCotizacionbitaAju;
 import static Ventanas.Modulo_Bitacora.pnlBitacora.buscar;
 import static Ventanas.Modulo_Bitacora.pnlBitacora.tablabitacora;
-import Ventanas.Modulo_Servicios.ModificarServicio;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.MouseInfo;
@@ -77,29 +75,6 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
 
     public pnlBitacoraAjustes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-     public void Modificar()
-    {
-        int Fila = tablaDatosAjuste.getSelectedRow();
-      
-            if(Fila >= 0)
-        {
-            int ID = Integer.parseInt(tablaDatosAjuste.getValueAt(Fila, 0).toString());
-            ModificarTipoServicio ME = new ModificarTipoServicio(null, true);
-            ME.CargarDatos(ID);
-//            ME.setVE(this);
-            ME.setVisible(true);
-        }
-    else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("A modificar");
-            AC.setVisible(true);
-        }
-        
-        
     }
     
     @SuppressWarnings("unchecked")
@@ -503,9 +478,7 @@ public class pnlBitacoraAjustes extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlagregarMouseEntered
 
     private void pnlagregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseClicked
-        AgregarTipoServicio poper = new AgregarTipoServicio(null, true);
-        poper.setVisible(true);
-
+      
     }//GEN-LAST:event_pnlagregarMouseClicked
 
     private void tablabitacoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablabitacoraMouseClicked

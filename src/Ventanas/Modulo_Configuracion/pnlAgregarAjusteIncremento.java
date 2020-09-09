@@ -1,13 +1,11 @@
 package Ventanas.Modulo_Configuracion;
 
 import Ventanas.Modulo_Bitacora.*;
-import Ventanas.Modulo_Tipo_Servicio.*;
 import A_tabla.EstiloTablaHeader;
 import A_tabla.EstiloTablaRenderer;
 import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import Clases.Conexion;
-import Ventanas.Modulo_Servicios.ModificarServicio;
 import java.awt.Color;
 import java.awt.MouseInfo;
 import java.awt.Point;

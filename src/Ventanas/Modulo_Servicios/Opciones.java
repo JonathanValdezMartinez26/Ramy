@@ -21,22 +21,15 @@ public class Opciones {
     static PreparedStatement ps;
 
     
-    public static void listar(String busca) {
+    public static void listar(int ID_Origen, int ID_Destino) {
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Servicios.pnlServicio.tabla.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
-        String sql = "";
-        if (busca.equals("")) {
-            sql = Clases.Servicios .LISTAR;
-        } else {
-            
-            sql = "SELECT * FROM Serviciov WHERE (ID_Servicio LIKE'" + busca + "%' OR "
-                    + "Nombre_Servicio LIKE'" + busca + "%' OR Nombre_Tipo_Servicio LIKE'" + busca + "%')"
-                    + " ORDER BY ID_Servicio";
-           }
-        String datos[] = new String[3];
+        String sql = "SELECT Id_Ruta, Nombre_Cliente,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full  from `rutav` WHERE ID_Municipio_Origen = "+ ID_Origen+ " and ID_Municipio_Destino = "+ ID_Destino;
+           
+        String datos[] = new String[8];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -45,6 +38,11 @@ public class Opciones {
                 datos [0] = String.valueOf(rs.getInt(1));
                 datos [1] = rs.getString(2);
                 datos [2] = rs.getString(3);
+                datos [3] = rs.getString(4);
+                datos [4] = rs.getString(5);
+                datos [5] = rs.getString(6);
+                datos [6] = rs.getString(7);
+                datos [7] = rs.getString(8);
                 
                
                 modelo.addRow(datos);

@@ -31,9 +31,6 @@ import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.Registrar.tabla3;
 import static Ventanas.Modulo_Cotizaciones.Opciones.cn;
 import Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta;
-
-import Ventanas.Modulo_Tipo_Servicio.ModificarTipoServicio;
-import static Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio.tabla;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
 import java.awt.BorderLayout;

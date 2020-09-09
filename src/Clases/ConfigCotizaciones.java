@@ -1,7 +1,5 @@
 package Clases;
 
-import Ventanas.Modulo_Tipo_Servicio.AgregarTipoServicio;
-import Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

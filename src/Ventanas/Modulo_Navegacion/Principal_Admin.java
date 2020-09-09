@@ -8,7 +8,6 @@ import Ventanas.Modulo_Bitacora.pnlBitacora;
 import Ventanas.Modulo_Servicios.pnlServicio;
 import Ventanas.Modulo_Cliente.pnlPacientePersonalizado;
 import Ventanas.Modulo_Cotizaciones.pnlCotizaciones;
-import Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio;
 import Ventanas.Modulo_Reportes.pnlReportes;
 import Ventanas.Modulo_Transportes.pnlTransportes;
 import Ventanas.Modulo_Usuario.pnlUsuarios;

@@ -4,8 +4,6 @@ import A_tabla.*;
 import Clases.Conexion;
 import static Ventanas.Modulo_Cliente.Opciones.cn;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.IDCotizacion;
-import Ventanas.Modulo_Tipo_Servicio.AgregarTipoServicio;
-import Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
@@ -32,7 +30,6 @@ public class pnlServicio extends javax.swing.JPanel {
     public pnlServicio() 
     {
         initComponents();
-        Opciones.listar("");
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
         this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
@@ -42,11 +39,13 @@ public class pnlServicio extends javax.swing.JPanel {
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         Clientes();
+        Origenes();
+        Destinos();
     }
     
     ResultSet resultado, resultados;
     int ID_Tran [];
-    int ID_Ori [];
+    int ID_Orig [];
     int ID_Des [];
     int ID_Cli[];
     
@@ -86,27 +85,52 @@ public class pnlServicio extends javax.swing.JPanel {
         }
     }
     
-    public void Modificar()
+       public void Origenes()
     {
-        int Fila = tabla.getSelectedRow();
-        if(Fila >= 0)
-        {
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            String tipo = (tabla.getValueAt(Fila, 2).toString());
+         int ID_Origen = 0;
 
-            ModificarServicio MM = new ModificarServicio(null, true);
-            MM.CargarDatos(ID,tipo);
-            MM.setVM(this);
-            MM.setVisible(true);
+        try {
+
+            resultado = Conexion.consulta("Select Max(ID_Ruta) from rutav");
+
+            while (resultado.next()) {
+                ID_Origen = resultado.getInt(1);
+            }
+        } catch (SQLException ex) {
+
         }
-    else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡ Seleccione el registro !");
-            AC.msj2.setText("A modificar");
-            AC.setVisible(true);
-        }
+
+        ID_Origen++;
+
+        ID_Orig = new int[ID_Origen];
+        ID_Orig[0] = 0;
+        
     }
+    
+    public void Destinos()
+    {
+         int ID_Destino = 0;
+
+        try {
+
+            resultado = Conexion.consulta("Select Max(ID_Ruta) from rutav");
+
+            while (resultado.next()) {
+                ID_Destino = resultado.getInt(1);
+            }
+        } catch (SQLException ex) {
+
+        }
+
+        ID_Destino++;
+
+        ID_Des = new int[ID_Destino];
+
+        ID_Des[0] = 0;
+        
+    }
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -279,17 +303,13 @@ public class pnlServicio extends javax.swing.JPanel {
         pnlorigenes.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlorigenesMouseExited
 
-    private void cmbDestinoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbDestinoItemStateChanged
-       
-    }//GEN-LAST:event_cmbDestinoItemStateChanged
-
-    private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
+    private void cmbClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbOrigenesItemStateChanged
+    }//GEN-LAST:event_cmbClienteActionPerformed
 
     private void cmbClienteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbClienteItemStateChanged
-           if (evt.getStateChange() == ItemEvent.SELECTED) {
-            
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+
             int ID_Client = cmbCliente.getSelectedIndex();
             int ID_Cliente = ID_Cli[ID_Client];
             int i = 1;
@@ -301,28 +321,96 @@ public class pnlServicio extends javax.swing.JPanel {
             try {
 
                 resultado = Conexion.consulta("SELECT ID_Municipio_Origen, Origen from rutav where "
-                        + "(ID_Cliente = "+ID_Cliente+") GROUP BY Origen");
+                    + "(ID_Cliente = "+ID_Cliente+") GROUP BY Origen");
 
                 while (resultado.next()) {
-                    ID_Ori[i] = resultado.getInt(1);
+                    ID_Orig[i] = resultado.getInt(1);
                     cmbOrigenes.addItem(resultado.getString(2).trim());
                     i++;
                 }
-            } 
-            catch (SQLException ex) 
-            {
-                
             }
-         }
+            catch (SQLException ex) {
+            }
+
+        }
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
-    private void cmbClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbClienteActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
+        int ID_Origen = cmbOrigenes.getSelectedIndex();
+        int ID_Origenes = ID_Orig[ID_Origen];
+       
+        
+        int ID_Destin = cmbDestino.getSelectedIndex();
+        int ID_Destinos = ID_Des[ID_Destin];
+        
+        
+        if(ID_Origenes == 0 && ID_Destinos == 0)
+            {
+                 JOptionPane.showMessageDialog(null, "Seleccione un Origen y Un Destino");
+            }
+        else
+        {
+            Opciones.listar(ID_Origenes, ID_Destinos);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cmbDestinoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbDestinoItemStateChanged
+        
+    }//GEN-LAST:event_cmbDestinoItemStateChanged
+
+    private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+        
+        int ID_Client = cmbCliente.getSelectedIndex();
+        int ID_Cliente = ID_Cli[ID_Client];
+        int i = 0;
+        
+        int ID_Origen = cmbOrigenes.getSelectedIndex();
+        int ID_Origenes = ID_Orig[ID_Origen];
+        int ID_OrigenB=0;
+        
+        int ID_Destin = cmbDestino.getSelectedIndex();
+            int ID_Destinos = ID_Des[ID_Destin];
+            int ID_DestinoB=0;
+        
+        
+        ///////Obtener Id origen
+                    try {
+                resultado = Conexion.consulta("SELECT ID_Origen from origen where "
+                        + "ID_Municipio="+ID_Origenes);
+                //select ID_Origen from origen WHERE ID_Municipio=688
+
+                while (resultado.next()) {
+                    ID_OrigenB = resultado.getInt(1);
+                    //cmbOrigenes.addItem(resultado.getString(2).trim());
+                    i++;
+                }
+            } 
+            catch (SQLException ex) {
+            }            
+                  
+                    
+         /////////////////
+         
+         
+//         
+        cmbDestino.removeAllItems();
+        cmbDestino.addItem("Seleccione un Destino");
+        
+        try {
+            resultado = Conexion.consulta("SELECT ID_Municipio_Destino, Destino from rutav where "
+                    + "(ID_Cliente = "+ID_Cliente+") and (ID_Municipio_Origen = "+ID_Origenes+") GROUP BY Destino");
+
+            while (resultado.next()) {
+                ID_Des[i] = resultado.getInt(1);
+                cmbDestino.addItem(resultado.getString(2).trim());
+                i++;
+            }
+        } catch (SQLException ex) {
+
+        }
+      }
+    }//GEN-LAST:event_cmbOrigenesItemStateChanged
     DefaultTableModel model = new DefaultTableModel() {
         
         @Override
@@ -336,7 +424,7 @@ public class pnlServicio extends javax.swing.JPanel {
     private ComboBox.SComboBox cmbCliente;
     private ComboBox.SComboBox cmbDestino;
     private ComboBox.SComboBox cmbOrigenes;
-    public static JButtonEspecial.JButtonEspecial jButton1;
+    private JButtonEspecial.JButtonEspecial jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

@@ -3,8 +3,6 @@ package Ventanas.Modulo_Transportes;
 import Ventanas.Modulo_Transportes.Opciones;
 import A_tabla.*;
 import Clases.Conexion;
-import Ventanas.Modulo_Tipo_Servicio.AgregarTipoServicio;
-import Ventanas.Modulo_Tipo_Servicio.pnlTipoServicio;
 import Ventanas.Modulo_Tipo_Transportes.pnlTipoTransportes;
 import java.awt.BorderLayout;
 import java.awt.Color;

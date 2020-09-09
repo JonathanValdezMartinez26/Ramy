@@ -1,12 +1,10 @@
 package Ventanas.Modulo_Configuracion;
 
-import Ventanas.Modulo_Tipo_Servicio.*;
 import A_tabla.EstiloTablaHeader;
 import A_tabla.EstiloTablaRenderer;
 import A_tabla.MyScrollbarUI;
 import Alerts.AWTUtilities;
 import Clases.Conexion;
-import Ventanas.Modulo_Servicios.ModificarServicio;
 import java.awt.Color;
 import java.awt.MouseInfo;
 import java.awt.Point;
@@ -45,28 +43,7 @@ public class pnlAjustes extends javax.swing.JDialog {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-     public void Modificar()
-    {
-        int Fila = tabla.getSelectedRow();
-      
-            if(Fila >= 0)
-        {
-            int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());
-            ModificarTipoServicio ME = new ModificarTipoServicio(null, true);
-            ME.CargarDatos(ID);
-//            ME.setVE(this);
-            ME.setVisible(true);
-        }
-    else
-        {
-            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-            AC.msj1.setText("¡Seleccione el registro!");
-            AC.msj2.setText("A modificar");
-            AC.setVisible(true);
-        }
-        
-        
-    }
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

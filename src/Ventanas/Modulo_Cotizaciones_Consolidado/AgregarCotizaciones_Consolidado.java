@@ -355,7 +355,6 @@ public final class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                                       AC.setVisible(true);
                                       Opciones.listar("", ID_Cotizacion);
                                      txtTipo_Concepto.setText("");
-
                             }
 
                              else
@@ -365,9 +364,6 @@ public final class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
                                   AC.msj2.setText("los datos ingresados  ");
                                   AC.setVisible(true);
                             }
-
-
-
                       }
                             else
                             {
