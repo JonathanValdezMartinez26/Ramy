@@ -41,8 +41,8 @@ public void Conectar(String user,String pass)throws SQLException,ClassNotFoundEx
         //con = DriverManager.getConnection("jdbc:mysql://localhost/clinica?useUnicode=true&characterEncoding=utf-8","root", "");
         //con = DriverManager.getConnection("jdbc:mysql://192.168.0.14:3306/clinica?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema=true","root", "");            
         } catch (ClassNotFoundException  | SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en la conexión desde conexion " + ex);
-            //System.out.println("Error en la conexión" + ex+ "Error en la conexion 2"+ClassNotFoundException);
+            //JOptionPane.showMessageDialog(null, "Error en la conexión desde conexion " + ex);
+            System.out.println("Error en la conexión" + ex+ "Error en la conexion 2");
         }
         return con;
     }   
