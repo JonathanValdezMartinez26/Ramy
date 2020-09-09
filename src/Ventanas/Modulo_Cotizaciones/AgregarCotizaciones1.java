@@ -420,7 +420,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_Cotizacion", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Rabon", "Torthon", "Trailer", "Fulll", "Selecciona"
+                "ID_Cotizacion", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Rabón", "Torthon", "Tráiler", "Fulll", "Selecciona"
             }
         ) {
             Class[] types = new Class [] {
@@ -780,7 +780,6 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             cmbOrigenes.addItem("Todos los Origenes");
 
             try {
-
                 resultado = Conexion.consulta("SELECT ID_Municipio_Origen, Origen from rutav where "
                         + "(ID_Cliente = "+ID_Cliente+") GROUP BY Origen");
 

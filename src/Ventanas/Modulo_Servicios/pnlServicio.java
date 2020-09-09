@@ -27,11 +27,6 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 
-/**
- *
- * @author Jonathan Valdez
- */
-
 public class pnlServicio extends javax.swing.JPanel {
 
     public pnlServicio() 
@@ -47,7 +42,6 @@ public class pnlServicio extends javax.swing.JPanel {
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         Clientes();
-        
     }
     
     ResultSet resultado, resultados;
@@ -105,15 +99,14 @@ public class pnlServicio extends javax.swing.JPanel {
             MM.setVM(this);
             MM.setVisible(true);
         }
-    else{
+    else
+        {
             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
             AC.msj1.setText("¡ Seleccione el registro !");
             AC.msj2.setText("A modificar");
-            AC.setVisible(true);  
+            AC.setVisible(true);
         }
     }
-    
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -127,7 +120,7 @@ public class pnlServicio extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        cmbOrigen = new ComboBox.SComboBox();
+        cmbOrigenes = new ComboBox.SComboBox();
         cmbDestino = new ComboBox.SComboBox();
         jButton1 = new JButtonEspecial.JButtonEspecial();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -183,14 +176,14 @@ public class pnlServicio extends javax.swing.JPanel {
         jLabel1.setText("Se muestran los resultados para el Origen Estado de Mexico y Destino Toluca con el destino ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 34, 740, 30));
 
-        cmbOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Origen" }));
-        cmbOrigen.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cmbOrigen.addItemListener(new java.awt.event.ItemListener() {
+        cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Origen" }));
+        cmbOrigenes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cmbOrigenes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbOrigenItemStateChanged(evt);
+                cmbOrigenesItemStateChanged(evt);
             }
         });
-        jPanel1.add(cmbOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 230, 30));
+        jPanel1.add(cmbOrigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 230, 30));
 
         cmbDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Destino" }));
         cmbDestino.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -224,14 +217,14 @@ public class pnlServicio extends javax.swing.JPanel {
 
             },
             new String [] {
-                "No.", "Servicio", "Tipo de Servicio"
+                "No.", "Nombre Cliente", "Camioneta 1.5", "Camioneta 3.5", "Rabón", "Torthon", "Tráiler", "Fulll"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -247,9 +240,14 @@ public class pnlServicio extends javax.swing.JPanel {
         if (tabla.getColumnModel().getColumnCount() > 0) {
             tabla.getColumnModel().getColumn(0).setResizable(false);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(5);
+            tabla.getColumnModel().getColumn(1).setResizable(false);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(200);
             tabla.getColumnModel().getColumn(2).setResizable(false);
-            tabla.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tabla.getColumnModel().getColumn(3).setResizable(false);
+            tabla.getColumnModel().getColumn(4).setResizable(false);
+            tabla.getColumnModel().getColumn(5).setResizable(false);
+            tabla.getColumnModel().getColumn(6).setResizable(false);
+            tabla.getColumnModel().getColumn(7).setResizable(false);
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 1086, 430));
@@ -285,60 +283,37 @@ public class pnlServicio extends javax.swing.JPanel {
        
     }//GEN-LAST:event_cmbDestinoItemStateChanged
 
-    private void cmbOrigenItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenItemStateChanged
+    private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbOrigenItemStateChanged
+    }//GEN-LAST:event_cmbOrigenesItemStateChanged
 
     private void cmbClienteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbClienteItemStateChanged
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
-        
-        int ID_Client = cmbCliente.getSelectedIndex();
-        int ID_Cliente = ID_Cli[ID_Client];
-        int i = 1;
-        
-        int ID_Origen = cmbOrigen.getSelectedIndex();
-        int ID_Origenes = ID_Ori[ID_Origen];
-        
-//        String Origenes = (String) cmbOrigen.getSelectedItem();
-        
-//        if(Origenes == "Todos los Origenes")
-//        {
-//            cmbOrigenes.removeAllItems();
-//            cmbOrigenes.addItem("Sin Origenes Disponibles...");
+           if (evt.getStateChange() == ItemEvent.SELECTED) {
+            
+            int ID_Client = cmbCliente.getSelectedIndex();
+            int ID_Cliente = ID_Cli[ID_Client];
+            int i = 1;
+
+            //JOptionPane.showMessageDialog(null,"ID_CLiente " + ID_Cliente);
+            cmbOrigenes.removeAllItems();
+            cmbOrigenes.addItem("Seleccione un Origen");
+
             try {
 
-                resultado = Conexion.consulta("SELECT ID_ruta from ruta where (ID_Cliente = "+ID_Cliente+")");
-                int ID = 0;
-                int ID_Cotiza = Integer.parseInt(IDCotizacion.getText());
-                while (resultado.next()) 
-                {
-                     ID = resultado.getInt(1);
-                    i++;
-                    
-                    String q = " INSERT INTO asigna_cotizacion(ID_asigna_Cotizacion,ID_Cotizacion,ID_ruta,Fecha_Alta, Estado)"
-                                        + "VALUES (NULL,'"+ID_Cotiza+"',"+ID+",current_timestamp(), 0)";      
-                                        try {
-                                            PreparedStatement pstm = cn.prepareStatement(q);
-                                            pstm.execute();
-                                            pstm.close();
-                                    
-                                            }
-                                        catch(SQLException e)
-                                        {            
-                                            System.out.println(e);
-                                        }
-                }
-                Ventanas.Modulo_Cotizaciones.Opciones.listar("", ID_Cotiza);
-//                guardarAutomatico();
-                 
-                 
-            } 
-            catch (SQLException ex) {
+                resultado = Conexion.consulta("SELECT ID_Municipio_Origen, Origen from rutav where "
+                        + "(ID_Cliente = "+ID_Cliente+") GROUP BY Origen");
 
+                while (resultado.next()) {
+                    ID_Ori[i] = resultado.getInt(1);
+                    cmbOrigenes.addItem(resultado.getString(2).trim());
+                    i++;
+                }
+            } 
+            catch (SQLException ex) 
+            {
+                
             }
-        }
-       
-//    }        
+         }
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
     private void cmbClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClienteActionPerformed
@@ -360,7 +335,7 @@ public class pnlServicio extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ComboBox.SComboBox cmbCliente;
     private ComboBox.SComboBox cmbDestino;
-    private ComboBox.SComboBox cmbOrigen;
+    private ComboBox.SComboBox cmbOrigenes;
     public static JButtonEspecial.JButtonEspecial jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
