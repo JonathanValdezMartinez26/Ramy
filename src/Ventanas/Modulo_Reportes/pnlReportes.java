@@ -55,11 +55,6 @@ public class pnlReportes extends javax.swing.JPanel {
         jLabel41 = new javax.swing.JLabel();
         consultas = new javax.swing.JPanel();
         info1 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        pacientes = new javax.swing.JPanel();
-        info2 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
@@ -132,13 +127,13 @@ public class pnlReportes extends javax.swing.JPanel {
         jLabel40.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(46, 48, 146));
         jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel40.setText("REPORTES");
+        jLabel40.setText("       REPORTES");
         jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 176, 150, -1));
 
         jLabel41.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(46, 48, 146));
         jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel41.setText("TRANSPORTES");
+        jLabel41.setText("       TRANSPORTES");
         jPanel7.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 199, 150, -1));
 
         consultas.setBackground(new java.awt.Color(51, 0, 153));
@@ -174,79 +169,9 @@ public class pnlReportes extends javax.swing.JPanel {
                 .addComponent(info1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
         );
 
-        jPanel7.add(consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, -1));
+        jPanel7.add(consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 170, -1));
 
-        pnlConf_1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, 230));
-
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel42.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(46, 48, 146));
-        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel42.setText("REPORTES");
-
-        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(46, 48, 146));
-        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel43.setText("SERVICIOS");
-
-        pacientes.setBackground(new java.awt.Color(51, 0, 153));
-        pacientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
-        pacientes.setForeground(new java.awt.Color(204, 0, 0));
-        pacientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pacientesMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pacientesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pacientesMouseExited(evt);
-            }
-        });
-
-        info2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        info2.setForeground(new java.awt.Color(102, 102, 102));
-        info2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btbServicios.png"))); // NOI18N
-
-        javax.swing.GroupLayout pacientesLayout = new javax.swing.GroupLayout(pacientes);
-        pacientes.setLayout(pacientesLayout);
-        pacientesLayout.setHorizontalGroup(
-            pacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(info2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        pacientesLayout.setVerticalGroup(
-            pacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pacientesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(info2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(pacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel42)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel43)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        pnlConf_1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, -1, 230));
+        pnlConf_1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, -1, 230));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -341,18 +266,6 @@ public class pnlReportes extends javax.swing.JPanel {
     private void consultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consultasMouseExited
         consultas.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.white,Color.white));
     }//GEN-LAST:event_consultasMouseExited
-
-    private void pacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pacientesMouseClicked
-       ver_SER();
-    }//GEN-LAST:event_pacientesMouseClicked
-
-    private void pacientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pacientesMouseEntered
-        pacientes.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.DARK_GRAY, Color.LIGHT_GRAY));
-    }//GEN-LAST:event_pacientesMouseEntered
-
-    private void pacientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pacientesMouseExited
-        pacientes.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.white,Color.white));
-    }//GEN-LAST:event_pacientesMouseExited
 
     private void usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosMouseClicked
         ver_U();
@@ -559,14 +472,11 @@ public class pnlReportes extends javax.swing.JPanel {
     private javax.swing.JPanel consultas;
     public static javax.swing.JLabel info;
     public static javax.swing.JLabel info1;
-    public static javax.swing.JLabel info2;
     public static javax.swing.JLabel info5;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel6;
@@ -576,8 +486,6 @@ public class pnlReportes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel pacientes;
     private javax.swing.JPanel pnlConf_1;
     private javax.swing.JPanel usuarios;
     // End of variables declaration//GEN-END:variables

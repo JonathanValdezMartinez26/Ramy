@@ -1061,7 +1061,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
        int existenombre2 = 0;
             int existeprecio2 = 0;
             for (int i = 0; i < tablaR.getRowCount(); i++) {                                                 
-                 if(tablaR.getValueAt(i, 4).toString().equals("0")){
+                 if(tablaR.getValueAt(i, 4).toString().equals("0") || tablaR.getValueAt(i, 4).toString().equals("0.0")){
                      existeprecio2++;
                  }                                 
         }
@@ -1225,6 +1225,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
         int ID_Client = cmbCliente.getSelectedIndex();
         int ID_Cliente = ID_Cli[ID_Client];
         int i = 0;
+        int i2=1;
         
         int ID_Origen = cmbOrigenes.getSelectedIndex();
         int ID_Origenes = ID_Ori[ID_Origen];
@@ -1249,7 +1250,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
             } 
             catch (SQLException ex) {
             }            
-                    lblID_Origen.setText(""+ID_OrigenB);
+                    this.lblID_Origen.setText(""+ID_OrigenB);
                     
          /////////////////
          
@@ -1263,9 +1264,9 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
                     + "(ID_Cliente = "+ID_Cliente+") and (ID_Municipio_Origen = "+ID_Origenes+") GROUP BY Destino");
 
             while (resultado.next()) {
-                ID_Des[i] = resultado.getInt(1);
+                ID_Des[i2] = resultado.getInt(1);
                 cmbDestinos.addItem(resultado.getString(2).trim());
-                i++;
+                i2++;
             }
         } catch (SQLException ex) {
 
