@@ -143,7 +143,7 @@ public class pnlServicio extends javax.swing.JPanel {
         jLabel16 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
+        msj = new javax.swing.JLabel();
         cmbOrigenes = new ComboBox.SComboBox();
         cmbDestino = new ComboBox.SComboBox();
         jButton1 = new JButtonEspecial.JButtonEspecial();
@@ -197,8 +197,8 @@ public class pnlServicio extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 1085, 5));
 
-        jLabel1.setText("Se muestran los resultados para el Origen Estado de Mexico y Destino Toluca con el destino ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 34, 740, 30));
+        msj.setText("Se muestran los resultados para el Origen Estado de Mexico y Destino Toluca con el destino ");
+        jPanel1.add(msj, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 34, 1060, 30));
 
         cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Origen" }));
         cmbOrigenes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -232,7 +232,7 @@ public class pnlServicio extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 220, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 140, 30));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1105, 85));
 
@@ -310,6 +310,7 @@ public class pnlServicio extends javax.swing.JPanel {
     private void cmbClienteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbClienteItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
 
+            msj.setText("");
             int ID_Client = cmbCliente.getSelectedIndex();
             int ID_Cliente = ID_Cli[ID_Client];
             int i = 1;
@@ -336,11 +337,17 @@ public class pnlServicio extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbClienteItemStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int ID_Client = cmbCliente.getSelectedIndex();
+        String ID_Client1 = (String) cmbCliente.getSelectedItem();
+        int ID_Cliente = ID_Cli[ID_Client];
+        
         int ID_Origen = cmbOrigenes.getSelectedIndex();
+        String ID_Origen1 = (String) cmbOrigenes.getSelectedItem();
         int ID_Origenes = ID_Orig[ID_Origen];
        
         
         int ID_Destin = cmbDestino.getSelectedIndex();
+        String ID_Destin1 = (String) cmbDestino.getSelectedItem();
         int ID_Destinos = ID_Des[ID_Destin];
         
         
@@ -351,16 +358,19 @@ public class pnlServicio extends javax.swing.JPanel {
         else
         {
             Opciones.listar(ID_Origenes, ID_Destinos);
+            msj.setText("Se muestran los resultados para la busqueda con el cliente: "+ID_Client1+ ", Con el Origen: "+ ID_Origen1+", Y el destino: "+ID_Destin1);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cmbDestinoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbDestinoItemStateChanged
-        
+     msj.setText("");
     }//GEN-LAST:event_cmbDestinoItemStateChanged
 
     private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
         
+        msj.setText("");
+            
         int ID_Client = cmbCliente.getSelectedIndex();
         int ID_Cliente = ID_Cli[ID_Client];
         int i = 0;
@@ -424,8 +434,7 @@ public class pnlServicio extends javax.swing.JPanel {
     private ComboBox.SComboBox cmbCliente;
     private ComboBox.SComboBox cmbDestino;
     private ComboBox.SComboBox cmbOrigenes;
-    private JButtonEspecial.JButtonEspecial jButton1;
-    private javax.swing.JLabel jLabel1;
+    public static JButtonEspecial.JButtonEspecial jButton1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel6;
@@ -434,6 +443,7 @@ public class pnlServicio extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel msj;
     private javax.swing.JPanel pnlorigenes;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
