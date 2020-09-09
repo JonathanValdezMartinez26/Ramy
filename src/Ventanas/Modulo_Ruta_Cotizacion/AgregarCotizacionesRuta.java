@@ -1190,7 +1190,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
        int existenombre2 = 0;
             int existeprecio2 = 0;
             for (int i = 0; i < tabla.getRowCount(); i++) {                                                 
-                 if(tabla.getValueAt(i, 4).toString().equals("0")){
+                 if(tabla.getValueAt(i, 4).toString().equals("0") || tabla.getValueAt(i, 4).toString().equals("0.0")){
                      existeprecio2++;
                  }                                 
         }

@@ -193,6 +193,7 @@ public class Opciones {
         } catch (SQLException ex) {
             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //System.out.println("1");
     }
     ///////////////////////////////////////////////////////////////////
     public static int verificaConsolidado(int ID_Cotizacion,int ID_Origen,int ID_Destino,String Consolidado) {

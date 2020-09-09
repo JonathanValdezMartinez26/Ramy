@@ -1261,7 +1261,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
        int existenombre2 = 0;
             int existeprecio2 = 0;
             for (int i = 0; i < tablaR.getRowCount(); i++) {                                                 
-                 if(tablaR.getValueAt(i, 4).toString().equals("0")){
+                 if(tablaR.getValueAt(i, 4).toString().equals("0") || tablaR.getValueAt(i, 4).toString().equals("0.0")){
                      existeprecio2++;
                  }                                 
         }
