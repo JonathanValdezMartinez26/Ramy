@@ -102,6 +102,7 @@ public class Opciones {
         } catch (SQLException ex) {
             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //JOptionPane.showMessageDialog(null, "Desde listar ");
     }
     public static void eliminarCotizacion(int ID) {
         
