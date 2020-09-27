@@ -13,11 +13,11 @@ public void Conectar(String user,String pass)throws SQLException,ClassNotFoundEx
 {  
             DriverManager.registerDriver( new com.mysql.cj.jdbc.Driver());
             
-          //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?noAccessToProcedureBodies=true&autoReconnect=true", user, pass);
-          //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema=true", user, pass);
+            //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?noAccessToProcedureBodies=true&autoReconnect=true", user, pass);
+            //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema=true", user, pass);
         
-          //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?confluence&autoReconnect=true&useInformationSchema=true", user, pass);
-//con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?useUnicode=true&characterEncoding=utf-8", user, pass);
+            //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?confluence&autoReconnect=true&useInformationSchema=true", user, pass);
+            //con = DriverManager.getConnection("jdbc:mysql://64.34.157.80:3306/ramy8102_ctz_01?useUnicode=true&characterEncoding=utf-8", user, pass);
 
     con = DriverManager.getConnection("jdbc:mysql://192.168.0.14:3306/clinica?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema=true",user, pass);            
             state=con.createStatement(result.TYPE_SCROLL_SENSITIVE,result.CONCUR_UPDATABLE);
