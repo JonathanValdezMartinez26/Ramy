@@ -1336,6 +1336,14 @@ public class Registrar extends javax.swing.JDialog {
             String IDCliente=ID_C.getText();           
             confirmarEliminar(IDRuta,IDCliente);
         }
+             if (evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER)
+            {
+               evt.setKeyCode(java.awt.event.KeyEvent.VK_TAB);
+               {
+                   
+               }
+            }
+             
     }//GEN-LAST:event_tabla3KeyPressed
 
     private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
