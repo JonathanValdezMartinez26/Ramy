@@ -34,18 +34,20 @@ public class ConfigCotizaciones {
         }
     }
 
-    public static void Actualizar_Tipo(int ID, String parte1,String at,String primerap,String puesto,String segundap,String puesto2) {
+    public static void Actualizar_Tipo(int ID, String parte1,String parte2,String parte3,String at,String primerap,String puesto,String segundap,String puesto2) {
 
         try {
-                CallableStatement consulta = Conexion.con.prepareCall("{call Modificarpie (?,?,?,?,?,?,?) }");
+                CallableStatement consulta = Conexion.con.prepareCall("{call Modificarpie4 (?,?,?,?,?,?,?,?,?) }");
 
                 consulta.setInt(1, ID);
                 consulta.setString(2, parte1);
-                consulta.setString(3,  at);
-                consulta.setString(4, primerap);
-                consulta.setString(5, puesto);
-                consulta.setString(6, segundap);
-                consulta.setString(7, puesto2);
+                consulta.setString(3, parte2);
+                consulta.setString(4, parte3);
+                consulta.setString(5,  at);
+                consulta.setString(6, primerap);
+                consulta.setString(7, puesto);
+                consulta.setString(8, segundap);
+                consulta.setString(9, puesto2);
                 
                 consulta.execute();
             
