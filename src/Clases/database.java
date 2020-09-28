@@ -115,11 +115,11 @@ public class database {
         }
         return res;
     }
-    public boolean updateNombreServicio(String nuevoNombre, String id)
+    public boolean updateNombreAdicional(String nuevoNombre, String id)
     {
         boolean res = false;
         //JOptionPane.showMessageDialog(null, valores+ " "+ id);
-        String q = " UPDATE servicios SET Nombre_Servicio= '"+nuevoNombre+"' WHERE ID_Servicio= " + id;
+        String q = " UPDATE servicios SET Nombre= '"+nuevoNombre+"' WHERE ID_Servicio= " + id;
         try {
             PreparedStatement pstm = conn.prepareStatement(q);
             pstm.execute();
@@ -130,11 +130,11 @@ public class database {
         }
         return res;
     }
-    public boolean updatePrecioServicio(String precio, String id)
+    public boolean updateCamioneta15(String precio, String id)
     {
         boolean res = false;
         //JOptionPane.showMessageDialog(null, valores+ " "+ id);
-        String q = " UPDATE servicios SET Precio= '"+precio+"' WHERE ID_Servicio= " + id;
+        String q = " UPDATE servicios SET Camioneta15= '"+precio+"' WHERE ID_Servicio= " + id;
         try {
             PreparedStatement pstm = conn.prepareStatement(q);
             pstm.execute();
@@ -145,6 +145,82 @@ public class database {
         }
         return res;
     }
+    public boolean updateCamioneta35(String precio, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE servicios SET Camioneta35= '"+precio+"' WHERE ID_Servicio= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateRabon(String precio, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE servicios SET Rabon= '"+precio+"' WHERE ID_Servicio= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateTorthon(String precio, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE servicios SET Torthon= '"+precio+"' WHERE ID_Servicio= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateTrailer(String precio, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE servicios SET Trailer= '"+precio+"' WHERE ID_Servicio= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    public boolean updateFull(String precio, String id)
+    {
+        boolean res = false;
+        //JOptionPane.showMessageDialog(null, valores+ " "+ id);
+        String q = " UPDATE servicios SET Full= '"+precio+"' WHERE ID_Servicio= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        return res;
+    }
+    
     public boolean updateNombreServicioMensual(String nuevoNombre, String id)
     {
         boolean res = false;
