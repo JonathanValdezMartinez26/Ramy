@@ -1012,13 +1012,16 @@ public class Registrar extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tabla3.setColumnSelectionAllowed(true);
         tabla3.setRowHeight(25);
+        tabla3.getTableHeader().setReorderingAllowed(false);
         tabla3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tabla3KeyPressed(evt);
             }
         });
         jScrollPane3.setViewportView(tabla3);
+        tabla3.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         if (tabla3.getColumnModel().getColumnCount() > 0) {
             tabla3.getColumnModel().getColumn(0).setMinWidth(0);
             tabla3.getColumnModel().getColumn(0).setPreferredWidth(0);
