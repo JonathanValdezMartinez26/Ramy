@@ -120,6 +120,21 @@ public class Opciones {
         }
         return existe;
     }
+     ///////////////////////////////////////////////////////////////////
+    public static int verificaDestino1(int ID) {
+        int existe = 0;
+        String SQL = "select count(*) from destino where ID_Cliente = '"+ ID+"'";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                existe = rs.getInt(1);
+            }           
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return existe;
+    }
     //////////////////////////////////////////////////////////////////
     public static int verificaDestino(int ID, int Municipio) {
         int existe = 0;

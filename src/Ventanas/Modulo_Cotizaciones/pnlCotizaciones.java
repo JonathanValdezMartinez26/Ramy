@@ -102,10 +102,37 @@ public class pnlCotizaciones extends javax.swing.JPanel {
                         }
                     
                     }else{
-                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                        AC.msj1.setText("¡Esta cotización!");
-                        AC.msj2.setText("A sido finalizada");
-                        AC.setVisible(true);
+                            if(status.equals("FINALIZADA")){
+                             if(tipo.equals("DIRECTA")){
+                             int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+                             ModificarCotizaciones MP = new ModificarCotizaciones(null, true);
+                             MP.CargarDatos(ID);
+                             //MP.setPP(this);
+                             MP.setVisible(true);
+                             }else{
+                                 if(tipo.equals("RENTA")){
+                                     int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+                                     ModificarCotizaciones_Renta MR = new ModificarCotizaciones_Renta(null, true);
+                                     MR.CargarDatos(ID);
+                                     MR.setVisible(true);
+                                 }else{
+                                     if(tipo.equals("CONSOLIDADO")){
+                                     int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+                                     ModificarCotizaciones_Consolidado MR = new ModificarCotizaciones_Consolidado(null, true);
+                                     MR.CargarDatos(ID);
+                                     MR.setVisible(true);
+                                     }else{
+                                         if(tipo.equals("RUTA")){
+                                     int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
+                                     ModificarCotizacionesRuta MR = new ModificarCotizacionesRuta(null, true);
+                                     MR.CargarDatos(ID);
+                                     MR.setVisible(true);
+                                         }
+                                     }
+                                 }
+                             }
+
+                         }
                     }
             
             

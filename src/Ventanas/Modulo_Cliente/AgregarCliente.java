@@ -226,10 +226,15 @@ public class AgregarCliente extends javax.swing.JDialog {
                 pnlagregarMouseExited(evt);
             }
         });
+        pnlagregar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pnlagregarKeyPressed(evt);
+            }
+        });
         pnlagregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel22.setText("    Guardar");
+        jLabel22.setText("   Guardar");
         pnlagregar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/guardar (2).png"))); // NOI18N
@@ -526,6 +531,13 @@ public class AgregarCliente extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_txtAtencionKeyTyped
+
+    private void pnlagregarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pnlagregarKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_F1)
+            {
+                Guardar();
+            }
+    }//GEN-LAST:event_pnlagregarKeyPressed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

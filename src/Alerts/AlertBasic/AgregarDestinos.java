@@ -21,6 +21,14 @@ public class AgregarDestinos extends javax.swing.JDialog {
         this.setLocationRelativeTo(this);
         ID.setVisible(false);
     }
+    
+    public void Inicio()
+    {
+        Registrar poper = new Registrar(null, true);
+        poper.ID_C.setText(ID.getText());
+        poper.setVisible(true);
+        this.dispose();
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -81,6 +89,11 @@ public class AgregarDestinos extends javax.swing.JDialog {
                 log2ActionPerformed(evt);
             }
         });
+        log2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                log2KeyPressed(evt);
+            }
+        });
         jPanel1.add(log2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 230, 30));
 
         msj3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -102,7 +115,7 @@ public class AgregarDestinos extends javax.swing.JDialog {
 
         log3.setBackground(new java.awt.Color(204, 204, 204));
         log3.setForeground(new java.awt.Color(128, 128, 131));
-        log3.setText("Cancelar");
+        log3.setText("Cancelar (Esc)");
         log3.setColorBorde(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
         log3.setColorHover(new java.awt.Color(204, 204, 204));
         log3.setColorNormal(new java.awt.Color(204, 204, 204));
@@ -112,6 +125,11 @@ public class AgregarDestinos extends javax.swing.JDialog {
         log3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 log3ActionPerformed(evt);
+            }
+        });
+        log3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                log3KeyPressed(evt);
             }
         });
         jPanel1.add(log3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 130, 30));
@@ -143,13 +161,28 @@ public class AgregarDestinos extends javax.swing.JDialog {
         Registrar poper = new Registrar(null, true);
         poper.ID_C.setText(ID.getText());
         poper.setVisible(true);
-//        Opciones.listarOrigen(null, Integer.parseInt(ID.getText()));
+//      Opciones.listarOrigen(null, Integer.parseInt(ID.getText()));
         dispose();
     }//GEN-LAST:event_log2ActionPerformed
 
     private void log3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log3ActionPerformed
         this.dispose();
     }//GEN-LAST:event_log3ActionPerformed
+
+    private void log2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_log2KeyPressed
+       
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            Inicio();
+        }
+    }//GEN-LAST:event_log2KeyPressed
+
+    private void log3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_log3KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE)
+            {
+                this.dispose();
+            }
+    }//GEN-LAST:event_log3KeyPressed
 
     public static void main(String args[]) {
        
