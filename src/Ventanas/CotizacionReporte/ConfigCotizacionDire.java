@@ -58,6 +58,8 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
         String segundap="";
         String puesto2="";
         txtsegundap.setVisible(false);
+        txtparte2.setVisible(false);
+        txtparte3.setVisible(false);
         txtpuesto.setVisible(false);
        
         try{
@@ -145,9 +147,10 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtparte1 = new app.bolivia.swing.JCTextField();
         txtparte2 = new app.bolivia.swing.JCTextField();
         txtparte3 = new app.bolivia.swing.JCTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtparte1 = new javax.swing.JTextArea();
         jPanel7 = new javax.swing.JPanel();
         info = new javax.swing.JLabel();
         rSButtonMetro2 = new JButtonEspecial.JButtonEspecial();
@@ -160,6 +163,8 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
         pnlagregar = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDescripcion = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -196,18 +201,6 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Captura55.png"))); // NOI18N
 
-        txtparte1.setBorder(null);
-        txtparte1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        txtparte1.setPlaceholder("               Ej. A ESTOS PRECIOS SE LES AUMENTARA EL IMPUESTO AL VA....");
-        txtparte1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtparte1KeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtparte1KeyTyped(evt);
-            }
-        });
-
         txtparte2.setBorder(null);
         txtparte2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtparte2.setPlaceholder("           Ej. LAS CARGAS VIAJAN POR CUENTA Y RIESGO DEL REMITENT...");
@@ -228,6 +221,11 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
         txtparte3.setBorder(null);
         txtparte3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtparte3.setPlaceholder("           Ej. **PRECIOS LIBRES DE MANIOBRA DE CARGA Y DESCARGA");
+        txtparte3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtparte3ActionPerformed(evt);
+            }
+        });
         txtparte3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtparte3KeyReleased(evt);
@@ -237,11 +235,32 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
             }
         });
 
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setOpaque(false);
+
+        txtparte1.setBackground(new java.awt.Color(204, 204, 204));
+        txtparte1.setColumns(20);
+        txtparte1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtparte1.setLineWrap(true);
+        txtparte1.setRows(5);
+        txtparte1.setBorder(null);
+        txtparte1.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtparte1.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        txtparte1.setOpaque(false);
+        txtparte1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtparte1KeyTyped(evt);
+            }
+        });
+        jScrollPane2.setViewportView(txtparte1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -251,33 +270,29 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(txtparte3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtparte2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtparte1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtparte2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 8, Short.MAX_VALUE)
+                                .addComponent(txtparte3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(33, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(31, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(9, 9, 9)
-                .addComponent(txtparte1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
                 .addComponent(txtparte2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtparte3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(234, 234, 234)
+                .addGap(252, 252, 252)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
@@ -294,6 +309,11 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(415, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(388, Short.MAX_VALUE)))
         );
 
         jcMousePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 510, 500));
@@ -424,6 +444,26 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
 
         jcMousePanel1.add(pnlagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, 80, 70));
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setOpaque(false);
+
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDescripcion.setLineWrap(true);
+        txtDescripcion.setRows(5);
+        txtDescripcion.setBorder(null);
+        txtDescripcion.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        txtDescripcion.setOpaque(false);
+        txtDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDescripcionKeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(txtDescripcion);
+
+        jcMousePanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 268, 100));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -470,14 +510,6 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtpuestoKeyTyped
 
-    private void txtparte1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtparte1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtparte1KeyReleased
-
-    private void txtparte1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtparte1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtparte1KeyTyped
-
     private void txtparte2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtparte2KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtparte2KeyReleased
@@ -501,14 +533,6 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
     private void txtatKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtatKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtatKeyTyped
-
-    private void txtprimerapKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtprimerapKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtprimerapKeyReleased
-
-    private void txtprimerapKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtprimerapKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtprimerapKeyTyped
 
     private void txtsegundapKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsegundapKeyReleased
         // TODO add your handling code here:
@@ -541,6 +565,36 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
     private void pnlagregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlagregarMouseExited
         pnlagregar.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
     }//GEN-LAST:event_pnlagregarMouseExited
+
+    private void txtprimerapKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtprimerapKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtprimerapKeyTyped
+
+    private void txtprimerapKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtprimerapKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtprimerapKeyReleased
+
+    private void txtparte3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtparte3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtparte3ActionPerformed
+
+    private void txtDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescripcionKeyTyped
+
+//        int limite =15;
+//        if (txtNombre.getText().length()== limite)
+//        {
+//            evt.consume();
+//        }
+    }//GEN-LAST:event_txtDescripcionKeyTyped
+
+    private void txtparte1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtparte1KeyTyped
+
+//        int limite =15;
+//        if (txtNombre.getText().length()== limite)
+//        {
+//            evt.consume();
+//        }
+    }//GEN-LAST:event_txtparte1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -615,11 +669,14 @@ public class ConfigCotizacionDire extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private jcMousePanel.jcMousePanel jcMousePanel1;
     private javax.swing.JPanel pnlagregar;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
+    public static javax.swing.JTextArea txtDescripcion;
     public static app.bolivia.swing.JCTextField txtat;
-    public static app.bolivia.swing.JCTextField txtparte1;
+    public static javax.swing.JTextArea txtparte1;
     public static app.bolivia.swing.JCTextField txtparte2;
     public static app.bolivia.swing.JCTextField txtparte3;
     public static app.bolivia.swing.JCTextField txtprimerap;

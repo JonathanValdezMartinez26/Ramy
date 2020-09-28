@@ -89,28 +89,12 @@
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement mode="Transparent" x="3" y="2" width="501" height="16" forecolor="#000000" backcolor="#FFFFFF" uuid="eac543c0-fd85-49b7-a2c5-16281107f1f1"/>
+				<reportElement mode="Transparent" x="3" y="2" width="501" height="48" forecolor="#000000" backcolor="#FFFFFF" uuid="eac543c0-fd85-49b7-a2c5-16281107f1f1"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="Times New Roman" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{parte1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Transparent" x="-10" y="18" width="540" height="16" forecolor="#000000" backcolor="#FFFFFF" uuid="5c9ae5e6-c5d8-474c-bbe3-38e7e7461bd1"/>
-				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Times New Roman" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{parte2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Transparent" x="-10" y="35" width="530" height="16" forecolor="#000000" backcolor="#FFFFFF" uuid="e0bb8a25-3c0e-4b71-aa7f-30e339f4e7ac"/>
-				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Times New Roman" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{parte3}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Transparent" x="167" y="63" width="168" height="13" forecolor="#000000" backcolor="#FFFFFF" uuid="3336d996-22da-4fa9-8c79-324304384eb6"/>

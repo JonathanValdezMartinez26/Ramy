@@ -37,7 +37,7 @@ public class ConfigCotizaciones {
     public static void Actualizar_Tipo(int ID, String parte1,String parte2,String parte3,String at,String primerap,String puesto,String segundap,String puesto2) {
 
         try {
-                CallableStatement consulta = Conexion.con.prepareCall("{call Modificarpie (?,?,?,?,?,?,?,?,?) }");
+                CallableStatement consulta = Conexion.con.prepareCall("{call Modificarpie4 (?,?,?,?,?,?,?,?,?) }");
 
                 consulta.setInt(1, ID);
                 consulta.setString(2, parte1);

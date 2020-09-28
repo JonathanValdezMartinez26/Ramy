@@ -7,7 +7,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.TableCellEditor;
 
-public class MyTableCellEditor4 extends AbstractCellEditor implements TableCellEditor{
+public class EditarCamioneta15Adicional extends AbstractCellEditor implements TableCellEditor{
 
     private database db;
     private String OldValue=""; //Valor antiguo de la celda
@@ -24,7 +24,7 @@ public class MyTableCellEditor4 extends AbstractCellEditor implements TableCellE
     
     private JComponent component = new JTextField();
 
-    public MyTableCellEditor4(database db, String NameColumn)
+    public EditarCamioneta15Adicional(database db, String NameColumn)
     {
             this.db = db;
             this.NameColum = NameColumn;
@@ -59,7 +59,7 @@ public class MyTableCellEditor4 extends AbstractCellEditor implements TableCellE
         //Compara valores, si no son iguales, debe actualizar registro
         if( !NewValue.equals(OldValue))
         {   //Realiza la actualizacion
-            if( !db.updatePrecioServicio( NewValue, ID ) )
+            if( !db.updateCamioneta15(NewValue, ID ) )
             {   //Si existe algun error al actualizar, escribe viejo valor en la celda
                 //JOptionPane.showMessageDialog(null,"Error: No se puede actualizar");
                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);

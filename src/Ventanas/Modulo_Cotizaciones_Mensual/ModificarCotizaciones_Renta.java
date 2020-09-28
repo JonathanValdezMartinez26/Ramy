@@ -19,8 +19,8 @@ import static Clases.Cotizaciones.ObtenID;
 import Clases.CotizacionesRentaMen;
 import Clases.MyTableCellEditor;
 import Clases.MyTableCellEditorCotiRentaPrecio;
-import Clases.MyTableCellEditor3;
-import Clases.MyTableCellEditor4;
+import Clases.EditarNombreAdicionall;
+import Clases.EditarCamioneta15Adicional;
 import Clases.MyTableCellEditorCotiRentaConcepto;
 import Clases.MyTableCellEditorCotiRentaPeriodo;
 import Clases.MyTableCellEditorServMensNombre;
@@ -29,11 +29,17 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import MyTableCellEditor.EditarCamioneta35Adicional;
+import MyTableCellEditor.EditarFullAdicional;
+import MyTableCellEditor.EditarRabonAdicional;
+import MyTableCellEditor.EditarTorthonAdicional;
+import MyTableCellEditor.EditarTrailerAdicional;
 import Ventanas.CotizacionReporte.ConfigCotizacion;
 import Ventanas.CotizacionReporte.ConfigCotizacionRenta;
 
 import static Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones.Opciones.cn;
+import static Ventanas.Modulo_Cotizaciones_Mensual.AgregarCotizaciones_Renta.tabla1;
 import static Ventanas.Modulo_Cotizaciones_Mensual.Opciones.*;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -122,8 +128,13 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
-        tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorServMensNombre(db,"Nombre del Servicio"));//Columna Precio
-        tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorServMensPrecio(db,"Precio"));//Columna Precio
+        tabla1.getColumnModel().getColumn( 2 ).setCellEditor(new EditarNombreAdicionall(db,""));//Columna Precio
+        tabla1.getColumnModel().getColumn( 3 ).setCellEditor(new EditarCamioneta15Adicional(db,""));//Columna Precio        
+        tabla1.getColumnModel().getColumn( 4 ).setCellEditor(new EditarCamioneta35Adicional(db,""));//Columna Precio        
+        tabla1.getColumnModel().getColumn( 5 ).setCellEditor(new EditarRabonAdicional(db,""));//Columna Precio        
+        tabla1.getColumnModel().getColumn( 6 ).setCellEditor(new EditarTorthonAdicional(db,""));//Columna Precio        
+        tabla1.getColumnModel().getColumn( 7 ).setCellEditor(new EditarTrailerAdicional(db,""));//Columna Precio        
+        tabla1.getColumnModel().getColumn( 8 ).setCellEditor(new EditarFullAdicional(db,""));//Columna Precio        
         
         tablaR.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditorCotiRentaPrecio(db,"Precio"));//Columna Precio
         tablaR.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditorCotiRentaPeriodo(db,"Periodo"));//Columna Precio
@@ -449,14 +460,14 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio", "Supr para Borrar"
+                "ID_Servicio", "ID_Cotizacion", "Nombre del Adicional", "Camioneta 1.5", "Camioneta 3.5", "Rabón", "Torthon", "Tráiler", "Full", "Suprimir"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, false
+                false, false, true, true, true, true, true, true, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -467,6 +478,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tabla1.setColumnSelectionAllowed(true);
         tabla1.setRowHeight(30);
         tabla1.getTableHeader().setReorderingAllowed(false);
         tabla1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -478,6 +490,7 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
             }
         });
         jScrollPane1.setViewportView(tabla1);
+        tabla1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tabla1.getColumnModel().getColumnCount() > 0) {
             tabla1.getColumnModel().getColumn(0).setMinWidth(0);
             tabla1.getColumnModel().getColumn(0).setPreferredWidth(0);
@@ -485,9 +498,30 @@ public class ModificarCotizaciones_Renta extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(1).setMinWidth(0);
             tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
-            tabla1.getColumnModel().getColumn(4).setMinWidth(150);
-            tabla1.getColumnModel().getColumn(4).setPreferredWidth(150);
-            tabla1.getColumnModel().getColumn(4).setMaxWidth(150);
+            tabla1.getColumnModel().getColumn(2).setMinWidth(259);
+            tabla1.getColumnModel().getColumn(2).setPreferredWidth(259);
+            tabla1.getColumnModel().getColumn(2).setMaxWidth(259);
+            tabla1.getColumnModel().getColumn(3).setMinWidth(120);
+            tabla1.getColumnModel().getColumn(3).setPreferredWidth(120);
+            tabla1.getColumnModel().getColumn(3).setMaxWidth(120);
+            tabla1.getColumnModel().getColumn(4).setMinWidth(120);
+            tabla1.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tabla1.getColumnModel().getColumn(4).setMaxWidth(120);
+            tabla1.getColumnModel().getColumn(5).setMinWidth(70);
+            tabla1.getColumnModel().getColumn(5).setPreferredWidth(70);
+            tabla1.getColumnModel().getColumn(5).setMaxWidth(70);
+            tabla1.getColumnModel().getColumn(6).setMinWidth(70);
+            tabla1.getColumnModel().getColumn(6).setPreferredWidth(70);
+            tabla1.getColumnModel().getColumn(6).setMaxWidth(70);
+            tabla1.getColumnModel().getColumn(7).setMinWidth(70);
+            tabla1.getColumnModel().getColumn(7).setPreferredWidth(70);
+            tabla1.getColumnModel().getColumn(7).setMaxWidth(70);
+            tabla1.getColumnModel().getColumn(8).setMinWidth(70);
+            tabla1.getColumnModel().getColumn(8).setPreferredWidth(70);
+            tabla1.getColumnModel().getColumn(8).setMaxWidth(70);
+            tabla1.getColumnModel().getColumn(9).setMinWidth(100);
+            tabla1.getColumnModel().getColumn(9).setPreferredWidth(100);
+            tabla1.getColumnModel().getColumn(9).setMaxWidth(100);
         }
 
         tablaR.setModel(new javax.swing.table.DefaultTableModel(
@@ -926,7 +960,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                           Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                           AC.msj1.setText("¡Campos Vacios!");
                           AC.msj2.setText("Porfavor llene Completamente ");
-                          AC.msj3.setText("La Tabla de Servicios");                                    
+                          AC.msj3.setText("La Tabla de Adicionales");                                    
                           AC.setVisible(true);
                     }
                }
@@ -986,7 +1020,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                      existeprecio++;
                  }                                 
         }
-            if(existenombre==0 && existeprecio==0){////////Si ningun campo esta vacio, se puede agregar otro nuevo campo
+            if(existenombre==0){////////Si ningun campo esta vacio, se puede agregar otro nuevo campo
                 cargarServicio();
                 int ID_Cotizacion;
                 ID_Cotizacion = Integer.parseInt(ModificarCotizaciones_Renta.IDCotizacion.getText());
@@ -1005,7 +1039,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                                 Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
                                 AC.msj1.setText("¡Porfavor Seleccione!");
                                 AC.msj2.setText("Un Cliente-Concepto-Periodo");
-                                AC.msj3.setText("Para poder Asignar Servicios");
+                                AC.msj3.setText("Para poder Asignar Adicionales");
                                 AC.setVisible(true);
         }
     

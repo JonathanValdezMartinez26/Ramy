@@ -15,8 +15,8 @@ import Clases.Conexion;
 import Clases.Cotizaciones;
 import static Clases.Cotizaciones.ObtenID;
 import Clases.MyTableCellEditor;
-import Clases.MyTableCellEditor3;
-import Clases.MyTableCellEditor4;
+import Clases.EditarNombreAdicionall;
+import Clases.EditarCamioneta15Adicional;
 import Clases.Render;
 import Clases.database;
 import Clases.estados;
@@ -150,8 +150,8 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         jScrollPane2.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane2.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
-        jTable1.getColumnModel().getColumn( 2 ).setCellEditor(new MyTableCellEditor3(db,"Nombre del Servicio"));//Columna Precio
-        jTable1.getColumnModel().getColumn( 3 ).setCellEditor(new MyTableCellEditor4(db,"Precio"));//Columna Precio
+        jTable1.getColumnModel().getColumn( 2 ).setCellEditor(new EditarNombreAdicionall(db,"Nombre del Servicio"));//Columna Precio
+        jTable1.getColumnModel().getColumn( 3 ).setCellEditor(new EditarCamioneta15Adicional(db,"Precio"));//Columna Precio
         
         tabla.getColumnModel().getColumn( 4 ).setCellEditor(new EditarCotizGCamioneta15(db,"CAMIONETA 1.5 TON"));
         tabla.getColumnModel().getColumn( 5 ).setCellEditor(new EditarCotizGCamioneta35(db,"CAMIONETA 3.5 TON"));
@@ -678,17 +678,18 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "IDCoti", "Nombre del Adicional", "Precio", "Supr para Borrar"
+                "ID", "IDCoti", "Nombre del Adicional", "Camioneta 1.5", "Camioneta 3.5", "Rabón", "Torthon", "Tráiler", "Full", "Supr para Borrar"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, false
+                false, false, true, true, true, true, true, true, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setColumnSelectionAllowed(true);
         jTable1.setRowHeight(30);
         jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -696,6 +697,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             }
         });
         jScrollPane2.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setMinWidth(0);
             jTable1.getColumnModel().getColumn(0).setPreferredWidth(0);
@@ -703,12 +705,30 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             jTable1.getColumnModel().getColumn(1).setMinWidth(0);
             jTable1.getColumnModel().getColumn(1).setPreferredWidth(0);
             jTable1.getColumnModel().getColumn(1).setMaxWidth(0);
-            jTable1.getColumnModel().getColumn(3).setMinWidth(350);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(350);
-            jTable1.getColumnModel().getColumn(3).setMaxWidth(350);
-            jTable1.getColumnModel().getColumn(4).setMinWidth(150);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(150);
-            jTable1.getColumnModel().getColumn(4).setMaxWidth(150);
+            jTable1.getColumnModel().getColumn(2).setMinWidth(370);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(370);
+            jTable1.getColumnModel().getColumn(2).setMaxWidth(370);
+            jTable1.getColumnModel().getColumn(3).setMinWidth(135);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(135);
+            jTable1.getColumnModel().getColumn(3).setMaxWidth(135);
+            jTable1.getColumnModel().getColumn(4).setMinWidth(135);
+            jTable1.getColumnModel().getColumn(4).setPreferredWidth(135);
+            jTable1.getColumnModel().getColumn(4).setMaxWidth(135);
+            jTable1.getColumnModel().getColumn(5).setMinWidth(85);
+            jTable1.getColumnModel().getColumn(5).setPreferredWidth(85);
+            jTable1.getColumnModel().getColumn(5).setMaxWidth(85);
+            jTable1.getColumnModel().getColumn(6).setMinWidth(85);
+            jTable1.getColumnModel().getColumn(6).setPreferredWidth(85);
+            jTable1.getColumnModel().getColumn(6).setMaxWidth(85);
+            jTable1.getColumnModel().getColumn(7).setMinWidth(85);
+            jTable1.getColumnModel().getColumn(7).setPreferredWidth(85);
+            jTable1.getColumnModel().getColumn(7).setMaxWidth(85);
+            jTable1.getColumnModel().getColumn(8).setMinWidth(85);
+            jTable1.getColumnModel().getColumn(8).setPreferredWidth(85);
+            jTable1.getColumnModel().getColumn(8).setMaxWidth(85);
+            jTable1.getColumnModel().getColumn(9).setMinWidth(159);
+            jTable1.getColumnModel().getColumn(9).setPreferredWidth(159);
+            jTable1.getColumnModel().getColumn(9).setMaxWidth(159);
         }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);

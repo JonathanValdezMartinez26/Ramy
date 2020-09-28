@@ -262,16 +262,21 @@
                 <Component class="javax.swing.JTable" name="jTable1">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="0">
+                      <Table columnCount="10" rowCount="0">
                         <Column editable="false" title="ID" type="java.lang.Object"/>
                         <Column editable="false" title="IDCoti" type="java.lang.Object"/>
                         <Column editable="true" title="Nombre del Adicional" type="java.lang.Object"/>
-                        <Column editable="true" title="Precio" type="java.lang.Object"/>
+                        <Column editable="true" title="Camioneta 1.5" type="java.lang.Object"/>
+                        <Column editable="true" title="Camioneta 3.5" type="java.lang.Object"/>
+                        <Column editable="true" title="Rab&#xf3;n" type="java.lang.Object"/>
+                        <Column editable="true" title="Torthon" type="java.lang.Object"/>
+                        <Column editable="true" title="Tr&#xe1;iler" type="java.lang.Object"/>
+                        <Column editable="true" title="Full" type="java.lang.Object"/>
                         <Column editable="false" title="Supr para Borrar" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                      <TableColumnModel selectionModel="0">
+                      <TableColumnModel selectionModel="1">
                         <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                           <Title/>
                           <Editor/>
@@ -282,23 +287,49 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="370" minWidth="370" prefWidth="370" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="350" minWidth="350" prefWidth="350" resizable="true">
+                        <Column maxWidth="135" minWidth="135" prefWidth="135" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="150" minWidth="150" prefWidth="150" resizable="true">
+                        <Column maxWidth="135" minWidth="135" prefWidth="135" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="85" minWidth="85" prefWidth="85" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="85" minWidth="85" prefWidth="85" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="85" minWidth="85" prefWidth="85" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="85" minWidth="85" prefWidth="85" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="159" minWidth="159" prefWidth="159" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                       </TableColumnModel>
                     </Property>
+                    <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                     <Property name="rowHeight" type="int" value="30"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
