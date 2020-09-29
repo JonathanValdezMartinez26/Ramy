@@ -80,11 +80,11 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_Cotizacion, Origen, Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full,Estado from asigna_cotizacionv"
+            sql = "Select ID_Cotizacion,ID_Ruta, Origen, Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full,Estado from asigna_cotizacionv"
                     + " where ID_Cotizacion =" + ID+" ORDER BY Origen , Destino ASC";
         } else {
             
-             sql = "Select ID_Cotizacion, Origen, Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full,Estado from asigna_cotizacionv"
+             sql = "Select ID_Cotizacion,ID_Ruta, Origen, Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full,Estado from asigna_cotizacionv"
                     + " where ID_Cotizacion =" + ID+" AND Destino LIKE '%"+busca+"%'"
                      + "OR ID_Cotizacion =" + ID+" AND Camioneta_1_5 LIKE '%"+busca+"%'  ORDER BY Origen , Destino ASC";
               
@@ -106,12 +106,13 @@ public class Opciones {
                 datos [6] = rs.getString(7);
                 datos [7] = rs.getString(8);
                 datos [8] = rs.getString(9);
+                datos [9] = rs.getString(10);
                 
                 
-                 if(rs.getString(10).equals("1")){
-			 datos[9]=Boolean.TRUE;
+                 if(rs.getString(11).equals("1")){
+			 datos[10]=Boolean.TRUE;
 			}else{
-			 datos[9]=Boolean.FALSE;
+			 datos[10]=Boolean.FALSE;
 			}	
                 modelo.addRow(datos);
             }
@@ -153,7 +154,7 @@ public class Opciones {
         
         String sql = "";
         if (busca.equals("")) {
-            sql = "Select ID_GuardarCotD,ID_Cotizacion, Origen, Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado from guardar_cotizacion_directa"
+            sql = "Select ID_GuardarCotD,IDRuta,ID_Cotizacion, Origen, Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado from guardar_cotizacion_directa"
                     + " where ID_Cotizacion =" + ID +" ORDER BY Origen , Destino ASC";
 
         } else {
@@ -164,7 +165,7 @@ public class Opciones {
               
            }
         
-        Object datos[] = new Object[12];
+        Object datos[] = new Object[14];
         try {           
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -181,10 +182,11 @@ public class Opciones {
                 datos [7] = rs.getString(8);
                 datos [8] = rs.getString(9);
                 datos [9] = rs.getString(10);
-                 if(rs.getString(11).equals("1")){
-			 datos[10]=Boolean.TRUE;
+                datos [10] = rs.getString(11);
+                 if(rs.getString(12).equals("1")){
+			 datos[11]=Boolean.TRUE;
 			}else{
-			 datos[10]=Boolean.FALSE;
+			 datos[11]=Boolean.FALSE;
 			}	
                 modelo.addRow(datos);
             }
@@ -211,6 +213,21 @@ public class Opciones {
         return existe;
     }
     
+    public static int verificaRutaDestino(int ID_Cotizacion, int ID_Ruta) {
+        int existe = 0;
+  
+        String SQL = "SELECT count(Id_Cotizacion) from guardar_cotizacion_directa where (ID_Cotizacion = "+ID_Cotizacion+") and (IDRuta = "+ID_Ruta+")";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                existe = rs.getInt(1);
+            }           
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return existe;
+    }
      ///////////////////////////////////////////////////////////////////
     
     public static void finalizarCotizacion(String IDCotizacion){

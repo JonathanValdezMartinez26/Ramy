@@ -179,22 +179,23 @@ public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
         int Filas1 = modelo.getRowCount();
         for (int i = 0; i < Filas1; i++) {
             String IDAsignaCot = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 0).toString();
-            String IDCot = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 1).toString();
-            String Origen = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 2).toString();
-            String Destino = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 3).toString();
-            String Camioneta15 = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 4).toString();
-            String Camioneta35 = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 5).toString();
-            String Rabon = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 6).toString();
-            String Torthon = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 7).toString();
-            String Trailer = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 8).toString();
-            String Full = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 9).toString();
+            String IDRuta = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 1).toString();
+            String IDCot = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 2).toString();
+            String Origen = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 3).toString();
+            String Destino = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 4).toString();
+            String Camioneta15 = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 5).toString();
+            String Camioneta35 = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 6).toString();
+            String Rabon = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 7).toString();
+            String Torthon = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 8).toString();
+            String Trailer = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 9).toString();
+            String Full = Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 10).toString();
 
-            Boolean checked = Boolean.valueOf(Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 10).toString());
+            Boolean checked = Boolean.valueOf(Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getValueAt(i, 11).toString());
 
             String sql;
             if (checked) {
-                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,IDRuta,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                        + " values(NULL,'" + IDRuta + "','" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
 
                 try {
                     PreparedStatement pstm = cn.prepareStatement(sql);
@@ -207,8 +208,8 @@ public class WarningFinalizarCotizacionModi extends javax.swing.JDialog {
                 
 
             } else {
-                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD, IDRuta,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                        + " values(NULL,'" + IDRuta + "','" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
 
                 try {
                     PreparedStatement pstm = cn.prepareStatement(sql);

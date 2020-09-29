@@ -43,8 +43,9 @@ public class AgregarCliente extends javax.swing.JDialog {
     public void Guardar(){
         String Nombre = txtNombre.getText().trim();
         String Atencion = txtAtencion.getText().trim();
-        String Calle = txtCalle.getText().trim();
         Date Fecha = FechaOperaciones.getDate();
+        String Calle = txtCalle.getText().trim();
+        
         
         int comboEstado = cmbEstado.getSelectedIndex();
         int comboMunicipio = cmbMunicipio.getSelectedIndex();
@@ -56,6 +57,7 @@ public class AgregarCliente extends javax.swing.JDialog {
                     AC.msj1.setText("¡Llene correctamente!");
                     AC.msj2.setText("El campo Nombre");
                     AC.setVisible(true);
+                    txtNombre.requestFocus();
                 }
             else
             {
@@ -66,6 +68,7 @@ public class AgregarCliente extends javax.swing.JDialog {
                     AC.msj2.setText("El campo Empresa/Cliente debe");
                     AC.msj3.setText("contener más de 3 caracteres");
                     AC.setVisible(true);
+                    txtNombre.requestFocus();
                 }
                else
                {
@@ -75,6 +78,7 @@ public class AgregarCliente extends javax.swing.JDialog {
                         AC.msj1.setText("¡Llene correctamente!");
                         AC.msj2.setText("El campo Atención a");
                         AC.setVisible(true);
+                        txtAtencion.requestFocus();
                     }
                    else
                    {
@@ -85,10 +89,11 @@ public class AgregarCliente extends javax.swing.JDialog {
                             AC.msj2.setText("El campo Atención a debe");
                             AC.msj3.setText("contener más de 3 caracteres");
                             AC.setVisible(true);
+                            txtAtencion.requestFocus();
                         }
                         else
                         {
-                            if("".equals(Fecha))
+                            if(Fecha == null)
                             {
                                 Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                                 AC.msj1.setText("¡Datos Incorrectos!");
@@ -104,6 +109,7 @@ public class AgregarCliente extends javax.swing.JDialog {
                                    AC.msj1.setText("¡Elija un");
                                    AC.msj2.setText("Estado válido");
                                    AC.setVisible(true);
+                                   cmbEstado.requestFocus();
                                 }
                                 else
                                 {
@@ -113,6 +119,7 @@ public class AgregarCliente extends javax.swing.JDialog {
                                        AC.msj1.setText("¡Elija un !");
                                        AC.msj2.setText("Municipio válido");
                                        AC.setVisible(true);
+                                       cmbMunicipio.requestFocus();
                                     }
                                     else
                                     {
@@ -122,6 +129,7 @@ public class AgregarCliente extends javax.swing.JDialog {
                                             AC.msj1.setText("¡Elija!");
                                             AC.msj2.setText("Una Colonia válida");
                                             AC.setVisible(true);
+                                            cmbColonia.requestFocus();
                                         }
                                         else
                                         {
@@ -132,6 +140,7 @@ public class AgregarCliente extends javax.swing.JDialog {
                                                     AC.msj1.setText("¡Llene correctamente!");
                                                     AC.msj2.setText("El campo Calle");
                                                     AC.setVisible(true);
+                                                    txtCalle.requestFocus();
                                                 }
                                                 else
                                                 {
@@ -144,6 +153,7 @@ public class AgregarCliente extends javax.swing.JDialog {
                                                     }
                                                     else
                                                     {
+                                                        
                                                         Clientes.Agregar_Cliente(Nombre,Atencion, ColoniaItem, Calle, Fecha);
                                                         Ventanas.Modulo_Cliente.Opciones.listar("");
                                                         this.dispose();
@@ -199,6 +209,7 @@ public class AgregarCliente extends javax.swing.JDialog {
         txtAtencion = new app.bolivia.swing.JCTextField();
         FechaOperaciones = new com.toedter.calendar.JDateChooser();
         lblNombreNuevo6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -234,7 +245,7 @@ public class AgregarCliente extends javax.swing.JDialog {
         pnlagregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel22.setText("   Guardar");
+        jLabel22.setText("    Guardar");
         pnlagregar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/guardar (2).png"))); // NOI18N
@@ -296,7 +307,7 @@ public class AgregarCliente extends javax.swing.JDialog {
         lblNombreNuevo7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNombreNuevo7.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombreNuevo7.setText("En Atención a (Nombre del representante)");
+        lblNombreNuevo7.setText("En Atención a (Nombre del representante)*");
         pnlPrincipal.add(lblNombreNuevo7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 300, -1));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/linea.PNG"))); // NOI18N
@@ -343,7 +354,7 @@ public class AgregarCliente extends javax.swing.JDialog {
         lblNombreNuevo20.setText("Municipio*");
         pnlPrincipal.add(lblNombreNuevo20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
 
-        cmbColonia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbColonia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbColonia.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbColoniaItemStateChanged(evt);
@@ -412,6 +423,9 @@ public class AgregarCliente extends javax.swing.JDialog {
         lblNombreNuevo6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreNuevo6.setText("Nombre del la Empresa/Negocio ó Cliente*");
         pnlPrincipal.add(lblNombreNuevo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 280, -1));
+
+        jLabel1.setText("Los campos marcados con (*) son obligatorios.");
+        pnlPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 460, 250, -1));
 
         jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 9, 700, 480));
 
@@ -560,6 +574,7 @@ public class AgregarCliente extends javax.swing.JDialog {
     private ComboBox.SComboBox cmbEstado;
     private ComboBox.SComboBox cmbMunicipio;
     public static javax.swing.JLabel info;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel21;

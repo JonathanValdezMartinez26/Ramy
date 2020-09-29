@@ -33,6 +33,7 @@ import Ventanas.CotizacionReporte.ConfigCotizacionDire;
 import static Ventanas.Modulo_Cliente.Opciones.*;
 import static Ventanas.Modulo_Cliente.Registrar.ID_C;
 import static Ventanas.Modulo_Cliente.Registrar.tabla3;
+import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.IDCotizacion;
 import static Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.jTable1;
 import static configInicio.Configuracion.txtEmail;
 import static configInicio.Configuracion.txtNombre;
@@ -360,9 +361,73 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                 AC.msj2.setText("Origen válido");
                 AC.setVisible(true);
             }
+        
+        else{
+        String Destinos = (String) cmbDestinos.getSelectedItem();
+        if (Destinos.equals("Todos los Destinos")) {
+            
+            try {
+                int i = 1;
+                int ID_Client = cmbCliente.getSelectedIndex();
+                int ID_Cliente = ID_Cli[ID_Client];
+                resultado = Conexion.consulta("SELECT ID_ruta,Origen,Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav where (ID_Cliente = " + ID_Cliente + ")");                
+                                  int ID = 0,Cam15,Cam35,Rabon,Torthon,Trailer,Full;
+                                  String OrigenDB,DestinoDB;
+                                  int existe=0;
+                                  
+                                  int ID_Cotiza = Integer.parseInt(IDCotizacion.getText());
+                                  while (resultado.next()) {
+                                      ID = resultado.getInt(1);
+                                      OrigenDB = resultado.getString(2);
+                                      DestinoDB = resultado.getString(3);
+                                      Cam15 = resultado.getInt(4);
+                                      Cam35 = resultado.getInt(5);
+                                      Rabon = resultado.getInt(6);
+                                      Torthon = resultado.getInt(7);
+                                      Trailer = resultado.getInt(8);
+                                      Full = resultado.getInt(9);                                      
+                                      i++;
+                                      
+                                      if (Ventanas.Modulo_Cotizaciones.Opciones.verificaRutaDestino(ID_Cotiza, ID) == 0) {
+                                     
+                                      String q = " INSERT INTO guardar_cotizacion_directa(ID_GuardarCotD,IDRuta,ID_Cotizacion,Origen, Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado) "
+                                              + "VALUES (NULL,'" + ID + "','" + ID_Cotiza + "','" + OrigenDB + "','" + DestinoDB + "','" + Cam15 + "','" + Cam35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "',1)";
+                                      try {
+                                          PreparedStatement pstm = cn.prepareStatement(q);
+                                          pstm.execute();
+                                          pstm.close();
+
+                                      } catch (SQLException e) {
+                                          System.out.println(e);
+                                      }
+                                     }else{
+                                          existe++;//Aumenta si existe algun regstro repetido
+                                      }
+                                  }
+                                  Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID_Cotiza);
+                                  
+                                  ////Si existe el mismo numero de datos en la bd y el mmismo numero de columnas se muestra este mensaje
+                                      if(tabla.getRowCount()==existe){                                      
+                                      Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                                      AC.msj1.setText("¡No Hay Nuevos Destinos!");
+                                      AC.msj2.setText("Para Agregar");
+                                      AC.setVisible(true);
+                                      
+                                  }else{                                      
+                                      Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                                      AC.msj1.setText("¡Los nuevos Destinos!");
+                                      AC.msj2.setText("Han sido registrados");
+                                      AC.setVisible(true);
+                                      
+                                  }
+            } catch (SQLException ex) {
+                System.out.println("Error: " + ex);
+            }
+        }
+        
             else
             {
-                if(comboDestino==0)
+                if(comboDestino==-1)
                     {
                         Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                         AC.msj1.setText("¡Elija un !");
@@ -371,13 +436,14 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                     }
                 else
                 {
-                    if(comboOrigen==0 || comboDestino==0)
+                    if(comboOrigen==0 || comboDestino==-1)
                     {
                         Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                         AC.msj1.setText("¡Seleccione un!");
                         AC.msj2.setText("Origen y un Destino");
                         AC.setVisible(true);
                     }
+                    
                     else
                     {
                         ID = Integer.parseInt(IDCotizacion.getText());
@@ -395,6 +461,8 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                         if(existeOrigen==0)
                         {
                           
+                          ////Si no se selecciona "Todos los Destinos", solo se agrega el destino seleccionado
+                              
                             //JOptionPane.showMessageDialog(null, "Se agrega Origen y destino");
                             Ventanas.Modulo_Cotizaciones.Opciones.AgregarViajeGuardado(ID,VerificaOrigen,VerificaDestino);
                             Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID);
@@ -404,6 +472,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                             AC.setVisible(true);
                             this.cmbOrigenes.setSelectedIndex(0);
                             this.cmbDestinos.setSelectedIndex(0);
+                          
                         }
                         else
                         {
@@ -416,8 +485,14 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
 //                            //this.cmbMunicipio.setSelectedIndex(0);
                         }
                     }
+                    
+                    
                 }
             }
+            
+            }
+        
+        
         
         
     }
@@ -479,7 +554,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
                 int Filas1 = modelo.getRowCount(); 
             
-            cmbDestinos.addItem("Seleccione un Destino");            
+            //cmbDestinos.addItem("Seleccione un Destino");            
             int ID1=0;
             int contador=0;
             int j;
@@ -610,14 +685,16 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_", "ID_Cotizacion", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Rabon", "Torthon", "Trailer", "Fulll", "Selecciona"
+                "ID_", "IDRuta", "ID_Cotizacion", "Origen", "Destino", "Camioneta 1.5", "Camioneta 3.5", "Rabon", "Torthon", "Trailer", "Fulll", "Selecciona"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, true
+
+                false, false, false, false, false, true, true, true, true, true, true, true
+
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -645,20 +722,17 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(1).setMinWidth(0);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
+            tabla.getColumnModel().getColumn(2).setMinWidth(0);
+            tabla.getColumnModel().getColumn(2).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(2).setMaxWidth(0);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(150);
-            tabla.getColumnModel().getColumn(4).setMinWidth(120);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(120);
-            tabla.getColumnModel().getColumn(4).setMaxWidth(120);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(5).setMinWidth(120);
             tabla.getColumnModel().getColumn(5).setPreferredWidth(120);
             tabla.getColumnModel().getColumn(5).setMaxWidth(120);
-            tabla.getColumnModel().getColumn(6).setMinWidth(70);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(70);
-            tabla.getColumnModel().getColumn(6).setMaxWidth(70);
+            tabla.getColumnModel().getColumn(6).setMinWidth(120);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(6).setMaxWidth(120);
             tabla.getColumnModel().getColumn(7).setMinWidth(70);
             tabla.getColumnModel().getColumn(7).setPreferredWidth(70);
             tabla.getColumnModel().getColumn(7).setMaxWidth(70);
@@ -668,9 +742,12 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(9).setMinWidth(70);
             tabla.getColumnModel().getColumn(9).setPreferredWidth(70);
             tabla.getColumnModel().getColumn(9).setMaxWidth(70);
-            tabla.getColumnModel().getColumn(10).setMinWidth(100);
-            tabla.getColumnModel().getColumn(10).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(10).setMaxWidth(100);
+            tabla.getColumnModel().getColumn(10).setMinWidth(70);
+            tabla.getColumnModel().getColumn(10).setPreferredWidth(70);
+            tabla.getColumnModel().getColumn(10).setMaxWidth(70);
+            tabla.getColumnModel().getColumn(11).setMinWidth(100);
+            tabla.getColumnModel().getColumn(11).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(11).setMaxWidth(100);
         }
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -998,8 +1075,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
 
     private void cmbOrigenesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrigenesItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
-         cmbDestinos.removeAllItems();   
-        cargarDestinos();
+         cmbDestinos.removeAllItems(); 
+        cmbDestinos.addItem("Todos los Destinos"); 
+        //cargarDestinos();
         
         }
     }//GEN-LAST:event_cmbOrigenesItemStateChanged
@@ -1055,7 +1133,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         if (this.tabla.getRowCount() != 0) {
             int Filas = modelo.getRowCount();
             for (int j = 0; j < Filas; j++) {
-                Boolean validar = Boolean.valueOf(tabla.getValueAt(j, 10).toString());
+                Boolean validar = Boolean.valueOf(tabla.getValueAt(j, 11).toString());
                 if (validar) {///////Verifica si existen checks seleccionados
                     existe++;
                 }
@@ -1078,22 +1156,23 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                         int Filas1 = modelo.getRowCount();
                         for (int i = 0; i < Filas1; i++) {
                             String IDAsignaCot = tabla.getValueAt(i, 0).toString();
-                            String IDCot = tabla.getValueAt(i, 1).toString();
-                            String Origen = tabla.getValueAt(i, 2).toString();
-                            String Destino = tabla.getValueAt(i, 3).toString();
-                            String Camioneta15 = tabla.getValueAt(i, 4).toString();
-                            String Camioneta35 = tabla.getValueAt(i, 5).toString();
-                            String Rabon = tabla.getValueAt(i, 6).toString();
-                            String Torthon = tabla.getValueAt(i, 7).toString();
-                            String Trailer = tabla.getValueAt(i, 8).toString();
-                            String Full = tabla.getValueAt(i, 9).toString();
+                            String IDRuta = tabla.getValueAt(i, 1).toString();
+                            String IDCot = tabla.getValueAt(i, 2).toString();
+                            String Origen = tabla.getValueAt(i, 3).toString();
+                            String Destino = tabla.getValueAt(i, 4).toString();
+                            String Camioneta15 = tabla.getValueAt(i, 5).toString();
+                            String Camioneta35 = tabla.getValueAt(i, 6).toString();
+                            String Rabon = tabla.getValueAt(i, 7).toString();
+                            String Torthon = tabla.getValueAt(i, 8).toString();
+                            String Trailer = tabla.getValueAt(i, 9).toString();
+                            String Full = tabla.getValueAt(i, 10).toString();
 
-                            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 10).toString());
+                            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 11).toString());
 
                             String sql;
                             if (checked) {
-                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,IDRuta,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDRuta + "','" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
 
                                 try {
                                     PreparedStatement pstm = cn.prepareStatement(sql);
@@ -1107,8 +1186,8 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
 
                             } else {
                                 
-                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
-                                        + " values(NULL,'" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,IDRuta,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDRuta + "','" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
 
                                 try {
                                     PreparedStatement pstm = cn.prepareStatement(sql);
