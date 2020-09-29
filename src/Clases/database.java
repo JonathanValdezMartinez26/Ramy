@@ -354,10 +354,19 @@ public class database {
     {
         boolean res = false;
         //JOptionPane.showMessageDialog(null, valores+ " "+ id);
-        String q = " UPDATE ruta SET PCamioneta_1_5=" + valores + " WHERE ID_Ruta= " + id;
+        String q = " UPDATE ruta SET PCamioneta_1_5=" + valores + " WHERE ID_Ruta= " + id;        
         //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
         try {
             PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        String s = " UPDATE guardar_cotizacion_directa SET Camioneta_15=" + valores + " WHERE IDRuta= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(s);
             pstm.execute();
             pstm.close();
             res=true;
@@ -381,6 +390,15 @@ public class database {
          }catch(SQLException e){            
             System.out.println(e);
         }
+        String s = " UPDATE guardar_cotizacion_directa SET Camioneta_35=" + valores + " WHERE IDRuta= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(s);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
         return res;
     }
     public boolean updateClienteRabon(String valores, String id)
@@ -391,6 +409,15 @@ public class database {
         //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
         try {
             PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        String s = " UPDATE guardar_cotizacion_directa SET Rabon=" + valores + " WHERE IDRuta= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(s);
             pstm.execute();
             pstm.close();
             res=true;
@@ -413,6 +440,15 @@ public class database {
          }catch(SQLException e){            
             System.out.println(e);
         }
+        String s = " UPDATE guardar_cotizacion_directa SET Torthon=" + valores + " WHERE IDRuta= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(s);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
         return res;
     }
     public boolean updateClienteTrailer(String valores, String id)
@@ -429,6 +465,15 @@ public class database {
          }catch(SQLException e){            
             System.out.println(e);
         }
+        String s = " UPDATE guardar_cotizacion_directa SET Trailer=" + valores + " WHERE IDRuta= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(s);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
         return res;
     }
     public boolean updateClienteFull(String valores, String id)
@@ -439,6 +484,15 @@ public class database {
         //sql="UPDATE cotizacionesv Set Estado = 1 Where ID_Cotizacion =" + ID;
         try {
             PreparedStatement pstm = conn.prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){            
+            System.out.println(e);
+        }
+        String s = " UPDATE guardar_cotizacion_directa SET Full=" + valores + " WHERE IDRuta= " + id;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(s);
             pstm.execute();
             pstm.close();
             res=true;
