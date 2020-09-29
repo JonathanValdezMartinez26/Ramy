@@ -354,7 +354,7 @@ public class AgregarCliente extends javax.swing.JDialog {
         lblNombreNuevo20.setText("Municipio*");
         pnlPrincipal.add(lblNombreNuevo20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
 
-        cmbColonia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbColonia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbColonia.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbColoniaItemStateChanged(evt);
@@ -424,8 +424,8 @@ public class AgregarCliente extends javax.swing.JDialog {
         lblNombreNuevo6.setText("Nombre del la Empresa/Negocio ó Cliente*");
         pnlPrincipal.add(lblNombreNuevo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 280, -1));
 
-        jLabel1.setText("los campos marcados con (*) son obligatorios ");
-        pnlPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 460, 220, -1));
+        jLabel1.setText("Los campos marcados con (*) son obligatorios.");
+        pnlPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 460, 250, -1));
 
         jcMousePanel1.add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 9, 700, 480));
 
