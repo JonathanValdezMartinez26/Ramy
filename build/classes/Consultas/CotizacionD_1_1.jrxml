@@ -247,7 +247,7 @@
 					<font fontName="Times New Roman" size="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[ new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="Column header" x="397" y="31" width="145" height="20" forecolor="#000000" uuid="b34d53b5-7015-421f-a3a1-b2669d034f0b"/>
@@ -308,7 +308,7 @@
 					<font fontName="Times New Roman" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Atencion}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[ $F{Atencion}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="11" y="77" width="331" height="20" uuid="ceb89c1a-479c-445e-abb5-f4b6b203b0da"/>
