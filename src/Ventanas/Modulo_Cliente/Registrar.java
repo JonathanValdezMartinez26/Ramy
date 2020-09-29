@@ -1332,20 +1332,20 @@ public class Registrar extends javax.swing.JDialog {
     }//GEN-LAST:event_buscarViajeActionPerformed
 
     private void tabla3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla3KeyPressed
-
-        int press=evt.getKeyCode();        
-        if(this.tabla3.getSelectedRow()!=-1 && press==127 ){
-            String IDRuta =tabla3.getValueAt(tabla3.getSelectedRow(), 0).toString();            
-            String IDCliente=ID_C.getText();           
-            confirmarEliminar(IDRuta,IDCliente);
-        }
-             if (evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER)
-            {
-               evt.setKeyCode(java.awt.event.KeyEvent.VK_TAB);
-               {
-                   
-               }
-            }
+//
+//        int press=evt.getKeyCode();        
+//        if(this.tabla3.getSelectedRow()!=-1 && press==127 ){
+//            String IDRuta =tabla3.getValueAt(tabla3.getSelectedRow(), 0).toString();            
+//            String IDCliente=ID_C.getText();           
+//            confirmarEliminar(IDRuta,IDCliente);
+//        }
+//             if (evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER)
+//            {
+//               evt.setKeyCode(java.awt.event.KeyEvent.VK_TAB);
+//               {
+//                   
+//               }
+//            }
              
     }//GEN-LAST:event_tabla3KeyPressed
 
