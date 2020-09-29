@@ -322,7 +322,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value=" Cotizaci&#xf3;n por Consolidado"/>
+                <Property name="text" type="java.lang.String" value=" Cotizaci&#xf3;n por Ruta"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

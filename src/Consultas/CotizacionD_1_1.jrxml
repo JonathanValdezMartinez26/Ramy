@@ -40,18 +40,7 @@
 	</parameter>
 	<parameter name="logo" class="java.io.InputStream"/>
 	<queryString>
-		<![CDATA[SELECT ID_Cotizacion,Nombre_cliente,Atencion,Localidad,calle,Origen,Destino,
-CASE Camioneta_15 when 0 then '-' else(SELECT Camioneta_15 from reporte_directa where ID_Cotizacion = $P{ID_Cotizacion}) END AS Camioneta_15, 
-CASE Camioneta_35 when 0 then '-' else(SELECT Camioneta_35 from reporte_directa where ID_Cotizacion = $P{ID_Cotizacion}) END AS Camioneta_35,
-CASE Rabon when 0 then '-' else(SELECT Rabon from reporte_directa where 
-ID_Cotizacion = $P{ID_Cotizacion}) END AS Rabon, 
-CASE Torthon when 0 then '-' else(SELECT Torthon from reporte_directa where 
-ID_Cotizacion = $P{ID_Cotizacion}) END AS Torthon, 
-CASE Trailer when 0 then '-' else(SELECT Trailer from reporte_directa where 
-ID_Cotizacion = $P{ID_Cotizacion}) END AS Trailer, 
-CASE Full when 0 then '-' else(SELECT Full from reporte_directa where 
-ID_Cotizacion = $P{ID_Cotizacion}) END AS Full ,
-Estado
+		<![CDATA[SELECT *
 from reporte_directa 
 WHERE ID_Cotizacion=$P{ID_Cotizacion} and Estado=1]]>
 	</queryString>
@@ -76,22 +65,22 @@ WHERE ID_Cotizacion=$P{ID_Cotizacion} and Estado=1]]>
 	<field name="Destino" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Camioneta_15" class="java.lang.String">
+	<field name="Camioneta_15" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Camioneta_35" class="java.lang.String">
+	<field name="Camioneta_35" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Rabon" class="java.lang.String">
+	<field name="Rabon" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Torthon" class="java.lang.String">
+	<field name="Torthon" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Trailer" class="java.lang.String">
+	<field name="Trailer" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Full" class="java.lang.String">
+	<field name="Full" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Estado" class="java.lang.Integer">
