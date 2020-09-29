@@ -169,12 +169,12 @@
                         <Column editable="false" title="ID_Cotizacion" type="java.lang.String"/>
                         <Column editable="false" title="Origen" type="java.lang.String"/>
                         <Column editable="false" title="Destino" type="java.lang.Object"/>
-                        <Column editable="true" title="Camioneta 1.5" type="java.lang.Object"/>
-                        <Column editable="true" title="Camioneta 3.5" type="java.lang.String"/>
-                        <Column editable="true" title="Rabon" type="java.lang.Object"/>
-                        <Column editable="true" title="Torthon" type="java.lang.Object"/>
-                        <Column editable="true" title="Trailer" type="java.lang.Object"/>
-                        <Column editable="true" title="Fulll" type="java.lang.Object"/>
+                        <Column editable="false" title="Camioneta 1.5" type="java.lang.Object"/>
+                        <Column editable="false" title="Camioneta 3.5" type="java.lang.String"/>
+                        <Column editable="false" title="Rabon" type="java.lang.Object"/>
+                        <Column editable="false" title="Torthon" type="java.lang.Object"/>
+                        <Column editable="false" title="Trailer" type="java.lang.Object"/>
+                        <Column editable="false" title="Fulll" type="java.lang.Object"/>
                         <Column editable="true" title="Selecciona" type="java.lang.Boolean"/>
                       </Table>
                     </Property>

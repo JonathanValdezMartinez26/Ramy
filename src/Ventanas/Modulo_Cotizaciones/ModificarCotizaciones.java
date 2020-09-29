@@ -479,7 +479,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
                 int Filas1 = modelo.getRowCount(); 
             
-            //cmbOrigenes.addItem("Seleccione un Origen");            
+            cmbDestinos.addItem("Seleccione un Destino");            
             int ID1=0;
             int contador=0;
             int j;
@@ -617,7 +617,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true, true, true, true, true, true
+                false, false, false, false, false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
