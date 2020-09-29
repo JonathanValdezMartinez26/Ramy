@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Grey" pageWidth="595" pageHeight="150" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1f690a3-5977-4467-85f8-6b0bcd5b7210">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="279"/>
+	<property name="ireport.x" value="264"/>
 	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2xpbmljYS5tZWRpY292IEFTICw4OCw2MSw0ZmQxZTRlOS1hNDI0LTQxYjItOTkwMC0zM2NhOWY2 ZTgwM2Q7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
@@ -34,40 +34,35 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT ID_Cotizacion, Nombre, 
-CASE Camioneta15 when 0 then '-' else(SELECT Camioneta15 from servicios where ID_Cotizacion = $P{ID_Cotizacion}) END AS Camioneta15, 
-CASE Camioneta35 when 0 then '-' else(SELECT Camioneta35 from servicios where ID_Cotizacion = $P{ID_Cotizacion}) END AS Camioneta35,
-CASE Rabon when 0 then '-' else(SELECT Rabon from servicios where 
-ID_Cotizacion = $P{ID_Cotizacion}) END AS Rabon, 
-CASE Torthon when 0 then '-' else(SELECT Torthon from servicios where 
-ID_Cotizacion = $P{ID_Cotizacion}) END AS Torthon, 
-CASE Trailer when 0 then '-' else(SELECT Trailer from servicios where ID_Cotizacion = $P{ID_Cotizacion}) END AS Trailer, 
-CASE Full when 0 then '-' else(SELECT Full from servicios where ID_Cotizacion = $P{ID_Cotizacion}) END AS Full 
+		<![CDATA[SELECT * 
 from servicios
 WHERE id_Cotizacion = $P{ID_Cotizacion}]]>
 	</queryString>
+	<field name="ID_Servicio" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="ID_Cotizacion" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Nombre" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Camioneta15" class="java.lang.String">
+	<field name="Camioneta15" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Camioneta35" class="java.lang.String">
+	<field name="Camioneta35" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Rabon" class="java.lang.String">
+	<field name="Rabon" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Torthon" class="java.lang.String">
+	<field name="Torthon" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Trailer" class="java.lang.String">
+	<field name="Trailer" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Full" class="java.lang.String">
+	<field name="Full" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<group name="report">
