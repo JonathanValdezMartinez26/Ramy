@@ -690,11 +690,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-<<<<<<< HEAD
+
                 false, false, false, false, false, true, true, true, true, true, true, true
-=======
-                false, false, false, false, false, false, false, false, false, false, true
->>>>>>> 1d81b542338b0c5a882fddc2a23d9f12acef5faf
+
             };
 
             public Class getColumnClass(int columnIndex) {
