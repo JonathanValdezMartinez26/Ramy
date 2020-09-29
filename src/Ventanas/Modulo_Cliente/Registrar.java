@@ -583,6 +583,7 @@ public class Registrar extends javax.swing.JDialog {
         jPanel7 = new javax.swing.JPanel();
         lblNombreNuevo17 = new javax.swing.JLabel();
         rSButtonMetro2 = new JButtonEspecial.JButtonEspecial();
+        rSButtonMetro3 = new JButtonEspecial.JButtonEspecial();
         barra_estado = new javax.swing.JPanel();
         a3 = new javax.swing.JLabel();
         a2 = new javax.swing.JLabel();
@@ -634,9 +635,6 @@ public class Registrar extends javax.swing.JDialog {
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         l1 = new javax.swing.JSeparator();
-        pnlAyuda = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -664,9 +662,9 @@ public class Registrar extends javax.swing.JDialog {
         lblNombreNuevo17.setForeground(new java.awt.Color(102, 102, 102));
         lblNombreNuevo17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreNuevo17.setText("     Clientes > Ata Origen, Destinos y Asignación");
-        jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 900, 30));
+        jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 850, 30));
 
-        rSButtonMetro2.setText("X");
+        rSButtonMetro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda20.png"))); // NOI18N
         rSButtonMetro2.setToolTipText("Cerrar");
         rSButtonMetro2.setColorHover(new java.awt.Color(102, 102, 102));
         rSButtonMetro2.setColorNormal(new java.awt.Color(210, 210, 214));
@@ -676,7 +674,19 @@ public class Registrar extends javax.swing.JDialog {
                 rSButtonMetro2ActionPerformed(evt);
             }
         });
-        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(914, 0, 30, 30));
+        jPanel7.add(rSButtonMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(884, 0, 30, 30));
+
+        rSButtonMetro3.setText("X");
+        rSButtonMetro3.setToolTipText("Cerrar");
+        rSButtonMetro3.setColorHover(new java.awt.Color(102, 102, 102));
+        rSButtonMetro3.setColorNormal(new java.awt.Color(210, 210, 214));
+        rSButtonMetro3.setColorPressed(new java.awt.Color(136, 0, 0));
+        rSButtonMetro3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonMetro3ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(rSButtonMetro3, new org.netbeans.lib.awtextra.AbsoluteConstraints(914, 0, 30, 30));
 
         jcMousePanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 12, 944, -1));
 
@@ -782,10 +792,10 @@ public class Registrar extends javax.swing.JDialog {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
         );
 
-        A.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 900, 300));
+        A.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 900, 320));
 
         jLabel1.setText("Seleccione un Origen y Posteriormente un Destino ");
         A.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 610, -1));
@@ -803,7 +813,7 @@ public class Registrar extends javax.swing.JDialog {
                 log1ActionPerformed(evt);
             }
         });
-        A.add(log1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, -1, -1));
+        A.add(log1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 420, -1, -1));
 
         PanelDesliza.add(A, "card2");
 
@@ -886,10 +896,10 @@ public class Registrar extends javax.swing.JDialog {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
         );
 
-        B.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 900, 300));
+        B.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 900, 320));
 
         jLabel2.setText("Seleccione un Estado y Posteriormente un Municipio para agregar un Destino");
         B.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 610, -1));
@@ -907,7 +917,7 @@ public class Registrar extends javax.swing.JDialog {
                 log2ActionPerformed(evt);
             }
         });
-        B.add(log2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, -1, -1));
+        B.add(log2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 420, -1, -1));
 
         log3.setBackground(new java.awt.Color(204, 204, 204));
         log3.setForeground(new java.awt.Color(128, 128, 131));
@@ -922,7 +932,7 @@ public class Registrar extends javax.swing.JDialog {
                 log3ActionPerformed(evt);
             }
         });
-        B.add(log3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, -1, -1));
+        B.add(log3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 420, -1, -1));
 
         PanelDesliza.add(B, "card3");
 
@@ -1081,7 +1091,7 @@ public class Registrar extends javax.swing.JDialog {
                 log4ActionPerformed(evt);
             }
         });
-        C.add(log4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, -1, -1));
+        C.add(log4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 420, -1, -1));
 
         log5.setBackground(new java.awt.Color(204, 204, 204));
         log5.setForeground(new java.awt.Color(128, 128, 131));
@@ -1096,7 +1106,7 @@ public class Registrar extends javax.swing.JDialog {
                 log5ActionPerformed(evt);
             }
         });
-        C.add(log5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, -1, -1));
+        C.add(log5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 420, -1, -1));
 
         PanelDesliza.add(C, "card4");
 
@@ -1143,32 +1153,8 @@ public class Registrar extends javax.swing.JDialog {
 
         PanelDesliza.add(D, "card5");
 
-        jcMousePanel1.add(PanelDesliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 130, 920, 450));
+        jcMousePanel1.add(PanelDesliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 130, 920, 470));
         jcMousePanel1.add(l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 120, 903, 10));
-
-        pnlAyuda.setBackground(new java.awt.Color(225, 225, 225));
-        pnlAyuda.setToolTipText("Ayuda");
-        pnlAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlAyudaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlAyudaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlAyudaMouseExited(evt);
-            }
-        });
-        pnlAyuda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setText("      Ayuda");
-        pnlAyuda.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda30.png"))); // NOI18N
-        pnlAyuda.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, 30, 40));
-
-        jcMousePanel1.add(pnlAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(882, 41, -1, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1178,14 +1164,15 @@ public class Registrar extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
+            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void rSButtonMetro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro2ActionPerformed
-        this.dispose();
+        Ventanas.CotizacionReporte.ConfigCotizacionViaje poper =new Ventanas.CotizacionReporte.ConfigCotizacionViaje(null, true);
+        poper.setVisible(true);
     }//GEN-LAST:event_rSButtonMetro2ActionPerformed
 
     private void jPanel7MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseDragged
@@ -1442,19 +1429,9 @@ public class Registrar extends javax.swing.JDialog {
         Guardar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void pnlAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseClicked
-
-        Ventanas.CotizacionReporte.ConfigCotizacionViaje poper =new Ventanas.CotizacionReporte.ConfigCotizacionViaje(null, true);
-        poper.setVisible(true);
-    }//GEN-LAST:event_pnlAyudaMouseClicked
-
-    private void pnlAyudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseEntered
-        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
-    }//GEN-LAST:event_pnlAyudaMouseEntered
-
-    private void pnlAyudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseExited
-        pnlAyuda.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
-    }//GEN-LAST:event_pnlAyudaMouseExited
+    private void rSButtonMetro3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonMetro3ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1518,8 +1495,6 @@ public class Registrar extends javax.swing.JDialog {
     public static JButtonEspecial.JButtonEspecial jButton2;
     public static JButtonEspecial.JButtonEspecial jButton33;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1549,8 +1524,8 @@ public class Registrar extends javax.swing.JDialog {
     public static JButtonEspecial.JButtonEspecial log4;
     public static JButtonEspecial.JButtonEspecial log5;
     private JButtonEspecial.JButtonEspecial log8;
-    private javax.swing.JPanel pnlAyuda;
     private JButtonEspecial.JButtonEspecial rSButtonMetro2;
+    private JButtonEspecial.JButtonEspecial rSButtonMetro3;
     public static javax.swing.JTable tabla;
     public static javax.swing.JTable tabla2;
     public static javax.swing.JTable tabla3;
