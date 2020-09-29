@@ -197,7 +197,7 @@ public class ConfigCotizacionConsolidado extends javax.swing.JDialog {
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("==============================================");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Captura3.PNG"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Captura 5.png"))); // NOI18N
 
         txtparte2.setBorder(null);
         txtparte2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
