@@ -80,7 +80,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 					<text><![CDATA[                                           Adicional]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="236" y="-18" width="61" height="20" forecolor="#000000" backcolor="#FF9900" uuid="ba089bef-8452-4352-a581-53b348851326"/>
+					<reportElement style="Column header" mode="Opaque" x="236" y="-18" width="49" height="20" forecolor="#000000" backcolor="#FF9900" uuid="ba089bef-8452-4352-a581-53b348851326"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -94,7 +94,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 					<text><![CDATA[ CAMIONETA 1.5 TON]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="297" y="-18" width="61" height="20" forecolor="#000000" backcolor="#FF9900" uuid="16b3ed24-84b8-4311-91b6-8bccec13a844"/>
+					<reportElement style="Column header" mode="Opaque" x="285" y="-18" width="48" height="20" forecolor="#000000" backcolor="#FF9900" uuid="16b3ed24-84b8-4311-91b6-8bccec13a844"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -108,7 +108,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 					<text><![CDATA[ CAMIONETA 3.5 TON]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="358" y="-18" width="52" height="20" forecolor="#000000" backcolor="#FF9900" uuid="5e4a9047-295a-49f4-aa68-5f875e155c44"/>
+					<reportElement style="Column header" mode="Opaque" x="333" y="-18" width="39" height="20" forecolor="#000000" backcolor="#FF9900" uuid="5e4a9047-295a-49f4-aa68-5f875e155c44"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -119,10 +119,10 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 					<textElement textAlignment="Left">
 						<font fontName="Arial" size="7" isBold="true"/>
 					</textElement>
-					<text><![CDATA[    TORTHON]]></text>
+					<text><![CDATA[ TORTHON]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="410" y="-18" width="50" height="20" forecolor="#000000" backcolor="#FF9900" uuid="98e9d737-8583-48cd-87e9-31346dce87b6"/>
+					<reportElement style="Column header" mode="Opaque" x="372" y="-18" width="48" height="20" forecolor="#000000" backcolor="#FF9900" uuid="98e9d737-8583-48cd-87e9-31346dce87b6"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -136,7 +136,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 					<text><![CDATA[    TRAILER]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="460" y="-18" width="51" height="20" forecolor="#000000" backcolor="#FF9900" uuid="831098ab-bd9e-428d-8918-68e526df0ddc"/>
+					<reportElement style="Column header" mode="Opaque" x="420" y="-18" width="40" height="20" forecolor="#000000" backcolor="#FF9900" uuid="831098ab-bd9e-428d-8918-68e526df0ddc"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -147,10 +147,10 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 					<textElement textAlignment="Left">
 						<font fontName="Arial" size="7" isBold="true"/>
 					</textElement>
-					<text><![CDATA[         FULL]]></text>
+					<text><![CDATA[       FULL]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" mode="Opaque" x="511" y="-18" width="44" height="20" forecolor="#000000" backcolor="#FF9900" uuid="790a203f-9155-4ab6-8c8d-6e75beb9f059"/>
+					<reportElement style="Column header" mode="Opaque" x="460" y="-18" width="41" height="20" forecolor="#000000" backcolor="#FF9900" uuid="790a203f-9155-4ab6-8c8d-6e75beb9f059"/>
 					<box>
 						<pen lineWidth="0.75" lineColor="#000000"/>
 						<topPen lineWidth="0.75" lineColor="#000000"/>
@@ -170,9 +170,9 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="21" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement x="236" y="0" width="61" height="20" uuid="7b31d39c-2f13-4ca7-8769-d0ceb70dd753"/>
+				<reportElement x="236" y="0" width="49" height="20" uuid="7b31d39c-2f13-4ca7-8769-d0ceb70dd753"/>
 				<box>
 					<pen lineWidth="0.5" lineColor="#000000"/>
 					<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -196,7 +196,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="297" y="0" width="61" height="20" uuid="c4803804-3a59-4be6-b398-2671d9cfbfee"/>
+				<reportElement x="285" y="0" width="48" height="20" uuid="c4803804-3a59-4be6-b398-2671d9cfbfee"/>
 				<box>
 					<pen lineWidth="0.5" lineColor="#000000"/>
 					<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -208,7 +208,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 				<textFieldExpression><![CDATA["$"+$F{Camioneta35}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="358" y="0" width="52" height="20" uuid="eb5d2fa6-75e0-4fe9-b2f2-5cfb83f30307"/>
+				<reportElement x="333" y="0" width="39" height="20" uuid="eb5d2fa6-75e0-4fe9-b2f2-5cfb83f30307"/>
 				<box>
 					<pen lineWidth="0.5" lineColor="#000000"/>
 					<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -220,7 +220,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 				<textFieldExpression><![CDATA["$"+$F{Torthon}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="410" y="0" width="50" height="20" uuid="070fadd7-fc67-4403-a728-932245e9d47d"/>
+				<reportElement x="372" y="0" width="48" height="20" uuid="070fadd7-fc67-4403-a728-932245e9d47d"/>
 				<box>
 					<pen lineWidth="0.5" lineColor="#000000"/>
 					<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -232,7 +232,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 				<textFieldExpression><![CDATA["$"+$F{Trailer}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="460" y="0" width="51" height="20" uuid="81937403-8d47-48b9-a0b2-1964e03c5f11"/>
+				<reportElement x="420" y="0" width="40" height="20" uuid="81937403-8d47-48b9-a0b2-1964e03c5f11"/>
 				<box>
 					<pen lineWidth="0.5" lineColor="#000000"/>
 					<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -244,7 +244,7 @@ where ID_Cotizacion=$P{ID_Cotizacion}]]>
 				<textFieldExpression><![CDATA["$"+$F{Full}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="511" y="0" width="44" height="20" uuid="094d2ea2-7ad9-4fe5-b2fe-82cb9d2cee73"/>
+				<reportElement x="460" y="0" width="41" height="20" uuid="094d2ea2-7ad9-4fe5-b2fe-82cb9d2cee73"/>
 				<box>
 					<pen lineWidth="0.5" lineColor="#000000"/>
 					<topPen lineWidth="0.5" lineColor="#000000"/>
