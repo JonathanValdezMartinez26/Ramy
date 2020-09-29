@@ -404,15 +404,20 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                                           existe++;//Aumenta si existe algun regstro repetido
                                       }
                                   }
-                                  if(existe==0){
-                                  
-                                      Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID_Cotiza);
+                                  Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID_Cotiza);
+                                  //if(existe==0){
+                                  ////Si existe el mismo numero de datos en la bd y el mmismo numero de columnas
+                                      if(tabla.getRowCount()==existe){
+                                      //JOptionPane.showMessageDialog(null, "DEsde No Existe= "+existe);
+                                      
                                       Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
                                       AC.msj1.setText("¡Los nuevos Destinos!");
                                       AC.msj2.setText("Han sido registrados");
                                       AC.setVisible(true);
+                                      
                                   }else{
-                                      Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID_Cotiza);
+                                      //JOptionPane.showMessageDialog(null, "Desde Existe= "+existe);                                      
+                                      
                                       Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
                                       AC.msj1.setText("¡No Hay Nuevos Destinos!");
                                       AC.msj2.setText("Para Agregar");
@@ -552,7 +557,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
                 int Filas1 = modelo.getRowCount(); 
             
-            cmbDestinos.addItem("Seleccione un Destino");            
+            //cmbDestinos.addItem("Seleccione un Destino");            
             int ID1=0;
             int contador=0;
             int j;
@@ -1075,7 +1080,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         if (evt.getStateChange() == ItemEvent.SELECTED) {
          cmbDestinos.removeAllItems(); 
         cmbDestinos.addItem("Todos los Destinos"); 
-        cargarDestinos();
+        //cargarDestinos();
         
         }
     }//GEN-LAST:event_cmbOrigenesItemStateChanged
