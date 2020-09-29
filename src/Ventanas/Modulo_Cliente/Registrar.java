@@ -665,7 +665,7 @@ public class Registrar extends javax.swing.JDialog {
         jPanel7.add(lblNombreNuevo17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 850, 30));
 
         rSButtonMetro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ayuda20.png"))); // NOI18N
-        rSButtonMetro2.setToolTipText("Cerrar");
+        rSButtonMetro2.setToolTipText("Ayuda");
         rSButtonMetro2.setColorHover(new java.awt.Color(102, 102, 102));
         rSButtonMetro2.setColorNormal(new java.awt.Color(210, 210, 214));
         rSButtonMetro2.setColorPressed(new java.awt.Color(136, 0, 0));
@@ -1430,7 +1430,7 @@ public class Registrar extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void rSButtonMetro3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro3ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_rSButtonMetro3ActionPerformed
 
     public static void main(String args[]) {
@@ -1486,10 +1486,10 @@ public class Registrar extends javax.swing.JDialog {
     public static javax.swing.JPanel barra_estado;
     public static app.bolivia.swing.JCTextField buscarViaje;
     public static ComboBox.SComboBox cmbDestinos;
-    private ComboBox.SComboBox cmbEstado;
-    private ComboBox.SComboBox cmbEstado1;
-    private ComboBox.SComboBox cmbMunicipio;
-    private ComboBox.SComboBox cmbMunicipio1;
+    public static ComboBox.SComboBox cmbEstado;
+    public static ComboBox.SComboBox cmbEstado1;
+    public static ComboBox.SComboBox cmbMunicipio;
+    public static ComboBox.SComboBox cmbMunicipio1;
     public static ComboBox.SComboBox cmbOrigenes;
     public static JButtonEspecial.JButtonEspecial jButton1;
     public static JButtonEspecial.JButtonEspecial jButton2;

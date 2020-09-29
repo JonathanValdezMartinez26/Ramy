@@ -523,6 +523,7 @@ public class pnlClientes extends javax.swing.JPanel {
             a.log3.setVisible(false);
             a.a3.setText("Destinos.");
             a.setVisible(true);
+            a.cmbEstado1.requestFocus();
            
            
         }
@@ -558,7 +559,7 @@ public class pnlClientes extends javax.swing.JPanel {
     private void pnlorigenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseClicked
         int Fila = tabla1.getSelectedRow();
       
-            if(Fila >= 0)
+        if(Fila >= 0)
         {
             int ID = 0;
             ID = Integer.parseInt(tabla1.getValueAt(Fila, 0).toString());
@@ -568,7 +569,7 @@ public class pnlClientes extends javax.swing.JPanel {
             a.log1.setVisible(false);
             a.a3.setText("Origenes.");
             a.setVisible(true);
-            
+            a.cmbEstado.requestFocus();
         }
     else
         {
@@ -610,11 +611,9 @@ public class pnlClientes extends javax.swing.JPanel {
               //  a.ComboDestinoNormal(ID);
                // a.ComboOrigen(ID);                
             //}
-            
-            
-            
             a.ComboTransportes();
             a.setVisible(true);
+            a.cmbOrigenes.requestFocus();
             
         }
     else
