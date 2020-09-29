@@ -327,7 +327,7 @@ public class ConfigCotizacionRuta extends javax.swing.JDialog {
         info.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         info.setForeground(new java.awt.Color(102, 102, 102));
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info.setText(" Cotización por Consolidado");
+        info.setText(" Cotización por Ruta");
         jPanel7.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 30));
 
         rSButtonMetro2.setText("X");

@@ -40,7 +40,9 @@
 	</parameter>
 	<parameter name="logo" class="java.io.InputStream"/>
 	<queryString>
-		<![CDATA[SELECT *FROM reporte_directa WHERE ID_Cotizacion=$P{ID_Cotizacion} and Estado=1]]>
+		<![CDATA[SELECT *
+from reporte_directa 
+WHERE ID_Cotizacion=$P{ID_Cotizacion} and Estado=1]]>
 	</queryString>
 	<field name="ID_Cotizacion" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -63,22 +65,25 @@
 	<field name="Destino" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Camioneta_15" class="java.lang.Float">
+	<field name="Camioneta_15" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Camioneta_35" class="java.lang.Float">
+	<field name="Camioneta_35" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Rabon" class="java.lang.Float">
+	<field name="Rabon" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Torthon" class="java.lang.Float">
+	<field name="Torthon" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Trailer" class="java.lang.Float">
+	<field name="Trailer" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Full" class="java.lang.Float">
+	<field name="Full" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Estado" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<group name="origen">
@@ -247,7 +252,7 @@
 					<font fontName="Times New Roman" size="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
-				<textFieldExpression><![CDATA[ new java.util.Date()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="Column header" x="397" y="31" width="145" height="20" forecolor="#000000" uuid="b34d53b5-7015-421f-a3a1-b2669d034f0b"/>
@@ -308,7 +313,7 @@
 					<font fontName="Times New Roman" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
-				<textFieldExpression><![CDATA[ $F{Atencion}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Atencion}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="11" y="77" width="331" height="20" uuid="ceb89c1a-479c-445e-abb5-f4b6b203b0da"/>
@@ -398,32 +403,32 @@
 			<textField>
 				<reportElement style="table_TH" x="283" y="0" width="68" height="23" backcolor="#FFFFFF" uuid="faf51273-7f5a-4641-af8a-355ed4d2dc5f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{Camioneta_35}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Camioneta_35}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="351" y="0" width="60" height="23" backcolor="#FFFFFF" uuid="6bffa775-e756-488b-a7c8-78ea816c6429"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{Torthon}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Torthon}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="462" y="0" width="44" height="23" backcolor="#FFFFFF" uuid="27549562-da04-4c65-b145-96467c0f5ee9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{Full}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Full}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="220" y="0" width="63" height="23" backcolor="#FFFFFF" uuid="627ee650-20f4-4e6e-b552-5ab8a564e7a0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{Camioneta_15}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Camioneta_15}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="411" y="0" width="51" height="23" backcolor="#FFFFFF" uuid="e6004563-af3d-4263-8780-158587ae8937"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{Trailer}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Trailer}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_TH" x="506" y="0" width="41" height="23" backcolor="#FFFFFF" uuid="42c85c04-e616-4cde-8f91-82c1d8d66cc0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+" "+$F{Rabon}.intValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+" "+$F{Rabon}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

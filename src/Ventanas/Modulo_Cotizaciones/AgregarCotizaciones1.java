@@ -981,7 +981,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                                 }
 
                             } else {
-                                JOptionPane.showMessageDialog(null, "EStos no se han seleccionado");
+                                
                                 sql = "insert guardar_cotizacion_directa(ID_GuardarCotD,IDRuta,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
                                         + " values(NULL,'" + IDRuta + "','" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
 

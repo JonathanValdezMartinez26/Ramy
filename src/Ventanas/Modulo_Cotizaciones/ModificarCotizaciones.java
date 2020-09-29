@@ -405,23 +405,20 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                                       }
                                   }
                                   Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID_Cotiza);
-                                  //if(existe==0){
-                                  ////Si existe el mismo numero de datos en la bd y el mmismo numero de columnas
-                                      if(tabla.getRowCount()==existe){
-                                      //JOptionPane.showMessageDialog(null, "DEsde No Existe= "+existe);
+                                  
+                                  ////Si existe el mismo numero de datos en la bd y el mmismo numero de columnas se muestra este mensaje
+                                      if(tabla.getRowCount()==existe){                                      
+                                      Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                                      AC.msj1.setText("¡No Hay Nuevos Destinos!");
+                                      AC.msj2.setText("Para Agregar");
+                                      AC.setVisible(true);
                                       
+                                  }else{                                      
                                       Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
                                       AC.msj1.setText("¡Los nuevos Destinos!");
                                       AC.msj2.setText("Han sido registrados");
                                       AC.setVisible(true);
                                       
-                                  }else{
-                                      //JOptionPane.showMessageDialog(null, "Desde Existe= "+existe);                                      
-                                      
-                                      Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
-                                      AC.msj1.setText("¡No Hay Nuevos Destinos!");
-                                      AC.msj2.setText("Para Agregar");
-                                      AC.setVisible(true);
                                   }
             } catch (SQLException ex) {
                 System.out.println("Error: " + ex);
