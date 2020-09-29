@@ -12,7 +12,7 @@ public class database {
 //  
   
   
-  private String bd = "clinica1";//BASE DE DATOS
+  private String bd = "clinica";//BASE DE DATOS
   private String login = "root"; //USUARIO
   private String password = ""; //CONTRASEÑA
 
