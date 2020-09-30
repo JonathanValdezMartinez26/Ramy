@@ -599,6 +599,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tabla.setColumnSelectionAllowed(true);
         tabla.setRowHeight(25);
         tabla.getTableHeader().setReorderingAllowed(false);
         tabla.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -607,6 +608,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
             }
         });
         jScrollPane.setViewportView(tabla);
+        tabla.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tabla.getColumnModel().getColumnCount() > 0) {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
@@ -1250,10 +1252,10 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
              
                 this.dispose();        
                     }else{            
-                          Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                           AC.msj1.setText("¡Campos Vacios!");
-                          AC.msj2.setText("Porfavor llene Completamente ");
-                          AC.msj3.setText("La Tabla de Adicionales");                                    
+                          AC.msj2.setText(" Porfavor asigne Nombre  ");
+                          AC.msj3.setText("del Adicional y sus respectivos precios");                                    
                           AC.setVisible(true);
                     }
                }

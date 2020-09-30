@@ -541,9 +541,11 @@ public final class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
         });
         tablaR.setAlignmentX(2.0F);
         tablaR.setAlignmentY(2.0F);
+        tablaR.setColumnSelectionAllowed(true);
         tablaR.setRowHeight(25);
         tablaR.getTableHeader().setReorderingAllowed(false);
         jScrollPane.setViewportView(tablaR);
+        tablaR.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tablaR.getColumnModel().getColumnCount() > 0) {
             tablaR.getColumnModel().getColumn(0).setMinWidth(0);
             tablaR.getColumnModel().getColumn(0).setPreferredWidth(0);
@@ -1041,10 +1043,10 @@ public final class AgregarCotizaciones_Consolidado extends javax.swing.JDialog {
              
                 this.dispose();        
                     }else{            
-                          Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                             Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                           AC.msj1.setText("¡Campos Vacios!");
-                          AC.msj2.setText("Porfavor llene Completamente ");
-                          AC.msj3.setText("La Tabla de Adicionales");                                    
+                          AC.msj2.setText(" Porfavor asigne Nombre  ");
+                          AC.msj3.setText("del Adicional y sus respectivos precios");                                    
                           AC.setVisible(true);
                     }
                }
