@@ -938,7 +938,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
     if(existeprecio2 ==0){        
         ///////////////////////verifica si la tabla destino no esta vacia y la recorre para validar campos vacios 
      //if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){        
-         if(this.tabla1.getRowCount()!=0){        
+         if(this.tabla1.getRowCount()>=0){        
             int existenombre = 0;
             int existeprecio = 0;
             for (int i = 0; i < tabla1.getRowCount(); i++) {

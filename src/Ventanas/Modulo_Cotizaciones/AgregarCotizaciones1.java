@@ -1061,7 +1061,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             }
             if (existe > 0) {////Si existen combos palomeados, verifica la tabla adicionales
                 ///////////////////////verifica si la Adicionales no esta vacia y la recorre para validar campos vacios 
-                if (this.jTable1.getRowCount() != 0) {
+                if (this.jTable1.getRowCount() >= 0) {/////Modificacion: Doble condicion para eliminar mensaje "Desea finalizar sin adicionales"
                     int existenombre = 0;
                     int existeprecio = 0;
                     for (int i = 0; i < jTable1.getRowCount(); i++) {

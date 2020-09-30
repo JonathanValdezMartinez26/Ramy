@@ -1150,7 +1150,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             }
             if (existe > 0) {////Si existen combos palomeados, verifica la tabla adicionales
                 ///////////////////////verifica si la Adicionales no esta vacia y la recorre para validar campos vacios 
-                if (this.jTable1.getRowCount() != 0) {
+                if (this.jTable1.getRowCount() >= 0) {
                     int existenombre = 0;
                     int existeprecio = 0;
                     for (int i = 0; i < jTable1.getRowCount(); i++) {
