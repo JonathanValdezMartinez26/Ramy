@@ -157,7 +157,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         AgregarCotizaciones1 AC=new AgregarCotizaciones1(null, t);
         
 }
-    
+  
     public void Clientes()
     {
         int ID_Cliente = 0;
@@ -1045,6 +1045,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
+        
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
         final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
         tabla.setRowSorter(sorter);
