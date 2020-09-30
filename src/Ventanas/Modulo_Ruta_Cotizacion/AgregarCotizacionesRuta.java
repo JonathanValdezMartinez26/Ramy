@@ -1231,7 +1231,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         }
     if(existeprecio2 ==0){        
         ///////////////////////verifica si la tabla destino no esta vacia y la recorre para validar campos vacios 
-     if(this.tabla1.getRowCount()!=0){        
+     if(this.tabla1.getRowCount()>=0){        
             int existenombre = 0;
             int existeprecio = 0;
             for (int i = 0; i < tabla1.getRowCount(); i++) {
@@ -1242,7 +1242,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
                      existeprecio++;
                  }                                 
         }
-        if (existenombre == 0 && existeprecio == 0) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
+        if (existenombre == 0  ) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
              String ID_Cotizacion = IDCotizacion.getText();
              Ventanas.Modulo_Ruta_Cotizacion.Opciones.finalizarCotizacion(ID_Cotizacion);
              Ventanas.Modulo_Ruta_Cotizacion.Opciones.listarCotizaciones("");

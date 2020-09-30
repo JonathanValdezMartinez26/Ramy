@@ -938,7 +938,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
     if(existeprecio2 ==0){        
         ///////////////////////verifica si la tabla destino no esta vacia y la recorre para validar campos vacios 
      //if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){        
-         if(this.tabla1.getRowCount()!=0){        
+         if(this.tabla1.getRowCount()>=0){        
             int existenombre = 0;
             int existeprecio = 0;
             for (int i = 0; i < tabla1.getRowCount(); i++) {
@@ -949,7 +949,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                      existeprecio++;
                  }                                 
         }
-        if (existenombre == 0 && existeprecio == 0) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
+        if (existenombre == 0 ) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
              String ID_Cotizacion = IDCotizacion.getText();
              Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
              Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
@@ -1188,16 +1188,18 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
     public static javax.swing.JTable tablaR;
     public static app.bolivia.swing.JCTextField txtTipo_Concepto;
     // End of variables declaration//GEN-END:variables
-public static void ver() {
+public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
         int ID = Integer.parseInt(IDCotizacion.getText());
         if (ID >= 0) {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-            String archivo = "src/Consultas/Renta_Transporte_1.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            String archivo = "/Consultas/Renta_Transporte_1.jasper";
+          JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));
             Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 

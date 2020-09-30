@@ -22,12 +22,17 @@ import Clases.database;
 import Clases.estados;
 import Clases.localidades;
 import Clases.municipios;
+import MyTableCellEditor.EditarCamioneta35Adicional;
 import MyTableCellEditor.EditarCotizGCamioneta15;
 import MyTableCellEditor.EditarCotizGCamioneta35;
 import MyTableCellEditor.EditarCotizGFull;
 import MyTableCellEditor.EditarCotizGRabon;
 import MyTableCellEditor.EditarCotizGTorthon;
 import MyTableCellEditor.EditarCotizGTrailer;
+import MyTableCellEditor.EditarFullAdicional;
+import MyTableCellEditor.EditarRabonAdicional;
+import MyTableCellEditor.EditarTorthonAdicional;
+import MyTableCellEditor.EditarTrailerAdicional;
 import Ventanas.CotizacionReporte.ConfigCotizacionD;
 import Ventanas.CotizacionReporte.ConfigCotizacionDire;
 import static Ventanas.Modulo_Cliente.Opciones.*;
@@ -151,15 +156,20 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         jScrollPane2.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane2.getHorizontalScrollBar().setUI(new MyScrollbarUI());
         
-        jTable1.getColumnModel().getColumn( 2 ).setCellEditor(new EditarNombreAdicionall(db,"Nombre del Servicio"));//Columna Precio
-        jTable1.getColumnModel().getColumn( 3 ).setCellEditor(new EditarCamioneta15Adicional(db,"Precio"));//Columna Precio
+        jTable1.getColumnModel().getColumn( 2 ).setCellEditor(new EditarNombreAdicionall(db,""));//Columna Precio
+        jTable1.getColumnModel().getColumn( 3 ).setCellEditor(new EditarCamioneta15Adicional(db,""));//Columna Precio        
+        jTable1.getColumnModel().getColumn( 4 ).setCellEditor(new EditarCamioneta35Adicional(db,""));//Columna Precio        
+        jTable1.getColumnModel().getColumn( 5 ).setCellEditor(new EditarRabonAdicional(db,""));//Columna Precio        
+        jTable1.getColumnModel().getColumn( 6 ).setCellEditor(new EditarTorthonAdicional(db,""));//Columna Precio        
+        jTable1.getColumnModel().getColumn( 7 ).setCellEditor(new EditarTrailerAdicional(db,""));//Columna Precio        
+        jTable1.getColumnModel().getColumn( 8 ).setCellEditor(new EditarFullAdicional(db,""));//Columna Precio        
         
-        tabla.getColumnModel().getColumn( 4 ).setCellEditor(new EditarCotizGCamioneta15(db,"CAMIONETA 1.5 TON"));
-        tabla.getColumnModel().getColumn( 5 ).setCellEditor(new EditarCotizGCamioneta35(db,"CAMIONETA 3.5 TON"));
-        tabla.getColumnModel().getColumn( 6 ).setCellEditor(new EditarCotizGRabon(db,"RABÓN"));
-        tabla.getColumnModel().getColumn( 7 ).setCellEditor(new EditarCotizGTorthon(db,"TORTHON"));
-        tabla.getColumnModel().getColumn( 8 ).setCellEditor(new EditarCotizGTrailer(db,"TRÁILER"));
-        tabla.getColumnModel().getColumn( 9 ).setCellEditor(new EditarCotizGFull(db,"FULL"));
+        tabla.getColumnModel().getColumn( 5 ).setCellEditor(new EditarCotizGCamioneta15(db,"CAMIONETA 1.5 TON"));
+        tabla.getColumnModel().getColumn( 6 ).setCellEditor(new EditarCotizGCamioneta35(db,"CAMIONETA 3.5 TON"));
+        tabla.getColumnModel().getColumn( 7 ).setCellEditor(new EditarCotizGRabon(db,"RABÓN"));
+        tabla.getColumnModel().getColumn( 8 ).setCellEditor(new EditarCotizGTorthon(db,"TORTHON"));
+        tabla.getColumnModel().getColumn( 9 ).setCellEditor(new EditarCotizGTrailer(db,"TRÁILER"));
+        tabla.getColumnModel().getColumn( 10 ).setCellEditor(new EditarCotizGFull(db,"FULL"));
         //jTable1.setDefaultRenderer(Object.class, new Render());
 //                                               
 
@@ -692,9 +702,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-
                 false, false, false, false, false, true, true, true, true, true, true, true
-
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -705,6 +713,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tabla.setColumnSelectionAllowed(true);
         tabla.setRowHeight(25);
         tabla.getTableHeader().setReorderingAllowed(false);
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -718,6 +727,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             }
         });
         jScrollPane1.setViewportView(tabla);
+        tabla.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tabla.getColumnModel().getColumnCount() > 0) {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
@@ -1140,7 +1150,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             }
             if (existe > 0) {////Si existen combos palomeados, verifica la tabla adicionales
                 ///////////////////////verifica si la Adicionales no esta vacia y la recorre para validar campos vacios 
-                if (this.jTable1.getRowCount() != 0) {
+                if (this.jTable1.getRowCount() >= 0) {
                     int existenombre = 0;
                     int existeprecio = 0;
                     for (int i = 0; i < jTable1.getRowCount(); i++) {
@@ -1151,7 +1161,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                             existeprecio++;
                         }
                     }
-                    if (existenombre == 0 && existeprecio == 0) {//////////verifica si la Adicionales no tiene campos vacios, registra datos y finaliza cotizxacion
+                    if (existenombre == 0 ) {//////////verifica si la Adicionales no tiene campos vacios, registra datos y finaliza cotizxacion
 
                         int Filas1 = modelo.getRowCount();
                         for (int i = 0; i < Filas1; i++) {
@@ -1271,7 +1281,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                      existeprecio++;
                  }                                 
         }
-            if(existenombre==0 && existeprecio==0){////////Si ningun campo esta vacio, se puede agregar otro nuevo campo
+            if(existenombre==0 ){////////Si ningun campo esta vacio, se puede agregar otro nuevo campo
                 cargarServicio();
                 int ID_Cotizacion;
                 ID_Cotizacion = Integer.parseInt(ModificarCotizaciones.IDCotizacion.getText());

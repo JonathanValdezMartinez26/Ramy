@@ -36,7 +36,7 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["src\\Consultas\\"]]></defaultValueExpression>
 	</parameter>
-	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="logo2" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[SELECT * FROM `reporte_consolidacion` WHERE ID_Cotizacion=$P{ID_Cotizacion}]]>
 	</queryString>
@@ -174,7 +174,7 @@
 			</textField>
 			<image>
 				<reportElement x="14" y="15" width="104" height="45" uuid="11eebc9e-cc0f-400c-93c9-55c924764bbc"/>
-				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+				<imageExpression><![CDATA[$P{logo2}]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="11" y="77" width="331" height="20" uuid="dd219bcc-50a2-4f07-a513-d50942fef260"/>
@@ -379,7 +379,7 @@
 					<rightPen lineWidth="0.75"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+$F{Precio}.floatValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+$F{Precio}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="282" y="0" width="174" height="20" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>

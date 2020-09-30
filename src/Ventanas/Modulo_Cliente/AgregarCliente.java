@@ -158,10 +158,10 @@ public class AgregarCliente extends javax.swing.JDialog {
                                                         Ventanas.Modulo_Cliente.Opciones.listar("");
                                                         this.dispose();
 
-                                                        Alerts.AlertBasic.AgregarDestinos AC = new  Alerts.AlertBasic.AgregarDestinos(null, true);
-                                                        AC.NombreEmpresa.setText(Nombre);
-                                                        AC.ID.setText(""+ObtenID());
-                                                        AC.setVisible(true);
+//                                                        Alerts.AlertBasic.AgregarDestinos AC = new  Alerts.AlertBasic.AgregarDestinos(null, true);
+//                                                        AC.NombreEmpresa.setText(Nombre);
+//                                                        AC.ID.setText(""+ObtenID());
+//                                                        AC.setVisible(true);
                                                      }
                                                 }
                                         }

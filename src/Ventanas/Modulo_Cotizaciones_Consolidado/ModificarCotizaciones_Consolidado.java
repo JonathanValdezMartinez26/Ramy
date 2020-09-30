@@ -1107,7 +1107,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
         }
     if(existeprecio2 ==0){        
         ///////////////////////verifica si la tabla destino no esta vacia y la recorre para validar campos vacios 
-     if(this.tabla1.getRowCount()!=0){        
+     if(this.tabla1.getRowCount()>=0){        
             int existenombre = 0;
             int existeprecio = 0;
             for (int i = 0; i < tabla1.getRowCount(); i++) {
@@ -1118,7 +1118,7 @@ public class ModificarCotizaciones_Consolidado extends javax.swing.JDialog {
                      existeprecio++;
                  }                                 
         }
-        if (existenombre == 0 && existeprecio == 0) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
+        if (existenombre == 0 ) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
              String ID_Cotizacion = IDCotizacion.getText();
              Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.finalizarCotizacion(ID_Cotizacion);
              Ventanas.Modulo_Cotizaciones_Consolidado.Opciones.listarCotizaciones("");
@@ -1445,11 +1445,11 @@ public void ver() {
 
        try {
             Consultas.Reportes r = new Consultas.Reportes(new JFrame(), true);
-          String archivo = "src/Consultas/Renta_Consolidacion.jasper";
-            
-//            String archivo = "C:\\Users\\Mary\\Documents\\NetBeansProjects\\Ramy\\src\\Consultas\\Renta_Consolidacion.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
-            Map parametro = new HashMap();
+          String archivo = "/Consultas/Renta_Consolidacion.jasper";
+           JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));
+           Map parametro = new HashMap();
+           parametro.clear();
+           parametro.put("logo2", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 

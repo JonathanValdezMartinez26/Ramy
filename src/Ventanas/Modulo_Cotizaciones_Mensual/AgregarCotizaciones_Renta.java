@@ -912,7 +912,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
         }
     if(existeprecio2 ==0){        
         ///////////////////////verifica si la tabla1 no esta vacia y la recorre para validar campos vacios 
-     if(this.tabla1.getRowCount()!=0){        
+     if(this.tabla1.getRowCount()>=0){        
             int existenombre = 0;
             int existeprecio = 0;
             for (int i = 0; i < tabla1.getRowCount(); i++) {
@@ -923,7 +923,7 @@ int comboPeriodo=cmbPeriodo.getSelectedIndex();
                      existeprecio++;
                  }                                 
         }
-        if (existenombre == 0 && existeprecio == 0) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
+        if (existenombre == 0 ) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
              String ID_Cotizacion = IDCotizacion.getText();
              Ventanas.Modulo_Cotizaciones_Mensual.Opciones.finalizarCotizacion(ID_Cotizacion);
              Ventanas.Modulo_Cotizaciones_Mensual.Opciones.listarCotizaciones("");
