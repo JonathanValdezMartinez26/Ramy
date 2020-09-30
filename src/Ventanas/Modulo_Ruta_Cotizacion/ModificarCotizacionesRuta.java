@@ -1313,7 +1313,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
                      existeprecio++;
                  }                                 
         }
-        if (existenombre == 0 && existeprecio == 0) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
+        if (existenombre == 0 ) {//////////verifica si la tabla1 no tiene campos vacios, finaliza cotizacion
              String ID_Cotizacion = IDCotizacion.getText();
              Ventanas.Modulo_Ruta_Cotizacion.Opciones.finalizarCotizacion(ID_Cotizacion);
              Ventanas.Modulo_Ruta_Cotizacion.Opciones.listarCotizaciones("");

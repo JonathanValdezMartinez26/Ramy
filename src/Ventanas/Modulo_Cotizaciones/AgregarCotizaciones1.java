@@ -1072,7 +1072,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                             existeprecio++;
                         }
                     }
-                    if (existenombre == 0 && existeprecio == 0) {//////////verifica si la Adicionales no tiene campos vacios, registra datos y finaliza cotizxacion
+                    if (existenombre == 0 ) {//////////verifica si la Adicionales no tiene campos vacios, registra datos y finaliza cotizxacion
 
                             int Filas1 = modelo.getRowCount();
                         for (int i = 0; i < Filas1; i++) {
@@ -1193,12 +1193,12 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             int existenombre = 0;
             int existeprecio = 0;
             for (int i = 0; i < jTable1.getRowCount(); i++) {
-                 if(jTable1.getValueAt(i, 2).toString().equals("")){
-                     existenombre++;
-                 }                                 
-                 if(jTable1.getValueAt(i, 3).toString().equals("0")){
-                     existeprecio++;
-                 }                                 
+//                 if(jTable1.getValueAt(i, 2).toString().equals("")){
+//                     existenombre++;
+//                 }                                 
+//                 if(jTable1.getValueAt(i, 3).toString().equals("0")){
+//                     existeprecio++;
+//                 }                                 
         }
             if(existenombre==0){////////Si ningun campo esta vacio, se puede agregar otro nuevo campo
                 cargarServicio();

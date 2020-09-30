@@ -1151,7 +1151,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                             existeprecio++;
                         }
                     }
-                    if (existenombre == 0 && existeprecio == 0) {//////////verifica si la Adicionales no tiene campos vacios, registra datos y finaliza cotizxacion
+                    if (existenombre == 0 ) {//////////verifica si la Adicionales no tiene campos vacios, registra datos y finaliza cotizxacion
 
                         int Filas1 = modelo.getRowCount();
                         for (int i = 0; i < Filas1; i++) {
@@ -1271,7 +1271,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                      existeprecio++;
                  }                                 
         }
-            if(existenombre==0 && existeprecio==0){////////Si ningun campo esta vacio, se puede agregar otro nuevo campo
+            if(existenombre==0 ){////////Si ningun campo esta vacio, se puede agregar otro nuevo campo
                 cargarServicio();
                 int ID_Cotizacion;
                 ID_Cotizacion = Integer.parseInt(ModificarCotizaciones.IDCotizacion.getText());
