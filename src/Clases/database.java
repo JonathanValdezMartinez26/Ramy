@@ -25,14 +25,14 @@ public class database {
 //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?useUnicode=true&useUnicode=true&characterEncoding=utf-8";   
 //private String url = "jdbc:mysql://64.34.157.80:3306/"+bd+"?useUnicode=true&useJDBCCompilantTimezoneShift=true";
 
-<<<<<<< HEAD
+
   //private String url = "jdbc:mysql://localhost/"+bd+"?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema = true"; 
     private String url ="jdbc:mysql://localhost/"+bd+"?useUnicode=true&characterEncoding=utf-8";        
   
-=======
-  private String url = "jdbc:mysql://192.168.0.14/"+bd+"?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema = true"; 
+
+//  private String url = "jdbc:mysql://192.168.0.14/"+bd+"?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema = true"; 
   //private String url = "jdbc:mysql://localhost/"+bd;
->>>>>>> 7e2af60e605dba84e8d0c6286ac4fc2c4e5bf145
+
   private Connection conn = null;
 
   /* Constructor de clase: Se conecta a la base de datos
