@@ -1126,11 +1126,11 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados en la bd
                     }                  
                     else {
-                        Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-                        AC.msj1.setText("¡Campos Vacios!");
-                        AC.msj2.setText("Porfavor llene Completamente ");
-                        AC.msj3.setText("La Tabla de Adicionales");
-                        AC.setVisible(true);
+                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                          AC.msj1.setText("¡Campos Vacios!");
+                          AC.msj2.setText(" Porfavor asigne Nombre  ");
+                          AC.msj3.setText("del Adicional y sus respectivos precios");                                    
+                          AC.setVisible(true);
                     }
 
                 } else {
