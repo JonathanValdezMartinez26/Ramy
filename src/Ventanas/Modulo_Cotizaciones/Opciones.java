@@ -241,6 +241,8 @@ public class Opciones {
                         AC.msj1.setText("¡Esta cotización!");
                         AC.msj2.setText("A sido Finalizada");
                         AC.setVisible(true);
+                        
+                        
                             
                             //res=true;
                          }catch(SQLException e){            

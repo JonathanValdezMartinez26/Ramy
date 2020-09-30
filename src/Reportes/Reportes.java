@@ -130,7 +130,9 @@ public class Reportes extends javax.swing.JDialog {
             } catch (UnsupportedLookAndFeelException ignored) {
             } // shouldn't get here
         }
-        this.dispose();        
+        this.dispose();
+
+        
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     /**

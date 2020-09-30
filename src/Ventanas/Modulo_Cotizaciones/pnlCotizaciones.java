@@ -46,8 +46,6 @@ import static Ventanas.Modulo_Cliente.pnlClientes.tabla1;
 
 public class pnlCotizaciones extends javax.swing.JPanel {
 
-    
-    
     public pnlCotizaciones() {
         initComponents();
         Opciones.listarCotizaciones("");
@@ -142,8 +140,6 @@ public class pnlCotizaciones extends javax.swing.JPanel {
             AC.msj2.setText("A modificar");
             AC.setVisible(true);
         }
-   
-
     }
     public void Eliminar() {
 
