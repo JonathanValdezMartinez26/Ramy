@@ -157,7 +157,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
         AgregarCotizaciones1 AC=new AgregarCotizaciones1(null, t);
         
 }
-  
+    
     public void Clientes()
     {
         int ID_Cliente = 0;
@@ -1045,7 +1045,6 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-        
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.AgregarCotizaciones1.tabla.getModel();
         final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
         tabla.setRowSorter(sorter);
@@ -1062,7 +1061,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             }
             if (existe > 0) {////Si existen combos palomeados, verifica la tabla adicionales
                 ///////////////////////verifica si la Adicionales no esta vacia y la recorre para validar campos vacios 
-                if (this.jTable1.getRowCount() >= 0) {/////Modificacion: Doble condicion para eliminar mensaje "Desea finalizar sin adicionales"
+                if (this.jTable1.getRowCount() != 0) {
                     int existenombre = 0;
                     int existeprecio = 0;
                     for (int i = 0; i < jTable1.getRowCount(); i++) {
