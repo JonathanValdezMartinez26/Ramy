@@ -37,7 +37,7 @@ public class ModificarCliente extends javax.swing.JDialog {
         AWTUtilities.setOpaque(this, false);
         setLocationRelativeTo(null);
         this.txtNombre.requestFocus();
-        
+        lblIDLocal.setVisible(false);
 //        estados cc = new estados();
 //        DefaultComboBoxModel modelEstado = new DefaultComboBoxModel(cc.mostrarEstados());
 //        cmbEstado.setModel(modelEstado);

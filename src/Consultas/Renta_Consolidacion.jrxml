@@ -379,7 +379,7 @@
 					<rightPen lineWidth="0.75"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["$"+$F{Precio}.floatValue()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$"+$F{Precio}.intValue()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="282" y="0" width="174" height="20" uuid="8df1b68b-61cb-4e19-9d99-96b4878f1201"/>
