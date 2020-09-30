@@ -170,17 +170,17 @@
                         <Column editable="false" title="ID_Cotizacion" type="java.lang.String"/>
                         <Column editable="false" title="Origen" type="java.lang.String"/>
                         <Column editable="false" title="Destino" type="java.lang.Object"/>
-                        <Column editable="false" title="Camioneta 1.5" type="java.lang.Object"/>
-                        <Column editable="false" title="Camioneta 3.5" type="java.lang.String"/>
-                        <Column editable="false" title="Rabon" type="java.lang.Object"/>
-                        <Column editable="false" title="Torthon" type="java.lang.Object"/>
-                        <Column editable="false" title="Trailer" type="java.lang.Object"/>
-                        <Column editable="false" title="Fulll" type="java.lang.Object"/>
+                        <Column editable="true" title="Camioneta 1.5" type="java.lang.Object"/>
+                        <Column editable="true" title="Camioneta 3.5" type="java.lang.String"/>
+                        <Column editable="true" title="Rabon" type="java.lang.Object"/>
+                        <Column editable="true" title="Torthon" type="java.lang.Object"/>
+                        <Column editable="true" title="Trailer" type="java.lang.Object"/>
+                        <Column editable="true" title="Fulll" type="java.lang.Object"/>
                         <Column editable="true" title="Selecciona" type="java.lang.Boolean"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                      <TableColumnModel selectionModel="0">
+                      <TableColumnModel selectionModel="1">
                         <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                           <Title/>
                           <Editor/>
@@ -243,6 +243,7 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
+                    <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                     <Property name="rowHeight" type="int" value="25"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="false" resizingAllowed="true"/>

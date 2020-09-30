@@ -1360,7 +1360,7 @@ public void ver() {
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));
             Map parametro = new HashMap();
             parametro.clear();
-            parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
+            parametro.put("logo2", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             parametro.put("ID_Cotizacion", ID);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
