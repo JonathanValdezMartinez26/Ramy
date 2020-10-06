@@ -63,6 +63,11 @@ public class Success_1 extends javax.swing.JDialog {
                 log2ActionPerformed(evt);
             }
         });
+        log2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                log2KeyPressed(evt);
+            }
+        });
         jPanel1.add(log2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 290, 30));
 
         msj2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -93,6 +98,13 @@ public class Success_1 extends javax.swing.JDialog {
     private void log2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_log2ActionPerformed
+
+    private void log2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_log2KeyPressed
+         if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            this.dispose();
+        }
+    }//GEN-LAST:event_log2KeyPressed
 
     public static void main(String args[]) {
        

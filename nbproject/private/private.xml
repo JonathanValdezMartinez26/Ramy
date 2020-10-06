@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/ModificarCotizaciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/pnlCotizaciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/Opciones.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones1.java</file>
             <file>file:/C:/Users/RVC.RVC-PC/Documents/NetBeansProjects/Ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
+=======
+            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Final/ramy/src/Ventanas/Modulo_Navegacion/Principal_Admin.java</file>
+            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/Final/ramy/src/Ventanas/Modulo_Cotizaciones/AgregarCotizaciones1.java</file>
+>>>>>>> 3b8be0c03142b4a19bd83e36beeb6408ff4cab6f
         </group>
     </open-files>
 </project-private>
