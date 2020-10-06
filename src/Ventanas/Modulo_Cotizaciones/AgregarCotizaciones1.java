@@ -466,6 +466,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(4).setMinWidth(120);
@@ -1061,7 +1064,12 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             }
             if (existe > 0) {////Si existen combos palomeados, verifica la tabla adicionales
                 ///////////////////////verifica si la Adicionales no esta vacia y la recorre para validar campos vacios 
-                if (this.jTable1.getRowCount() != 0) {
+
+                if (this.jTable1.getRowCount() >= 0) {
+
+//                if (this.jTable1.getRowCount() != 0) {
+                    
+
                     int existenombre = 0;
                     int existeprecio = 0;
                     for (int i = 0; i < jTable1.getRowCount(); i++) {
@@ -1126,27 +1134,28 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                     Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados en la bd
                     }                  
                     else {
-                        Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
-                        AC.msj1.setText("¡Campos Vacios!");
-                        AC.msj2.setText("Porfavor llene Completamente ");
-                        AC.msj3.setText("La Tabla de Adicionales");
-                        AC.setVisible(true);
+                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                          AC.msj1.setText("¡Campos Vacios!");
+                          AC.msj2.setText(" Porfavor asigne Nombre  ");
+                          AC.msj3.setText("del Adicional y sus respectivos precios");                                    
+                          AC.setVisible(true);
                     }
-
-                } else {
-                    ////////Si la tabla1 esta vacia, se le pregunta al cliente, si desea finalizar cotizacion 
-                    //////sin agregar ningun servicio, todo esto mediante este metodo
-                    //this.setVisible(false);
-                    String IDCot="";
-                    int Filas1 = modelo.getRowCount();
-                        for (int i = 0; i < 1; i++) {
-                            IDCot = tabla.getValueAt(i, 0).toString();
-                            
-                        }
-                    finalizar(IDCot,Filas1);
-
-                    //JOptionPane.showMessageDialog(null,"Finaliza directo");
-                }
+                    
+//                } 
+//                else {
+//                    ////////Si la tabla1 esta vacia, se le pregunta al cliente, si desea finalizar cotizacion 
+//                    //////sin agregar ningun servicio, todo esto mediante este metodo
+//                    //this.setVisible(false);
+//                    String IDCot="";
+//                    int Filas1 = modelo.getRowCount();
+//                        for (int i = 0; i < 1; i++) {
+//                            IDCot = tabla.getValueAt(i, 0).toString();
+//                            
+//                        }
+//                    finalizar(IDCot,Filas1);
+//
+//                    //JOptionPane.showMessageDialog(null,"Finaliza directo");
+//                }
 
             }else{
                     Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
@@ -1166,7 +1175,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
                 AC.setVisible(true);
             }
 
-
+        }
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
     private void pnlFinalizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseEntered

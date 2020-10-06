@@ -358,7 +358,7 @@ public class pnlClientes extends javax.swing.JPanel {
         pnlviajes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setText("      Viajes");
+        jLabel17.setText(" Costo/Ruta");
         pnlviajes.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, 14));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrega-40.png"))); // NOI18N
