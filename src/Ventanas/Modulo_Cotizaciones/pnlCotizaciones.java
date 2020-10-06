@@ -104,8 +104,9 @@ public class pnlCotizaciones extends javax.swing.JPanel {
                              if(tipo.equals("DIRECTA")){
                              int ID = Integer.parseInt(tabla.getValueAt(Fila, 0).toString());            
                              ModificarCotizaciones MP = new ModificarCotizaciones(null, true);
-                             MP.CargarDatos(ID);
-                             //MP.setPP(this);
+                             MP.CargarDatosFinalizados(ID);
+                             ModificarCotizaciones.bandera.setText("1");
+//MP.setPP(this);
                              MP.setVisible(true);
                              }else{
                                  if(tipo.equals("RENTA")){

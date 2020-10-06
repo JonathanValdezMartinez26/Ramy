@@ -466,6 +466,9 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(150);
             tabla.getColumnModel().getColumn(4).setMinWidth(120);
@@ -1061,7 +1064,7 @@ public class AgregarCotizaciones1 extends javax.swing.JDialog {
             }
             if (existe > 0) {////Si existen combos palomeados, verifica la tabla adicionales
                 ///////////////////////verifica si la Adicionales no esta vacia y la recorre para validar campos vacios 
-                if (this.jTable1.getRowCount() != 0) {
+                if (this.jTable1.getRowCount() >= 0) {
                     int existenombre = 0;
                     int existeprecio = 0;
                     for (int i = 0; i < jTable1.getRowCount(); i++) {

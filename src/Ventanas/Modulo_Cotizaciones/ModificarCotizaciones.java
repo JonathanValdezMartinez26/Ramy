@@ -136,7 +136,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         ID_rutas.setVisible(false);
         IDCotizacion.setVisible(false);
         lblID_Destino.setVisible(false);
-        
+        bandera.setVisible(false);
      
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -359,6 +359,39 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
       
         
     }
+    public void CargarDatosFinalizados(int ID){
+          Ventanas.Modulo_Cotizaciones.Opciones.listarModificarFinalizado("", ID);  
+          Ventanas.Modulo_Cotizaciones.Opciones.llenarServicioMod(ID);
+          cargarOrigenes();
+          
+        
+         IDCotizacion.setText(""+ID);
+        String Nombre="";
+        String Atencion="", Calle = "";
+        int localidad = 0;
+                int IDD=0;
+        try{
+            
+            resultado = Conexion.consulta("Select * from cotizacionesv Where ID_Cotizacion = "+ID);
+            
+            while(resultado.next()){
+             IDD = resultado.getInt(1);
+             Nombre = resultado.getString(2);
+             Atencion = resultado.getString(3);
+             localidad = resultado.getInt(4);
+             Calle = resultado.getString(5);
+            }
+            
+        }catch(SQLException ex){}        
+        cmbCliente.setSelectedItem(Nombre);        
+        lblNombre.setText(Atencion);
+        
+//            txtCalle.setText(Calle);
+//        cmbColonia.setSelectedItem(localidad);
+        
+      
+        
+    }
     public void Guardar(){
         int comboOrigen = cmbOrigenes.getSelectedIndex();
         int comboDestino = cmbDestinos.getSelectedIndex();
@@ -415,6 +448,153 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
                                       }
                                   }
                                   Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID_Cotiza);
+                                  
+                                  ////Si existe el mismo numero de datos en la bd y el mmismo numero de columnas se muestra este mensaje
+                                      if(tabla.getRowCount()==existe){                                      
+                                      Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                                      AC.msj1.setText("¡No Hay Nuevos Destinos!");
+                                      AC.msj2.setText("Para Agregar");
+                                      AC.setVisible(true);
+                                      
+                                  }else{                                      
+                                      Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                                      AC.msj1.setText("¡Los nuevos Destinos!");
+                                      AC.msj2.setText("Han sido registrados");
+                                      AC.setVisible(true);
+                                      
+                                  }
+            } catch (SQLException ex) {
+                System.out.println("Error: " + ex);
+            }
+        }
+        
+            else
+            {
+                if(comboDestino==-1)
+                    {
+                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                        AC.msj1.setText("¡Elija un !");
+                        AC.msj2.setText("Destino válido");
+                        AC.setVisible(true);
+                    }
+                else
+                {
+                    if(comboOrigen==0 || comboDestino==-1)
+                    {
+                        Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                        AC.msj1.setText("¡Seleccione un!");
+                        AC.msj2.setText("Origen y un Destino");
+                        AC.setVisible(true);
+                    }
+                    
+                    else
+                    {
+                        ID = Integer.parseInt(IDCotizacion.getText());
+                        String VerificaOrigen=cmbOrigenes.getSelectedItem().toString().trim();
+                        String VerificaDestino=cmbDestinos.getSelectedItem().toString().trim();
+                        int existeOrigen = 0;
+                        int existeDestino = 0;
+                        for (int i = 0; i < tabla.getRowCount(); i++) {
+                            if (tabla.getValueAt(i, 2).toString().trim().equals(VerificaOrigen) && tabla.getValueAt(i, 3).toString().trim().equals(VerificaDestino)) {
+                                existeOrigen++;                                       
+                                //System.out.println("Dato tabla:/"+tabla.getValueAt(i, 2).toString().trim()+"/ Dato combo:/"+VerificaOrigen+"/");
+                            }
+                            
+                        }
+                        if(existeOrigen==0)
+                        {
+                          
+                          ////Si no se selecciona "Todos los Destinos", solo se agrega el destino seleccionado
+                              
+                            //JOptionPane.showMessageDialog(null, "Se agrega Origen y destino");
+                            Ventanas.Modulo_Cotizaciones.Opciones.AgregarViajeGuardado(ID,VerificaOrigen,VerificaDestino);
+                            Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", ID);
+                             Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                            AC.msj1.setText("¡Origen y Destino!");
+                            AC.msj2.setText("Añadidos correctamente");
+                            AC.setVisible(true);
+                            this.cmbOrigenes.setSelectedIndex(0);
+                            this.cmbDestinos.setSelectedIndex(0);
+                          
+                        }
+                        else
+                        {
+                            //JOptionPane.showMessageDialog(null, "Origen existe= "+existeOrigen+ " Destino existe="+existeDestino);
+                            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                            AC.msj1.setText("¡Error!");
+                            AC.msj2.setText("El Origen y Destino");
+                            AC.msj3.setText("ya estan Registrados");
+                            AC.setVisible(true);
+//                            //this.cmbMunicipio.setSelectedIndex(0);
+                        }
+                    }
+                    
+                    
+                }
+            }
+            
+            }
+        
+        
+        
+        
+    }
+    public void GuardarDirecto(){
+        int comboOrigen = cmbOrigenes.getSelectedIndex();
+        int comboDestino = cmbDestinos.getSelectedIndex();
+        
+        
+        if(comboOrigen==0)
+            {
+                Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                AC.msj1.setText("¡Elija un");
+                AC.msj2.setText("Origen válido");
+                AC.setVisible(true);
+            }
+        
+        else{
+        String Destinos = (String) cmbDestinos.getSelectedItem();
+        if (Destinos.equals("Todos los Destinos")) {
+            
+            try {
+                int i = 1;
+                int ID_Client = cmbCliente.getSelectedIndex();
+                int ID_Cliente = ID_Cli[ID_Client];
+                resultado = Conexion.consulta("SELECT ID_ruta,Origen,Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full from rutav where (ID_Cliente = " + ID_Cliente + ")");                
+                                  int ID = 0,Cam15,Cam35,Rabon,Torthon,Trailer,Full;
+                                  String OrigenDB,DestinoDB;
+                                  int existe=0;
+                                  
+                                  int ID_Cotiza = Integer.parseInt(IDCotizacion.getText());
+                                  while (resultado.next()) {
+                                      ID = resultado.getInt(1);
+                                      OrigenDB = resultado.getString(2);
+                                      DestinoDB = resultado.getString(3);
+                                      Cam15 = resultado.getInt(4);
+                                      Cam35 = resultado.getInt(5);
+                                      Rabon = resultado.getInt(6);
+                                      Torthon = resultado.getInt(7);
+                                      Trailer = resultado.getInt(8);
+                                      Full = resultado.getInt(9);                                      
+                                      i++;
+                                      
+                                      if (Ventanas.Modulo_Cotizaciones.Opciones.verificaRutaDestinoFinal(ID_Cotiza, ID) == 0) {
+                                     
+                                      String q = " INSERT INTO reporte_cotizacion_directa(ID_ReporteCotD,IDRuta,ID_Cotizacion,Origen, Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado) "
+                                              + "VALUES (NULL,'" + ID + "','" + ID_Cotiza + "','" + OrigenDB + "','" + DestinoDB + "','" + Cam15 + "','" + Cam35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "',1)";
+                                      try {
+                                          PreparedStatement pstm = cn.prepareStatement(q);
+                                          pstm.execute();
+                                          pstm.close();
+
+                                      } catch (SQLException e) {
+                                          System.out.println(e);
+                                      }
+                                     }else{
+                                          existe++;//Aumenta si existe algun regstro repetido
+                                      }
+                                  }
+                                  Ventanas.Modulo_Cotizaciones.Opciones.listarModificarFinalizado("", ID_Cotiza);
                                   
                                   ////Si existe el mismo numero de datos en la bd y el mmismo numero de columnas se muestra este mensaje
                                       if(tabla.getRowCount()==existe){                                      
@@ -645,6 +825,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         lblID_Destino = new javax.swing.JLabel();
         jButton1 = new JButtonEspecial.JButtonEspecial();
+        bandera = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -732,6 +913,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
             tabla.getColumnModel().getColumn(2).setMinWidth(0);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(2).setMaxWidth(0);
@@ -1044,6 +1228,9 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
         });
         jcMousePanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 140, 220, 30));
 
+        bandera.setText("0");
+        jcMousePanel1.add(bandera, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 110, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1134,6 +1321,127 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
+        String estatus=bandera.getText();
+        if(estatus.equals("1")){////Si la cotizacion esta finalizada hace esto
+            DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
+        final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
+        tabla.setRowSorter(sorter);
+        sorter.setRowFilter(null);
+        int existe = 0;
+////////////////////Verifica si no hay combos seleccionados
+        if (this.tabla.getRowCount() != 0) {
+            int Filas = modelo.getRowCount();
+            for (int j = 0; j < Filas; j++) {
+                Boolean validar = Boolean.valueOf(tabla.getValueAt(j, 11).toString());
+                if (validar) {///////Verifica si existen checks seleccionados
+                    existe++;
+                }
+            }
+            if (existe > 0) {////Si existen combos palomeados, verifica la tabla adicionales
+                ///////////////////////verifica si la Adicionales no esta vacia y la recorre para validar campos vacios 
+                if (this.jTable1.getRowCount() >= 0) {
+                    int existenombre = 0;
+                    int existeprecio = 0;
+                    for (int i = 0; i < jTable1.getRowCount(); i++) {
+                        if (jTable1.getValueAt(i, 2).toString().equals("")) {
+                            existenombre++;
+                        }
+                        if (jTable1.getValueAt(i, 3).toString().equals("0")) {
+                            existeprecio++;
+                        }
+                    }
+                    if (existenombre == 0 ) {//////////verifica si la Adicionales no tiene campos vacios, registra datos y finaliza cotizxacion
+                        String ID_CotizacionEliminar = IDCotizacion.getText();
+                        Opciones.eliminarDirectosDuplicados(ID_CotizacionEliminar);///////Este metodo sirve para evitar repetir viajes directos duplicados
+                        
+                        int Filas1 = modelo.getRowCount();
+                        for (int i = 0; i < Filas1; i++) {
+                            String IDAsignaCot = tabla.getValueAt(i, 0).toString();
+                            String IDRuta = tabla.getValueAt(i, 1).toString();
+                            String IDCot = tabla.getValueAt(i, 2).toString();
+                            String Origen = tabla.getValueAt(i, 3).toString();
+                            String Destino = tabla.getValueAt(i, 4).toString();
+                            String Camioneta15 = tabla.getValueAt(i, 5).toString();
+                            String Camioneta35 = tabla.getValueAt(i, 6).toString();
+                            String Rabon = tabla.getValueAt(i, 7).toString();
+                            String Torthon = tabla.getValueAt(i, 8).toString();
+                            String Trailer = tabla.getValueAt(i, 9).toString();
+                            String Full = tabla.getValueAt(i, 10).toString();
+
+                            Boolean checked = Boolean.valueOf(tabla.getValueAt(i, 11).toString());
+
+                            String sql;
+                            if (checked) {
+                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,IDRuta,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDRuta + "','" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','1')";
+
+                                try {
+                                    PreparedStatement pstm = cn.prepareStatement(sql);
+                                    pstm.execute();
+                                    pstm.close();
+
+                                } catch (SQLException e) {
+                                    System.out.println(e);
+                                }
+
+
+                            } else {
+                                
+                                sql = "insert reporte_cotizacion_directa(ID_ReporteCotD,IDRuta,ID_Cotizacion,Origen,Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado)"
+                                        + " values(NULL,'" + IDRuta + "','" + IDCot + "','" + Origen + "','" + Destino + "','" + Camioneta15 + "','" + Camioneta35 + "','" + Rabon + "','" + Torthon + "','" + Trailer + "','" + Full + "','0')";
+
+                                try {
+                                    PreparedStatement pstm = cn.prepareStatement(sql);
+                                    pstm.execute();
+                                    pstm.close();
+
+                                } catch (SQLException e) {
+                                    System.out.println(e);
+                                }
+                            }
+                        }
+                        Alerts.AlertBasic.Success AC = new Alerts.AlertBasic.Success(null, true);
+                        AC.msj1.setText("¡Cotización Actualizada!");
+                        AC.msj2.setText("Correctamente");                        
+                        AC.setVisible(true);
+                        ver();
+                        this.dispose();
+                        //Opciones.eliminarViajesGuardados(ID_Cotizacion);///////Este metodo sirve para evitar repetir viajes guardados
+                    } else {
+                         Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                          AC.msj1.setText("¡Campos Vacios!");
+                          AC.msj2.setText(" Porfavor asigne Nombre  ");
+                          AC.msj3.setText("del Adicional y sus respectivos precios");                                    
+                          AC.setVisible(true);
+                    }
+                } else {
+                    ////////Si la tabla1 esta vacia, se le pregunta al cliente, si desea finalizar cotizacion 
+                    //////sin agregar ningun servicio, todo esto mediante este metodo
+                    //this.setVisible(false);
+                    finalizar();
+
+                    //JOptionPane.showMessageDialog(null,"Finaliza directo");
+                }
+
+            } else {
+                Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+                AC.msj1.setText("¡Porfavor Marque!");
+                AC.msj2.setText("Al menos un Viaje");
+                AC.msj3.setText("Para poder Finalizar Cotizacion");
+                AC.setVisible(true);
+            }
+
+        } else {
+
+            Alerts.AlertBasic.Error AC = new Alerts.AlertBasic.Error(null, true);
+            AC.msj1.setText("¡Porfavor Asigne!");
+            AC.msj2.setText("Un Cliente-Origen");
+            AC.msj3.setText("Para poder Finalizar Cotizacion");
+            AC.setVisible(true);
+
+          }
+        }else{
+                
         DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
         final TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
         tabla.setRowSorter(sorter);
@@ -1248,6 +1556,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
             AC.setVisible(true);
 
         }
+        }////fin else de bandera
     }//GEN-LAST:event_pnlFinalizarMouseClicked
 
     private void pnlFinalizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseEntered
@@ -1399,7 +1708,12 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbDestinosItemStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String estatus=bandera.getText();
+        if(estatus.equals("1")){////Si la cotizacion esta finalizada hace esto
+            GuardarDirecto();
+        }else{
         Guardar();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void pnlAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAyudaMouseClicked
@@ -1435,6 +1749,7 @@ public class ModificarCotizaciones extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel IDCotizacion;
     private javax.swing.JLabel ID_rutas;
+    public static javax.swing.JLabel bandera;
     public static app.bolivia.swing.JCTextField buscar;
     private ComboBox.SComboBox cmbCliente;
     public static ComboBox.SComboBox cmbDestinos;

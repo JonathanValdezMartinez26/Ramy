@@ -206,6 +206,57 @@ public class Opciones {
             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+     public static void listarModificarFinalizado(String busca, int ID) {
+        DefaultTableModel modelo = (DefaultTableModel) Ventanas.Modulo_Cotizaciones.ModificarCotizaciones.tabla.getModel();
+
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        
+        String sql = "";
+        if (busca.equals("")) {
+            sql = "Select ID_ReporteCotD,IDRuta,ID_Cotizacion, Origen, Destino,Camioneta_15,Camioneta_35,Rabon,Torthon,Trailer,Full,Estado from reporte_cotizacion_directa"
+                    + " where ID_Cotizacion =" + ID +" ORDER BY Origen , Destino ASC";
+
+        } else {
+            
+//             sql = "Select ID_asigna_Cotizacion,ID_Cotizacion, Origen, Destino,Camioneta_1_5,Camioneta_3_5,Rabon,Torthon,Trailer,Full,Estado from asigna_cotizacionv"
+//                    + " where ID_Cotizacion =" + ID+" AND Destino LIKE '%"+busca+"%'"
+//                     + "OR ID_Cotizacion =" + ID+" AND Camioneta_1_5 LIKE '%"+busca+"%'  ORDER BY Origen , Destino ASC";
+              
+           }
+        
+        Object datos[] = new Object[14];
+        try {           
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                
+                datos [0] = String.valueOf(rs.getInt(1));
+                datos [1] = rs.getString(2);
+                datos [2] = rs.getString(3);
+                datos [3] = rs.getString(4);
+                datos [4] = rs.getString(5);
+                datos [5] = rs.getString(6);
+                datos [6] = rs.getString(7);
+                datos [7] = rs.getString(8);
+                datos [8] = rs.getString(9);
+                datos [9] = rs.getString(10);
+                datos [10] = rs.getString(11);
+                 if(rs.getString(12).equals("1")){
+			 datos[11]=Boolean.TRUE;
+			}else{
+			 datos[11]=Boolean.FALSE;
+			}	
+                modelo.addRow(datos);
+            }
+            
+            modelo.fireTableDataChanged();
+        } catch (SQLException ex) {
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     ///////////////////////////////////////////////////////////////////
     public static int verificaRutaCotizacion(int ID_Cotizacion, int ID_Ruta) {
         int existe = 0;
@@ -227,6 +278,21 @@ public class Opciones {
         int existe = 0;
   
         String SQL = "SELECT count(Id_Cotizacion) from guardar_cotizacion_directa where (ID_Cotizacion = "+ID_Cotizacion+") and (IDRuta = "+ID_Ruta+")";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                existe = rs.getInt(1);
+            }           
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return existe;
+    }
+    public static int verificaRutaDestinoFinal(int ID_Cotizacion, int ID_Ruta) {
+        int existe = 0;
+  
+        String SQL = "SELECT count(Id_Cotizacion) from reporte_cotizacion_directa where (ID_Cotizacion = "+ID_Cotizacion+") and (IDRuta = "+ID_Ruta+")";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -409,6 +475,14 @@ public static int verificaViajeGuardado(int ID_Cotizacion,String Origen,String D
     public static void eliminarViajesGuardados(String IDCotizacion){
         try {
             PreparedStatement pst = (PreparedStatement) cn.prepareStatement("DELETE FROM guardar_cotizacion_directa WHERE ID_Cotizacion=" + IDCotizacion);
+            pst.executeUpdate();            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+    public static void eliminarDirectosDuplicados(String IDCotizacion){
+        try {
+            PreparedStatement pst = (PreparedStatement) cn.prepareStatement("DELETE FROM reporte_cotizacion_directa WHERE ID_Cotizacion=" + IDCotizacion);
             pst.executeUpdate();            
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
