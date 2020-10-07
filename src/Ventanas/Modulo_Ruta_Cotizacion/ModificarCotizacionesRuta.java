@@ -1204,6 +1204,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
         int ID_Client = cmbCliente.getSelectedIndex();
         int ID_Cliente = ID_Cli[ID_Client];
         int i = 1;
+        int i2=1;
         
         int ID_Origen = cmbOrigenes.getSelectedIndex();
         int ID_Origenes = ID_Ori[ID_Origen];
@@ -1238,7 +1239,7 @@ public class ModificarCotizacionesRuta extends javax.swing.JDialog {
             while (resultado.next()) {
                 ID_Des[i] = resultado.getInt(1);
                 cmbDestinos.addItem(resultado.getString(2).trim());
-                i++;
+                i2++;
             }
         } catch (SQLException ex) {
 

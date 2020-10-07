@@ -403,6 +403,7 @@ public class Registrar extends javax.swing.JDialog {
                 ID_Des [0] = 0; 
                 /////empezar a partir del item no.2
                 int i = 2;
+                //int i2=;
 
                 try
                 {
