@@ -61,9 +61,6 @@ public class pnlTransportes extends javax.swing.JPanel {
         jPanel12 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        pnlespecialidad = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
         pnlorigenes = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -90,30 +87,6 @@ public class pnlTransportes extends javax.swing.JPanel {
 
         jPanel12.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
 
-        pnlespecialidad.setBackground(new java.awt.Color(225, 225, 225));
-        pnlespecialidad.setToolTipText("Módulo Transportes");
-        pnlespecialidad.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlespecialidadMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlespecialidadMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlespecialidadMouseExited(evt);
-            }
-        });
-        pnlespecialidad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel24.setText("  Tipo de Transporte");
-        pnlespecialidad.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 130, 14));
-
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/camion.png"))); // NOI18N
-        pnlespecialidad.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 8, -1, 40));
-
-        jPanel12.add(pnlespecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 69));
-
         pnlorigenes.setBackground(new java.awt.Color(225, 225, 225));
         pnlorigenes.setToolTipText("Visualizar Transportes");
         pnlorigenes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -136,7 +109,7 @@ public class pnlTransportes extends javax.swing.JPanel {
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ver.png"))); // NOI18N
         pnlorigenes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 41, 40));
 
-        jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 69));
+        jPanel12.add(pnlorigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 69));
 
         add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1106, 69));
 
@@ -213,19 +186,6 @@ public class pnlTransportes extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buscarKeyTyped
 
-    private void pnlespecialidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlespecialidadMouseClicked
-        pnlTipoTransportes VE=new pnlTipoTransportes(null, true);
-        VE.setVisible(true);
-    }//GEN-LAST:event_pnlespecialidadMouseClicked
-
-    private void pnlespecialidadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlespecialidadMouseEntered
-        pnlespecialidad.setBorder(new EtchedBorder(EtchedBorder.RAISED,Color.gray,Color.LIGHT_GRAY));
-    }//GEN-LAST:event_pnlespecialidadMouseEntered
-
-    private void pnlespecialidadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlespecialidadMouseExited
-        pnlespecialidad.setBorder(new EtchedBorder(EtchedBorder.RAISED,new java.awt.Color(225,225,225),new java.awt.Color(225,225,225)));
-    }//GEN-LAST:event_pnlespecialidadMouseExited
-
     private void pnlorigenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlorigenesMouseClicked
         ver();
     }//GEN-LAST:event_pnlorigenesMouseClicked
@@ -250,8 +210,6 @@ public class pnlTransportes extends javax.swing.JPanel {
     public static app.bolivia.swing.JCTextField buscar;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -259,21 +217,22 @@ public class pnlTransportes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JPanel pnlespecialidad;
     private javax.swing.JPanel pnlorigenes;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
-    public void ver() {
+   public void ver() {
         Clases.Conexion cc = new Clases.Conexion();
 
         try {
             Reportes.Reportes r = new Reportes.Reportes(new JFrame(), true);
-            File fichero = new File("test.txt");
-            System.out.println("La ruta del fichero es: " + fichero.getAbsolutePath());
-            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Transportes.jasper";
-//            String archivo = "Reportes/Transportes.jasper";
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+//            String archivo = "C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\Ramy\\src\\Reportes\\Transportes.jasper";
+            //String archivo = "src/Reportes/Transportes.jasper";
+            String archivo = "/Reportes/Transportes.jasper";
+            //JasperReport jasperReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource(archivo));
             Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("logo", this.getClass().getResourceAsStream("/Consultas/reporte.png"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, cc.conexion());
 
             JRViewer jrv = new JRViewer(jasperPrint);
