@@ -23,7 +23,7 @@ public void Conectar(String user,String pass)throws SQLException,ClassNotFoundEx
     //con = DriverManager.getConnection("jdbc:mysql://localhost/clinica?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema=true",user, pass);            
 
     //con = DriverManager.getConnection("jdbc:mysql://localhost/clinica?useUnicode=true&characterEncoding=utf-8",user, pass);        
-    con = DriverManager.getConnection("jdbc:mysql://localhost/clinica?useUnicode=true&autoReconnect=true",user, pass);        
+    con = DriverManager.getConnection("jdbc:mysql://localhost/ramy?useUnicode=true&autoReconnect=true",user, pass);        
 
     
 
@@ -55,7 +55,7 @@ public void Conectar(String user,String pass)throws SQLException,ClassNotFoundEx
         
         //con = DriverManager.getConnection("jdbc:mysql://localhost/clinica?schema&sessionVariables=wait_timeout=600&confluence&autoReconnect=true&useUnicode=true&useJDBCCompilantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useInformationSchema=true","root", "");            
 
-        con = DriverManager.getConnection("jdbc:mysql://localhost/clinica?useUnicode=true&autoReconnect=true","root", "");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/ramy?useUnicode=true&autoReconnect=true","root", "");
 
 
 
