@@ -176,7 +176,7 @@ public class AgregarCotizacionesRuta extends javax.swing.JDialog {
         int i = 1;
         try 
         {
-            resultado = Conexion.consulta("SELECT ID_cliente, Nombre_cliente from clientes");
+            resultado = Conexion.consulta("SELECT ID_cliente, Nombre_cliente from clientes ORDER BY Nombre_cliente");
             while (resultado.next()) 
             {
                 ID_Cli[i] = resultado.getInt(1);
