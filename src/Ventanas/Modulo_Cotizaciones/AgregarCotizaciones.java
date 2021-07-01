@@ -964,6 +964,8 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
     private void pnlEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseClicked
         eliminar();
+        int ID = Integer.parseInt(IDCotizacion.getText());
+        Opciones.listar("",ID);
     }//GEN-LAST:event_pnlEliminarMouseClicked
 
     private void pnlEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEliminarMouseEntered

@@ -120,7 +120,7 @@ public class Eliminar1 extends javax.swing.JDialog {
         int IDD = Integer.parseInt(ID.getText());
         int I = Integer.parseInt(Cotizacion.getText());
         this.dispose();
-        Cotizaciones.EliminarAsignaCotizacion(IDD);
+//        Cotizaciones.EliminarAsignaCotizacion(IDD);
         Ventanas.Modulo_Cotizaciones.Opciones.listarModificar("", I);
         
     }//GEN-LAST:event_log2ActionPerformed
