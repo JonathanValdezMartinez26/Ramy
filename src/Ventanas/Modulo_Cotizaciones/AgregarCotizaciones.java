@@ -332,8 +332,8 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     //                              JOptionPane.showMessageDialog(null, ""+precio+" "+ID_Cliente+" "+ID_Origenes+" "+ID_Destinos+" "+ ID_Transportes);
                                     Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
                                     AC.msj1.setText("¡Error!");
-                                    AC.msj2.setText("El servicio tiene un valor");
-                                    AC.msj3.setText("No valido, !Verifique!");
+                                    AC.msj2.setText("El servicio no tiene un precio");
+                                    AC.msj3.setText("Asignado, !Verifique!");
                                     AC.setVisible(true);
                                 }
                                 else
@@ -366,7 +366,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                 }
             }
     }
-    public static void cargarServicio(){
+        public static void cargarServicio(){
         int ID_Cotizacion;
         ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());
         Opciones.insertarServicio(ID_Cotizacion);
@@ -527,14 +527,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio"
+                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio", "Eliminar Aqui"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, true
+                false, false, true, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -547,6 +547,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         });
         tabla1.setRowHeight(30);
         tabla1.getTableHeader().setReorderingAllowed(false);
+        tabla1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tabla1KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tabla1KeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla1);
         if (tabla1.getColumnModel().getColumnCount() > 0) {
             tabla1.getColumnModel().getColumn(0).setMinWidth(0);
@@ -555,6 +563,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(1).setMinWidth(0);
             tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
+            tabla1.getColumnModel().getColumn(4).setMinWidth(100);
+            tabla1.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tabla1.getColumnModel().getColumn(4).setMaxWidth(100);
         }
         tabla1.getAccessibleContext().setAccessibleName("");
 
@@ -1041,6 +1052,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());        
         Opciones.llenarServicio(ID_Cotizacion);
         this.tabla1.changeSelection(0, 1, true, true);
+        this.tabla1.getSelectionModel().setSelectionInterval(0,0);
         
         
 //      
@@ -1061,6 +1073,20 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     private void cmbTransportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTransportesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbTransportesActionPerformed
+
+    private void tabla1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyPressed
+
+    }//GEN-LAST:event_tabla1KeyPressed
+
+    private void tabla1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla1KeyTyped
+        int ID_Cotizacion;        
+        ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());        
+        int a1=Integer.parseInt(tabla1.getValueAt(tabla1.getSelectedRow(),0).toString());
+        DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
+        Opciones.eliminarServicio(a1);
+        Opciones.llenarServicio(ID_Cotizacion);
+
+    }//GEN-LAST:event_tabla1KeyTyped
 
     public static void main(String args[]) {
      
