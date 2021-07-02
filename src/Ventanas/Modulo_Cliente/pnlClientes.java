@@ -29,8 +29,6 @@ import rojerusan.RSPanelsSlider;
 
 public class pnlClientes extends javax.swing.JPanel {
 
-    
-    
     public pnlClientes() {
         initComponents();
         Opciones.listar("");

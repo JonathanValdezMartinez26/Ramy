@@ -91,7 +91,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         Periodo();
         
         ID_rutas.setVisible(false);
-        IDCotizacion.setVisible(true);
+        IDCotizacion.setVisible(false);
          
         tablaR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tablaR.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -294,10 +294,10 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
         rSButtonMetro2 = new JButtonEspecial.JButtonEspecial();
         lblNombreNuevo17 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane = new javax.swing.JScrollPane();
-        tablaR = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
+        jScrollPane = new javax.swing.JScrollPane();
+        tablaR = new javax.swing.JTable();
         cmbCliente = new ComboBox.SComboBox();
         lblNombre = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -369,43 +369,6 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        tablaR.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID_", "Periodo", "Concepto"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tablaR.setAlignmentX(2.0F);
-        tablaR.setAlignmentY(2.0F);
-        tablaR.setRowHeight(20);
-        tablaR.getTableHeader().setReorderingAllowed(false);
-        jScrollPane.setViewportView(tablaR);
-        if (tablaR.getColumnModel().getColumnCount() > 0) {
-            tablaR.getColumnModel().getColumn(0).setMinWidth(0);
-            tablaR.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tablaR.getColumnModel().getColumn(0).setMaxWidth(0);
-            tablaR.getColumnModel().getColumn(2).setMinWidth(140);
-            tablaR.getColumnModel().getColumn(2).setPreferredWidth(140);
-            tablaR.getColumnModel().getColumn(2).setMaxWidth(140);
-        }
-
         tabla1.setBorder(javax.swing.BorderFactory.createTitledBorder("Servicios Extra"));
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -439,12 +402,46 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
+        tablaR.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID_", "Periodo", "Concepto"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaR.setAlignmentX(2.0F);
+        tablaR.setAlignmentY(2.0F);
+        tablaR.setRowHeight(25);
+        tablaR.getTableHeader().setReorderingAllowed(false);
+        jScrollPane.setViewportView(tablaR);
+        if (tablaR.getColumnModel().getColumnCount() > 0) {
+            tablaR.getColumnModel().getColumn(0).setMinWidth(0);
+            tablaR.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tablaR.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,15 +461,15 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                 cmbClienteItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 380, 30));
+        jcMousePanel1.add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 380, 30));
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 380, 30));
+        jcMousePanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 380, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel5.setText("Seleccione una empresa o cliente para inciar la cotización.");
         jcMousePanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 430, 20));
-        jcMousePanel1.add(l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 860, 3));
+        jcMousePanel1.add(l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 860, 3));
 
         jPanel1.setBackground(new java.awt.Color(225, 225, 225));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -620,15 +617,15 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 170, 30));
+        jcMousePanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 170, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel6.setText("Seleccione un Periodo ");
-        jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 180, 20));
+        jcMousePanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 190, 20));
 
         lblatencion1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblatencion1.setText("Atención a:");
-        jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
+        jcMousePanel1.add(lblatencion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, 30));
 
         cmbPeriodo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Periodo" }));
         cmbPeriodo.setToolTipText("");
@@ -638,7 +635,7 @@ public class AgregarCotizaciones_Renta extends javax.swing.JDialog {
                 cmbPeriodoItemStateChanged(evt);
             }
         });
-        jcMousePanel1.add(cmbPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 380, 30));
+        jcMousePanel1.add(cmbPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 380, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

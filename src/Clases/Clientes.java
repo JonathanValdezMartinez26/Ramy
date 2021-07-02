@@ -17,7 +17,7 @@ public class Clientes {
 public static ResultSet resultado;
  
     public static String LISTAR = "Select * from clientev";
-    public static String LISTARCOSTOS = "select * from serviciov order by ID_Servicio";
+    public static String LISTARCOSTOS = "SELECT ID_Ajuste, ID_Cliente, Nombre_cliente, Inicio_Operaciones, Fecha_Ajuste, Fecha_Siguiente_Ajuste, Tarifa, Dias_Faltan_Ajuste from ajuste_preciov where Estado = true";
 
      public static void Agregar_Cliente(String Nombre_cliente, String Atencion, int ID_Localidad, String Calle, Date Fecha) {
         try 

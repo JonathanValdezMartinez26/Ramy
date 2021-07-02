@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package A_tabla;
 
 import java.awt.Color;
@@ -11,10 +6,6 @@ import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
-/**
- *
- * @author jona
- */
 public class EstiloTablaRendererServicios extends DefaultTableCellRenderer {
 
     private Component componenete;
@@ -38,9 +29,7 @@ public class EstiloTablaRendererServicios extends DefaultTableCellRenderer {
             componenete.setBackground(new Color(239, 238, 244));
             componenete.setFont(new Font("Tahoma", Font.PLAIN, 14));
         }
-
         return componenete;
-
     }
 
 }
