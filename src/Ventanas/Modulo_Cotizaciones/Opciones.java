@@ -232,7 +232,7 @@ public class Opciones {
                 datos [1] = rs.getString(2);
                 datos [2] = rs.getString(3);
                 datos [3] = rs.getString(4);
-                datos [4] = "SUPR PARA ELIMINAR";
+                datos [4] = "";
                 
                 modelo.addRow(datos);
             }

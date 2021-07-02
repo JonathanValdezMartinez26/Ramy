@@ -79,10 +79,12 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     int ID_Des [];
     int ID_Cli[];
     private database db = new database();
+    public static AgregarCotizaciones AC;
     
     
     public AgregarCotizaciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        
         initComponents();
         setLocationRelativeTo(null);
         AWTUtilities.setOpaque(this, false);
@@ -94,6 +96,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         lblatencion.setVisible(true);
         ID_rutas.setVisible(true);
         IDCotizacion.setVisible(true);
+        
      
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
@@ -383,11 +386,13 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     //AgregarCotizaciones.dispose();
     }
     
-    public static void aceptarFinalizar(String IDCotizacionA){
+    public void aceptarFinalizar(){
     
         //JOptionPane.showMessageDialog(null, "MEnsaje desde warning finalizar id del warning es: "+ IDCotizacionA);
-        AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
-        AC.setVisible(false);
+        //AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
+        
+        JOptionPane.showMessageDialog(null, "desde aceptar dinalizar");
+        this.dispose();
         //this.dispose();
         //AgregarCotizaciones.dispose();
         
@@ -527,7 +532,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio", "Eliminar Aqui"
+                "ID_Servicio", "ID_Cotizacion", "Nombre del Servicio", "Precio", ""
             }
         ) {
             Class[] types = new Class [] {
@@ -563,9 +568,9 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
             tabla1.getColumnModel().getColumn(1).setMinWidth(0);
             tabla1.getColumnModel().getColumn(1).setPreferredWidth(0);
             tabla1.getColumnModel().getColumn(1).setMaxWidth(0);
-            tabla1.getColumnModel().getColumn(4).setMinWidth(100);
-            tabla1.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tabla1.getColumnModel().getColumn(4).setMaxWidth(100);
+            tabla1.getColumnModel().getColumn(4).setMinWidth(150);
+            tabla1.getColumnModel().getColumn(4).setPreferredWidth(150);
+            tabla1.getColumnModel().getColumn(4).setMaxWidth(150);
         }
         tabla1.getAccessibleContext().setAccessibleName("");
 
@@ -1048,13 +1053,25 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbTransportesItemStateChanged
 
     private void pnleditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnleditarMouseClicked
-
-        cargarServicio();
+        //int selectCliente=
+        String  IDCotiza=IDCotizacion.getText();
+        if(!IDCotiza.equals("")){
+            //JOptionPane.showMessageDialog(null, "El id de cotizacion es: "+IDCotiza);
+          cargarServicio();
         int ID_Cotizacion;
         ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());        
         Opciones.llenarServicio(ID_Cotizacion);
-        this.tabla1.changeSelection(0, 1, true, true);
+        //this.tabla1.changeSelection(0, 1, true, true);
         this.tabla1.getSelectionModel().setSelectionInterval(0,0);
+        }else{
+            
+            Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                    AC.msj1.setText("¡Seleccione Cliente o Rutas!");
+                                    AC.msj2.setText("Para Agregar Servicios");                     
+                                    AC.setVisible(true);
+        }
+       
+
         
         
 //      
@@ -1087,6 +1104,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         DefaultTableModel modelo = (DefaultTableModel) this.tabla1.getModel();
         Opciones.eliminarServicio(a1);
         Opciones.llenarServicio(ID_Cotizacion);
+        this.tabla1.getSelectionModel().setSelectionInterval(0,0);
 
     }//GEN-LAST:event_tabla1KeyTyped
 
