@@ -44,6 +44,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
         log3 = new JButtonEspecial.JButtonEspecial();
         ID = new javax.swing.JLabel();
         msj6 = new javax.swing.JLabel();
+        msj7 = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
@@ -64,7 +65,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
         NombreEmpresa.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         NombreEmpresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NombreEmpresa.setText("Servicios");
-        jPanel1.add(NombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 380, 30));
+        jPanel1.add(NombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 380, 30));
 
         msj2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         msj2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -89,8 +90,8 @@ public class WarningFinalizar extends javax.swing.JDialog {
 
         msj3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         msj3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        msj3.setText("*Tome en cuenta que al presionar el  botón ");
-        jPanel1.add(msj3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 290, 20));
+        msj3.setText("Podra Finalizar la Cotizacion pero no incluirá:");
+        jPanel1.add(msj3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 290, 20));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 280, 10));
 
         msj4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -125,6 +126,11 @@ public class WarningFinalizar extends javax.swing.JDialog {
         msj6.setText("¡Esta Cotización no se Podra Modificar Despues!");
         jPanel1.add(msj6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 320, 30));
 
+        msj7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        msj7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        msj7.setText("*Tome en cuenta que al presionar este boton");
+        jPanel1.add(msj7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 290, 20));
+
         rSPanelImage1.add(jPanel1);
         jPanel1.setBounds(6, 4, 408, 230);
 
@@ -153,6 +159,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
     Ventanas.Modulo_Cotizaciones.Opciones.finalizarCotizacion(ID_Cotizacion);
     Ventanas.Modulo_Cotizaciones.Opciones.listarCotizaciones("");   
     AgregarCotizaciones.ver();
+    JOptionPane.showMessageDialog(null, "DEbe cerrarse la venbtana");
 //        AgregarCotizaciones AC=new AgregarCotizaciones(null, true);
 //        AC.dispose();
 
@@ -195,6 +202,7 @@ public class WarningFinalizar extends javax.swing.JDialog {
     public static javax.swing.JLabel msj4;
     public static javax.swing.JLabel msj5;
     public static javax.swing.JLabel msj6;
+    public static javax.swing.JLabel msj7;
     private rojerusan.RSPanelImage rSPanelImage1;
     // End of variables declaration//GEN-END:variables
 }

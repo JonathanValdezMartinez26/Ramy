@@ -564,7 +564,7 @@ public class Principal_Admin extends javax.swing.JFrame {
         this.dos.setSelected(false);
         this.tres.setSelected(false);
         this.cuatro.setSelected(false);
-        this.cinco.setSelected(false);
+        this.cinco.setSelected(false); 
         this.seis.setSelected(false);
         this.siete.setSelected(false);
         this.siete.setSelected(false);

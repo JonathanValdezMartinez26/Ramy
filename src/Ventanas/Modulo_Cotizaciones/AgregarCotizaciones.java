@@ -804,7 +804,8 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rSButtonMetro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro2ActionPerformed
-        this.dispose();
+        //this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_rSButtonMetro2ActionPerformed
 
     private void jPanel7MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseDragged
@@ -975,10 +976,14 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
     }//GEN-LAST:event_pnlVistaMouseExited
 
     private void pnlFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFinalizarMouseClicked
-       //int primer=Integer.parseInt(this.tabla1.getValueAt(0, 3).toString());
-       //JOptionPane.showMessageDialog(null, "el precio de la primera fila es:"+primer);
-    if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1 ){
-                
+        
+        int comboOrigen= cmbOrigenes.getSelectedIndex();
+        int comboDestino = cmbDestinos.getSelectedIndex();
+        int comboTransporte = cmbTransportes.getSelectedIndex();
+////////////////////Verifica si no hay combos seleccionados
+    if(comboOrigen!=0 && comboDestino!=0 && comboTransporte!=0){
+        ///////////////////////verifica si la tabla destino esta vacia
+     if(this.tabla1.getRowCount()!=0 && this.tabla1.getSelectedRow()!=-1){        
                 int existenombre=0;
                 int existeprecio=0;
         for (int i = 0; i < tabla1.getRowCount(); i++) {
@@ -989,30 +994,30 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
                      existeprecio++;
                  }                                 
         }
-        if(existenombre==0 && existeprecio==0){
+                if(existenombre==0 && existeprecio==0){
                 String ID_Cotizacion=IDCotizacion.getText();
                 Opciones.finalizarCotizacion(ID_Cotizacion);
                 Opciones.listarCotizaciones("");
                 ver();
-                this.dispose();
-        
-        }else{
-            
-            JOptionPane.showMessageDialog(null, "Existen filas vacias");
-            JOptionPane.showMessageDialog(null, "Las filas nombre que estan vacias son: "+existenombre);
-            JOptionPane.showMessageDialog(null, "Las filas precio que estan vacias son: "+existeprecio);
-                                    Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
-                                    AC.msj1.setText("¡Campos Vacios!");
-                                    AC.msj2.setText("Porfavor llene Completamente ");
-                                    AC.msj3.setText("La Tabla de Servicios");                                    
+                this.dispose();        
+                    }else{            
+                          Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                          AC.msj1.setText("¡Campos Vacios!");
+                          AC.msj2.setText("Porfavor llene Completamente ");
+                          AC.msj3.setText("La Tabla de Servicios");                                    
+                          AC.setVisible(true);
+                    }
+               }
+                else{  
+                        ////////si no se agrega servicios emerge alerta 
+                       finalizar();
+                    }   
+    }else{
+         Alerts.AlertBasic.Error AC = new  Alerts.AlertBasic.Error(null, true);
+                                    AC.msj1.setText("¡Porfavor selccione un Origen-Destino!");
+                                    AC.msj2.setText("Para poder Finalizar Cotizacion");                     
                                     AC.setVisible(true);
-        }
-   }
-    else{       
-                finalizar();
-
-        }
-   
+    } 
            
     
     }//GEN-LAST:event_pnlFinalizarMouseClicked
@@ -1035,6 +1040,7 @@ public class AgregarCotizaciones extends javax.swing.JDialog {
         int ID_Cotizacion;
         ID_Cotizacion=Integer.parseInt(AgregarCotizaciones.IDCotizacion.getText());        
         Opciones.llenarServicio(ID_Cotizacion);
+        this.tabla1.changeSelection(0, 1, true, true);
         
         
 //      
